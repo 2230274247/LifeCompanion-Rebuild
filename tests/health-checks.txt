@@ -1,0 +1,5 @@
+life-core: 200
+portal: 200
+LibreChat: 200
+Memos: 200
+portal services: 3/3 online

@@ -1,0 +1,3 @@
+portal server node --check: exit 0
+portal client node --check: exit 0
+LibreChat BaseClient node --check: exit 0

@@ -1,0 +1,67 @@
+{
+  "verified_at": "2026-11-02T17:23:08+08:00",
+  "environment": {
+    "host": "Windows local",
+    "browser": "ChatGPT in-app browser",
+    "librechat": "v0.8.8",
+    "memos": "26.10.0",
+    "life_core": "0.1.0",
+    "timezone": "Asia/Hong_Kong"
+  },
+  "chat": {
+    "model": "deepseek-flash",
+    "synthetic_user": "Life Tester",
+    "librechat_ui_message_id": "f22bce04-5d1a-4158-ad77-58be8b9c8c07",
+    "librechat_mongo_message_id": "6ae856469bf7d8d5b8091536",
+    "conversation_id": "05cb4a43-fd2b-5209-ae4f-a06608e6c6e5",
+    "prompt": "今天下午去公园散步，看见秋天的银杏树，感觉特别放松。",
+    "response_visible": true,
+    "history_persisted_after_reload": true
+  },
+  "event": {
+    "event_id": "evt_432007786bef74a099f08b6d",
+    "source_type": "chat",
+    "source_message_ids": [
+      "6ae856469bf7d8d5b8091536"
+    ],
+    "status": "published",
+    "consent_state": "granted",
+    "confidence": 0.79,
+    "idempotency_key": "chat:6ae856469bf7d8d5b8091536",
+    "occurred_at": "2026-11-02T15:00:00+08:00"
+  },
+  "memo": {
+    "ref": "memos/21b178b7-5dc4-58ca-83b8-e83901bce463",
+    "visibility": "PRIVATE",
+    "creator": "users/life-admin",
+    "state": "NORMAL",
+    "has_content": true
+  },
+  "publish_task": {
+    "job_id": "job_c24ac4959d256232bddf7304",
+    "status": "succeeded",
+    "attempts": 1,
+    "upstream_reference": "memos/21b178b7-5dc4-58ca-83b8-e83901bce463"
+  },
+  "idempotency_retest": {
+    "same_event": true,
+    "same_memo": true
+  },
+  "current_build_auto_probe": {
+    "prompt": "今天上午在小区花园里散步，闻到桂花香，觉得很舒服。",
+    "librechat_ui_message_id": "f16a8d90-2746-4543-ab20-f28ebc0d10c5",
+    "librechat_mongo_message_id": "6ae857869bf7d8d5b8091538",
+    "event_id": "evt_64881871ce06443c4eab0e55",
+    "idempotency_key": "chat:6ae857869bf7d8d5b8091538",
+    "memo_ref": "memos/50405b33-8532-5334-b0a3-3c92c4955082",
+    "memo_visibility": "PRIVATE",
+    "model_response_visible": true,
+    "automatic_ingest_log": "[LifeCompanion] event ingest completed",
+    "same_event_on_retry": true,
+    "same_memo_on_retry": true
+  },
+  "automated_tests": {
+    "command": "python -m pytest -q tests",
+    "result": "7 passed"
+  }
+}

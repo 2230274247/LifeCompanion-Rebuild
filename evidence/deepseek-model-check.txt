@@ -1,0 +1,9 @@
+DeepSeek model check
+Date: 2026-11-02
+Endpoint: GET https://api.deepseek.com/v1/models
+HTTP result: 200
+Configured model: deepseek-flash
+Available model ids returned by the provider:
+- deepseek-flash
+- deepseek-v4-pro
+Credential value: intentionally omitted
