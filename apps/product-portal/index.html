@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Life Companion：连接 AI 生活伙伴与人生回忆录的本地产品入口。"
+    />
+    <title>拾光 · Life Companion</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/portal.css" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="拾光首页">
+        <span class="brand-mark">拾</span>
+        <span>
+          <strong>拾光</strong>
+          <small>LIFE COMPANION</small>
+        </span>
+      </a>
+      <nav class="primary-nav" aria-label="主导航">
+        <a href="#entries">AI 伙伴</a>
+        <a href="#entries">我的回忆</a>
+      </nav>
+      <a class="quiet-link" href="http://localhost:3080" target="_blank" rel="noreferrer">
+        进入产品 <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">LOCAL VERTICAL SLICE · 2026.11</p>
+          <h1 id="hero-title">
+            让聊过的日子，<br />
+            <em>留下来。</em>
+          </h1>
+          <p class="lede">
+            不必每天写日记。生活和 AI 聊过之后，值得留下的片刻会被整理成一条私有回忆，
+            回到可以慢慢翻看的时间轴。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="http://localhost:3080" target="_blank" rel="noreferrer">
+              开始聊天
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="button button-secondary" href="http://localhost:5230" target="_blank" rel="noreferrer">
+              打开我的回忆
+            </a>
+          </div>
+          <p class="login-note">
+            当前测试版保留 LibreChat 与 Memos 各自登录，尚未实现单点登录（SSO）。
+          </p>
+        </div>
+
+        <aside class="proof-panel" aria-labelledby="proof-title">
+          <p class="proof-kicker">本次已验证</p>
+          <h2 id="proof-title">一条真实的生活片段，穿过三个服务</h2>
+          <ol class="proof-flow">
+            <li>
+              <span class="step-number">01</span>
+              <span>
+                <strong>说出今天</strong>
+                <small>LibreChat · DeepSeek 真实回复并保存历史</small>
+              </span>
+            </li>
+            <li>
+              <span class="step-number">02</span>
+              <span>
+                <strong>识别值得留下的片段</strong>
+                <small>life-core · 过滤未来计划与否定表达</small>
+              </span>
+            </li>
+            <li>
+              <span class="step-number">03</span>
+              <span>
+                <strong>收进私有时间轴</strong>
+                <small>Memos · PRIVATE 回忆与来源消息可追溯</small>
+              </span>
+            </li>
+          </ol>
+          <div class="live-status" aria-live="polite">
+            <span class="status-light" data-service="librechat"></span>
+            <span data-service-label="librechat">正在检查服务状态</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="entries" id="entries" aria-labelledby="entries-title">
+        <div class="section-heading">
+          <p class="eyebrow">TWO REAL WORKSPACES</p>
+          <h2 id="entries-title">不是一张宣传页，是两个真正能用的工作台</h2>
+        </div>
+
+        <div class="entry-grid">
+          <a class="entry-card entry-chat" href="http://localhost:3080" target="_blank" rel="noreferrer">
+            <span class="entry-index">01 / CONVERSATION</span>
+            <span class="entry-icon" aria-hidden="true">语</span>
+            <span class="entry-content">
+              <strong>AI 生活伙伴</strong>
+              <span>聊聊今天、回看历史，也可以继续一次未说完的话。</span>
+            </span>
+            <span class="entry-meta">
+              <span class="service-pill" data-service="librechat">检查中</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+
+          <a class="entry-card entry-memory" href="http://localhost:5230" target="_blank" rel="noreferrer">
+            <span class="entry-index">02 / MEMORY</span>
+            <span class="entry-icon" aria-hidden="true">忆</span>
+            <span class="entry-content">
+              <strong>我的回忆</strong>
+              <span>按时间翻看文字与 AI 回忆，保留 Memos 原生编辑和检索能力。</span>
+            </span>
+            <span class="entry-meta">
+              <span class="service-pill" data-service="memos">检查中</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="next" id="next" aria-labelledby="next-title">
+        <div>
+          <p class="eyebrow">NEXT, IN PUBLIC VIEW</p>
+          <h2 id="next-title">下一块正在搭的，是“提醒”和“回忆图”</h2>
+        </div>
+        <div class="next-grid">
+          <article>
+            <span class="next-state">P1 · 数据接口已可用</span>
+            <h3>生活提醒</h3>
+            <p>提醒记录与到期状态已进入后端模型；周三演示不把它说成手机通知已送达。</p>
+          </article>
+          <article>
+            <span class="next-state">待外部凭据</span>
+            <h3>AI 回忆图</h3>
+            <p>图片供应商尚未配置。没有真实返回时，本产品不会把静态样例当成生图成功。</p>
+          </article>
+          <article>
+            <span class="next-state">DESIGN READY</span>
+            <h3>Android 边界</h3>
+            <p>自研业务统一走受保护的 HTTP API，不依赖浏览器私有会话；本周不冒充 APK 已交付。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="privacy" id="privacy" aria-labelledby="privacy-title">
+        <div class="privacy-mark" aria-hidden="true">私</div>
+        <div>
+          <p class="eyebrow">BOUNDARIES ARE THE PRODUCT</p>
+          <h2 id="privacy-title">回忆默认只属于它的主人</h2>
+          <p>
+            事件经过服务端身份映射和授权检查后才写入 Memos；回忆默认私有。
+            模型 Key 与 Memos 访问令牌只存在于服务端，不进入浏览器代码或 Git。
+          </p>
+        </div>
+        <dl class="privacy-facts">
+          <div>
+            <dt>身份映射</dt>
+            <dd>LibreChat → life-core → Memos</dd>
+          </div>
+          <div>
+            <dt>回忆可见性</dt>
+            <dd>PRIVATE</dd>
+          </div>
+          <div>
+            <dt>重试语义</dt>
+            <dd>同一来源不重复写入</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>拾光 · Life Companion Rebuild</span>
+      <span>LibreChat v0.8.8 + Memos 26.10.0 · MIT</span>
+      <span>本地演示 · 非公网部署</span>
+    </footer>
+
+    <script src="/portal.js" defer></script>
+  </body>
+</html>
