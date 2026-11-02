@@ -1,0 +1,21 @@
+# Local secrets and generated runtime state
+.env
+.env.*
+!.env.example
+infra/volumes/
+infra/runtime/
+evidence/runtime/
+services/life-core/data/
+services/life-core/.venv/
+
+# Independently versioned upstream clones
+products/librechat-custom/
+products/memos-custom/
+
+# Python and Node
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+dist/
+

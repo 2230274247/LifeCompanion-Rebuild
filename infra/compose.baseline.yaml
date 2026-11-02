@@ -1,0 +1,69 @@
+name: lifecompanion-upstream
+
+services:
+  memos:
+    image: neosmemo/memos:26.10.0
+    container_name: lifecompanion-memos
+    ports:
+      - "127.0.0.1:5230:5230"
+    environment:
+      TZ: Asia/Hong_Kong
+    volumes:
+      - ./volumes/memos:/var/opt/memos
+    restart: unless-stopped
+
+  librechat:
+    image: ghcr.io/librechat-ai/librechat:v0.8.8
+    container_name: lifecompanion-librechat
+    ports:
+      - "127.0.0.1:3080:3080"
+    env_file:
+      - ../products/librechat-custom/.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3080
+      MONGO_URI: mongodb://lifecompanion-mongo:27017/LibreChat
+      MEILI_HOST: http://lifecompanion-meili:7700
+      SCHEDULES_SINGLE_PROCESS: "true"
+      LIFE_CORE_URL: http://host.docker.internal:8010
+      LIFE_INTERNAL_TOKEN: ${LIFE_INTERNAL_TOKEN:?set LIFE_INTERNAL_TOKEN}
+      LIFE_CORE_INGEST_TIMEOUT_MS: "4000"
+      TZ: Asia/Hong_Kong
+    volumes:
+      - ../products/librechat-custom/.env:/app/.env:ro
+      - ../products/librechat-custom/librechat.yaml:/app/librechat.yaml:ro
+      - ../products/librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro
+      - ../products/librechat-custom/images:/app/client/public/images
+      - ../products/librechat-custom/uploads:/app/uploads
+      - ../products/librechat-custom/logs:/app/logs
+    depends_on:
+      mongo:
+        condition: service_healthy
+      meili:
+        condition: service_started
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:8.0.20
+    container_name: lifecompanion-mongo
+    command: mongod --noauth
+    volumes:
+      - ./volumes/librechat-mongo:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  meili:
+    image: getmeili/meilisearch:v1.35.1
+    container_name: lifecompanion-meili
+    environment:
+      MEILI_ENV: production
+      MEILI_NO_ANALYTICS: "true"
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:?set MEILI_MASTER_KEY}
+    volumes:
+      - ./volumes/librechat-meili:/meili_data
+    restart: unless-stopped
+
