@@ -7,3 +7,10 @@ targetRules = ["generic-api-key"]
 paths = ['''evidence/maintenance/image-fidelity-20261104/.*\.json$''']
 regexTarget = "line"
 regexes = ['''(?i)"generation_key"\s*:\s*"direct_[a-f0-9]{40}"''']
+
+[[allowlists]]
+description = "Documented placeholders in the environment template"
+targetRules = ["generic-api-key"]
+paths = ['''^\.env\.example$''']
+regexTarget = "line"
+regexes = ['''(?i)^(CREDS_KEY|CREDS_IV)=replace-with-[a-z0-9-]+$''']
