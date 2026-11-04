@@ -718,10 +718,13 @@ class Moments:
             first_day = datetime.fromisoformat(last).astimezone(zone).date() if last else enabled.astimezone(zone).date()
             for offset in range((local.date()-first_day).days+1):
                 day = first_day + timedelta(days=offset)
-                boundaries = [datetime.fromisoformat(f"{day.isoformat()}T{clock}").replace(tzinfo=zone)
-                              for clock in config["ends"]]
-                starts = [boundaries[-1]-timedelta(days=1),boundaries[0],boundaries[1]]
-                for slot,(start,end) in enumerate(zip(starts,boundaries)):
+                windows = [
+                    tuple(value.astimezone(zone) for value in business_bounds(
+                        day, slot, config["timezone"], config["ends"]
+                    )[:2])
+                    for slot in range(3)
+                ]
+                for slot,(start,end) in enumerate(windows):
                     # Night belongs to the next morning; do not generate pre-opt-in windows.
                     if end > local or end <= enabled:
                         continue

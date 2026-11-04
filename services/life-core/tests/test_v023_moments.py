@@ -105,6 +105,24 @@ def test_selection_explains_three_candidates_and_rejects_future(tmp_path, monkey
         assert not any("U 盘" in i["text"] for i in inputs)
 
 
+def test_legacy_scheduler_accepts_midnight_end(tmp_path, monkeypatch):
+    app, client = make_app(tmp_path)
+    with client:
+        user = bootstrap(client)
+        monkeypatch.setattr(app.state.memos, "create_private_memo", lambda event: "memos/" + event["event_id"])
+        client.patch("/api/v1/me/settings", headers=auth(), json={"image_consent": True})
+        app.state.moments.configure(
+            app.state.store.get_user(user["life_user_id"]),
+            MomentSettings(
+                enabled=True,
+                ends=["11:00", "16:00", "24:00"],
+            ),
+        )
+        assert app.state.moments.v03 is False
+
+        app.state.moments.schedule(datetime.now(timezone.utc))
+
+
 def test_schedule_dedup_provider_failure_restart_retry_and_owner(tmp_path, monkeypatch):
     app, client = make_app(tmp_path)
     with client:
