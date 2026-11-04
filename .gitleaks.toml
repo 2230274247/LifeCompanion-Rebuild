@@ -14,3 +14,10 @@ targetRules = ["generic-api-key"]
 paths = ['''^\.env\.example$''']
 regexTarget = "line"
 regexes = ['''(?i)^(CREDS_KEY|CREDS_IV)=replace-with-[a-z0-9-]+$''']
+
+[[allowlists]]
+description = "Synthetic recollection grouping identifier, not a credential"
+targetRules = ["generic-api-key"]
+paths = ['''^fixtures/recollection-separation/S33\.json$''']
+regexTarget = "line"
+regexes = ['''(?i)"group_key"\s*:\s*"grp_[a-f0-9]{24}"''']
