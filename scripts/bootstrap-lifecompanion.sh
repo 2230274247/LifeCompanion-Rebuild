@@ -26,6 +26,29 @@ copy_if_missing() {
   fi
 }
 
+initialize_env_secret() {
+  local path="$1"
+  local name="$2"
+  local bytes="$3"
+  local current
+  local value
+  local temporary
+
+  current="$(awk -F= -v key="$name" '$1 == key {sub(/^[^=]*=/, ""); print; exit}' "$path")"
+  if [[ -n "$current" && "$current" != replace-* ]]; then
+    return
+  fi
+  value="$(python3 -c 'import secrets, sys; print(secrets.token_hex(int(sys.argv[1])))' "$bytes")"
+  temporary="${path}.tmp.$$"
+  awk -v key="$name" -v value="$value" '
+    BEGIN { found = 0 }
+    $0 ~ "^[[:space:]]*" key "=" { print key "=" value; found = 1; next }
+    { print }
+    END { if (!found) print key "=" value }
+  ' "$path" >"$temporary"
+  mv "$temporary" "$path"
+}
+
 require_command git "Install Git first."
 require_command node "Install Node.js 22.12 or newer."
 require_command npm "Install npm first."
@@ -35,6 +58,14 @@ require_command docker "Install Docker Engine and Compose first."
 copy_if_missing "$ROOT/model_api_keys.env.example" "$PARENT/model_api_keys.env"
 chmod 600 "$PARENT/model_api_keys.env"
 copy_if_missing "$ROOT/.env.example" "$ROOT/infra/.env"
+initialize_env_secret "$ROOT/infra/.env" "LIFE_INTERNAL_TOKEN" 32
+initialize_env_secret "$ROOT/infra/.env" "JWT_SECRET" 32
+initialize_env_secret "$ROOT/infra/.env" "JWT_REFRESH_SECRET" 32
+initialize_env_secret "$ROOT/infra/.env" "CREDS_KEY" 32
+initialize_env_secret "$ROOT/infra/.env" "CREDS_IV" 16
+initialize_env_secret "$ROOT/infra/.env" "MEILI_MASTER_KEY" 32
+initialize_env_secret "$ROOT/infra/.env" "MEMOS_BOOTSTRAP_ADMIN_PASSWORD" 32
+chmod 600 "$ROOT/infra/.env"
 
 if [[ ! -d "$UPSTREAM" ]]; then
   mkdir -p "$(dirname "$UPSTREAM")"

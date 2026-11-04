@@ -24,6 +24,46 @@ function Copy-IfMissing([string]$Source, [string]$Destination) {
     }
 }
 
+function New-HexSecret([int]$ByteLength = 32) {
+    $bytes = New-Object byte[] $ByteLength
+    $generator = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+    try {
+        $generator.GetBytes($bytes)
+    } finally {
+        $generator.Dispose()
+    }
+    return -join ($bytes | ForEach-Object { $_.ToString("x2") })
+}
+
+function Initialize-EnvSecret([string]$Path, [string]$Name, [int]$ByteLength = 32) {
+    $lines = [System.Collections.Generic.List[string]]::new()
+    foreach ($line in [System.IO.File]::ReadAllLines($Path)) {
+        $lines.Add($line)
+    }
+    $pattern = '^\s*' + [regex]::Escape($Name) + '=(.*)$'
+    $required = $true
+    for ($index = 0; $index -lt $lines.Count; $index++) {
+        if ($lines[$index] -match $pattern) {
+            $current = $Matches[1].Trim()
+            if ($current -and -not $current.StartsWith("replace-")) {
+                $required = $false
+            } else {
+                $lines[$index] = "$Name=$(New-HexSecret $ByteLength)"
+                $required = $false
+            }
+            break
+        }
+    }
+    if ($required) {
+        $lines.Add("$Name=$(New-HexSecret $ByteLength)")
+    }
+    [System.IO.File]::WriteAllLines(
+        $Path,
+        $lines,
+        [System.Text.UTF8Encoding]::new($false)
+    )
+}
+
 Require-Command git "请先安装 Git。"
 Require-Command node "请先安装 Node.js 22.12 或更高版本。"
 Require-Command npm "请先安装 npm。"
@@ -37,6 +77,14 @@ if ($nodeVersion -lt [version]"22.12.0") {
 
 Copy-IfMissing (Join-Path $root "model_api_keys.env.example") (Join-Path $parent "model_api_keys.env")
 Copy-IfMissing (Join-Path $root ".env.example") (Join-Path $root "infra\.env")
+$infraEnv = Join-Path $root "infra\.env"
+Initialize-EnvSecret $infraEnv "LIFE_INTERNAL_TOKEN" 32
+Initialize-EnvSecret $infraEnv "JWT_SECRET" 32
+Initialize-EnvSecret $infraEnv "JWT_REFRESH_SECRET" 32
+Initialize-EnvSecret $infraEnv "CREDS_KEY" 32
+Initialize-EnvSecret $infraEnv "CREDS_IV" 16
+Initialize-EnvSecret $infraEnv "MEILI_MASTER_KEY" 32
+Initialize-EnvSecret $infraEnv "MEMOS_BOOTSTRAP_ADMIN_PASSWORD" 32
 
 if (-not (Test-Path -LiteralPath $upstream)) {
     New-Item -ItemType Directory -Path (Split-Path -Parent $upstream) -Force | Out-Null

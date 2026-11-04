@@ -1,0 +1,26 @@
+{
+  "instanceSettings": [
+    {
+      "name": "instance/settings/ACCESS",
+      "accessSetting": {
+        "accessMode": "INSTANCE_ACCESS_MODE_PRIVATE"
+      }
+    }
+  ],
+  "users": [
+    {
+      "name": "users/lifecompanion-admin",
+      "username": "lifecompanion-admin",
+      "role": "ADMIN",
+      "displayName": "LifeCompanion Administrator",
+      "password": "${env:MEMOS_BOOTSTRAP_ADMIN_PASSWORD}"
+    }
+  ],
+  "lifecycle": [
+    {
+      "resource": "users/lifecompanion-admin",
+      "preventDestroy": true,
+      "writeOnlyVersion": 1
+    }
+  ]
+}

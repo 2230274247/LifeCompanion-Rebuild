@@ -75,8 +75,10 @@ LIFECOMPANION_KEYS_FILE=/absolute/path/to/model_api_keys.env
 | 字段 | 默认值 | 说明 |
 | --- | --- | --- |
 | `LIFE_INTERNAL_TOKEN` | 空 | LibreChat 到 life-core 的服务端令牌 |
-| `JWT_SECRET` | 空 | LibreChat access token 校验 |
+| `JWT_SECRET` | 空 | LibreChat access token 签名与校验 |
 | `JWT_REFRESH_SECRET` | 空 | LibreChat refresh secret |
+| `CREDS_KEY` / `CREDS_IV` | 空 | LibreChat 凭据加密密钥与 IV |
+| `MEMOS_BOOTSTRAP_ADMIN_PASSWORD` | 空 | Memos 首次启动管理员密码，仅存本机环境文件 |
 | `MEMOS_BASE_URL` | `http://127.0.0.1:5230` | Memos 地址 |
 | `MEMOS_API_TOKEN` | 空 | 服务端 Memos PAT |
 | `LIFE_DATABASE_PATH` | `services/life-core/data/life-core.sqlite3` | SQLite 路径 |
@@ -94,6 +96,9 @@ LIFECOMPANION_KEYS_FILE=/absolute/path/to/model_api_keys.env
 | `LIFE_MEMOS_PORT` | `5230` | Memos 宿主端口 |
 | `LIFE_CORE_HOST_URL` | `http://host.docker.internal:8010` | 容器访问 life-core |
 | `LIFE_NTFY_CONTAINER` | `lifecompanion-ntfy` | 提醒供应容器的受控名称 |
+| `LIFE_PUBLIC_URL` | `http://127.0.0.1:3001` | LibreChat 对浏览器公开的同源入口 |
+| `LIFE_CHAT_INTERNAL_URL` | `http://127.0.0.1:3080` | LibreChat 服务端内部地址 |
+| `LIFE_ALLOW_REGISTRATION` | `true` | 是否允许受控新账号注册；公网开放前应评估 |
 
 Compose 先读取 LibreChat 的 `.env`，再读取父目录 `model_api_keys.env`。
 后者存在时，云模型值以后者为准；文件缺失时 Compose 仍可启动本地非云功能。
@@ -121,3 +126,8 @@ Vikunja/ntfy 为可选功能。`infra/.env.reminders` 必须使用已核验的�
 - 前端配置：重新构建前端并重启 LibreChat。
 
 当前没有声称支持密钥热更新。
+
+`bootstrap-lifecompanion.ps1/.sh` 在首次复制 `.env.example` 后，会为
+`LIFE_INTERNAL_TOKEN`、JWT、LibreChat 凭据加密、Meilisearch 和 Memos
+初始管理员生成随机值；已有非占位值不会被覆盖。Memos 管理员用户名为
+`lifecompanion-admin`，密码只保存在本机 `infra/.env`，不要提交或粘贴到日志。

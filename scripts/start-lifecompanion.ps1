@@ -92,6 +92,8 @@ $env:LIFE_MEMOS_PORT = "$MemosPort"
 $env:LIFE_CORE_HOST_URL = "http://host.docker.internal:$CorePort"
 $env:MEMOS_BASE_URL = "http://127.0.0.1:$MemosPort"
 $env:LIFE_ALLOWED_ORIGINS = "http://localhost:$GatewayPort,http://127.0.0.1:$GatewayPort"
+$env:LIFE_PUBLIC_URL = "http://127.0.0.1:$GatewayPort"
+$env:LIFE_CHAT_INTERNAL_URL = "http://127.0.0.1:$ChatPort"
 $env:CHAT_TARGET = "http://127.0.0.1:$ChatPort"
 $env:LIFE_TARGET = "http://127.0.0.1:$CorePort"
 

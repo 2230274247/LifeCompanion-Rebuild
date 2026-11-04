@@ -63,8 +63,10 @@ powershell -ExecutionPolicy Bypass -File scripts\bootstrap-lifecompanion.ps1
 ```
 
 脚本仅在缺失时创建 `infra\.env`、上游 `.env` 和父目录密钥文件；不会覆盖
-已有值。它会克隆 LibreChat `v0.8.8`、应用补丁、执行 `npm ci`、
-`npm run frontend`，并安装 Python 依赖。
+已有非占位值。它还会为内部令牌、JWT、凭据加密、Meilisearch 和 Memos
+初始管理员生成本机随机值。Memos 初始管理员为 `lifecompanion-admin`，
+其密码只写入被忽略的 `infra\.env`。随后脚本克隆 LibreChat `v0.8.8`、
+应用补丁、执行 `npm ci`、`npm run frontend`，并安装 Python 依赖。
 
 ### 2.4 启动和检查
 
@@ -145,6 +147,10 @@ cp products/librechat-custom/.env.example products/librechat-custom/.env
 - `LIFE_ALLOWED_ORIGINS`
 - `LIFE_TIMEZONE`
 - 各模型请求预算与生图开关
+
+如果直接复制模板而不是运行 bootstrap，必须手动替换 `JWT_SECRET`、
+`JWT_REFRESH_SECRET`、`CREDS_KEY`、`CREDS_IV`、`MEMOS_BOOTSTRAP_ADMIN_PASSWORD`
+等占位值。`CREDS_KEY` 使用 64 个十六进制字符，`CREDS_IV` 使用 32 个。
 
 字段说明见 `CONFIGURATION.md`。不要使用 `docker compose config` 直接打印
 展开后的完整环境；只使用 `config --quiet` 做校验。

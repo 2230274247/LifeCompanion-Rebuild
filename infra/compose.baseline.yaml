@@ -7,8 +7,10 @@ services:
       - "${LIFE_BIND_ADDRESS:-127.0.0.1}:${LIFE_MEMOS_PORT:-5230}:5230"
     environment:
       TZ: Asia/Hong_Kong
+      MEMOS_BOOTSTRAP_ADMIN_PASSWORD: ${MEMOS_BOOTSTRAP_ADMIN_PASSWORD:?set MEMOS_BOOTSTRAP_ADMIN_PASSWORD}
     volumes:
       - ./volumes/memos:/var/opt/memos
+      - ./memos-config:/etc/memos/config:ro
     restart: unless-stopped
 
   librechat:
@@ -29,6 +31,14 @@ services:
       LIFE_CORE_URL: ${LIFE_CORE_HOST_URL:-http://host.docker.internal:8010}
       LIFE_INTERNAL_TOKEN: ${LIFE_INTERNAL_TOKEN:?set LIFE_INTERNAL_TOKEN}
       LIFE_CORE_INGEST_TIMEOUT_MS: "4000"
+      DOMAIN_CLIENT: ${LIFE_PUBLIC_URL:?set LIFE_PUBLIC_URL}
+      DOMAIN_SERVER: ${LIFE_CHAT_INTERNAL_URL:?set LIFE_CHAT_INTERNAL_URL}
+      ALLOW_REGISTRATION: ${LIFE_ALLOW_REGISTRATION:-false}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:?set JWT_REFRESH_SECRET}
+      CREDS_KEY: ${CREDS_KEY:?set CREDS_KEY}
+      CREDS_IV: ${CREDS_IV:?set CREDS_IV}
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:?set MEILI_MASTER_KEY}
       TZ: Asia/Hong_Kong
     extra_hosts:
       - "host.docker.internal:host-gateway"
