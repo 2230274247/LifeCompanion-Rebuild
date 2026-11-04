@@ -1,4 +1,4 @@
-param(
+﻿param(
     [int]$GatewayPort = 3001,
     [int]$CorePort = 8010,
     [int]$ChatPort = 3080,

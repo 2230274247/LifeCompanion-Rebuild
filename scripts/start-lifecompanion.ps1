@@ -1,4 +1,4 @@
-param(
+﻿param(
     [switch]$NoBrowser,
     [string]$Python = $env:LIFE_PYTHON,
     [int]$CorePort = 8010,
