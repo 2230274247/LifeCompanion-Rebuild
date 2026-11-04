@@ -1,5 +1,31 @@
 # Test Results
 
+## 2026-11-04 五项整改当前结果
+
+```text
+services/life-core full pytest: 317 passed, 1 warning
+gateway: 4 passed
+image fidelity focused: 39 passed
+real Kolors calls: 3 passed (HTTP 200, manual visual review PASS)
+current-image UI: PASS, no new paid image request
+```
+
+覆盖生图证据链、动作与场景绑定、四个时间字段、generation key 唯一性、
+模型凭证脱敏、网关白名单和桌面/手机回忆展示。图片生成后的视觉模型自动复核
+仍为 `NOT_TESTED`。详见
+`docs/maintenance/IMAGE_FIDELITY_AUDIT.md`。
+
+## 2026-11-02 V0.2.1 实跑增量
+
+总体 PARTIAL。最新前端 122、life-core 30、LibreChat API 包 78、网关 2 项通过，
+为限定范围共 232 个测试，不是覆盖率或全量测试。真实记忆、原版提醒、
+life-core v2 全链路和双用户通知隔离另有独立验收，不混入单元测试数。
+TypeScript、定向 ESLint、生产构建、两套 Compose quiet 校验通过。
+Lighthouse 隔离注册前置步骤失败，尚无性能指标。
+命令、精确时间、失败与重测见 [证据索引](../evidence/v02-memory-reminders/README.md)。
+
+以下保留历史 V0.1/V0.2 结果。
+
 日期：2026-11-02  
 环境：Windows 11 本地、PowerShell、Docker Desktop、Python 3.12.10、Node.js 22.22.0
 
@@ -44,3 +70,15 @@ Result: 7 passed
 - Android 真机/APK
 - SSO
 - 浏览器站内通知和手机推送
+
+## V0.2 增量验收（2026-11-02）
+
+上文保留 V0.1 历史结果；V0.2 当前结果为 life-core 16 条、网关 1 条、
+前端限定回归 115 条通过，共 132 条，不代表全库测试覆盖率。
+类型、lint、构建、真实链路及前后失败修复证据见
+`evidence/v02-tests/README.md`。
+
+统一 SPA 复用 LibreChat 登录；当前仍为显式单用户映射，
+不是跨应用身份平台或多人开户交付。Lighthouse 因 Windows harness 空格路径启动失败
+标记 BLOCKED，不能声称性能预算通过。完整记录见
+`docs/development-log/2026-11-02_18-12_统一前端与回忆集成_开发验收.md`。

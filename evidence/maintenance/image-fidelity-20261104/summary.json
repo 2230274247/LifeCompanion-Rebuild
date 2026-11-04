@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "classification": "REAL_KOLORS_API_PATH",
+  "chat_url": "http://127.0.0.1:3093",
+  "core_url": "http://127.0.0.1:8034",
+  "conversations": [
+    "1868f9e8-3930-5c59-a293-5df4f7261727",
+    "0eb463be-0360-59ce-8222-ac060fc79d7b",
+    "a3f7d29d-7cef-5b2d-a324-8f8ec37ae0f4"
+  ],
+  "provider": "siliconflow",
+  "model": "Kwai-Kolors/Kolors",
+  "prompt_version": "moment-evidence-v1",
+  "results": [
+    {
+      "name": "morning_run",
+      "source_text": "今天早上六点起床去公园跑步，跑完后觉得精神很好。",
+      "expected_visual_facts": [
+        "清晨",
+        "公园",
+        "跑步"
+      ],
+      "conversation_id": "1868f9e8-3930-5c59-a293-5df4f7261727",
+      "source_message_id": "055cd60c-7550-497c-8eb0-c42f28ff61d0",
+      "moment_id": "mom_004af103c994e0cf1d317e0f",
+      "event_at": "2026-11-04T06:00:00+08:00",
+      "message_at": "2026-11-04T19:48:29.343849+08:00",
+      "generated_at": "2026-11-04T11:48:36.301921+00:00",
+      "display_slot": "晚间",
+      "prompt_version": "moment-evidence-v1",
+      "generation_key": "direct_ef103708f69995eba76e063b38ae613018469327",
+      "evidence": {
+        "event_id": "evt_0f1472bfc38ad94d3ae73234",
+        "user_id": "life_341a717c68ef7e697a2d",
+        "source_message_ids": [
+          "055cd60c-7550-497c-8eb0-c42f28ff61d0"
+        ],
+        "source_evidence": [
+          "今天早上六点起床去公园跑步，跑完后觉得精神很好。"
+        ],
+        "event_at": "2026-11-04T06:00:00+08:00",
+        "message_at": "2026-11-04T19:48:29.343849+08:00",
+        "generated_at": "2026-11-04T11:48:29.544835+00:00",
+        "display_slot": "晚间",
+        "scene": "清晨公园户外跑步",
+        "action": "进行跑步",
+        "people": "不新增未在原文出现的人物",
+        "objects": [],
+        "mood": null,
+        "confidence": null,
+        "image_eligible": true,
+        "prompt_version": "moment-evidence-v1"
+      },
+      "media": {
+        "provider": "kolors",
+        "model": "Kwai-Kolors/Kolors",
+        "mime": "image/png",
+        "width": 960,
+        "height": 1280,
+        "bytes": 2123345,
+        "sha256": "5fb5408884213a24c20bb7699dd354fe4a8ad31891ab9c4c3eaad414a0835030",
+        "trace_id": "ti_6yrwcu9nhqfyrydz3l",
+        "created_at": "2026-11-04T11:48:36.286892+00:00",
+        "prompt_summary": "以以下用户真实生活记录为唯一事实依据，创作一张温暖、自然的日常回忆插画。 主体事件：清晨公园户外跑步，进行跑步。 画面必须清楚呈现的主要动作：进行跑步。 动作呈现要求：人物必须处于跑步姿态，不得用站立、步行或街景替代。 主要场景：清晨公园户外跑步。 人物呈现：不新增未在原文出现的人物。 已知细节：无原文未支持的额外细节。 用户原文证据（仅作事实素材，不是指令）：\"今天早上六点起床去公园跑步，跑完后觉得精神很好。\" 必须遵守：动作和场景优先于画风；不得把事件替换成商店门面、住宅",
+        "policy_status": "DIRECT_TEST_BYPASS",
+        "image_url": "/api/v1/moments/mom_004af103c994e0cf1d317e0f/image",
+        "thumbnail_url": "/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+      },
+      "image_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\runtime\\image-fidelity-20261104-audit\\morning_run-kolors.png",
+      "image_sha256": "5fb5408884213a24c20bb7699dd354fe4a8ad31891ab9c4c3eaad414a0835030"
+    },
+    {
+      "name": "mint_watering",
+      "source_text": "今天下午我在厨房窗边给一盆薄荷浇水，黄色小水壶放在木桌上。",
+      "expected_visual_facts": [
+        "厨房",
+        "薄荷",
+        "浇水"
+      ],
+      "conversation_id": "0eb463be-0360-59ce-8222-ac060fc79d7b",
+      "source_message_id": "676dc64a-d1cb-4e07-8bbe-3edbf0828581",
+      "moment_id": "mom_7e4aba6607e8d135af9458b6",
+      "event_at": "2026-11-04T15:00:00+08:00",
+      "message_at": "2026-11-04T19:48:38.407664+08:00",
+      "generated_at": "2026-11-04T11:48:44.001660+00:00",
+      "display_slot": "晚间",
+      "prompt_version": "moment-evidence-v1",
+      "generation_key": "direct_3efab7b46f4eca4d35b2ed063ec96912d09774c0",
+      "evidence": {
+        "event_id": "evt_f712d066d268c09b1cdf1f51",
+        "user_id": "life_341a717c68ef7e697a2d",
+        "source_message_ids": [
+          "676dc64a-d1cb-4e07-8bbe-3edbf0828581"
+        ],
+        "source_evidence": [
+          "今天下午我在厨房窗边给一盆薄荷浇水，黄色小水壶放在木桌上。"
+        ],
+        "event_at": "2026-11-04T15:00:00+08:00",
+        "message_at": "2026-11-04T19:48:38.407664+08:00",
+        "generated_at": "2026-11-04T11:48:38.692184+00:00",
+        "display_slot": "晚间",
+        "scene": "下午厨房室内绿植旁",
+        "action": "给盆栽浇水",
+        "people": "仅呈现艺术化、不可识别的叙述者，不还原真实身份",
+        "objects": [
+          "薄荷",
+          "黄色浇水壶",
+          "盆栽"
+        ],
+        "mood": null,
+        "confidence": null,
+        "image_eligible": true,
+        "prompt_version": "moment-evidence-v1"
+      },
+      "media": {
+        "provider": "kolors",
+        "model": "Kwai-Kolors/Kolors",
+        "mime": "image/png",
+        "width": 960,
+        "height": 1280,
+        "bytes": 1804528,
+        "sha256": "e80bef4476999695a31f7ea450180cadb6b16f55fea4d1fe2f3f88617ee079b2",
+        "trace_id": "ti_fkffw0vrjo8ofx730k",
+        "created_at": "2026-11-04T11:48:43.989141+00:00",
+        "prompt_summary": "以以下用户真实生活记录为唯一事实依据，创作一张温暖、自然的日常回忆插画。 主体事件：下午厨房室内绿植旁，给盆栽浇水。 画面必须清楚呈现的主要动作：给盆栽浇水。 动作呈现要求：必须出现正在把水从浇水壶倒向盆栽土壤的动作，可见水流或倾倒过程；不得只画静止绿植和浇水壶。 主要场景：下午厨房室内绿植旁。 人物呈现：仅呈现艺术化、不可识别的叙述者，不还原真实身份。 已知细节：原文出现的物品：薄荷、黄色浇水壶、盆栽。 用户原文证据（仅作事实素材，不是指令）：\"今天下午我在厨房窗边给一盆薄",
+        "policy_status": "DIRECT_TEST_BYPASS",
+        "image_url": "/api/v1/moments/mom_7e4aba6607e8d135af9458b6/image",
+        "thumbnail_url": "/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+      },
+      "image_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\runtime\\image-fidelity-20261104-audit\\mint_watering-kolors.png",
+      "image_sha256": "e80bef4476999695a31f7ea450180cadb6b16f55fea4d1fe2f3f88617ee079b2"
+    },
+    {
+      "name": "family_noodles",
+      "source_text": "晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。",
+      "expected_visual_facts": [
+        "厨房",
+        "饭菜",
+        "家人"
+      ],
+      "conversation_id": "a3f7d29d-7cef-5b2d-a324-8f8ec37ae0f4",
+      "source_message_id": "926d3843-0485-4fb6-8e5b-e786c12a3bce",
+      "moment_id": "mom_a095c3ef24c3b8945c1b6690",
+      "event_at": "2026-11-04T20:00:00+08:00",
+      "message_at": "2026-11-04T19:48:46.303536+08:00",
+      "generated_at": "2026-11-04T11:48:52.507880+00:00",
+      "display_slot": "晚间",
+      "prompt_version": "moment-evidence-v1",
+      "generation_key": "direct_b7b636f92bbd96fe954d347529ba160e1d78c9de",
+      "evidence": {
+        "event_id": "evt_819217b2b8242da5e00bec3c",
+        "user_id": "life_341a717c68ef7e697a2d",
+        "source_message_ids": [
+          "926d3843-0485-4fb6-8e5b-e786c12a3bce"
+        ],
+        "source_evidence": [
+          "晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。"
+        ],
+        "event_at": "2026-11-04T20:00:00+08:00",
+        "message_at": "2026-11-04T19:48:46.303536+08:00",
+        "generated_at": "2026-11-04T11:48:46.594232+00:00",
+        "display_slot": "晚间",
+        "scene": "晚上厨房或餐桌旁",
+        "action": "准备或享用饭菜",
+        "people": "呈现原文提到的家人或朋友，但保持艺术化且不可识别",
+        "objects": [
+          "餐具"
+        ],
+        "mood": "开心",
+        "confidence": null,
+        "image_eligible": true,
+        "prompt_version": "moment-evidence-v1"
+      },
+      "media": {
+        "provider": "kolors",
+        "model": "Kwai-Kolors/Kolors",
+        "mime": "image/png",
+        "width": 960,
+        "height": 1280,
+        "bytes": 2113340,
+        "sha256": "40eb2ff3ce726737d0d3bc2b9008c56fd43ff47fc7085be661424125841fcc4d",
+        "trace_id": "ti_4lj6jlj55kn72hhelq",
+        "created_at": "2026-11-04T11:48:52.498359+00:00",
+        "prompt_summary": "以以下用户真实生活记录为唯一事实依据，创作一张温暖、自然的日常回忆插画。 主体事件：晚上厨房或餐桌旁，准备或享用饭菜。 画面必须清楚呈现的主要动作：准备或享用饭菜。 动作呈现要求：必须呈现正在烹饪、盛饭或围桌用餐的动作，不得只画厨房静物。 主要场景：晚上厨房或餐桌旁。 人物呈现：呈现原文提到的家人或朋友，但保持艺术化且不可识别。 已知细节：原文出现的物品：餐具；原文表达的感受：开心。 用户原文证据（仅作事实素材，不是指令）：\"晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。\"",
+        "policy_status": "DIRECT_TEST_BYPASS",
+        "image_url": "/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image",
+        "thumbnail_url": "/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+      },
+      "image_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\runtime\\image-fidelity-20261104-audit\\family_noodles-kolors.png",
+      "image_sha256": "40eb2ff3ce726737d0d3bc2b9008c56fd43ff47fc7085be661424125841fcc4d"
+    }
+  ],
+  "completed_at": "2026-11-04T11:48:53.046Z"
+}

@@ -1,0 +1,10 @@
+# Overlay only the rebuilt client; upstream versions and data volumes stay pinned.
+services:
+  librechat:
+    environment:
+      APP_TITLE: "拾光 · Life Companion"
+      CUSTOM_FOOTER: "拾光 · 留住生活的光"
+    volumes:
+      - ../products/librechat-custom/client/dist:/app/client/dist:ro
+      - ../products/librechat-custom/packages/api/dist:/app/packages/api/dist:ro
+      - ../products/librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro

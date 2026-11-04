@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-11-04T12:05:00Z",
+  "upstream": "https://github.com/LibreChat-AI/LibreChat",
+  "base_tag": "v0.8.8",
+  "base_commit": "e8f3be08623663d4ad7f7241e693c94469b63bb0",
+  "patch": "patches/librechat-v0.8.8-rebuild-p00-p07-20261104.patch",
+  "patch_bytes": 257739,
+  "patched_files": 68,
+  "patch_sha256": "25531395ba1548c4fe57f0e2ef91500b5d07f4eaba2ca3dcdac574a14df35f3f",
+  "verification": "git apply --cached --check in an isolated temporary index",
+  "real_index_modified": false,
+  "contains_real_credentials": false,
+  "contains_runtime_data": false
+}

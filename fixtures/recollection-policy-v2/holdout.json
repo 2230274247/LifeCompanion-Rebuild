@@ -1,0 +1,376 @@
+{
+  "version": "aplusplus-holdout-v1",
+  "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+  "mode": "OFFLINE_CONTRACT_AND_LOCAL_RULES",
+  "scenes": [
+    {
+      "id": "H01",
+      "text": "今天终于接纳自己不必和别人比较，这是我的内心转折，只希望留下文字。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_INNER_CHANGE"
+      ],
+      "image": [
+        "TEXT_ONLY"
+      ],
+      "reason": "本人内心进展，文字与外发分开",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY"
+      ]
+    },
+    {
+      "id": "H02",
+      "text": "同事今天私下告诉我他的病情，要求我保密。",
+      "memorial": false,
+      "occurrence": [
+        "OTHER_OCCURRED"
+      ],
+      "image": [
+        "PRIVATE_SKIP"
+      ],
+      "reason": "他人秘密不能自动纪念",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "PRIVATE_SKIP"
+      ]
+    },
+    {
+      "id": "H03",
+      "text": "我打算下个月学做陶器，现在还没开始。",
+      "memorial": false,
+      "occurrence": [
+        "PLANNED"
+      ],
+      "image": [
+        "NOT_APPLICABLE"
+      ],
+      "reason": "计划不是已发生事件",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "NOT_APPLICABLE"
+      ]
+    },
+    {
+      "id": "H04",
+      "text": "这是我转贴的AI建议：明天去湖边散步，我没有行动。",
+      "memorial": false,
+      "occurrence": [
+        "QUOTED_OR_GENERATED"
+      ],
+      "image": [
+        "NOT_APPLICABLE"
+      ],
+      "reason": "生成建议不是本人事实",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "NOT_APPLICABLE"
+      ]
+    },
+    {
+      "id": "H05",
+      "text": "我似乎完成了报名，但还没确认。",
+      "memorial": false,
+      "occurrence": [
+        "UNCERTAIN"
+      ],
+      "image": [
+        "NOT_APPLICABLE"
+      ],
+      "reason": "未确认的事实不自动纪念",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "NOT_APPLICABLE"
+      ]
+    },
+    {
+      "id": "H06",
+      "text": "今天我还清了自己的债务，想记住这个转折，不愿向外部发送我的金融情况。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "PRIVATE_SKIP"
+      ],
+      "reason": "自己的金融里程碑可获敏感文字授权后私存",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "PRIVATE_SKIP"
+      ]
+    },
+    {
+      "id": "H07",
+      "text": "今天在河边走了三公里，第一次完成康复散步目标。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "有明确可见动作与地点，不添加天气",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H08",
+      "text": "今天独立修好了家里的旧台灯，第一次完成维修。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "有明确物体与动作",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H09",
+      "text": "今天画完了人生第一幅水彩画，想记住这个开始。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "画与绘画动作明确，局部场景不需要虚构人物",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H10",
+      "text": "今天完成写给自己的私密日记，里面有我的医疗秘密，不要发给其他服务。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "PRIVATE_SKIP"
+      ],
+      "reason": "仅限获准的敏感私人文字，不授权外发",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "PRIVATE_SKIP"
+      ]
+    },
+    {
+      "id": "H11",
+      "text": "朋友今天告诉我她正在离婚，让我不要告诉别人。",
+      "memorial": false,
+      "occurrence": [
+        "OTHER_OCCURRED"
+      ],
+      "image": [
+        "PRIVATE_SKIP"
+      ],
+      "reason": "关系信任不等于可自动纪念他人秘密",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "PRIVATE_SKIP"
+      ]
+    },
+    {
+      "id": "H12",
+      "text": "如果下周能骑车去海边就好了，现在只是想象。",
+      "memorial": false,
+      "occurrence": [
+        "PLANNED"
+      ],
+      "image": [
+        "NOT_APPLICABLE"
+      ],
+      "reason": "愿望不等于已发生",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "NOT_APPLICABLE"
+      ]
+    },
+    {
+      "id": "H13",
+      "text": "今天终于学会给自己织围巾，这是一个月坚持的成果。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "具体技能成果可有事实性画面",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H14",
+      "text": "今天我原谅了过去的自己，愿意按自己的节奏生活，只想留一段文字。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_INNER_CHANGE"
+      ],
+      "image": [
+        "TEXT_ONLY"
+      ],
+      "reason": "内在变化不应被图像资格抹掉",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY"
+      ]
+    },
+    {
+      "id": "H15",
+      "text": "今天在公园跑了三公里，普通训练，没什么特别。",
+      "memorial": false,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "普通锻炼可以不自动纪念；画面资格不等于纪念价值",
+      "memorial_acceptable": [
+        true,
+        false
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H16",
+      "text": "今天看见一只鸟，后来才发现那是模型生成的故事，不是我的经历。",
+      "memorial": false,
+      "occurrence": [
+        "QUOTED_OR_GENERATED"
+      ],
+      "image": [
+        "NOT_APPLICABLE"
+      ],
+      "reason": "生成故事不是真实经历",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "NOT_APPLICABLE"
+      ]
+    },
+    {
+      "id": "H17",
+      "text": "今天我确诊了自己的疾病，只想私下记录认真治疗的决定。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "PRIVATE_SKIP"
+      ],
+      "reason": "需要敏感文字授权，不自动外发",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "PRIVATE_SKIP"
+      ]
+    },
+    {
+      "id": "H18",
+      "text": "今天在公园散步，第一次完整走完自己的路线。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "具体动作允许安全事实，不凭空新增人物",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H19",
+      "text": "今天在家烤好了第一个面包，我很珍惜这个小进步。",
+      "memorial": true,
+      "occurrence": [
+        "SELF_OCCURRED"
+      ],
+      "image": [
+        "SAFE_SCENE"
+      ],
+      "reason": "平凡生活可以有个人意义",
+      "memorial_acceptable": [
+        true
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY",
+        "SAFE_SCENE"
+      ]
+    },
+    {
+      "id": "H20",
+      "text": "今天终于对过去释然，只希望留下文字，不要自动纪念或记录。",
+      "memorial": false,
+      "occurrence": [
+        "SELF_OCCURRED",
+        "SELF_INNER_CHANGE"
+      ],
+      "image": [
+        "TEXT_ONLY"
+      ],
+      "reason": "明确拒绝自动纪念优先",
+      "memorial_acceptable": [
+        false
+      ],
+      "image_acceptable": [
+        "TEXT_ONLY"
+      ]
+    }
+  ]
+}

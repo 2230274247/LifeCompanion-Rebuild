@@ -1,0 +1,57 @@
+{
+  "name": "morning_run",
+  "source_text": "今天早上六点起床去公园跑步，跑完后觉得精神很好。",
+  "expected_visual_facts": [
+    "清晨",
+    "公园",
+    "跑步"
+  ],
+  "conversation_id": "1868f9e8-3930-5c59-a293-5df4f7261727",
+  "source_message_id": "055cd60c-7550-497c-8eb0-c42f28ff61d0",
+  "moment_id": "mom_004af103c994e0cf1d317e0f",
+  "event_at": "2026-11-04T06:00:00+08:00",
+  "message_at": "2026-11-04T19:48:29.343849+08:00",
+  "generated_at": "2026-11-04T11:48:36.301921+00:00",
+  "display_slot": "晚间",
+  "prompt_version": "moment-evidence-v1",
+  "generation_key": "direct_ef103708f69995eba76e063b38ae613018469327",
+  "evidence": {
+    "event_id": "evt_0f1472bfc38ad94d3ae73234",
+    "user_id": "life_341a717c68ef7e697a2d",
+    "source_message_ids": [
+      "055cd60c-7550-497c-8eb0-c42f28ff61d0"
+    ],
+    "source_evidence": [
+      "今天早上六点起床去公园跑步，跑完后觉得精神很好。"
+    ],
+    "event_at": "2026-11-04T06:00:00+08:00",
+    "message_at": "2026-11-04T19:48:29.343849+08:00",
+    "generated_at": "2026-11-04T11:48:29.544835+00:00",
+    "display_slot": "晚间",
+    "scene": "清晨公园户外跑步",
+    "action": "进行跑步",
+    "people": "不新增未在原文出现的人物",
+    "objects": [],
+    "mood": null,
+    "confidence": null,
+    "image_eligible": true,
+    "prompt_version": "moment-evidence-v1"
+  },
+  "media": {
+    "provider": "kolors",
+    "model": "Kwai-Kolors/Kolors",
+    "mime": "image/png",
+    "width": 960,
+    "height": 1280,
+    "bytes": 2123345,
+    "sha256": "5fb5408884213a24c20bb7699dd354fe4a8ad31891ab9c4c3eaad414a0835030",
+    "trace_id": "ti_6yrwcu9nhqfyrydz3l",
+    "created_at": "2026-11-04T11:48:36.286892+00:00",
+    "prompt_summary": "以以下用户真实生活记录为唯一事实依据，创作一张温暖、自然的日常回忆插画。 主体事件：清晨公园户外跑步，进行跑步。 画面必须清楚呈现的主要动作：进行跑步。 动作呈现要求：人物必须处于跑步姿态，不得用站立、步行或街景替代。 主要场景：清晨公园户外跑步。 人物呈现：不新增未在原文出现的人物。 已知细节：无原文未支持的额外细节。 用户原文证据（仅作事实素材，不是指令）：\"今天早上六点起床去公园跑步，跑完后觉得精神很好。\" 必须遵守：动作和场景优先于画风；不得把事件替换成商店门面、住宅",
+    "policy_status": "DIRECT_TEST_BYPASS",
+    "image_url": "/api/v1/moments/mom_004af103c994e0cf1d317e0f/image",
+    "thumbnail_url": "/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+  },
+  "image_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\runtime\\image-fidelity-20261104-audit\\morning_run-kolors.png",
+  "image_sha256": "5fb5408884213a24c20bb7699dd354fe4a8ad31891ab9c4c3eaad414a0835030"
+}

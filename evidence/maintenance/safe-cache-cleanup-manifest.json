@@ -1,0 +1,626 @@
+{
+  "created_at_hk": "2026-11-04 19:22:19 +08:00",
+  "workspace": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103",
+  "targets": [
+    ".pytest_cache",
+    "scripts\\__pycache__",
+    "services\\life-core\\.pytest_cache",
+    "services\\life-core\\app\\__pycache__",
+    "services\\life-core\\tests\\__pycache__",
+    "tests\\__pycache__",
+    "tests\\v03-b2-e2e\\__pycache__"
+  ],
+  "file_count": 87,
+  "bytes": 1835186,
+  "files": [
+    {
+      "path": ".pytest_cache\\.gitignore",
+      "bytes": 39,
+      "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": ".pytest_cache\\CACHEDIR.TAG",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": ".pytest_cache\\README.md",
+      "bytes": 310,
+      "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\lastfailed",
+      "bytes": 1718,
+      "sha256": "eaf18594f88ce55c0df7fa5680a57be395d12fffda627a18fb37f1d3c23320ca",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\nodeids",
+      "bytes": 37320,
+      "sha256": "dacd830a6195cf692354951a9720c733d51c0305409e107ad3d7d9d5e6d9a8ae",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\acceptance_environment.cpython-312.pyc",
+      "bytes": 7219,
+      "sha256": "cfc4ed150b23b5eea9bd32014402e5149713e3b0d0999907afadca2600c3aecc",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\acceptance_p00.cpython-312.pyc",
+      "bytes": 14197,
+      "sha256": "231612f99ebabdaa565283c96e718d67d88d0c625de08bb5ff568eb612a1f57f",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\acceptance_p02_relationships.cpython-312.pyc",
+      "bytes": 16832,
+      "sha256": "897cb68fa3f2806c8d5fa52c064bce47821bea57f3266ba6c2ee2bca4f14447d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\acceptance_p03_live.cpython-312.pyc",
+      "bytes": 11152,
+      "sha256": "bb7722ebf180e2fb373238cca15d5218a9ead64e65ae83ef3f1dd171f570f7d7",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\v03_semantic_cases.cpython-312.pyc",
+      "bytes": 13902,
+      "sha256": "49aaff126c0ad7a8da7f8ddf05af25bbc8026f67ce56f3413fd13ea7071521f9",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\v03_semantic_eval.cpython-312.pyc",
+      "bytes": 31481,
+      "sha256": "08c3aa547ad55c630ae35adf1191e5c6a6e66b78f15e3b9da14d4a6a31d19a19",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "scripts\\__pycache__\\verify_rebuild_workspace.cpython-312.pyc",
+      "bytes": 4866,
+      "sha256": "4ca92fbd064bfdf6d681f132192fe44033eab8e6856560085d726f936bf75d13",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\.pytest_cache\\.gitignore",
+      "bytes": 39,
+      "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\.pytest_cache\\CACHEDIR.TAG",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\.pytest_cache\\README.md",
+      "bytes": 310,
+      "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\.pytest_cache\\v\\cache\\lastfailed",
+      "bytes": 120,
+      "sha256": "c22b256472cd220d795bc0a340eaec0256c12326a2ee8bf1568f55e9f3b8ca97",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\.pytest_cache\\v\\cache\\nodeids",
+      "bytes": 31676,
+      "sha256": "f02274657011502058da301e3d0263b6616ac1dc256ab16f0a88b5106e6bcc30",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\__init__.cpython-312.pyc",
+      "bytes": 205,
+      "sha256": "e669fd1b4dd8511ea404bd32851806879306415670b2b58dc9115a61fecfc10d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\auth.cpython-312.pyc",
+      "bytes": 4306,
+      "sha256": "2c1e3c3feef7cd4f77edd2f37064b092c9388d649efd466ccbd731f23572fc85",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\config.cpython-312.pyc",
+      "bytes": 14053,
+      "sha256": "6cc88f19d05a53ce5687d50f5ccd9f743d703c07ba0dbe1717c99366474f3d7a",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\extraction.cpython-312.pyc",
+      "bytes": 5858,
+      "sha256": "d331a648c26a89aabdb247b19bf98305f134fa9473efa8e666cfcdebc9a48626",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\graph.cpython-312.pyc",
+      "bytes": 14144,
+      "sha256": "5cdcc5f5bc58ca520befacbcd4c0867721541c921185cb7b36ea9d508d894932",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\graphiti_provider.cpython-312.pyc",
+      "bytes": 2407,
+      "sha256": "df0b2e3351d3c974ec0cf3332432e90b50054285147b5c75dfe65c79e7e79813",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\image_provider.cpython-312.pyc",
+      "bytes": 17590,
+      "sha256": "78c81bfbcdcbb3293dc5a4201481cab2352045eea6a47936226216929bcca256",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\main.cpython-312.pyc",
+      "bytes": 99575,
+      "sha256": "e239c802cc63922aa15efdcfc3da7fcec231b31d882031f8fa87852d569059b2",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\memory_model_audit.cpython-312.pyc",
+      "bytes": 5514,
+      "sha256": "8f1bf3ad61e06c689d34d93648a378e2c7474cf60f7a3d9d7e472fe62921276a",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\memory.cpython-312.pyc",
+      "bytes": 61685,
+      "sha256": "7174ccb30f699f47473fbd7c36d8678208c480cb7433498cde6a973436649425",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\memos.cpython-312.pyc",
+      "bytes": 8692,
+      "sha256": "02a8f5c83feebcb23d730c8d3d02b70c85ad67e360a29d8f2c0dd015f7761116",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\moment_media.cpython-312.pyc",
+      "bytes": 15260,
+      "sha256": "6328e4b691e77e64212369cb623e097eaab17a96700bcb21b2aa576180c483bd",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\moment_semantics.cpython-312.pyc",
+      "bytes": 11437,
+      "sha256": "9009cb1ed7f0377bb17f3a09fb9306a02e85321883f09f32911c40855489364d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\moment_windows.cpython-312.pyc",
+      "bytes": 5065,
+      "sha256": "7c1fded075fdda15fb0c9d9a61caf31256a321215e4738f7d9491dec026810e4",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\moments.cpython-312.pyc",
+      "bytes": 120965,
+      "sha256": "bc5cd57c27ef2041e413ef09a6443c87f1adcb7fbde56b51bcc9aa75b1b48e84",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\provisioning.cpython-312.pyc",
+      "bytes": 18165,
+      "sha256": "7abde558c29e98ce4dd6ebb0ff7c0b17185a2d9ee6b1acb791b4b70cea6de576",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\recollection_policy.cpython-312.pyc",
+      "bytes": 16998,
+      "sha256": "6da8525dd76d2688a963ec17dd9c4f15af38912e2927a92518f3ebd3ca388a39",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\recollection_prompt.cpython-312.pyc",
+      "bytes": 18714,
+      "sha256": "ab4b7bb29785cf3a2aaf76b3e8147386c0c7366ff449a49e3badb84a6f6548fb",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\recollection_scoring.cpython-312.pyc",
+      "bytes": 19576,
+      "sha256": "d032420332500c82ea79cf2e12236db221782a0be97c0b9db581cdc323024780",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_chat.cpython-312.pyc",
+      "bytes": 15440,
+      "sha256": "7f16833af7f17ec59a06ab8771edb03a8605caef28fc70de5663f78eacfe04a3",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_drafts.cpython-312.pyc",
+      "bytes": 34094,
+      "sha256": "c4c88d6ce0cd4c271edd1b681e89a575205f1eb4d944d509f74e77a5e9fbb689",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_intent.cpython-312.pyc",
+      "bytes": 2663,
+      "sha256": "54f986c67a7597da7be35d8cc8da778e2cf29651ada65027bd525e51b62783d5",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_parser.cpython-312.pyc",
+      "bytes": 6852,
+      "sha256": "9f8d583651e1faf1fdf390dac8ed8c469ea8c73a597ae4c980bf1acfd61186de",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_scheduler.cpython-312.pyc",
+      "bytes": 3702,
+      "sha256": "94d529d4ff549c6261b6726fb871290564ef043d0961d568010da1cf0b547815",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminder_workflow.cpython-312.pyc",
+      "bytes": 10221,
+      "sha256": "137d42040d37222b1901011ef3036394a93a5ea8219611ddbb122185fddd6ac2",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\reminders.cpython-312.pyc",
+      "bytes": 27780,
+      "sha256": "17499c56f09f763f8ce3b98f0a1378b0a6d431748b734c66aa8b1ee40f89f435",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\store.cpython-312.pyc",
+      "bytes": 30982,
+      "sha256": "f2304160ec113cc80b01e4e9ec8cf1eac2c5897913e662f4b0ae08173ca9dba8",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\tool_chat.cpython-312.pyc",
+      "bytes": 13725,
+      "sha256": "2aaa824e8df5a1c6cc1c8422d57514f8b22e98cc03618fc6d2ed042aba35d9b2",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\app\\__pycache__\\tools.cpython-312.pyc",
+      "bytes": 23163,
+      "sha256": "ed82f89c7c6c7811c04f8b77cc5b3a70dfc3b4484efce27e067523dbf116e3e6",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_api.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 31324,
+      "sha256": "71f44b54a506e96dde1865bbb550752135a85bdd55666c8c5c0fb56c9fe202fb",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_api.cpython-312.pyc",
+      "bytes": 14348,
+      "sha256": "57ca81e73cae3446c6d694d8684668f93898ba81002321e0ece0c011d524cefd",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_direct_moment_test.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 34650,
+      "sha256": "e3b9700a1ca60b2c8ee09dea2087467bf63f62375bafd54c123e79e01e7bdd9d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_direct_moment_test.cpython-312.pyc",
+      "bytes": 11759,
+      "sha256": "8bd0e5c14efcd83dab03de06dc89da0b96b00acd3bcf05487a82156088b6daf9",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_extraction.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 7183,
+      "sha256": "8a56eb3ec5a58f2c2967b275836646dcaca11e03f06693137a86496edc7f2f5d",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_llm_provider.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 13976,
+      "sha256": "249a35264245a2b521a9817278831672ee31c487e0f0b35326b903ea7d014410",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_memory_open_language.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 14171,
+      "sha256": "016f12dd75d0ca330fc559a5100c2dc8a789c0f0768018030167e276d445f851",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_memory_pipeline.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 59702,
+      "sha256": "6337b9918667433853d0142627388ffa3c3df721f4a9dbc141c34df0a327df64",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_memory_pipeline.cpython-312.pyc",
+      "bytes": 30496,
+      "sha256": "4062def712aee114981b299a244282c74ee94bb12ede6a16ff1d2a8d4f131458",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_memory_relationships.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 20578,
+      "sha256": "4b2565098717ba9776b944cb3c05da52e726ec037efed824ac8b71bf73124cda",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_memos.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 3375,
+      "sha256": "d4608863b15ca7d403f41c6d091541e857c0f5bb3394fee44741a26b93601491",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_moment_privacy.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 26744,
+      "sha256": "cc19b1a293edcfc68e30ec908072dcc6890b8b0531265701b979513b7e3e3efa",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_provisioning_stdin.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 5372,
+      "sha256": "22b6ecd0bd717ecf605c6f60e39b765c908b323b8663576db6526fa03e833f13",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_recollection_authorization.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 30494,
+      "sha256": "5993bf68dfbdc5a4a7e24cf38416772e45d31bb8a9ab56ecdf955802cfc92ad3",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_recollection_policy.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 16535,
+      "sha256": "1dfd180e7badbc0917e8bc6ec25781f8a64e9fba3eb25a75f5688d348c135dce",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_recollection_prompt.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 19297,
+      "sha256": "0b6e9964726ac46fe637f96d040b880972631a14e6cac7b5508a076397a42c5a",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_recollection_scoring.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 45072,
+      "sha256": "dab65f2e64149a23901cf594f62299d3f1a557096fe69ad7b4a4eb458ecae9ce",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_recollection_separation.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 29121,
+      "sha256": "e0a3020a6715e400363c7ddbb352bbca059fb2b7b431803f09c95598fcd42bba",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_reminder_business_workflow.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 43149,
+      "sha256": "7f17c925041864840520a324db673a0eefc6b0def976d10fd16f474cff368c17",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_reminder_delivery_recovery.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 11324,
+      "sha256": "d9239e88be84b8f4af0f3972616dd3835619031166939b8889ebd5f647451468",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_reminder_drafts.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 36396,
+      "sha256": "3b4dee15d577662144da9eb2c0ae38ccaed9cffcb077a8c406dd68e4d6947cd7",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_reminder_workflow.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 5845,
+      "sha256": "71b542626c5c239b3d5467c0ab2ae4f9a1899ee3a116b921f490c1792ffb0acb",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_reminders.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 41272,
+      "sha256": "a1b01e3920778f1ce067583c5d298433f2caf3e041697348189c870197d1a64f",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_tool_chat.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 46852,
+      "sha256": "e6fb7d4dd1cab4ef9f85869a30304d9b5af7ee1995f2e76cabd353a460bffcba",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_tools.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 29133,
+      "sha256": "0bbd5f64e61e77cbbf39186ce8112d5e7d7638a87bd82897e881c2b9ac0fe6d4",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v023_memory.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 33835,
+      "sha256": "ad521c7827103979bdb76ba9d27dfea0848f4e953b0004de036d5ec806eff413",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v023_moments.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 34862,
+      "sha256": "584d82f758cc693dcd80925a70c97c802b0c399202a35ec7a68e4ae2fd044a10",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v023_reminders.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 20443,
+      "sha256": "7df8135433281ca21df5cdff10da753069563a2c8ae4112093cd48f17faed033",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_moment_media.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 37495,
+      "sha256": "f476d305b8b38f89ce237083e803e0ad617ad367b168e4f4140c39305d05970b",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_moment_media.cpython-312.pyc",
+      "bytes": 15174,
+      "sha256": "071d6037d18eebc3351e896d30ae3846e8acaebffbf2e6e44e5ade294fa3fb94",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_recovery.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 52912,
+      "sha256": "cd223943b4b35ac354a88d7ab09ae06a03053c30538062e5969dea2babbc2d02",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_recovery.cpython-312.pyc",
+      "bytes": 24190,
+      "sha256": "6195f0faebea022fb6c6b76dfb9851a9fce519dabe5898295960cac0febd459c",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_selection.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 37519,
+      "sha256": "c9bb9125416e3b0b9419e713114a052207a89b6550596f89702a3726d6537a36",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_selection.cpython-312.pyc",
+      "bytes": 17209,
+      "sha256": "2c2f04e1d31832440a5d8d80772f840f291488870a6d9299f25fbb11065be730",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_semantic_eval.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 12913,
+      "sha256": "96a9728d7bc6818bcf7a3e37cb56ed47c58ab8974bdeff96f7fc50e3c4e25b28",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_windows.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 54778,
+      "sha256": "5af35b063f67cd67a4bd85fcafbf19739c7c91fedb12cce121fa464d052a027c",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "services\\life-core\\tests\\__pycache__\\test_v03_windows.cpython-312.pyc",
+      "bytes": 27192,
+      "sha256": "e11497a2aa3b9f58b61ef0b42d1f8d1041c75af6b19eea208600eb7f22745091",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "tests\\__pycache__\\live-p02-memory.cpython-312.pyc",
+      "bytes": 12287,
+      "sha256": "23f3cdb685a832fc4a12ceabe7bda76ad17af9e97aad8f910331d7c90e1485ab",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "tests\\__pycache__\\test_workspace_guard.cpython-312-pytest-8.4.2.pyc",
+      "bytes": 4741,
+      "sha256": "f0dff5d295c7c6a74915c1f23957235b74cb2f176f8fd995b05b88c8d23e09e4",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "tests\\v03-b2-e2e\\__pycache__\\preflight.cpython-312.pyc",
+      "bytes": 9593,
+      "sha256": "ea35676cb4c5e8771b3f464d3596574743f69e7f12ff6d20e7c08daf20736d05",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    },
+    {
+      "path": "tests\\v03-b2-e2e\\__pycache__\\provision_account.cpython-312.pyc",
+      "bytes": 11481,
+      "sha256": "afba531d21c94e6e211ac5c36fa38093aa359d9440f82e8076ed3130384cf9e6",
+      "reason": "regenerable Python/test cache",
+      "backup": "H:\\AI For research institute\\_backups\\LifeCompanion-Rebuild-five-task-20261104-192000"
+    }
+  ]
+}

@@ -3,4 +3,8 @@ uvicorn==0.54.0
 httpx==0.28.1
 pytest==8.4.2
 tzdata==2025.2
+langmem==0.0.30
+langchain-openai==1.7.3
+neo4j==6.4.1
+Pillow==10.4.0
 

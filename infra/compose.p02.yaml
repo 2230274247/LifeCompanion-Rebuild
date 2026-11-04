@@ -1,0 +1,23 @@
+name: lcr-p02-20261103
+
+services:
+  neo4j:
+    image: neo4j:5.26.32-community@sha256:249a1ec6e3c52d82101a5ed33d6ed2b5ed5b0017b21a28c0bfebc335e87fb177
+    env_file:
+      - ./runtime/p02/neo4j.env
+    environment:
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_default__listen__address: 0.0.0.0
+    ports:
+      - "127.0.0.1:7475:7474"
+      - "127.0.0.1:7688:7687"
+    volumes:
+      - ./runtime/p02/neo4j/data:/data
+      - ./runtime/p02/neo4j/logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "password=\"$${NEO4J_AUTH#neo4j/}\"; cypher-shell -u neo4j -p \"$$password\" 'RETURN 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 8s
+      retries: 18
+    mem_limit: 1200m

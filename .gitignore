@@ -2,20 +2,35 @@
 .env
 .env.*
 !.env.example
+model_api_keys.env
+model_api_keys.env.*
+!model_api_keys.env.example
 infra/volumes/
 infra/runtime/
 evidence/runtime/
+evidence/**/runtime/
 services/life-core/data/
 services/life-core/.venv/
 
 # Independently versioned upstream clones
 products/librechat-custom/
 products/memos-custom/
+products/vikunja-upstream/
+products/ntfy-upstream/
 
 # Python and Node
 __pycache__/
 .pytest_cache/
+.ruff_cache/
+.coverage
+coverage/
+logs/
 .venv/
 node_modules/
 dist/
+*.sqlite3
+*.sqlite3-*
+*.sqlite
+*.db
+WORKSPACE_LOCK.json
 

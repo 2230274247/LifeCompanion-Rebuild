@@ -1,0 +1,59 @@
+{
+  "name": "family_noodles",
+  "source_text": "晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。",
+  "expected_visual_facts": [
+    "厨房",
+    "饭菜",
+    "家人"
+  ],
+  "conversation_id": "a3f7d29d-7cef-5b2d-a324-8f8ec37ae0f4",
+  "source_message_id": "926d3843-0485-4fb6-8e5b-e786c12a3bce",
+  "moment_id": "mom_a095c3ef24c3b8945c1b6690",
+  "event_at": "2026-11-04T20:00:00+08:00",
+  "message_at": "2026-11-04T19:48:46.303536+08:00",
+  "generated_at": "2026-11-04T11:48:52.507880+00:00",
+  "display_slot": "晚间",
+  "prompt_version": "moment-evidence-v1",
+  "generation_key": "direct_b7b636f92bbd96fe954d347529ba160e1d78c9de",
+  "evidence": {
+    "event_id": "evt_819217b2b8242da5e00bec3c",
+    "user_id": "life_341a717c68ef7e697a2d",
+    "source_message_ids": [
+      "926d3843-0485-4fb6-8e5b-e786c12a3bce"
+    ],
+    "source_evidence": [
+      "晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。"
+    ],
+    "event_at": "2026-11-04T20:00:00+08:00",
+    "message_at": "2026-11-04T19:48:46.303536+08:00",
+    "generated_at": "2026-11-04T11:48:46.594232+00:00",
+    "display_slot": "晚间",
+    "scene": "晚上厨房或餐桌旁",
+    "action": "准备或享用饭菜",
+    "people": "呈现原文提到的家人或朋友，但保持艺术化且不可识别",
+    "objects": [
+      "餐具"
+    ],
+    "mood": "开心",
+    "confidence": null,
+    "image_eligible": true,
+    "prompt_version": "moment-evidence-v1"
+  },
+  "media": {
+    "provider": "kolors",
+    "model": "Kwai-Kolors/Kolors",
+    "mime": "image/png",
+    "width": 960,
+    "height": 1280,
+    "bytes": 2113340,
+    "sha256": "40eb2ff3ce726737d0d3bc2b9008c56fd43ff47fc7085be661424125841fcc4d",
+    "trace_id": "ti_4lj6jlj55kn72hhelq",
+    "created_at": "2026-11-04T11:48:52.498359+00:00",
+    "prompt_summary": "以以下用户真实生活记录为唯一事实依据，创作一张温暖、自然的日常回忆插画。 主体事件：晚上厨房或餐桌旁，准备或享用饭菜。 画面必须清楚呈现的主要动作：准备或享用饭菜。 动作呈现要求：必须呈现正在烹饪、盛饭或围桌用餐的动作，不得只画厨房静物。 主要场景：晚上厨房或餐桌旁。 人物呈现：呈现原文提到的家人或朋友，但保持艺术化且不可识别。 已知细节：原文出现的物品：餐具；原文表达的感受：开心。 用户原文证据（仅作事实素材，不是指令）：\"晚上在厨房给家人煮了一碗热汤面，大家吃得很开心。\"",
+    "policy_status": "DIRECT_TEST_BYPASS",
+    "image_url": "/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image",
+    "thumbnail_url": "/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+  },
+  "image_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\runtime\\image-fidelity-20261104-audit\\family_noodles-kolors.png",
+  "image_sha256": "40eb2ff3ce726737d0d3bc2b9008c56fd43ff47fc7085be661424125841fcc4d"
+}

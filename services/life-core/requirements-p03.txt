@@ -1,0 +1,4 @@
+-r requirements-p02.txt
+APScheduler==3.11.3
+SQLAlchemy==2.0.55
+langgraph-checkpoint-sqlite==3.1.3

@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
+from .reminder_parser import CLOCK, number
+
 
 @dataclass(frozen=True)
 class ExtractionResult:
@@ -60,6 +62,12 @@ _EVENT_MARKERS = (
     "逛了",
     "公园",
     "朋友",
+    "结束了",
+    "完成了",
+    "结项了",
+    "毕业了",
+    "获奖了",
+    "通过了",
 )
 _SCENE_PATTERN = re.compile(
     r"(?:在|去)(?P<place>[^，。！？,.!?]{1,20}?)"
@@ -77,16 +85,42 @@ def _event_time(text: str, now: datetime) -> datetime:
     elif "今天" not in text and "今日" not in text:
         day = local
 
-    hour = day.hour
-    if "上午" in text or "早上" in text:
-        hour = 9
-    elif "中午" in text:
-        hour = 12
-    elif "下午" in text:
-        hour = 15
-    elif "晚上" in text or "今晚" in text:
-        hour = 20
-    return day.replace(hour=hour, minute=0, second=0, microsecond=0)
+    clock = CLOCK.search(text)
+    if clock:
+        hour = number(clock.group(2))
+        if clock.group(1) in ("下午", "晚上", "傍晚") and hour < 12:
+            hour += 12
+        if clock.group(1) == "中午" and hour < 11:
+            hour += 12
+        minute = (
+            int(clock.group(3))
+            if clock.group(3)
+            else 30 if clock.group(4) == "半"
+            else int((clock.group(4) or "0").rstrip("分"))
+        )
+    else:
+        hour = day.hour
+        minute = 0
+        if "上午" in text or "早上" in text:
+            hour = 9
+        elif "中午" in text:
+            hour = 12
+        elif "下午" in text:
+            hour = 15
+        elif "晚上" in text or "今晚" in text:
+            hour = 20
+    return day.replace(hour=hour, minute=minute, second=0, microsecond=0)
+
+
+def infer_event_time(
+    text: str,
+    *,
+    now: datetime | None = None,
+    timezone: str = "Asia/Hong_Kong",
+) -> datetime:
+    zone = ZoneInfo(timezone)
+    current = (now or datetime.now(zone)).astimezone(zone)
+    return _event_time(" ".join(text.split()).strip(), current)
 
 
 def _title_for(text: str) -> str:

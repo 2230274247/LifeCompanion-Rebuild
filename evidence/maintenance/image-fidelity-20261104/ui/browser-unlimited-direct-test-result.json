@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "classification": "UNLIMITED_TEST_ONLY",
+  "account": {
+    "email": "test@example.test",
+    "username": "test",
+    "librechat_user_id": "6aeb02e3ff403d374a54095b",
+    "protected": true
+  },
+  "permissions": {
+    "memory_consent": true,
+    "recall_consent": true,
+    "sensitive_consent": true,
+    "image_consent": true,
+    "notification_consent": true
+  },
+  "egress_consents": {
+    "consent_version": "recollection-egress-v1",
+    "semantic_scoring": {
+      "provider": "deepseek",
+      "granted": true
+    },
+    "prompt_generation": {
+      "provider": "deepseek",
+      "granted": true
+    },
+    "image_generation": {
+      "provider": "kolors",
+      "granted": true
+    }
+  },
+  "direct_test_status": {
+    "enabled": true,
+    "provider_ready": true,
+    "budget": 1,
+    "used": 11,
+    "remaining": 0,
+    "unlimited": true,
+    "mode": "DIRECT_TEST_BYPASS"
+  },
+  "conversation_id": "1868f9e8-3930-5c59-a293-5df4f7261727",
+  "moment_id": "mom_004af103c994e0cf1d317e0f",
+  "prompt": "今天早上六点起床去公园跑步，跑完后觉得精神很好。",
+  "direct_test_posts_during_check": 0,
+  "button_enabled": true,
+  "budget_label": "测试额度：不限",
+  "existing_real_moment_visible": true,
+  "thumbnail": {
+    "naturalWidth": 640,
+    "naturalHeight": 853
+  },
+  "layout": {
+    "desktop_chat": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "mobile_chat": {
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    "desktop_memories": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    }
+  },
+  "screenshots": {
+    "desktop_chat": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\maintenance\\image-fidelity-20261104\\ui\\chat-unlimited-direct-test-desktop-1440.png",
+    "mobile_chat": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\maintenance\\image-fidelity-20261104\\ui\\chat-unlimited-direct-test-mobile-390.png",
+    "mobile_memories": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\maintenance\\image-fidelity-20261104\\ui\\memories-existing-real-image-mobile-390.png",
+    "desktop_memories": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\maintenance\\image-fidelity-20261104\\ui\\memories-existing-real-image-desktop-1440.png"
+  },
+  "console_errors": [],
+  "failed_responses": [],
+  "page_errors": [],
+  "completed_at": "2026-11-04T12:00:00.020Z"
+}

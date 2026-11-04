@@ -1,0 +1,428 @@
+{
+  "version": "recollection-reference-v2-draft",
+  "previous_reference_sha256": "aba8d66b5b0172d8f6107b35c56acf555ca0cdaa086418b52beccbac83e975d3",
+  "status": "PENDING_HUMAN_REVIEW",
+  "scenes": [
+    {
+      "id": "S01",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "普通日常且无用户赋予的特殊意义，允许跳过。"
+    },
+    {
+      "id": "S02",
+      "acceptable": [
+        null,
+        "run"
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "普通运动可以保守跳过，不能仅因为跑步就认定高价值。"
+    },
+    {
+      "id": "S03",
+      "acceptable": [
+        "run"
+      ],
+      "required": [
+        "run"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "真实行动与用户明确的个人目标和纪念意愿共同构成价值。"
+    },
+    {
+      "id": "S04",
+      "acceptable": [
+        "reading"
+      ],
+      "required": [
+        "reading"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "首次参与和个人突破比无新增意义的常规活动更清楚。"
+    },
+    {
+      "id": "S05",
+      "acceptable": [
+        "run",
+        "book"
+      ],
+      "required": [
+        "run",
+        "book"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "两个独立里程碑都合理；不要求唯一总排序。"
+    },
+    {
+      "id": "S06",
+      "acceptable": [
+        "meal"
+      ],
+      "required": [
+        "meal"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "不能用“早餐”类别否定重聚价值，人物仅关系称呼。"
+    },
+    {
+      "id": "S07",
+      "acceptable": [
+        "walk"
+      ],
+      "required": [
+        "walk"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "首次不自动重要，持续目标完成有明确个人意义。"
+    },
+    {
+      "id": "S08",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "情绪强度本身不是已发生的清晰生活事件。"
+    },
+    {
+      "id": "S09",
+      "acceptable": [
+        "boundary"
+      ],
+      "required": [
+        "boundary"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "用户明确表达已经发生的内在转变有文字纪念价值；不得补造场景。"
+    },
+    {
+      "id": "S10",
+      "acceptable": [
+        "run"
+      ],
+      "required": [
+        "run"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "三条复述只构成一个事件，来源数不能等同价值。"
+    },
+    {
+      "id": "S11",
+      "acceptable": [
+        "book"
+      ],
+      "required": [
+        "book"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "重复三次普通跑步不能胜过明确里程碑。"
+    },
+    {
+      "id": "S12",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": "第一次训练可能指当天第一场，也可能指人生首次；保留v1标签，不自动裁决",
+      "rationale": "明确第二次必须独立，第二次完成目标更有纪念依据。"
+    },
+    {
+      "id": "S13",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "不同编号地点和挑战明确为两次事件。"
+    },
+    {
+      "id": "S14",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "没有已发生行动，不把愿望画成事实。"
+    },
+    {
+      "id": "S15",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "转贴建议不是本人生活事实。"
+    },
+    {
+      "id": "S16",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "没有证实的参加事实。"
+    },
+    {
+      "id": "S17",
+      "acceptable": [
+        "garden",
+        "health"
+      ],
+      "required": [
+        "garden",
+        "health"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "获敏感文字授权后，本人治疗决定和番茄成果均可私人保存；医疗不可自动成图"
+    },
+    {
+      "id": "S18",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "他人私事不得自动纪念或外发。"
+    },
+    {
+      "id": "S19",
+      "acceptable": [
+        "bank"
+      ],
+      "required": [
+        "bank"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "个人债务里程碑可在获敏感文字授权后私存，不授权外发"
+    },
+    {
+      "id": "S20",
+      "acceptable": [
+        "resolve"
+      ],
+      "required": [
+        "resolve"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "内在事件可文字保存，不得编造人物环境。"
+    },
+    {
+      "id": "S21",
+      "acceptable": [
+        "repair"
+      ],
+      "required": [
+        "repair"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "不依赖强烈情绪词，也可识别已发生的技能成长。"
+    },
+    {
+      "id": "S22",
+      "acceptable": [
+        "tea"
+      ],
+      "required": [
+        "tea"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "LifeCompanion应容纳用户明确珍惜的微小日常。"
+    },
+    {
+      "id": "S23",
+      "acceptable": [
+        "book"
+      ],
+      "required": [
+        "book"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "与S11只改变普通事件复述次数。"
+    },
+    {
+      "id": "S24",
+      "acceptable": [
+        "cake"
+      ],
+      "required": [
+        "cake"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "隐私风险优先于画面丰富度。"
+    },
+    {
+      "id": "S25",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "同日上午相隔两小时的独立事件不合并。"
+    },
+    {
+      "id": "S26",
+      "acceptable": [
+        "swim"
+      ],
+      "required": [
+        "swim"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "迁移到其他活动，不能硬编码跑步或减肥。"
+    },
+    {
+      "id": "S27",
+      "acceptable": [
+        "noodle"
+      ],
+      "required": [
+        "noodle"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "平凡食物承载关系意义，首次物品使用可很普通。"
+    },
+    {
+      "id": "S28",
+      "acceptable": [
+        "plant",
+        "knit"
+      ],
+      "required": [
+        "plant",
+        "knit"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "两件安全明确的个人里程碑均可接受。"
+    },
+    {
+      "id": "S29",
+      "acceptable": [
+        "bird"
+      ],
+      "required": [
+        "bird"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "他人健康隐私不因情绪而入选。"
+    },
+    {
+      "id": "S30",
+      "acceptable": [
+        "identity"
+      ],
+      "required": [
+        "identity"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "内心转折不应因难以生图被抹掉。"
+    },
+    {
+      "id": "S31",
+      "acceptable": [
+        "walk"
+      ],
+      "required": [
+        "walk"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "同一次散步的指示性复述保留两条证据。"
+    },
+    {
+      "id": "S32",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "假设和未来愿望不能当已发生事实。"
+    },
+    {
+      "id": "S33",
+      "acceptable": [
+        "grief"
+      ],
+      "required": [
+        "grief"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "悲伤不等于毫无价值，尊重明确文字用途，不补造去世场景。"
+    },
+    {
+      "id": "S34",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "无事件事实或自我变化依据，不凑回忆。"
+    },
+    {
+      "id": "S35",
+      "acceptable": [
+        "learn"
+      ],
+      "required": [
+        "learn"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "新技能不应输给重复描述次数。"
+    },
+    {
+      "id": "S36",
+      "acceptable": [
+        "diary"
+      ],
+      "required": [
+        "diary"
+      ],
+      "reference_status": "AGENT_DRAFT_PENDING_HUMAN",
+      "ambiguity": null,
+      "rationale": "有明确本人文字意愿，敏感文字授权独立，外发继续拒绝"
+    }
+  ]
+}

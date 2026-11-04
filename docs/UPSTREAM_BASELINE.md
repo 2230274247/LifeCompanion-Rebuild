@@ -32,7 +32,7 @@ Memos 没有修改业务源码。详见 `docs/UPSTREAM_DIFF.md`。
 ## 可复现启动
 
 ```powershell
-Set-Location "H:\AI For research institute\LifeCompanion-Rebuild\infra"
+Set-Location "<project-root>\infra"
 docker compose --env-file ".env" -f "compose.baseline.yaml" up -d
 ```
 

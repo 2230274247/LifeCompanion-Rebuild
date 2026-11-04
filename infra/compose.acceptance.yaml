@@ -1,0 +1,80 @@
+name: lcr-acceptance-20261103
+
+services:
+  mongo:
+    image: mongo:8.0.20
+    command: ["mongod", "--noauth", "--wiredTigerCacheSizeGB", "0.25"]
+    volumes:
+      - ./runtime/p00/mongo:/data/db
+    mem_limit: 600m
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+  memos:
+    image: neosmemo/memos:26.10.0
+    ports: ["127.0.0.1:5241:5230"]
+    volumes:
+      - ./runtime/p00/memos:/var/opt/memos
+    mem_limit: 192m
+  librechat:
+    image: ghcr.io/librechat-ai/librechat:v0.8.8
+    env_file: ./runtime/p00/acceptance.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: "3080"
+      MONGO_URI: mongodb://mongo:27017/LibreChatAcceptance
+      SEARCH: "false"
+      LIFE_CORE_URL: http://host.docker.internal:8031
+      LIFE_CORE_INGEST_TIMEOUT_MS: "4000"
+      ALLOW_REGISTRATION: "true"
+      ALLOW_EMAIL_LOGIN: "true"
+      REGISTER_MAX: "20"
+      LOGIN_MAX: "100"
+      APP_TITLE: "拾光 · Rebuild 隔离验收"
+      TZ: Asia/Hong_Kong
+    ports: ["127.0.0.1:3091:3080"]
+    volumes:
+      - ../products/librechat-custom/librechat.yaml:/app/librechat.yaml:ro
+      - ../products/librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro
+      - ../products/librechat-custom/client/dist:/app/client/dist:ro
+      - ../products/librechat-custom/packages/api/dist:/app/packages/api/dist:ro
+      - ../products/librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro
+      - ./runtime/p00/uploads:/app/uploads
+      - ./runtime/p00/logs:/app/logs
+    depends_on:
+      mongo:
+        condition: service_healthy
+    mem_limit: 1100m
+  vikunja:
+    image: vikunja/vikunja@sha256:f7dc8428d10aef17f3075886d3c1c022f566ec456f88985f02c137f4fc534576
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://127.0.0.1:3461/
+      VIKUNJA_SERVICE_JWTSECRET: ${ACCEPTANCE_VIKUNJA_SECRET:?isolated secret required}
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
+      VIKUNJA_WEBHOOKS_ENABLED: "true"
+      VIKUNJA_OUTGOINGREQUESTS_ALLOWNONROUTABLEIPS: "true"
+      TZ: Asia/Hong_Kong
+    ports: ["127.0.0.1:3461:3456"]
+    volumes:
+      - ./runtime/p00/vikunja:/db
+      - ./runtime/p00/vikunja-files:/app/vikunja/files
+    mem_limit: 256m
+  ntfy:
+    image: binwiederhier/ntfy@sha256:fb48c413eb11d50339962b5d62cddce0f800e7f77c626d638a7c20cb7e9c4465
+    command: serve
+    environment:
+      NTFY_BASE_URL: http://127.0.0.1:8097
+      NTFY_AUTH_FILE: /var/lib/ntfy/user.db
+      NTFY_CACHE_FILE: /var/cache/ntfy/cache.db
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      NTFY_ENABLE_LOGIN: "true"
+      TZ: Asia/Hong_Kong
+    ports: ["127.0.0.1:8097:80"]
+    volumes:
+      - ./runtime/p00/ntfy-auth:/var/lib/ntfy
+      - ./runtime/p00/ntfy-cache:/var/cache/ntfy
+    mem_limit: 160m

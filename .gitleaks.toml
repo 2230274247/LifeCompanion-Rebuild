@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Non-secret evidence identifier used for moment idempotency"
+targetRules = ["generic-api-key"]
+paths = ['''evidence/maintenance/image-fidelity-20261104/.*\.json$''']
+regexTarget = "line"
+regexes = ['''(?i)"generation_key"\s*:\s*"direct_[a-f0-9]{40}"''']

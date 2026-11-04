@@ -1,5 +1,7 @@
 param(
-    [string]$Python = $env:LIFE_PYTHON
+    [string]$Python = $env:LIFE_PYTHON,
+    [string]$HostAddress = $(if ($env:LIFE_HOST) { $env:LIFE_HOST } else { "127.0.0.1" }),
+    [int]$Port = $(if ($env:LIFE_PORT) { [int]$env:LIFE_PORT } else { 8010 })
 )
 
 $ErrorActionPreference = "Stop"
@@ -29,10 +31,12 @@ if (-not $Python) {
 }
 
 $env:PYTHONPATH = $serviceRoot
-$env:LIFE_DATABASE_PATH = Join-Path $serviceRoot "data\life-core.sqlite3"
-$env:LIFE_HOST = "127.0.0.1"
-$env:LIFE_PORT = "8010"
+if (-not $env:LIFE_DATABASE_PATH) {
+    $env:LIFE_DATABASE_PATH = Join-Path $serviceRoot "data\life-core.sqlite3"
+}
+$env:LIFE_HOST = $HostAddress
+$env:LIFE_PORT = "$Port"
 
 Set-Location -LiteralPath $serviceRoot
-& $Python -m uvicorn app.main:app --host 127.0.0.1 --port 8010
+& $Python -m uvicorn app.main:app --host $HostAddress --port $Port
 
