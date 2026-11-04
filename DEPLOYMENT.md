@@ -63,9 +63,10 @@ powershell -ExecutionPolicy Bypass -File scripts\bootstrap-lifecompanion.ps1
 ```
 
 脚本仅在缺失时创建 `infra\.env`、上游 `.env` 和父目录密钥文件；不会覆盖
-已有非占位值。它还会为内部令牌、JWT、凭据加密、Meilisearch 和 Memos
-初始管理员生成本机随机值。Memos 初始管理员为 `lifecompanion-admin`，
-其密码只写入被忽略的 `infra\.env`。随后脚本克隆 LibreChat `v0.8.8`、
+已有非占位值。它还会为内部令牌、Memos 初始管理员、JWT、凭据加密和
+Meilisearch 生成本机随机值。Memos 初始管理员为 `lifecompanion-admin`，
+其密码只写入被忽略的 `infra\.env`；LibreChat 本地密钥写入同样被忽略的
+`products\librechat-custom\.env`。随后脚本克隆 LibreChat `v0.8.8`、
 应用补丁、执行 `npm ci`、`npm run frontend`，并安装 Python 依赖。
 
 ### 2.4 启动和检查

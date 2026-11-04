@@ -64,6 +64,33 @@ function Initialize-EnvSecret([string]$Path, [string]$Name, [int]$ByteLength = 3
     )
 }
 
+function Initialize-EnvDefault([string]$Path, [string]$Name, [string]$Value) {
+    $lines = [System.Collections.Generic.List[string]]::new()
+    foreach ($line in [System.IO.File]::ReadAllLines($Path)) {
+        $lines.Add($line)
+    }
+    $pattern = '^\s*' + [regex]::Escape($Name) + '=(.*)$'
+    for ($index = 0; $index -lt $lines.Count; $index++) {
+        if ($lines[$index] -match $pattern) {
+            if (-not $Matches[1].Trim()) {
+                $lines[$index] = "$Name=$Value"
+            }
+            [System.IO.File]::WriteAllLines(
+                $Path,
+                $lines,
+                [System.Text.UTF8Encoding]::new($false)
+            )
+            return
+        }
+    }
+    $lines.Add("$Name=$Value")
+    [System.IO.File]::WriteAllLines(
+        $Path,
+        $lines,
+        [System.Text.UTF8Encoding]::new($false)
+    )
+}
+
 Require-Command git "请先安装 Git。"
 Require-Command node "请先安装 Node.js 22.12 或更高版本。"
 Require-Command npm "请先安装 npm。"
@@ -85,6 +112,9 @@ Initialize-EnvSecret $infraEnv "CREDS_KEY" 32
 Initialize-EnvSecret $infraEnv "CREDS_IV" 16
 Initialize-EnvSecret $infraEnv "MEILI_MASTER_KEY" 32
 Initialize-EnvSecret $infraEnv "MEMOS_BOOTSTRAP_ADMIN_PASSWORD" 32
+Initialize-EnvDefault $infraEnv "LIFE_PUBLIC_URL" "http://127.0.0.1:3001"
+Initialize-EnvDefault $infraEnv "LIFE_CHAT_INTERNAL_URL" "http://127.0.0.1:3080"
+Initialize-EnvDefault $infraEnv "LIFE_ALLOW_REGISTRATION" "true"
 
 if (-not (Test-Path -LiteralPath $upstream)) {
     New-Item -ItemType Directory -Path (Split-Path -Parent $upstream) -Force | Out-Null
@@ -99,6 +129,12 @@ if (-not (Test-Path -LiteralPath $upstream)) {
 }
 
 Copy-IfMissing (Join-Path $upstream ".env.example") (Join-Path $upstream ".env")
+$upstreamEnv = Join-Path $upstream ".env"
+Initialize-EnvSecret $upstreamEnv "JWT_SECRET" 32
+Initialize-EnvSecret $upstreamEnv "JWT_REFRESH_SECRET" 32
+Initialize-EnvSecret $upstreamEnv "CREDS_KEY" 32
+Initialize-EnvSecret $upstreamEnv "CREDS_IV" 16
+Initialize-EnvSecret $upstreamEnv "MEILI_MASTER_KEY" 32
 
 $upstreamHead = (& git -C $upstream rev-parse HEAD).Trim()
 $customMarker = Join-Path $upstream "client\src\components\Life\Memories.tsx"

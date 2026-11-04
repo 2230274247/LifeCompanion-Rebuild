@@ -127,7 +127,9 @@ Vikunja/ntfy 为可选功能。`infra/.env.reminders` 必须使用已核验的�
 
 当前没有声称支持密钥热更新。
 
-`bootstrap-lifecompanion.ps1/.sh` 在首次复制 `.env.example` 后，会为
-`LIFE_INTERNAL_TOKEN`、JWT、LibreChat 凭据加密、Meilisearch 和 Memos
-初始管理员生成随机值；已有非占位值不会被覆盖。Memos 管理员用户名为
-`lifecompanion-admin`，密码只保存在本机 `infra/.env`，不要提交或粘贴到日志。
+`bootstrap-lifecompanion.ps1/.sh` 在首次复制环境模板后，会为
+`LIFE_INTERNAL_TOKEN`、Memos 初始管理员、JWT、LibreChat 凭据加密和
+Meilisearch 生成随机值；已有非占位值不会被覆盖。Memos 管理员用户名为
+`lifecompanion-admin`，密码只保存在本机 `infra/.env`。JWT、凭据加密和
+Meilisearch 值保存在被忽略的 `products/librechat-custom/.env`，不得提交或
+粘贴到日志。

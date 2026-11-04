@@ -49,6 +49,16 @@ initialize_env_secret() {
   mv "$temporary" "$path"
 }
 
+initialize_env_default() {
+  local path="$1"
+  local name="$2"
+  local value="$3"
+  if awk -F= -v key="$name" '$1 == key { found = 1 } END { exit !found }' "$path"; then
+    return
+  fi
+  printf '%s=%s\n' "$name" "$value" >>"$path"
+}
+
 require_command git "Install Git first."
 require_command node "Install Node.js 22.12 or newer."
 require_command npm "Install npm first."
@@ -65,6 +75,9 @@ initialize_env_secret "$ROOT/infra/.env" "CREDS_KEY" 32
 initialize_env_secret "$ROOT/infra/.env" "CREDS_IV" 16
 initialize_env_secret "$ROOT/infra/.env" "MEILI_MASTER_KEY" 32
 initialize_env_secret "$ROOT/infra/.env" "MEMOS_BOOTSTRAP_ADMIN_PASSWORD" 32
+initialize_env_default "$ROOT/infra/.env" "LIFE_PUBLIC_URL" "http://127.0.0.1:3001"
+initialize_env_default "$ROOT/infra/.env" "LIFE_CHAT_INTERNAL_URL" "http://127.0.0.1:3080"
+initialize_env_default "$ROOT/infra/.env" "LIFE_ALLOW_REGISTRATION" "true"
 chmod 600 "$ROOT/infra/.env"
 
 if [[ ! -d "$UPSTREAM" ]]; then
@@ -75,6 +88,11 @@ if [[ ! -d "$UPSTREAM" ]]; then
 fi
 
 copy_if_missing "$UPSTREAM/.env.example" "$UPSTREAM/.env"
+initialize_env_secret "$UPSTREAM/.env" "JWT_SECRET" 32
+initialize_env_secret "$UPSTREAM/.env" "JWT_REFRESH_SECRET" 32
+initialize_env_secret "$UPSTREAM/.env" "CREDS_KEY" 32
+initialize_env_secret "$UPSTREAM/.env" "CREDS_IV" 16
+initialize_env_secret "$UPSTREAM/.env" "MEILI_MASTER_KEY" 32
 
 if [[ ! -f "$UPSTREAM/client/src/components/Life/Memories.tsx" ]]; then
   if [[ -n "$(git -C "$UPSTREAM" status --porcelain)" ]]; then
