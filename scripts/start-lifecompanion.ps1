@@ -89,7 +89,11 @@ if ([string]::IsNullOrWhiteSpace($env:LIFE_MEMOS_TOKENS_FILE)) {
     throw "LIFE_MEMOS_TOKENS_FILE 必须是绝对路径。"
 }
 if (-not (Test-Path -LiteralPath $env:LIFE_MEMOS_TOKENS_FILE)) {
-    Set-Content -LiteralPath $env:LIFE_MEMOS_TOKENS_FILE -Value "{}" -Encoding utf8NoBOM
+    [System.IO.File]::WriteAllText(
+        $env:LIFE_MEMOS_TOKENS_FILE,
+        "{}",
+        [System.Text.UTF8Encoding]::new($false)
+    )
 }
 $env:PYTHONPATH = $lifeCore
 $env:LIFE_DATABASE_PATH = Join-Path $lifeCore "data\life-core.sqlite3"
