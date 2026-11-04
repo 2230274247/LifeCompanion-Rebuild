@@ -18,6 +18,7 @@
 - Compose 端口、项目名、容器绑定地址和 life-core 地址可配置。
 - Linux 容器通过 `host.docker.internal:host-gateway` 访问宿主机服务。
 - 网关目标和 life-core 监听地址可由环境变量配置。
+- 初始化门槛调整为 Node.js 24 LTS+，与上游依赖声明一致。
 
 ### Fixed
 
@@ -35,13 +36,17 @@
 
 ### Validation
 
-- `services/life-core`：`317 passed, 1 warning`
+- `services/life-core`：`319 passed, 1 warning`
 - Gateway：`4 passed`
 - 真实 Kolors：3/3 HTTP 200，人工核对 PASS
 - 当前新图 UI：聊天与回忆页 PASS，检查期间 0 个新付费生图请求
+- 本地 release-equivalent 空目录 clone、初始化、真实聊天、记忆发布、
+  用户隔离和重启持久化 PASS
 
 ### Known limitations
 
 - 生成后视觉模型自动复核尚未实现，状态为 `NOT_TESTED`。
 - GitHub remote 未配置，真实 clone/push 状态为 `BLOCKED_REMOTE`。
+- 空目录演练使用本地 Git 仓库克隆，不是 GitHub clone；Ubuntu 本轮只完成
+  24.04 `bash -n` 语法检查，未在 Ubuntu 主机执行完整运行演练。
 - 主仓库尚未由项目所有者声明开源许可证。

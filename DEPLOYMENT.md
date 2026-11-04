@@ -30,7 +30,8 @@ MongoDB、Meilisearch、SQLite、Memos 管理端口直接暴露到互联网。
 
 - Git
 - Docker Desktop（启用 Linux containers）
-- Node.js 22.12+，推荐 Node.js 24 LTS
+- Node.js 24 LTS+。上游 `@librechat/agents@4.0.1` 要求 Node 24+；
+  Node 22 可能出现 `EBADENGINE`，不作为受支持部署基线
 - Python 3.12
 
 ### 2.2 clone 和密钥
@@ -97,8 +98,8 @@ infra\runtime\launcher-gateway.err.log
 
 ### 3.1 先决条件
 
-以 Ubuntu 24.04 为例，安装 Git、Docker Engine/Compose、curl、Node.js 和
-Python 3.12。Node 建议通过受信任的 NodeSource 或版本管理器安装。
+以 Ubuntu 24.04 为例，安装 Git、Docker Engine/Compose、curl、Node.js 24
+和 Python 3.12。Node 应通过受信任的 NodeSource 或版本管理器安装。
 
 ```bash
 sudo apt-get update

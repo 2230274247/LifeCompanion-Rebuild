@@ -4,7 +4,8 @@
 
 - Windows PowerShell
 - Docker Desktop / Docker Engine 与 Compose
-- Node.js 22.12+（推荐 24 LTS；本机 Node 22.22.0 构建通过）
+- Node.js 24 LTS+（本机 Node 22.22.0 曾构建成功但出现 `EBADENGINE`，
+  不作为受支持基线）
 - Python 3.12
 - 可用端口：`3001`、`3080`、`5230`、`8010`
 - `infra\.env` 与 `products\librechat-custom\.env` 已存在且未纳入 Git

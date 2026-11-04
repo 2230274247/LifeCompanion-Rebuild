@@ -1,0 +1,18 @@
+gateway http://127.0.0.1:34001/health 200
+life-core http://127.0.0.1:28030/health 200
+LibreChat http://127.0.0.1:34080/health 200
+Memos http://127.0.0.1:35240/healthz 200
+bootstrap PASS
+real browser login PASS
+real model chat persisted PASS
+automatic memory publish PASS
+owner/peer isolation PASS
+restart persistence PASS
+pytest 319 passed, 1 warning
+gateway 4 passed
+PowerShell 5.1 parse PASS
+Ubuntu bash syntax PASS
+Compose config PASS
+Memos config validate PASS
+exact secret scan PASS
+gitleaks PASS

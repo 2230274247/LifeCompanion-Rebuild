@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "health_http": {
+    "gateway": 200,
+    "core": 200,
+    "librechat": 200,
+    "memos": 200
+  },
+  "login_after_restart": true,
+  "mongo_user_message_persisted": true,
+  "mongo_assistant_reply_persisted": true,
+  "sqlite_event_status": "published",
+  "owner_memory_visible": true,
+  "peer_total": 0,
+  "peer_detail_http": 404,
+  "credentials_printed": false
+}

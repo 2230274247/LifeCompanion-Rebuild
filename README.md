@@ -47,7 +47,7 @@ fixtures/                  合成测试数据说明
 
 - Git 2.40+
 - Docker Engine / Docker Desktop 与 Compose v2.24+
-- Node.js 22.12+（推荐 24 LTS）及 npm
+- Node.js 24 LTS+ 及 npm（上游 `@librechat/agents@4.0.1` 声明要求 Node 24+）
 - Python 3.12
 - Windows PowerShell 7 或 Ubuntu 22.04/24.04
 - 默认本机端口：`3001`、`3080`、`5230`、`8010`
@@ -187,7 +187,7 @@ docker compose --env-file .env -f compose.baseline.yaml -f compose.spa.yaml conf
 
 真实云模型与生图测试需要有效父目录密钥和明确授权。最近一次结果：
 
-- 后端完整测试：`317 passed, 1 warning`
+- 后端完整测试：`319 passed, 1 warning`
 - 网关测试：`4 passed`
 - 真实 Kolors：3/3 HTTP 200，人工一致性核对 PASS
 - 当前新图聊天/回忆 UI：PASS，0 个新付费生图请求

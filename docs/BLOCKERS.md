@@ -28,6 +28,21 @@ GitHub clone/push 完成，也不能指向旧工程 `Silver-economy`。
 解除条件：提供目标仓库 URL、确认许可证策略和推送权限，完成敏感扫描后使用
 普通 push；不得强制推送或覆盖远端分支。
 
+2026-11-04 最终空目录演练已从本地仓库成功克隆提交 `4efe3cc`，完成初始化、
+真实浏览器登录、DeepSeek 聊天、Memos 私有发布、双用户隔离和重启持久化。
+证据见 `evidence/final-deploy-drill/` 与
+`docs/maintenance/PORTABILITY_AUDIT.md`。该演练证明代码可重建，不改变
+“未执行 GitHub clone/push”的阻塞事实。
+
+## NODE_RUNTIME_REQUIREMENT
+
+**状态：RESOLVED_IN_DOCS_AND_BOOTSTRAP**
+
+LibreChat 当前依赖 `@librechat/agents@4.0.1` 声明 Node.js 24+。Node 22.22.0
+在最终空目录演练中仍可安装和构建，但 npm 报 `EBADENGINE`，不能继续把
+Node 22.12+ 宣称为受支持基线。README、部署手册和初始化脚本已统一为
+Node.js 24 LTS+。
+
 ## V02_UNIFIED_LOGIN_AND_TOKEN_REVOCATION
 
 **优先级：P2**

@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "base_url": "http://127.0.0.1:34001",
+  "classification": "SYNTHETIC_ISOLATED_ACCOUNT",
+  "prompt": "今天傍晚我在阳台上给茉莉花浇水，风很凉快。",
+  "checks": {
+    "real_browser_login": "PASS",
+    "real_model_chat_and_persisted_turns": "PASS",
+    "real_chat_memory_publish": "PASS",
+    "owner_peer_isolation": "PASS"
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "network_errors": [],
+  "model_requests": 0,
+  "credentials_printed": false,
+  "user_message_id": "d1539d0e-ab02-4614-a609-4ebf7242b0db",
+  "assistant_message_id": "077c2b45-57ee-46a8-b573-fdf85c397324",
+  "model_request_observed": false,
+  "assistant_chars": 53,
+  "conversation_id": "941a5441-fa51-5d60-8a5a-b571ee518d22",
+  "memory": {
+    "event_id": "evt_231fb6d29e93965c1412ef3c",
+    "title": "今天傍晚我在阳台上给茉莉花浇水，风很凉快。",
+    "summary": "今天傍晚我在阳台上给茉莉花浇水，风很凉快。",
+    "content_chars": 156,
+    "status": "published",
+    "memo_ref_present": true,
+    "source_message_match": true
+  }
+}

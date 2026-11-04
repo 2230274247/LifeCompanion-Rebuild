@@ -61,10 +61,15 @@ initialize_env_default() {
 }
 
 require_command git "Install Git first."
-require_command node "Install Node.js 22.12 or newer."
+require_command node "Install Node.js 24 LTS or newer."
 require_command npm "Install npm first."
 require_command python3 "Install Python 3.12 first."
 require_command docker "Install Docker Engine and Compose first."
+
+node_major="$(node -p 'Number(process.versions.node.split(".")[0])')"
+if (( node_major < 24 )); then
+  echo "WARNING: Node.js $(node --version) is below the supported baseline. Install Node.js 24 LTS or newer." >&2
+fi
 
 copy_if_missing "$ROOT/model_api_keys.env.example" "$PARENT/model_api_keys.env"
 chmod 600 "$PARENT/model_api_keys.env"

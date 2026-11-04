@@ -3,7 +3,7 @@
 ## 2026-11-04 五项整改当前结果
 
 ```text
-services/life-core full pytest: 317 passed, 1 warning
+services/life-core full pytest: 319 passed, 1 warning
 gateway: 4 passed
 image fidelity focused: 39 passed
 real Kolors calls: 3 passed (HTTP 200, manual visual review PASS)

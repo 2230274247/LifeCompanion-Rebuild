@@ -96,14 +96,14 @@ function Initialize-EnvDefault([string]$Path, [string]$Name, [string]$Value) {
 }
 
 Require-Command git "请先安装 Git。"
-Require-Command node "请先安装 Node.js 22.12 或更高版本。"
+Require-Command node "请先安装 Node.js 24 LTS 或更高版本。"
 Require-Command npm "请先安装 npm。"
 Require-Command python "请先安装 Python 3.12。"
 Require-Command docker "请先安装 Docker Desktop 或 Docker Engine。"
 
 $nodeVersion = [version]((& node --version).TrimStart("v"))
-if ($nodeVersion -lt [version]"22.12.0") {
-    Write-Warning "Node.js $nodeVersion 低于已验证的 22.12。推荐 Node.js 24 LTS。"
+if ($nodeVersion -lt [version]"24.0.0") {
+    Write-Warning "Node.js $nodeVersion 低于受支持基线。请使用 Node.js 24 LTS 或更高版本。"
 }
 
 Copy-IfMissing (Join-Path $root "model_api_keys.env.example") (Join-Path $parent "model_api_keys.env")
