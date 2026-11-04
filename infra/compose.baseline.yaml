@@ -20,7 +20,7 @@ services:
     env_file:
       - path: ../products/librechat-custom/.env
         required: true
-      - path: ../model_api_keys.env
+      - path: ../../model_api_keys.env
         required: false
     environment:
       HOST: 0.0.0.0
