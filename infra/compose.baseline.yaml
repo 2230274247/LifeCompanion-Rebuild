@@ -33,6 +33,7 @@ services:
       LIFE_CORE_INGEST_TIMEOUT_MS: "4000"
       DOMAIN_CLIENT: ${LIFE_PUBLIC_URL:?set LIFE_PUBLIC_URL}
       DOMAIN_SERVER: ${LIFE_CHAT_INTERNAL_URL:?set LIFE_CHAT_INTERNAL_URL}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com/v1}
       ALLOW_REGISTRATION: ${LIFE_ALLOW_REGISTRATION:-false}
       TZ: Asia/Hong_Kong
     extra_hosts:
