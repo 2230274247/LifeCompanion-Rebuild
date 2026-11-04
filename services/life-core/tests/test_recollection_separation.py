@@ -106,7 +106,7 @@ def test_cached_s33_result_keeps_all_original_dimensions_and_score(tmp_path, mon
          "grief", instant("2026-11-03T09:00:00+08:00"))
     moments.schedule(instant("2026-11-03T11:00:00+08:00"))
     original = json.loads((Path(__file__).resolve().parents[3]
-        / "evidence/v03-stage-a-plus/baseline/S33.json").read_text(encoding="utf-8"))["values"][0]
+        / "fixtures/recollection-separation/S33.json").read_text(encoding="utf-8"))["values"][0]
     inputs, _ = moments.candidate_inputs(owner, instant(rows(store)[0]["window_start"]),
                                          instant(rows(store)[0]["window_end"]))
     cached = {**original, "memory_id": inputs[0]["memory_id"],
