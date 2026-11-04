@@ -1,5 +1,6 @@
 ﻿param(
-    [switch]$SkipFrontendBuild
+    [switch]$SkipFrontendBuild,
+    [string]$LibreChatRepository = $env:LIFECOMPANION_LIBRECHAT_REPO
 )
 
 $ErrorActionPreference = "Stop"
@@ -8,6 +9,9 @@ $parent = Split-Path -Parent $root
 $upstream = Join-Path $root "products\librechat-custom"
 $patch = Join-Path $root "patches\librechat-v0.8.8-rebuild-p00-p07-20261104.patch"
 $baseCommit = "e8f3be08623663d4ad7f7241e693c94469b63bb0"
+if (-not $LibreChatRepository) {
+    $LibreChatRepository = "https://github.com/LibreChat-AI/LibreChat.git"
+}
 
 function Require-Command([string]$Name, [string]$Hint) {
     if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
@@ -118,7 +122,7 @@ Initialize-EnvDefault $infraEnv "LIFE_ALLOW_REGISTRATION" "true"
 
 if (-not (Test-Path -LiteralPath $upstream)) {
     New-Item -ItemType Directory -Path (Split-Path -Parent $upstream) -Force | Out-Null
-    & git clone --branch v0.8.8 --single-branch https://github.com/LibreChat-AI/LibreChat.git $upstream
+    & git clone --branch v0.8.8 --single-branch $LibreChatRepository $upstream
     if ($LASTEXITCODE -ne 0) {
         throw "LibreChat 固定版本克隆失败。"
     }

@@ -69,6 +69,14 @@ Meilisearch 生成本机随机值。Memos 初始管理员为 `lifecompanion-admi
 `products\librechat-custom\.env`。随后脚本克隆 LibreChat `v0.8.8`、
 应用补丁、执行 `npm ci`、`npm run frontend`，并安装 Python 依赖。
 
+受限网络可使用本机或组织内已验证的 LibreChat Git 镜像；无论来源如何，
+bootstrap 都会核对固定基点 `e8f3be08623663d4ad7f7241e693c94469b63bb0`：
+
+```powershell
+$env:LIFECOMPANION_LIBRECHAT_REPO = "<verified-git-mirror-url>"
+powershell -ExecutionPolicy Bypass -File scripts\bootstrap-lifecompanion.ps1
+```
+
 ### 2.4 启动和检查
 
 ```powershell

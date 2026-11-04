@@ -6,6 +6,7 @@ PARENT="$(dirname "$ROOT")"
 UPSTREAM="$ROOT/products/librechat-custom"
 PATCH="$ROOT/patches/librechat-v0.8.8-rebuild-p00-p07-20261104.patch"
 BASE_COMMIT="e8f3be08623663d4ad7f7241e693c94469b63bb0"
+LIBRECHAT_REPOSITORY="${LIFECOMPANION_LIBRECHAT_REPO:-https://github.com/LibreChat-AI/LibreChat.git}"
 SKIP_FRONTEND_BUILD="${SKIP_FRONTEND_BUILD:-0}"
 
 require_command() {
@@ -83,7 +84,7 @@ chmod 600 "$ROOT/infra/.env"
 if [[ ! -d "$UPSTREAM" ]]; then
   mkdir -p "$(dirname "$UPSTREAM")"
   git clone --branch v0.8.8 --single-branch \
-    https://github.com/LibreChat-AI/LibreChat.git "$UPSTREAM"
+    "$LIBRECHAT_REPOSITORY" "$UPSTREAM"
   git -C "$UPSTREAM" checkout -b lifecompanion-baseline
 fi
 
