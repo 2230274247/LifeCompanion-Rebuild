@@ -33,6 +33,19 @@ source "$INFRA/.env"
 source "$ROOT/products/librechat-custom/.env"
 set +a
 
+export LIFE_MEMOS_TOKENS_FILE="${LIFE_MEMOS_TOKENS_FILE:-$RUNTIME/memos-tokens.json}"
+case "$LIFE_MEMOS_TOKENS_FILE" in
+  /*) ;;
+  *)
+    echo "LIFE_MEMOS_TOKENS_FILE must be an absolute path." >&2
+    exit 1
+    ;;
+esac
+if [[ ! -f "$LIFE_MEMOS_TOKENS_FILE" ]]; then
+  printf '{}\n' >"$LIFE_MEMOS_TOKENS_FILE"
+  chmod 600 "$LIFE_MEMOS_TOKENS_FILE"
+fi
+
 export LIFE_LIBRECHAT_PORT="$CHAT_PORT"
 export LIFE_MEMOS_PORT="$MEMOS_PORT"
 export LIFE_CORE_HOST_URL="http://host.docker.internal:$CORE_PORT"

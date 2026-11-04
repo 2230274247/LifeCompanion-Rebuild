@@ -216,6 +216,18 @@ cp -a ../model_api_keys.env "$backup/model_api_keys.env"
 6. 缺 Key 时文本、本地回忆和其他非云功能仍可用；云调用明确降级。
 7. 有授权凭证时执行一次受预算限制的真实模型或生图调用。
 
+事件要发布到 Memos，`life-core` 还必须加载该用户的 Memos PAT 映射：
+
+```dotenv
+LIFE_MEMOS_TOKENS_FILE=/absolute/path/to/private/memos-tokens.json
+```
+
+JSON 格式为 `{"users/<memos-user>": "<server-only-pat>"}`。启动脚本未配置
+该变量时使用 `infra/runtime/memos-tokens.json` 并自动创建 `{}`。该文件
+必须在 `infra/.env` 中指向绝对路径，完成后重启 `life-core`。当前普通新用户
+尚未自动开通 Memos 身份和 PAT，只允许经管理员完成映射的本地内测账号。
+不要把 PAT、映射文件内容或测试账号密码写入日志、报告或 Git。
+
 ## 8. 常见问题
 
 - `model_api_keys.env` 不存在：云功能为 `MISSING`，本地功能可运行。

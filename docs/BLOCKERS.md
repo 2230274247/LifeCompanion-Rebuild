@@ -79,6 +79,11 @@ LibreChat 日志提示 RAG API 未运行。普通 DeepSeek 聊天和本轮事件
 真实双向 API、通知隔离已通过。普通账号自动开通及所有 UI 正反场景尚未完整验收，
 不能由此宣布可开放多人共用。
 
+每用户 Memos PAT 文件路径已纳入正式启动脚本，默认
+`infra/runtime/memos-tokens.json` 并以绝对路径传给 `life-core`。管理员仍须
+通过 Memos 官方 API 为用户建立身份、创建 PAT 并在被忽略的映射文件中登记；
+普通用户注册后的自动开户/映射仍未实现。
+
 ## V02_EVENT_GROUPING
 
 本轮已验证同日同会话“加入项目组”跨消息归并为一条事件与多来源，

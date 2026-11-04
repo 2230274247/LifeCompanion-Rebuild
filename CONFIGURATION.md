@@ -81,6 +81,7 @@ LIFECOMPANION_KEYS_FILE=/absolute/path/to/model_api_keys.env
 | `MEMOS_BOOTSTRAP_ADMIN_PASSWORD` | 空 | Memos 首次启动管理员密码，仅存本机环境文件 |
 | `MEMOS_BASE_URL` | `http://127.0.0.1:5230` | Memos 地址 |
 | `MEMOS_API_TOKEN` | 空 | 服务端 Memos PAT |
+| `LIFE_MEMOS_TOKENS_FILE` | `infra/runtime/memos-tokens.json` | 每用户 Memos PAT 的绝对路径映射文件；启动脚本自动创建空文件 |
 | `LIFE_DATABASE_PATH` | `services/life-core/data/life-core.sqlite3` | SQLite 路径 |
 | `LIFE_TIMEZONE` | `Asia/Hong_Kong` | 用户默认时区 |
 | `LIFE_ALLOWED_ORIGINS` | 本机 3001 | CORS 白名单 |
@@ -126,6 +127,13 @@ Vikunja/ntfy 为可选功能。`infra/.env.reminders` 必须使用已核验的�
 - 前端配置：重新构建前端并重启 LibreChat。
 
 当前没有声称支持密钥热更新。
+
+`LIFE_MEMOS_TOKENS_FILE` 指向的 JSON 键为 Memos 用户资源名
+（例如 `users/example`），值为该用户的服务端 PAT。文件只允许运行服务的
+账号读取，并应位于被 Git 忽略的运行目录。启动脚本在变量为空时使用
+`infra/runtime/memos-tokens.json`；新增或替换 PAT 后必须重启 `life-core`。
+普通 LibreChat 新用户的自动 Memos 开户/映射尚未实现，不能把文件支持等同于
+已完成自助多用户开户。
 
 `bootstrap-lifecompanion.ps1/.sh` 在首次复制环境模板后，会为
 `LIFE_INTERNAL_TOKEN`、Memos 初始管理员、JWT、LibreChat 凭据加密和

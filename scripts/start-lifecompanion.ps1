@@ -82,6 +82,15 @@ if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
 New-Item -ItemType Directory -Path $runtime -Force | Out-Null
 Import-EnvFile (Join-Path $infra ".env")
 Import-EnvFile (Join-Path $root "products\librechat-custom\.env")
+$memosTokensFile = Join-Path $runtime "memos-tokens.json"
+if ([string]::IsNullOrWhiteSpace($env:LIFE_MEMOS_TOKENS_FILE)) {
+    $env:LIFE_MEMOS_TOKENS_FILE = $memosTokensFile
+} elseif (-not [System.IO.Path]::IsPathRooted($env:LIFE_MEMOS_TOKENS_FILE)) {
+    throw "LIFE_MEMOS_TOKENS_FILE 必须是绝对路径。"
+}
+if (-not (Test-Path -LiteralPath $env:LIFE_MEMOS_TOKENS_FILE)) {
+    Set-Content -LiteralPath $env:LIFE_MEMOS_TOKENS_FILE -Value "{}" -Encoding utf8NoBOM
+}
 $env:PYTHONPATH = $lifeCore
 $env:LIFE_DATABASE_PATH = Join-Path $lifeCore "data\life-core.sqlite3"
 $env:LIFE_HOST = "127.0.0.1"
