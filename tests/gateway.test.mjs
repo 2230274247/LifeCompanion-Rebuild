@@ -111,6 +111,7 @@ test("gateway exposes only collaboration methods and strips private transport he
       ["POST", "/api/v1/grants"],
       ["POST", "/api/v1/grants/requests"],
       ["GET", "/api/v1/shared-memories"],
+      ["GET", "/api/v1/shared-memories/by-source?source_kind=memory&source_id=evt_012345678901234567890123"],
       ["POST", `/api/v1/shared-memories/${sharedId}/agent/query`],
       ["GET", "/api/v1/notifications"],
       ["POST", "/api/v1/care/forward-requests"],

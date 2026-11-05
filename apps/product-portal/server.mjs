@@ -66,6 +66,7 @@ export function createGateway({
       (request.method === "GET" && new RegExp(`^/api/v1/shared-(?:availability|status)/${collabId}$`).test(path)) ||
       (request.method === "POST" && path === "/api/v1/shared-status") ||
       (request.method === "GET" && path === "/api/v1/shared-memories") ||
+      (request.method === "GET" && path === "/api/v1/shared-memories/by-source") ||
       (request.method === "POST" && path === "/api/v1/shared-memories/invites") ||
       (request.method === "POST" && new RegExp(`^/api/v1/shared-memories/invites/${collabId}/(?:accept|reject|cancel)$`).test(path)) ||
       (request.method === "POST" && new RegExp(`^/api/v1/shared-memory-joins/${collabId}/(?:accept|reject)$`).test(path)) ||
