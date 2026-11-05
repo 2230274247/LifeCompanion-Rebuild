@@ -1,0 +1,144 @@
+name: lifecompanion
+
+services:
+  gateway:
+    build:
+      context: ../..
+      dockerfile: deploy/ubuntu/Dockerfile.gateway
+    container_name: lifecompanion-gateway
+    ports:
+      - "${GATEWAY_PORT:-3001}:3001"
+    environment:
+      HOST: 0.0.0.0
+      PORT: "3001"
+      LIFE_CHAT_TARGET: http://librechat:3080
+      LIFE_CORE_TARGET: http://life-core:8010
+    depends_on:
+      - librechat
+      - life-core
+    restart: unless-stopped
+
+  life-core:
+    build:
+      context: ../..
+      dockerfile: deploy/ubuntu/Dockerfile.life-core
+    container_name: lifecompanion-life-core
+    env_file: ./.env
+    environment:
+      LIFE_HOST: 0.0.0.0
+      LIFE_PORT: "8010"
+      LIFE_DATABASE_PATH: /data/life-core.sqlite3
+      MEMOS_BASE_URL: http://memos:5230
+      LIFE_VIKUNJA_BASE_URL: http://vikunja:3456/api/v2
+      LIFE_NTFY_BASE_URL: http://ntfy:80
+      LIFE_REMINDER_WEBHOOK_URL: http://life-core:8010/api/v1/webhooks/vikunja
+      LIFE_LIBRECHAT_BASE_URL: http://librechat:3080
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ./volumes/life-core-data:/data
+    depends_on:
+      librechat:
+        condition: service_started
+      vikunja:
+        condition: service_started
+      ntfy:
+        condition: service_started
+    restart: unless-stopped
+
+  librechat:
+    image: ghcr.io/librechat-ai/librechat:v0.8.8
+    container_name: lifecompanion-librechat
+    env_file: ./.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: "3080"
+      MONGO_URI: mongodb://mongo:27017/LibreChat
+      MEILI_HOST: http://meili:7700
+      SCHEDULES_SINGLE_PROCESS: "true"
+      LIFE_CORE_URL: http://life-core:8010
+      LIFE_INTERNAL_TOKEN: ${LIFE_INTERNAL_TOKEN}
+      DOMAIN_CLIENT: ${PUBLIC_ORIGIN}
+      DOMAIN_SERVER: ${PUBLIC_ORIGIN}
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ./librechat-custom/librechat.yaml:/app/librechat.yaml:ro
+      - ./librechat-custom/api/server/middleware/canDeleteAccount.js:/app/api/server/middleware/canDeleteAccount.js:ro
+      - ./librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro
+      - ./librechat-custom/client/dist:/app/client/dist:ro
+      - ./librechat-custom/packages/api/dist:/app/packages/api/dist:ro
+      - ./librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro
+      - ./librechat-custom/images:/app/client/public/images
+      - ./volumes/librechat-uploads:/app/uploads
+      - ./volumes/librechat-logs:/app/logs
+    depends_on:
+      mongo:
+        condition: service_healthy
+      meili:
+        condition: service_started
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:8.0.20
+    container_name: lifecompanion-mongo
+    command: mongod --noauth
+    volumes:
+      - ./volumes/librechat-mongo:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  meili:
+    image: getmeili/meilisearch:v1.35.1
+    container_name: lifecompanion-meili
+    environment:
+      MEILI_ENV: production
+      MEILI_NO_ANALYTICS: "true"
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+    volumes:
+      - ./volumes/librechat-meili:/meili_data
+    restart: unless-stopped
+
+  memos:
+    image: neosmemo/memos:26.10.0
+    container_name: lifecompanion-memos
+    environment:
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ./volumes/memos:/var/opt/memos
+    restart: unless-stopped
+
+  vikunja:
+    image: vikunja/vikunja:2.7.1
+    container_name: lifecompanion-vikunja
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://vikunja:3456/
+      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_JWT_SECRET}
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
+      VIKUNJA_WEBHOOKS_ENABLED: "true"
+      VIKUNJA_OUTGOINGREQUESTS_ALLOWNONROUTABLEIPS: "true"
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ./volumes/vikunja:/db
+      - ./volumes/vikunja-files:/app/vikunja/files
+    restart: unless-stopped
+
+  ntfy:
+    image: binwiederhier/ntfy:v2.36.0
+    container_name: lifecompanion-ntfy
+    command: serve
+    environment:
+      NTFY_BASE_URL: http://ntfy:80
+      NTFY_AUTH_FILE: /var/lib/ntfy/user.db
+      NTFY_CACHE_FILE: /var/cache/ntfy/cache.db
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      NTFY_ENABLE_LOGIN: "true"
+      TZ: ${TZ:-Asia/Shanghai}
+    volumes:
+      - ./volumes/ntfy-auth:/var/lib/ntfy
+      - ./volumes/ntfy-cache:/var/cache/ntfy
+    restart: unless-stopped
