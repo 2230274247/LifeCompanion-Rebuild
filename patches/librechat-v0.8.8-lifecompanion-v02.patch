@@ -1,0 +1,987 @@
+diff --git a/api/app/clients/BaseClient.js b/api/app/clients/BaseClient.js
+index 643fd796ecd93d830cf435ad2a8ede3f135b21c0..3910e0270a207684ff23c44c1d01eb0cfe1e81c2 100644
+--- a/api/app/clients/BaseClient.js
++++ b/api/app/clients/BaseClient.js
+@@ -54,6 +54,66 @@ const { logViolation } = require('~/cache');
+ const TextStream = require('./TextStream');
+ const db = require('~/models');
+ 
++const ingestLifeCompanionEvent = async ({ request, savedMessage, message }) => {
++  const endpoint = process.env.LIFE_CORE_URL;
++  const internalToken = process.env.LIFE_INTERNAL_TOKEN;
++  const userId = request?.user?.id;
++  const text = typeof message?.text === 'string' ? message.text.trim() : '';
++  if (!endpoint || !internalToken || !userId || !text) {
++    return;
++  }
++
++  const sourceMessageId = savedMessage?._id?.toString() ?? message.messageId;
++  if (!sourceMessageId) {
++    return;
++  }
++
++  const timeoutMs = Number(process.env.LIFE_CORE_INGEST_TIMEOUT_MS) || 4000;
++  const controller = new AbortController();
++  const timeout = setTimeout(() => controller.abort(), timeoutMs);
++  try {
++    const response = await fetch(`${endpoint.replace(/\/$/, '')}/internal/v1/events/ingest`, {
++      method: 'POST',
++      headers: {
++        'Content-Type': 'application/json',
++        'X-Internal-Token': internalToken,
++      },
++      body: JSON.stringify({
++        source_user_id: userId,
++        source_message_id: sourceMessageId,
++        conversation_id: message.conversationId,
++        text,
++        occurred_at: savedMessage?.createdAt
++          ? new Date(savedMessage.createdAt).toISOString()
++          : new Date().toISOString(),
++      }),
++      signal: controller.signal,
++    });
++    const payload = await response.json().catch(() => ({}));
++    if (!response.ok) {
++      logger.warn('[LifeCompanion] event ingest rejected', {
++        status: response.status,
++        code: payload?.detail?.code,
++        sourceMessageId,
++      });
++      return;
++    }
++    logger.info('[LifeCompanion] event ingest completed', {
++      accepted: payload.accepted,
++      reason: payload.reason,
++      eventId: payload.event?.event_id,
++      sourceMessageId,
++    });
++  } catch (error) {
++    logger.warn('[LifeCompanion] event ingest unavailable', {
++      message: error?.message,
++      sourceMessageId,
++    });
++  } finally {
++    clearTimeout(timeout);
++  }
++};
++
+ const omitUnreplayedHistoricalFiles = (messages) =>
+   messages.map(({ files: _files, attachments: _attachments, ...message }) => ({
+     ...message,
+@@ -1362,6 +1422,10 @@ class BaseClient {
+       { context: 'api/app/clients/BaseClient.js - saveMessageToDatabase #saveMessage' },
+     );
+ 
++    if (message.isCreatedByUser === true) {
++      await ingestLifeCompanionEvent({ request: req, savedMessage, message });
++    }
++
+     if (this.skipSaveConvo) {
+       return { message: savedMessage };
+     }
+diff --git a/client/index.html b/client/index.html
+index 9fe3086ed9f55e2dc134daa5f1e1a175cd7e7967..f0614cfb1256d1fab4175c3e0d910a165dc6676a 100644
+--- a/client/index.html
++++ b/client/index.html
+@@ -3,17 +3,16 @@
+   <head>
+     <meta charset="utf-8" />
+     <base href="/" />
+-    <meta name="theme-color" content="#171717" />
++    <meta name="theme-color" content="#315a48" />
+     <meta name="mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+     <meta
+       name="description"
+-      content="LibreChat - An open source chat application with support for multiple AI models"
++      content="拾光 Life Companion · AI 伙伴与私有生活回忆"
+     />
+-    <title>LibreChat</title>
+-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
++    <title>拾光 · Life Companion</title>
++    <link rel="icon" type="image/svg+xml" href="assets/life.svg" />
+     <link rel="apple-touch-icon" href="assets/apple-touch-icon-180x180.png" />
+     <meta
+       name="viewport"
+diff --git a/client/src/App.jsx b/client/src/App.jsx
+index c210b477e79ef1b3be41fdc578bf58a190bebdf4..acb7f86690b70a40f16ea25a91d698b8459f6baa 100644
+--- a/client/src/App.jsx
++++ b/client/src/App.jsx
+@@ -12,6 +12,7 @@ import QueryDevtoolsGate from '~/components/QueryDevtoolsGate';
+ import LanguageSync from '~/components/System/LanguageSync';
+ import { getThemeFromEnv } from './utils/getThemeFromEnv';
+ import { initializeFontSize } from '~/store/fontSize';
++import { lifeTheme } from './components/Life/theme';
+ import { LiveAnnouncer } from '~/a11y';
+ import { router } from './routes';
+ 
+@@ -52,6 +53,8 @@ const App = () => {
+         <LanguageSync />
+         <LiveAnnouncer>
+           <ThemeProvider
++            initialTheme="light"
++            themeDefinition={lifeTheme}
+             // Only pass initialTheme and themeRGB if environment theme exists
+             // This allows localStorage values to persist when no env theme is set
+             {...(envTheme && { initialTheme: 'system', themeRGB: envTheme })}
+@@ -101,9 +104,12 @@ const App = () => {
+ export default () => (
+   <ScreenshotProvider>
+     <App />
+-    <iframe
++    <audio
+       src="assets/silence.mp3"
+-      allow="autoplay"
++      autoPlay
++      loop
++      muted
++      aria-hidden="true"
+       id="audio"
+       title="audio-silence"
+       style={{
+diff --git a/client/src/components/Auth/AuthLayout.tsx b/client/src/components/Auth/AuthLayout.tsx
+index 57fa4e5d86c5495994b731498ccbe60427ffc4b3..85db43717e8ff67f51787e33461cd876005211c0 100644
+--- a/client/src/components/Auth/AuthLayout.tsx
++++ b/client/src/components/Auth/AuthLayout.tsx
+@@ -63,12 +63,16 @@ function AuthLayout({
+     <div className="relative flex min-h-screen flex-col bg-surface-primary">
+       <Banner />
+       <BlinkAnimation active={isFetching}>
+-        <div className="mt-6 h-10 w-full bg-cover">
+-          <img
+-            src="assets/logo.svg"
+-            className="h-full w-full object-contain"
+-            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'LibreChat' })}
+-          />
++        <div className="mt-6 flex h-10 w-full items-center justify-center gap-3 text-text-primary">
++          <span
++            aria-hidden="true"
++            className="font-serif flex size-10 items-center justify-center rounded-full bg-surface-submit text-xl text-white"
++          >
++            {localize('com_life_brand').slice(0, 1)}
++          </span>
++          <span className="font-serif text-2xl font-semibold tracking-widest">
++            {localize('com_life_brand')}
++          </span>
+         </div>
+       </BlinkAnimation>
+       <DisplayError />
+diff --git a/client/src/components/UnifiedSidebar/ExpandedPanel.tsx b/client/src/components/UnifiedSidebar/ExpandedPanel.tsx
+index 371cb383bdf0eccdd068f6d060d7c9cc07d206a3..07a4edd7bf77b06b41ea6d26013a82ede677ec95 100644
+--- a/client/src/components/UnifiedSidebar/ExpandedPanel.tsx
++++ b/client/src/components/UnifiedSidebar/ExpandedPanel.tsx
+@@ -8,6 +8,7 @@ import { useShortcutAriaKey, useShortcutHint } from '~/hooks/useKeyboardShortcut
+ import { useActivePanel, resolveActivePanel, DEFAULT_PANEL } from '~/Providers';
+ import AgentMarketplaceButton from '~/components/Nav/AgentMarketplaceButton';
+ import { CLOSE_SIDEBAR_ID } from '~/components/Chat/Menus/OpenSidebar';
++import LifeNavigation from '~/components/Life/Navigation';
+ import useNewChat from '~/hooks/Chat/useNewChat';
+ import { useLocalize } from '~/hooks';
+ import { cn } from '~/utils';
+@@ -163,13 +164,14 @@ function ExpandedPanel({
+             aria-expanded={expanded}
+             aria-keyshortcuts={toggleSidebarAriaKey}
+             className="h-9 w-9 rounded-lg"
+-            onClick={toggleClick}
++            onClick={() => toggleClick?.()}
+           >
+             <Sidebar aria-hidden="true" className="h-5 w-5 text-text-primary" />
+           </Button>
+         }
+       />
+       <NewChatButton setActive={setActive} />
++      <LifeNavigation compact />
+       <AgentMarketplaceButton />
+       <div className="mx-2 border-b border-border-light" />
+       <div className="flex flex-col gap-1 overflow-y-auto">
+diff --git a/client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx b/client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx
+index feab690f2ad1758a24c06c08682506d8b50ed8c0..c4dd7f0a06c70001602c96a720107cb87b856dad 100644
+--- a/client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx
++++ b/client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx
+@@ -86,6 +86,11 @@ jest.mock('~/components/Nav/AccountSettings', () => ({
+   default: () => <div data-testid="account-settings" />,
+ }));
+ 
++jest.mock('~/components/Life/Navigation', () => ({
++  __esModule: true,
++  default: () => <nav data-testid="life-navigation" />,
++}));
++
+ import ExpandedPanel from '../ExpandedPanel';
+ import store from '~/store';
+ 
+@@ -153,6 +158,18 @@ describe('ExpandedPanel', () => {
+   });
+ 
+   describe('NavIconButton collapse toggle', () => {
++    it('closes without passing the click event as an animation callback', () => {
++      const { onCollapse } = renderPanel();
++      fireEvent.click(screen.getByTestId('close-sidebar-button'));
++      expect(onCollapse).toHaveBeenCalledWith();
++    });
++
++    it('opens without passing the click event as an animation callback', () => {
++      const { onExpand } = renderPanel({ expanded: false });
++      fireEvent.click(screen.getByTestId('open-sidebar-button'));
++      expect(onExpand).toHaveBeenCalledWith();
++    });
++
+     it('collapses sidebar when clicking the active icon while expanded', () => {
+       const { onCollapse } = renderPanel({ expanded: true });
+       const activeButton = screen.getByRole('button', { name: 'com_ui_chat_history' });
+diff --git a/client/src/components/UnifiedSidebar/mobile/Header.tsx b/client/src/components/UnifiedSidebar/mobile/Header.tsx
+index bbaebcb3614d9717f1c7a86c83572b9aba47e75d..eff0e3529480fa87fc1038b105f138a7772f3ab2 100644
+--- a/client/src/components/UnifiedSidebar/mobile/Header.tsx
++++ b/client/src/components/UnifiedSidebar/mobile/Header.tsx
+@@ -65,7 +65,7 @@ function Header({
+         aria-keyshortcuts={toggleSidebarAriaKey}
+         tabIndex={expanded ? 0 : -1}
+         className="flex-shrink-0"
+-        onClick={onClose}
++        onClick={() => onClose()}
+       >
+         <Sidebar className="icon-md" aria-hidden="true" />
+       </Button>
+diff --git a/client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx b/client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx
+index 0a4cefb7e946cb7556b815083ded2140452f8cf2..d2cb7b0631fb98bd2d28614c515051a69a22c4a0 100644
+--- a/client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx
++++ b/client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ import { MemoryRouter } from 'react-router-dom';
+-import { render, screen } from '@testing-library/react';
++import { render, fireEvent, screen } from '@testing-library/react';
+ import type { NavLink } from '~/common';
+ 
+ let mockShowMarketplace = true;
+@@ -49,6 +49,15 @@ import Header from '../Header';
+ const links = [] as NavLink[];
+ 
+ describe('mobile drawer header', () => {
++  it('closes without passing the click event as an animation callback', () => {
++    const onClose = jest.fn();
++    render(<Header links={links} expanded={true} onClose={onClose} />, { wrapper: MemoryRouter });
++
++    fireEvent.click(screen.getByTestId('close-sidebar-button'));
++
++    expect(onClose).toHaveBeenCalledWith();
++  });
++
+   it('claims the close identity while the drawer is open', () => {
+     render(<Header links={links} expanded={true} onClose={jest.fn()} />, { wrapper: MemoryRouter });
+ 
+diff --git a/client/src/locales/en/translation.json b/client/src/locales/en/translation.json
+index 2d81936fa7c9edd67cfe058b9a5e6648ec718196..cc12355d90f4a900c907fb0a489fa6b93ce5d8f1 100644
+--- a/client/src/locales/en/translation.json
++++ b/client/src/locales/en/translation.json
+@@ -1,4 +1,35 @@
+ {
++  "com_life_navigation": "拾光导航",
++  "com_life_chat": "AI 伙伴",
++  "com_life_memories": "我的回忆",
++  "com_life_brand": "拾光",
++  "com_life_tagline": "LIFE COMPANION · 留住生活的光",
++  "com_life_journal": "生活有迹可循",
++  "com_life_detail": "回忆详情",
++  "com_life_intro": "把值得记住的日常，慢慢收进时光里。",
++  "com_life_back": "返回回忆",
++  "com_life_search": "搜索标题与摘要",
++  "com_life_date": "发生日期（香港时间）",
++  "com_life_order": "时间排序",
++  "com_life_newest": "最新在前",
++  "com_life_oldest": "最早在前",
++  "com_life_clear": "清除筛选",
++  "com_life_search_button": "查找回忆",
++  "com_life_loading": "正在翻开回忆…",
++  "com_life_error": "暂时无法读取回忆。请确认账户已映射且回忆服务可用，然后重试。",
++  "com_life_event_type": "生活事件",
++  "com_life_tags": "回忆标签",
++  "com_life_source": "来源",
++  "com_life_manual": "手动记录",
++  "com_life_open_chat": "查看来源对话",
++  "com_life_empty": "这里还没有回忆",
++  "com_life_empty_hint": "试试调整筛选，或与 AI 伙伴聊聊今天发生的事。获准记录的生活片段会出现在这里。",
++  "com_life_count": "共 {{count}} 段回忆",
++  "com_life_read": "翻开这段回忆 →",
++  "com_life_pagination": "回忆分页",
++  "com_life_previous": "上一页",
++  "com_life_next": "下一页",
++  "com_life_private": "私有回忆 · 仅展示当前映射账户的已发布生活事件。当前为单用户内测。",
+   "com_ui_background_tasks": "Background tasks",
+   "com_ui_background_tasks_cancel_disabled": "Stopping background tools is not enabled on this server",
+   "com_ui_background_tasks_checked": "Checked background tasks",
+diff --git a/client/src/routes/Root.tsx b/client/src/routes/Root.tsx
+index 0051f7e57ab03162810af2fde5e3af533f28c558..0836349a75dce3f9fd0740d240c07f463a44cc74 100644
+--- a/client/src/routes/Root.tsx
++++ b/client/src/routes/Root.tsx
+@@ -39,6 +39,7 @@ import useSidebarToggle from '~/hooks/Nav/useSidebarToggle';
+ import useSidebarState from '~/hooks/Nav/useSidebarState';
+ import { TermsAndConditionsModal } from '~/components/ui';
+ import useDrawerSwipe from '~/hooks/Nav/useDrawerSwipe';
++import LifeHeader from '~/components/Life/Header';
+ import { useHealthCheck } from '~/data-provider';
+ import { Banner } from '~/components/Banners';
+ import store from '~/store';
+@@ -186,6 +187,7 @@ export default function Root() {
+                        *  too late and drops too early. */
+                       inert={isSmallScreen && (sidebarExpanded || isSliding) ? '' : undefined}
+                     >
++                      <LifeHeader />
+                       <Outlet />
+                     </div>
+                     {/* Without the strip the scrim exists only for the travel:
+diff --git a/client/src/routes/index.tsx b/client/src/routes/index.tsx
+index 78f2e982e1fd0647bb11102e70f0189a971e9658..7dcda42db853a6f879513b55e2df111b065b8043 100644
+--- a/client/src/routes/index.tsx
++++ b/client/src/routes/index.tsx
+@@ -13,6 +13,7 @@ import AgentMarketplace from '~/components/Agents/Marketplace';
+ import { OAuthSuccess, OAuthError } from '~/components/OAuth';
+ import { AuthContextProvider } from '~/hooks/AuthContext';
+ import RouteErrorBoundary from './RouteErrorBoundary';
++import Memories from '~/components/Life/Memories';
+ import StartupLayout from './Layouts/Startup';
+ import LoginLayout from './Layouts/Login';
+ import dashboardRoutes from './Dashboard';
+@@ -135,6 +136,14 @@ export const router = createBrowserRouter(
+               path: 'c/:conversationId?',
+               element: <ChatRoute />,
+             },
++            {
++              path: 'memories',
++              element: <Memories />,
++            },
++            {
++              path: 'memories/:memoryId',
++              element: <Memories />,
++            },
+             {
+               path: 'search',
+               element: <Search />,
+diff --git a/librechat.yaml b/librechat.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..341fd543e2b11716b24215d3fd4480efd89c712f
+--- /dev/null
++++ b/librechat.yaml
+@@ -0,0 +1,19 @@
++version: 1.3.17
++cache: true
++
++interface:
++  customWelcome: "今天，有什么值得记住的小事？"
++
++endpoints:
++  custom:
++    - name: "DeepSeek"
++      apiKey: "${DEEPSEEK_API_KEY}"
++      baseURL: "https://api.deepseek.com/v1"
++      models:
++        default:
++          - "deepseek-flash"
++        fetch: false
++      titleConvo: true
++      titleModel: "deepseek-flash"
++      modelDisplayLabel: "DeepSeek"
++
+diff --git a/packages/data-provider/src/index.ts b/packages/data-provider/src/index.ts
+index ea5a39f43c54ccb6ea0db5f113fe712c893c9ed7..81226f900f781ae7ebf562338264835966c646bd 100644
+--- a/packages/data-provider/src/index.ts
++++ b/packages/data-provider/src/index.ts
+@@ -63,6 +63,7 @@ export {
+ } from './api-endpoints';
+ export { default as request } from './request';
+ export { dataService };
++export * from './life';
+ import * as dataService from './data-service';
+ /* provider identity */
+ export * from './providers';
+diff --git a/packages/data-provider/src/keys.ts b/packages/data-provider/src/keys.ts
+index 5e1e7288074788b34f10dd4b225665c150a81866..5af978b8d6bd12f9a234d4681f7965ece5f9dd05 100644
+--- a/packages/data-provider/src/keys.ts
++++ b/packages/data-provider/src/keys.ts
+@@ -1,4 +1,6 @@
+ export enum QueryKeys {
++  lifeMemories = 'lifeMemories',
++  lifeMemory = 'lifeMemory',
+   messages = 'messages',
+   sharedMessages = 'sharedMessages',
+   sharedStartupConfig = 'sharedStartupConfig',
+diff --git a/client/public/assets/life.svg b/client/public/assets/life.svg
+new file mode 100644
+index 0000000000000000000000000000000000000000..113dbcf53d49f3645aecb228cfc41319f8e41f5a
+--- /dev/null
++++ b/client/public/assets/life.svg
+@@ -0,0 +1,5 @@
++<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
++  <rect width="64" height="64" rx="18" fill="#315a48"/>
++  <path d="M32 12c10 7 16 16 14 27-2 9-9 14-14 14s-12-5-14-14c-2-11 4-20 14-27z" fill="#dfa61b"/>
++  <path d="M32 20v28M32 30l-8-5M32 36l9-6M32 43l-7-4" fill="none" stroke="#315a48" stroke-width="2.4" stroke-linecap="round"/>
++</svg>
+diff --git a/client/src/components/Life/Header.tsx b/client/src/components/Life/Header.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..8df643963791ac2b022d325a24d3fb1ea356162f
+--- /dev/null
++++ b/client/src/components/Life/Header.tsx
+@@ -0,0 +1,33 @@
++import { useLocation } from 'react-router-dom';
++import OpenSidebar from '~/components/Chat/Menus/OpenSidebar';
++import { useLocalize } from '~/hooks';
++import Navigation from './Navigation';
++
++export default function Header() {
++  const localize = useLocalize();
++  const { pathname } = useLocation();
++  return (
++    <header className="flex min-h-16 shrink-0 items-center justify-between gap-3 border-b border-border-light bg-surface-primary-alt px-4 sm:px-6">
++      <div className="flex min-w-0 items-center gap-3">
++        {pathname.startsWith('/memories') ? (
++          <OpenSidebar className="md:hidden" testId="life-open-sidebar" />
++        ) : null}
++        <span
++          aria-hidden="true"
++          className="font-serif flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-submit text-xl text-white"
++        >
++          {localize('com_life_brand').slice(0, 1)}
++        </span>
++        <div className="min-w-0">
++          <p className="font-serif text-xl font-semibold tracking-widest text-text-primary">
++            {localize('com_life_brand')}
++          </p>
++          <p className="hidden text-xs tracking-widest text-text-secondary sm:block">
++            {localize('com_life_tagline')}
++          </p>
++        </div>
++      </div>
++      <Navigation />
++    </header>
++  );
++}
+diff --git a/client/src/components/Life/Memories.tsx b/client/src/components/Life/Memories.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..e2409d61d2d7c03ed2b029627db9120c20feb4e4
+--- /dev/null
++++ b/client/src/components/Life/Memories.tsx
+@@ -0,0 +1,270 @@
++import { useEffect, useRef, useState } from 'react';
++import { useQuery } from '@tanstack/react-query';
++import { Button, Spinner } from '@librechat/client';
++import { QueryKeys, lifeService } from 'librechat-data-provider';
++import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom';
++import { useAuthContext, useLocalize } from '~/hooks';
++
++const formatTime = (value: string) =>
++  new Intl.DateTimeFormat('zh-CN', {
++    timeZone: 'Asia/Hong_Kong',
++    dateStyle: 'long',
++    timeStyle: 'short',
++  }).format(new Date(value));
++
++export default function Memories() {
++  const { user, isAuthenticated } = useAuthContext();
++  const localize = useLocalize();
++  const { memoryId } = useParams();
++  const location = useLocation();
++  const [params, setParams] = useSearchParams();
++  const [search, setSearch] = useState(params.get('q') ?? '');
++  const scrollRef = useRef<HTMLDivElement>(null);
++  const queryString = params.toString();
++  const scrollKey = `life:scroll:${user?.id}:${queryString}`;
++  const list = useQuery({
++    queryKey: [QueryKeys.lifeMemories, user?.id, queryString],
++    queryFn: ({ signal }) => lifeService.memories(queryString, signal),
++    enabled: isAuthenticated && !memoryId,
++    retry: false,
++    staleTime: 0,
++  });
++  const detail = useQuery({
++    queryKey: [QueryKeys.lifeMemory, user?.id, memoryId],
++    queryFn: ({ signal }) => lifeService.memory(memoryId ?? '', signal),
++    enabled: isAuthenticated && !!memoryId,
++    retry: false,
++    staleTime: 0,
++  });
++  const query = memoryId ? detail : list;
++  useEffect(() => {
++    setSearch(params.get('q') ?? '');
++  }, [queryString, params]);
++  useEffect(() => {
++    const element = scrollRef.current;
++    if (element && !memoryId && list.isSuccess) {
++      element.scrollTop = Number(sessionStorage.getItem(scrollKey) ?? 0);
++    }
++  }, [memoryId, list.isSuccess, scrollKey]);
++  const updateFilter = (key: string, value: string) => {
++    const next = new URLSearchParams(params);
++    next.delete('page');
++    if (value) {
++      next.set(key, value);
++    } else {
++      next.delete(key);
++    }
++    setParams(next);
++  };
++  const memory = detail.data?.memory;
++  const page = list.data?.page ?? 1;
++
++  return (
++    <div
++      ref={scrollRef}
++      className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-surface-primary"
++      onScroll={(event) => {
++        if (!memoryId) {
++          sessionStorage.setItem(scrollKey, String(event.currentTarget.scrollTop));
++        }
++      }}
++    >
++      <main className="not-prose mx-auto w-full max-w-4xl px-4 py-8 text-text-primary sm:px-8 sm:py-12">
++        <p className="mb-3 text-xs font-semibold tracking-widest text-text-secondary">
++          {localize('com_life_journal')}
++        </p>
++        <h1 className="font-serif mb-3 break-words text-3xl sm:text-4xl">
++          {localize(memoryId ? 'com_life_detail' : 'com_life_memories')}
++        </h1>
++        <p className="mb-8 text-sm leading-7 text-text-secondary">{localize('com_life_intro')}</p>
++        {memoryId ? (
++          <Link
++            className="mb-6 inline-flex rounded-lg border border-border-medium px-4 py-2 text-sm text-text-primary no-underline hover:bg-surface-hover"
++            to={`/memories${location.search}`}
++          >
++            {localize('com_life_back')}
++          </Link>
++        ) : (
++          <form
++            className="mb-8 grid gap-3 rounded-2xl border border-border-light bg-surface-primary-alt p-4 sm:grid-cols-2"
++            onSubmit={(event) => {
++              event.preventDefault();
++              updateFilter('q', search);
++            }}
++          >
++            <label className="grid gap-2 text-sm">
++              {localize('com_life_search')}
++              <input
++                className="min-w-0 rounded-lg border border-border-medium bg-surface-primary px-3 py-2 text-text-primary"
++                type="search"
++                value={search}
++                maxLength={200}
++                onChange={(event) => setSearch(event.target.value)}
++              />
++            </label>
++            <label className="grid min-w-0 gap-2 text-sm">
++              {localize('com_life_date')}
++              <input
++                className="min-w-0 rounded-lg border border-border-medium bg-surface-primary px-3 py-2 text-text-primary"
++                type="date"
++                value={params.get('on_date') ?? ''}
++                onChange={(event) => updateFilter('on_date', event.target.value)}
++              />
++            </label>
++            <label className="flex items-center gap-3 text-sm">
++              {localize('com_life_order')}
++              <select
++                className="min-w-0 rounded-lg border border-border-medium bg-surface-primary px-3 py-2"
++                value={params.get('order') ?? 'desc'}
++                onChange={(event) => updateFilter('order', event.target.value)}
++              >
++                <option value="desc">{localize('com_life_newest')}</option>
++                <option value="asc">{localize('com_life_oldest')}</option>
++              </select>
++            </label>
++            <div className="flex flex-wrap justify-end gap-2">
++              <Button type="button" variant="ghost" onClick={() => setParams({})}>
++                {localize('com_life_clear')}
++              </Button>
++              <Button type="submit">{localize('com_life_search_button')}</Button>
++            </div>
++          </form>
++        )}
++        {query.isLoading ? (
++          <div role="status" className="flex items-center justify-center gap-3 py-16">
++            <Spinner />
++            <span>{localize('com_life_loading')}</span>
++          </div>
++        ) : null}
++        {query.isError ? (
++          <div
++            role="alert"
++            className="rounded-2xl border border-border-medium bg-surface-primary-alt p-6"
++          >
++            <p className="mb-4 leading-7">{localize('com_life_error')}</p>
++            <Button onClick={() => query.refetch()}>{localize('com_ui_retry')}</Button>
++          </div>
++        ) : null}
++        {query.isSuccess && memoryId && memory ? (
++          <article className="rounded-2xl border border-border-light bg-surface-primary-alt p-6 sm:p-9">
++            <time dateTime={memory.occurred_at} className="text-sm text-text-secondary">
++              {formatTime(memory.occurred_at)}
++            </time>
++            <h2 className="font-serif mb-6 mt-4 break-words text-2xl leading-relaxed">
++              {memory.title}
++            </h2>
++            <p className="mb-6 text-sm text-text-secondary">{localize('com_life_event_type')}</p>
++            <div className="whitespace-pre-wrap break-words text-base leading-8">
++              {memory.content}
++            </div>
++            <ul aria-label={localize('com_life_tags')} className="mt-6 flex flex-wrap gap-2">
++              {memory.tags.map((tag) => (
++                <li key={tag} className="rounded-full bg-surface-active px-3 py-1 text-xs">
++                  #{tag}
++                </li>
++              ))}
++            </ul>
++            <p className="mt-8 text-sm text-text-secondary">
++              {localize('com_life_source')} ·{' '}
++              {memory.source_type === 'chat'
++                ? localize('com_life_chat')
++                : localize('com_life_manual')}
++            </p>
++            {memory.conversation_id ? (
++              <Link
++                className="mt-3 inline-flex rounded-lg border border-border-medium px-4 py-2 text-sm text-text-primary no-underline hover:bg-surface-hover"
++                to={`/c/${encodeURIComponent(memory.conversation_id)}`}
++              >
++                {localize('com_life_open_chat')}
++              </Link>
++            ) : null}
++          </article>
++        ) : null}
++        {query.isSuccess && !memoryId && list.data?.memories.length === 0 ? (
++          <div
++            role="status"
++            className="rounded-2xl border border-dashed border-border-medium px-6 py-16 text-center"
++          >
++            <h2 className="font-serif mb-3 text-2xl">{localize('com_life_empty')}</h2>
++            <p className="text-sm leading-7 text-text-secondary">
++              {localize('com_life_empty_hint')}
++            </p>
++          </div>
++        ) : null}
++        {query.isSuccess && !memoryId && (list.data?.memories.length ?? 0) > 0 ? (
++          <>
++            <p role="status" className="mb-4 text-sm text-text-secondary">
++              {localize('com_life_count', { count: list.data?.total ?? 0 })}
++            </p>
++            <ol className="grid gap-5">
++              {list.data?.memories.map((item) => (
++                <li key={item.event_id}>
++                  <Link
++                    className="block rounded-2xl border border-border-light bg-surface-primary-alt p-5 text-text-primary no-underline hover:border-border-heavy focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring-primary sm:p-7"
++                    to={`/memories/${encodeURIComponent(item.event_id)}${location.search}`}
++                  >
++                    <time
++                      className="text-xs tracking-wide text-text-secondary"
++                      dateTime={item.occurred_at}
++                    >
++                      {formatTime(item.occurred_at)}
++                    </time>
++                    <h2 className="font-serif my-3 break-words text-xl leading-relaxed">
++                      {item.title}
++                    </h2>
++                    <p className="line-clamp-3 whitespace-pre-wrap break-words text-sm leading-7 text-text-secondary">
++                      {item.summary}
++                    </p>
++                    <p className="mt-4 text-xs text-text-secondary">
++                      {localize('com_life_event_type')} · {localize('com_life_source')} ·{' '}
++                      {item.source_type === 'chat'
++                        ? localize('com_life_chat')
++                        : localize('com_life_manual')}
++                    </p>
++                    <div className="mt-3 flex flex-wrap gap-2 text-xs text-text-secondary">
++                      {item.tags.map((tag) => (
++                        <span key={tag}>#{tag}</span>
++                      ))}
++                    </div>
++                    <span className="mt-5 inline-block text-sm font-semibold">
++                      {localize('com_life_read')}
++                    </span>
++                  </Link>
++                </li>
++              ))}
++            </ol>
++            <nav
++              aria-label={localize('com_life_pagination')}
++              className="mt-8 flex items-center justify-between gap-3"
++            >
++              <Button
++                disabled={page <= 1}
++                onClick={() => {
++                  const next = new URLSearchParams(params);
++                  next.set('page', String(page - 1));
++                  setParams(next);
++                }}
++              >
++                {localize('com_life_previous')}
++              </Button>
++              <span className="text-sm">{page}</span>
++              <Button
++                disabled={!list.data?.has_more}
++                onClick={() => {
++                  const next = new URLSearchParams(params);
++                  next.set('page', String(page + 1));
++                  setParams(next);
++                }}
++              >
++                {localize('com_life_next')}
++              </Button>
++            </nav>
++          </>
++        ) : null}
++        <p className="mt-12 text-xs leading-6 text-text-secondary">
++          {localize('com_life_private')}
++        </p>
++      </main>
++    </div>
++  );
++}
+diff --git a/client/src/components/Life/Navigation.tsx b/client/src/components/Life/Navigation.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..f8e097ba25876157b56add36eb66f6028888c458
+--- /dev/null
++++ b/client/src/components/Life/Navigation.tsx
+@@ -0,0 +1,52 @@
++import { useEffect } from 'react';
++import { BookOpen, MessagesSquare } from 'lucide-react';
++import { NavLink, useLocation } from 'react-router-dom';
++import { useAuthContext, useLocalize } from '~/hooks';
++
++export default function Navigation({ compact = false }: { compact?: boolean }) {
++  const { user } = useAuthContext();
++  const localize = useLocalize();
++  const { pathname, search } = useLocation();
++  const storageKey = `life:last-chat:${user?.id ?? ''}`;
++  useEffect(() => {
++    if (/^\/c\/[^/]+$/.test(pathname)) {
++      sessionStorage.setItem(storageKey, pathname + search);
++    }
++  }, [pathname, search, storageKey]);
++  const previous = /^\/c\/[^/]+$/.test(pathname)
++    ? pathname + search
++    : sessionStorage.getItem(storageKey);
++  const chatPath = previous && /^\/c\/[^/]+(?:\?.*)?$/.test(previous) ? previous : '/c/new';
++  return (
++    <nav
++      aria-label={localize('com_life_navigation')}
++      className={compact ? 'flex flex-col gap-2' : 'flex gap-2'}
++    >
++      {[
++        {
++          to: chatPath,
++          Icon: MessagesSquare,
++          label: localize('com_life_chat'),
++          active: pathname.startsWith('/c/'),
++        },
++        {
++          to: '/memories',
++          Icon: BookOpen,
++          label: localize('com_life_memories'),
++          active: pathname.startsWith('/memories'),
++        },
++      ].map(({ to, Icon, label, active }) => (
++        <NavLink
++          key={label}
++          to={to}
++          aria-current={active ? 'page' : undefined}
++          title={label}
++          className={`flex min-h-10 items-center justify-center gap-2 rounded-lg px-2 text-sm text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring-primary ${active ? 'bg-surface-active' : 'hover:bg-surface-hover'}`}
++        >
++          <Icon className="size-5 shrink-0" aria-hidden="true" />
++          <span className={compact ? 'sr-only' : 'hidden sm:inline'}>{label}</span>
++        </NavLink>
++      ))}
++    </nav>
++  );
++}
+diff --git a/client/src/components/Life/__tests__/Memories.spec.tsx b/client/src/components/Life/__tests__/Memories.spec.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..304c27c3ba9fa4d539d08859e0d86c1698da342a
+--- /dev/null
++++ b/client/src/components/Life/__tests__/Memories.spec.tsx
+@@ -0,0 +1,90 @@
++import React from 'react';
++import { lifeService } from 'librechat-data-provider';
++import { MemoryRouter, Route, Routes } from 'react-router-dom';
++import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
++import { resolveTheme, validateThemeDefinition } from '@librechat/client';
++import { fireEvent, render, screen, waitFor } from '@testing-library/react';
++import { lifeTheme } from '../theme';
++import Memories from '../Memories';
++
++jest.mock('~/hooks', () => ({
++  useAuthContext: () => ({ user: { id: 'owner-a' }, isAuthenticated: true }),
++  useLocalize: () => (key: string) => key,
++}));
++
++const memory = {
++  event_id: 'evt_012345678901234567890123',
++  title: '真实生活片段',
++  summary: '原始摘要',
++  content: 'Memos 实际内容',
++  occurred_at: '2026-11-02T15:00:00+08:00',
++  source_type: 'chat',
++  source_message_ids: ['source-message'],
++  conversation_id: 'owned-chat',
++  event_type: 'life_event',
++  tags: ['生活回忆'],
++};
++
++function mount(path = '/memories') {
++  const client = new QueryClient({ defaultOptions: { queries: { retry: false, cacheTime: 0 } } });
++  render(
++    <QueryClientProvider client={client}>
++      <MemoryRouter initialEntries={[path]}>
++        <Routes>
++          <Route path="/memories" element={<Memories />} />
++          <Route path="/memories/:memoryId" element={<Memories />} />
++        </Routes>
++      </MemoryRouter>
++    </QueryClientProvider>,
++  );
++}
++
++test('loads real content through detail and returns to the filtered list', async () => {
++  const list = jest.spyOn(lifeService, 'memories').mockResolvedValue({
++    memories: [memory],
++    total: 1,
++    page: 1,
++    page_size: 20,
++    has_more: false,
++  });
++  jest.spyOn(lifeService, 'memory').mockResolvedValue({ memory });
++  mount('/memories?q=公园');
++  fireEvent.click(await screen.findByRole('link', { name: /真实生活片段/ }));
++  expect(await screen.findByText('Memos 实际内容')).toBeInTheDocument();
++  expect(screen.getByRole('link', { name: 'com_life_open_chat' })).toHaveAttribute(
++    'href',
++    '/c/owned-chat',
++  );
++  fireEvent.click(screen.getByRole('link', { name: 'com_life_back' }));
++  await waitFor(() => expect(list).toHaveBeenCalledWith('q=%E5%85%AC%E5%9B%AD', expect.anything()));
++});
++
++test('renders a real empty result without fabricating cards', async () => {
++  jest.spyOn(lifeService, 'memories').mockResolvedValue({
++    memories: [],
++    total: 0,
++    page: 1,
++    page_size: 20,
++    has_more: false,
++  });
++  mount();
++  expect(await screen.findByText('com_life_empty')).toBeInTheDocument();
++  expect(screen.queryByText(memory.title)).not.toBeInTheDocument();
++});
++
++test('upstream error is visible and retry recovers', async () => {
++  jest
++    .spyOn(lifeService, 'memories')
++    .mockRejectedValueOnce(new Error('upstream unavailable'))
++    .mockResolvedValue({ memories: [memory], total: 1, page: 1, page_size: 20, has_more: false });
++  mount();
++  expect(await screen.findByRole('alert')).toHaveTextContent('com_life_error');
++  fireEvent.click(screen.getByRole('button', { name: 'com_ui_retry' }));
++  expect(await screen.findByText(memory.title)).toBeInTheDocument();
++});
++
++test('brand uses the validated registry and supports dark mode', () => {
++  expect(validateThemeDefinition(lifeTheme)).toEqual([]);
++  expect(resolveTheme(lifeTheme, 'light').colors['rgb-surface-primary']).toBe('250 246 234');
++  expect(resolveTheme(lifeTheme, 'dark').colors['rgb-accent-primary']).toBe('243 216 139');
++});
+diff --git a/client/src/components/Life/theme.ts b/client/src/components/Life/theme.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..754b03f35cd6ad3a0545144b14deaf4999bdd0a0
+--- /dev/null
++++ b/client/src/components/Life/theme.ts
+@@ -0,0 +1,54 @@
++import type { ThemeDefinition } from '@librechat/client';
++
++// Portal brand tokens expressed through the existing semantic theme registry.
++export const lifeTheme: ThemeDefinition = {
++  version: 1,
++  name: '拾光',
++  modes: {
++    light: {
++      appearance: {
++        fontFamily: '"Aptos", "Microsoft YaHei", "PingFang SC", sans-serif',
++        controlRadius: '0.5rem',
++        surfaceRadius: '1rem',
++      },
++      colors: {
++        'rgb-text-primary': '29 43 37',
++        'rgb-text-secondary': '83 99 91',
++        'rgb-text-secondary-alt': '83 99 91',
++        'rgb-text-tertiary': '83 99 91',
++        'rgb-surface-primary': '250 246 234',
++        'rgb-surface-primary-alt': '241 236 220',
++        'rgb-surface-secondary': '241 236 220',
++        'rgb-surface-secondary-alt': '237 230 209',
++        'rgb-surface-chat': '250 246 234',
++        'rgb-surface-dialog': '250 246 234',
++        'rgb-surface-tertiary': '241 236 220',
++        'rgb-surface-active': '243 216 139',
++        'rgb-surface-active-alt': '243 216 139',
++        'rgb-surface-hover': '237 230 209',
++        'rgb-surface-submit': '49 90 72',
++        'rgb-surface-submit-hover': '32 62 50',
++        'rgb-accent-primary': '49 90 72',
++        'rgb-accent-primary-hover': '32 62 50',
++        'rgb-link': '49 90 72',
++        'rgb-link-hover': '32 62 50',
++        'rgb-ring-primary': '49 90 72',
++        'rgb-header-primary': '250 246 234',
++        'rgb-header-hover': '241 236 220',
++        'rgb-border-light': '211 210 192',
++        'rgb-border-medium': '180 184 165',
++      },
++    },
++    dark: {
++      appearance: {
++        fontFamily: '"Aptos", "Microsoft YaHei", "PingFang SC", sans-serif',
++      },
++      colors: {
++        'rgb-accent-primary': '243 216 139',
++        'rgb-accent-primary-hover': '223 166 27',
++        'rgb-surface-submit': '49 90 72',
++        'rgb-surface-submit-hover': '32 62 50',
++      },
++    },
++  },
++};
+diff --git a/packages/data-provider/src/life.ts b/packages/data-provider/src/life.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..21e530d74245b5f6741785ff437185ec72f55927
+--- /dev/null
++++ b/packages/data-provider/src/life.ts
+@@ -0,0 +1,31 @@
++import request from './request';
++
++export type LifeMemory = {
++  event_id: string;
++  title: string;
++  summary: string;
++  content: string;
++  occurred_at: string;
++  source_type: string;
++  source_message_ids: string[];
++  conversation_id: string | null;
++  event_type: string;
++  tags: string[];
++};
++
++export type LifeMemories = {
++  memories: LifeMemory[];
++  total: number;
++  page: number;
++  page_size: number;
++  has_more: boolean;
++};
++
++export const lifeService = {
++  memories: (params: string, signal?: AbortSignal) =>
++    request.get<LifeMemories>(`/life-api/api/v1/memories?${params}`, { signal }),
++  memory: (id: string, signal?: AbortSignal) =>
++    request.get<{ memory: LifeMemory }>(`/life-api/api/v1/memories/${encodeURIComponent(id)}`, {
++      signal,
++    }),
++};
