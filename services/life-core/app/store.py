@@ -98,6 +98,7 @@ class Store:
                 CREATE TABLE IF NOT EXISTS reminders (
                     reminder_id TEXT PRIMARY KEY,
                     owner_user_id TEXT NOT NULL,
+                    upstream_task_id INTEGER NOT NULL,
                     title TEXT NOT NULL,
                     scheduled_at TEXT NOT NULL,
                     timezone TEXT NOT NULL,
@@ -107,7 +108,33 @@ class Store:
                     created_at TEXT NOT NULL,
                     updated_at TEXT NOT NULL
                 );
+
+                CREATE TABLE IF NOT EXISTS reminder_notifications (
+                    event_id TEXT PRIMARY KEY,
+                    owner_user_id TEXT NOT NULL,
+                    payload TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'pending',
+                    attempts INTEGER NOT NULL DEFAULT 0,
+                    next_attempt_at TEXT NOT NULL,
+                    last_error TEXT,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                );
                 """
+            )
+            reminder_columns = {
+                row["name"] for row in db.execute("PRAGMA table_info(reminders)").fetchall()
+            }
+            if "upstream_task_id" not in reminder_columns:
+                db.execute("ALTER TABLE reminders ADD COLUMN upstream_task_id INTEGER")
+            db.execute("""CREATE UNIQUE INDEX IF NOT EXISTS idx_reminder_owner_task
+                ON reminders(owner_user_id,upstream_task_id)""")
+            db.execute(
+                """
+                UPDATE reminder_notifications SET status = 'pending', updated_at = ?
+                WHERE status = 'sending'
+                """,
+                (utc_now(),),
             )
 
     def bootstrap_user(
@@ -157,6 +184,14 @@ class Store:
                 "SELECT * FROM users WHERE librechat_user_id = ?", (librechat_user_id,)
             ).fetchone()
         return dict(row) if row else None
+
+    def ensure_reminder_user(self, librechat_user_id: str) -> dict[str, Any]:
+        life_id = "life_" + hashlib.sha256(librechat_user_id.encode()).hexdigest()[:20]
+        with self.connect() as db:
+            db.execute("""INSERT OR IGNORE INTO users (
+                life_user_id,librechat_user_id,memos_user_id,created_at,updated_at
+                ) VALUES (?,?,'',?,?)""", (life_id, librechat_user_id, utc_now(), utc_now()))
+        return self.get_user_by_librechat_id(librechat_user_id)
 
     def get_user(self, life_user_id: str) -> dict[str, Any] | None:
         with self.connect() as db:
@@ -370,6 +405,7 @@ class Store:
         title: str,
         scheduled_at: str,
         timezone: str,
+        upstream_task_id: int,
         delivery_channel: str = "in_app",
     ) -> dict[str, Any]:
         reminder_id = "rem_" + uuid.uuid4().hex
@@ -377,14 +413,15 @@ class Store:
         with self.connect() as db:
             db.execute(
                 """
-                INSERT INTO reminders (
-                    reminder_id, owner_user_id, title, scheduled_at, timezone,
+                INSERT OR IGNORE INTO reminders (
+                    reminder_id, owner_user_id, upstream_task_id, title, scheduled_at, timezone,
                     status, delivery_channel, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, 'scheduled', ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, 'scheduled', ?, ?, ?)
                 """,
                 (
                     reminder_id,
                     owner_user_id,
+                    upstream_task_id,
                     title,
                     scheduled_at,
                     timezone,
@@ -394,30 +431,182 @@ class Store:
                 ),
             )
             row = db.execute(
-                "SELECT * FROM reminders WHERE reminder_id = ?", (reminder_id,)
+                "SELECT * FROM reminders WHERE owner_user_id=? AND upstream_task_id=?",
+                (owner_user_id, upstream_task_id),
             ).fetchone()
         return dict(row)
 
     def list_reminders(self, owner_user_id: str) -> list[dict[str, Any]]:
+        with self.connect() as db:
+            rows = db.execute(
+                """
+                SELECT r.*, COALESCE((
+                    SELECT n.status FROM reminder_notifications n
+                    WHERE n.owner_user_id = r.owner_user_id
+                        AND json_extract(n.payload, '$.data.task.id') = r.upstream_task_id
+                    ORDER BY n.created_at DESC LIMIT 1
+                ), 'waiting') AS notification_status
+                FROM reminders r
+                WHERE r.owner_user_id = ?
+                ORDER BY r.scheduled_at ASC
+                """,
+                (owner_user_id,),
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+    def get_reminder(self, reminder_id: str, owner_user_id: str) -> dict[str, Any] | None:
+        with self.connect() as db:
+            row = db.execute(
+                "SELECT * FROM reminders WHERE reminder_id = ? AND owner_user_id = ?",
+                (reminder_id, owner_user_id),
+            ).fetchone()
+        return dict(row) if row else None
+
+    def update_reminder(
+        self,
+        reminder_id: str,
+        owner_user_id: str,
+        *,
+        title: str,
+        scheduled_at: str | None,
+        timezone: str | None,
+        done: bool | None = None,
+    ) -> dict[str, Any] | None:
         now = utc_now()
         with self.connect() as db:
             db.execute(
                 """
                 UPDATE reminders
-                SET status = 'due', updated_at = ?
-                WHERE owner_user_id = ? AND status = 'scheduled' AND scheduled_at <= ?
+                SET title = ?, scheduled_at = COALESCE(?, scheduled_at),
+                    timezone = COALESCE(?, timezone), updated_at = ?,
+                    status = CASE WHEN ? = 1 THEN 'completed'
+                        WHEN ? = 0 OR ? IS NOT NULL THEN 'scheduled' ELSE status END
+                WHERE reminder_id = ? AND owner_user_id = ? AND status != 'cancelled'
                 """,
-                (now, owner_user_id, now),
+                (title, scheduled_at, timezone, now,
+                 int(done) if done is not None else None,
+                 int(done) if done is not None else None,
+                 scheduled_at, reminder_id, owner_user_id),
             )
-            rows = db.execute(
+            row = db.execute(
+                "SELECT * FROM reminders WHERE reminder_id = ? AND owner_user_id = ?",
+                (reminder_id, owner_user_id),
+            ).fetchone()
+        return dict(row) if row else None
+
+    def cancel_reminder(self, reminder_id: str, owner_user_id: str) -> dict[str, Any] | None:
+        now = utc_now()
+        with self.connect() as db:
+            db.execute(
                 """
-                SELECT * FROM reminders
-                WHERE owner_user_id = ?
-                ORDER BY scheduled_at ASC
+                UPDATE reminders SET status = 'cancelled', updated_at = ?
+                WHERE reminder_id = ? AND owner_user_id = ?
                 """,
-                (owner_user_id,),
-            ).fetchall()
-        return [dict(row) for row in rows]
+                (now, reminder_id, owner_user_id),
+            )
+            row = db.execute(
+                "SELECT * FROM reminders WHERE reminder_id = ? AND owner_user_id = ?",
+                (reminder_id, owner_user_id),
+            ).fetchone()
+        return dict(row) if row else None
+
+    def mark_reminder_fired(self, upstream_task_id: int, owner_user_id: str) -> None:
+        now = utc_now()
+        with self.connect() as db:
+            db.execute(
+                """
+                UPDATE reminders SET status = 'due', updated_at = ?
+                WHERE upstream_task_id = ? AND owner_user_id = ? AND status = 'scheduled'
+                """,
+                (now, upstream_task_id, owner_user_id),
+            )
+
+    def get_reminder_by_task(self, task_id: int, owner_user_id: str):
+        with self.connect() as db:
+            row = db.execute(
+                "SELECT * FROM reminders WHERE upstream_task_id = ? AND owner_user_id = ?",
+                (task_id, owner_user_id),
+            ).fetchone()
+        return dict(row) if row else None
+
+    def queue_reminder_notification(
+        self, *, event_id: str, owner_user_id: str, payload: dict[str, Any]
+    ) -> None:
+        now = utc_now()
+        with self.connect() as db:
+            db.execute(
+                """
+                INSERT OR IGNORE INTO reminder_notifications (
+                    event_id, owner_user_id, payload, status, next_attempt_at, created_at, updated_at
+                ) VALUES (?, ?, ?, 'pending', ?, ?, ?)
+                """,
+                (event_id, owner_user_id, json.dumps(payload), now, now, now),
+            )
+
+    def next_reminder_notification(self) -> dict[str, Any] | None:
+        now = utc_now()
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            row = db.execute(
+                """
+                SELECT * FROM reminder_notifications
+                WHERE status = 'pending' AND next_attempt_at <= ?
+                ORDER BY created_at LIMIT 1
+                """,
+                (now,),
+            ).fetchone()
+            if row is None:
+                return None
+            db.execute(
+                """
+                UPDATE reminder_notifications SET status = 'sending', attempts = attempts + 1,
+                    updated_at = ? WHERE event_id = ? AND status = 'pending'
+                """,
+                (now, row["event_id"]),
+            )
+            claimed = db.execute(
+                "SELECT * FROM reminder_notifications WHERE event_id = ?", (row["event_id"],)
+            ).fetchone()
+        event = dict(claimed)
+        event["payload"] = json.loads(event["payload"])
+        return event
+
+    def fail_reminder_notification(self, event_id: str) -> None:
+        now = utc_now()
+        with self.connect() as db:
+            row = db.execute(
+                "SELECT attempts FROM reminder_notifications WHERE event_id = ?", (event_id,)
+            ).fetchone()
+            attempts = row["attempts"] if row else 1
+            retry_seconds = min(3600, 2 ** min(attempts, 10))
+            retry_at = datetime.now(UTC).timestamp() + retry_seconds
+            retry_iso = datetime.fromtimestamp(retry_at, UTC).isoformat()
+            db.execute(
+                """
+                UPDATE reminder_notifications SET status = 'pending', next_attempt_at = ?,
+                    last_error = 'NTFY_DELIVERY_FAILED', updated_at = ?
+                WHERE event_id = ?
+                """,
+                (retry_iso, now, event_id),
+            )
+
+    def complete_reminder_notification(self, event_id: str) -> None:
+        now = utc_now()
+        with self.connect() as db:
+            db.execute(
+                """
+                UPDATE reminder_notifications SET status = 'accepted', last_error = NULL,
+                    updated_at = ? WHERE event_id = ?
+                """,
+                (now, event_id),
+            )
+
+    def suppress_reminder_notification(self, event_id: str) -> None:
+        with self.connect() as db:
+            db.execute(
+                "UPDATE reminder_notifications SET status = 'suppressed', updated_at = ? WHERE event_id = ?",
+                (utc_now(), event_id),
+            )
 
     @staticmethod
     def _event_dict(row: sqlite3.Row) -> dict[str, Any]:

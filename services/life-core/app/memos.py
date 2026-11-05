@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+import re
 from typing import Any
 
 import httpx
@@ -50,6 +51,15 @@ class MemosClient:
         }
         timeout = httpx.Timeout(20, connect=5)
         with httpx.Client(timeout=timeout, trust_env=False) as client:
+            identity = client.get(f"{self.base_url}/api/auth/me", headers=self.headers)
+            if not identity.is_success:
+                raise MemosError(f"MEMOS_IDENTITY_FAILED:{identity.status_code}")
+            try:
+                writer = identity.json()["user"]["name"]
+            except (ValueError, KeyError, TypeError) as exc:
+                raise MemosError("MEMOS_INVALID_IDENTITY") from exc
+            if writer != event.get("memos_user_id"):
+                raise MemosError("MEMOS_WRITER_MISMATCH")
             response = client.post(
                 f"{self.base_url}/api/memos",
                 params={"memoId": memo_id},
@@ -64,8 +74,44 @@ class MemosClient:
                     return self._memo_name(existing)
                 raise MemosError(f"MEMOS_CONFLICT_WITHOUT_READ:{existing.status_code}")
             if not response.is_success:
-                raise MemosError(f"MEMOS_CREATE_FAILED:{response.status_code}:{response.text[:300]}")
+                raise MemosError(f"MEMOS_CREATE_FAILED:{response.status_code}")
             return self._memo_name(response)
+
+    def get_private_memo(self, memo_ref: str, expected_creator: str) -> dict[str, Any]:
+        if not self.configured:
+            raise MemosError("MEMOS_NOT_CONFIGURED")
+        if not re.fullmatch(r"memos/[A-Za-z0-9_-]+", memo_ref):
+            raise MemosError("MEMOS_INVALID_REFERENCE")
+        try:
+            with httpx.Client(timeout=httpx.Timeout(10, connect=3), trust_env=False) as client:
+                response = client.get(f"{self.base_url}/api/{memo_ref}", headers=self.headers)
+            if not response.is_success:
+                raise MemosError(f"MEMOS_READ_FAILED:{response.status_code}")
+            memo = response.json()
+        except (httpx.HTTPError, ValueError) as exc:
+            raise MemosError("MEMOS_READ_UNAVAILABLE") from exc
+        if not isinstance(memo, dict) or not isinstance(memo.get("content"), str):
+            raise MemosError("MEMOS_INVALID_RESPONSE")
+        if (
+            memo.get("name") != memo_ref
+            or memo.get("creator") != expected_creator
+            or memo.get("visibility") != "PRIVATE"
+            or memo.get("state", "NORMAL") != "NORMAL"
+        ):
+            raise MemosError("MEMOS_OWNERSHIP_MISMATCH")
+        return memo
+
+    def delete_private_memo(self, memo_ref: str, expected_creator: str) -> None:
+        try:
+            self.get_private_memo(memo_ref, expected_creator)
+        except MemosError as exc:
+            if str(exc) == "MEMOS_READ_FAILED:404":
+                return
+            raise
+        with httpx.Client(timeout=10, trust_env=False) as client:
+            response = client.delete(f"{self.base_url}/api/{memo_ref}", headers=self.headers)
+        if not response.is_success and response.status_code != 404:
+            raise MemosError("MEMOS_DELETE_FAILED")
 
     @staticmethod
     def _already_exists(response: httpx.Response) -> bool:

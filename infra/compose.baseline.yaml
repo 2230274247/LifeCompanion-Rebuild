@@ -32,6 +32,7 @@ services:
     volumes:
       - ../products/librechat-custom/.env:/app/.env:ro
       - ../products/librechat-custom/librechat.yaml:/app/librechat.yaml:ro
+      - ../products/librechat-custom/api/server/middleware/canDeleteAccount.js:/app/api/server/middleware/canDeleteAccount.js:ro
       - ../products/librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro
       - ../products/librechat-custom/images:/app/client/public/images
       - ../products/librechat-custom/uploads:/app/uploads

@@ -1,0 +1,39 @@
+name: lifecompanion-reminders
+
+services:
+  vikunja:
+    image: ${VIKUNJA_IMAGE:?pin Vikunja image digest}
+    container_name: lifecompanion-vikunja
+    ports:
+      - "127.0.0.1:3456:3456"
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: http://127.0.0.1:3456/
+      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_JWT_SECRET:?set isolated secret}
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "true"
+      VIKUNJA_WEBHOOKS_ENABLED: "true"
+      VIKUNJA_OUTGOINGREQUESTS_ALLOWNONROUTABLEIPS: "true"
+      TZ: Asia/Hong_Kong
+    volumes:
+      - ./runtime/reminders/vikunja:/db
+      - ./runtime/reminders/vikunja-files:/app/vikunja/files
+    restart: unless-stopped
+
+  ntfy:
+    image: ${NTFY_IMAGE:?pin ntfy image digest}
+    container_name: lifecompanion-ntfy
+    command: serve
+    ports:
+      - "127.0.0.1:8087:80"
+    environment:
+      NTFY_BASE_URL: http://127.0.0.1:8087
+      NTFY_AUTH_FILE: /var/lib/ntfy/user.db
+      NTFY_CACHE_FILE: /var/cache/ntfy/cache.db
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      NTFY_ENABLE_LOGIN: "true"
+      TZ: Asia/Hong_Kong
+    volumes:
+      - ./runtime/reminders/ntfy-auth:/var/lib/ntfy
+      - ./runtime/reminders/ntfy-cache:/var/cache/ntfy
+    restart: unless-stopped
