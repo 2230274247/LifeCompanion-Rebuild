@@ -1,10 +1,26 @@
 # Architecture
 
-**当前增量：2026-11-02 V0.2.1，PARTIAL。**
-[记忆、回忆与成熟提醒服务](architecture/V02_1_MEMORY_REMINDERS.md) 和 [智谱配置与V0.2.2增量](architecture/V022_ZHIPU_CONFIG.md) 是当前实现说明，
-包含异步 LLM 分类、有界长期事实召回、跨消息事件归并、分目的权限、
-Vikunja/ntfy 官方 API 与可靠性边界。
-下文保留 V0.2 基线结构；其中“未来计划”“未实现召回/归并”的历史描述由该增量文档更新。
+**当前增量：2026-11-06 V0.3 多账号协作，候选版本。**
+在 V0.2/V0.2.1 的单用户记忆、回忆与提醒之上，新增好友、空间、共享回忆、
+共享状态与可用时段、授权、直接消息与通知，并保持按 `life_user_id` 的数据隔离。
+实现细节见 [V03_COLLABORATION.md](architecture/V03_COLLABORATION.md)。
+下文保留 V0.2 基线结构；其中“单用户映射”“未实现多用户自助开户”的历史描述
+已由 V0.3 增量文档更新。
+
+## V0.3 多账号模型
+
+```text
+LibreChat account (login)
+  -> LibreChat user id (JWT "id")
+  -> life_user_id (life-core users table)
+  -> 私有数据：memories / events / reminders / moments（按 life_user_id 隔离）
+  -> 协作数据：friends / spaces / shared-memories / grants（显式双向确认）
+```
+
+身份仍以 LibreChat 的 HS256 JWT 为准，`life-core` 用共享 `JWT_SECRET` 校验签名与
+`exp`。每个 `life_user_id` 只读自己的记忆、提醒、时刻与私人数据；跨用户可见性
+必须经过好友请求、空间邀请或共享回忆邀请的显式接受。内部接口继续只接受
+`X-Internal-Token`，网关仅放行 `server.mjs` 中白名单的公开路由。
 
 ## 目标
 

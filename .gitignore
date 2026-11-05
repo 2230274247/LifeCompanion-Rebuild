@@ -35,3 +35,10 @@ uploads/
 *.dump
 *.bak
 
+# Ubuntu deployment bundle (build artifacts and local secrets)
+deploy/ubuntu/librechat-custom/
+deploy/ubuntu/volumes/
+deploy/ubuntu/.env
+deploy/ubuntu/test-accounts.env
+deploy/ubuntu/backups/
+

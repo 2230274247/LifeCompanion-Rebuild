@@ -1,11 +1,12 @@
 # Life Companion Rebuild
 
-**2026-11-02 V0.2.1 本机增量：总体 PARTIAL。** 已加入授权长期事实召回、
-同主题生活事件归并，以及真实 Vikunja + ntfy 单次提醒和 React 提醒页。
-两个合成账号的提醒/通知隔离已实测；普通用户自动开通、固定周期提醒、系统后台/手机推送、
-生图和 APK 尚未交付。详见 [本轮证据](evidence/v02-memory-reminders/README.md)
-与 [实际架构边界](docs/architecture/V02_1_MEMORY_REMINDERS.md)。
-下文保留此前 V0.2 基线说明。
+**2026-11-06 V0.3：多账号协作候选版本。** 在 V0.2/V0.2.1 的记忆、回忆、
+提醒与图片生成之上，新增多账号协作：好友、空间、共享回忆、共享状态/可用时段、
+授权（grants）、直接消息与通知，以及按用户隔离的数据与权限。本分支为
+`feat/v03-collaboration-20261105`，Ubuntu 24.04 部署见
+[deploy/ubuntu/README.md](deploy/ubuntu/README.md)。
+下文保留 V0.2 基线说明；当前架构边界见 [V0.3 架构](docs/architecture/V03_COLLABORATION.md)
+与 [开发日志](docs/development-log/README.md)。
 
 基于真实 LibreChat 与 Memos 源码的“AI 生活伙伴 + 人生回忆录”纵向切片。
 V0.2 将 LibreChat React 前端作为统一聊天与回忆 SPA，面向 2026-11-04 本地演示，
@@ -36,6 +37,7 @@ products/librechat-custom/ 真实 LibreChat 克隆与本地补丁
 products/memos-custom/     真实 Memos 克隆，无本地补丁
 services/life-core/        事件、授权、幂等、Memos 适配
 infra/                     Compose override 与本地运行状态
+deploy/ubuntu/             Ubuntu 24.04 Docker Compose 部署（网关、life-core、LibreChat）
 docs/                      上游、架构、运行、验收和阻断说明
 evidence/                  已验证截图与脱敏证据
 patches/                   独立上游仓库的可复现本地补丁
