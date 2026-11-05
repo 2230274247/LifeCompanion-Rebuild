@@ -7,10 +7,14 @@ infra/runtime/
 evidence/runtime/
 services/life-core/data/
 services/life-core/.venv/
+.work/
+.claude/
 
 # Independently versioned upstream clones
 products/librechat-custom/
 products/memos-custom/
+products/vikunja-upstream/
+products/ntfy-upstream/
 
 # Python and Node
 __pycache__/
@@ -18,4 +22,15 @@ __pycache__/
 .venv/
 node_modules/
 dist/
+.turbo/
+coverage/
+*.log
+
+# Local stateful data and archives
+uploads/
+*.sqlite
+*.sqlite3
+*.archive
+*.dump
+*.bak
 
