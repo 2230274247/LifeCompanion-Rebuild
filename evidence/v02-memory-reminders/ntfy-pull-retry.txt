@@ -1,0 +1,13 @@
+v2.36.0: Pulling from binwiederhier/ntfy
+20ed3493ff37: Pulling fs layer
+7b229517ed22: Pulling fs layer
+4a783efbc91a: Pulling fs layer
+4a783efbc91a: Download complete
+7b229517ed22: Download complete
+7b229517ed22: Pull complete
+4a783efbc91a: Pull complete
+20ed3493ff37: Download complete
+20ed3493ff37: Pull complete
+Digest: sha256:fb48c413eb11d50339962b5d62cddce0f800e7f77c626d638a7c20cb7e9c4465
+Status: Downloaded newer image for binwiederhier/ntfy:v2.36.0
+docker.io/binwiederhier/ntfy:v2.36.0

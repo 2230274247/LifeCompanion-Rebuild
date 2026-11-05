@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-11-03T00:09:08.208560+08:00",
+  "overall": "PARTIAL",
+  "tests": {
+    "backend": 30,
+    "client": 122,
+    "librechat_api": 78,
+    "gateway": 2,
+    "limited_total": 232
+  },
+  "api_live": "PASS",
+  "withdrawal_cancel_live": "PASS",
+  "two_configured_users_live": "PASS",
+  "lighthouse": "FAIL before measurements (isolated registration locator)",
+  "system_ime_mobile_push": "NOT TESTED",
+  "data_preservation": "PASS (baseline life-core rows)",
+  "secret_scan": "PASS",
+  "committed": false,
+  "pushed": false,
+  "public_deployment": false,
+  "patch_sha256": "539a3c60fb9d6887f389c15a1a1eec82d13807801af0a14d7e00962312718858",
+  "remaining": [
+    "fixed calendar recurrence",
+    "OS background and mobile push",
+    "automatic account provisioning",
+    "general multi-candidate memory and anaphora",
+    "image provider",
+    "IME/device/performance acceptance"
+  ]
+}

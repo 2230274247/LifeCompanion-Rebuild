@@ -1,0 +1,9 @@
+{
+  "http_status": 200,
+  "status": "ready",
+  "configured": true,
+  "provisioning_state": "ready",
+  "error_code": null,
+  "original_reminder_count": 0,
+  "created_private_reminders": false
+}

@@ -1,0 +1,27 @@
+..........................F...                                           [100%]
+================================== FAILURES ===================================
+___________ test_notification_claim_is_atomic_and_restart_recovers ____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-23/test_notification_claim_is_ato0')
+
+    def test_notification_claim_is_atomic_and_restart_recovers(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            store = app.state.store
+            store.queue_reminder_notification(event_id="one", owner_user_id="isolated", payload={})
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                claims = list(pool.map(lambda _: store.next_reminder_notification(), range(2)))
+>           assert sum(item is not None for item in claims) == 1
+E           assert 0 == 1
+E            +  where 0 = sum(<generator object test_notification_claim_is_atomic_and_restart_recovers.<locals>.<genexpr> at 0x000002AC32BC7030>)
+
+tests\test_reminders.py:204: AssertionError
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+  H:\AI For research institute\LifeCompanion-Rebuild\services\life-core\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_reminders.py::test_notification_claim_is_atomic_and_restart_recovers
+1 failed, 29 passed, 1 warning in 14.97s

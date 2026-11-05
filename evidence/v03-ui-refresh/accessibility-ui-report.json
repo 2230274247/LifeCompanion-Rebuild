@@ -1,0 +1,233 @@
+{
+  "generatedAt": "2026-11-04T17:28:23.858Z",
+  "baseURL": "http://127.0.0.1:3037",
+  "standard": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "best-practice"
+  ],
+  "scope": "Full rendered page for five Life routes at 390 and 1440 widths; devtools removed before analysis.",
+  "results": [
+    {
+      "route": "/c/new",
+      "viewport": "390x844",
+      "violationCount": 1,
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 1,
+          "targets": [
+            [
+              ".mt-3"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #748179, background color: #faf8f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/reminders",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1440x1000",
+      "violationCount": 2,
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": 1,
+          "targets": [
+            [
+              ".high-contrast\\:border-r"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+          ]
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 1,
+          "targets": [
+            [
+              ".mt-3"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #748179, background color: #faf8f1, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "violationCount": 2,
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": 1,
+          "targets": [
+            [
+              ".high-contrast\\:border-r"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "impact": "moderate",
+          "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+          "nodes": 1,
+          "targets": [
+            [
+              ".border-r > nav[data-testid=\"life-navigation\"][aria-label=\"拾光导航\"]"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1440x1000",
+      "violationCount": 2,
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": 1,
+          "targets": [
+            [
+              ".high-contrast\\:border-r"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "impact": "moderate",
+          "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+          "nodes": 1,
+          "targets": [
+            [
+              ".border-r > nav[data-testid=\"life-navigation\"][aria-label=\"拾光导航\"]"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1440x1000",
+      "violationCount": 2,
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": 1,
+          "targets": [
+            [
+              ".high-contrast\\:border-r"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "impact": "moderate",
+          "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+          "nodes": 1,
+          "targets": [
+            [
+              ".border-r > nav[data-testid=\"life-navigation\"][aria-label=\"拾光导航\"]"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1440x1000",
+      "violationCount": 2,
+      "violations": [
+        {
+          "id": "aria-hidden-focus",
+          "impact": "serious",
+          "help": "ARIA hidden element must not be focusable or contain focusable elements",
+          "nodes": 1,
+          "targets": [
+            [
+              ".high-contrast\\:border-r"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Focusable content should be disabled or be removed from the DOM"
+          ]
+        },
+        {
+          "id": "landmark-unique",
+          "impact": "moderate",
+          "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+          "nodes": 1,
+          "targets": [
+            [
+              ".border-r > nav[data-testid=\"life-navigation\"][aria-label=\"拾光导航\"]"
+            ]
+          ],
+          "summaries": [
+            "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+          ]
+        }
+      ]
+    }
+  ]
+}

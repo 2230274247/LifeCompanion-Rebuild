@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-11-02T21:58:26.403039+08:00",
+  "isolation": "local-only Vikunja account and ACL-protected ntfy topic",
+  "checks": {
+    "isolated_account_login": "PASS",
+    "official_user_webhook_registered": "PASS",
+    "task_created_with_absolute_reminder": "PASS",
+    "task_read_and_updated": "PASS",
+    "reminder_webhook_received_by_ntfy": "PASS"
+  },
+  "status": "PASS",
+  "task": {
+    "id": 3,
+    "project_id": 1,
+    "reminder": "2026-11-02T13:59:21Z",
+    "updated_title": "Codex isolated reminder API verification updated"
+  },
+  "notification": {
+    "topic": "life-v02-af6b08e1ee72fd0f",
+    "event_name": "task.reminder.fired",
+    "payload_fields": [
+      "data",
+      "event_name",
+      "time"
+    ],
+    "task_id_matches": true,
+    "received": true
+  },
+  "cleanup_task": true,
+  "cleanup_webhook": true,
+  "ended_at": "2026-11-02T21:59:00.382303+08:00"
+}

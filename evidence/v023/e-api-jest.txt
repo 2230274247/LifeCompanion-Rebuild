@@ -1,0 +1,14 @@
+PASS src/memory/life.spec.ts
+  Life Companion memory boundary
+    √ adds authorized facts only to a copy of the current model-bound user message (12 ms)
+    √ preserves chat when memory is disabled or unreachable (7 ms)
+    √ queues the persisted source with the server identity, never an assistant answer (4 ms)
+    √ executes reminders only after persistence and includes the real service result (4 ms)
+    √ manual memory follows the previous user source and excludes assistant embellishment (4 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        4.401 s, estimated 5 s
+Ran all test suites matching src/memory/life.spec.ts.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?

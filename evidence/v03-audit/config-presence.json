@@ -1,0 +1,21 @@
+{
+  "infra/.env": {
+    "IMAGE_PROVIDER_API_KEY": {
+      "present": false
+    }
+  },
+  "products/librechat-custom/.env": {
+    "ZHIPU_API_KEY": {
+      "present": true
+    },
+    "ZHIPU_MODEL": {
+      "present": true
+    },
+    "ZHIPU_BASE_URL": {
+      "present": true
+    },
+    "LIFE_LLM_PROVIDER": {
+      "present": true
+    }
+  }
+}

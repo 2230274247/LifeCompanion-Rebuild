@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 292, in <module>
+    {"setup": setup, "b": stage_b, "c": stage_c, "memos":memos_setup, "d":stage_d, "screenshot":screenshot_scenario}[sys.argv[1]]()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 275, in screenshot_scenario
+    action = next(a for a in actions if a["message_id"] == command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

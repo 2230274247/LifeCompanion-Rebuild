@@ -1,0 +1,12 @@
+{
+  "stage": "P0-3",
+  "checks": {
+    "exact_chinese_only_time_missing_two_previews_no_task_before_confirmation": "PASS",
+    "ordinary_account_d_cannot_read_or_mutate_c_draft": "PASS",
+    "real_upstream_task_id_concurrent_confirm_one_task_and_reload_recovery": "PASS",
+    "synthetic_task_cancelled_through_real_upstream": "PASS"
+  },
+  "status": "PASS",
+  "confirmation_state": "scheduled",
+  "real_task_id": 24
+}

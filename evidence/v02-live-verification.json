@@ -1,0 +1,21 @@
+{
+  "tested_at": "2026-11-02T19:35:57.423524+08:00",
+  "conversation_id": "d8302b52-bc70-5bff-8445-af380c2cca52",
+  "event_id": "evt_72c5f736ec1efbb85cf789d3",
+  "source_message_ids": [
+    "6ae86f3e9bf7d8d5b809153d"
+  ],
+  "memo_ref": "memos/1cf47eb1-5bfa-5572-a58b-c6324f1217c8",
+  "status": "PASS",
+  "checks": {
+    "real_login": "PASS",
+    "real_memories_and_detail": "PASS",
+    "private_memos_content_and_owner": "PASS",
+    "same_source_retry": "PASS",
+    "event_count_unchanged_after_retry": "PASS",
+    "publish_task_succeeded": "PASS",
+    "anonymous_and_invalid_token_denied": "PASS",
+    "internal_route_blocked": "PASS",
+    "real_empty_search": "PASS"
+  }
+}

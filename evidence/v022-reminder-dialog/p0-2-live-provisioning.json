@@ -1,0 +1,24 @@
+{
+  "stage": "P0-2",
+  "checks": {
+    "ordinary_account_maps_without_manual_bootstrap_and_requires_consent": "PASS",
+    "real_concurrent_provisioning_ready_idempotent_other_account_unconfigured": "PASS"
+  },
+  "status": "PASS",
+  "provisioning_http": [
+    200,
+    200
+  ],
+  "provisioning_responses": [
+    {
+      "status": "ready",
+      "configured": true,
+      "provisioning_state": "ready",
+      "error_code": null
+    },
+    {
+      "status": "provisioning",
+      "configured": false
+    }
+  ]
+}

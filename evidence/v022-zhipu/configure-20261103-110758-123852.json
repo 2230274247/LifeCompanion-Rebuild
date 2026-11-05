@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-03T03:07:49.379786+00:00",
+  "status": "PASS",
+  "provider": "zhipu",
+  "model": "glm-4.7",
+  "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+  "checks": {
+    "json_object": "PASS",
+    "stream": "PASS"
+  },
+  "configuration": {
+    "encrypted_backup": "zhipu-config-before-20261103-110758-105597.dpapi",
+    "services_restart_required": true
+  },
+  "applied": true,
+  "ended_at": "2026-11-03T03:07:58.123852+00:00"
+}

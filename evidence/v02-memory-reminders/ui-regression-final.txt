@@ -1,0 +1,140 @@
+
+> @librechat/frontend@v0.8.8 test:ci
+> cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false --runTestsByPath src/components/Life/__tests__/Memories.spec.tsx src/components/Life/__tests__/Knowledge.spec.tsx src/routes/__tests__/ChatRoute.spec.tsx src/components/Chat/Input/__tests__/submit.spec.ts src/hooks/Input/useComposerBindings.spec.tsx src/hooks/Messages/__tests__/useMessageScrolling.spec.tsx src/utils/shortcuts.spec.ts src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx src/hooks/Nav/__tests__/useSidebarToggle.spec.tsx
+
+PASS src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx (22.216 s, 303 MB heap size)
+  ● Console
+
+    console.error
+      Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+
+      at call (../node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (../node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at error (../node_modules/react-dom/cjs/react-dom.development.js:27643:7)
+      at warnIfSuspenseResolutionNotWrappedWithActDEV (../node_modules/react-dom/cjs/react-dom.development.js:27228:3)
+
+PASS src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx (352 MB heap size)
+  ● Console
+
+    console.error
+      Warning: A suspended resource finished loading inside a test, but the event was not wrapped in act(...).
+      
+      When testing, code that resolves suspended data should be wrapped into act(...):
+      
+      act(() => {
+        /* finish loading suspended data */
+      });
+      /* assert on the output */
+      
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+
+      at call (../node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (../node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at error (../node_modules/react-dom/cjs/react-dom.development.js:27643:7)
+      at warnIfSuspenseResolutionNotWrappedWithActDEV (../node_modules/react-dom/cjs/react-dom.development.js:27228:3)
+
+    console.error
+      Warning: React does not recognize the `asChild` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `aschild` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at button
+          at children (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\UnifiedSidebar\mobile\__tests__\Header.spec.tsx:28:10)
+          at trigger (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\UnifiedSidebar\mobile\__tests__\Header.spec.tsx:35:29)
+          at side (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Nav\AgentMarketplaceButton.tsx:17:3)
+          at div
+          at links (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\UnifiedSidebar\mobile\Header.tsx:22:3)
+          at basenameProp (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\react-router\dist\development\chunk-HHGH3NKS.js:9895:13)
+          at basename (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\react-router\dist\development\chunk-HHGH3NKS.js:9811:3)
+
+      66 |   it('closes without passing the click event as an animation callback', () => {
+      67 |     const onClose = jest.fn();
+    > 68 |     render(<Header links={links} expanded={true} onClose={onClose} />, { wrapper: MemoryRouter });
+         |           ^
+      69 |
+      70 |     fireEvent.click(screen.getByTestId('close-sidebar-button'));
+      71 |
+
+      at call (../node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (../node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at error (../node_modules/react-dom/cjs/react-dom.development.js:3757:7)
+      at validateProperty$1 (../node_modules/react-dom/cjs/react-dom.development.js:3803:21)
+      at warnUnknownProperties (../node_modules/react-dom/cjs/react-dom.development.js:3827:3)
+      at validateProperties$2 (../node_modules/react-dom/cjs/react-dom.development.js:9541:5)
+      at validatePropertiesInDevelopment (../node_modules/react-dom/cjs/react-dom.development.js:9830:5)
+      at setInitialProperties (../node_modules/react-dom/cjs/react-dom.development.js:10950:3)
+      at finalizeInitialChildren (../node_modules/react-dom/cjs/react-dom.development.js:22232:17)
+      at completeWork (../node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at completeUnitOfWork (../node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at performUnitOfWork (../node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at workLoopSync (../node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at renderRootSync (../node_modules/react-dom/cjs/react-dom.development.js:25777:74)
+      at callback (../node_modules/react/cjs/react.development.js:2667:24)
+      at flushActQueue (../node_modules/react/cjs/react.development.js:2582:11)
+      at actImplementation (../node_modules/@testing-library/react/dist/act-compat.js:47:25)
+      at renderRoot (../node_modules/@testing-library/react/dist/pure.js:180:25)
+      at renderRoot (../node_modules/@testing-library/react/dist/pure.js:271:10)
+      at Object.<anonymous> (src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx:68:11)
+
+PASS src/components/Life/__tests__/Knowledge.spec.tsx (395 MB heap size)
+  ● Console
+
+    console.error
+      Error: upstream failed
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Knowledge.spec.tsx:38:55)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/hooks/Messages/__tests__/useMessageScrolling.spec.tsx (498 MB heap size)
+PASS src/hooks/Input/useComposerBindings.spec.tsx (571 MB heap size)
+PASS src/components/Life/__tests__/Memories.spec.tsx (447 MB heap size)
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Memories.spec.tsx:78:28)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/hooks/Nav/__tests__/useSidebarToggle.spec.tsx (492 MB heap size)
+PASS src/routes/__tests__/ChatRoute.spec.tsx (516 MB heap size)
+PASS src/components/Chat/Input/__tests__/submit.spec.ts (523 MB heap size)
+PASS src/utils/shortcuts.spec.ts (535 MB heap size)
+
+Test Suites: 10 passed, 10 total
+Tests:       118 passed, 118 total
+Snapshots:   0 total
+Time:        43.119 s, estimated 48 s
+Ran all test suites within paths "src/components/Life/__tests__/Memories.spec.tsx", "src/components/Life/__tests__/Knowledge.spec.tsx", "src/routes/__tests__/ChatRoute.spec.tsx", "src/components/Chat/Input/__tests__/submit.spec.ts", "src/hooks/Input/useComposerBindings.spec.tsx", "src/hooks/Messages/__tests__/useMessageScrolling.spec.tsx", "src/utils/shortcuts.spec.ts", "src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx", "src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx", "src/hooks/Nav/__tests__/useSidebarToggle.spec.tsx".

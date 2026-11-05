@@ -1,0 +1,117 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+
+[WebServer] (node:10536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] [e2e] Started memory MongoDB at mongodb://127.0.0.1:12518/LibreChat-e2e
+
+[WebServer] 2026-11-02 23:25:11 warn: [metrics] METRICS_SECRET is not set - /metrics will return 401 for all requests
+
+[WebServer] 2026-11-02 23:25:11 info: Mongo Connection options
+
+[WebServer] 2026-11-02 23:25:11 info: {
+[WebServer]   "bufferCommands": false
+[WebServer] }
+
+[WebServer] 2026-11-02 23:25:11 info: Connected to MongoDB
+
+[WebServer] 2026-11-02 23:25:11 warn: [Security] TRUST_TENANT_HEADER is active. Ensure your reverse proxy strips and sets X-Tenant-Id — untrusted clients must not be able to supply it directly.
+
+[WebServer] 2026-11-02 23:25:18 info: [ensureBaseConfig] Loading base configuration...
+
+[WebServer] 2026-11-02 23:25:18 info: Custom config file loaded:
+
+[WebServer] 2026-11-02 23:25:18 info: {
+[WebServer]   "version": "1.3.6",
+[WebServer]   "cache": true,
+[WebServer]   "endpoints": {
+[WebServer]     "openAI": {
+[WebServer]       "titleConvo": false
+[WebServer]     }
+[WebServer]   },
+[WebServer]   "openapi": {
+[WebServer]     "enabled": true
+[WebServer]   }
+[WebServer] }
+
+[WebServer] 2026-11-02 23:25:18 info: [deploymentSkills] Loaded 1 deployment skill(s) from H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\e2e\fixtures\deployment-skills
+
+[WebServer] 2026-11-02 23:25:18 warn: The `CHECK_BALANCE` environment variable is deprecated. Please use the `balance` field in the `librechat.yaml` config file instead.
+[WebServer] More info: https://librechat.ai/docs/configuration/librechat_yaml/object_structure/balance#overview
+
+[WebServer] 2026-11-02 23:25:18 info: [credentials] New database detected. Credential fingerprints were recorded for future key-drift checks.
+
+[WebServer] 2026-11-02 23:25:18 info: 
+[WebServer] Outdated Config version: 1.3.6
+[WebServer] Latest version: 1.3.17
+[WebServer] 
+[WebServer]       Check out the Config changelogs for the latest options and features added.
+[WebServer] 
+[WebServer]       https://www.librechat.ai/changelog
+[WebServer] 
+[WebServer] 
+
+[WebServer] 2026-11-02 23:25:18 warn: RAG API is either not running or not reachable at http://127.0.0.1:8791, you may experience errors with file uploads.
+
+[WebServer] 2026-11-02 23:25:24 info: [StreamServices] Created in-memory stream services
+
+[WebServer] 2026-11-02 23:25:24 info: [GenerationJobManager] Configured with in-memory stores
+
+[WebServer] 2026-11-02 23:25:24 info: HTTP server timeout configuration
+
+[WebServer] 2026-11-02 23:25:24 info: Server listening at http://localhost:3098
+
+[WebServer] 2026-11-02 23:25:24 info: [MCPServersRegistry] Creating new instance
+
+[WebServer] 2026-11-02 23:25:24 info: OAuth reconnect manager initialized successfully.
+
+[WebServer] 2026-11-02 23:25:24 info: Created collection: projects
+
+🤖: global setup has been started
+🤖: using baseURL http://localhost:3098
+🤖: using E2E user: testuser@example.com
+[WebServer] 2026-11-02 23:25:27 info: [agent-triggers] durable delivery engine started
+
+🤖: 🗝  authenticating user: testuser@example.com
+🤖: ✔️  localStorage: set Nav as Visible H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\e2e\storageState.json
+[WebServer] 2026-11-02 23:25:28 info: [schedules] engine started
+
+[WebServer] 2026-11-02 23:25:28 info: Server readiness checks passing.
+
+🤖: global setup has been finished
+TimeoutError: locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Sign up' })
+
+
+   at ..\setup\authenticate.ts:12
+
+  10 |
+  11 | async function register(page: Page, user: User) {
+> 12 |   await page.getByRole('link', { name: 'Sign up' }).click();
+     |                                                     ^
+  13 |   await page.getByLabel('Full name').click();
+  14 |   await page.getByLabel('Full name').fill(user.name);
+  15 |   await page.getByLabel('Email').click();
+    at register (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\e2e\setup\authenticate.ts:12:53)
+    at authenticate (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\e2e\setup\authenticate.ts:73:11)
+    at globalSetup (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\e2e\setup\global-setup.ts:6:3)
+
+🤖: global teardown has been started
+2026-11-02 23:26:41 [32minfo[39m: [32mMongo Connection options[39m
+2026-11-02 23:26:41 [32minfo[39m: [32m{[39m
+[32m  "bufferCommands": false[39m
+[32m}[39m
+🤖:  ✅  Connected to Database
+🤖:  ⚠️  User not found in Database
+🤖: global teardown has been started
+2026-11-02 23:26:41 [32minfo[39m: [32mMongo Connection options[39m
+2026-11-02 23:26:41 [32minfo[39m: [32m{[39m
+[32m  "bufferCommands": false[39m
+[32m}[39m
+🤖:  ✅  Connected to Database
+🤖:  ⚠️  User not found in Database
+2026-11-02 23:26:42 [31merror[39m: [31mIndex build failed for "PluginAuth": Connection pool for 127.0.0.1:12518 was cleared because another operation failed with: "read ECONNRESET"[39m
+2026-11-02 23:26:42 [31merror[39m: [31mIndex build failed for "Key": read ECONNRESET[39m

@@ -1,0 +1,12 @@
+
+> @librechat/api@1.7.52 test:ci
+> jest --coverage --ci --testPathIgnorePatterns="\.*integration\.|\.*helper\.|__tests__/helpers/|\.*manual\.spec\." --runInBand --coverage=false --runTestsByPath src/memory/life.spec.ts src/app/service.spec.ts
+
+PASS src/app/service.spec.ts (31.051 s)
+PASS src/memory/life.spec.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       78 passed, 78 total
+Snapshots:   0 total
+Time:        31.976 s
+Ran all test suites within paths "src/memory/life.spec.ts", "src/app/service.spec.ts".

@@ -1,0 +1,10 @@
+{
+  "program": ".\\services\\life-core\\.venv\\Scripts\\python.exe",
+  "exit_code": 0,
+  "ended_at": "2026-11-02T21:17:04.7098828+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild",
+  "started_at": "2026-11-02T21:16:53.5919872+08:00",
+  "arguments": [
+    "tests/live-memory-v021.py"
+  ]
+}

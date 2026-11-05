@@ -1,0 +1,10 @@
+{
+  "arguments": [
+    "tests/live-life-reminders-v021.py"
+  ],
+  "program": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core/.venv/Scripts/python.exe",
+  "started_at": "2026-11-02T23:12:19.7444667+08:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-02T23:17:46.6703686+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild"
+}

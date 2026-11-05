@@ -1,0 +1,38 @@
+{
+  "tested_at": "2026-11-02T20:11:42.0786284+08:00",
+  "launcher_path": "C:\\Users\\Administrator\\Desktop\\启动拾光.cmd",
+  "helper_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\scripts\\start-lifecompanion.ps1",
+  "cmd_sha256": "CED1458EB9BB4AAEBEEBD897EF2D011843ADC18CC466827AE30994178A11045B",
+  "helper_sha256": "D0B2A88A8F8577B65C350AA82C9491AF5DEDE08E5B185B3AD7449535CE2C71E1",
+  "checks": {
+    "powershell_syntax": "PASS",
+    "cold_start": "PASS",
+    "cold_start_ports": "3001,8010",
+    "reuse_existing_processes": "PASS",
+    "cmd_exit_code": 0,
+    "health_check": [
+      {
+        "url": "http://127.0.0.1:3001/health",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:3080/health",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:5230/healthz",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:8010/health",
+        "status": 200
+      }
+    ],
+    "life_core_stderr_only_uvicorn_startup_info": "PASS",
+    "gateway_stderr_empty": "PASS"
+  },
+  "not_tested": [
+    "Docker Desktop cold boot was not repeated because Docker was already running.",
+    "Failure branch with a foreign process occupying a target port was not executed."
+  ]
+}

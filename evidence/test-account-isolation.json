@@ -1,0 +1,66 @@
+{
+  "cardVisible": false,
+  "state": {
+    "testCards": 0,
+    "bodyScrollWidth": 1440,
+    "clientWidth": 1440,
+    "bodyText": "AI 伙伴\n我的回忆\n提醒\n对话\n今天\n已收到\nReceived Confirmation\n拾\n\n拾光\n\nLIFE COMPANION · 留住生活的光\n\n已收到\n提示词 1: 拾光测试2小时前\n\nDEEPSEEK_VERIFY_2: 请只回复“已收到”。\n\n响应 2:\n拾光\n2小时前\n\n已收到\n\n拾光 · 留住生活的光"
+  },
+  "api": {
+    "profile": {
+      "status": 200,
+      "body": {
+        "life_user_id": "life_2463714b97427b3a9d47",
+        "librechat_user_id": "6aebd3e31dae743d6fe2ca69",
+        "memos_user_id": "users/shiguang-test",
+        "memos_username": "shiguang-test",
+        "display_name": "拾光测试",
+        "memory_consent": true,
+        "image_consent": true,
+        "timezone": "Asia/Hong_Kong",
+        "recall_consent": true,
+        "sensitive_consent": true,
+        "notification_consent": true
+      }
+    },
+    "momentSettings": {
+      "status": 200,
+      "body": {
+        "enabled": true,
+        "timezone": "Asia/Hong_Kong",
+        "ends": [
+          "11:00",
+          "17:00",
+          "23:00"
+        ],
+        "weights": {
+          "completeness": 0.1,
+          "emotion": 0.2,
+          "importance": 0.5,
+          "uniqueness": 0.2
+        },
+        "enabled_at": "2026-11-05T02:29:25.246077+00:00",
+        "proposed": false
+      }
+    },
+    "testStatus": {
+      "status": 200,
+      "body": {
+        "enabled": false,
+        "provider_ready": true,
+        "unlimited": true,
+        "mode": "DIRECT_TEST_BYPASS"
+      }
+    },
+    "testPost": {
+      "status": 403,
+      "body": {
+        "detail": {
+          "code": "ADMIN_DIRECT_TEST_REQUIRED"
+        }
+      }
+    }
+  },
+  "errors": [],
+  "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\test-account-real-conversation-1440.png"
+}

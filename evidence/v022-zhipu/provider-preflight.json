@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-11-03T10:59:59.303599",
+  "model": "glm-4.7",
+  "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+  "checks": {
+    "json_object": {
+      "http": 200,
+      "elapsed_seconds": 5.03,
+      "status": "PASS",
+      "returned_model": "glm-4.7"
+    },
+    "stream": {
+      "http": 200,
+      "status": "PASS",
+      "content_chunks": 1,
+      "done": true,
+      "elapsed_seconds": 2.36
+    }
+  },
+  "status": "PASS",
+  "ended_at": "2026-11-03T11:00:08.361924"
+}

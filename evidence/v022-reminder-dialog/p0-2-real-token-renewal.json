@@ -1,0 +1,9 @@
+{
+  "stage": "P0-2",
+  "renewed_token_changed": true,
+  "old_token_http": 401,
+  "stable_user_project_topic": true,
+  "encrypted_at_rest": true,
+  "new_token_real_tasks_http": 200,
+  "status": "PASS"
+}

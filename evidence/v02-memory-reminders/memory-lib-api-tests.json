@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-11-02T21:05:36.8707824+08:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-02T21:05:45.8714635+08:00",
+  "program": "npm.cmd",
+  "arguments": [
+    "run",
+    "test:ci",
+    "--",
+    "--runInBand",
+    "--coverage=false",
+    "--runTestsByPath",
+    "src/memory/life.spec.ts"
+  ],
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\packages\\api"
+}

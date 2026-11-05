@@ -1,0 +1,72 @@
+{
+  "record_version": 1,
+  "classification": "FAIL",
+  "captured_at": "2026-11-04T14:22:16+08:00",
+  "provider": "SiliconFlow",
+  "model": "Kwai-Kolors/Kolors",
+  "request_mode": "REAL",
+  "request_count": 1,
+  "retry_count": 0,
+  "account_preflight_requests": 1,
+  "image_generation_requests": 1,
+  "image_downloads": 1,
+  "started_at": "2026-11-04T06:21:07.167847+00:00",
+  "ended_at": "2026-11-04T06:21:14.808464+00:00",
+  "total_duration_ms": 7641.0,
+  "image_stage_duration_ms": 5172.0,
+  "provider_inference_seconds": 3.608,
+  "account_access_trace_id": "ti_rehefzkcy447izalc4",
+  "image_trace_id": "ti_brta5rmp6s79w32xtv",
+  "provider_response": {
+    "api_http_status": 200,
+    "images_count": 1,
+    "seed": 20261104,
+    "timings": {
+      "inference": 3.608
+    }
+  },
+  "download": {
+    "http_status": 200,
+    "host": "s3.siliconflow.cn",
+    "declared_content_type": "application/octet-stream",
+    "bytes": 1978187,
+    "magic_hex": "89504e470d0a1a0a0000000d49484452"
+  },
+  "validation": {
+    "failure_stage": "image_mime_validation",
+    "pillow_format": "PNG",
+    "detected_mime": "image/png",
+    "dimensions": [
+      960,
+      1280
+    ],
+    "full_decode_passed": true,
+    "mime_consistency_passed": false,
+    "accepted": false,
+    "sha256": "NOT_RECORDED_BY_PRE_QUARANTINE_CODE"
+  },
+  "diagnosis": {
+    "summary": "Provider returned a valid 960x1280 PNG over a generic application/octet-stream Content-Type.",
+    "strict_gate_result": "Rejected because the declared download MIME did not equal image/png.",
+    "not_causes": [
+      "Provider request not sent",
+      "Account permission failure",
+      "Price or budget failure",
+      "Corrupt or undecodable image"
+    ],
+    "evidence_limitation": "The accepted raw bytes were not persisted by the pre-quarantine code version; SHA-256 and visual inspection are unavailable for this attempt.",
+    "retry_decision": "No automatic retry. Attempt ledger remains consumed."
+  },
+  "ledger": {
+    "status": "IMAGE_REQUEST_REJECTED_OR_FAILED",
+    "image_generation_requests": 1,
+    "error_code": "IMAGE_MIME_FORMAT_MISMATCH",
+    "sha256": "c5c8d6df4b9fbbe0d8730a1d08b2e70c2213e74c43959ddf4e72b6dc27ac618e"
+  },
+  "previous_ledger": {
+    "path": "evidence/runtime/v03-b0-kolors/attempt-ledger.json",
+    "sha256_after_run": "35d3504e7bfe921cd514d45e9b27d6a0a36ebc8e3af957aa9f3803a0fed3b54b",
+    "unchanged": true
+  }
+}
+

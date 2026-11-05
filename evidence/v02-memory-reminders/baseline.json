@@ -1,0 +1,164 @@
+{
+  "started_at": "2026-11-02T20:52:33.528367+08:00",
+  "repos": {
+    ".": {
+      "branch": "main",
+      "commit": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1",
+      "status": "M README.md\n M apps/product-portal/server.mjs\n M docs/ARCHITECTURE.md\n M docs/BLOCKERS.md\n M docs/RUNBOOK.md\n M docs/UPSTREAM_DIFF.md\n M services/life-core/app/auth.py\n M services/life-core/app/main.py\n M services/life-core/app/memos.py\n M services/life-core/tests/test_api.py\n M tests/RESULTS.md\n?? AGENTS.md\n?? docs/DEVELOPMENT_LOG_POLICY.md\n?? docs/V02_IMPLEMENTATION.md\n?? docs/architecture/\n?? docs/design/\n?? docs/development-log/\n?? docs/product/\n?? evidence/launcher-verification.json\n?? evidence/v02-before-original.png\n?? evidence/v02-chat-1440.png\n?? evidence/v02-chat-390.png\n?? evidence/v02-detail-1440.png\n?? evidence/v02-empty-390.png\n?? evidence/v02-error-390.png\n?? evidence/v02-live-verification.json\n?? evidence/v02-memories-1440.png\n?? evidence/v02-memories-1920.png\n?? evidence/v02-memories-390.png\n?? evidence/v02-memories-430.png\n?? evidence/v02-memories-768.png\n?? evidence/v02-mobile-drawer-390.png\n?? evidence/v02-tests/\n?? evidence/v02-ui-final.json\n?? evidence/v02-viewports.json\n?? infra/compose.spa.yaml\n?? patches/\n?? scripts/\n?? services/life-core/tests/test_memos.py\n?? tests/gateway.test.mjs\n?? tests/live-v02.py",
+      "remote": "",
+      "untracked_sha256": {
+        "AGENTS.md": "a6a95b85c22d3b88e6e495398b346649e4456e6a327317eb3698f9c8d3594777",
+        "docs/DEVELOPMENT_LOG_POLICY.md": "93b51b31b0383418210858c1fa410f04ca4b967ad91c2a3445d232320c5412c5",
+        "docs/V02_IMPLEMENTATION.md": "9902145c5083fbce4677eac08a93840c00eaed726d2e98083dc359ebc634e53a",
+        "docs/architecture/README.md": "e3bc13e910255e4bccc3e1e412191c11c381062a507a9867cc40a4c72965e05a",
+        "docs/design/README.md": "c8a86386d82d12692676aa21cfbc6897588ee4644ff39fba7b5458f64c7441f9",
+        "docs/development-log/README.md": "70ced9dc33d15200eb3f5b916b7f80412e40c61d2bb8ec75ffbc3b219396e323",
+        "docs/product/README.md": "9f13105550f202cf993519e7c1033914ef0407352f93ee46346c7b3e4617f5c0",
+        "evidence/launcher-verification.json": "97d3c6c1165089cb94edd30a94e6037a3d93c4d588b0313bc10c87f20496bd5d",
+        "evidence/v02-before-original.png": "f7ac15c8068811b9c737789ee26fc470fe4097f854ea2940b9e82f83f2c64310",
+        "evidence/v02-chat-1440.png": "7524ea554235620a3b7f2792a7390c410d30f40a86b887587cee8dc30818e4d6",
+        "evidence/v02-chat-390.png": "7703ee37e166f9c3d815178fd6f5efb2fd922ae45ea63ec21528244c1f0215cb",
+        "evidence/v02-detail-1440.png": "0275c9678ee40128d1332a29a64c5e876d16585e4d838989bd85a2192bf41543",
+        "evidence/v02-empty-390.png": "58d041bfbc01ff1e3b5426fd47560c29dec0ae280397a24d8ab768001355f3c8",
+        "evidence/v02-error-390.png": "122a430a09f258d483286c826ecc335c5901281e04129678477980088aec79d7",
+        "evidence/v02-live-verification.json": "69683acf935a812008f3696f7d87e1b405cad9c647a0fff12524b65ab4db57c7",
+        "evidence/v02-memories-1440.png": "89bc29292435850e34bc196181e07d570b1ba2fc48a77971d5084b9b5d866013",
+        "evidence/v02-memories-1920.png": "be6b85cf808e1b4b114443be0d52d65dccc1676a2c84ab365a7e5fc6a52e17d2",
+        "evidence/v02-memories-390.png": "0f0b74ee18cc52926106e8b4180e8991bba7d84ac550c7560389dd88f00f799f",
+        "evidence/v02-memories-430.png": "edd543feb7c642324b921182cb8d368aca5699ab98612833e692cbf8c447f176",
+        "evidence/v02-memories-768.png": "ae9dc4af03ac2a84ab1e808e4f6f6e340af02675368b0b5cebd940bf436e71f8",
+        "evidence/v02-mobile-drawer-390.png": "36f86cbba734db03462a5dc95590df250b58e2cfb32dd5556ff8bfe90352023c",
+        "evidence/v02-tests/README.md": "5f93e7bac6141b4009f6b599cb171058bf7c70e3daac62c3348486039b2ace4d",
+        "evidence/v02-tests/automated-results.md": "180f96237625d50ebc7b0075215b105e042d4c74921141d94105e279425a1460",
+        "evidence/v02-tests/changed-files.md": "5664ca936c990a75d13a4845b002b08f4984b66b44c9ec1c79e1aa4e121f9f6b",
+        "evidence/v02-tests/final-checks.json": "c88b29c0b9c37bac5afccb9dc679d09176da2bf4a34a23a0b4d817e752c9d62a",
+        "evidence/v02-tests/jest-sidebar-before-v02.txt": "74926d51c6364e8408f203173238f580d6c44f748bc5fb0d276cd59a45941f4c",
+        "evidence/v02-tests/patch-final.json": "b8b215154297afaf32f02088d1c23f7f50a7ef2d01afaecdc3c1e29b98643467",
+        "evidence/v02-tests/static-and-build.md": "0794dc2107c6de73fd0df7dc1520d3aa9406fb05148863aaeff441c65f4c9a5d",
+        "evidence/v02-tests/v02-regression-before.txt": "379884cd81e2de009a58902ea67322aaf7ee6496acdb657c0a47fbab7be849b5",
+        "evidence/v02-ui-final.json": "26d2d1004a1eb83ecf6d55b288a61e37830fd7f072bb0b03243d5fba69c00691",
+        "evidence/v02-viewports.json": "52a3de272726e2a808ea79aab58e5d36d2e17965daaf3e2fe15f4f14deb502f0",
+        "infra/compose.spa.yaml": "8570f09e0a92634e43c0394fafcc33760e1f23aa7485bb7bb5d5a9553fcf97a0",
+        "patches/README.md": "7f552b4453073f3447438d10f9b6d01f2f8450b9c523782582fd370806240d5f",
+        "patches/librechat-v0.8.8-lifecompanion-v02.patch": "509188883bc9e75857d66f18b5c8c469bc8222cfefc3bc0acc357edd1c1203d3",
+        "scripts/start-lifecompanion.ps1": "d0b2a88a8f8577b65c350aa82c9491af5dede08e5b185b3ad7449535ce2c71e1",
+        "services/life-core/tests/test_memos.py": "35944dc0d592b92f368cc218478d1c1d18f867628f8c9f2153216a61b03364fe",
+        "tests/gateway.test.mjs": "78b697bdb87adbca63a11b2ab7fd768a65a8c92c1fa1780111d98b21140ae760",
+        "tests/live-v02.py": "0ea1ca28ad6c5656601e03d5d1f4186941944032066defedb1bab7981a6a8b4e"
+      }
+    },
+    "products/librechat-custom": {
+      "branch": "lifecompanion-baseline",
+      "commit": "7c2365cb376b48acb1591e48a6ef91e5c47c78e6",
+      "status": "M client/index.html\n M client/src/App.jsx\n M client/src/components/Auth/AuthLayout.tsx\n M client/src/components/UnifiedSidebar/ExpandedPanel.tsx\n M client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx\n M client/src/components/UnifiedSidebar/mobile/Header.tsx\n M client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx\n M client/src/locales/en/translation.json\n M client/src/routes/Root.tsx\n M client/src/routes/index.tsx\n M librechat.yaml\n M packages/data-provider/src/index.ts\n M packages/data-provider/src/keys.ts\n?? client/public/assets/life.svg\n?? client/src/components/Life/\n?? packages/data-provider/src/life.ts",
+      "remote": "origin\thttps://github.com/LibreChat-AI/LibreChat.git (fetch)\norigin\thttps://github.com/LibreChat-AI/LibreChat.git (push)",
+      "untracked_sha256": {
+        "client/public/assets/life.svg": "c3960ef2c6f74b6d27918993234911c767c23468691bb696905f08a72e61c603",
+        "client/src/components/Life/Header.tsx": "02f881f8763325c0e3e7d740916cb8fe12e79f92f4177c9da28a599ce871609e",
+        "client/src/components/Life/Memories.tsx": "3edf607bc536f5405ba55d05b94c19774f09393f3f7ad09d83808617b263fadb",
+        "client/src/components/Life/Navigation.tsx": "50199e1e8a979bd7e8cf6ce38c28bab9e7f3a6282b257702839e7f8787fff017",
+        "client/src/components/Life/__tests__/Memories.spec.tsx": "77fe430efd772db15226ad6f49bac927efcbe494fc770fff150e9c1857dfd4e9",
+        "client/src/components/Life/theme.ts": "a31cddd72c3a17495060462c063be72a02e75d27fb6408d80597bd3d0068031a",
+        "packages/data-provider/src/life.ts": "9790923dad6bb0391e801dafb5a37207901a2f155d56a167baec682d3b18b6b3"
+      }
+    },
+    "products/memos-custom": {
+      "branch": "lifecompanion-baseline",
+      "commit": "651657e7211901393e2501ae7e3e202c8e56f73a",
+      "status": "",
+      "remote": "origin\thttps://github.com/usememos/memos.git (fetch)\norigin\thttps://github.com/usememos/memos.git (push)",
+      "untracked_sha256": {}
+    }
+  },
+  "health": {
+    "3001": {
+      "status": 200,
+      "body": "{\"status\":\"ok\",\"service\":\"life-companion-gateway\"}"
+    },
+    "3080": {
+      "status": 200,
+      "body": "OK"
+    },
+    "5230": {
+      "status": 200,
+      "body": "Service ready."
+    },
+    "8010": {
+      "status": 200,
+      "body": "{\"status\":\"ok\",\"service\":\"life-core\",\"memos_configured\":true,\"internal_auth_configured\":true,\"jwt_auth_configured\":true}"
+    }
+  },
+  "database_counts": {
+    "users": 1,
+    "events": 6,
+    "ingest_attempts": 8,
+    "reminders": 0,
+    "task_runs": 6
+  },
+  "containers": "lifecompanion-librechat ghcr.io/librechat-ai/librechat:v0.8.8 127.0.0.1:3080->3080/tcp\nlifecompanion-mongo mongo:8.0.20 27017/tcp\nlifecompanion-memos neosmemo/memos:26.10.0 127.0.0.1:5230->5230/tcp\nlifecompanion-meili getmeili/meilisearch:v1.35.1 7700/tcp\nsilver-memory-v02-local-api-1 silver-memory-v02-local-api 8000/tcp\nsilver-memory-v02-local-moments-worker-1 silver-memory-v02-local-moments-worker 8000/tcp\nsilver-memory-v02-local-notification-worker-1 silver-memory-v02-local-notification-worker 8000/tcp\nsilver-memory-v02-local-mysql-1 mysql:8.4 3306/tcp, 33060/tcp\nsilver-v04-p00-audit-20261101 76f0358884cb 127.0.0.1:13306->3306/tcp\nsilver-memory-v02-local-frontend-1 silver-memory-v02-local-frontend 127.0.0.1:18080->8080/tcp\nsilver-memory-v02-local-qdrant-1 qdrant/qdrant:v1.15.5 6333-6334/tcp\nsilver-followup-acceptance-mysql mysql:8.4 127.0.0.1:23307->3306/tcp\nopen-webui ghcr.io/open-webui/open-webui:main 127.0.0.1:3000->8080/tcp\n",
+  "mounts": {
+    "lifecompanion-librechat": [
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\.env",
+        "Destination": "/app/.env"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\librechat.yaml",
+        "Destination": "/app/librechat.yaml"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\logs",
+        "Destination": "/app/logs"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\uploads",
+        "Destination": "/app/uploads"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\client\\dist",
+        "Destination": "/app/client/dist"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\images",
+        "Destination": "/app/client/public/images"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\api\\app\\clients\\BaseClient.js",
+        "Destination": "/app/api/app/clients/BaseClient.js"
+      }
+    ],
+    "lifecompanion-memos": [
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\memos",
+        "Destination": "/var/opt/memos"
+      }
+    ],
+    "lifecompanion-mongo": [
+      {
+        "Type": "volume",
+        "Source": "/var/lib/docker/volumes/d5257f6f7297001cea1129dffe47edc623506e4ee5479f1a57a42c9351083084/_data",
+        "Destination": "/data/configdb"
+      },
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\librechat-mongo",
+        "Destination": "/data/db"
+      }
+    ],
+    "lifecompanion-meili": [
+      {
+        "Type": "bind",
+        "Source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\librechat-meili",
+        "Destination": "/meili_data"
+      }
+    ]
+  }
+}

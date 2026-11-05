@@ -1,0 +1,90 @@
+{
+  "scope": "light theme primary/secondary text against three named brand surfaces; not a whole-page accessibility audit",
+  "checks": [
+    {
+      "text_rgb": [
+        29,
+        43,
+        37
+      ],
+      "background_rgb": [
+        250,
+        248,
+        241
+      ],
+      "ratio": 13.87,
+      "at_least_4_5": true
+    },
+    {
+      "text_rgb": [
+        29,
+        43,
+        37
+      ],
+      "background_rgb": [
+        250,
+        246,
+        234
+      ],
+      "ratio": 13.64,
+      "at_least_4_5": true
+    },
+    {
+      "text_rgb": [
+        29,
+        43,
+        37
+      ],
+      "background_rgb": [
+        241,
+        236,
+        220
+      ],
+      "ratio": 12.48,
+      "at_least_4_5": true
+    },
+    {
+      "text_rgb": [
+        83,
+        99,
+        91
+      ],
+      "background_rgb": [
+        250,
+        248,
+        241
+      ],
+      "ratio": 5.98,
+      "at_least_4_5": true
+    },
+    {
+      "text_rgb": [
+        83,
+        99,
+        91
+      ],
+      "background_rgb": [
+        250,
+        246,
+        234
+      ],
+      "ratio": 5.88,
+      "at_least_4_5": true
+    },
+    {
+      "text_rgb": [
+        83,
+        99,
+        91
+      ],
+      "background_rgb": [
+        241,
+        236,
+        220
+      ],
+      "ratio": 5.38,
+      "at_least_4_5": true
+    }
+  ],
+  "status": "PASS"
+}

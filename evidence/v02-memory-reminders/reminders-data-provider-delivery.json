@@ -1,0 +1,11 @@
+{
+  "arguments": [
+    "run",
+    "build:data-provider"
+  ],
+  "started_at": "2026-11-02T23:04:00.4869152+08:00",
+  "program": "npm.cmd",
+  "exit_code": 0,
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom",
+  "ended_at": "2026-11-02T23:04:33.2878477+08:00"
+}

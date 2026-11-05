@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-11-04T10:54:59.512296+08:00",
+  "health": [
+    {
+      "url": "http://127.0.0.1:3031/health",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8031/health",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:3091/health",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5241/healthz",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:3461/api/v2/info",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8097/v1/health",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:3031/life-api/api/v1/moments",
+      "status": 401
+    },
+    {
+      "url": "http://127.0.0.1:3031/life-api/internal/v1/events/ingest",
+      "status": 404
+    }
+  ],
+  "runtime_scripts": [
+    "./assets/index.CP2rkOq-.js",
+    "./registerSW.js"
+  ],
+  "local_scripts": [
+    "./assets/index.CP2rkOq-.js",
+    "./registerSW.js"
+  ],
+  "script_references_match": true,
+  "compose_project": "lcr-acceptance-20261103",
+  "frontend_mounts": [
+    {
+      "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\client\\dist",
+      "destination": "/app/client/dist",
+      "rw": false
+    },
+    {
+      "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\packages\\api\\dist",
+      "destination": "/app/packages/api/dist",
+      "rw": false
+    },
+    {
+      "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\packages\\data-provider\\dist",
+      "destination": "/app/packages/data-provider/dist",
+      "rw": false
+    }
+  ],
+  "image_configuration_presence_only": {
+    "canonical": {
+      "infra/.env": {
+        "IMAGE_PROVIDER_API_KEY": {
+          "configured": false
+        }
+      },
+      "products/librechat-custom/.env": {}
+    },
+    "active": {
+      "infra/.env": {},
+      "products/librechat-custom/.env": {}
+    }
+  },
+  "real_image_calls_this_audit": 0
+}

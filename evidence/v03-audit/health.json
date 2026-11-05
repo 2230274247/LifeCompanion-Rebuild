@@ -1,0 +1,42 @@
+[
+  {
+    "url": "http://127.0.0.1:3001/health",
+    "status": 200,
+    "seconds": 2.157
+  },
+  {
+    "url": "http://127.0.0.1:8010/health",
+    "status": 200,
+    "seconds": 2.25
+  },
+  {
+    "url": "http://127.0.0.1:3080/health",
+    "status": 200,
+    "seconds": 2.282
+  },
+  {
+    "url": "http://127.0.0.1:5230/healthz",
+    "status": 200,
+    "seconds": 2.141
+  },
+  {
+    "url": "http://127.0.0.1:3456/api/v2/info",
+    "status": 200,
+    "seconds": 1.297
+  },
+  {
+    "url": "http://127.0.0.1:8087/v1/health",
+    "status": 200,
+    "seconds": 1.125
+  },
+  {
+    "url": "http://127.0.0.1:3001/life-api/api/v1/moments",
+    "error_type": "HTTPError",
+    "seconds": 0.75
+  },
+  {
+    "url": "http://127.0.0.1:3001/life-api/internal/v1/events/ingest",
+    "error_type": "HTTPError",
+    "seconds": 0.578
+  }
+]

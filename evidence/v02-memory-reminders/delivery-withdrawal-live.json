@@ -1,0 +1,10 @@
+{
+  "arguments": [
+    "tests/live-reminder-withdrawal-v021.py"
+  ],
+  "exit_code": 0,
+  "started_at": "2026-11-02T23:56:07.1453621+08:00",
+  "ended_at": "2026-11-02T23:56:19.6719371+08:00",
+  "program": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core/.venv/Scripts/python.exe",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild"
+}

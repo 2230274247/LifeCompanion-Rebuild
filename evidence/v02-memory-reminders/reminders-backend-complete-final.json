@@ -1,0 +1,13 @@
+{
+  "ended_at": "2026-11-02T23:04:17.3791463+08:00",
+  "arguments": [
+    "-m",
+    "pytest",
+    "-q",
+    "tests"
+  ],
+  "started_at": "2026-11-02T23:03:50.9215880+08:00",
+  "program": ".\\.venv\\Scripts\\python.exe",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\services\\life-core",
+  "exit_code": 0
+}

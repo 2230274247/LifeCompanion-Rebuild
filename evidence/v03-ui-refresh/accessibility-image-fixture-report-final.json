@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-11-04T19:42:47.343Z",
+  "standard": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "best-practice"
+  ],
+  "scope": "Image fixture memories and detail at 390 and 1440 after the final inert and decorative-alt fixes.",
+  "results": [
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/:id",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/:id",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    }
+  ]
+}

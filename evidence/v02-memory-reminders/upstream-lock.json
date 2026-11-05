@@ -1,0 +1,47 @@
+{
+  "vikunja": {
+    "remote": "https://github.com/go-vikunja/vikunja.git",
+    "commit": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+    "tag": "v2.7.1",
+    "shallow": "false",
+    "history_commits": "16381",
+    "git_status": "",
+    "image_tag": "vikunja/vikunja:2.7.1",
+    "digest": "vikunja/vikunja@sha256:f7dc8428d10aef17f3075886d3c1c022f566ec456f88985f02c137f4fc534576",
+    "platform": "linux/amd64",
+    "image_labels": {
+      "org.opencontainers.image.authors": "maintainers@vikunja.io",
+      "org.opencontainers.image.created": "2026-10-20T21:41:43.784Z",
+      "org.opencontainers.image.description": "The task manager you actually own.",
+      "org.opencontainers.image.documentation": "https://vikunja.io/docs",
+      "org.opencontainers.image.licenses": "AGPL-3.0",
+      "org.opencontainers.image.revision": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+      "org.opencontainers.image.source": "https://github.com/go-vikunja/vikunja",
+      "org.opencontainers.image.title": "vikunja",
+      "org.opencontainers.image.url": "https://github.com/go-vikunja/vikunja",
+      "org.opencontainers.image.version": "2.7.1"
+    }
+  },
+  "ntfy": {
+    "remote": "https://github.com/binwiederhier/ntfy.git",
+    "commit": "2d55160690708670895ae10d9895bde90241e38d",
+    "tag": "v2.36.0",
+    "shallow": "false",
+    "history_commits": "4566",
+    "git_status": "",
+    "image_tag": "binwiederhier/ntfy:v2.36.0",
+    "digest": "binwiederhier/ntfy@sha256:fb48c413eb11d50339962b5d62cddce0f800e7f77c626d638a7c20cb7e9c4465",
+    "platform": "linux/amd64",
+    "image_labels": {
+      "org.opencontainers.image.authors": "philipp.heckel@gmail.com",
+      "org.opencontainers.image.description": "Send push notifications to your phone or desktop using PUT/POST",
+      "org.opencontainers.image.documentation": "https://docs.ntfy.sh/",
+      "org.opencontainers.image.licenses": "Apache-2.0, GPL-2.0",
+      "org.opencontainers.image.source": "https://github.com/binwiederhier/ntfy",
+      "org.opencontainers.image.title": "ntfy",
+      "org.opencontainers.image.url": "https://ntfy.sh/",
+      "org.opencontainers.image.vendor": "Philipp C. Heckel",
+      "org.opencontainers.image.version": "2.36.0"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "gateway": {
+    "http_status": 200,
+    "status": "PASS"
+  },
+  "librechat": {
+    "http_status": 200,
+    "status": "PASS"
+  },
+  "memos": {
+    "http_status": 200,
+    "status": "PASS"
+  },
+  "life_core": {
+    "http_status": 200,
+    "status": "PASS"
+  },
+  "root_diff_check": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "librechat_diff_check": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "memos_worktree": {
+    "status": "PASS",
+    "clean": true
+  },
+  "tested_at": "2026-11-02T19:54:59.084345+08:00"
+}

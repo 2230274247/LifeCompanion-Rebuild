@@ -1,0 +1,1 @@
+Error response from daemon: failed to resolve reference "docker.io/binwiederhier/ntfy:v2.36.0": failed to authorize: failed to fetch oauth token: Post "https://auth.docker.io/token": EOF

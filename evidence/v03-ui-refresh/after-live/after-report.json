@@ -1,0 +1,1264 @@
+{
+  "generatedAt": "2026-11-04T16:54:52.379Z",
+  "baseURL": "http://127.0.0.1:3032",
+  "accountKey": "c",
+  "loginStatus": 200,
+  "testHarness": {
+    "reactQueryDevtoolsRemovedBeforeScreenshots": true
+  },
+  "viewports": [
+    {
+      "name": "390x844",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "430x932",
+      "width": 430,
+      "height": 932
+    },
+    {
+      "name": "768x1024",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "1440x1000",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "1920x1080",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "results": [
+    {
+      "route": "/c/new",
+      "viewport": "390x844",
+      "header": "life-chat-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 1,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "sendButtons": 1,
+      "textareas": 2,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-390x844.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\memories-390x844.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "390x844",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "提醒"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\reminders-390x844.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "390x844",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\settings-390x844.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "390x844",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 390,
+      "scrollWidth": 390,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\moment-settings-390x844.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        }
+      ]
+    },
+    {
+      "route": "/c/new",
+      "viewport": "430x932",
+      "header": "life-chat-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 1,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 430,
+      "scrollWidth": 430,
+      "sendButtons": 1,
+      "textareas": 2,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-430x932.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "430x932",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "我的回忆"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 430,
+      "scrollWidth": 430,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\memories-430x932.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "430x932",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 430,
+      "scrollWidth": 430,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\reminders-430x932.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "430x932",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 430,
+      "scrollWidth": 430,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\settings-430x932.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "430x932",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 430,
+      "scrollWidth": 430,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\moment-settings-430x932.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        }
+      ]
+    },
+    {
+      "route": "/c/new",
+      "viewport": "768x1024",
+      "header": "life-chat-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 1,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "sendButtons": 1,
+      "textareas": 2,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-768x1024.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "768x1024",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\memories-768x1024.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "768x1024",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "提醒"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\reminders-768x1024.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "768x1024",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\settings-768x1024.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "768x1024",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 768,
+      "scrollWidth": 768,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\moment-settings-768x1024.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        }
+      ]
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1440x1000",
+      "header": "life-chat-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 1,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sendButtons": 1,
+      "textareas": 2,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-1440x1000.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "我的回忆"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\memories-1440x1000.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1440x1000",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\reminders-1440x1000.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1440x1000",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\settings-1440x1000.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1440x1000",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\moment-settings-1440x1000.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        }
+      ]
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1920x1080",
+      "header": "life-chat-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 1,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 1920,
+      "scrollWidth": 1920,
+      "sendButtons": 1,
+      "textareas": 2,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-1920x1080.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+        "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        },
+        {
+          "status": 403,
+          "url": "http://127.0.0.1:3032/api/tags"
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "1920x1080",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 1920,
+      "scrollWidth": 1920,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\memories-1920x1080.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/memories?"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moments"
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1920x1080",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "提醒"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 1920,
+      "scrollWidth": 1920,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\reminders-1920x1080.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/reminders"
+        }
+      ]
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1920x1080",
+      "header": "life-site-header",
+      "headerVisible": true,
+      "totalLifeHeaders": 1,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 1,
+      "activeNavigation": [
+        "设置"
+      ],
+      "siteNavigationLinks": 4,
+      "horizontalOverflow": false,
+      "width": 1920,
+      "scrollWidth": 1920,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\settings-1920x1080.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/knowledge"
+        }
+      ]
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1920x1080",
+      "header": "life-site-header",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "lifeChatHeaders": 0,
+      "lifeSiteHeaders": 0,
+      "activeNavigation": [],
+      "siteNavigationLinks": 0,
+      "horizontalOverflow": false,
+      "width": 1920,
+      "scrollWidth": 1920,
+      "sendButtons": 0,
+      "textareas": 0,
+      "errorBoundary": null,
+      "title": "拾光 · Life Companion",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\moment-settings-1920x1080.png",
+      "screenshotError": null,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)",
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+        "AxiosError: Request failed with status code 401\n    at settle (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2088:14)\n    at XMLHttpRequest.onloadend (http://127.0.0.1:3032/node_modules/.vite/deps/axios.js?v=f0200775:2549:4)"
+      ],
+      "pageErrors": [],
+      "failedResponses": [
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/me"
+        },
+        {
+          "status": 401,
+          "url": "http://127.0.0.1:3032/life-api/api/v1/moment-settings"
+        }
+      ]
+    },
+    {
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\after-live\\chat-mobile-drawer-390x844.png",
+      "screenshotError": null,
+      "drawerNavigation": [
+        {
+          "label": "我的回忆",
+          "current": null,
+          "href": "/memories"
+        },
+        {
+          "label": "提醒",
+          "current": null,
+          "href": "/reminders"
+        },
+        {
+          "label": "设置",
+          "current": null,
+          "href": "/memory-settings"
+        }
+      ]
+    }
+  ]
+}

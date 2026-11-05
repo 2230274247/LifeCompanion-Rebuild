@@ -1,0 +1,243 @@
+{
+  "head": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1",
+  "source_hashes": {
+    "services\\life-core\\app\\auth.py": "07169522635d08bd07d54e93077cb9d88206f94fb642081f0efea7a97a88324b",
+    "services\\life-core\\app\\config.py": "8bb19af4b6757b86295c28d15bfa4d8e2234d79a357bda6a7fbb2aef20359c87",
+    "services\\life-core\\app\\extraction.py": "eaf5e009e2bc742b9969a253ce83225973d1cd6aad96c436236ea42571d596c9",
+    "services\\life-core\\app\\main.py": "4e6d0e5aaaf2f74217ba979cec4a0f3447ac41b114b2f2bdfbef22654caae970",
+    "services\\life-core\\app\\memory.py": "3bbee31599ade32ccab7429a89f18149f572651dda34c95a78e08e4dc6e7785c",
+    "services\\life-core\\app\\memos.py": "cdbc2912511b351695d8b9563b828751965408ff1cdf50afa1b7d69e92754066",
+    "services\\life-core\\app\\provisioning.py": "a8f3e7c78323d4014e1ea4d6d45597b82e58922dd99c0cfa3b7c6a3955ad4a89",
+    "services\\life-core\\app\\reminders.py": "4dc3ee60d51d82ee56228fca94cdf4e9cad9f6c5303afb318294f90e0dbbc389",
+    "services\\life-core\\app\\reminder_chat.py": "e810f02c348f30694d2db9ebb631fca263a7b7e922745dbc391fd09d81cf8429",
+    "services\\life-core\\app\\reminder_drafts.py": "06fab9092506c2501bf5b0fc8a32344c9f5ae1980e95cd2c97737af5d341c18b",
+    "services\\life-core\\app\\store.py": "53e85b5ba895111cefed00485b1334d3092fbedb2dfd350627fe094837bd91e9",
+    "services\\life-core\\app\\__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Header.tsx": "7f489b31af7b95c703d5996b6844437129f4c06e9c328eb318028be65ac17d99",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Knowledge.tsx": "09fe0e61d869ee5b3cecbbfe9e28a126ee045175e48d507c21a2a3a888bddfaa",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Memories.tsx": "6ee742bcc79cb55b3d10f45dcd6508bc5c2aee799d3309c524be2d6675dc813c",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Navigation.tsx": "454b454499db4be604ccfc4a53ce4f005430c1eed046367c16ae7dc937dd19ea",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Provisioning.tsx": "bb82bfbae032b929cc87e68ed63d29942de1486334f346b42238e05555a38c3f",
+    "products\\librechat-custom\\client\\src\\components\\Life\\ReminderCards.tsx": "fbf48594e4f8665b429923033a5b59618f1a1bc5b7afecdd086ab278d02daf39",
+    "products\\librechat-custom\\client\\src\\components\\Life\\Reminders.tsx": "5eaebc88942f9b8a756644caf1ba5b87df6560c298c0f4d6dc32ff71b8f2ed55",
+    "products\\librechat-custom\\client\\src\\components\\Life\\theme.ts": "429e604d4e417c43a92442c2ed4dab05b718cd8482f01043358484bdda708c94",
+    "products\\librechat-custom\\client\\src\\components\\Life\\useLifeMode.ts": "00e0c518e1d1186b11f08744bf66c201175cbf558539c54d67e84de5226fba68",
+    "products\\librechat-custom\\client\\src\\components\\Life\\__tests__\\Knowledge.spec.tsx": "70aaa54d75d91864dd9152ae44ee8a21aa5b4904ce4e9f6f4d21757173648524",
+    "products\\librechat-custom\\client\\src\\components\\Life\\__tests__\\Memories.spec.tsx": "3d5294e1cac8b3a96796a601b39cad397e559e5e127b43c899b0c562c8b86b24",
+    "products\\librechat-custom\\client\\src\\components\\Life\\__tests__\\ReminderCards.spec.tsx": "776b6d7419d50541d0a27c53b575611fa56b82bcb4b6abb035c141c4b0017253",
+    "products\\librechat-custom\\client\\src\\components\\Life\\__tests__\\Reminders.spec.tsx": "21d34efb69da155bd5b18d0aa98f4449dd032778553f85874f916354009c8da6",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\authorization.spec.ts": "6fc75dd45782adce8f09e50b677d72aa738af29c1b9e1877f49bc62ff28c9591",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\authorization.ts": "5b73ab9ffb3258d0b53eaeca2be88ac0ab4b3b5814609bc1dc2e10ac66c84e2b",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\config.spec.ts": "634fd515500ff2b134084e3d28bc885b10f4ee0f74aed9abf8a26e861325f54b",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\config.ts": "749606e090ef2e41c4b55f25e8f9a2f2e75f2cbab1fae812241bf0f67c3d8bf9",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\handlers.spec.ts": "71e7462ec1aca0ae08272753bd4edf6f2adb362684dce6dd55b9fb4db7a86754",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\handlers.ts": "531259c7734da827b2955a77e86a1625d4f9c432acef762ec22e5a71ab5f2da5",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\index.ts": "758155e0144fec7bf8c1dbbdaec65f7490523e7c8aa7a28ac121034e8ea0798d",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\life.spec.ts": "33dc90a171b255bc0603f73b9105d35a08bb4b079513230e9411d2ab2228432b",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\life.ts": "7fc875584196f87d0e3a70bdcbb170b2532268c54d20e333e226092de64a67b3",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\protection.spec.ts": "ba59a012753e2c9570a43ed211ae955759244c086577a79b43c749161353e258",
+    "products\\librechat-custom\\packages\\api\\src\\memory\\protection.ts": "f325021314264f002d8e8bfbf803f119dcdb6e38985522bc3c0b03e92ad556d3"
+  },
+  "databases": {
+    "production": {
+      "users": {
+        "rows": 5,
+        "digest": "fe39018fe14334cb7fb7e73f1d4b4294bba954f455624ae2fe759a337e622c3b"
+      },
+      "events": {
+        "rows": 7,
+        "digest": "1641ebf82ed18f521d7eed82f7a70907ac06537338ab0bb990479642acd2c1d3"
+      },
+      "ingest_attempts": {
+        "rows": 11,
+        "digest": "7abc1ba096e420f3a1ef3959f72add80caa98e50b8ab5a149b1cd0e29cb7f37b"
+      },
+      "task_runs": {
+        "rows": 7,
+        "digest": "f85828129287d2c9a701b76856407bc2f3cac85f17a34f7105460af9dbe1506d"
+      },
+      "reminders": {
+        "rows": 6,
+        "digest": "b75cd2709427621630830015c6f2c70a9c78fe7f47b48dad1125baf3ec1bd992"
+      },
+      "memory_permissions": {
+        "rows": 4,
+        "digest": "8e943778655797ac3f5b5698532b27a602e5f228d6c17233fe2dc9247909a162"
+      },
+      "memory_items": {
+        "rows": 2,
+        "digest": "83f3060b993dff4724493097dd4b127f22a7d1f9a65dee7ffd9a3dc084ab35ac"
+      },
+      "memory_evidence": {
+        "rows": 3,
+        "digest": "c20b94328faa85fd50be4dd1002c667a82cb1926dafe7d5e86a6f55fb2eccc4b"
+      },
+      "memory_revisions": {
+        "rows": 2,
+        "digest": "8bff026ad6344425bbc36bd0fb90df39c6ecb818e0d3a045144adef6b76e2c74"
+      },
+      "memory_jobs": {
+        "rows": 20,
+        "digest": "6e8ac640acbf2c3d6bd16b0ce8a47652b89aeec17bb048d78be9495623c0df28"
+      },
+      "reminder_notifications": {
+        "rows": 3,
+        "digest": "1e2065552ba3e9645e6d213df949bdfac110e4ca917cf6818c1c2275e8af31fe"
+      },
+      "reminder_chat_actions": {
+        "rows": 2,
+        "digest": "b3e4f00920cd70f343ff226b99c6487ce5a3a2eb97b90ea7d808373c9b112dcf"
+      },
+      "reminder_accounts": {
+        "rows": 2,
+        "digest": "0d778e71a3b26200325ffb9d6f0d540ff8cd87c97e4653ef5b423c6b06dbd354"
+      },
+      "reminder_instance": {
+        "rows": 1,
+        "digest": "d9e9c49a6fd9a5e8e3e6e5e6a4663d5896361d423951ca380fa167c83c1eab96"
+      },
+      "reminder_drafts": {
+        "rows": 10,
+        "digest": "8b694d88667ff2d07150fa21022ee3379ee967dde862ed3e4ade861d87375473"
+      },
+      "reminder_submissions": {
+        "rows": 3,
+        "digest": "299540eeb488e9592ca9ffabd2f1782ea9def03a921a29ae25765d86aa3cf3ae"
+      },
+      "memory_kinds": [
+        [
+          "life_event",
+          "active",
+          1
+        ],
+        [
+          "stable_fact",
+          "active",
+          1
+        ]
+      ]
+    },
+    "v022-isolated": {
+      "users": {
+        "rows": 2,
+        "digest": "6bbd203f37404b550fa6d52b48378a404b1a5af1671b627c3ff718eb2016e952"
+      },
+      "events": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "ingest_attempts": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "task_runs": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "reminders": {
+        "rows": 2,
+        "digest": "2a67e0833d370707c3cf1df97a505fb226b0687575a66f16bd667ce19f04c941"
+      },
+      "reminder_notifications": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "memory_permissions": {
+        "rows": 1,
+        "digest": "1962deed4254cf35ce122404a0feb79a121983866ec2fa5727b1507593d4f301"
+      },
+      "memory_items": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "memory_evidence": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "memory_revisions": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "memory_jobs": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "reminder_accounts": {
+        "rows": 1,
+        "digest": "0cc9f0860d65c2fcd8a8c6516de501f65257c13a347ea8d1c2caa4ef126c66ee"
+      },
+      "reminder_chat_actions": {
+        "rows": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "reminder_drafts": {
+        "rows": 2,
+        "digest": "ad8080387c7851f2242494fb692459cebd92ccb093fae64971798f426ecb3436"
+      },
+      "reminder_submissions": {
+        "rows": 2,
+        "digest": "f80f187f27db680fe642132511da19c8064528fbcda511d0040e0183d190a9ca"
+      },
+      "reminder_instance": {
+        "rows": 1,
+        "digest": "15c3d8068b4b75602f21af5b0582c43419dce239526a72e4fc8bfcdec8c001d5"
+      },
+      "memory_kinds": []
+    }
+  },
+  "permissions_history": "V022 unexplained change retained; no attribution proven",
+  "upstream_repositories": {
+    "products\\librechat-custom": {
+      "head": "7c2365cb376b48acb1591e48a6ef91e5c47c78e6",
+      "dirty": [
+        " M api/app/clients/BaseClient.js",
+        " M client/index.html",
+        " M client/src/App.jsx",
+        " M client/src/components/Auth/AuthLayout.tsx",
+        " M client/src/components/Chat/Input/ChatForm.tsx",
+        " M client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx",
+        " M client/src/components/Chat/Messages/Content/MessageContent.tsx",
+        " M client/src/components/Chat/Messages/Content/Part.tsx",
+        " M client/src/components/Chat/Messages/MessageParts.tsx",
+        " M client/src/components/Messages/ContentRender.tsx",
+        " M client/src/components/Nav/Settings/MemoryToggle.tsx",
+        " M client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx",
+        " M client/src/components/UnifiedSidebar/ConversationsSection.tsx",
+        " M client/src/components/UnifiedSidebar/ExpandedPanel.tsx",
+        " M client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx",
+        " M client/src/components/UnifiedSidebar/mobile/Header.tsx",
+        " M client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx",
+        " M client/src/hooks/Nav/useUnifiedSidebarLinks.ts",
+        " M client/src/locales/en/translation.json",
+        " M client/src/routes/Root.tsx",
+        " M client/src/routes/index.tsx",
+        " M e2e/playwright.config.lighthouse.ts",
+        " M librechat.yaml",
+        " M packages/api/src/app/service.spec.ts",
+        " M packages/api/src/app/service.ts",
+        " M packages/api/src/index.ts",
+        " M packages/data-provider/src/config.ts",
+        " M packages/data-provider/src/index.ts",
+        " M packages/data-provider/src/keys.ts",
+        " M packages/data-provider/src/request.ts",
+        "?? client/public/assets/life.svg",
+        "?? client/src/components/Life/",
+        "?? packages/api/src/memory/life.spec.ts",
+        "?? packages/api/src/memory/life.ts",
+        "?? packages/data-provider/src/life.ts"
+      ]
+    },
+    "products\\memos-custom": {
+      "head": "651657e7211901393e2501ae7e3e202c8e56f73a",
+      "dirty": []
+    },
+    "products\\ntfy-upstream": {
+      "head": "2d55160690708670895ae10d9895bde90241e38d",
+      "dirty": []
+    },
+    "products\\vikunja-upstream": {
+      "head": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+      "dirty": []
+    }
+  }
+}

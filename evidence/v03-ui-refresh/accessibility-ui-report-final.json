@@ -1,0 +1,109 @@
+{
+  "generatedAt": "2026-11-04T19:42:08.536Z",
+  "baseURL": "http://127.0.0.1:3037",
+  "standard": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "best-practice"
+  ],
+  "scope": "Five Life routes at 390 and 1440 after the final inert and decorative-alt fixes.",
+  "results": [
+    {
+      "route": "/c/new",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/reminders",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memories/:eventId",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/reminders/:reminderId",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/knowledge/:knowledgeId",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/memories/:eventId",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/reminders/:reminderId",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/knowledge/:knowledgeId",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "started_at": "2026-11-02T23:12:21.767126+08:00",
+  "isolation": "fresh life-core SQLite, dedicated Vikunja test user and private ntfy topic",
+  "checks": {
+    "isolated_life_core_started": "PASS",
+    "user_bootstrapped_in_isolated_database": "PASS",
+    "per_user_scoped_vikunja_token_configured": "PASS",
+    "signed_callback_registered_to_life_core": "PASS",
+    "life_core_created_real_vikunja_task": "PASS",
+    "life_core_updated_real_vikunja_task": "PASS",
+    "life_core_listed_user_scoped_task": "PASS",
+    "second_user_cannot_read_first_user_reminder": "PASS",
+    "real_signed_webhook_reached_ntfy": "PASS",
+    "life_core_recorded_fired_state": "PASS",
+    "life_core_cancelled_and_deleted_upstream_task": "PASS",
+    "missing_webhook_recovered_from_official_inbox": "PASS",
+    "cancelled_reminder_not_pushed_after_original_deadline": "PASS",
+    "ntfy_messages_read_through_authorized_life_core": "PASS",
+    "real_llm_chat_created_and_retry_deduplicated": "PASS",
+    "real_llm_chat_cancelled_existing_reminder": "PASS"
+  },
+  "status": "PASS",
+  "api_version": "v2",
+  "created": {
+    "reminder_id": "rem_ecd1fd42a45c461eb823bd0a2bd37668",
+    "vikunja_task_id": 16,
+    "status": "scheduled"
+  },
+  "chat_result": {
+    "handled": true,
+    "status": "succeeded",
+    "message": "已设置提醒「喝龙井茶」，提醒时间：2026年11月03日 09:00。"
+  },
+  "cleanup_tasks": [
+    {
+      "task_id": 16,
+      "deleted": true
+    },
+    {
+      "task_id": 17,
+      "deleted": true
+    },
+    {
+      "task_id": 18,
+      "deleted": true
+    },
+    {
+      "task_id": 19,
+      "deleted": true
+    }
+  ],
+  "ended_at": "2026-11-02T23:17:46.331373+08:00"
+}

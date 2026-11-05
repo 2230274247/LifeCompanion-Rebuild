@@ -1,0 +1,8 @@
+
+> LibreChat@v0.8.8 sort-imports
+> node scripts/sort-imports.mts client/src/components/Chat/Input/ChatForm.tsx client/src/components/UnifiedSidebar/ConversationsSection.tsx client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx packages/api/src/memory/life.spec.ts packages/api/src/app/service.ts packages/api/src/app/service.spec.ts e2e/playwright.config.lighthouse.ts client/src/components/Life/Knowledge.tsx client/src/components/Life/__tests__/Knowledge.spec.tsx
+
+  ✓ client\src\components\Chat\Input\ChatForm.tsx
+  ✓ client\src\components\UnifiedSidebar\ConversationsSection.tsx
+
+Sorted 2/8 files.

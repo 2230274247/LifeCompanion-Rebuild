@@ -1,0 +1,59 @@
+{
+  "password_min_length_enforced": true,
+  "role": "ADMIN",
+  "account_email": "admin@shiguang.local",
+  "checked_at": "2026-11-03T15:56:34.6167778+08:00",
+  "public_url": "https://39c3d546.r16.cpolar.top",
+  "consents": {
+    "image": true,
+    "memory": true,
+    "recall": true,
+    "notification": true,
+    "sensitive": true
+  },
+  "checks": [
+    {
+      "name": "admin_verify",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "admin_users",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "life_profile",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "memories",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "reminders",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "reminder_notifications",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "name": "bookmarks_tags_disabled_by_config",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    }
+  ],
+  "password_length": 8
+}

@@ -1,0 +1,96 @@
+{
+  "captured_at": "2026-11-04T14:28:22+08:00",
+  "classification": "REAL",
+  "result": "B0_REAL_PASS_TECHNICAL",
+  "provider": "SiliconFlow",
+  "model": "Kwai-Kolors/Kolors",
+  "request_mode": "REAL",
+  "api_http_status": 200,
+  "download_http_status": 200,
+  "account_preflight_requests": 1,
+  "image_generation_requests": 1,
+  "image_downloads": 1,
+  "retry_count": 0,
+  "budget_cap_cny": "0.00",
+  "official_price_cny_per_image": 0,
+  "account_access_trace_id": "ti_5po2d22kpuo20ha3h8",
+  "image_trace_id": "ti_1u95f5u974melfugf5",
+  "declared_content_type": "application/octet-stream",
+  "detected_content_type": "image/png",
+  "mime_policy": "TRUSTED_GENERIC_BINARY_FALLBACK",
+  "provider_inference_seconds": 3.604,
+  "image_stage_duration_ms": 5031.0,
+  "total_duration_ms": 6281.0,
+  "image": {
+    "absolute_path": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\runtime\\v03-b0-kolors-fixed-attempt-02\\kolors-b0-real.png",
+    "format": "PNG",
+    "width": 960,
+    "height": 1280,
+    "mode": "RGBA",
+    "bytes": 1978187,
+    "sha256": "9bbd0cb588f51cbf579235547f7e55aa4d8c06e09912f9c0881fabdfd31e240b",
+    "full_decode": "PASS",
+    "dimensions_check": "PASS",
+    "format_and_mime_check": "PASS",
+    "sha256_saved_file": "PASS",
+    "visual_integrity": "PASS",
+    "prompt_alignment": "PARTIAL",
+    "watermark": "AI生成",
+    "p04_semantic_evaluation": "NOT RUN"
+  },
+  "files": [
+    {
+      "name": "attempt-ledger.json",
+      "bytes": 335,
+      "sha256": "10f9a83930ce717f69e12a06ccb14bbd64db82a6a2f3748052522f22f48cb2f3"
+    },
+    {
+      "name": "errors.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "request.redacted.json",
+      "bytes": 1142,
+      "sha256": "7eb61476d024fbea5a97a858641b3ead641642598f2b118c503f92683fccf41e"
+    },
+    {
+      "name": "response.redacted.json",
+      "bytes": 433,
+      "sha256": "cdf7c85126669a465f5029816e58a9b19e59f620db8b5aa309d3239670bf4c5d"
+    },
+    {
+      "name": "verification.json",
+      "bytes": 2516,
+      "sha256": "5159c91aa75941f2754b1486351af9eca17cc0804acba4bbc1929ce93effe455"
+    },
+    {
+      "name": "manual-qa.json",
+      "bytes": 1319,
+      "sha256": "31c85b65266bb84e181b49c5fb8ca8cdf9201c9ca134592fad6a6297d2c8c81d"
+    }
+  ],
+  "previous_ledgers_unchanged_snapshot": [
+    {
+      "path": "evidence/runtime/v03-b0-kolors/attempt-ledger.json",
+      "bytes": 314,
+      "sha256": "35d3504e7bfe921cd514d45e9b27d6a0a36ebc8e3af957aa9f3803a0fed3b54b"
+    },
+    {
+      "path": "evidence/runtime/v03-b0-kolors/history/mime-mismatch-2026-11-04T06-09-26Z/attempt-ledger.json",
+      "bytes": 314,
+      "sha256": "35d3504e7bfe921cd514d45e9b27d6a0a36ebc8e3af957aa9f3803a0fed3b54b"
+    },
+    {
+      "path": "evidence/runtime/v03-b0-kolors-fixed-attempt-01/attempt-ledger.json",
+      "bytes": 314,
+      "sha256": "c5c8d6df4b9fbbe0d8730a1d08b2e70c2213e74c43959ddf4e72b6dc27ac618e"
+    }
+  ],
+  "redaction": {
+    "api_key_included": false,
+    "signed_image_url_included": false,
+    "raw_image_copied_to_tracked_evidence": false,
+    "private_runtime_image_retained": true
+  }
+}

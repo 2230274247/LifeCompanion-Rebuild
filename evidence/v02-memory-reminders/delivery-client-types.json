@@ -1,0 +1,11 @@
+{
+  "started_at": "2026-11-02T23:32:44.5694551+08:00",
+  "exit_code": 0,
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/products/librechat-custom/client",
+  "ended_at": "2026-11-02T23:35:39.7812917+08:00",
+  "arguments": [
+    "tsc",
+    "--noEmit"
+  ],
+  "program": "npx.cmd"
+}

@@ -1,0 +1,36 @@
+{
+  "captured_at": "2026-11-04T14:22:16+08:00",
+  "classification": "FAIL",
+  "error_code": "IMAGE_MIME_FORMAT_MISMATCH",
+  "failure_stage": "image_mime_validation",
+  "image_generation_requests": 1,
+  "image_downloads": 1,
+  "accepted_image": null,
+  "files": [
+    {
+      "name": "attempt-ledger.json",
+      "bytes": 314,
+      "sha256": "c5c8d6df4b9fbbe0d8730a1d08b2e70c2213e74c43959ddf4e72b6dc27ac618e"
+    },
+    {
+      "name": "errors.log",
+      "bytes": 881,
+      "sha256": "a9190e77cc26297e80eb96a86415e5eceb944b2aafcf7085b7e3dd75fcbc39cf"
+    },
+    {
+      "name": "request.redacted.json",
+      "bytes": 1093,
+      "sha256": "205369fec1d74fabfdb183c76a8e6a508537643e58ebdfccd1679e626cb574c0"
+    },
+    {
+      "name": "response.redacted.json",
+      "bytes": 535,
+      "sha256": "908c00900b7f9e016f9dbbb0a328358050c2b5315aff7d71d14b18a3e0b8cb03"
+    },
+    {
+      "name": "verification.json",
+      "bytes": 2543,
+      "sha256": "c04dc4bc499a4e7e87d8e200fd5e35c4d1211dc733ae620e2d8283dd19a042fc"
+    }
+  ]
+}

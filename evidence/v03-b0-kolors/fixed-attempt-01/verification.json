@@ -1,0 +1,72 @@
+{
+  "status": "FAIL",
+  "classification": "FAIL",
+  "started_at": "2026-11-04T06:21:07.167847+00:00",
+  "provider": "SiliconFlow",
+  "model": "Kwai-Kolors/Kolors",
+  "request_mode": "REAL",
+  "account_preflight_requests": 1,
+  "image_generation_requests": 1,
+  "image_downloads": 1,
+  "max_requests": 1,
+  "max_images": 1,
+  "budget_cap_cny": "0.00",
+  "prompt": "清晨七点，一位虚构的年轻人在香港旧区的小公寓厨房里给窗台的薄荷浇水，阳光落在白瓷杯、木质餐桌和刚烤好的吐司上；生活化纪实摄影，温暖安静，自然光，真实材质，3:4 竖构图，不出现文字、品牌标志或可识别身份。",
+  "requested_size": "960x1280",
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "seed": 20261104,
+  "trace_id": "lc-b0-kolors-219fb65bac5b4edeb29cb8d44106df07",
+  "checks": {
+    "official_free_price": "PASS",
+    "independent_api_key_present": "PASS",
+    "account_model_access": "PASS",
+    "single_attempt_budget_ledger": "PASS",
+    "IMAGE_MIME_FORMAT_MISMATCH": "FAIL"
+  },
+  "official_price": {
+    "url": "https://www.siliconflow.cn/pricing",
+    "status_code": 200,
+    "page_sha256": "ae4ca28f7d65812f98f6a6c117f699448dd621215aa7e964fce124c42744cf09",
+    "model": "Kwai-Kolors/Kolors",
+    "price_cny_per_image": 0,
+    "evidence": "Kwai-Kolors/Kolors 生成图片 每图片 免费"
+  },
+  "account_access": {
+    "status_code": 200,
+    "model": "Kwai-Kolors/Kolors",
+    "model_visible_to_account": true,
+    "trace_id": "ti_rehefzkcy447izalc4"
+  },
+  "error_code": "IMAGE_MIME_FORMAT_MISMATCH",
+  "image_duration_ms": 5172.0,
+  "failure_stage": "image_validation",
+  "failure_diagnostics": {
+    "stage": "image_validation",
+    "request_sent": true,
+    "response_received": true,
+    "download_completed": true,
+    "api_http_status": 200,
+    "provider_trace_id": "ti_brta5rmp6s79w32xtv",
+    "images_count": 1,
+    "provider_seed": 20261104,
+    "provider_timings": {
+      "inference": 3.608
+    },
+    "image_url_host": "s3.siliconflow.cn",
+    "download_started": true,
+    "download_http_status": 200,
+    "declared_content_type": "application/octet-stream",
+    "image_bytes": 1978187,
+    "magic_hex": "89504e470d0a1a0a0000000d49484452",
+    "pillow_format": "PNG",
+    "detected_mime": "image/png",
+    "declared_mime_normalized": "application/octet-stream",
+    "dimensions": [
+      960,
+      1280
+    ]
+  },
+  "ended_at": "2026-11-04T06:21:14.808464+00:00",
+  "duration_ms": 7641.0
+}

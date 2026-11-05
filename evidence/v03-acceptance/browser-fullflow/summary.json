@@ -1,0 +1,113 @@
+{
+  "checked_at": "2026-11-05T14:35:59.134Z",
+  "total": 21,
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "step": "三个独立浏览器账户登录成功",
+      "pass": true,
+      "detail": "d/e/f 三个 incognito Context"
+    },
+    {
+      "step": "D 在页面搜索并发送好友申请",
+      "pass": true,
+      "detail": "发给 拾光验收·奶奶"
+    },
+    {
+      "step": "E 亲自接受好友申请",
+      "pass": true,
+      "detail": "E 点接受后才成为好友"
+    },
+    {
+      "step": "D 创建家庭空间并邀请 E",
+      "pass": true,
+      "detail": "空间：我们的家"
+    },
+    {
+      "step": "E 亲自接受空间邀请",
+      "pass": true,
+      "detail": "接受后 E 才进群"
+    },
+    {
+      "step": "D 在空间发送实时消息",
+      "pass": true,
+      "detail": "消息：今晚一起吃饭吗？"
+    },
+    {
+      "step": "E 在空间实时读到 D 的消息",
+      "pass": true,
+      "detail": "多人聊天真实互通"
+    },
+    {
+      "step": "D 在页面把指定回忆分享给 E",
+      "pass": true,
+      "detail": "只分享一条，不开放整个列表"
+    },
+    {
+      "step": "E 亲自接受共同回忆邀请",
+      "pass": true,
+      "detail": "接受后进入共同回忆页"
+    },
+    {
+      "step": "E 补充共同回忆细节",
+      "pass": true,
+      "detail": "原回忆不被改写"
+    },
+    {
+      "step": "Parlor 窗内 E 发送消息",
+      "pass": true,
+      "detail": "消息：下次再走一次。"
+    },
+    {
+      "step": "Parlor 窗内 D 对 E 的消息回应表情",
+      "pass": true,
+      "detail": "reaction 保存并刷新"
+    },
+    {
+      "step": "D 登记空闲时间窗口",
+      "pass": true,
+      "detail": "只声明方便联系时间"
+    },
+    {
+      "step": "D 授权 E 查询空闲并转达关怀",
+      "pass": true,
+      "detail": "两项授权都明确本人确认"
+    },
+    {
+      "step": "E 用 @AI 查询 D 已授权空闲时间",
+      "pass": true,
+      "detail": "回答只对提问者 E 可见"
+    },
+    {
+      "step": "E 经同意向 D 转达关怀",
+      "pass": true,
+      "detail": "先确认授权才放行"
+    },
+    {
+      "step": "D 收到站内关怀通知",
+      "pass": true,
+      "detail": "在关怀通知页看到"
+    },
+    {
+      "step": "D 立即撤销空闲授权",
+      "pass": true,
+      "detail": "撤销即时生效"
+    },
+    {
+      "step": "撤销后 E 的 @AI 立即失去空闲读取权限",
+      "pass": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "step": "越权账户 F 被阻止访问共同回忆",
+      "pass": true,
+      "detail": "服务端 404/403"
+    },
+    {
+      "step": "越权账户 F 被阻止访问共享空间",
+      "pass": true,
+      "detail": "服务端拒绝非成员"
+    }
+  ]
+}

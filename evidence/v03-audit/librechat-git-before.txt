@@ -1,0 +1,35 @@
+ M api/app/clients/BaseClient.js
+ M client/index.html
+ M client/src/App.jsx
+ M client/src/components/Auth/AuthLayout.tsx
+ M client/src/components/Chat/Input/ChatForm.tsx
+ M client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx
+ M client/src/components/Chat/Messages/Content/MessageContent.tsx
+ M client/src/components/Chat/Messages/Content/Part.tsx
+ M client/src/components/Chat/Messages/MessageParts.tsx
+ M client/src/components/Messages/ContentRender.tsx
+ M client/src/components/Nav/Settings/MemoryToggle.tsx
+ M client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx
+ M client/src/components/UnifiedSidebar/ConversationsSection.tsx
+ M client/src/components/UnifiedSidebar/ExpandedPanel.tsx
+ M client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx
+ M client/src/components/UnifiedSidebar/mobile/Header.tsx
+ M client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx
+ M client/src/hooks/Nav/useUnifiedSidebarLinks.ts
+ M client/src/locales/en/translation.json
+ M client/src/routes/Root.tsx
+ M client/src/routes/index.tsx
+ M e2e/playwright.config.lighthouse.ts
+ M librechat.yaml
+ M packages/api/src/app/service.spec.ts
+ M packages/api/src/app/service.ts
+ M packages/api/src/index.ts
+ M packages/data-provider/src/config.ts
+ M packages/data-provider/src/index.ts
+ M packages/data-provider/src/keys.ts
+ M packages/data-provider/src/request.ts
+?? client/public/assets/life.svg
+?? client/src/components/Life/
+?? packages/api/src/memory/life.spec.ts
+?? packages/api/src/memory/life.ts
+?? packages/data-provider/src/life.ts

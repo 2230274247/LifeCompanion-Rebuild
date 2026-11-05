@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-11-04T11:02:37.994759+08:00",
+  "status": "PASS",
+  "checks": {
+    "source_hashes": {
+      "status": "PASS",
+      "files": 109,
+      "mismatches": []
+    },
+    "original_attachment_bytes": {
+      "status": "PASS",
+      "files": 8,
+      "mismatches": []
+    },
+    "local_document_links": {
+      "status": "PASS",
+      "links": 27,
+      "broken": []
+    },
+    "limited_secret_scan": {
+      "status": "PASS",
+      "text_files_scanned": 30,
+      "matching_paths": [],
+      "scope": "Known configured secrets and JWT patterns in this audit output only; no values retained."
+    }
+  },
+  "changed_files": 45,
+  "business_source_changes": 0,
+  "real_model_requests": 0,
+  "real_image_requests": 0,
+  "v03_implementation_status": "PARTIAL: audit and plan only; no new feature acceptance",
+  "real_kolors_status": "BLOCKED_PROVIDER"
+}

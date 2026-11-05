@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-11-04T18:38:33.985Z",
+  "baseURL": "http://127.0.0.1:3091",
+  "results": [
+    {
+      "route": "/c/new",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\chat-390x844.png"
+    },
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memories-390x844.png"
+    },
+    {
+      "route": "/reminders",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminders-390x844.png"
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\settings-390x844.png"
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\moment-settings-390x844.png"
+    },
+    {
+      "route": "/memories/evt_9b5893fdf922d8119e7a211b",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memory-detail-390x844.png"
+    },
+    {
+      "route": "/knowledge/mem_2871b39f0d1fa9ecc1f6e6be",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\knowledge-detail-390x844.png"
+    },
+    {
+      "route": "/c/new",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\chat-430x932.png"
+    },
+    {
+      "route": "/memories",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memories-430x932.png"
+    },
+    {
+      "route": "/reminders",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminders-430x932.png"
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\settings-430x932.png"
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\moment-settings-430x932.png"
+    },
+    {
+      "route": "/memories/evt_9b5893fdf922d8119e7a211b",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memory-detail-430x932.png"
+    },
+    {
+      "route": "/knowledge/mem_2871b39f0d1fa9ecc1f6e6be",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\knowledge-detail-430x932.png"
+    },
+    {
+      "route": "/c/new",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\chat-768x1024.png"
+    },
+    {
+      "route": "/memories",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memories-768x1024.png"
+    },
+    {
+      "route": "/reminders",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminders-768x1024.png"
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\settings-768x1024.png"
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\moment-settings-768x1024.png"
+    },
+    {
+      "route": "/memories/evt_9b5893fdf922d8119e7a211b",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memory-detail-768x1024.png"
+    },
+    {
+      "route": "/knowledge/mem_2871b39f0d1fa9ecc1f6e6be",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\knowledge-detail-768x1024.png"
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\chat-1440x1000.png"
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memories-1440x1000.png"
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminders-1440x1000.png"
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\settings-1440x1000.png"
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\moment-settings-1440x1000.png"
+    },
+    {
+      "route": "/memories/evt_9b5893fdf922d8119e7a211b",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memory-detail-1440x1000.png"
+    },
+    {
+      "route": "/reminders/rem_6ad740a47c7d4a0c827e675a4c72fe22",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminder-detail-1440x1000.png"
+    },
+    {
+      "route": "/knowledge/mem_2871b39f0d1fa9ecc1f6e6be",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\knowledge-detail-1440x1000.png"
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\chat-1920x1080.png"
+    },
+    {
+      "route": "/memories",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memories-1920x1080.png"
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\reminders-1920x1080.png"
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\settings-1920x1080.png"
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\moment-settings-1920x1080.png"
+    },
+    {
+      "route": "/memories/evt_9b5893fdf922d8119e7a211b",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\memory-detail-1920x1080.png"
+    },
+    {
+      "route": "/knowledge/mem_2871b39f0d1fa9ecc1f6e6be",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-backup-final\\knowledge-detail-1920x1080.png"
+    }
+  ]
+}

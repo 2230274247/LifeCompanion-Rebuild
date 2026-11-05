@@ -1,0 +1,6 @@
+{
+  "event": "Loaded built React client, data-provider and API from existing read-only mounts",
+  "command": "docker restart lifecompanion-librechat",
+  "time": "2026-11-03T10:38:46.8682287+08:00",
+  "exit_code": 0
+}

@@ -1,0 +1,79 @@
+{
+  "status": "PARTIAL",
+  "original_rows_deleted": 0,
+  "original_rows_changed": 2,
+  "tables": {
+    "users": {
+      "before": 3,
+      "after": 5,
+      "original_deleted": 0,
+      "original_changed": 1
+    },
+    "events": {
+      "before": 7,
+      "after": 7,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "ingest_attempts": {
+      "before": 11,
+      "after": 11,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "task_runs": {
+      "before": 7,
+      "after": 7,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "reminders": {
+      "before": 3,
+      "after": 5,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "memory_permissions": {
+      "before": 3,
+      "after": 4,
+      "original_deleted": 0,
+      "original_changed": 1
+    },
+    "memory_items": {
+      "before": 2,
+      "after": 2,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "memory_evidence": {
+      "before": 3,
+      "after": 3,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "memory_revisions": {
+      "before": 2,
+      "after": 2,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "memory_jobs": {
+      "before": 10,
+      "after": 10,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "reminder_notifications": {
+      "before": 2,
+      "after": 3,
+      "original_deleted": 0,
+      "original_changed": 0
+    },
+    "reminder_chat_actions": {
+      "before": 2,
+      "after": 2,
+      "original_deleted": 0,
+      "original_changed": 0
+    }
+  }
+}

@@ -1,0 +1,4 @@
+packages/api/src/memory/life.ts 2079ms (unchanged)
+client/src/components/Life/KnowledgeDetail.tsx 134ms
+client/src/components/Life/Knowledge.tsx 199ms
+packages/data-provider/src/life.ts 183ms (unchanged)

@@ -1,0 +1,21 @@
+{
+  "request_mode": "REAL",
+  "endpoint": "https://api.siliconflow.cn/v1/images/generations",
+  "method": "POST",
+  "request_sent": false,
+  "headers": {
+    "Authorization": "[REDACTED]",
+    "Content-Type": "application/json",
+    "X-Trace-Id": "lc-b0-kolors-8f4dffe3f47d45e3bc992adb3fc865c4"
+  },
+  "body": {
+    "model": "Kwai-Kolors/Kolors",
+    "prompt": "清晨七点，一位虚构的年轻人在香港旧区的小公寓厨房里给窗台的薄荷浇水，阳光落在白瓷杯、木质餐桌和刚烤好的吐司上；生活化纪实摄影，温暖安静，自然光，真实材质，3:4 竖构图，不出现文字、品牌标志或可识别身份。",
+    "negative_prompt": "文字，水印，品牌标志，畸形手部，多余手指，真实人物身份，低清晰度，重复主体，过度锐化",
+    "image_size": "960x1280",
+    "num_inference_steps": 20,
+    "guidance_scale": 7.5,
+    "seed": 20261104
+  },
+  "credential_source": "SILICONFLOW_API_KEY"
+}

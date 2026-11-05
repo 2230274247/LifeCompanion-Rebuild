@@ -1,0 +1,11 @@
+{
+  "program": "node",
+  "started_at": "2026-11-02T21:10:46.6533056+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild",
+  "ended_at": "2026-11-02T21:10:47.3111404+08:00",
+  "exit_code": 0,
+  "arguments": [
+    "--test",
+    "tests/gateway.test.mjs"
+  ]
+}

@@ -1,0 +1,29 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+
+[WebServer] node:internal/modules/cjs/loader:1386
+[WebServer]   throw err;
+[WebServer]   ^
+[WebServer] 
+[WebServer] Error: Cannot find module 'H:\AI'
+[WebServer] Require stack:
+[WebServer] - internal/preload
+[WebServer]     at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+[WebServer]     at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+[WebServer]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+[WebServer]     at Function._load (node:internal/modules/cjs/loader:1192:37)
+[WebServer]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[WebServer]     at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+[WebServer]     at Module.require (node:internal/modules/cjs/loader:1463:12)
+[WebServer]     at node:internal/modules/cjs/loader:1989:12
+[WebServer]     at loadPreloadModules (node:internal/process/pre_execution:753:5)
+[WebServer]     at setupUserModules (node:internal/process/pre_execution:228:5) {
+[WebServer]   code: 'MODULE_NOT_FOUND',
+[WebServer]   requireStack: [ 'internal/preload' ]
+[WebServer] }
+[WebServer] 
+[WebServer] Node.js v22.22.0
+Error: Process from config.webServer was not able to start. Exit code: 1
+

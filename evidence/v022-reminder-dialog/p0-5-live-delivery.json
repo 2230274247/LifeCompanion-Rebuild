@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "task_id": 26,
+  "scheduled_at": "2026-11-03T11:17:00+08:00",
+  "checks": {
+    "real_chat_source_and_explicit_confirm": "PASS",
+    "real_signed_vikunja_webhook_event": "PASS",
+    "real_ntfy_accepted": "PASS",
+    "authenticated_in_app_inbox_read": "PASS",
+    "anonymous_private_topic_denied": "PASS",
+    "account_d_cannot_read_c_draft_or_reminder": "PASS",
+    "real_upstream_completed": "PASS"
+  },
+  "notification_count": 1,
+  "device_delivery": "UNKNOWN"
+}

@@ -1,0 +1,10 @@
+{
+  "email": "test@shiguang.test",
+  "role": "USER",
+  "deleteAttempt": {
+    "status": 403,
+    "body": {
+      "message": "This account is protected and cannot be deleted"
+    }
+  }
+}

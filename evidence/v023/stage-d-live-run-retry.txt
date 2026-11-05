@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 292, in <module>
+    {"setup": setup, "b": stage_b, "c": stage_c, "memos":memos_setup, "d":stage_d, "screenshot":screenshot_scenario}[sys.argv[1]]()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 220, in stage_d
+    conversation,source,_ = chat(client,text)
+                            ^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 74, in chat
+    response.raise_for_status()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\services\life-core\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'http://127.0.0.1:3023/api/agents/chat/Zhipu'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502

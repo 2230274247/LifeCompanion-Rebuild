@@ -1,0 +1,140 @@
+{
+  "checked_at": "2026-11-05T14:36:20.883553+00:00",
+  "accounts": "three real accounts registered via /api/auth/register",
+  "auth_mode": "HS256 token minted locally with the shared JWT secret (login endpoint rate-limited)",
+  "total": 26,
+  "passed": 26,
+  "failed": 0,
+  "results": [
+    {
+      "step": "三账户隔离资料",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "step": "A/B 好友关系已存在",
+      "pass": true,
+      "detail": "previous run already established it"
+    },
+    {
+      "step": "B 亲自接受好友申请",
+      "pass": true,
+      "detail": "already accepted in a previous run"
+    },
+    {
+      "step": "A 创建家庭空间并邀请 B",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "B 接受空间邀请",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 在空间发送实时消息",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "B 实时读到 A 的消息",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 的回忆经 Memos 真实发布",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 分享指定回忆给 B",
+      "pass": true,
+      "detail": "already shared in a previous run"
+    },
+    {
+      "step": "B 接受共同回忆邀请",
+      "pass": true,
+      "detail": "already accepted in a previous run"
+    },
+    {
+      "step": "来源查找仅返回已加入的共同回忆",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "B 补充共同回忆细节",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "Parlor 窗内 B 发送消息",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "Parlor 窗内 A 回应消息",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "@AI 在共同回忆中真实调用模型",
+      "pass": true,
+      "detail": "HTTP 200 sources=1"
+    },
+    {
+      "step": "A 登记空闲时段",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 授权 B 查询空闲时段",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 授权 B 转达关怀",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "@AI 在空间中查询已授权空闲时段",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "B 经同意向 A 转达关怀",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 收到站内关怀通知",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "A 撤销空闲授权",
+      "pass": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "step": "撤销后 B 立即失去空闲读取权限",
+      "pass": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "step": "越权访问共同回忆被阻止",
+      "pass": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "step": "越权访问空闲时段被阻止",
+      "pass": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "step": "非成员来源查找返回空",
+      "pass": true,
+      "detail": "HTTP 200"
+    }
+  ]
+}

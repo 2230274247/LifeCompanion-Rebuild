@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "meaning": "Six compatibility gaps reproduced; NOT V0.3 acceptance.",
+  "data": "synthetic temporary database, removed on context exit",
+  "external_requests": 0,
+  "results": [
+    {
+      "id": "A-WINDOW",
+      "observed_default_ends": [
+        "11:00",
+        "17:00",
+        "23:00"
+      ],
+      "observed_morning_start": "2026-11-03T23:00:00+08:00",
+      "expected_morning_start": "2026-11-04T00:00:00+08:00",
+      "matches_v03": false
+    },
+    {
+      "id": "A-TIMEZONE",
+      "before_total": 5,
+      "same_end_local_day_slot_after_zone_change": [
+        {
+          "window_start": "2026-11-03T23:00:00+00:00",
+          "window_end": "2026-11-04T11:00:00+00:00",
+          "timezone": "UTC",
+          "slot": 0
+        },
+        {
+          "window_start": "2026-11-03T23:00:00+08:00",
+          "window_end": "2026-11-04T11:00:00+08:00",
+          "timezone": "Asia/Hong_Kong",
+          "slot": 0
+        }
+      ],
+      "matches_v03": false,
+      "scope": "Settlement replay only; no image or model calls."
+    },
+    {
+      "id": "A-AGGREGATION",
+      "same_running_event_keys_equal": false,
+      "matches_v03": false,
+      "scope": "Pure semantic-key check; model duplicate rejection not exercised."
+    },
+    {
+      "id": "A-SCHEMA",
+      "has_local_date": false,
+      "has_policy_version": false,
+      "has_provider_job_id": false,
+      "matches_v03": false
+    },
+    {
+      "id": "B-CORRUPT-IMAGE",
+      "transport": "httpx.MockTransport; zero external requests",
+      "accepted_bytes": 20,
+      "accepted_mime": "image/png",
+      "corrupt_image_accepted": true,
+      "matches_v03": false
+    },
+    {
+      "id": "A-POLICY",
+      "next_day_0005_expressible_as_existing_sorted_ends": false,
+      "matches_v03": false,
+      "note": "Window end and execution delay must be separate fields."
+    }
+  ]
+}

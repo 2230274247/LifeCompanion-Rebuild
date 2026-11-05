@@ -1,0 +1,16 @@
+{
+  "arguments": [
+    "compose",
+    "--env-file",
+    ".env.reminders",
+    "-f",
+    "compose.reminders.yaml",
+    "config",
+    "--quiet"
+  ],
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/infra",
+  "started_at": "2026-11-02T23:23:51.5126162+08:00",
+  "exit_code": 0,
+  "ended_at": "2026-11-02T23:23:52.2945918+08:00",
+  "program": "docker"
+}

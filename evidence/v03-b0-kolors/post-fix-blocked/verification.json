@@ -1,0 +1,35 @@
+{
+  "status": "BLOCKED",
+  "classification": "BLOCKED",
+  "started_at": "2026-11-04T06:14:17.416564+00:00",
+  "provider": "SiliconFlow",
+  "model": "Kwai-Kolors/Kolors",
+  "request_mode": "REAL",
+  "account_preflight_requests": 0,
+  "image_generation_requests": 0,
+  "image_downloads": 0,
+  "max_requests": 1,
+  "max_images": 1,
+  "budget_cap_cny": "0.00",
+  "prompt": "清晨七点，一位虚构的年轻人在香港旧区的小公寓厨房里给窗台的薄荷浇水，阳光落在白瓷杯、木质餐桌和刚烤好的吐司上；生活化纪实摄影，温暖安静，自然光，真实材质，3:4 竖构图，不出现文字、品牌标志或可识别身份。",
+  "requested_size": "960x1280",
+  "steps": 20,
+  "guidance_scale": 7.5,
+  "seed": 20261104,
+  "trace_id": "lc-b0-kolors-4290a9762f4949eaa376cbc93b0bf7a3",
+  "checks": {
+    "official_free_price": "PASS",
+    "SILICONFLOW_API_KEY_NOT_SET": "BLOCKED"
+  },
+  "official_price": {
+    "url": "https://www.siliconflow.cn/pricing",
+    "status_code": 200,
+    "page_sha256": "651197529514dc10bb47441ddd6440033fe7450e55f584e0ecbc515009d80f45",
+    "model": "Kwai-Kolors/Kolors",
+    "price_cny_per_image": 0,
+    "evidence": "Kwai-Kolors/Kolors 生成图片 每图片 免费"
+  },
+  "error_code": "SILICONFLOW_API_KEY_NOT_SET",
+  "ended_at": "2026-11-04T06:14:18.670889+00:00",
+  "duration_ms": 1250.0
+}

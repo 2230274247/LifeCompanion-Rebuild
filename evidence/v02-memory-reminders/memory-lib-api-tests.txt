@@ -1,0 +1,15 @@
+
+> @librechat/api@1.7.52 test:ci
+> jest --coverage --ci --testPathIgnorePatterns="\.*integration\.|\.*helper\.|__tests__/helpers/|\.*manual\.spec\." --runInBand --coverage=false --runTestsByPath src/memory/life.spec.ts
+
+PASS src/memory/life.spec.ts
+  Life Companion memory boundary
+    √ adds authorized facts only to a copy of the current model-bound user message (13 ms)
+    √ preserves chat when memory is disabled or unreachable (6 ms)
+    √ queues the persisted source with the server identity, never an assistant answer (3 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        3.629 s
+Ran all test suites within paths "src/memory/life.spec.ts".

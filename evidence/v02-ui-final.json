@@ -1,0 +1,35 @@
+{
+  "tested_at": "2026-11-02T11:55:56.080Z",
+  "desktop_sidebar_toggle": "PASS",
+  "mobile_sidebar_open_focus_close": "PASS",
+  "detail_deep_link_refresh": "PASS",
+  "empty_search": "PASS",
+  "nonexistent_detail_error_and_retry": "PASS",
+  "logout_memory_route_redirect_login": "PASS",
+  "login_redirect_memories": "PASS",
+  "mobile_input_bounds": {
+    "height": 844,
+    "iframes": 0,
+    "input": {
+      "bottom": 784,
+      "height": 50,
+      "visible": true,
+      "width": 378,
+      "x": 1,
+      "y": 734
+    },
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "list_scroll": {
+    "before": 1164,
+    "after": 1164,
+    "status": "PASS",
+    "method": "Click a card already visible in viewport, then return to list."
+  },
+  "new_unexpected_console_errors": [],
+  "notes": [
+    "Reduced motion and real mobile keyboard not tested.",
+    "Earlier first-card selection auto-scrolled before navigation and was excluded from scroll restoration acceptance."
+  ]
+}

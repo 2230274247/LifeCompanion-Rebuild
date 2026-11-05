@@ -1,0 +1,10 @@
+{
+  "status": "REAL_IMAGE_VERIFIED",
+  "reserved_at": "2026-11-04T06:26:27.634775+00:00",
+  "max_requests": 1,
+  "max_images": 1,
+  "budget_cap_cny": "0.00",
+  "updated_at": "2026-11-04T06:26:32.690860+00:00",
+  "image_generation_requests": 1,
+  "sha256": "9bbd0cb588f51cbf579235547f7e55aa4d8c06e09912f9c0881fabdfd31e240b"
+}

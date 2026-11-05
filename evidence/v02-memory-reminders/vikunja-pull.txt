@@ -1,0 +1,19 @@
+2.7.1: Pulling from vikunja/vikunja
+ca5263c45472: Pulling fs layer
+b40af9617fb4: Pulling fs layer
+621568da4ce1: Pulling fs layer
+0f456db8c527: Pulling fs layer
+97348b480e65: Download complete
+44136fa355b3: Already exists
+b40af9617fb4: Download complete
+b40af9617fb4: Pull complete
+ca5263c45472: Download complete
+621568da4ce1: Download complete
+621568da4ce1: Pull complete
+6fab811460c1: Download complete
+0f456db8c527: Download complete
+ca5263c45472: Pull complete
+0f456db8c527: Pull complete
+Digest: sha256:f7dc8428d10aef17f3075886d3c1c022f566ec456f88985f02c137f4fc534576
+Status: Downloaded newer image for vikunja/vikunja:2.7.1
+docker.io/vikunja/vikunja:2.7.1

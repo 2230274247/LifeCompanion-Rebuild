@@ -1,0 +1,33 @@
+
+> @librechat/frontend@v0.8.8 test:ci
+> cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false --runTestsByPath src/components/Life/__tests__/ReminderCards.spec.tsx
+
+  console.error
+    Error: network
+        at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\ReminderCards.spec.tsx:137:68)
+        at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+        at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+        at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/ReminderCards.spec.tsx (14.903 s, 206 MB heap size)
+  √ ambiguous references link to their exact source instead of creating another reminder (283 ms)
+  √ associates one card with its source and saves a time directly before explicit confirmation (289 ms)
+  √ retains entered time on network failure and does not show created (190 ms)
+  √ unknown result only offers reconciliation and list, never another create (38 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        21.179 s
+Ran all test suites within paths "src/components/Life/__tests__/ReminderCards.spec.tsx".

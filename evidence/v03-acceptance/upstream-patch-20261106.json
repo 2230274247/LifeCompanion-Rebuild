@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "generated_at": "2026-11-06T00:00:00+08:00",
+  "repository": "https://github.com/LibreChat-AI/LibreChat",
+  "baseline_ref": "v0.8.8",
+  "baseline_commit": "e8f3be08623663d4ad7f7241e693c94469b63bb0",
+  "source_branch": "lifecompanion-baseline",
+  "source_head": "0c4fc4031",
+  "patch": "patches/librechat-v0.8.8-v03-collaboration-20261106.patch",
+  "patch_bytes": 3686492,
+  "patch_sha256": "B2F2D391C22510EAD1F282B779B6E1E098CF9C8C5C3D93A80E87C9C05AE99797",
+  "reverse_apply_check": "PASS",
+  "real_staging_index_modified": false,
+  "includes_untracked_source": true,
+  "secrets_in_patch": false
+}

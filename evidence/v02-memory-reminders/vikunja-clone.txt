@@ -1,0 +1,84 @@
+Cloning into 'products/vikunja-upstream'...
+Note: switching to '5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  37% (879/2353)
+Updating files:  38% (895/2353)
+Updating files:  39% (918/2353)
+Updating files:  40% (942/2353)
+Updating files:  41% (965/2353)
+Updating files:  42% (989/2353)
+Updating files:  43% (1012/2353)
+Updating files:  44% (1036/2353)
+Updating files:  45% (1059/2353)
+Updating files:  46% (1083/2353)
+Updating files:  47% (1106/2353)
+Updating files:  48% (1130/2353)
+Updating files:  49% (1153/2353)
+Updating files:  50% (1177/2353)
+Updating files:  51% (1201/2353)
+Updating files:  52% (1224/2353)
+Updating files:  53% (1248/2353)
+Updating files:  54% (1271/2353)
+Updating files:  55% (1295/2353)
+Updating files:  56% (1318/2353)
+Updating files:  57% (1342/2353)
+Updating files:  58% (1365/2353)
+Updating files:  59% (1389/2353)
+Updating files:  60% (1412/2353)
+Updating files:  61% (1436/2353)
+Updating files:  62% (1459/2353)
+Updating files:  63% (1483/2353)
+Updating files:  64% (1506/2353)
+Updating files:  65% (1530/2353)
+Updating files:  66% (1553/2353)
+Updating files:  67% (1577/2353)
+Updating files:  68% (1601/2353)
+Updating files:  69% (1624/2353)
+Updating files:  70% (1648/2353)
+Updating files:  71% (1671/2353)
+Updating files:  72% (1695/2353)
+Updating files:  73% (1718/2353)
+Updating files:  74% (1742/2353)
+Updating files:  75% (1765/2353)
+Updating files:  76% (1789/2353)
+Updating files:  76% (1811/2353)
+Updating files:  77% (1812/2353)
+Updating files:  78% (1836/2353)
+Updating files:  79% (1859/2353)
+Updating files:  80% (1883/2353)
+Updating files:  81% (1906/2353)
+Updating files:  82% (1930/2353)
+Updating files:  83% (1953/2353)
+Updating files:  84% (1977/2353)
+Updating files:  85% (2001/2353)
+Updating files:  86% (2024/2353)
+Updating files:  87% (2048/2353)
+Updating files:  88% (2071/2353)
+Updating files:  89% (2095/2353)
+Updating files:  90% (2118/2353)
+Updating files:  91% (2142/2353)
+Updating files:  92% (2165/2353)
+Updating files:  93% (2189/2353)
+Updating files:  94% (2212/2353)
+Updating files:  95% (2236/2353)
+Updating files:  96% (2259/2353)
+Updating files:  97% (2283/2353)
+Updating files:  98% (2306/2353)
+Updating files:  99% (2330/2353)
+Updating files: 100% (2353/2353)
+Updating files: 100% (2353/2353), done.

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "provider": "real Zhipu glm-4.7",
+  "checks": {
+    "two_new_chats_saved": "PASS",
+    "third_chat_recalls_both_and_negation": "PASS",
+    "durable_uuid_sources": "PASS",
+    "owner_scoped_details": "PASS",
+    "recall_business_links": "PASS"
+  },
+  "answer_synthetic": "根据记录，你明天需要带以下东西：\n\n1. **雨伞**（[来源](/knowledge/mem_fce3b43cd744553f1d632b4a)）\n2. **绿色 U 盘**（注意：不是银色的）（[来源 1](/knowledge/mem_0854c84631d9712941713a5d)，[来源 2](/reminders/rem_285fca3653554ff4bd5c8a4ef1dd91c2)）\n\n除了上述物品，目前没有其他证据表明你明天还需要带别的东西。",
+  "entities": {
+    "a": {
+      "conversation_id": "ee4a94db-0e0c-4bc4-8ef9-c10ed9259f51",
+      "source_message_id": "84a85c98-2f70-42b6-af36-45195da6f6dd",
+      "memory_id": "mem_0854c84631d9712941713a5d"
+    },
+    "b": {
+      "conversation_id": "cbf834fd-57bb-4316-9ad8-0ca54e9dcd1f",
+      "source_message_id": "ee3be1aa-a6c9-4513-a291-81256c2c2b28",
+      "memory_id": "mem_fce3b43cd744553f1d632b4a"
+    },
+    "c": {
+      "conversation_id": "51b11c9c-fc96-462b-9acd-6d4cdc505413",
+      "source_message_id": "04094792-efc9-446a-9541-922469e1efa9"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+
+H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\Provisioning.tsx
+  32:10  error  Do not nest ternary expressions  no-nested-ternary
+  34:13  error  Do not nest ternary expressions  no-nested-ternary
+
+✖ 2 problems (2 errors, 0 warnings)
+

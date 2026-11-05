@@ -1,0 +1,20 @@
+packages/api/src/memory/life.ts 2599ms (unchanged)
+packages/api/src/memory/life.spec.ts 67ms
+packages/api/src/index.ts 47ms (unchanged)
+packages/data-provider/src/life.ts 46ms (unchanged)
+packages/data-provider/src/config.ts 1038ms (unchanged)
+packages/data-provider/src/keys.ts 29ms (unchanged)
+client/src/components/Life/Knowledge.tsx 112ms
+client/src/components/Life/useLifeMode.ts 26ms (unchanged)
+client/src/components/Life/theme.ts 31ms (unchanged)
+client/src/components/Life/Header.tsx 51ms (unchanged)
+client/src/components/Life/Navigation.tsx 44ms (unchanged)
+client/src/components/Life/Memories.tsx 86ms
+client/src/hooks/Nav/useUnifiedSidebarLinks.ts 39ms
+client/src/components/UnifiedSidebar/ExpandedPanel.tsx 48ms (unchanged)
+client/src/components/UnifiedSidebar/mobile/Header.tsx 44ms
+client/src/components/Chat/Messages/Content/Part.tsx 132ms (unchanged)
+client/src/components/Chat/Messages/Content/MessageContent.tsx 91ms (unchanged)
+client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx 39ms (unchanged)
+client/src/components/Nav/Settings/MemoryToggle.tsx 48ms (unchanged)
+client/src/routes/index.tsx 43ms (unchanged)

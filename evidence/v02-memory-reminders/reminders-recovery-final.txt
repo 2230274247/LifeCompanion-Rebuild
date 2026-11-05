@@ -1,0 +1,43 @@
+{
+  "started_at": "2026-11-02T23:03:53.050688+08:00",
+  "isolation": "fresh life-core SQLite, dedicated Vikunja test user and private ntfy topic",
+  "checks": {
+    "isolated_life_core_started": "PASS",
+    "user_bootstrapped_in_isolated_database": "PASS",
+    "per_user_scoped_vikunja_token_configured": "PASS",
+    "signed_callback_registered_to_life_core": "PASS",
+    "life_core_created_real_vikunja_task": "PASS",
+    "life_core_updated_real_vikunja_task": "PASS",
+    "life_core_listed_user_scoped_task": "PASS",
+    "second_user_cannot_read_first_user_reminder": "PASS",
+    "real_signed_webhook_reached_ntfy": "PASS",
+    "life_core_recorded_fired_state": "PASS",
+    "life_core_cancelled_and_deleted_upstream_task": "PASS",
+    "missing_webhook_recovered_from_official_inbox": "PASS",
+    "cancelled_reminder_not_pushed_after_original_deadline": "PASS",
+    "ntfy_messages_read_through_authorized_life_core": "PASS"
+  },
+  "status": "FAIL",
+  "api_version": "v2",
+  "created": {
+    "reminder_id": "rem_11632431b1c045189cbc42385ef041bf",
+    "vikunja_task_id": 13,
+    "status": "scheduled"
+  },
+  "error": "AssertionError: {'handled': True, 'status': 'failed', 'message': '���Ѳ���δȷ�ϳɹ�����鿴�����ѡ��˶ԣ����β����Զ��ظ��ύ��'}",
+  "cleanup_tasks": [
+    {
+      "task_id": 13,
+      "deleted": true
+    },
+    {
+      "task_id": 14,
+      "deleted": true
+    },
+    {
+      "task_id": 15,
+      "deleted": true
+    }
+  ],
+  "ended_at": "2026-11-02T23:08:12.905121+08:00"
+}

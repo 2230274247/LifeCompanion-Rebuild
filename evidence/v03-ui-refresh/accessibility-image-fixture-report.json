@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-11-04T17:52:28.169Z",
+  "standard": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "best-practice"
+  ],
+  "scope": "Image fixture memories and moment detail at 390 and 1440 widths.",
+  "results": [
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/:id",
+      "viewport": "390x844",
+      "violationCount": 1,
+      "violations": [
+        {
+          "id": "image-redundant-alt",
+          "impact": "minor",
+          "nodes": 1,
+          "targets": [
+            [
+              ".max-h-\\[72vh\\]"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "violationCount": 0,
+      "violations": []
+    },
+    {
+      "route": "/moments/:id",
+      "viewport": "1440x1000",
+      "violationCount": 1,
+      "violations": [
+        {
+          "id": "image-redundant-alt",
+          "impact": "minor",
+          "nodes": 1,
+          "targets": [
+            [
+              ".max-h-\\[72vh\\]"
+            ]
+          ],
+          "summaries": [
+            "Fix all of the following:\n  Element contains <img> element with alt text that duplicates existing text"
+          ]
+        }
+      ]
+    }
+  ]
+}

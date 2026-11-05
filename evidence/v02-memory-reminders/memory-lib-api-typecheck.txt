@@ -1,0 +1,2 @@
+packages/api/src/memory/life.ts(79,28): error TS2550: Property 'findLastIndex' does not exist on type 'T[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
+packages/api/src/memory/life.ts(79,43): error TS7006: Parameter 'item' implicitly has an 'any' type.

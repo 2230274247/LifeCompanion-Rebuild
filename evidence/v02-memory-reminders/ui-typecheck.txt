@@ -1,0 +1,12 @@
+
+> @librechat/frontend@v0.8.8 typecheck
+> tsc --noEmit
+
+src/components/Life/Knowledge.tsx(77,25): error TS2345: Argument of type '"com_life_retry"' is not assignable to parameter of type '"com_error_files_dupe" | "com_ui_attach_error_disabled" | "com_error_files_empty" | "com_life_navigation" | "com_life_chat" | "com_life_memories" | "com_life_brand" | "com_life_tagline" | ... 3093 more ... | "com_life_fact_updated"'.
+npm error Lifecycle script `typecheck` failed with error:
+npm error code 2
+npm error path H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client
+npm error workspace @librechat/frontend@v0.8.8
+npm error location H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c tsc --noEmit

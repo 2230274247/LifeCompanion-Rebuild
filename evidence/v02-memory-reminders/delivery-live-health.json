@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-11-03T00:02:20.921584+08:00",
+  "health": {
+    "3001": 200,
+    "3080": 200,
+    "5230": 200,
+    "8010": 200,
+    "3456": 200,
+    "8087": 200
+  },
+  "status": "PASS",
+  "synthetic_a_published_event_count": 1,
+  "event_source_counts": [
+    2
+  ],
+  "single_event_with_two_sources": true,
+  "authorized_recall_has_longjing": true,
+  "ntfy_actual_received_message_count": 1,
+  "signed_hook_gateway_blocked": true
+}

@@ -1,0 +1,123 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+
+[WebServer] (node:22280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] Downloading MongoDB "8.2.1": 0% (0mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 0.6% (4.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 1.3% (9.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 2% (15.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 2.8% (21.8mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 3.8% (29.3mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 4.7% (36.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 5.6% (43.6mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 6.6% (51.3mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 7.6% (58.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 8.3% (64.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 8.8% (68.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 9.2% (71.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 9.7% (75.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 9.8% (76.3mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 10% (77.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 10.2% (79.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 10.4% (81.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 10.7% (83.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 11.1% (86.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 11.4% (89.1mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 11.8% (91.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 12.1% (94.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 12.5% (97mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 12.9% (100.1mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 13.4% (104.6mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 14% (109.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 14.8% (115.3mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 15.6% (121.6mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 16.2% (126.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 17% (132.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 17.9% (138.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 18.6% (144.8mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 19.4% (151.1mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 20.4% (158.8mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 21.4% (166.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 22.5% (175.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 23.4% (182.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 24.4% (189.8mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 25.1% (195.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 25.8% (201mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 26.5% (206.2mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 27.3% (212.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 28.4% (220.7mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 29.4% (228.5mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 30.3% (235.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 31.2% (242.7mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 31.9% (248.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 32.9% (256mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 33.9% (263.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 34.9% (271.3mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 35.8% (278.9mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 37% (287.6mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 38% (295.4mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 39.1% (304mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 40% (311mb / 778.2mb)
+
+[WebServer] Downloading MongoDB "8.2.1": 40.8% (317.4mb / 778.2mb)
+
+Error: Timed out waiting 120000ms from config.webServer.
+

@@ -1,0 +1,16 @@
+Three real synthetic chat events persisted; waiting for the configured wall-clock execution.
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Live job: awaiting_window
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 255, in <module>
+    {"setup": setup, "b": stage_b, "c": stage_c, "memos":memos_setup, "d":stage_d}[sys.argv[1]]()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\tests\live-v023.py", line 231, in stage_d
+    listing = client.get("/life-api/api/v1/moments").json()["moments"]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'moments'

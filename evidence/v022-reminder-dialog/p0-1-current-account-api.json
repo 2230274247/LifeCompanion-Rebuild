@@ -1,0 +1,12 @@
+{
+  "account_alias": "current-unconfigured",
+  "http_status": 200,
+  "configured": false,
+  "notification_consent": true,
+  "current_ui_display_name_matches": true,
+  "services_healthy": true,
+  "reason_code": "REMINDER_USER_NOT_CONFIGURED",
+  "source_gate": "reminder_chat.py execute: life_id not in settings.vikunja_users",
+  "withLifeReminder_timeout_ms": 28000,
+  "frontend_card_present": false
+}

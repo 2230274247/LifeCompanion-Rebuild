@@ -1,0 +1,150 @@
+{
+  "repositories": {
+    "root": {
+      "head": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1",
+      "status": " M .gitignore\n M README.md\n M apps/product-portal/server.mjs\n M docs/ARCHITECTURE.md\n M docs/BLOCKERS.md\n M docs/RUNBOOK.md\n M docs/UPSTREAM_DIFF.md\n M docs/UPSTREAM_MANIFEST.md\n M services/life-core/app/auth.py\n M services/life-core/app/config.py\n M services/life-core/app/main.py\n M services/life-core/app/memos.py\n M services/life-core/app/store.py\n M services/life-core/tests/test_api.py\n M tests/RESULTS.md\n?? AGENTS.md\n?? docs/DEVELOPMENT_LOG_POLICY.md\n?? docs/V02_IMPLEMENTATION.md\n?? docs/architecture/\n?? docs/design/\n?? docs/development-log/\n?? docs/product/\n?? evidence/launcher-verification.json\n?? evidence/v02-before-original.png\n?? evidence/v02-chat-1440.png\n?? evidence/v02-chat-390.png\n?? evidence/v02-detail-1440.png\n?? evidence/v02-empty-390.png\n?? evidence/v02-error-390.png\n?? evidence/v02-live-verification.json\n?? evidence/v02-memories-1440.png\n?? evidence/v02-memories-1920.png\n?? evidence/v02-memories-390.png\n?? evidence/v02-memories-430.png\n?? evidence/v02-memories-768.png\n?? evidence/v02-memory-reminders/\n?? evidence/v02-mobile-drawer-390.png\n?? evidence/v02-tests/\n?? evidence/v02-ui-final.json\n?? evidence/v02-viewports.json\n?? infra/compose.reminders.yaml\n?? infra/compose.spa.yaml\n?? infra/reminders.env.example\n?? patches/\n?? scripts/\n?? services/life-core/app/memory.py\n?? services/life-core/app/reminder_chat.py\n?? services/life-core/app/reminders.py\n?? services/life-core/tests/test_memory_pipeline.py\n?? services/life-core/tests/test_memos.py\n?? services/life-core/tests/test_reminders.py\n?? tests/bootstrap-isolated-accounts.py\n?? tests/gateway.test.mjs\n?? tests/live-life-reminders-v021.py\n?? tests/live-memory-v021.py\n?? tests/live-reminder-withdrawal-v021.py\n?? tests/live-spa-reminders-v021.py\n?? tests/live-v02.py\n?? tests/live-vikunja-ntfy-v021.py\n",
+      "existing_files_sha256": {
+        ".gitignore": "a26df968f87148bd7e5cd61cee476257d406bcf3cb8f74c6d1db15fda08cd6f5",
+        "README.md": "36f534811afeb633aa5fd4e4c2cae8d413d1f0ce38e968ee761b9b5c165919e6",
+        "apps/product-portal/server.mjs": "435c02dadc1ea3bf674dd3e1bc7bed38eeb14ffbbca71dd2ebfaaf9e3814649a",
+        "docs/ARCHITECTURE.md": "9f7a117ea29fbf5cf95f3bde17494161d743664b4ff00c766464762e2b8e8e8f",
+        "docs/BLOCKERS.md": "1760ce898d08bb17300a14cdf964b4703492dbccd278ad866387f366a7a765fe",
+        "docs/RUNBOOK.md": "cc2b643b021493b94805ba0cec20b19dbfe37f1c9b3e636e360442e102650866",
+        "docs/UPSTREAM_DIFF.md": "e5d2f91c890d4b08d084054142f200b4e7af5c3b5898c12b8a00693611118c2d",
+        "docs/UPSTREAM_MANIFEST.md": "6d83a475a8a44f90ba9bae7ea2f03e4e2fc223f5e06bd7124eef6c785e1b1445",
+        "services/life-core/app/auth.py": "07169522635d08bd07d54e93077cb9d88206f94fb642081f0efea7a97a88324b",
+        "services/life-core/app/config.py": "716a7cfd69599e08d7bc7ea869f56d4f749ec2cb217a8f4cc83210a7fce3a471",
+        "services/life-core/app/main.py": "fb0f532636dbb7d94d5511fb76b9e43305145172702216c7ed71fd058892c141",
+        "services/life-core/app/memos.py": "cdbc2912511b351695d8b9563b828751965408ff1cdf50afa1b7d69e92754066",
+        "services/life-core/app/store.py": "65678b76adc89a392951bbb5e323f3ff9894cc553452fa70e29ed30123cfa546",
+        "services/life-core/tests/test_api.py": "051047c133a467802cffe68ff94f6ffdbdc19fd128c84db779332f5871fc8a3a",
+        "tests/RESULTS.md": "bde935e084ce0b48be48b2585a1d878d0720f86468ce5100abfd2a54b1d560fa",
+        "AGENTS.md": "a6a95b85c22d3b88e6e495398b346649e4456e6a327317eb3698f9c8d3594777",
+        "docs/DEVELOPMENT_LOG_POLICY.md": "93b51b31b0383418210858c1fa410f04ca4b967ad91c2a3445d232320c5412c5",
+        "docs/V02_IMPLEMENTATION.md": "9902145c5083fbce4677eac08a93840c00eaed726d2e98083dc359ebc634e53a",
+        "evidence/launcher-verification.json": "97d3c6c1165089cb94edd30a94e6037a3d93c4d588b0313bc10c87f20496bd5d",
+        "evidence/v02-before-original.png": "f7ac15c8068811b9c737789ee26fc470fe4097f854ea2940b9e82f83f2c64310",
+        "evidence/v02-chat-1440.png": "7524ea554235620a3b7f2792a7390c410d30f40a86b887587cee8dc30818e4d6",
+        "evidence/v02-chat-390.png": "7703ee37e166f9c3d815178fd6f5efb2fd922ae45ea63ec21528244c1f0215cb",
+        "evidence/v02-detail-1440.png": "0275c9678ee40128d1332a29a64c5e876d16585e4d838989bd85a2192bf41543",
+        "evidence/v02-empty-390.png": "58d041bfbc01ff1e3b5426fd47560c29dec0ae280397a24d8ab768001355f3c8",
+        "evidence/v02-error-390.png": "122a430a09f258d483286c826ecc335c5901281e04129678477980088aec79d7",
+        "evidence/v02-live-verification.json": "69683acf935a812008f3696f7d87e1b405cad9c647a0fff12524b65ab4db57c7",
+        "evidence/v02-memories-1440.png": "89bc29292435850e34bc196181e07d570b1ba2fc48a77971d5084b9b5d866013",
+        "evidence/v02-memories-1920.png": "be6b85cf808e1b4b114443be0d52d65dccc1676a2c84ab365a7e5fc6a52e17d2",
+        "evidence/v02-memories-390.png": "0f0b74ee18cc52926106e8b4180e8991bba7d84ac550c7560389dd88f00f799f",
+        "evidence/v02-memories-430.png": "edd543feb7c642324b921182cb8d368aca5699ab98612833e692cbf8c447f176",
+        "evidence/v02-memories-768.png": "ae9dc4af03ac2a84ab1e808e4f6f6e340af02675368b0b5cebd940bf436e71f8",
+        "evidence/v02-mobile-drawer-390.png": "36f86cbba734db03462a5dc95590df250b58e2cfb32dd5556ff8bfe90352023c",
+        "evidence/v02-ui-final.json": "26d2d1004a1eb83ecf6d55b288a61e37830fd7f072bb0b03243d5fba69c00691",
+        "evidence/v02-viewports.json": "52a3de272726e2a808ea79aab58e5d36d2e17965daaf3e2fe15f4f14deb502f0",
+        "infra/compose.reminders.yaml": "9828af6e89e7988a423d38b49f7fad080bdcb90d0df382cb9393f9b1cbc4fbd0",
+        "infra/compose.spa.yaml": "35ed7d39b86c1841605029b270095861db1f07a83272fb5acc6731721137aa1f",
+        "infra/reminders.env.example": "4c4b4ee4e04619caedfd89a93cb465fb3133b74eb1ffb2d66153c0266a75ea39",
+        "services/life-core/app/memory.py": "05e12dfaef06c2e3db18227326ec61eea54c5e4d4d6b1a91f50db82c3c882bd1",
+        "services/life-core/app/reminder_chat.py": "73b12fb13ee8c4e3d57b1338716dcdebf5570624d99ccdc522b335b69224df8e",
+        "services/life-core/app/reminders.py": "6f8fc402ee723a7e28f60ce534a3fe844550526b2ebcf4b536e29a8dc93aef4f",
+        "services/life-core/tests/test_memory_pipeline.py": "46936e16857789377826a106471154e3411dcdf49a4846ba9db54e84c30f85fb",
+        "services/life-core/tests/test_memos.py": "35944dc0d592b92f368cc218478d1c1d18f867628f8c9f2153216a61b03364fe",
+        "services/life-core/tests/test_reminders.py": "b9d5a0dfc2892608755c9ffed91c8ae11b84c24c89b85393ccc8a738818ae194",
+        "tests/bootstrap-isolated-accounts.py": "ef3ccec5d3fb289113f7d61cf9922903b7e99ccfcc9c153b7ac40f343c7d227d",
+        "tests/gateway.test.mjs": "eeaa970cc71a00c468f8178e30dcd5adaeffb49c86fcbadfd47fc5bd93011dc7",
+        "tests/live-life-reminders-v021.py": "97ce6943de48c266541b32350c6072213e9e3c96b4f92a55311d9688c3076bf3",
+        "tests/live-memory-v021.py": "c25a3dc424bd6c442633440c49fbc4266f5a6eb58b28e39fc9c8c28ab776fa1d",
+        "tests/live-reminder-withdrawal-v021.py": "267b33f229bb582fe282fc510210d44d455279b0dab0fed24e7e5d7786eff8cb",
+        "tests/live-spa-reminders-v021.py": "742042cb5583ef5471c25831c99a9ea6c348cb2fea996c7caefdcfb1f82c2fbc",
+        "tests/live-v02.py": "0ea1ca28ad6c5656601e03d5d1f4186941944032066defedb1bab7981a6a8b4e",
+        "tests/live-vikunja-ntfy-v021.py": "a93024a59a9dac14d34fe07018c2506cbf0322d4eafb2cce0b9a59d986027f35"
+      }
+    },
+    "librechat": {
+      "head": "7c2365cb376b48acb1591e48a6ef91e5c47c78e6",
+      "status": " M api/app/clients/BaseClient.js\n M client/index.html\n M client/src/App.jsx\n M client/src/components/Auth/AuthLayout.tsx\n M client/src/components/Chat/Input/ChatForm.tsx\n M client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx\n M client/src/components/Chat/Messages/Content/MessageContent.tsx\n M client/src/components/Chat/Messages/Content/Part.tsx\n M client/src/components/Nav/Settings/MemoryToggle.tsx\n M client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx\n M client/src/components/UnifiedSidebar/ConversationsSection.tsx\n M client/src/components/UnifiedSidebar/ExpandedPanel.tsx\n M client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx\n M client/src/components/UnifiedSidebar/mobile/Header.tsx\n M client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx\n M client/src/hooks/Nav/useUnifiedSidebarLinks.ts\n M client/src/locales/en/translation.json\n M client/src/routes/Root.tsx\n M client/src/routes/index.tsx\n M e2e/playwright.config.lighthouse.ts\n M librechat.yaml\n M packages/api/src/app/service.spec.ts\n M packages/api/src/app/service.ts\n M packages/api/src/index.ts\n M packages/data-provider/src/config.ts\n M packages/data-provider/src/index.ts\n M packages/data-provider/src/keys.ts\n?? client/public/assets/life.svg\n?? client/src/components/Life/\n?? packages/api/src/memory/life.spec.ts\n?? packages/api/src/memory/life.ts\n?? packages/data-provider/src/life.ts\n",
+      "existing_files_sha256": {
+        "api/app/clients/BaseClient.js": "655032fc4e527cfec6eb037fdda320cc6d0c106feffb5b580dc6484f47b01fb1",
+        "client/index.html": "7bb4fd8c78bd28d31a59fe40f03c20613de7c2690b774f4bc222e7454bf3fb7c",
+        "client/src/App.jsx": "aed1fcc76ecea3d235ebe32579a60f39c74ed34fce9b38a992765a2d11503fc2",
+        "client/src/components/Auth/AuthLayout.tsx": "233a3c9e7d66b3211c0a2b1d126a7fa04852eb094b6b2b64a1f14bfa67339a9d",
+        "client/src/components/Chat/Input/ChatForm.tsx": "de804328611c717454ff90819946562ced22bcfaead025e17d2290ef750eeab0",
+        "client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx": "f8b0d7d0554a0a8483a4cb8e50dcc36f0c56652e616cebfea936f73027ccc2df",
+        "client/src/components/Chat/Messages/Content/MessageContent.tsx": "fd2278eb5a28c4c858bcb8fcc426ae417538764a84d7f9ba5ee3eb555ef17879",
+        "client/src/components/Chat/Messages/Content/Part.tsx": "f80dbc514ef4d035dc6b9d9e098841799ef3a39399e407866d0fe19214957348",
+        "client/src/components/Nav/Settings/MemoryToggle.tsx": "69aba80c197125e685be6db5c28306d8d5ad574df8fa2c9bd8a9b2635a849f3d",
+        "client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx": "a7fa7dc573a4579526f4c82c40df05ea47421641c164e86e0b3c4a8129291a50",
+        "client/src/components/UnifiedSidebar/ConversationsSection.tsx": "860abdd5bc8023ded35bf911ead85d395df411bb99a1e0d200ab81e29819d261",
+        "client/src/components/UnifiedSidebar/ExpandedPanel.tsx": "d1ebb01c07624c357403957493c6880294fa7dddc4b6cb85454ada9a2051fc4e",
+        "client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx": "984f9d78a1fdd8f946e853f938ac0fdc5b0e8557ee122139b8f878ed2694351c",
+        "client/src/components/UnifiedSidebar/mobile/Header.tsx": "31f27e28a56b49a5c5b8de9d395c6653446aa395c74af506cdd4bb2fe1ee702f",
+        "client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx": "1bac5dcbf62a3f14fe555d84d2f8ed01a2b1fd919f4918f6c74871a9bb4108f3",
+        "client/src/hooks/Nav/useUnifiedSidebarLinks.ts": "ef2bb3ccce0e4fcb00a2a35e40c9c07eb168931350bebafba472729ff7b85f56",
+        "client/src/locales/en/translation.json": "c069867451bdd2629f61b80fa236b9683e23e3ea3dfd2cae32ff8a62d4eaecfa",
+        "client/src/routes/Root.tsx": "133465d06ef28f33e249be64888fca0d54f4fb38b376f9511f177659955dc8aa",
+        "client/src/routes/index.tsx": "ff26f81321b75b00638abf26b0b841615a21ec65718378193343f0fc4ba18924",
+        "e2e/playwright.config.lighthouse.ts": "53d19fd45c176e87cb3bd4433a5f9742d1f5d85a82677319484b98df021bac7c",
+        "librechat.yaml": "b2c87cc8d507c5031e8856c50a02c203b73a1dbf6b1eb8c8a8b674e1c53dfe77",
+        "packages/api/src/app/service.spec.ts": "6c24f581324e10667622a28ab5844162ecf17528eb6643dae8e2470e1edef3e3",
+        "packages/api/src/app/service.ts": "d46812703cdd694c4a7a0014aee3030638524185b157cb695d4405355f937252",
+        "packages/api/src/index.ts": "20e93ffe4a8ed4efea71302d5b9dfbc8721f77b48653c042326ff354ceb85aff",
+        "packages/data-provider/src/config.ts": "ef390a220ea143e9000c22e4c0d5ca82d1ac8380fc295dbe05cb15424e87e9ea",
+        "packages/data-provider/src/index.ts": "3a249f6b29d5c3655866614757b4244a53a36d8ec21fad5f8ee81e90a8008e52",
+        "packages/data-provider/src/keys.ts": "23bb62ff773128edb2fbd617439ada5021627633d838319758dbfc774d12fdc2",
+        "client/public/assets/life.svg": "c3960ef2c6f74b6d27918993234911c767c23468691bb696905f08a72e61c603",
+        "packages/api/src/memory/life.spec.ts": "33dc90a171b255bc0603f73b9105d35a08bb4b079513230e9411d2ab2228432b",
+        "packages/api/src/memory/life.ts": "38aec3e68677f099358be57265d843f613a0eb0cd7c3aee1f862b3c6e1e46a3a",
+        "packages/data-provider/src/life.ts": "e76828720bf89758f214700635ee59f78e774925090678f1ef27f3814bc871d4"
+      }
+    },
+    "memos": {
+      "head": "651657e7211901393e2501ae7e3e202c8e56f73a",
+      "status": ""
+    },
+    "vikunja": {
+      "head": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+      "status": ""
+    },
+    "ntfy": {
+      "head": "2d55160690708670895ae10d9895bde90241e38d",
+      "status": ""
+    }
+  },
+  "health": {
+    "3001": 200,
+    "8010": 200,
+    "3080": 200,
+    "3456": 200,
+    "8087": 200
+  },
+  "database": {
+    "tables": [
+      "users",
+      "events",
+      "ingest_attempts",
+      "task_runs",
+      "reminders",
+      "memory_permissions",
+      "memory_items",
+      "memory_evidence",
+      "memory_revisions",
+      "memory_jobs",
+      "reminder_notifications",
+      "reminder_chat_actions"
+    ],
+    "accounts": [
+      {
+        "alias": "account_0",
+        "reminder_configured": false,
+        "notification_consent": true
+      },
+      {
+        "alias": "account_1",
+        "reminder_configured": true,
+        "notification_consent": true
+      },
+      {
+        "alias": "account_2",
+        "reminder_configured": true,
+        "notification_consent": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "path": "docs/product/v0.3/assets/01_morning_run.png",
+    "bytes": 939217,
+    "sha256": "4ac4e03affe946527c7372526ca5a3a9b2fe99751b4d086add72bfd095713569"
+  },
+  {
+    "path": "docs/product/v0.3/assets/02_afternoon_breakfast.png",
+    "bytes": 776305,
+    "sha256": "1082127787b6823c8f95ed72c052232669fedefa9e07a71499d32dc2bb7ceb9a"
+  },
+  {
+    "path": "docs/product/v0.3/assets/03_evening_sunset.png",
+    "bytes": 851267,
+    "sha256": "627c5ed81187f2d37bab3d5fcf0f5268a04d4df1a4d1da49f66ddff82848a32a"
+  },
+  {
+    "path": "docs/product/v0.3/assets/04_memory_gallery_preview.png",
+    "bytes": 758515,
+    "sha256": "36a0b90efa7c9cb81fad8a6ae589bd4a36f2188a38c2e3e38d27f346b5f782cb"
+  },
+  {
+    "path": "docs/product/v0.3/assets/05_memory_detail_preview.png",
+    "bytes": 640117,
+    "sha256": "1d235e232d2385f7ce7733cbcc3368595834009836f3746994d00eaef48ed3c6"
+  },
+  {
+    "path": "docs/product/v0.3/assets/06_rarity_preview.png",
+    "bytes": 1112720,
+    "sha256": "1636687712bde308370e1bbef41c1dbed44bbd312830df80849df171e502fd33"
+  },
+  {
+    "path": "docs/product/v0.3/assets/07_architecture.png",
+    "bytes": 143749,
+    "sha256": "c639b21dfc13d65f2e9ab33db63a0ff46cc4ea3002de31d1cd177c09e848dc92"
+  },
+  {
+    "path": "docs/product/v0.3/开发文档.md",
+    "bytes": 39560,
+    "sha256": "b4022f679d2592a2eda6039b95b2a574048918d142f37c9d09642ac0d30df11c"
+  }
+]

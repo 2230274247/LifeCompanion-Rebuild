@@ -1,0 +1,10 @@
+{
+  "program": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core/.venv/Scripts/python.exe",
+  "ended_at": "2026-11-02T23:23:15.8943016+08:00",
+  "arguments": [
+    "tests/live-spa-reminders-v021.py"
+  ],
+  "started_at": "2026-11-02T23:21:39.2365316+08:00",
+  "exit_code": 0,
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild"
+}

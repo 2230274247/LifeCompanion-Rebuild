@@ -1,0 +1,7 @@
+
+> LibreChat@v0.8.8 sort-imports
+> node scripts/sort-imports.mts --files packages/api/src/memory/life.ts packages/api/src/memory/life.spec.ts packages/data-provider/src/life.ts client/src/components/Life/Knowledge.tsx client/src/components/Life/ChatSources.tsx client/src/components/Life/ReminderCards.tsx client/src/components/Life/__tests__/ReminderCards.spec.tsx client/src/components/Life/__tests__/V023.spec.tsx
+
+  ✓ client\src\components\Life\__tests__\V023.spec.tsx
+
+Sorted 1/8 files.

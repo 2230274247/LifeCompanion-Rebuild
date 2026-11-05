@@ -1,0 +1,98 @@
+PASS src/components/Life/__tests__/ReminderCards.spec.tsx (14.783 s)
+  ● Console
+
+    console.error
+      Error: network
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\ReminderCards.spec.tsx:143:68)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at runNextTicks (node:internal/process/task_queues:65:5)
+          at listOnTimeout (node:internal/timers:549:9)
+          at processTimers (node:internal/timers:523:7)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/Knowledge.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream failed
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Knowledge.spec.tsx:57:55)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/Reminders.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Reminders.spec.tsx:99:58)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/Memories.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Memories.spec.tsx:94:28)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+
+Test Suites: 4 passed, 4 total
+Tests:       14 passed, 14 total
+Snapshots:   0 total
+Time:        23.039 s
+Ran all test suites matching src/components/Life/__tests__.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after all tests finished?

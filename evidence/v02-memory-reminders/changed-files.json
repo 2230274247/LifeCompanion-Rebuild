@@ -1,0 +1,1619 @@
+{
+  "captured_at": "2026-11-03T00:12:27.889951+08:00",
+  "baseline_started_at": "2026-11-02T20:52:33.528367+08:00",
+  "committed": false,
+  "pushed": false,
+  "public_deployment": false,
+  "repos": {
+    ".": {
+      "branch": "main",
+      "head": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1",
+      "status": " M .gitignore\n M README.md\n M apps/product-portal/server.mjs\n M docs/ARCHITECTURE.md\n M docs/BLOCKERS.md\n M docs/RUNBOOK.md\n M docs/UPSTREAM_DIFF.md\n M docs/UPSTREAM_MANIFEST.md\n M services/life-core/app/auth.py\n M services/life-core/app/config.py\n M services/life-core/app/main.py\n M services/life-core/app/memos.py\n M services/life-core/app/store.py\n M services/life-core/tests/test_api.py\n M tests/RESULTS.md\n?? AGENTS.md\n?? docs/DEVELOPMENT_LOG_POLICY.md\n?? docs/V02_IMPLEMENTATION.md\n?? docs/architecture/\n?? docs/design/\n?? docs/development-log/\n?? docs/product/\n?? evidence/launcher-verification.json\n?? evidence/v02-before-original.png\n?? evidence/v02-chat-1440.png\n?? evidence/v02-chat-390.png\n?? evidence/v02-detail-1440.png\n?? evidence/v02-empty-390.png\n?? evidence/v02-error-390.png\n?? evidence/v02-live-verification.json\n?? evidence/v02-memories-1440.png\n?? evidence/v02-memories-1920.png\n?? evidence/v02-memories-390.png\n?? evidence/v02-memories-430.png\n?? evidence/v02-memories-768.png\n?? evidence/v02-memory-reminders/\n?? evidence/v02-mobile-drawer-390.png\n?? evidence/v02-tests/\n?? evidence/v02-ui-final.json\n?? evidence/v02-viewports.json\n?? infra/compose.reminders.yaml\n?? infra/compose.spa.yaml\n?? infra/reminders.env.example\n?? patches/\n?? scripts/\n?? services/life-core/app/memory.py\n?? services/life-core/app/reminder_chat.py\n?? services/life-core/app/reminders.py\n?? services/life-core/tests/test_memory_pipeline.py\n?? services/life-core/tests/test_memos.py\n?? services/life-core/tests/test_reminders.py\n?? tests/bootstrap-isolated-accounts.py\n?? tests/gateway.test.mjs\n?? tests/live-life-reminders-v021.py\n?? tests/live-memory-v021.py\n?? tests/live-reminder-withdrawal-v021.py\n?? tests/live-spa-reminders-v021.py\n?? tests/live-v02.py\n?? tests/live-vikunja-ntfy-v021.py\n",
+      "files_changed_from_session_baseline": 281
+    },
+    "products/librechat-custom": {
+      "branch": "lifecompanion-baseline",
+      "head": "7c2365cb376b48acb1591e48a6ef91e5c47c78e6",
+      "status": " M api/app/clients/BaseClient.js\n M client/index.html\n M client/src/App.jsx\n M client/src/components/Auth/AuthLayout.tsx\n M client/src/components/Chat/Input/ChatForm.tsx\n M client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx\n M client/src/components/Chat/Messages/Content/MessageContent.tsx\n M client/src/components/Chat/Messages/Content/Part.tsx\n M client/src/components/Nav/Settings/MemoryToggle.tsx\n M client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx\n M client/src/components/UnifiedSidebar/ConversationsSection.tsx\n M client/src/components/UnifiedSidebar/ExpandedPanel.tsx\n M client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx\n M client/src/components/UnifiedSidebar/mobile/Header.tsx\n M client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx\n M client/src/hooks/Nav/useUnifiedSidebarLinks.ts\n M client/src/locales/en/translation.json\n M client/src/routes/Root.tsx\n M client/src/routes/index.tsx\n M e2e/playwright.config.lighthouse.ts\n M librechat.yaml\n M packages/api/src/app/service.spec.ts\n M packages/api/src/app/service.ts\n M packages/api/src/index.ts\n M packages/data-provider/src/config.ts\n M packages/data-provider/src/index.ts\n M packages/data-provider/src/keys.ts\n?? client/public/assets/life.svg\n?? client/src/components/Life/\n?? packages/api/src/memory/life.spec.ts\n?? packages/api/src/memory/life.ts\n?? packages/data-provider/src/life.ts\n",
+      "files_changed_from_session_baseline": 35
+    },
+    "products/memos-custom": {
+      "head": "651657e7211901393e2501ae7e3e202c8e56f73a",
+      "status": "",
+      "shallow": "false"
+    },
+    "products/vikunja-upstream": {
+      "head": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+      "status": "",
+      "shallow": "false"
+    },
+    "products/ntfy-upstream": {
+      "head": "2d55160690708670895ae10d9895bde90241e38d",
+      "status": "",
+      "shallow": "false"
+    }
+  },
+  "files": [
+    {
+      "repository": ".",
+      "path": ".gitignore",
+      "status": "修改"
+    },
+    {
+      "repository": ".",
+      "path": "README.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "apps/product-portal/server.mjs",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/ARCHITECTURE.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/BLOCKERS.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/RUNBOOK.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/UPSTREAM_DIFF.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/UPSTREAM_MANIFEST.md",
+      "status": "修改"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/config.py",
+      "status": "修改"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/main.py",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/memos.py",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/store.py",
+      "status": "修改"
+    },
+    {
+      "repository": ".",
+      "path": "tests/RESULTS.md",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/architecture/README.md",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/architecture/V02_1_MEMORY_REMINDERS.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/architecture/V02_MEMORY_REMINDERS.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/design/README.md",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_18-12_统一前端与回忆集成_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_20-09_桌面一键启动脚本_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_React提醒融合与回归_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_Vikunja与ntfy原版验证_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_基线只读审计_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_提醒API与通知链路_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_统一UI与控件修复_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-02_23-58_记忆与回忆修复_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/2026-11-03_00-06_最终交付复核_开发验收.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "docs/development-log/README.md",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "docs/product/README.md",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/README.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/acceptance-matrix.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/audit.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-backend.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-backend.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-frontend.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-frontend.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-gateway.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline-gateway.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/baseline.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/before-chat-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/before-chat-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/before-chat-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/before-chat-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/before-chat-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/browser-viewport-checks.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/changed-files.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/changed-files.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-dark-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-recall-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-recall-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-recall-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-recall-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-recall-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/chat-reminder-created-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/compose-ui.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/compose-ui.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/consent-cancel-before.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/consent-cancel-before.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/contrast.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/controls.md",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/data-preservation.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/data-provider-build-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/data-provider-build-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/data-provider-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/data-provider-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-api-tests.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-api-tests.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-consent-rerun.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-consent-rerun.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-consent.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-consent.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-backend-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-regression.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-regression.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-types.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-client-types.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-final-full-lint.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-final-full-lint.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-live-health.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-memory-detail-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-memory-detail-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-memory-detail-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-memory-detail-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-memory-detail-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reading-lint.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reading-lint.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reminders-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reminders-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reminders-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reminders-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-reminders-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-summary.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-whitespace-librechat.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-whitespace-librechat.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-whitespace-root.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-whitespace-root.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-withdrawal-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/delivery-withdrawal-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-api-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-api-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-api-types.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-api-types.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-backend-null-fix.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-backend-null-fix.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-backend.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-backend.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-regression.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-regression.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-types.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-client-types.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-compose-reminders.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-compose-reminders.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-compose-spa.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-compose-spa.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-data-provider-types.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-data-provider-types.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-gateway.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-gateway.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-lighthouse-chrome.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-lighthouse-chrome.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-reminders-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-reminders-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-scoped-lint-fixed.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-scoped-lint-fixed.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-scoped-lint.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-scoped-lint.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-spa-two-user-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-spa-two-user-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-regression.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-regression.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-types.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/final-ui-lintfix-types.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/format-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/gateway-after.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/gateway-after.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/imports-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-app-tests.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-app-tests.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-build-config.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-build-config.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-typecheck-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-typecheck-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-typecheck-v021.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lib-api-typecheck-v021.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/life-core-live-api.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-final-attempt.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-final-attempt.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-isolated-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-isolated-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-launch.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-launch.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-quoted.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-quoted.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-windows-path.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse-windows-path.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/lighthouse.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/live-memory.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memories-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memories-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memories-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memories-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memories-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-after-initial.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-after-initial.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-before.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-before.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-detail-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-final-unit.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-final-unit.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-build-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-build-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-tests.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-tests.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-typecheck.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-lib-api-typecheck.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-regression.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-regression.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-settings-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-settings-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-settings-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-settings-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/memory-settings-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ntfy-clone.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ntfy-pull-retry.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ntfy-pull.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/patch-delivery.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminder-completed-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminder-notification-received-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminder-withdrawal-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-1920.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-390.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-430.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-768.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-typecheck.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-typecheck.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-v2-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-api-v2-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-complete-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-complete-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-unit.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-backend-unit.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-dark-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-delivery.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-delivery.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-data-provider-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-lib-api-tests.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-lib-api-tests.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-recovery-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-recovery-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-recovery-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-recovery-live.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-tests.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-tests.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-typecheck.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/reminders-ui-typecheck.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/scoped-format.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/scoped-imports.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/secret-scan.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/settings-dialog-light-1440.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/spa-two-user-live.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/stage-log-files.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-build-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-build-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-build.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-build.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-regression-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-regression-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-regression.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-regression.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-typecheck-final.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-typecheck-final.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-typecheck.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/ui-typecheck.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/upstream-live-api.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/upstream-lock.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/upstream-ntfy-home.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/upstream-release-check.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/upstream-vikunja-login.jpg",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/vikunja-clone.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/vikunja-openapi.json",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "evidence/v02-memory-reminders/vikunja-pull.txt",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "infra/compose.reminders.yaml",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "infra/compose.spa.yaml",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "infra/reminders.env.example",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "patches/README.md",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "patches/librechat-v0.8.8-lifecompanion-v021-memory-reminders.patch",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "scripts/start-lifecompanion.ps1",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "scripts/verify-stage.ps1",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/memory.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/reminder_chat.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/app/reminders.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/tests/test_memory_pipeline.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "services/life-core/tests/test_reminders.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/bootstrap-isolated-accounts.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/gateway.test.mjs",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": ".",
+      "path": "tests/live-life-reminders-v021.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/live-memory-v021.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/live-reminder-withdrawal-v021.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/live-spa-reminders-v021.py",
+      "status": "新增"
+    },
+    {
+      "repository": ".",
+      "path": "tests/live-vikunja-ntfy-v021.py",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/api/app/clients/BaseClient.js",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Chat/Input/ChatForm.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Chat/Messages/Content/MessageContent.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Chat/Messages/Content/Part.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Nav/Settings/MemoryToggle.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Nav/SettingsTabs/Chat/ShowThinking.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/UnifiedSidebar/ConversationsSection.tsx",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/UnifiedSidebar/ExpandedPanel.tsx",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/UnifiedSidebar/mobile/Header.tsx",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/hooks/Nav/useUnifiedSidebarLinks.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/locales/en/translation.json",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/routes/index.tsx",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/e2e/playwright.config.lighthouse.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/librechat.yaml",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/api/src/app/service.spec.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/api/src/app/service.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/api/src/index.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/data-provider/src/config.ts",
+      "status": "修改"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/data-provider/src/keys.ts",
+      "status": "修改（保留基线未提交内容）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/Header.tsx",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/Knowledge.tsx",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/Memories.tsx",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/Navigation.tsx",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/Reminders.tsx",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/__tests__/Knowledge.spec.tsx",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/__tests__/Memories.spec.tsx",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/__tests__/Reminders.spec.tsx",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/theme.ts",
+      "status": "修改（原未跟踪）"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/client/src/components/Life/useLifeMode.ts",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/api/src/memory/life.spec.ts",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/api/src/memory/life.ts",
+      "status": "新增"
+    },
+    {
+      "repository": "products/librechat-custom",
+      "path": "products/librechat-custom/packages/data-provider/src/life.ts",
+      "status": "修改（原未跟踪）"
+    }
+  ],
+  "note": "Session delta excludes unchanged inherited untracked/tracked content; complete LibreChat patch separately contains 41 cumulative files. Self-generated inventory will not recursively list its own final hash."
+}

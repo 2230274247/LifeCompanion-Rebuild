@@ -1,0 +1,1 @@
+{"status": "PASS", "real_provider": "Zhipu glm-4.7", "real_task_id": 29, "checks": {"a_only_time_missing_and_negative_constraint": "PASS", "b_complete_request_created_without_second_confirmation": "PASS", "event_and_notification_times_distinct": "PASS", "cross_account_detail_denied": "PASS"}, "browser_a_selection": "PENDING", "device_delivery": "UNKNOWN"}

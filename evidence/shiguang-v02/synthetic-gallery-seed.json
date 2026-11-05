@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "isolation": "infra/runtime/v023/life-core.sqlite3 + synthetic Memos user",
+  "synthetic_account": "v023-a-73554032",
+  "production_database_touched": false,
+  "created": [
+    {
+      "event_id": "evt_b7bae3a25acc4da5f165b1c4",
+      "memory_id": "mem_6dfa04f7e578a231e334969f",
+      "moment_id": "mom_seed_2bdffa183a9dfd339e12",
+      "title": "公园里的银杏",
+      "occurred_at": "2026-11-05T18:00:00+08:00",
+      "thumbnail_base64_bytes": 15328,
+      "media_kind": "ai_generated_illustration"
+    },
+    {
+      "event_id": "evt_b5b02aee48f10426695b69f8",
+      "memory_id": "mem_224c288f1d870338504ef794",
+      "moment_id": "mom_seed_7679f14f07c52668d3c7",
+      "title": "阳台上的薄荷",
+      "occurred_at": "2026-11-05T11:00:00+08:00",
+      "thumbnail_base64_bytes": 12884,
+      "media_kind": "ai_generated_illustration"
+    },
+    {
+      "event_id": "evt_a2499e289e9fb203ff7766da",
+      "memory_id": "mem_1aedd32299f936cbd7b284b4",
+      "moment_id": "mom_seed_972c30a32ab2efdc3c87",
+      "title": "地铁口的重逢",
+      "occurred_at": "2026-11-04T18:00:00+08:00",
+      "thumbnail_base64_bytes": 13324,
+      "media_kind": "ai_generated_illustration"
+    },
+    {
+      "event_id": "evt_5a8bbee5c673ac6fdd457f33",
+      "memory_id": "mem_45decbd45886e818bde67dcf",
+      "moment_id": "mom_seed_a399f8bb656de8ed73cb",
+      "title": "雨后的面包店",
+      "occurred_at": "2026-11-04T12:00:00+08:00",
+      "thumbnail_base64_bytes": 12596,
+      "media_kind": "ai_generated_illustration"
+    },
+    {
+      "event_id": "evt_7b12aad41264bb2847e0256f",
+      "memory_id": "mem_70b73df042a07253f50e7f99",
+      "moment_id": "mom_seed_605cb078785417326ad7",
+      "title": "周末第一杯咖啡",
+      "occurred_at": "2026-11-02T18:00:00+08:00",
+      "thumbnail_base64_bytes": 10524,
+      "media_kind": "ai_generated_illustration"
+    },
+    {
+      "event_id": "evt_1dbb6f9bd0156b9adcd183d2",
+      "memory_id": "mem_d477dc966f11569024512006",
+      "moment_id": "mom_seed_67fee5f1603a37a1cf2d",
+      "title": "交掉报告以后",
+      "occurred_at": "2026-11-01T18:00:00+08:00",
+      "thumbnail_base64_bytes": 11440,
+      "media_kind": "ai_generated_illustration"
+    }
+  ]
+}

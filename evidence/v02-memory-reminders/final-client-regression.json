@@ -1,0 +1,26 @@
+{
+  "exit_code": 0,
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/products/librechat-custom/client",
+  "started_at": "2026-11-02T23:12:19.8476429+08:00",
+  "program": "npm.cmd",
+  "ended_at": "2026-11-02T23:14:37.3148452+08:00",
+  "arguments": [
+    "run",
+    "test:ci",
+    "--",
+    "--runInBand",
+    "--coverage=false",
+    "--runTestsByPath",
+    "src/components/Life/__tests__/Reminders.spec.tsx",
+    "src/components/Life/__tests__/Memories.spec.tsx",
+    "src/components/Life/__tests__/Knowledge.spec.tsx",
+    "src/routes/__tests__/ChatRoute.spec.tsx",
+    "src/components/Chat/Input/__tests__/submit.spec.ts",
+    "src/hooks/Input/useComposerBindings.spec.tsx",
+    "src/hooks/Messages/__tests__/useMessageScrolling.spec.tsx",
+    "src/utils/shortcuts.spec.ts",
+    "src/components/UnifiedSidebar/mobile/__tests__/Header.spec.tsx",
+    "src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx",
+    "src/hooks/Nav/__tests__/useSidebarToggle.spec.tsx"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "browser_ui": "PASS",
+  "repeat_start_reused_pid": true,
+  "gateway_tests_passed": 2,
+  "checked_at": "2026-11-03T15:50:51.4397996+08:00",
+  "librechat_restarted_for_new_build": true,
+  "orphan_tunnel_auto_rebuilt": true,
+  "tunnel_stability": "FREE_TUNNEL_EXITED_ONCE_DURING_TEST",
+  "real_model_call": "NOT TESTED",
+  "served_asset": "assets/index.BxMuGP4S.js",
+  "browser_evidence": "evidence/public-home.png",
+  "checks": [
+    {
+      "name": "public_home",
+      "path": "/",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    },
+    {
+      "name": "main_javascript",
+      "path": "/assets/index.BxMuGP4S.js",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    },
+    {
+      "name": "public_health",
+      "path": "/health",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    },
+    {
+      "name": "anonymous_chat_denied",
+      "path": "/api/user",
+      "expected": 401,
+      "actual": 401,
+      "attempts": "401",
+      "passed": true
+    },
+    {
+      "name": "anonymous_life_denied",
+      "path": "/life-api/api/v1/me",
+      "expected": 401,
+      "actual": 401,
+      "attempts": "401",
+      "passed": true
+    },
+    {
+      "name": "internal_hook_hidden",
+      "path": "/life-api/internal/v1/events/ingest",
+      "expected": 404,
+      "actual": 404,
+      "attempts": "404",
+      "passed": true
+    },
+    {
+      "name": "existing_synthetic_account_login",
+      "path": "/api/auth/login",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    },
+    {
+      "name": "authenticated_life_profile",
+      "path": "/life-api/api/v1/me",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    },
+    {
+      "name": "authenticated_memories",
+      "path": "/life-api/api/v1/memories",
+      "expected": 200,
+      "actual": 200,
+      "attempts": "200",
+      "passed": true
+    }
+  ],
+  "public_url": "https://39c3d546.r16.cpolar.top",
+  "stop_removed_only_tunnel": true
+}

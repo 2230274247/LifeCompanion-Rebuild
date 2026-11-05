@@ -1,0 +1,43 @@
+{
+  "before": {
+    "cardVisible": true,
+    "text": "管理员测试 使用当前用户消息直接测试生图链路。 一键纳入回忆 一键生图 查看回忆",
+    "buttons": [
+      "一键纳入回忆",
+      "一键生图"
+    ],
+    "bodyScrollWidth": 1440,
+    "clientWidth": 1440
+  },
+  "afterMemory": "管理员测试 使用当前用户消息直接测试生图链路。 一键纳入回忆 一键生图 查看回忆 已纳入回忆：mem_6f7ae7524df2e3474407f90b",
+  "afterImage": "管理员测试 使用当前用户消息直接测试生图链路。 一键纳入回忆 一键生图 查看回忆 测试生图成功：mom_78da2117112ecfec42675b9f",
+  "responses": [
+    {
+      "status": 200,
+      "method": "GET",
+      "url": "http://127.0.0.1:3001/life-api/api/v1/test/direct-moment"
+    },
+    {
+      "status": 200,
+      "method": "POST",
+      "url": "http://127.0.0.1:3001/life-api/api/v1/test/direct-moment"
+    },
+    {
+      "status": 200,
+      "method": "GET",
+      "url": "http://127.0.0.1:3001/life-api/api/v1/test/direct-moment"
+    },
+    {
+      "status": 200,
+      "method": "POST",
+      "url": "http://127.0.0.1:3001/life-api/api/v1/test/direct-moment"
+    },
+    {
+      "status": 200,
+      "method": "GET",
+      "url": "http://127.0.0.1:3001/life-api/api/v1/test/direct-moment"
+    }
+  ],
+  "errors": [],
+  "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-ui-fixed-1440.png"
+}

@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-11-04T14:01:00+08:00",
+  "classification": "BLOCKED",
+  "real_image_generation_requests": 0,
+  "files": [
+    {
+      "name": "errors.log",
+      "bytes": 133,
+      "sha256": "bf3695c85671059cfb0dafeb43c4551b4e284384058ee73227805ac4d06a6eac"
+    },
+    {
+      "name": "request.redacted.json",
+      "bytes": 998,
+      "sha256": "ead5fb19baaf36357e5335c5b3b06f5cfa5535b23c1fcaf6f534e6baa36e79d3"
+    },
+    {
+      "name": "response.redacted.json",
+      "bytes": 32,
+      "sha256": "39ec9a505478f8e88c3c702d3c56a7b1bb20fd5e9d616241799ae878afd2c3af"
+    },
+    {
+      "name": "verification.json",
+      "bytes": 1402,
+      "sha256": "51f6379abb488016b30d7e641facfef296c05b2d17c5662cd7f39d67288840d1"
+    }
+  ]
+}

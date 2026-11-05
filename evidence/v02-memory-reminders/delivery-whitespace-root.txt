@@ -1,0 +1,12 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'apps/product-portal/server.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/ARCHITECTURE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/BLOCKERS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/UPSTREAM_MANIFEST.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/life-core/app/auth.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/life-core/app/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/life-core/app/memos.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/life-core/app/store.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/life-core/tests/test_api.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/RESULTS.md', LF will be replaced by CRLF the next time Git touches it

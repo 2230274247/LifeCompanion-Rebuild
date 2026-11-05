@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": {
+    "account_a_cannot_read_c_draft_reminder_or_inbox": "PASS",
+    "account_b_cannot_read_c_draft_reminder_or_inbox": "PASS",
+    "account_d_cannot_read_c_draft_reminder_or_inbox": "PASS",
+    "revocation_rejects_create_and_suppresses_inbox": "PASS",
+    "ordinary_chat_after_revocation": "PASS",
+    "revoked_user_can_cancel_existing_synthetic_reminder": "PASS"
+  }
+}

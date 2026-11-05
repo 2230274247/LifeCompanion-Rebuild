@@ -1,0 +1,12 @@
+{
+  "scope": "anonymous login redirect only, not V0.3 memory UI acceptance",
+  "mobile": {
+    "height": 844,
+    "path": "/login",
+    "scrollWidth": 382,
+    "title": "拾光 · Rebuild 隔离验收",
+    "width": 390
+  },
+  "desktopScreenshot": "anonymous-1440.jpg",
+  "mobileScreenshot": "anonymous-390.jpg"
+}

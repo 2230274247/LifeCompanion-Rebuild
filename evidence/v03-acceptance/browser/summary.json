@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-05T13:03:44.625Z",
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "results": [
+    {
+      "step": "A 的回忆详情右侧出现 Parlor 小窗",
+      "pass": true,
+      "detail": "parlor=1"
+    },
+    {
+      "step": "B 的共同回忆页渲染 Parlor 讨论窗",
+      "pass": true,
+      "detail": "parlor=1"
+    },
+    {
+      "step": "越权账户 C 被服务端阻止且无 Parlor 内容",
+      "pass": true,
+      "detail": "parlor=0"
+    },
+    {
+      "step": "手机端 Parlor 以底部抽屉打开",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

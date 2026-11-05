@@ -1,0 +1,15 @@
+{
+  "status": "RECEIVED_AND_DOWNLOADED",
+  "http_status": 200,
+  "provider_trace_id": "ti_1u95f5u974melfugf5",
+  "images_count": 1,
+  "image_url_host": "s3.siliconflow.cn",
+  "image_url_path": "[REDACTED]",
+  "declared_content_type": "application/octet-stream",
+  "mime_policy": "TRUSTED_GENERIC_BINARY_FALLBACK",
+  "generic_binary_fallback_used": true,
+  "timings": {
+    "inference": 3.604
+  },
+  "seed": 20261104
+}

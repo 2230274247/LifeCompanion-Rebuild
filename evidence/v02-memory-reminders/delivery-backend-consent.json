@@ -1,0 +1,12 @@
+{
+  "exit_code": 1,
+  "program": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core/.venv/Scripts/python.exe",
+  "started_at": "2026-11-02T23:52:19.4646869+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core",
+  "ended_at": "2026-11-02T23:52:36.7153901+08:00",
+  "arguments": [
+    "-m",
+    "pytest",
+    "-q"
+  ]
+}

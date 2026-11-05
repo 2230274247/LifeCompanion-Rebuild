@@ -1,0 +1,17 @@
+{
+  "ended_at": "2026-11-02T23:29:17.0394073+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/products/librechat-custom/client",
+  "started_at": "2026-11-02T23:28:29.9981194+08:00",
+  "exit_code": 0,
+  "arguments": [
+    "run",
+    "test:ci",
+    "--",
+    "--runInBand",
+    "--coverage=false",
+    "--runTestsByPath",
+    "src/components/Life/__tests__/Reminders.spec.tsx",
+    "src/components/UnifiedSidebar/__tests__/ExpandedPanel.spec.tsx"
+  ],
+  "program": "npm.cmd"
+}

@@ -1,0 +1,176 @@
+{
+  "captured_at": "2026-11-02T15:50:35.062Z",
+  "checks": [
+    {
+      "page": "reminders",
+      "width": 390,
+      "titleVisible": true,
+      "captured": true
+    },
+    {
+      "page": "reminders",
+      "width": 430,
+      "titleVisible": false,
+      "captured": true
+    },
+    {
+      "page": "reminders",
+      "width": 768,
+      "titleVisible": true,
+      "captured": true
+    },
+    {
+      "page": "reminders",
+      "width": 1440,
+      "titleVisible": true,
+      "captured": true
+    },
+    {
+      "page": "reminders",
+      "width": 1920,
+      "titleVisible": false,
+      "captured": true
+    },
+    {
+      "page": "memories",
+      "width": 390,
+      "headingVisible": true,
+      "onePublishedEvent": true,
+      "scrollWidth": 390
+    },
+    {
+      "page": "memories",
+      "width": 430,
+      "headingVisible": true,
+      "onePublishedEvent": true,
+      "scrollWidth": 430
+    },
+    {
+      "page": "memories",
+      "width": 768,
+      "headingVisible": true,
+      "onePublishedEvent": true,
+      "scrollWidth": 768
+    },
+    {
+      "page": "memories",
+      "width": 1440,
+      "headingVisible": true,
+      "onePublishedEvent": true,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "memories",
+      "width": 1920,
+      "headingVisible": true,
+      "onePublishedEvent": true,
+      "scrollWidth": 1920
+    },
+    {
+      "page": "chat",
+      "width": 390,
+      "recallContainsLongjing": true,
+      "rawThinkingVisible": false,
+      "scrollWidth": 390
+    },
+    {
+      "page": "chat",
+      "width": 430,
+      "recallContainsLongjing": true,
+      "rawThinkingVisible": false,
+      "scrollWidth": 430
+    },
+    {
+      "page": "chat",
+      "width": 768,
+      "recallContainsLongjing": true,
+      "rawThinkingVisible": false,
+      "scrollWidth": 768
+    },
+    {
+      "page": "chat",
+      "width": 1440,
+      "recallContainsLongjing": true,
+      "rawThinkingVisible": false,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "chat",
+      "width": 1920,
+      "recallContainsLongjing": true,
+      "rawThinkingVisible": false,
+      "scrollWidth": 1920
+    },
+    {
+      "page": "delivery-reminders",
+      "width": 390,
+      "received": true,
+      "completed": true,
+      "scrollWidth": 390
+    },
+    {
+      "page": "delivery-reminders",
+      "width": 430,
+      "received": true,
+      "completed": true,
+      "scrollWidth": 430
+    },
+    {
+      "page": "delivery-reminders",
+      "width": 768,
+      "received": true,
+      "completed": true,
+      "scrollWidth": 768
+    },
+    {
+      "page": "delivery-reminders",
+      "width": 1440,
+      "received": true,
+      "completed": true,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "delivery-reminders",
+      "width": 1920,
+      "received": true,
+      "completed": true,
+      "scrollWidth": 1920
+    },
+    {
+      "page": "delivery-memory-detail",
+      "width": 390,
+      "sourceLinkVisible": true,
+      "internalAuditTextVisible": false,
+      "scrollWidth": 390
+    },
+    {
+      "page": "delivery-memory-detail",
+      "width": 430,
+      "sourceLinkVisible": true,
+      "internalAuditTextVisible": false,
+      "scrollWidth": 430
+    },
+    {
+      "page": "delivery-memory-detail",
+      "width": 768,
+      "sourceLinkVisible": true,
+      "internalAuditTextVisible": false,
+      "scrollWidth": 768
+    },
+    {
+      "page": "delivery-memory-detail",
+      "width": 1440,
+      "sourceLinkVisible": true,
+      "internalAuditTextVisible": false,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "delivery-memory-detail",
+      "width": 1920,
+      "sourceLinkVisible": true,
+      "internalAuditTextVisible": false,
+      "scrollWidth": 1920
+    }
+  ],
+  "note": "Initial reminder titleVisible fields came from diff snapshots, not assertions. delivery snapshots use full trees. Chinese IME/system zoom/device notifications NOT TESTED."
+}

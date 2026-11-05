@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-03T00:03:18.818550+08:00",
+  "scope": "read-only comparison of every baseline life-core row in users/events/ingest_attempts/task_runs/reminders",
+  "tables": {
+    "users": {
+      "baseline_rows": 1,
+      "all_baseline_rows_preserved": true
+    },
+    "events": {
+      "baseline_rows": 6,
+      "all_baseline_rows_preserved": true
+    },
+    "ingest_attempts": {
+      "baseline_rows": 8,
+      "all_baseline_rows_preserved": true
+    },
+    "task_runs": {
+      "baseline_rows": 6,
+      "all_baseline_rows_preserved": true
+    },
+    "reminders": {
+      "baseline_rows": 0,
+      "all_baseline_rows_preserved": true
+    }
+  },
+  "status": "PASS"
+}

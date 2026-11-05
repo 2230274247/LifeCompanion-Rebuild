@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-11-02T23:21:39.993413+08:00",
+  "status": "PASS",
+  "checks": {
+    "both_synthetic_accounts_authenticated_and_configured": "PASS",
+    "both_users_see_own_records_and_cannot_read_other_details": "PASS",
+    "ntfy_acl_denies_other_user_topic": "PASS",
+    "b_receives_real_notification_a_does_not_receive_it": "PASS",
+    "real_upstream_completion": "PASS"
+  },
+  "b_reminder_id": "rem_f4bb62ce53c34854a7a58c6f062f1417",
+  "synthetic_b_task_cancelled": true,
+  "ended_at": "2026-11-02T23:23:15.805341+08:00"
+}

@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-11-05T04:10:41.279Z",
+  "consoleErrors": [
+    "NORMAL Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "NORMAL Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "before": {
+    "buttonCount": 1,
+    "memoryTotal": 1
+  },
+  "publishStatus": 200,
+  "after": {
+    "addedButtonCount": 1,
+    "viewMemoryLinkCount": 0,
+    "memoryTotal": 1,
+    "sameMemoryId": "evt_127724e8edd5d97b96126888"
+  },
+  "normal": {
+    "adminAddButtonCount": 0
+  }
+}

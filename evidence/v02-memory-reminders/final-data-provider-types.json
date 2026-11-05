@@ -1,0 +1,11 @@
+{
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/products/librechat-custom/packages/data-provider",
+  "arguments": [
+    "tsc",
+    "--noEmit"
+  ],
+  "started_at": "2026-11-02T23:19:32.8718549+08:00",
+  "ended_at": "2026-11-02T23:19:52.7612897+08:00",
+  "exit_code": 0,
+  "program": "npx.cmd"
+}

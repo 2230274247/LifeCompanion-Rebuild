@@ -1,0 +1,37 @@
+[
+  {
+    "cardCount": 5,
+    "height": 844,
+    "iframes": 0,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "cardCount": 5,
+    "height": 932,
+    "iframes": 0,
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "cardCount": 5,
+    "height": 1024,
+    "iframes": 0,
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "cardCount": 5,
+    "height": 900,
+    "iframes": 0,
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "cardCount": 5,
+    "height": 1080,
+    "iframes": 0,
+    "scrollWidth": 1920,
+    "width": 1920
+  }
+]

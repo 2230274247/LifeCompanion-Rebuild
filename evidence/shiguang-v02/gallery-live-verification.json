@@ -1,0 +1,316 @@
+{
+  "status": "PASS",
+  "base_url": "http://127.0.0.1:3023",
+  "isolation": "infra/runtime/v023 + synthetic account/memos user",
+  "production_database_touched": false,
+  "generated_at": "2026-11-05T05:58:09.699Z",
+  "viewports": [
+    {
+      "name": "390",
+      "width": 390,
+      "height": 844,
+      "screenshot": "memories-390.png",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "devicePixelRatio": 1
+      },
+      "documentOverflow": 0,
+      "mainOverflow": 0,
+      "main": {
+        "width": 390,
+        "height": 5771
+      },
+      "cardCount": 10,
+      "grids": [
+        {
+          "columns": 1,
+          "width": 358
+        },
+        {
+          "columns": 1,
+          "width": 358
+        },
+        {
+          "columns": 1,
+          "width": 358
+        },
+        {
+          "columns": 1,
+          "width": 358
+        },
+        {
+          "columns": 1,
+          "width": 358
+        }
+      ],
+      "touchTargets": {
+        "settings": {
+          "width": 94,
+          "height": 44
+        },
+        "search": {
+          "width": 332,
+          "height": 44
+        },
+        "submit": {
+          "width": 332,
+          "height": 44
+        },
+        "filters": {
+          "width": 110,
+          "height": 44
+        }
+      }
+    },
+    {
+      "name": "430",
+      "width": 430,
+      "height": 932,
+      "screenshot": "memories-430.png",
+      "viewport": {
+        "width": 430,
+        "height": 932,
+        "devicePixelRatio": 1
+      },
+      "documentOverflow": 0,
+      "mainOverflow": 0,
+      "main": {
+        "width": 430,
+        "height": 6019
+      },
+      "cardCount": 10,
+      "grids": [
+        {
+          "columns": 1,
+          "width": 398
+        },
+        {
+          "columns": 1,
+          "width": 398
+        },
+        {
+          "columns": 1,
+          "width": 398
+        },
+        {
+          "columns": 1,
+          "width": 398
+        },
+        {
+          "columns": 1,
+          "width": 398
+        }
+      ],
+      "touchTargets": {
+        "settings": {
+          "width": 94,
+          "height": 44
+        },
+        "search": {
+          "width": 372,
+          "height": 44
+        },
+        "submit": {
+          "width": 372,
+          "height": 44
+        },
+        "filters": {
+          "width": 110,
+          "height": 44
+        }
+      }
+    },
+    {
+      "name": "768",
+      "width": 768,
+      "height": 1024,
+      "screenshot": "memories-768.png",
+      "viewport": {
+        "width": 768,
+        "height": 1024,
+        "devicePixelRatio": 1
+      },
+      "documentOverflow": 0,
+      "mainOverflow": 0,
+      "main": {
+        "width": 768,
+        "height": 3741
+      },
+      "cardCount": 10,
+      "grids": [
+        {
+          "columns": 2,
+          "width": 720
+        },
+        {
+          "columns": 2,
+          "width": 720
+        },
+        {
+          "columns": 2,
+          "width": 720
+        },
+        {
+          "columns": 2,
+          "width": 720
+        },
+        {
+          "columns": 2,
+          "width": 720
+        }
+      ],
+      "touchTargets": {
+        "settings": {
+          "width": 94,
+          "height": 44
+        },
+        "search": {
+          "width": 586,
+          "height": 44
+        },
+        "submit": {
+          "width": 88,
+          "height": 44
+        },
+        "filters": {
+          "width": 110,
+          "height": 44
+        }
+      }
+    },
+    {
+      "name": "1440",
+      "width": 1440,
+      "height": 1000,
+      "screenshot": "memories-1440.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "devicePixelRatio": 1
+      },
+      "documentOverflow": 0,
+      "mainOverflow": 0,
+      "main": {
+        "width": 1080,
+        "height": 3657
+      },
+      "cardCount": 10,
+      "grids": [
+        {
+          "columns": 3,
+          "width": 1016
+        },
+        {
+          "columns": 3,
+          "width": 1016
+        },
+        {
+          "columns": 3,
+          "width": 1016
+        },
+        {
+          "columns": 3,
+          "width": 1016
+        },
+        {
+          "columns": 3,
+          "width": 1016
+        }
+      ],
+      "touchTargets": {
+        "settings": {
+          "width": 94,
+          "height": 44
+        },
+        "search": {
+          "width": 882,
+          "height": 44
+        },
+        "submit": {
+          "width": 88,
+          "height": 44
+        },
+        "filters": {
+          "width": 110,
+          "height": 44
+        }
+      }
+    },
+    {
+      "name": "1920",
+      "width": 1920,
+      "height": 1080,
+      "screenshot": "memories-1920.png",
+      "viewport": {
+        "width": 1920,
+        "height": 1080,
+        "devicePixelRatio": 1
+      },
+      "documentOverflow": 0,
+      "mainOverflow": 0,
+      "main": {
+        "width": 1180,
+        "height": 3779
+      },
+      "cardCount": 10,
+      "grids": [
+        {
+          "columns": 3,
+          "width": 1116
+        },
+        {
+          "columns": 3,
+          "width": 1116
+        },
+        {
+          "columns": 3,
+          "width": 1116
+        },
+        {
+          "columns": 3,
+          "width": 1116
+        },
+        {
+          "columns": 3,
+          "width": 1116
+        }
+      ],
+      "touchTargets": {
+        "settings": {
+          "width": 94,
+          "height": 44
+        },
+        "search": {
+          "width": 982,
+          "height": 44
+        },
+        "submit": {
+          "width": 88,
+          "height": 44
+        },
+        "filters": {
+          "width": 110,
+          "height": 44
+        }
+      }
+    }
+  ],
+  "interactions": {
+    "desktop_dialog_focus_restored": true,
+    "mobile_dialog_focus_restored": true,
+    "no_image_text_visible": true,
+    "search_empty_state_visible": true,
+    "date_filter_url": "http://127.0.0.1:3023/memories?on_date=2026-11-04",
+    "sort_filter_url": "http://127.0.0.1:3023/memories?on_date=2026-11-04&order=asc"
+  },
+  "accessibility": {
+    "390": [],
+    "1440": []
+  },
+  "problems": {
+    "horizontal_overflow_viewports": [],
+    "undersized_touch_target_viewports": [],
+    "serious_accessibility_violations": []
+  }
+}

@@ -1,0 +1,8 @@
+packages/api/src/memory/life.ts 1626ms
+packages/api/src/memory/life.spec.ts 93ms
+packages/data-provider/src/life.ts 114ms
+client/src/components/Life/Knowledge.tsx 188ms
+client/src/components/Life/ChatSources.tsx 57ms
+client/src/components/Life/ReminderCards.tsx 235ms
+client/src/components/Life/__tests__/ReminderCards.spec.tsx 63ms (unchanged)
+client/src/components/Life/__tests__/V023.spec.tsx 76ms

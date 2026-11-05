@@ -1,0 +1,186 @@
+{
+  "count": 45,
+  "business_source_changes": 0,
+  "files": [
+    {
+      "path": "docs/architecture/README.md",
+      "kind": "modified_index"
+    },
+    {
+      "path": "docs/design/README.md",
+      "kind": "modified_index"
+    },
+    {
+      "path": "docs/development-log/2026-11-04_10-59_V03仓库审计与实施计划_开发验收.md",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/development-log/README.md",
+      "kind": "modified_index"
+    },
+    {
+      "path": "docs/product/README.md",
+      "kind": "modified_index"
+    },
+    {
+      "path": "docs/product/v0.3/assets/01_morning_run.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/02_afternoon_breakfast.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/03_evening_sunset.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/04_memory_gallery_preview.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/05_memory_detail_preview.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/06_rarity_preview.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/assets/07_architecture.png",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/仓库审计报告.md",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/实施计划.md",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "docs/product/v0.3/开发文档.md",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-frontend.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-gateway.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-git-status.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-librechat-git-status.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-librechat-source-hashes.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-pytest.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-pytest.xml",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-runtime.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/active-source-hashes.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/anonymous-1440.jpg",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/anonymous-390.jpg",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/browser-baseline.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/canonical-git-status.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/canonical-source-hashes.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/changed-files.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/config-presence.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/final-verification.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/gap-replays.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/gap-replays.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/gateway.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/git-before.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/health.json",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/librechat-git-before.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/pytest-initial-wrong-cwd.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/pytest-initial-wrong-cwd.xml",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/pytest.txt",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/pytest.xml",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/README.md",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/reproduce-gaps.py",
+      "kind": "new_audit_artifact"
+    },
+    {
+      "path": "evidence/v03-audit/source-manifest.json",
+      "kind": "new_audit_artifact"
+    }
+  ]
+}

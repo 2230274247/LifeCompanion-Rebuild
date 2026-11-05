@@ -1,0 +1,1209 @@
+{
+  "generatedAt": "2026-11-04T17:42:23.802Z",
+  "base": "http://127.0.0.1:3037",
+  "scope": "UI-only keyboard/focus/target/overlay checks; no Life API writes.",
+  "results": [
+    {
+      "route": "/c/new",
+      "viewport": "390x844",
+      "targetCount": 7,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "附加文件",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tools Options",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "使用麦克风",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BODY",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "targetCount": 7,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "打开侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "拾光",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "AI 伙伴",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "记忆与权限",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        },
+        {
+          "tag": "SELECT",
+          "label": "最新在前最早在前",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "清除筛选",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "查找回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "2026年11月2日 23:23今天终于加入了一直期待的项目组，我特别开心，这是值得记住今天终于加入了一直期待的项目组，",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BODY",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": [
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ]
+    },
+    {
+      "route": "/reminders",
+      "viewport": "390x844",
+      "targetCount": 12,
+      "blockedTargets": [
+        {
+          "label": "INPUT",
+          "tag": "INPUT",
+          "width": 316,
+          "height": 44,
+          "reachable": false,
+          "topTag": "SECTION"
+        }
+      ],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "打开侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "拾光",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "AI 伙伴",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "AI 伙伴",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "允许通过已连接的通知服务主动提醒我",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "SUMMARY",
+          "label": "手动添加提醒+",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "浏览器验收喝茶测试（已修改）",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "Synthetic withdrawal cancellation test",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BODY",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "390x844",
+      "targetCount": 11,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "打开侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "拾光",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "AI 伙伴",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "返回回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "SUMMARY",
+          "label": "哪些对话会加入记忆和回忆？",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "自动整理生活事件和长期事实",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "允许 AI 使用已有记忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "单独允许保存和使用健康、住址等敏感信息",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "保存",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "今天终于加入了一直期待的项目组，我特别开心，这是值得记住的一天。",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "更正",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "忘记这条",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "喜欢喝龙井茶",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "更正",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "390x844",
+      "targetCount": 9,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "打开侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "拾光",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "AI 伙伴",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "返回回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "自动整理生活事件和长期事实",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "允许使用已保存事件生成回忆图片",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "启用早中晚自动回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": [
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        },
+        {
+          "tag": "INPUT",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ]
+    },
+    {
+      "route": "/c/new",
+      "viewport": "1440x1000",
+      "targetCount": 6,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "附加文件",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tools Options",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "使用麦克风",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BODY",
+          "label": "",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": false
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "targetCount": 13,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "关闭侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "创建新对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话历史",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "账户设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "搜索消息",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "All projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Filter and sort chats",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tea Preference Inquiry conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Joining Dream Project Team conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Browser Acceptance Tea Test Reminder conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/reminders",
+      "viewport": "1440x1000",
+      "targetCount": 13,
+      "blockedTargets": [
+        {
+          "label": "INPUT",
+          "tag": "INPUT",
+          "width": 286,
+          "height": 44,
+          "reachable": false,
+          "topTag": "DIV"
+        },
+        {
+          "label": "INPUT",
+          "tag": "INPUT",
+          "width": 208,
+          "height": 44,
+          "reachable": false,
+          "topTag": "DIV"
+        },
+        {
+          "label": "创建提醒",
+          "tag": "BUTTON",
+          "width": 120,
+          "height": 44,
+          "reachable": false,
+          "topTag": "DIV"
+        }
+      ],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "关闭侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "创建新对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话历史",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "账户设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "搜索消息",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "All projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Filter and sort chats",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tea Preference Inquiry conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Joining Dream Project Team conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Browser Acceptance Tea Test Reminder conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/memory-settings",
+      "viewport": "1440x1000",
+      "targetCount": 12,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "关闭侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "创建新对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话历史",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "账户设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "搜索消息",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "All projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Filter and sort chats",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tea Preference Inquiry conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Joining Dream Project Team conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Browser Acceptance Tea Test Reminder conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    },
+    {
+      "route": "/moments/settings",
+      "viewport": "1440x1000",
+      "targetCount": 11,
+      "blockedTargets": [],
+      "undersizedTargets": [],
+      "focusTrail": [
+        {
+          "tag": "BUTTON",
+          "label": "关闭侧边栏",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "创建新对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "我的回忆",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "提醒",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "A",
+          "label": "设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话历史",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "账户设置",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "INPUT",
+          "label": "搜索消息",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "All projects",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Filter and sort chats",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Tea Preference Inquiry conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Joining Dream Project Team conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "Browser Acceptance Tea Test Reminder conversation",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        },
+        {
+          "tag": "BUTTON",
+          "label": "对话菜单选项",
+          "visible": true,
+          "inViewport": true,
+          "focusVisible": true
+        }
+      ],
+      "hiddenFocus": [],
+      "missingFocusVisible": []
+    }
+  ],
+  "keyInteractions": {
+    "navKeyboard": {
+      "destination": "/reminders",
+      "current": "提醒"
+    },
+    "reminderDetailsToggle": {
+      "opened": true,
+      "closed": true
+    },
+    "settingsDetailsToggle": {
+      "opened": true,
+      "closed": true
+    },
+    "mobileNavTooltipVisible": true,
+    "mobileDrawer": {
+      "visible": true,
+      "reminderLinkVisible": true,
+      "closed": true
+    }
+  }
+}

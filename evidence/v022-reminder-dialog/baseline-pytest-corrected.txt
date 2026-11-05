@@ -1,0 +1,80 @@
+................F......F......                                           [100%]
+================================== FAILURES ===================================
+______________ test_unconnected_reminders_cannot_claim_scheduled ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-26/test_unconnected_reminders_can0')
+
+    def test_unconnected_reminders_cannot_claim_scheduled(tmp_path):
+        _app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            result = client.post("/api/v1/reminders", headers=auth(), json={
+                "title": "¸ôÀë²âÊÔ", "scheduled_at": "2026-11-03T09:00:00+08:00"
+            })
+>           assert result.status_code == 503
+E           assert 422 == 503
+E            +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\test_memory_pipeline.py:104: AssertionError
+_________________ test_reminder_crud_uses_scoped_vikunja_api __________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002E68A7C6F90>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-26/test_reminder_crud_uses_scoped0')
+
+    def test_reminder_crud_uses_scoped_vikunja_api(monkeypatch, tmp_path):
+        app, client = make_app(tmp_path)
+        life_id, mapping = user_mapping()
+        requests = []
+        remote_task = {
+            "id": 912, "title": "ºÈÁú¾®",
+            "reminders": [{"reminder": "2026-11-03T01:00:00Z"}],
+        }
+    
+        def fake_request(method, url, **kwargs):
+            requests.append((method, url, kwargs["headers"]["Authorization"], kwargs.get("json")))
+            if method == "POST":
+                remote_task.update(kwargs["json"])
+                return httpx.Response(
+                    200,
+                    json={"id": 912, "title": kwargs["json"]["title"]},
+                    request=httpx.Request(method, url),
+                )
+            if method == "GET":
+                return httpx.Response(
+                    200,
+                    json={"items": [remote_task]} if url.endswith("/tasks") else remote_task,
+                    request=httpx.Request(method, url),
+                )
+            if method == "PUT":
+                remote_task.update(kwargs["json"])
+                return httpx.Response(
+                    200,
+                    json={"id": 912, "title": kwargs["json"]["title"]},
+                    request=httpx.Request(method, url),
+                )
+            return httpx.Response(204, request=httpx.Request(method, url))
+    
+        monkeypatch.setattr("app.reminders.httpx.request", fake_request)
+        with client:
+            bootstrap(client)
+            app.state.settings = replace(app.state.settings, vikunja_users={life_id: mapping})
+            app.state.reminders = ReminderService(app.state.store, app.state.settings)
+            headers = {"Authorization": f"Bearer {token_for('lc-user-a')}"}
+            consent = client.patch(
+                "/api/v1/me/settings", headers=headers, json={"notification_consent": True}
+            )
+            assert consent.status_code == 200
+            created = client.post(
+                "/api/v1/reminders",
+                headers=headers,
+                json={"title": "ºÈÁú¾®", "scheduled_at": "2026-11-03T09:00:00+08:00"},
+            )
+>           assert created.status_code == 200
+E           assert 422 == 200
+E            +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+
+tests\test_reminders.py:80: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_memory_pipeline.py::test_unconnected_reminders_cannot_claim_scheduled
+FAILED tests/test_reminders.py::test_reminder_crud_uses_scoped_vikunja_api - ...
+2 failed, 28 passed, 1 warning in 14.94s

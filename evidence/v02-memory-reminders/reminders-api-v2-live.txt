@@ -1,0 +1,35 @@
+{
+  "started_at": "2026-11-02T22:32:47.188133+08:00",
+  "isolation": "fresh life-core SQLite, dedicated Vikunja test user and private ntfy topic",
+  "checks": {
+    "isolated_life_core_started": "PASS",
+    "user_bootstrapped_in_isolated_database": "PASS",
+    "per_user_scoped_vikunja_token_configured": "PASS",
+    "signed_callback_registered_to_life_core": "PASS",
+    "life_core_created_real_vikunja_task": "PASS",
+    "life_core_updated_real_vikunja_task": "PASS",
+    "life_core_listed_user_scoped_task": "PASS",
+    "second_user_cannot_read_first_user_reminder": "PASS",
+    "real_signed_webhook_reached_ntfy": "PASS",
+    "life_core_recorded_fired_state": "PASS",
+    "life_core_cancelled_and_deleted_upstream_task": "PASS"
+  },
+  "status": "PASS",
+  "created": {
+    "reminder_id": "rem_c29d7ac341d848f49050080b627b876e",
+    "vikunja_task_id": 8,
+    "status": "scheduled"
+  },
+  "cleanup_webhook": true,
+  "cleanup_tasks": [
+    {
+      "task_id": 8,
+      "deleted": true
+    },
+    {
+      "task_id": 9,
+      "deleted": true
+    }
+  ],
+  "ended_at": "2026-11-02T22:34:17.290341+08:00"
+}

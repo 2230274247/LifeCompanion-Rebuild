@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-11-05T03:01:25.965Z",
+  "results": [
+    {
+      "viewport": "390x844",
+      "testCards": 1,
+      "cardVisible": true,
+      "cardRect": {
+        "x": 63,
+        "y": 205,
+        "width": 291,
+        "height": 174
+      },
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "horizontalOverflow": false,
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-viewports\\admin-direct-390x844.png"
+    },
+    {
+      "viewport": "430x932",
+      "testCards": 1,
+      "cardVisible": true,
+      "cardRect": {
+        "x": 67,
+        "y": 205,
+        "width": 327,
+        "height": 130
+      },
+      "clientWidth": 430,
+      "scrollWidth": 430,
+      "horizontalOverflow": false,
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-viewports\\admin-direct-430x932.png"
+    },
+    {
+      "viewport": "768x1024",
+      "testCards": 1,
+      "cardVisible": true,
+      "cardRect": {
+        "x": 276,
+        "y": 180,
+        "width": 464,
+        "height": 130
+      },
+      "clientWidth": 768,
+      "scrollWidth": 768,
+      "horizontalOverflow": false,
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-viewports\\admin-direct-768x1024.png"
+    },
+    {
+      "viewport": "1440x1000",
+      "testCards": 1,
+      "cardVisible": true,
+      "cardRect": {
+        "x": 706,
+        "y": 180,
+        "width": 464,
+        "height": 130
+      },
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "horizontalOverflow": false,
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-viewports\\admin-direct-1440x1000.png"
+    },
+    {
+      "viewport": "1920x1080",
+      "testCards": 1,
+      "cardVisible": true,
+      "cardRect": {
+        "x": 946,
+        "y": 180,
+        "width": 464,
+        "height": 130
+      },
+      "clientWidth": 1920,
+      "scrollWidth": 1920,
+      "horizontalOverflow": false,
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\admin-direct-viewports\\admin-direct-1920x1080.png"
+    }
+  ],
+  "errors": []
+}

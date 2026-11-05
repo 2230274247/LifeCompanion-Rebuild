@@ -1,0 +1,11 @@
+{
+  "ended_at": "2026-11-02T21:28:13.7354032+08:00",
+  "exit_code": 1,
+  "started_at": "2026-11-02T21:28:09.1955666+08:00",
+  "program": "npm.cmd",
+  "arguments": [
+    "run",
+    "lighthouse:run"
+  ],
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom"
+}

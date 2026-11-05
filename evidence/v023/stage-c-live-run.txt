@@ -1,0 +1,1 @@
+{"status": "PASS", "provider": "real Zhipu glm-4.7", "checks": {"two_new_chats_saved": "PASS", "third_chat_recalls_both_and_negation": "PASS", "durable_uuid_sources": "PASS", "owner_scoped_details": "PASS", "recall_business_links": "PASS"}}

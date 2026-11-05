@@ -1,0 +1,5 @@
+packages/api/src/memory/life.spec.ts(11,5): error TS2741: Property 'preconnect' is missing in type 'Mock<any, any, any>' but required in type 'typeof fetch'.
+packages/api/src/memory/life.spec.ts(24,5): error TS2741: Property 'preconnect' is missing in type 'Mock<any, any, any>' but required in type 'typeof fetch'.
+packages/api/src/memory/life.spec.ts(31,5): error TS2741: Property 'preconnect' is missing in type 'Mock<any, any, any>' but required in type 'typeof fetch'.
+packages/api/src/memory/life.spec.ts(43,26): error TS2352: Conversion of type 'typeof fetch' to type 'Mock<any, any, any>' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Type 'typeof fetch' is missing the following properties from type 'Mock<any, any, any>': getMockName, mock, mockClear, mockReset, and 13 more.

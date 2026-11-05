@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom",
+  "arguments": [
+    "run",
+    "build",
+    "-w",
+    "@librechat/api"
+  ],
+  "program": "npm.cmd",
+  "started_at": "2026-11-02T21:11:05.5384399+08:00",
+  "ended_at": "2026-11-02T21:11:19.1806378+08:00"
+}

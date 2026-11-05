@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-04T14:25:00+08:00",
+  "purpose": "Check whether the previous real image could be re-downloaded before spending a new request.",
+  "sources_checked": [
+    "evidence/runtime/v03-b0-kolors/",
+    "evidence/runtime/v03-b0-kolors-fixed-attempt-01/",
+    "evidence/v03-b0-kolors/"
+  ],
+  "signed_image_url_present": false,
+  "url_fields_present": false,
+  "http_attempted": false,
+  "result": "NOT_RECOVERABLE",
+  "reason": "The signed temporary image URL was intentionally redacted and never persisted. Evidence contains only provider host, trace ID and sanitized metadata.",
+  "action": "Do not construct or guess a URL; proceed only with the separately approved single new request."
+}
+

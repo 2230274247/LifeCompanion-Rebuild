@@ -1,0 +1,532 @@
+{
+  "generatedAt": "2026-11-04T19:03:20.877Z",
+  "baseURL": "http://127.0.0.1:3091",
+  "fixtureTarget": "http://127.0.0.1:8036",
+  "accountKey": "c",
+  "authBridge": "Playwright route adapter supplies a test-signed token issued by the isolated fixture core.",
+  "viewports": [
+    {
+      "name": "390x844",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "430x932",
+      "width": 430,
+      "height": 932
+    },
+    {
+      "name": "768x1024",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "1440x1000",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "name": "1920x1080",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "tilt": {
+    "available": false,
+    "note": "Legacy baseline predates the pointer tilt/spotlight interaction."
+  },
+  "lifeResponses": [
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_9de43a9702756a363111e19a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_ab39ce6320f0140be5733b21/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_308ffafadffc8e368638250c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1a753d0e5e87e45f8bfa6d0c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_aafd095b5b0f1ffd696098b3/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_85463cbd9a7b1a72eda21d9a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1e3c91360039918f34daf8ee/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_f9967d25a9191ac80b470279/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_9de43a9702756a363111e19a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_ab39ce6320f0140be5733b21/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1e3c91360039918f34daf8ee/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1a753d0e5e87e45f8bfa6d0c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_85463cbd9a7b1a72eda21d9a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_f9967d25a9191ac80b470279/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_308ffafadffc8e368638250c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_aafd095b5b0f1ffd696098b3/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_308ffafadffc8e368638250c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_ab39ce6320f0140be5733b21/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_f9967d25a9191ac80b470279/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1a753d0e5e87e45f8bfa6d0c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1e3c91360039918f34daf8ee/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_aafd095b5b0f1ffd696098b3/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_9de43a9702756a363111e19a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_85463cbd9a7b1a72eda21d9a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_ab39ce6320f0140be5733b21/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_aafd095b5b0f1ffd696098b3/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1e3c91360039918f34daf8ee/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1a753d0e5e87e45f8bfa6d0c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_9de43a9702756a363111e19a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_308ffafadffc8e368638250c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_85463cbd9a7b1a72eda21d9a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_f9967d25a9191ac80b470279/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/memories?"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_7e4aba6607e8d135af9458b6/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_ab39ce6320f0140be5733b21/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_9de43a9702756a363111e19a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_308ffafadffc8e368638250c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_004af103c994e0cf1d317e0f/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1a753d0e5e87e45f8bfa6d0c/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_1e3c91360039918f34daf8ee/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_85463cbd9a7b1a72eda21d9a/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_f9967d25a9191ac80b470279/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_aafd095b5b0f1ffd696098b3/thumbnail"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690"
+    },
+    {
+      "status": 200,
+      "url": "http://127.0.0.1:3091/life-api/api/v1/moments/mom_a095c3ef24c3b8945c1b6690/image"
+    }
+  ],
+  "results": [
+    {
+      "route": "/memories",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\memories-images-390x844.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "momentCards": 11,
+      "imageCount": 22,
+      "loadedImageCount": 22,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/moments/mom_a095c3ef24c3b8945c1b6690",
+      "viewport": "390x844",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\moment-detail-390x844.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "imageCount": 12,
+      "loadedImageCount": 12,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false,
+      "keyboardCardActivation": true,
+      "imageDialog": {
+        "opened": true,
+        "closed": true
+      }
+    },
+    {
+      "route": "/memories",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\memories-images-430x932.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "momentCards": 11,
+      "imageCount": 22,
+      "loadedImageCount": 22,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/moments/mom_a095c3ef24c3b8945c1b6690",
+      "viewport": "430x932",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\moment-detail-430x932.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "imageCount": 12,
+      "loadedImageCount": 12,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false,
+      "keyboardCardActivation": true,
+      "imageDialog": {
+        "opened": true,
+        "closed": true
+      }
+    },
+    {
+      "route": "/memories",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\memories-images-768x1024.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "momentCards": 11,
+      "imageCount": 22,
+      "loadedImageCount": 22,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/moments/mom_a095c3ef24c3b8945c1b6690",
+      "viewport": "768x1024",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\moment-detail-768x1024.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "imageCount": 12,
+      "loadedImageCount": 12,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false,
+      "keyboardCardActivation": true,
+      "imageDialog": {
+        "opened": true,
+        "closed": true
+      }
+    },
+    {
+      "route": "/memories",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\memories-images-1440x1000.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "momentCards": 11,
+      "imageCount": 22,
+      "loadedImageCount": 22,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/moments/mom_a095c3ef24c3b8945c1b6690",
+      "viewport": "1440x1000",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\moment-detail-1440x1000.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "imageCount": 12,
+      "loadedImageCount": 12,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false,
+      "keyboardCardActivation": true,
+      "imageDialog": {
+        "opened": true,
+        "closed": true
+      }
+    },
+    {
+      "route": "/memories",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\memories-images-1920x1080.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "momentCards": 11,
+      "imageCount": 22,
+      "loadedImageCount": 22,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/moments/mom_a095c3ef24c3b8945c1b6690",
+      "viewport": "1920x1080",
+      "screenshot": "H:\\AI For research institute\\LifeCompanion-Rebuild\\evidence\\v03-ui-refresh\\before-image-fixture-old\\moment-detail-1920x1080.png",
+      "headerVisible": false,
+      "totalLifeHeaders": 0,
+      "activeNavigation": [],
+      "imageCount": 12,
+      "loadedImageCount": 12,
+      "brokenImageCount": 0,
+      "horizontalOverflow": false,
+      "keyboardCardActivation": true,
+      "imageDialog": {
+        "opened": true,
+        "closed": true
+      }
+    }
+  ]
+}

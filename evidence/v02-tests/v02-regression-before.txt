@@ -1,0 +1,7 @@
+================================== FAILURES ===================================
+E           AssertionError: assert 'evt_9d6c01a005515dbe9aee2b09' != 'evt_9d6c01a005515dbe9aee2b09'
+E       httpx.ConnectError: connection refused
+============================== warnings summary ===============================
+=========================== short test summary info ===========================
+FAILED tests/test_api.py::test_same_source_id_cannot_cross_user_boundary - As...
+FAILED tests/test_api.py::test_network_publish_failure_records_failed_status_and_can_retry

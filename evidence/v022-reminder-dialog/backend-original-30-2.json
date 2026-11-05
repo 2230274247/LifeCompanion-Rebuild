@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-03T10:42:31.0271390+08:00",
+  "program": ".venv/Scripts/python.exe",
+  "arguments": [
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_api.py",
+    "tests/test_extraction.py",
+    "tests/test_memory_pipeline.py",
+    "tests/test_memos.py",
+    "tests/test_reminders.py"
+  ],
+  "ended_at": "2026-11-03T10:43:00.9864773+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\services\\life-core",
+  "exit_code": 0
+}

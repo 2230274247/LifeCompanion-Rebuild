@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-11-03T03:09:56.994750+00:00",
+  "checks": {
+    "real_memory_schema_extraction": "PASS",
+    "real_reminder_schema_extraction": "PASS",
+    "Zhipu": {
+      "status": "PASS",
+      "saved_user_message": true,
+      "assistant_reply": "接口测试成功",
+      "generated_title": "Chat Interface Test",
+      "conversation_id": "2ba67490-201e-4180-b483-62c24e7a4741",
+      "legacy_spec_endpoint_pair": false
+    },
+    "DeepSeek": {
+      "status": "PASS",
+      "saved_user_message": true,
+      "assistant_reply": "接口测试成功",
+      "generated_title": "Synthetic Chat Interface Test",
+      "conversation_id": "167efe02-7224-465e-ae0b-adbd9ad1e746",
+      "legacy_spec_endpoint_pair": true
+    }
+  },
+  "status": "PASS",
+  "runtime_configuration": {
+    "provider": "zhipu",
+    "model": "glm-4.7",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4"
+  },
+  "ended_at": "2026-11-03T03:10:26.260247+00:00"
+}

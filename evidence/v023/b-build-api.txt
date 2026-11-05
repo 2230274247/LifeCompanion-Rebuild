@@ -1,0 +1,42 @@
+
+> LibreChat@v0.8.8 build:api
+> cd packages/api && npm run build
+
+
+> @librechat/api@1.7.52 build
+> npm run clean && tsdown && npm run openapi:copy
+
+
+> @librechat/api@1.7.52 clean
+> rimraf dist
+
+ℹ tsdown v0.22.2 powered by rolldown v1.1.0
+ℹ config file: H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\packages\api\tsdown.config.mjs 
+ℹ entry: src/index.ts, src/telemetry.ts, src/credentials.ts
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ dist\index.cjs                        6.20 MB
+ℹ dist\telemetry.cjs                   21.66 kB │ gzip:  6.01 kB
+ℹ dist\credentials.cjs                 10.35 kB │ gzip:  3.16 kB
+ℹ dist\index.cjs.map                   12.22 MB
+ℹ dist\safeException-BcqLlr48.cjs.map  87.52 kB │ gzip: 20.67 kB
+ℹ dist\safeException-BcqLlr48.cjs      51.24 kB │ gzip: 12.05 kB
+ℹ dist\telemetry.cjs.map               43.10 kB │ gzip: 11.07 kB
+ℹ dist\credentials.cjs.map             19.80 kB │ gzip:  5.60 kB
+ℹ dist\chunk-D6vf50IK.cjs               1.09 kB │ gzip:  0.53 kB
+ℹ 9 files, total: 18.65 MB
+ℹ dist\index.d.cts             1.70 MB
+ℹ dist\telemetry.d.cts         2.13 kB │ gzip:  0.76 kB
+ℹ dist\credentials.d.cts       1.52 kB │ gzip:  0.54 kB
+ℹ dist\index-BjQVtJsJ.d.cts  117.08 kB │ gzip: 34.71 kB
+ℹ 4 files, total: 1.82 MB
+[PLUGIN_TIMINGS] Your build spent significant time in plugins. Here is a breakdown:
+  - rolldown-plugin-dts:resolver (43%)
+  - rolldown-plugin-dts:fake-js (35%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✔ Build complete in 6119ms
+
+> @librechat/api@1.7.52 openapi:copy
+> node -e "const fs=require('fs');fs.mkdirSync('dist',{recursive:true});fs.copyFileSync('openapi/agents.openapi.json','dist/agents.openapi.json')"
+

@@ -1,0 +1,11 @@
+{
+  "moment_id": "mom_78da2117112ecfec42675b9f",
+  "status": "generated",
+  "mime": "image/png",
+  "bytes": 2027170,
+  "source_memory_ids": [
+    "mem_6f7ae7524df2e3474407f90b"
+  ],
+  "test_mode": "DIRECT_TEST_BYPASS",
+  "created_at": "2026-11-05T10:32:43.945093+08:00"
+}

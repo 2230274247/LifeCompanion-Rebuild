@@ -1,0 +1,9 @@
+client/src/components/Chat/Input/ChatForm.tsx 2231ms
+client/src/components/UnifiedSidebar/ConversationsSection.tsx 84ms (unchanged)
+client/src/components/Chat/Menus/Endpoints/ModelSelector.tsx 89ms (unchanged)
+packages/api/src/memory/life.spec.ts 44ms
+packages/api/src/app/service.ts 205ms (unchanged)
+packages/api/src/app/service.spec.ts 495ms (unchanged)
+e2e/playwright.config.lighthouse.ts 23ms
+client/src/components/Life/Knowledge.tsx 79ms (unchanged)
+client/src/components/Life/__tests__/Knowledge.spec.tsx 75ms

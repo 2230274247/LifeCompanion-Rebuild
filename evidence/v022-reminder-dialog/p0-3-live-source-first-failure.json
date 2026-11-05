@@ -1,0 +1,6 @@
+{
+  "stage": "P0-3",
+  "checks": {},
+  "status": "FAIL",
+  "error_type": "RuntimeError"
+}

@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-11-05T03:54:20.569Z",
+  "baseURL": "http://127.0.0.1:3001",
+  "before": {
+    "viewport": "1440x1000",
+    "adminButtonCount": 1,
+    "statusLabels": [
+      "2026-11-05T03:29:13.556999+00:00 · Asia/Hong_Kong今天看到了一朵好漂亮的小花~AI 生成回忆画面（不是现场照片） · 已生成加入我的回忆",
+      "2026-11-05T03:09:48.290747+00:00 · Asia/Hong_Kong今天早上起床去健身房，减肥第一天，希望后面能坚持住！！！AI 生成回忆画面（不是现场照片） · 已生成加入我的回忆",
+      "2026-11-05T02:32:43.864347+00:00 · Asia/Hong_Kong已停止使用并删除这条记忆。AI 生成回忆画面（不是现场照片） · 已取消"
+    ],
+    "layout": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440
+    }
+  },
+  "after": {
+    "viewport": "1440x1000",
+    "buttonText": "已加入我的回忆",
+    "memoryLinks": 1,
+    "layout": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440
+    }
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "layout": {
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "bodyScrollWidth": 390
+    },
+    "buttonCount": 2
+  },
+  "normal": {
+    "adminButtonCount": 0,
+    "layout": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440
+    }
+  },
+  "consoleErrors": []
+}

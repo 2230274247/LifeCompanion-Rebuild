@@ -1,0 +1,12 @@
+PASS src/memory/life.spec.ts
+  Life Companion memory boundary
+    √ adds authorized facts only to a copy of the current model-bound user message (7 ms)
+    √ preserves chat when memory is disabled or unreachable (3 ms)
+    √ queues the persisted source with the server identity, never an assistant answer (2 ms)
+    √ executes reminders only after persistence and includes the real service result (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        2.262 s
+Ran all test suites matching src/memory/life.spec.ts.

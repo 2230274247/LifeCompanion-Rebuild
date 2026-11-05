@@ -1,0 +1,12 @@
+{
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core",
+  "arguments": [
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "ended_at": "2026-11-02T23:10:24.5991724+08:00",
+  "exit_code": 0,
+  "started_at": "2026-11-02T23:10:06.1527395+08:00",
+  "program": "H:\\AI For research institute\\LifeCompanion-Rebuild/services/life-core/.venv/Scripts/python.exe"
+}

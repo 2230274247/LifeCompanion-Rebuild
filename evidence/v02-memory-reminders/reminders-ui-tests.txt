@@ -1,0 +1,329 @@
+
+> @librechat/frontend@v0.8.8 test:ci
+> cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false --runTestsByPath src/components/Life/__tests__/Reminders.spec.tsx src/components/Life/__tests__/Memories.spec.tsx src/components/Life/__tests__/Knowledge.spec.tsx
+
+PASS src/components/Life/__tests__/Knowledge.spec.tsx (22.739 s, 205 MB heap size)
+  ● Console
+
+    console.error
+      Error: upstream failed
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Knowledge.spec.tsx:57:55)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/Memories.spec.tsx (256 MB heap size)
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Memories.spec.tsx:78:28)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+FAIL src/components/Life/__tests__/Reminders.spec.tsx (304 MB heap size)
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\__tests__\Reminders.spec.tsx:94:58)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+  ● edits and cancels through the API and shows server status
+
+    TestingLibraryElementError: Unable to find an element with the text: com_life_reminder_scheduled. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    <body>
+      <div>
+        <main
+          class="flex-1 overflow-y-auto bg-presentation px-4 py-8 text-text-primary sm:px-8"
+        >
+          <div
+            class="mx-auto max-w-3xl space-y-6"
+          >
+            <a
+              class="inline-flex min-h-11 items-center text-link underline"
+              data-discover="true"
+              href="/c/new"
+            >
+              com_life_chat
+            </a>
+            <header
+              class="flex items-start gap-4"
+            >
+              <span
+                class="grid size-12 shrink-0 place-items-center rounded-2xl bg-surface-primary-alt text-accent-primary"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-calendar-clock size-6"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 14v2.2l1.6 1"
+                  />
+                  <path
+                    d="M16 2v4"
+                  />
+                  <path
+                    d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"
+                  />
+                  <path
+                    d="M3 10h5"
+                  />
+                  <path
+                    d="M8 2v4"
+                  />
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="6"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h1
+                  class="font-serif text-3xl"
+                >
+                  com_life_reminders
+                </h1>
+                <p
+                  class="mt-2 leading-7 text-text-secondary"
+                >
+                  com_life_reminder_intro
+                </p>
+              </div>
+            </header>
+            <label
+              class="flex min-h-11 items-center justify-between gap-4"
+            >
+              <span>
+                com_life_notification_consent
+              </span>
+              <button
+                aria-checked="true"
+                aria-label="com_life_notification_consent"
+                class="peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-surface-inverted data-[state=unchecked]:bg-switch-unchecked"
+                data-state="checked"
+                role="switch"
+                type="button"
+                value="on"
+              >
+                <span
+                  class="pointer-events-none block h-5 w-5 rounded-full bg-surface-primary shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+                  data-state="checked"
+                />
+              </button>
+            </label>
+            <form
+              class="grid gap-4 rounded-2xl border border-border-light bg-surface-primary-alt p-4 sm:grid-cols-[1fr_13rem_auto] sm:items-end"
+            >
+              <label
+                class="grid gap-2"
+              >
+                <span
+                  class="text-sm font-medium"
+                >
+                  com_life_reminder_title
+                </span>
+                <input
+                  autocomplete="off"
+                  class="min-h-11 rounded-lg border border-border-medium bg-surface-primary px-3"
+                  maxlength="200"
+                  required=""
+                  value=""
+                />
+              </label>
+              <label
+                class="grid gap-2"
+              >
+                <span
+                  class="text-sm font-medium"
+                >
+                  com_life_reminder_time
+                </span>
+                <input
+                  class="min-h-11 rounded-lg border border-border-medium bg-surface-primary px-3"
+                  min="2026-11-02T22:51"
+                  required=""
+                  type="datetime-local"
+                  value="2026-11-02T23:51"
+                />
+              </label>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-surface-primary transition-colors duration-theme-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-surface-inverted text-text-inverted hover:bg-surface-inverted-hover h-10 px-4 py-2 min-h-11"
+                disabled=""
+                type="submit"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-plus mr-2 size-4"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12h14"
+                  />
+                  <path
+                    d="M12 5v14"
+                  />
+                </svg>
+                com_life_reminder_add
+              </button>
+            </form>
+            <ul
+              class="divide-y divide-border-light"
+            >
+              <li
+                class="py-4"
+              >
+                <div
+                  class="flex flex-wrap items-center justify-between gap-3"
+                >
+                  <div
+                    class="min-w-0"
+                  >
+                    <p
+                      class="break-words font-medium"
+                    >
+                      带上身份证
+                    </p>
+                    <p
+                      class="mt-1 text-sm text-text-secondary"
+                    >
+                      Nov 3, 2026, 9:00 AM
+                      <span
+                        aria-hidden="true"
+                        class="mx-2"
+                      >
+                        ·
+                      </span>
+                      com_life_reminder_scheduled
+                    </p>
+                  </div>
+                  <div
+                    class="flex gap-2"
+                  >
+                    <button
+                      aria-label="com_life_reminder_edit"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-surface-primary transition-colors duration-theme-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-text-primary border border-border-light bg-transparent hover:bg-surface-hover hover:text-text-primary h-10 px-4 py-2 min-h-11 min-w-11"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="lucide lucide-pencil size-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                        />
+                        <path
+                          d="m15 5 4 4"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium ring-offset-surface-primary transition-colors duration-theme-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-surface-hover hover:text-text-primary h-10 px-4 py-2"
+                      type="button"
+                    >
+                      com_life_reminder_cancel
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </body>
+
+      75 |   mount();
+      76 |   expect(await screen.findByText('带上身份证')).toBeInTheDocument();
+    > 77 |   expect(screen.getByText('com_life_reminder_scheduled')).toBeInTheDocument();
+         |                 ^
+      78 |   fireEvent.click(screen.getByRole('button', { name: 'com_life_reminder_edit' }));
+      79 |   fireEvent.change(screen.getAllByLabelText('com_life_reminder_title')[1], {
+      80 |     target: { value: '更新后的提醒' },
+
+      at Object.getElementError (../node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getElementError (../node_modules/@testing-library/dom/dist/query-helpers.js:76:38)
+      at allQuery (../node_modules/@testing-library/dom/dist/query-helpers.js:52:17)
+      at query (../node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.getByText (src/components/Life/__tests__/Reminders.spec.tsx:77:17)
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 8 passed, 9 total
+Snapshots:   0 total
+Time:        38.378 s
+Ran all test suites within paths "src/components/Life/__tests__/Reminders.spec.tsx", "src/components/Life/__tests__/Memories.spec.tsx", "src/components/Life/__tests__/Knowledge.spec.tsx".
+npm error Lifecycle script `test:ci` failed with error:
+npm error code 1
+npm error path H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client
+npm error workspace @librechat/frontend@v0.8.8
+npm error location H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false --runTestsByPath src/components/Life/__tests__/Reminders.spec.tsx src/components/Life/__tests__/Memories.spec.tsx src/components/Life/__tests__/Knowledge.spec.tsx

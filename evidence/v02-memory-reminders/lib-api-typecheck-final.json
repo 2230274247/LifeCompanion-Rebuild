@@ -1,0 +1,12 @@
+{
+  "program": ".\\node_modules\\.bin\\tsc.cmd",
+  "arguments": [
+    "--noEmit",
+    "-p",
+    "packages/api/tsconfig.json"
+  ],
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom",
+  "started_at": "2026-11-02T21:24:34.8150469+08:00",
+  "ended_at": "2026-11-02T21:26:47.2915686+08:00",
+  "exit_code": 2
+}

@@ -1,0 +1,12 @@
+
+H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\Life\Reminders.tsx
+  298:25  error  Do not nest ternary expressions  no-nested-ternary
+  300:29  error  Do not nest ternary expressions  no-nested-ternary
+  307:22  error  Do not nest ternary expressions  no-nested-ternary
+
+H:\AI For research institute\LifeCompanion-Rebuild\products\librechat-custom\client\src\components\UnifiedSidebar\__tests__\ExpandedPanel.spec.tsx
+  14:5  error  'mockLifeMode' is never reassigned. Use 'const' instead  prefer-const
+
+✖ 4 problems (4 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

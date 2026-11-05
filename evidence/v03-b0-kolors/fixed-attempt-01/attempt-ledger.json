@@ -1,0 +1,10 @@
+{
+  "status": "IMAGE_REQUEST_REJECTED_OR_FAILED",
+  "reserved_at": "2026-11-04T06:21:09.616242+00:00",
+  "max_requests": 1,
+  "max_images": 1,
+  "budget_cap_cny": "0.00",
+  "updated_at": "2026-11-04T06:21:14.798940+00:00",
+  "image_generation_requests": 1,
+  "error_code": "IMAGE_MIME_FORMAT_MISMATCH"
+}

@@ -1,0 +1,18 @@
+{
+  "arguments": [
+    "compose",
+    "--env-file",
+    ".env",
+    "-f",
+    "compose.baseline.yaml",
+    "-f",
+    "compose.spa.yaml",
+    "config",
+    "--quiet"
+  ],
+  "ended_at": "2026-11-02T21:22:28.4371960+08:00",
+  "exit_code": 0,
+  "program": "docker",
+  "started_at": "2026-11-02T21:22:27.8472740+08:00",
+  "directory": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra"
+}

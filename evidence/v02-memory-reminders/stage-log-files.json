@@ -1,0 +1,35 @@
+{
+  "archived_at": "2026-11-02T23:58:55.385505+08:00",
+  "logs": [
+    {
+      "path": "docs/development-log/2026-11-02_23-58_基线只读审计_开发验收.md",
+      "phase": "基线只读审计",
+      "status": "PASS"
+    },
+    {
+      "path": "docs/development-log/2026-11-02_23-58_记忆与回忆修复_开发验收.md",
+      "phase": "记忆与回忆修复",
+      "status": "PARTIAL"
+    },
+    {
+      "path": "docs/development-log/2026-11-02_23-58_统一UI与控件修复_开发验收.md",
+      "phase": "统一UI与控件修复",
+      "status": "PARTIAL"
+    },
+    {
+      "path": "docs/development-log/2026-11-02_23-58_Vikunja与ntfy原版验证_开发验收.md",
+      "phase": "Vikunja与ntfy原版验证",
+      "status": "PASS"
+    },
+    {
+      "path": "docs/development-log/2026-11-02_23-58_提醒API与通知链路_开发验收.md",
+      "phase": "提醒API与通知链路",
+      "status": "PARTIAL"
+    },
+    {
+      "path": "docs/development-log/2026-11-02_23-58_React提醒融合与回归_开发验收.md",
+      "phase": "React提醒融合与回归",
+      "status": "PARTIAL"
+    }
+  ]
+}

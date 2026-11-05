@@ -1,0 +1,6 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+Error: http://localhost:3080 is already used, make sure that nothing is running on the port/url or set reuseExistingServer:true in config.webServer.
+

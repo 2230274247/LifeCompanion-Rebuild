@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-11-03T07:57:16.513Z",
+  "public_url": "https://39c3d546.r16.cpolar.top",
+  "title": "拾光 · Life Companion",
+  "final_url": "https://39c3d546.r16.cpolar.top/c/new",
+  "composer_visible": true,
+  "body_text_sample": "AI 伙伴\n我的回忆\n提醒\n对话\nNo chats yet\n拾\n\n拾光\n\nLIFE COMPANION · 留住生活的光\n\n创建新对话\n\n今天，有什么值得记住的小事？\n今天，有什么值得记住的小事？\n\n拾光 · 留住生活的光",
+  "http_4xx": [
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/api/tags"
+    },
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/api/tags"
+    },
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/api/tags"
+    },
+    {
+      "status": 403,
+      "method": "GET",
+      "path": "/api/tags"
+    }
+  ],
+  "known_disabled_ui_feature": "bookmarks"
+}

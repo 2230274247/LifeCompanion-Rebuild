@@ -1,0 +1,82 @@
+{
+  "record_version": 1,
+  "captured_at": "2026-11-04T14:14:11+08:00",
+  "classification": "DIAGNOSED_FAILURE",
+  "provider": "SiliconFlow",
+  "model": "Kwai-Kolors/Kolors",
+  "historical_run": {
+    "trace_id": "lc-b0-kolors-26c68ee43e1d40f1a2415a89a780d841",
+    "account_access_trace_id": "ti_t5lj6kbtmq73iatkwh",
+    "started_at": "2026-11-04T06:09:19.233685+00:00",
+    "ended_at": "2026-11-04T06:09:26.867325+00:00",
+    "duration_ms": 7640.0,
+    "verification_error_code": "IMAGE_MIME_FORMAT_MISMATCH",
+    "verification_image_generation_requests": 0,
+    "ledger_image_generation_requests": 1,
+    "request_sent_field": false,
+    "provider_trace_id_at_image_stage": null
+  },
+  "confirmed_root_causes": [
+    {
+      "id": "COUNTER_WRITE_ORDER",
+      "summary": "生图请求计数只在完整校验成功后写回 verification.json。",
+      "evidence": [
+        "attempt-ledger.json 已记录 image_generation_requests=1。",
+        "请求记录已记录 request_attempted=true。",
+        "运行持续 7.64 秒且通过账户预检后进入 Provider 调用。",
+        "代码在 provider.generate 成功返回后才设置 record.image_generation_requests=1。"
+      ],
+      "impact": "真实请求已发出，但校验失败时报告为 0，且 request_sent 被错误写为 false。"
+    },
+    {
+      "id": "MISSING_STAGE_DIAGNOSTICS",
+      "summary": "MIME 校验异常没有携带失败阶段、供应商 trace、下载 Content-Type 和 Pillow 识别格式。",
+      "evidence": [
+        "旧 response.redacted.json 的 http_status、provider_trace_id、body_excerpt 均为 null。",
+        "ProviderError 旧实现只保存错误码，未保存 stage/diagnostics。"
+      ],
+      "impact": "可以确认真实响应已进入图片校验，但无法从旧文件恢复具体声明 MIME 和实际 Pillow 格式。"
+    }
+  ],
+  "failure_stage_reconstruction": {
+    "stage": "image_mime_validation",
+    "image_generation_attempts": 1,
+    "response_received": true,
+    "download_completed": true,
+    "pillow_full_decode_passed": true,
+    "reason": "代码只有在供应商 API 返回图片 URL、下载完成、Pillow verify/load 成功并识别为受支持格式后，才比较 HTTP Content-Type。",
+    "exact_declared_content_type": "UNRECOVERABLE_FROM_OLD_RECORD",
+    "exact_pillow_format": "UNRECOVERABLE_FROM_OLD_RECORD"
+  },
+  "not_root_causes": {
+    "local_mock_or_self_test_sample": false,
+    "preflight_failure": false,
+    "account_permission_failure": false,
+    "official_free_price_failure": false,
+    "corrupt_or_unsupported_image": false
+  },
+  "fix": {
+    "counters_written_before_provider_call": true,
+    "stage_aware_provider_errors": true,
+    "preserve_declared_and_detected_mime": true,
+    "preserve_magic_dimensions_bytes_trace": true,
+    "strict_mime_consistency_retained": true,
+    "fake_and_truncated_images_rejected": true,
+    "second_in_place_attempt_blocked_by_ledger": true
+  },
+  "post_fix_environment": {
+    "siliconflow_api_key_process": "NOT_SET",
+    "siliconflow_api_key_user": "NOT_SET",
+    "siliconflow_api_key_machine": "NOT_SET",
+    "real_generation_attempted_in_this_fix": false,
+    "status": "BLOCKED"
+  },
+  "source_evidence_sha256": {
+    "attempt-ledger.json": "35d3504e7bfe921cd514d45e9b27d6a0a36ebc8e3af957aa9f3803a0fed3b54b",
+    "errors.log": "9e0b526f3852520dcf30a9ce3d4c86a1a8c42da84b0aeba56948930d07adc4b5",
+    "request.redacted.json": "02c8f2b95b8933703c51a8e3e4de56e25f9dc36ea952cb950d04157e423a5c07",
+    "response.redacted.json": "321daa951c26a63b057a534793d1e656cf8fe5c8e67832b20ac94d866909dbd8",
+    "verification.json": "c9ac89656c2f24bbe430538483daa1c36b671a569d55aec17be2d7e71376eae1"
+  }
+}
+
