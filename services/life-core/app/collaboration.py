@@ -1972,6 +1972,30 @@ class CollaborationService:
             ).fetchall()
         return [dict(row) for row in rows]
 
+    def find_shared_memories_by_source(
+        self, actor: str, source_kind: str, source_id: str
+    ) -> list[dict[str, Any]]:
+        # Only shared memories where the caller is an active member are visible.
+        # The source join prevents guessing which private memories others shared.
+        if source_kind not in ("memory", "moment") or not source_id:
+            return []
+        with self.store.connect() as db:
+            rows = db.execute(
+                """SELECT s.*,m.role,
+                    (SELECT count(*) FROM collab_shared_memory_members x
+                     WHERE x.shared_memory_id=s.shared_memory_id AND x.left_at IS NULL) AS member_count,
+                    (SELECT count(*) FROM collab_shared_contributions c
+                     WHERE c.shared_memory_id=s.shared_memory_id) AS contribution_count
+                FROM collab_shared_memories s
+                JOIN collab_shared_memory_members m ON m.shared_memory_id=s.shared_memory_id
+                JOIN collab_shared_memory_sources src ON src.shared_memory_id=s.shared_memory_id
+                WHERE m.user_id=? AND m.left_at IS NULL AND s.archived_at IS NULL
+                  AND src.source_kind=? AND src.source_id=?
+                ORDER BY s.created_at DESC""",
+                (actor, source_kind, source_id),
+            ).fetchall()
+        return [dict(row) for row in rows]
+
     def _require_shared_member(self, db: Any, shared_id: str, actor: str) -> dict[str, Any]:
         row = db.execute(
             """SELECT m.*,s.title,s.created_by FROM collab_shared_memory_members m

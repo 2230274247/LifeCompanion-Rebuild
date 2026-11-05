@@ -516,6 +516,69 @@ def test_shared_memory_requires_acceptance_and_never_mutates_private_source(
         }
 
 
+def test_shared_memory_by_source_only_returns_memberships(tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        bootstrap(client, "collab-a", "users/a")
+        bootstrap(client, "collab-b", "users/b")
+        bootstrap(client, "collab-c", "users/c")
+        a = profile(client, "collab-a", "阿青")
+        b = profile(client, "collab-b", "小满")
+        profile(client, "collab-c", "陈叔")
+        befriend(client, a, b)
+        source = seed_memory(app, "collab-a")
+
+        empty = client.get(
+            "/api/v1/shared-memories/by-source",
+            headers=headers("collab-a"),
+            params={"source_kind": "memory", "source_id": source["event_id"]},
+        )
+        assert empty.status_code == 200
+        assert empty.json()["shared_memories"] == []
+
+        invite = client.post(
+            "/api/v1/shared-memories/invites",
+            headers=headers("collab-a"),
+            json={
+                "source_kind": "memory",
+                "source_id": source["event_id"],
+                "target_user_id": b["user_id"],
+            },
+        )
+        assert invite.status_code == 200, invite.text
+        accepted = client.post(
+            f"/api/v1/shared-memories/invites/{invite.json()['invite']['invite_id']}/accept",
+            headers=headers("collab-b"),
+        )
+        assert accepted.status_code == 200, accepted.text
+
+        for user_id in ("collab-a", "collab-b"):
+            found = client.get(
+                "/api/v1/shared-memories/by-source",
+                headers=headers(user_id),
+                params={"source_kind": "memory", "source_id": source["event_id"]},
+            )
+            assert found.status_code == 200
+            assert len(found.json()["shared_memories"]) == 1
+            assert found.json()["shared_memories"][0]["member_count"] == 2
+
+        outsider = client.get(
+            "/api/v1/shared-memories/by-source",
+            headers=headers("collab-c"),
+            params={"source_kind": "memory", "source_id": source["event_id"]},
+        )
+        assert outsider.status_code == 200
+        assert outsider.json()["shared_memories"] == []
+
+        bad_kind = client.get(
+            "/api/v1/shared-memories/by-source",
+            headers=headers("collab-a"),
+            params={"source_kind": "secret", "source_id": source["event_id"]},
+        )
+        assert bad_kind.status_code == 200
+        assert bad_kind.json()["shared_memories"] == []
+
+
 def test_care_forward_requires_explicit_grant_and_deduplicates(tmp_path):
     _app, client = make_app(tmp_path)
     with client:

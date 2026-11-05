@@ -571,6 +571,20 @@ def reject_collaboration_shared_memory_join(
     }
 
 
+@collaboration_router.get("/api/v1/shared-memories/by-source")
+def list_collaboration_shared_memories_by_source(
+    source_kind: str = Query(min_length=1, max_length=24),
+    source_id: str = Query(min_length=1, max_length=200),
+    request: Request = None,
+    identity=Depends(current_collab_identity),
+):
+    return {
+        "shared_memories": request.app.state.collaboration.find_shared_memories_by_source(
+            identity[0], source_kind, source_id
+        )
+    }
+
+
 @collaboration_router.get("/api/v1/shared-memories/{shared_id}")
 def collaboration_shared_memory_detail(
     shared_id: str,
