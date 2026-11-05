@@ -1,7 +1,12 @@
 import json
+from dataclasses import replace
 from datetime import UTC, datetime, timedelta
+from io import BytesIO
+
+from PIL import Image
 
 from test_api import bootstrap, make_app, token_for
+from test_v023_moments import prepare as prepare_moments, save as save_chat_memory
 
 
 def headers(user_id: str) -> dict[str, str]:
@@ -633,3 +638,187 @@ def test_care_forward_requires_explicit_grant_and_deduplicates(tmp_path):
         assert len(care) == 1
         assert care[0]["body"] == "如果有空，可以回个电话或发条消息。"
         assert care[0]["payload_minimal"] == {}
+
+
+def seed_moment_with_image(app, client, monkeypatch, user_id="collab-a"):
+    """Create one owner-owned published moment with real image bytes."""
+    owner, beginning = prepare_moments(app, client, monkeypatch)
+    save_chat_memory(
+        client,
+        "【模拟聊天】今天在公园散步，看见银杏，特别放松。",
+        "event",
+        beginning + timedelta(minutes=1),
+    )
+    app.state.moments.settings = replace(
+        app.state.moments.settings,
+        memory_llm_provider="zhipu",
+        memory_llm_key="synthetic",
+        image_provider_api_key="synthetic",
+    )
+    output = BytesIO()
+    Image.new("RGB", (32, 24), (49, 90, 72)).save(output, format="PNG")
+    monkeypatch.setattr(
+        app.state.moments,
+        "generate",
+        lambda _caption: (output.getvalue(), "image/png"),
+    )
+    app.state.moments.schedule(datetime.now(UTC) + timedelta(days=1))
+    moment_row = app.state.moments.list(owner)[0]
+    assert app.state.moments.run_one()
+    moment = app.state.moments.detail(owner, moment_row["moment_id"])
+    assert moment is not None and moment["image_data"].startswith("data:image/png;base64,")
+    return moment
+
+
+def test_moment_image_cannot_be_read_by_a_non_member(tmp_path, monkeypatch):
+    app, client = make_app(tmp_path)
+    with client:
+        bootstrap(client, "lc-user-a", "users/a")
+        bootstrap(client, "collab-b", "users/b")
+        bootstrap(client, "collab-c", "users/c")
+        a = profile(client, "lc-user-a", "阿青")
+        b = profile(client, "collab-b", "小满")
+        profile(client, "collab-c", "陈叔")
+        befriend(client, a, b)
+        moment = seed_moment_with_image(app, client, monkeypatch)
+
+        assert client.get(
+            f"/api/v1/moments/{moment['moment_id']}",
+            headers=headers("collab-c"),
+        ).status_code == 404
+
+        invite = client.post(
+            "/api/v1/shared-memories/invites",
+            headers=headers("lc-user-a"),
+            json={
+                "source_kind": "moment",
+                "source_id": moment["moment_id"],
+                "target_user_id": b["user_id"],
+            },
+        )
+        assert invite.status_code == 200, invite.text
+        accepted = client.post(
+            f"/api/v1/shared-memories/invites/{invite.json()['invite']['invite_id']}/accept",
+            headers=headers("collab-b"),
+        )
+        assert accepted.status_code == 200
+        shared_id = accepted.json()["shared_memory_id"]
+
+        member_view = client.get(
+            f"/api/v1/shared-memories/{shared_id}",
+            headers=headers("collab-b"),
+        )
+        assert member_view.status_code == 200
+        assert member_view.json()["sources"][0]["image_data"].startswith(
+            "data:image/png;base64,"
+        )
+        assert client.get(
+            f"/api/v1/shared-memories/{shared_id}",
+            headers=headers("collab-c"),
+        ).status_code == 404
+
+
+def test_cross_space_isolation_and_scope_subscriptions_are_authorized(tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        for user_id in ("collab-a", "collab-b", "collab-c"):
+            bootstrap(client, user_id, f"users/{user_id}")
+        a = profile(client, "collab-a", "阿青")
+        b = profile(client, "collab-b", "小满")
+        c = profile(client, "collab-c", "陈叔")
+        befriend(client, a, b)
+        befriend(client, a, c)
+        space_ab = create_space(client, a, "家庭")
+        space_ac = create_space(client, a, "团队")
+        join_space(client, a, b, space_ab["space_id"])
+        join_space(client, a, c, space_ac["space_id"])
+
+        sent = client.post(
+            f"/api/v1/spaces/{space_ab['space_id']}/messages",
+            headers=headers("collab-a"),
+            json={"body": "只属于家庭空间", "client_message_id": "family-1"},
+        )
+        assert sent.status_code == 200
+
+        assert client.get(
+            f"/api/v1/spaces/{space_ab['space_id']}/messages",
+            headers=headers("collab-c"),
+        ).status_code == 404
+        assert client.get(
+            f"/api/v1/spaces/{space_ac['space_id']}/messages",
+            headers=headers("collab-b"),
+        ).status_code == 404
+
+        assert client.get(
+            "/api/v1/collaboration/events",
+            headers=headers("collab-c"),
+            params={"scope_key": f"space:{space_ab['space_id']}"},
+        ).status_code == 404
+        member_events = client.get(
+            "/api/v1/collaboration/events",
+            headers=headers("collab-b"),
+            params={"scope_key": f"space:{space_ab['space_id']}"},
+        )
+        assert member_events.status_code == 200
+        assert any(
+            event["event_type"] == "message_created"
+            for event in member_events.json()["events"]
+        )
+
+
+def test_agent_never_receives_unauthorized_data_after_revocation(tmp_path, monkeypatch):
+    app, client = make_app(tmp_path)
+    with client:
+        bootstrap(client, "collab-a", "users/a")
+        bootstrap(client, "collab-b", "users/b")
+        a = profile(client, "collab-a", "阿青")
+        b = profile(client, "collab-b", "小满")
+        befriend(client, a, b)
+        space = create_space(client, a, "照护协作")
+        join_space(client, a, b, space["space_id"])
+        start = datetime.now(UTC) + timedelta(days=2)
+        assert client.post(
+            "/api/v1/availability",
+            headers=headers("collab-b"),
+            json={
+                "starts_at": start.isoformat(),
+                "ends_at": (start + timedelta(hours=1)).isoformat(),
+                "label": "可接电话",
+            },
+        ).status_code == 200
+        grant = client.post(
+            "/api/v1/grants",
+            headers=headers("collab-b"),
+            json={
+                "grantee_kind": "user",
+                "grantee_id": a["user_id"],
+                "resource_kind": "availability.declared",
+                "permissions": ["read"],
+                "purpose": "允许 AI 查询空闲",
+                "agent_allowed": True,
+            },
+        )
+        assert grant.status_code == 200
+        assert client.delete(
+            f"/api/v1/grants/{grant.json()['grant']['grant_id']}",
+            headers=headers("collab-b"),
+        ).status_code == 200
+
+        captured = []
+
+        def fake_model(messages):
+            captured.append(messages)
+            return "我无法确认。"
+
+        monkeypatch.setattr(app.state.collaboration, "_model_reply", fake_model)
+        response = client.post(
+            f"/api/v1/spaces/{space['space_id']}/agent/query",
+            headers=headers("collab-a"),
+            json={"query": "小满什么时候方便联系，有空闲时间吗？", "target_user_id": b["user_id"]},
+        )
+        assert response.status_code == 200
+        context = json.loads(
+            captured[-1][-1]["content"].split("AUTHORIZED_CONTEXT:\n", 1)[1]
+        )
+        assert context["availability"]["authorization"] == "DENIED"
+        assert context["availability"]["windows"] == []
