@@ -28,6 +28,8 @@ class Settings:
     vikunja_users: dict[str, dict] = field(default_factory=dict)
     ntfy_base_url: str = "http://127.0.0.1:8087"
     ntfy_container: str = "lifecompanion-ntfy"
+    ntfy_admin_user: str = ""
+    ntfy_admin_password: str = ""
     reminder_webhook_url: str = "http://host.docker.internal:8010/api/v1/webhooks/vikunja"
     librechat_base_url: str = "http://127.0.0.1:3080"
     direct_moment_test_enabled: bool = False
@@ -98,6 +100,8 @@ def load_settings() -> Settings:
         vikunja_users=vikunja_users,
         ntfy_base_url=os.getenv("LIFE_NTFY_BASE_URL", "http://127.0.0.1:8087").rstrip("/"),
         ntfy_container=os.getenv("LIFE_NTFY_CONTAINER", "lifecompanion-ntfy"),
+        ntfy_admin_user=os.getenv("LIFE_NTFY_ADMIN_USER", ""),
+        ntfy_admin_password=os.getenv("LIFE_NTFY_ADMIN_PASSWORD", ""),
         reminder_webhook_url=os.getenv(
             "LIFE_REMINDER_WEBHOOK_URL", "http://host.docker.internal:8010/api/v1/webhooks/vikunja"
         ),

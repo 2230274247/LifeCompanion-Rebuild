@@ -109,7 +109,12 @@ export function createGateway({
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const port = Number(process.env.PORT || 3001);
-  createGateway().listen(port, "127.0.0.1", () => {
-    process.stdout.write(`Life Companion listening on http://127.0.0.1:${port}\n`);
+  const host = process.env.HOST || "127.0.0.1";
+  const gateway = createGateway({
+    chatTarget: process.env.LIFE_CHAT_TARGET || "http://127.0.0.1:3080",
+    lifeTarget: process.env.LIFE_CORE_TARGET || "http://127.0.0.1:8010",
+  });
+  gateway.listen(port, host, () => {
+    process.stdout.write(`Life Companion listening on http://${host}:${port}\n`);
   });
 }

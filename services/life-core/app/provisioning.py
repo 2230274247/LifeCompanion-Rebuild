@@ -14,14 +14,37 @@ import httpx
 from .reminders import ReminderPermissionError, ReminderUpstreamError
 from .store import utc_now
 
+try:
+    from cryptography.fernet import Fernet
+except ImportError:  # Windows keeps using DPAPI; Fernet is only required on Linux.
+    Fernet = None
+
 
 def protect(value: dict) -> str:
-    """DPAPI binds credentials to the Windows service identity, never the browser."""
-    return base64.b64encode(_dpapi(json.dumps(value).encode(), False)).decode()
+    """Encrypt per-user reminder credentials with the host's credential store."""
+    if os.name == "nt":
+        return "d:" + base64.b64encode(_dpapi(json.dumps(value).encode(), False)).decode()
+    return "f:" + _fernet().encrypt(json.dumps(value).encode()).decode()
 
 
 def unprotect(value: str) -> dict:
-    return json.loads(_dpapi(base64.b64decode(value), True))
+    if value.startswith("d:"):
+        return json.loads(_dpapi(base64.b64decode(value[2:]), True))
+    return json.loads(_fernet().decrypt(value[2:].encode()))
+
+
+def _fernet() -> "Fernet":
+    if Fernet is None:
+        raise ReminderUpstreamError("CREDENTIAL_VAULT_UNAVAILABLE")
+    key = os.getenv("LIFE_CREDENTIAL_MASTER_KEY", "")
+    if not key:
+        raise ReminderUpstreamError("CREDENTIAL_MASTER_KEY_REQUIRED")
+    try:
+        return Fernet(key.encode())
+    except (ValueError, TypeError):
+        # Accept a plain passphrase and derive a stable Fernet key from it.
+        derived = base64.urlsafe_b64encode(hashlib.sha256(key.encode()).digest())
+        return Fernet(derived)
 
 
 def _dpapi(value: bytes, decrypt: bool) -> bytes:
@@ -120,6 +143,10 @@ class ReminderProvisioning:
         return response.json() if response.content else {}
 
     def _ntfy(self, *args, password=None):
+        # In containers life-core has no Docker socket; use ntfy's admin HTTP API.
+        if self.settings.ntfy_admin_user and self.settings.ntfy_admin_password:
+            self._ntfy_http(*args, password=password)
+            return
         command = ["docker", "exec"]
         if password is not None:
             command += ["-i", self.settings.ntfy_container, "sh", "-c",
@@ -142,6 +169,36 @@ class ReminderProvisioning:
             raise ReminderUpstreamError("NTFY_PROVISIONING_UNAVAILABLE") from exc
         if result.returncode:
             raise ReminderUpstreamError("NTFY_PROVISIONING_FAILED")
+
+    def _ntfy_http(self, *args, password=None):
+        auth = httpx.BasicAuth(
+            self.settings.ntfy_admin_user, self.settings.ntfy_admin_password
+        )
+        if args and args[0] == "access":
+            username, topic, permission = args[1], args[2], args[3]
+            self._ntfy_request(
+                "PUT", "/v1/users/access", auth,
+                json={"username": username, "topic": topic, "permission": permission},
+            )
+            return
+        self._ntfy_request(
+            "PUT", "/v1/users", auth,
+            json={"username": args[0], "password": password},
+        )
+
+    def _ntfy_request(self, method, path, auth, *, json):
+        try:
+            response = httpx.request(
+                method, self.settings.ntfy_base_url + path, auth=auth,
+                json=json, timeout=15,
+            )
+        except httpx.HTTPError as exc:
+            raise ReminderUpstreamError("NTFY_PROVISIONING_UNAVAILABLE") from exc
+        if response.status_code >= 400:
+            raise ReminderUpstreamError(
+                f"NTFY_HTTP_{response.status_code}"
+                if response.status_code >= 500 else "NTFY_PROVISIONING_FAILED"
+            )
 
     def provision(self, owner, *, renew=False):
         if not renew and not self.reminders.notifications_allowed(owner):
