@@ -1,0 +1,150 @@
+@import 'tailwindcss';
+
+/* Cool fog page, near-black ink; the cobalt disc and mustard marker come from Otis himself. */
+:root {
+  --page: #e8ebf1;
+  --ink: #12141b;
+  --mute: #12141b99;
+  --line: #12141b1f;
+  --field: #f6f7fa;
+  --disc: #2f4bf0;
+  --sun: #f2b31b;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --page: #0e1015;
+  --ink: #eef0f5;
+  --mute: #eef0f599;
+  --line: #eef0f526;
+  --field: #171a21;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-field: var(--field);
+  --color-disc: var(--disc);
+  --color-sun: var(--sun);
+}
+
+@theme {
+  --font-display: 'Satoshi', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-wide: 'Unbounded', 'Satoshi', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --text-lede: clamp(14px, 1.05vw, 16px);
+  --text-lede--line-height: 1.5;
+  --text-lede--letter-spacing: -0.006em;
+  --text-ui: 12px;
+  --text-ui--line-height: 1;
+  --text-ui--letter-spacing: 0.08em;
+  --text-micro: 11px;
+  --text-micro--line-height: 1.2;
+  --text-micro--letter-spacing: 0.1em;
+  --text-wordmark: clamp(15px, 1.35vw, 20px);
+  --text-wordmark--line-height: 1;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+html {
+  background: var(--page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background: var(--page);
+}
+
+/* Satoshi Black, tracked in hard — it reads as one slab behind the head. */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+/* The marker sits on the lower half of the name, like a highlighter pass. */
+.marker {
+  background: linear-gradient(transparent 52%, var(--sun) 52%, var(--sun) 92%, transparent 92%);
+  padding-inline: 0.04em;
+}
+
+/* Stage tucks up under the headline so the hair breaks over the type. */
+.stage {
+  margin-top: calc(var(--mega, 80px) * -0.3);
+}
+@media (min-width: 768px) {
+  .stage {
+    margin-top: calc(var(--mega, 160px) * -0.62);
+  }
+}
+
+/* Grab cursor: a ring that shows over the face and tightens while held. */
+.grab-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  pointer-events: none;
+}
+.grab-ring::before,
+.grab-ring::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  transition:
+    transform 0.18s cubic-bezier(0.3, 1.6, 0.5, 1),
+    opacity 0.18s;
+  opacity: 0;
+}
+.grab-ring::before {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1.5px solid #fff;
+  mix-blend-mode: difference;
+  transform: scale(0.6);
+}
+.grab-ring::after {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #fff;
+  mix-blend-mode: difference;
+}
+.grab-ring[data-on='1']::before,
+.grab-ring[data-on='1']::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.grab-ring[data-held='1']::before {
+  transform: scale(0.62);
+}
+
+.hint {
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grab-ring::before,
+  .grab-ring::after,
+  .hint {
+    transition: none;
+  }
+}

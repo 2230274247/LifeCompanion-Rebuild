@@ -1,0 +1,115 @@
+/* The pet page is a transparent desktop surface, not the portfolio page. */
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 0;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
+.pet-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* The window drag handle. It sits under the face so a pull never moves the
+   window, and covers the transparent margin so the pet can be repositioned. */
+.pet-drag-zone {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  -webkit-app-region: drag;
+}
+
+.pet-stage {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 40;
+  width: 320px;
+  height: 320px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* The face itself is the interactive island; the rest of the window drags it. */
+.pet-shell [role='img'] {
+  -webkit-app-region: no-drag;
+}
+
+.pet-hint {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.1;
+  white-space: nowrap;
+  opacity: 0.9;
+  transform: rotate(6deg);
+  pointer-events: none;
+}
+
+.pet-hint.pet-hint-off {
+  transform: translateY(8px) rotate(6deg);
+  opacity: 0;
+}
+
+.pet-meter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  z-index: 40;
+  width: 236px;
+  padding: 9px 14px 10px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--page) 84%, transparent);
+  box-shadow: 0 8px 24px rgb(18 20 27 / 12%);
+  transform: translateX(-50%);
+  backdrop-filter: blur(10px);
+  -webkit-app-region: drag;
+}
+
+.pet-mood {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: var(--mute);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pet-mood strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.pet-bar {
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.pet-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 150ms;
+}
