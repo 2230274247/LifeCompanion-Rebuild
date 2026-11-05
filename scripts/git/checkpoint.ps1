@@ -83,7 +83,7 @@ function Test-SecretContent {
         "\b(AKIA|ASIA)[0-9A-Z]{16}\b",
         "\bgh[pousr]_[A-Za-z0-9]{20,}\b",
         "\bsk-[A-Za-z0-9_-]{20,}\b",
-        "(?im)(api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret)\s*[:=]\s*[`"']?(?!<|your[-_]|example|placeholder|redacted|change[-_]?me|\$\{|x{4,})[A-Za-z0-9_./+=-]{20,}"
+        "(?im)(api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret)\s*[:=]\s*[`"']?(?!<|your[-_]|example|placeholder|redacted|change[-_]?me|synthetic|dummy|fake|test[_-]|\$\{|x{4,})[A-Za-z0-9_./+=-]{20,}"
     )
     foreach ($pattern in $patterns) {
         if ($Content -match $pattern) {
