@@ -519,14 +519,23 @@ class CollaborationService:
             if existing:
                 return dict(existing)
             claims = claims or {}
-            candidate = next(
+            # Prefer the life-core user record: it is bootstrapped with the real
+            # LibreChat display name, whereas the JWT only carries a username.
+            known = self.store.get_user_by_librechat_id(librechat_user_id)
+            candidate = (
+                known.get("display_name")
+                if isinstance(known, dict) and str(known.get("display_name") or "").strip()
+                else ""
+            )
+            if not candidate:
+                candidate = next(
                 (
                     claims.get(key)
                     for key in ("name", "displayName", "username", "email")
                     if isinstance(claims.get(key), str) and claims.get(key).strip()
                 ),
                 "",
-            )
+                )
             if "@" in candidate:
                 candidate = candidate.split("@", 1)[0]
             display_name = " ".join(str(candidate).split())[:40] or f"用户{_hash_id(user_id)[:4]}"
@@ -603,6 +612,14 @@ class CollaborationService:
                 json.dumps(payload or {}, ensure_ascii=False, separators=(",", ":")),
                 utc_now(),
             ),
+        )
+
+    def _resolve_notification(self, db: Any, user_id: str, dedupe_key: str) -> None:
+        """Mark the actionable invite/request notification as read once decided."""
+        db.execute(
+            """UPDATE collab_notifications SET read_at = COALESCE(read_at, ?)
+               WHERE user_id=? AND dedupe_key=?""",
+            (utc_now(), user_id, dedupe_key),
         )
 
     def list_notifications(self, user_id: str) -> list[dict[str, Any]]:
@@ -778,6 +795,7 @@ class CollaborationService:
                 (status, utc_now(), request_id),
             )
             if action != "cancel":
+                self._resolve_notification(db, actor, f"friend-request:{request_id}")
                 profile = db.execute(
                     "SELECT display_name FROM collab_profiles WHERE user_id=?", (actor,)
                 ).fetchone()
@@ -1064,6 +1082,8 @@ class CollaborationService:
                     "UPDATE collab_space_invites SET status=?,decided_at=? WHERE invite_id=?",
                     (status, utc_now(), invite_id),
                 )
+            if action != "cancel":
+                self._resolve_notification(db, actor, f"space-invite:{invite_id}")
             result = db.execute(
                 "SELECT * FROM collab_space_invites WHERE invite_id=?", (invite_id,)
             ).fetchone()
@@ -1954,6 +1974,8 @@ class CollaborationService:
                     (status, utc_now(), invite_id),
                 )
                 result = {"invite": {**dict(invite), "status": status}, "shared_memory_id": None}
+            if action != "cancel":
+                self._resolve_notification(db, actor, f"shared-memory-invite:{invite_id}")
         return result
 
     def list_shared_memories(self, actor: str) -> list[dict[str, Any]]:
