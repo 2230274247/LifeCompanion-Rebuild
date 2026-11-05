@@ -8,6 +8,12 @@
 | --- | --- | --- | --- | --- | --- |
 | LibreChat | https://github.com/LibreChat-AI/LibreChat | `v0.8.8`（同一提交另有 `chart-2.0.17`） | `e8f3be08623663d4ad7f7241e693c94469b63bb0` | MIT | `products/librechat-custom` |
 | Memos | https://github.com/usememos/memos | `26.10.0` | `651657e7211901393e2501ae7e3e202c8e56f73a` | MIT | `products/memos-custom` |
+| Vikunja | https://github.com/go-vikunja/vikunja | `v2.7.1` | `5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0` | AGPL-3.0-or-later | `products/vikunja-upstream` |
+| ntfy | https://github.com/binwiederhier/ntfy | `v2.36.0` | `2d55160690708670895ae10d9895bde90241e38d` | Apache-2.0 / GPLv2 | `products/ntfy-upstream` |
+
+新增两个提醒上游是完整非 shallow clone、固定 tag 的独立检出，源码未修改；
+对应 Docker image digest、历史数量和许可证标签见
+`evidence/v02-memory-reminders/upstream-lock.json`。
 
 ## 本地 Git 状态
 

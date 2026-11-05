@@ -5,6 +5,7 @@
 infra/volumes/
 infra/runtime/
 evidence/runtime/
+evidence/admin-account-config.json
 services/life-core/data/
 services/life-core/.venv/
 .work/
