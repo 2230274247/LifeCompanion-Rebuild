@@ -24,6 +24,7 @@ export function createGateway({
     // Explicit public methods only; internal hooks and service credentials stay server-side.
     const collabId = "[a-z]{2,8}_[a-f0-9]{32}";
     const publicLifeRoute =
+      (request.method === "GET" && path === "/health") ||
       (request.method === "GET" && /^\/api\/v1\/(?:me|chat-links|memories(?:\/evt_[a-f0-9]{24})?|knowledge(?:\/(?:recall|mem_[a-f0-9]{24}))?)$/.test(path)) ||
       (request.method === "PATCH" && path === "/api/v1/me/settings") ||
       (["GET", "PUT"].includes(request.method) && path === "/api/v1/moment-settings") ||

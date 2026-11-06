@@ -34,6 +34,7 @@ class Settings:
     librechat_base_url: str = "http://127.0.0.1:3080"
     direct_moment_test_enabled: bool = False
     direct_moment_test_username: str = ""
+    direct_moment_test_user_id: str = ""
     direct_moment_test_unlimited: bool = False
     moment_image_model: str = "cogview-4-250304"
     image_provider_api_key: str = ""
@@ -112,6 +113,9 @@ def load_settings() -> Settings:
         ),
         direct_moment_test_username=os.getenv(
             "LIFE_DIRECT_MOMENT_TEST_USERNAME", ""
+        ).strip(),
+        direct_moment_test_user_id=os.getenv(
+            "LIFE_DIRECT_MOMENT_TEST_USER_ID", ""
         ).strip(),
         direct_moment_test_unlimited=(
             os.getenv("LIFE_DIRECT_MOMENT_TEST_UNLIMITED", "false").lower() == "true"

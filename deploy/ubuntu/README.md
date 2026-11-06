@@ -69,6 +69,7 @@ vim .env
 ./scripts/restore.sh backups/backup-*.tar.gz
 ./scripts/migrate.sh     # 触发 life-core SQLite 结构升级并校验
 ./scripts/init-test-accounts.sh  # 生成管理员 + 普通用户测试账号
+./scripts/bootstrap-admin.sh admin@shiguang.test  # 将现有账号提升为管理员测试账号
 ./scripts/update.sh      # git pull + 重建 + 迁移 + 重启，保留数据
 ```
 
@@ -100,7 +101,11 @@ vim .env
 - **`NTFY_PROVISIONING_UNAVAILABLE`**：ntfy 未启动或 `.env` 中
   `LIFE_NTFY_ADMIN_USER/PASSWORD` 与 install.sh 初始化的管理员不一致。
 - **`USER_NOT_MAPPED`**：LibreChat 账号尚未在 life-core 完成映射。首次在
-  “拾光”界面连接记忆/提醒时会自动创建映射。
+  “拾光”界面连接记忆/提醒时会自动创建映射；管理员测试账号请先运行
+  `./scripts/bootstrap-admin.sh admin@shiguang.test` 完成映射并写入管理员环境变量。
+- **管理员测试卡片不出现**：确认 `.env` 中 `LIFE_DIRECT_MOMENT_TEST_ENABLED=true`
+  且 `LIFE_DIRECT_MOMENT_TEST_USERNAME` / `LIFE_DIRECT_MOMENT_TEST_USER_ID`
+  与当前账号一致，然后 `docker compose up -d --force-recreate life-core`。
 - **Mongo 未就绪**：LibreChat 等待 mongo 健康检查通过；首次拉取镜像较慢属正常。
 - **80/3001 被占用**：修改 `.env` 的 `GATEWAY_PORT` 后重新 `install.sh`。
 

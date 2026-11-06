@@ -475,11 +475,16 @@ class Moments:
 
     def direct_test_status(self, user):
         configured = self.settings.direct_moment_test_username
+        # V0.2/V0.3 local acceptance pinned this LibreChat account. Keep it as a
+        # fallback so existing local deployments need no new environment variable,
+        # while fresh Ubuntu deployments can pin their own account by ID.
+        legacy_admin_id = "6aebe2cbf985b8e48d7a4d08"
+        expected_user_id = self.settings.direct_moment_test_user_id or legacy_admin_id
         enabled = bool(
             self.settings.direct_moment_test_enabled
             and configured
             and user.get("librechat_user_id")
-            and user["librechat_user_id"] == "6aebe2cbf985b8e48d7a4d08"
+            and user["librechat_user_id"] == expected_user_id
             and user.get("memos_username") == configured
         )
         return {

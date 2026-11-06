@@ -57,10 +57,15 @@ bash deploy/ubuntu/build-librechat.sh
 cd deploy/ubuntu
 ./install.sh
 vim .env                              # 填 DEEPSEEK_API_KEY=sk-xxx
+                                        # 生图还要填 IMAGE_PROVIDER_API_KEY=sk-xxx
+                                        # 记忆召回/发布还要填 MEMOS_API_TOKEN=memos_pat_xxx
 sed -i 's|^PUBLIC_ORIGIN=.*|PUBLIC_ORIGIN=http://你的公网IP:3001|' .env
 sed -i 's|^LIFE_ALLOWED_ORIGINS=.*|LIFE_ALLOWED_ORIGINS=http://你的公网IP:3001|' .env
 ./scripts/start.sh
 ./scripts/healthcheck.sh               # 应看到 gateway / life-core / librechat 全 OK
+
+# 让现有管理员账号 admin@shiguang.test 获得一键纳入回忆/一键生图测试能力：
+./scripts/bootstrap-admin.sh admin@shiguang.test
 ```
 
 关键点：`PUBLIC_ORIGIN` 和 `LIFE_ALLOWED_ORIGINS` 必须改成公网地址，
@@ -166,6 +171,7 @@ docker compose logs -f librechat         # 看聊天服务日志
 ./scripts/backup.sh                      # 备份到 backups/backup-时间戳.tar.gz
 ./scripts/restore.sh backups/xxx.tar.gz  # 恢复
 ./scripts/init-test-accounts.sh          # 生成测试账号（密码写入 test-accounts.env，权限 600）
+./scripts/bootstrap-admin.sh admin@shiguang.test  # 将现有账号提升为管理员测试账号
 cat test-accounts.env                    # 查看测试账号密码
 ```
 
@@ -174,6 +180,11 @@ cat test-accounts.env                    # 查看测试账号密码
 - 能打开页面但聊天报错：`.env` 里 `DEEPSEEK_API_KEY` 没填或填错。
 - 公网登录跳回 127.0.0.1：`PUBLIC_ORIGIN` 没改成公网地址。
 - 注册不了账号：确认 `.env` 里 `ALLOW_REGISTRATION=true`。
+- 管理员测试卡片不出现：运行
+  `./scripts/bootstrap-admin.sh admin@shiguang.test`，然后重新登录；该脚本会
+  自动写入 `LIFE_DIRECT_MOMENT_TEST_ENABLED/USERNAME/USER_ID/UNLIMITED` 并重建
+  `life-core`。
+- 一键生图提示“生图 Provider 未配置”：`.env` 里没有 `IMAGE_PROVIDER_API_KEY`。
 - 改完代码服务器没变化：确认本地已 `git push`，服务器已 `git pull`，
   且需要时跑过 `build-librechat.sh`。
 - 端口访问不通：检查 UFW 和路由器端口转发。
