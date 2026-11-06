@@ -8,3 +8,7 @@ services:
       - ../products/librechat-custom/client/dist:/app/client/dist:ro
       - ../products/librechat-custom/packages/api/dist:/app/packages/api/dist:ro
       - ../products/librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro
+      - ../products/librechat-custom/api/server/services/AuthService.js:/app/api/server/services/AuthService.js:ro
+      - ../products/librechat-custom/api/server/controllers/AuthController.js:/app/api/server/controllers/AuthController.js:ro
+      - ../products/librechat-custom/api/strategies/validators.js:/app/api/strategies/validators.js:ro
+      - ../products/librechat-custom/api/strategies/localStrategy.js:/app/api/strategies/localStrategy.js:ro

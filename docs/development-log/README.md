@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-06 | [普通用户注册功能与桌面一键启动脚本审计](2026-11-06_10-05_注册功能与桌面启动脚本_开发验收.md) | PASS：注册/登录/唯一用户名/权限隔离/启动器复用真实通过；冷启动与故障注入场景 BLOCKED | [截图](../../evidence/registration-desktop.png)、[验收矩阵](../../evidence/registration-launcher-test-report.md)、[源码补丁](../../patches/librechat-v0.8.8-registration-20261106.patch) |
 | 2026-11-06 | [V0.3 归档与 Ubuntu 部署交付](2026-11-06_Ubuntu部署与V03归档_开发验收.md) | PARTIAL：Git 归档与 Ubuntu 部署包完成；完整浏览器/API 回归与服务器实机启动未重跑 | [部署包](../../deploy/ubuntu/README.md)、[V0.3 架构](../architecture/V03_COLLABORATION.md) |
 | 2026-11-05 | [自然聊天与图文影集](2026-11-05_14-02_自然聊天与图文影集_开发验收.md) | PARTIAL：Prompt 静态门禁、影集前端/浏览器、自动发布后端测试通过；真实模型与真实付费生图未执行 | [五视口截图](../../evidence/shiguang-v02/)、[运行数据](../../evidence/shiguang-v02/gallery-live-verification.json) |
 | 2026-11-05 | [Otis 应用内宠物](2026-11-05_11-50_Otis应用内宠物_开发验收.md) | PASS：聊天路由内 200×256 宠物，捏脸/拉拽/松手换表情/折叠实测通过；深浅色、1920 与 390 视口通过；`/memories` 不出现；类型检查被既有 `Moments.tsx` 改动阻断（非本任务）；贴图授权未明 | [捏脸](../../evidence/otis-pet/11-in-app-pull.png)、[折叠](../../evidence/otis-pet/15-in-app-collapsed.png)、[深色](../../evidence/otis-pet/18-in-app-dark.png) |
