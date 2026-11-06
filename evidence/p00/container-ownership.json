@@ -1,0 +1,260 @@
+[
+  {
+    "name": "/lifecompanion-librechat",
+    "image": "ghcr.io/librechat-ai/librechat:v0.8.8",
+    "image_id": "sha256:5b706bcee1ca154a1e2987303aaeca0eb27f97919cccee4bb604226c2f8abf61",
+    "state": "running",
+    "compose_project": "lifecompanion-upstream",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\.env",
+        "destination": "/app/.env",
+        "rw": false
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\librechat.yaml",
+        "destination": "/app/librechat.yaml",
+        "rw": false
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\logs",
+        "destination": "/app/logs",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\uploads",
+        "destination": "/app/uploads",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\client\\dist",
+        "destination": "/app/client/dist",
+        "rw": false
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\images",
+        "destination": "/app/client/public/images",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\packages\\api\\dist",
+        "destination": "/app/packages/api/dist",
+        "rw": false
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\packages\\data-provider\\dist",
+        "destination": "/app/packages/data-provider/dist",
+        "rw": false
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\products\\librechat-custom\\api\\app\\clients\\BaseClient.js",
+        "destination": "/app/api/app/clients/BaseClient.js",
+        "rw": false
+      }
+    ],
+    "environment_keys": [
+      "ALLOW_EMAIL_LOGIN",
+      "ALLOW_PASSWORD_RESET",
+      "ALLOW_REGISTRATION",
+      "ALLOW_SOCIAL_LOGIN",
+      "APP_TITLE",
+      "BUILD_BRANCH",
+      "BUILD_COMMIT",
+      "BUILD_DATE",
+      "CREDS_IV",
+      "CREDS_KEY",
+      "CUSTOM_FOOTER",
+      "DEBUG_LOGGING",
+      "DEEPSEEK_API_KEY",
+      "DOMAIN_CLIENT",
+      "DOMAIN_SERVER",
+      "GID",
+      "HOST",
+      "JWT_REFRESH_SECRET",
+      "JWT_SECRET",
+      "LD_PRELOAD",
+      "LIFE_CORE_INGEST_TIMEOUT_MS",
+      "LIFE_CORE_URL",
+      "LIFE_INTERNAL_TOKEN",
+      "LIFE_LLM_PROVIDER",
+      "LOG_TO_FILE",
+      "MEILI_HOST",
+      "MEILI_MASTER_KEY",
+      "MONGO_URI",
+      "NODE_ENV",
+      "NODE_VERSION",
+      "PATH",
+      "PORT",
+      "SCARF_ANALYTICS",
+      "SCHEDULES_SINGLE_PROCESS",
+      "SEARCH",
+      "TZ",
+      "UID",
+      "YARN_VERSION",
+      "ZHIPU_API_KEY",
+      "ZHIPU_BASE_URL",
+      "ZHIPU_MODEL"
+    ],
+    "safe_connections": {
+      "MONGO_URI": "mongodb://lifecompanion-mongo:27017/LibreChat",
+      "LIFE_CORE_URL": "http://host.docker.internal:8010",
+      "MEILI_HOST": "http://lifecompanion-meili:7700"
+    },
+    "configured_credentials": {
+      "JWT_SECRET": true,
+      "ZHIPU_API_KEY": true,
+      "LIFE_INTERNAL_TOKEN": true,
+      "DEEPSEEK_API_KEY": true,
+      "JWT_REFRESH_SECRET": true
+    }
+  },
+  {
+    "name": "/lifecompanion-mongo",
+    "image": "mongo:8.0.20",
+    "image_id": "sha256:098862b1339f031900ca66cf8fef799e616d6324fa41b9a263f2ec899552c1ef",
+    "state": "running",
+    "compose_project": "lifecompanion-upstream",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "/var/lib/docker/volumes/d5257f6f7297001cea1129dffe47edc623506e4ee5479f1a57a42c9351083084/_data",
+        "destination": "/data/configdb",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\librechat-mongo",
+        "destination": "/data/db",
+        "rw": true
+      }
+    ],
+    "environment_keys": [
+      "GLIBC_TUNABLES",
+      "GOSU_VERSION",
+      "HOME",
+      "JSYAML_CHECKSUM",
+      "JSYAML_VERSION",
+      "MONGO_MAJOR",
+      "MONGO_PACKAGE",
+      "MONGO_REPO",
+      "MONGO_VERSION",
+      "PATH"
+    ],
+    "safe_connections": {},
+    "configured_credentials": {}
+  },
+  {
+    "name": "/lifecompanion-memos",
+    "image": "neosmemo/memos:26.10.0",
+    "image_id": "sha256:fbc6ef8e9e0b377377f0d71d426d6192a9a0f08a8e3e35bec3557a43f4399260",
+    "state": "running",
+    "compose_project": "lifecompanion-upstream",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\memos",
+        "destination": "/var/opt/memos",
+        "rw": true
+      }
+    ],
+    "environment_keys": [
+      "MEMOS_PORT",
+      "PATH",
+      "TZ"
+    ],
+    "safe_connections": {},
+    "configured_credentials": {}
+  },
+  {
+    "name": "/lifecompanion-vikunja",
+    "image": "vikunja/vikunja@sha256:f7dc8428d10aef17f3075886d3c1c022f566ec456f88985f02c137f4fc534576",
+    "image_id": "sha256:f7dc8428d10aef17f3075886d3c1c022f566ec456f88985f02c137f4fc534576",
+    "state": "running",
+    "compose_project": "lifecompanion-reminders",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\runtime\\reminders\\vikunja",
+        "destination": "/db",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\runtime\\reminders\\vikunja-files",
+        "destination": "/app/vikunja/files",
+        "rw": true
+      }
+    ],
+    "environment_keys": [
+      "PATH",
+      "TZ",
+      "VIKUNJA_DATABASE_PATH",
+      "VIKUNJA_DATABASE_TYPE",
+      "VIKUNJA_OUTGOINGREQUESTS_ALLOWNONROUTABLEIPS",
+      "VIKUNJA_SERVICE_ENABLEREGISTRATION",
+      "VIKUNJA_SERVICE_JWTSECRET",
+      "VIKUNJA_SERVICE_PUBLICURL",
+      "VIKUNJA_SERVICE_ROOTPATH",
+      "VIKUNJA_WEBHOOKS_ENABLED"
+    ],
+    "safe_connections": {},
+    "configured_credentials": {
+      "VIKUNJA_SERVICE_JWTSECRET": true
+    }
+  },
+  {
+    "name": "/lifecompanion-ntfy",
+    "image": "binwiederhier/ntfy@sha256:fb48c413eb11d50339962b5d62cddce0f800e7f77c626d638a7c20cb7e9c4465",
+    "image_id": "sha256:fb48c413eb11d50339962b5d62cddce0f800e7f77c626d638a7c20cb7e9c4465",
+    "state": "running",
+    "compose_project": "lifecompanion-reminders",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\runtime\\reminders\\ntfy-cache",
+        "destination": "/var/cache/ntfy",
+        "rw": true
+      },
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\runtime\\reminders\\ntfy-auth",
+        "destination": "/var/lib/ntfy",
+        "rw": true
+      }
+    ],
+    "environment_keys": [
+      "NTFY_AUTH_DEFAULT_ACCESS",
+      "NTFY_AUTH_FILE",
+      "NTFY_BASE_URL",
+      "NTFY_CACHE_FILE",
+      "NTFY_ENABLE_LOGIN",
+      "PATH",
+      "TZ"
+    ],
+    "safe_connections": {},
+    "configured_credentials": {}
+  },
+  {
+    "name": "/lifecompanion-meili",
+    "image": "getmeili/meilisearch:v1.35.1",
+    "image_id": "sha256:8b57fc3c7f46535ddef3828df1538465ac19d892eb57c9a10da6df0880bd5856",
+    "state": "running",
+    "compose_project": "lifecompanion-upstream",
+    "compose_working_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra",
+    "mounts": [
+      {
+        "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\infra\\volumes\\librechat-meili",
+        "destination": "/meili_data",
+        "rw": true
+      }
+    ],
+    "environment_keys": [
+      "MEILI_ENV",
+      "MEILI_HTTP_ADDR",
+      "MEILI_MASTER_KEY",
+      "MEILI_NO_ANALYTICS",
+      "MEILI_SERVER_PROVIDER",
+      "PATH"
+    ],
+    "safe_connections": {},
+    "configured_credentials": {}
+  }
+]

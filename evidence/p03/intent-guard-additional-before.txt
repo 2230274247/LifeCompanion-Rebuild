@@ -1,0 +1,60 @@
+.FF........                                                              [100%]
+================================== FAILURES ===================================
+_ test_negation_reporting_past_and_conditional_text_never_auto_creates[\u660e\u59299\u70b9\u4e0d\u518d\u63d0\u9192\u6211\u559d\u6c34] _
+
+business = (<fastapi.applications.FastAPI object at 0x0000021617646300>, 'life_572fa7b3f67442a6b918', {1: {'description': 'LifeCo...'id': 1, 'reminders': [{'relative_period': 0, 'reminder': '2026-11-05T01:00:00Z'}], 'title': '����9�㲻�������Һ�ˮ'}}, ['POST'])
+text = '����9�㲻�������Һ�ˮ'
+
+    @pytest.mark.parametrize("text", [
+        "����9�㲻�������Һ�ˮ",
+        "����9�㲻�������Һ�ˮ",
+        "����9�㲻�����յ���ˮ����",
+        "��Ҫ��������9�������",
+        "��������������9�㿪��",
+        "����˵��������9�������ҿ��ᡣ��",
+        "������9�������ҿ���",
+        "������9�������ҿ���",
+        "����9�������Һ�ˮ",
+        "�������9�������������",
+        "����9������С����ˮ",
+    ])
+    def test_negation_reporting_past_and_conditional_text_never_auto_creates(business, text):
+        app, owner, tasks, calls = business
+        app.state.memory.set_permissions(owner, {"notification_consent": True})
+        result = app.state.reminder_chat.execute(
+            {"life_user_id": owner}, "synthetic-guard-source", text, "synthetic-guard-conversation")
+>       assert result["status"] in ("no_action", "clarify")
+E       AssertionError: assert 'scheduled' in ('no_action', 'clarify')
+
+services\life-core\tests\test_reminder_business_workflow.py:200: AssertionError
+_ test_negation_reporting_past_and_conditional_text_never_auto_creates[\u660e\u59299\u70b9\u4e0d\u60f3\u518d\u6536\u5230\u559d\u6c34\u63d0\u9192] _
+
+business = (<fastapi.applications.FastAPI object at 0x00000216176E8B60>, 'life_572fa7b3f67442a6b918', {1: {'description': 'LifeCo...d': 1, 'reminders': [{'relative_period': 0, 'reminder': '2026-11-05T01:00:00Z'}], 'title': '����9�㲻�����յ���ˮ����'}}, ['POST'])
+text = '����9�㲻�����յ���ˮ����'
+
+    @pytest.mark.parametrize("text", [
+        "����9�㲻�������Һ�ˮ",
+        "����9�㲻�������Һ�ˮ",
+        "����9�㲻�����յ���ˮ����",
+        "��Ҫ��������9�������",
+        "��������������9�㿪��",
+        "����˵��������9�������ҿ��ᡣ��",
+        "������9�������ҿ���",
+        "������9�������ҿ���",
+        "����9�������Һ�ˮ",
+        "�������9�������������",
+        "����9������С����ˮ",
+    ])
+    def test_negation_reporting_past_and_conditional_text_never_auto_creates(business, text):
+        app, owner, tasks, calls = business
+        app.state.memory.set_permissions(owner, {"notification_consent": True})
+        result = app.state.reminder_chat.execute(
+            {"life_user_id": owner}, "synthetic-guard-source", text, "synthetic-guard-conversation")
+>       assert result["status"] in ("no_action", "clarify")
+E       AssertionError: assert 'scheduled' in ('no_action', 'clarify')
+
+services\life-core\tests\test_reminder_business_workflow.py:200: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_negation_reporting_past_and_conditional_text_never_auto_creates[\u660e\u59299\u70b9\u4e0d\u518d\u63d0\u9192\u6211\u559d\u6c34]
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_negation_reporting_past_and_conditional_text_never_auto_creates[\u660e\u59299\u70b9\u4e0d\u60f3\u518d\u6536\u5230\u559d\u6c34\u63d0\u9192]
+2 failed, 9 passed, 11 deselected in 11.86s

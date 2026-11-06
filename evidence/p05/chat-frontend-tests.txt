@@ -1,0 +1,54 @@
+
+> @librechat/frontend@v0.8.8 test:ci
+> cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false src/components/Life/__tests__/ToolCards.spec.tsx src/components/Life/__tests__/ReminderCards.spec.tsx
+
+PASS src/components/Life/__tests__/ToolCards.spec.tsx (28.316 s, 297 MB heap size)
+  鈼?Console
+
+    console.error
+      Error: network
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\ToolCards.spec.tsx:91:58)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/ReminderCards.spec.tsx (354 MB heap size)
+  鈼?Console
+
+    console.error
+      Error: network
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\ReminderCards.spec.tsx:144:68)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+
+Test Suites: 2 passed, 2 total
+Tests:       9 passed, 9 total
+Snapshots:   0 total
+Time:        42.758 s
+Ran all test suites matching src/components/Life/__tests__/ToolCards.spec.tsx|src/components/Life/__tests__/ReminderCards.spec.tsx.

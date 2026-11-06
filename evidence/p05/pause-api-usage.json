@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-11-04T09:49:52.953924+08:00",
+  "external_requests_in_this_audit": 0,
+  "sqlite_databases_checked": 31,
+  "databases_with_usage": [
+    {
+      "database": "infra\\runtime\\p02\\diagnostic-745c9a40c8f34402b843561c48ce4a79.sqlite3",
+      "table": "memory_model_calls",
+      "rows": 1,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "database": "infra\\runtime\\p02\\relationships-97b5ef4146644c32.sqlite3",
+      "table": "memory_model_calls",
+      "rows": 12,
+      "input_tokens": 33756,
+      "output_tokens": 1779
+    },
+    {
+      "database": "infra\\runtime\\p02\\relationships-c18e31db5fbc4bbc.sqlite3",
+      "table": "memory_model_calls",
+      "rows": 3,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "database": "infra\\runtime\\p04\\scoring-acceptance\\life-browser-55d9917195da4873.sqlite3",
+      "table": "recollection_model_calls",
+      "rows": 1,
+      "input_tokens": 1363,
+      "output_tokens": 457
+    },
+    {
+      "database": "infra\\runtime\\p04\\scoring-acceptance\\life-browser-e8286ecbbce14cce.sqlite3",
+      "table": "recollection_model_calls",
+      "rows": 1,
+      "input_tokens": 1363,
+      "output_tokens": 457
+    },
+    {
+      "database": "infra\\runtime\\p04\\scoring-acceptance\\life.sqlite3",
+      "table": "recollection_model_calls",
+      "rows": 1,
+      "input_tokens": 1363,
+      "output_tokens": 457
+    }
+  ],
+  "deduplicated_by": "table + call_id/window_id; P04 browser copies counted once",
+  "unique_ledger_rows": {
+    "glm-4.7 / failed": {
+      "rows": 4,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "missing_usage": 4
+    },
+    "deepseek-flash / succeeded": {
+      "rows": 13,
+      "input_tokens": 35119,
+      "output_tokens": 2236,
+      "missing_usage": 0
+    }
+  },
+  "historical_zhipu_chat_lower_bound": 5,
+  "historical_zhipu_chat_sources": [
+    "docs/product/p00-p07/P00/P00_STAGE_LOG.md",
+    "docs/product/p00-p07/P01/P01_STAGE_LOG.md"
+  ],
+  "historical_zhipu_extraction": "Real P02 baseline exists; complete request/token billing not captured",
+  "historical_balance_observation": {
+    "balance_available": true,
+    "currency": "CNY",
+    "observed_account_balance_delta": "0.00",
+    "attribution": "account-level observation; other account activity cannot be excluded",
+    "generation_requests_in_relationship_acceptance": 12,
+    "input_tokens": 33756,
+    "output_tokens": 1779,
+    "additional_generation_calls": 0
+  },
+  "currency_cost_and_current_remaining_balance": "UNKNOWN; no fresh external balance query",
+  "image_generation_calls_in_audited_P00_P05_evidence": 0,
+  "scope": "Rebuild retained evidence/ledgers, not a provider-wide account billing statement",
+  "p05_public_request_ledger": {
+    "database": "infra\\runtime\\p05\\tools-acceptance.sqlite3",
+    "quick_check": "ok",
+    "network_requests": 6,
+    "statuses": [
+      [
+        "blocked",
+        2
+      ],
+      [
+        "deleted",
+        2
+      ],
+      [
+        "failed",
+        1
+      ],
+      [
+        "needs_input",
+        1
+      ],
+      [
+        "succeeded",
+        3
+      ]
+    ],
+    "interactions": [
+      [
+        "cancelled",
+        1
+      ]
+    ],
+    "running_tools": 0,
+    "memory_model_calls": 0,
+    "scoring_model_calls": 0,
+    "cancelled_chats_with_retained_data": 0,
+    "deleted_tools_with_retained_result": 0
+  }
+}

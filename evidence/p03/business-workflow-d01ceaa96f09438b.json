@@ -1,0 +1,47 @@
+{
+  "status": "FAIL",
+  "run_id": "d01ceaa96f09438b",
+  "started_at": "2026-11-03T17:25:50.666836+00:00",
+  "checks": {
+    "persistent_missing_input_and_authorization_gate": "PASS"
+  },
+  "scope": "real HTTP + SQLite + LangGraph + Vikunja; synthetic Mongo source, no chat generation",
+  "database": "infra\\runtime\\p02\\business-workflow-d01ceaa96f09438b.sqlite3",
+  "provider_calls": 0,
+  "provider_key_configured": false,
+  "states": [
+    {
+      "label": "before_restart_collect_missing",
+      "draft_id": "rd_8885434c1f4e4059a510239dfba5ed6c",
+      "next": [
+        "collect_missing"
+      ],
+      "interrupted": true,
+      "revision": 1,
+      "status": "needs_input"
+    },
+    {
+      "label": "after_restart_collect_missing",
+      "draft_id": "rd_8885434c1f4e4059a510239dfba5ed6c",
+      "next": [
+        "collect_missing"
+      ],
+      "interrupted": true,
+      "revision": 1,
+      "status": "needs_input"
+    },
+    {
+      "label": "ready_waiting_confirmation",
+      "draft_id": "rd_8885434c1f4e4059a510239dfba5ed6c",
+      "next": [
+        "await_confirmation"
+      ],
+      "interrupted": true,
+      "revision": 2,
+      "status": "ready_to_confirm"
+    }
+  ],
+  "error_type": "ReadTimeout",
+  "error": "SEE_PRIVATE_RUNTIME_LOG",
+  "ended_at": "2026-11-03T17:26:27.917666+00:00"
+}

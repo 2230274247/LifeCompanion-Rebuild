@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T00:08:21.735479+00:00",
+  "scope": "P04 scoring increment only, not P00-P07 completion",
+  "source_count": 14,
+  "source_sha256": {
+    ".env.example": "e32c6e6706043e299080a6e407d82ca8b32a54b107fb74855e8b6f57e72d4a10",
+    "services/life-core/app/config.py": "98c2f44b9f574822e473ff9f4026b3a7c9945378221c66ff400f89c09d86b509",
+    "services/life-core/app/main.py": "fd7cac897cd4fa680a36ebd1f22b87776582bbb27f7da9ebd62c49e0ae7fc5f5",
+    "services/life-core/app/memory.py": "fabb5a0881e86f1a09a4e34f3590b4dbdae7513c6b8ddf88dcae3860442b29a5",
+    "services/life-core/app/moments.py": "72bfb0a22164b9bc442d8a0d3bf72f4051fb8e2a090cd5bc7e8fd2009ad2e235",
+    "services/life-core/app/recollection_scoring.py": "5a5175a2e30119d270f8292dc8cc409f7ff5055f966435bd8ae6948710920780",
+    "services/life-core/tests/test_recollection_scoring.py": "1bd8dac82ad37f3dc1e898c7eca74c8349b0ef8fdb1cf2696ef4333e4bc21dee",
+    "services/life-core/tests/test_v023_moments.py": "8553bb3b658956fefaf75141eb30638fa5b6222cd3b52466b2ee8756c9d9d75d",
+    "scripts/acceptance_p04_scoring.py": "d3098b5a480625aafd4d742855da9ae8b497f47fd87d6e1a4bbf4be4dfba9e31",
+    "scripts/acceptance_p04_scoring_ui.cjs": "50e3b7cf9328921990ebe2a01aff8b60ad8af830312de9f166f9c2fc2b6ebf20",
+    "products/librechat-custom/client/src/components/Life/Moments.tsx": "c4a36b21ff59fc3a8e08b9bd24a1ce7711d6bb72f248a0f47a2fe758c0eaec98",
+    "products/librechat-custom/client/src/components/Life/__tests__/V023.spec.tsx": "62dd41926ab65b2b068a95a6d7c8d63c9ffd6b4b1d254433d8b33d7a25fcbfa1",
+    "products/librechat-custom/packages/data-provider/src/life.ts": "a5526bb4c5ce0eb269c2653593c890bba3f1e85a2d10c451df61ffc8837d7138",
+    "products/librechat-custom/client/src/locales/en/translation.json": "513a55b13964abffa7d9474018d77ae5ab787227f3c1e81991d0499852009600"
+  },
+  "report_sha256": {
+    "evidence/p04/scoring-7352368da5744a1b/scoring-live.json": "791371e1e8e6c14fd78a0b6b7b651e26102cdfeb9a6e9bdcbb456eb4f8eb407f",
+    "evidence/p04/scoring-55d9917195da4873/scoring-ui.json": "0b5d115d73d78afce70bcee5f8442fe4407c2ffdef23b16f2fc8f3d7e5476f6f",
+    "evidence/p04/scoring-e8286ecbbce14cce/scoring-live.json": "d943dd50f69787ef95f5eb3d253aa065b3f33b97bfb1b9313c6d7a6cb894f590",
+    "evidence/p04/scoring-e8286ecbbce14cce/scoring-ui.json": "0b5d115d73d78afce70bcee5f8442fe4407c2ffdef23b16f2fc8f3d7e5476f6f",
+    "evidence/p04/core-reload-scoring-final.json": "4ae3ac07e482073cb4ccb72353d2c0e7db6d2294b98d0f8fa70943e9311058fc",
+    "evidence/p04/upstream-scoring-patch-delivery.json": "6c80af5589e6bbd947ce4aed693e9cbcb532098c2ac4ac68821453e49ddccf20"
+  },
+  "paid_scoring_calls": 1,
+  "input_tokens": 1363,
+  "output_tokens": 457,
+  "image_calls": 0,
+  "common_core_database": {
+    "memory_calls": 0,
+    "scoring_calls": 0,
+    "image_consent_users": 0
+  },
+  "health": {
+    "8031": 200,
+    "3031": 200,
+    "3091": 200
+  },
+  "served_frontend_matches_build": true,
+  "backend_passed": 144,
+  "frontend_focused_passed": 8,
+  "remaining": [
+    "P04 image provider/file/hash",
+    "P04 human-reviewed 100-case evaluation",
+    "P00-P03 remaining gaps",
+    "P05-P07 implementation and acceptance"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "started_at": "2026-11-03T16:56:30.102Z",
+  "provider_calls": 0,
+  "scope": "real browser on persisted synthetic source; generation endpoint blocked; no chat submission",
+  "scenarios": [
+    {
+      "mode": "keyboard-desktop",
+      "status": "PASS",
+      "draft_id": "rd_aab4c8665e744872964fd07aca7c52d7",
+      "source_message_id": "p03-source-84b0de8d0a5a",
+      "reminder_id": "rem_07f8ef2230ad442d98152c41c4da85f9",
+      "only_time_missing": true,
+      "negated_constraint_preserved": true,
+      "touch_target_height": 44,
+      "saved_status": "scheduled",
+      "cancelled_after_reload": true,
+      "cancelled_in_fresh_authenticated_session": true,
+      "horizontal_overflow": false
+    },
+    {
+      "mode": "touch-mobile",
+      "status": "PASS",
+      "draft_id": "rd_f55ebeab77844ccba2001c8b8f3253bf",
+      "source_message_id": "p03-source-aaf470815105",
+      "reminder_id": "rem_a0a6c56e97914ed7a5f814f75257fb93",
+      "only_time_missing": true,
+      "negated_constraint_preserved": true,
+      "touch_target_height": 44,
+      "saved_status": "scheduled",
+      "cancelled_after_reload": true,
+      "cancelled_in_fresh_authenticated_session": true,
+      "horizontal_overflow": false
+    }
+  ],
+  "generation_attempts": 0,
+  "ended_at": "2026-11-03T16:57:35.592Z"
+}

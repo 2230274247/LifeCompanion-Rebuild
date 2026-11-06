@@ -1,0 +1,10 @@
+{
+  "connectivity": "PASS",
+  "name": "Neo4j Kernel",
+  "version": "5.26.32",
+  "constraints": [
+    "lc_entity_key",
+    "lc_evidence_key",
+    "lc_memory_id"
+  ]
+}

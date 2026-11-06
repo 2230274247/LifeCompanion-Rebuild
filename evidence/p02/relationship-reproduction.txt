@@ -1,0 +1,182 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+______________ test_people_companies_and_invitation_are_distinct ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-49/test_people_companies_and_invi0')
+
+    def test_people_companies_and_invitation_are_distinct(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            uid = bootstrap(client)["life_user_id"]
+            memory = app.state.memory
+>           a = save(memory, uid, "С��", "��̿Ƽ�", "С������̿Ƽ�����", "a")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_memory_relationships.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_memory_relationships.py:29: in save
+    candidate = relationship(person, organization, relation_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+person = 'С��', organization = '��̿Ƽ�', relation_type = 'works_at'
+
+    def relationship(person, organization, relation_type="works_at"):
+>       return Candidate(
+            candidate_type="stable_fact",
+            canonical_text=f"{person}��{organization}����",
+            evidence_quote=f"{person}��{organization}����",
+            occurred_state="occurred",
+            fact_key="relationship",
+            value=organization,
+            confidence=.9,
+            sensitivity="ordinary",
+            entities=[
+                MemoryEntity(name=person, entity_type="person"),
+                MemoryEntity(name=organization, entity_type="organization"),
+            ],
+            relations=[MemoryRelation(source=person, relation_type=relation_type, target=organization)],
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for Candidate
+E       fact_key
+E         Input should be 'drink_preference', 'residence' or 'other' [type=literal_error, input_value='relationship', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.14/v/literal_error
+
+tests\test_memory_relationships.py:9: ValidationError
+__ test_relationship_timeline_reorders_late_history_without_changing_current __
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-49/test_relationship_timeline_reo0')
+
+    def test_relationship_timeline_reorders_late_history_without_changing_current(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            uid = bootstrap(client)["life_user_id"]
+            memory = app.state.memory
+            memory.set_permissions(uid, {"recall_consent": True})
+>           original = save(memory, uid, "С��", "��̿Ƽ�", "2026-10-23С������̿Ƽ�����", "a")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_memory_relationships.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_memory_relationships.py:29: in save
+    candidate = relationship(person, organization, relation_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+person = 'С��', organization = '��̿Ƽ�', relation_type = 'works_at'
+
+    def relationship(person, organization, relation_type="works_at"):
+>       return Candidate(
+            candidate_type="stable_fact",
+            canonical_text=f"{person}��{organization}����",
+            evidence_quote=f"{person}��{organization}����",
+            occurred_state="occurred",
+            fact_key="relationship",
+            value=organization,
+            confidence=.9,
+            sensitivity="ordinary",
+            entities=[
+                MemoryEntity(name=person, entity_type="person"),
+                MemoryEntity(name=organization, entity_type="organization"),
+            ],
+            relations=[MemoryRelation(source=person, relation_type=relation_type, target=organization)],
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for Candidate
+E       fact_key
+E         Input should be 'drink_preference', 'residence' or 'other' [type=literal_error, input_value='relationship', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.14/v/literal_error
+
+tests\test_memory_relationships.py:9: ValidationError
+_ test_ambiguous_employment_does_not_silently_replace_existing_or_invent_date _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-49/test_ambiguous_employment_does0')
+
+    def test_ambiguous_employment_does_not_silently_replace_existing_or_invent_date(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            uid = bootstrap(client)["life_user_id"]
+            memory = app.state.memory
+>           original = save(memory, uid, "С��", "��̿Ƽ�", "С������̿Ƽ�����", "a")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_memory_relationships.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_memory_relationships.py:29: in save
+    candidate = relationship(person, organization, relation_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+person = 'С��', organization = '��̿Ƽ�', relation_type = 'works_at'
+
+    def relationship(person, organization, relation_type="works_at"):
+>       return Candidate(
+            candidate_type="stable_fact",
+            canonical_text=f"{person}��{organization}����",
+            evidence_quote=f"{person}��{organization}����",
+            occurred_state="occurred",
+            fact_key="relationship",
+            value=organization,
+            confidence=.9,
+            sensitivity="ordinary",
+            entities=[
+                MemoryEntity(name=person, entity_type="person"),
+                MemoryEntity(name=organization, entity_type="organization"),
+            ],
+            relations=[MemoryRelation(source=person, relation_type=relation_type, target=organization)],
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for Candidate
+E       fact_key
+E         Input should be 'drink_preference', 'residence' or 'other' [type=literal_error, input_value='relationship', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.14/v/literal_error
+
+tests\test_memory_relationships.py:9: ValidationError
+__________ test_relationship_source_replay_and_withdrawal_tombstone ___________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-49/test_relationship_source_repla0')
+
+    def test_relationship_source_replay_and_withdrawal_tombstone(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            uid = bootstrap(client)["life_user_id"]
+            memory = app.state.memory
+            args = (memory, uid, "С��", "��̿Ƽ�", "2026-10-23С������̿Ƽ�����", "original")
+>           item = save(*args)
+                   ^^^^^^^^^^^
+
+tests\test_memory_relationships.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_memory_relationships.py:29: in save
+    candidate = relationship(person, organization, relation_type)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+person = 'С��', organization = '��̿Ƽ�', relation_type = 'works_at'
+
+    def relationship(person, organization, relation_type="works_at"):
+>       return Candidate(
+            candidate_type="stable_fact",
+            canonical_text=f"{person}��{organization}����",
+            evidence_quote=f"{person}��{organization}����",
+            occurred_state="occurred",
+            fact_key="relationship",
+            value=organization,
+            confidence=.9,
+            sensitivity="ordinary",
+            entities=[
+                MemoryEntity(name=person, entity_type="person"),
+                MemoryEntity(name=organization, entity_type="organization"),
+            ],
+            relations=[MemoryRelation(source=person, relation_type=relation_type, target=organization)],
+        )
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for Candidate
+E       fact_key
+E         Input should be 'drink_preference', 'residence' or 'other' [type=literal_error, input_value='relationship', input_type=str]
+E           For further information visit https://errors.pydantic.dev/2.14/v/literal_error
+
+tests\test_memory_relationships.py:9: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_memory_relationships.py::test_people_companies_and_invitation_are_distinct
+FAILED tests/test_memory_relationships.py::test_relationship_timeline_reorders_late_history_without_changing_current
+FAILED tests/test_memory_relationships.py::test_ambiguous_employment_does_not_silently_replace_existing_or_invent_date
+FAILED tests/test_memory_relationships.py::test_relationship_source_replay_and_withdrawal_tombstone
+4 failed in 2.93s

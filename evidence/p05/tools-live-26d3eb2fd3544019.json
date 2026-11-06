@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "started_at": "2026-11-04T00:18:59.969564+00:00",
+  "database": "infra\\runtime\\p05\\tools-acceptance.sqlite3",
+  "scope": "authenticated real Core/provider/SQLite/restart acceptance; not chat/UI/voice/followup E2E",
+  "model_calls": 0,
+  "image_calls": 0,
+  "network_request_budget": 3,
+  "checks": {
+    "authenticated_catalog_and_schema": "PASS"
+  },
+  "provider_receipts": [],
+  "ended_at": "2026-11-04T00:19:03.128325+00:00"
+}

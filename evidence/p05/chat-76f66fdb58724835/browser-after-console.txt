@@ -1,0 +1,5 @@
+{"status":"FAIL","scenarios":[],"model_generation_requests":0}
+TimeoutError: locator.waitFor: Timeout 40000ms exceeded.
+Call log:
+[2m  - waiting for getByTestId('weather-tool-card') to be visible[22m
+

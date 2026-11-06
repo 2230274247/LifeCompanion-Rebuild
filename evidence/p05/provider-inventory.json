@@ -1,0 +1,25 @@
+{
+  "status": "PARTIAL",
+  "checked_at": "2026-11-04T00:11:08.662491+00:00",
+  "scope": "read-only configuration and upstream source audit; presence does not authorize a provider",
+  "custom_endpoints": [
+    "Zhipu",
+    "DeepSeek"
+  ],
+  "configured_top_level_features": {
+    "webSearch": false,
+    "speech": false,
+    "mcpServers": false
+  },
+  "provider_key_name_presence_only": {
+    "isolated_acceptance": {},
+    "rebuild_reference": {
+      "SEARCH": true
+    }
+  },
+  "python_mcp_sdk_installed": false,
+  "native_registry_source": "products/librechat-custom/packages/api/src/tools/registry/definitions.ts",
+  "native_web_search_source": "products/librechat-custom/api/server/services/Tools/search.js",
+  "existing_business_bridge": "products/librechat-custom/packages/api/src/memory/life.ts",
+  "model_calls": 0
+}

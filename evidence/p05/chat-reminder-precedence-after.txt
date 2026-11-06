@@ -1,0 +1,19 @@
+
+> @librechat/api@1.7.52 test:ci
+> jest --coverage --ci --testPathIgnorePatterns="\.*integration\.|\.*helper\.|__tests__/helpers/|\.*manual\.spec\." --runInBand --coverage=false src/memory/life.spec.ts
+
+PASS src/memory/life.spec.ts
+  Life Companion memory boundary
+    √ keeps explicit reminders about weather on the reminder workflow (13 ms)
+    √ adds authorized facts only to a copy of the current model-bound user message (4 ms)
+    √ preserves chat when memory is disabled or unreachable (9 ms)
+    √ queues the persisted source with the server identity, never an assistant answer (4 ms)
+    √ executes reminders only after persistence and includes the real service result (5 ms)
+    √ manual memory follows the previous user source and excludes assistant embellishment (2 ms)
+    √ uses the same persistence boundary for weather and never picks an ambiguous place (7 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        5.466 s
+Ran all test suites matching src/memory/life.spec.ts.

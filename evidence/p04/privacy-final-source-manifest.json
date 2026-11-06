@@ -1,0 +1,19 @@
+{
+  "snapshot_at": "2026-11-04T02:33:56.247487+08:00",
+  "code_files": 12,
+  "scope": "P04 source hashes; full batch-start snapshots only for moments.py and main.py; upstream patch is cumulative",
+  "files": {
+    "services/life-core/app/moments.py": "706265781f706e8127728b0b88f782314e90f9767e4fb2129a044dd6163f56b1",
+    "services/life-core/app/main.py": "53ffff1bc17c0771484bafe76bc9570a1c19400543791dc24b10fed3c8471a6c",
+    "services/life-core/tests/test_moment_privacy.py": "cfe02177ee9414698f22722bf1e3ea2cf505447c8d27351b3da657aa96d7265e",
+    "services/life-core/tests/test_v023_moments.py": "6785112427577db372790f3baac0b4027691765ef467f046dae34caa4627e3d1",
+    "scripts/acceptance_p03_reload_core.py": "d5aa286c4eb573e2a2a0c58b36357df79f432dec84e44d62ce5fe3a2c05b1164",
+    "scripts/acceptance_p04_privacy.py": "83728cc47f4e7f0285172660f57a0669ca6e7927688ae98ed4613793e1b204f7",
+    "scripts/acceptance_p04_privacy_ui.cjs": "c024467778cf0fce5d7c9dc30fe6c119513cb2f605abb359abc37f707347ac94",
+    "scripts/acceptance_p04_legacy_privacy.py": "b00e82b75d090f26c778995941151e6a998b85eac5548347fbc5a81684a87f6c",
+    "products/librechat-custom/client/src/components/Life/Moments.tsx": "cca7418be1e061e18e3bc8f09273db0602626827fd24e46699d5dbaecf9c448d",
+    "products/librechat-custom/client/src/components/Life/__tests__/V023.spec.tsx": "c677a45d06e9933e2b961b9416e08251ae2eb3c741d28d5e7dd9f00dd9180fd1",
+    "products/librechat-custom/client/src/locales/en/translation.json": "67415d3a964451d64a56e6f09e3b76ce5cc641703f61d9720b0d63d3cff9bebd",
+    "products/librechat-custom/packages/data-provider/src/life.ts": "30536eb60981a8be2d40af9ee014d18942e1cd75f3554770a098cb0026d5e72b"
+  }
+}

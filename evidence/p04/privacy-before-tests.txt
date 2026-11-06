@@ -1,0 +1,131 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+_ test_consent_revocation_synchronously_scrubs_all_derived_content[image_consent] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_consent_revocation_synchr0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A79F9010>
+permission = 'image_consent'
+
+    @pytest.mark.parametrize("permission", ["image_consent", "memory_consent"])
+    def test_consent_revocation_synchronously_scrubs_all_derived_content(tmp_path, monkeypatch, permission):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, _ = seeded(app, client, monkeypatch)
+            response = client.patch("/api/v1/me/settings", headers=auth(), json={permission: False})
+            assert response.status_code == 200
+            with app.state.store.connect() as db:
+                row = db.execute("SELECT * FROM moments WHERE user_id=?", (owner,)).fetchone()
+>           assert row["status"] == "cancelled"
+E           AssertionError: assert 'generated' == 'cancelled'
+E             
+E             - cancelled
+E             + generated
+
+services\life-core\tests\test_moment_privacy.py:40: AssertionError
+_ test_consent_revocation_synchronously_scrubs_all_derived_content[memory_consent] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_consent_revocation_synchr1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A79F9AF0>
+permission = 'memory_consent'
+
+    @pytest.mark.parametrize("permission", ["image_consent", "memory_consent"])
+    def test_consent_revocation_synchronously_scrubs_all_derived_content(tmp_path, monkeypatch, permission):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, _ = seeded(app, client, monkeypatch)
+            response = client.patch("/api/v1/me/settings", headers=auth(), json={permission: False})
+            assert response.status_code == 200
+            with app.state.store.connect() as db:
+                row = db.execute("SELECT * FROM moments WHERE user_id=?", (owner,)).fetchone()
+>           assert row["status"] == "cancelled"
+E           AssertionError: assert 'generated' == 'cancelled'
+E             
+E             - cancelled
+E             + generated
+
+services\life-core\tests\test_moment_privacy.py:40: AssertionError
+__ test_sensitive_memory_permission_does_not_authorize_automatic_image_reuse __
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_sensitive_memory_permissi0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A7A41C70>
+
+    def test_sensitive_memory_permission_does_not_authorize_automatic_image_reuse(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, memory_id = seeded(app, client, monkeypatch)
+            app.state.memory.set_permissions(owner, {"sensitive_consent": True})
+            with app.state.store.connect() as db:
+                db.execute("UPDATE memory_items SET sensitivity='sensitive' WHERE memory_id=?", (memory_id,))
+>           assert not app.state.moments.authorized(owner, [memory_id])
+E           AssertionError: assert not True
+E            +  where True = authorized('life_ec82aa87040897c46bc0', ['mem_6295fa4b9de7564c943427b2'])
+E            +    where authorized = <app.moments.Moments object at 0x00000241A7BDE0C0>.authorized
+E            +      where <app.moments.Moments object at 0x00000241A7BDE0C0> = <starlette.datastructures.State object at 0x00000241A79FB560>.moments
+E            +        where <starlette.datastructures.State object at 0x00000241A79FB560> = <fastapi.applications.FastAPI object at 0x00000241A7AD2AE0>.state
+
+services\life-core\tests\test_moment_privacy.py:52: AssertionError
+_________ test_unknown_provider_result_cannot_be_resubmitted_by_retry _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_unknown_provider_result_c0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A7C01A30>
+
+    def test_unknown_provider_result_cannot_be_resubmitted_by_retry(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            seeded(app, client, monkeypatch, status="unknown")
+            response = client.post("/api/v1/moments/privacy-moment/retry", headers=auth())
+>           assert response.status_code == 409
+E           assert 200 == 409
+E            +  where 200 = <Response [200 OK]>.status_code
+
+services\life-core\tests\test_moment_privacy.py:63: AssertionError
+________ test_provider_server_error_is_unknown_and_cannot_charge_again ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_provider_server_error_is_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A7C6AAE0>
+
+    def test_provider_server_error_is_unknown_and_cannot_charge_again(tmp_path, monkeypatch):
+        from dataclasses import replace
+        app, client = make_app(tmp_path)
+        with client:
+            owner, _ = seeded(app, client, monkeypatch, status="queued")
+            moments = app.state.moments
+            moments.settings = replace(moments.settings, memory_llm_provider="zhipu", memory_llm_key="synthetic")
+            def rejected(_caption):
+                response = httpx.Response(502, request=httpx.Request("POST", "https://synthetic.invalid"))
+                raise httpx.HTTPStatusError("synthetic", request=response.request, response=response)
+            monkeypatch.setattr(moments, "generate", rejected)
+            assert moments.run_one()
+>           assert moments.detail(owner, "privacy-moment")["status"] == "unknown"
+E           AssertionError: assert 'failed' == 'unknown'
+E             
+E             - unknown
+E             + failed
+
+services\life-core\tests\test_moment_privacy.py:82: AssertionError
+____ test_read_rechecks_source_even_when_invalidation_hook_was_not_called _____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-73/test_read_rechecks_source_even0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000241A7C027E0>
+
+    def test_read_rechecks_source_even_when_invalidation_hook_was_not_called(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, memory_id = seeded(app, client, monkeypatch)
+            app.state.memory.invalidate(owner, memory_id)
+            rows = client.get("/api/v1/moments", headers=auth()).json()["moments"]
+>           assert rows[0]["status"] == "cancelled" and rows[0]["caption"] == ""
+E           AssertionError: assert ('generated' == 'cancelled'
+E             
+E             - cancelled
+E             + generated)
+
+services\life-core\tests\test_moment_privacy.py:92: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_moment_privacy.py::test_consent_revocation_synchronously_scrubs_all_derived_content[image_consent]
+FAILED services/life-core/tests/test_moment_privacy.py::test_consent_revocation_synchronously_scrubs_all_derived_content[memory_consent]
+FAILED services/life-core/tests/test_moment_privacy.py::test_sensitive_memory_permission_does_not_authorize_automatic_image_reuse
+FAILED services/life-core/tests/test_moment_privacy.py::test_unknown_provider_result_cannot_be_resubmitted_by_retry
+FAILED services/life-core/tests/test_moment_privacy.py::test_provider_server_error_is_unknown_and_cannot_charge_again
+FAILED services/life-core/tests/test_moment_privacy.py::test_read_rechecks_source_even_when_invalidation_hook_was_not_called
+6 failed in 11.01s

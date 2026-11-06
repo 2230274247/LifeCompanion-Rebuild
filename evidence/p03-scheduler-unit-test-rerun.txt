@@ -1,0 +1,41 @@
+..F.                                                                     [100%]
+================================== FAILURES ===================================
+___________ test_scheduler_jobstore_persists_one_job_across_restart ___________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-58/test_scheduler_jobstore_persis0')
+
+    def test_scheduler_jobstore_persists_one_job_across_restart(tmp_path):
+        path = tmp_path / "scheduler.sqlite3"
+        first = create_scheduler(path, callback=lambda: None, interval_seconds=60)
+        assert first.get_job(RECONCILE_JOB_ID) is not None
+>       first.start(paused=True)
+
+services\life-core\tests\test_reminder_workflow.py:47: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+infra\runtime\p02\venv\Lib\site-packages\apscheduler\schedulers\blocking.py:18: in start
+    super().start(*args, **kwargs)
+infra\runtime\p02\venv\Lib\site-packages\apscheduler\schedulers\base.py:210: in start
+    self._real_add_job(job, jobstore_alias, replace_existing)
+infra\runtime\p02\venv\Lib\site-packages\apscheduler\schedulers\base.py:1078: in _real_add_job
+    store.add_job(job)
+infra\runtime\p02\venv\Lib\site-packages\apscheduler\jobstores\sqlalchemy.py:118: in add_job
+    "job_state": pickle.dumps(job.__getstate__(), self.pickle_protocol),
+                              ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Job (id=reminder-notification-reconciliation name=test_scheduler_jobstore_persists_one_job_across_restart.<locals>.<lambda>)>
+
+    def __getstate__(self):
+        # Don't allow this Job to be serialized if the function reference could not be determined
+        if not self.func_ref:
+>           raise ValueError(
+                f"This Job cannot be serialized since the reference to its callable ({self.func!r}) could not "
+                "be determined. Consider giving a textual reference (module:function name) "
+                "instead."
+            )
+E           ValueError: This Job cannot be serialized since the reference to its callable (<function test_scheduler_jobstore_persists_one_job_across_restart.<locals>.<lambda> at 0x0000021AD4B93BA0>) could not be determined. Consider giving a textual reference (module:function name) instead.
+
+infra\runtime\p02\venv\Lib\site-packages\apscheduler\job.py:263: ValueError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_reminder_workflow.py::test_scheduler_jobstore_persists_one_job_across_restart
+1 failed, 3 passed in 2.71s

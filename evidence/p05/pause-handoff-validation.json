@@ -1,0 +1,78 @@
+{
+  "status": "PARTIAL",
+  "closeout_checks": "PASS",
+  "checked_at": "2026-11-04T09:50:34.075117+08:00",
+  "pause_state": "PAUSED_FOR_USER_REVIEW",
+  "document_count": 8,
+  "local_links_checked": 79,
+  "new_report_and_checkpoint_links": "PASS",
+  "historical_index_links": "FAIL; 8 pre-P00 evidence targets absent from isolated worktree; retained, not fabricated",
+  "inherited_missing_links": [
+    {
+      "file": "docs\\product\\README.md",
+      "target": "../../evidence/v02-memory-reminders/README.md"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/v02-tests/README.md"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/v02-live-verification.json"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/launcher-verification.json"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/v02-memory-reminders/README.md"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/v022-reminder-dialog/acceptance-matrix.md"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/public-deployment-checks.json"
+    },
+    {
+      "file": "docs\\development-log\\README.md",
+      "target": "../../evidence/demo-admin-check.json"
+    }
+  ],
+  "source_hashes_unchanged": 18,
+  "matrix_items": 73,
+  "P00_P05_items": 53,
+  "scenario_pass": 14,
+  "root_dirty_count": 654,
+  "nested_dirty_count": 63,
+  "root_status_counts": {
+    " M": 33,
+    "??": 621
+  },
+  "nested_status_counts": {
+    " M": 38,
+    "??": 25
+  },
+  "scoped_diff_check": "PASS",
+  "external_requests": 0,
+  "next_step": "Await explicit user authorization; start at NEXT_ACTION.md and remaining P05 weather acceptance",
+  "artifacts": {
+    "docs\\product\\LifeCompanion-Rebuild_\u5f53\u524d\u5f00\u53d1\u8fdb\u5ea6\u4e0e\u9057\u7559\u95ee\u9898\u5ba1\u8ba1\u62a5\u544a_2026-11-04.md": "25c6c6bcc0db23cede1419923dd09abe4b9c676a8552ec5ef6363cca5baaced8",
+    "docs\\development-log\\2026-11-04_09-40_P05\u5929\u6c14\u6536\u5c3e\u4e0e\u4eba\u5de5\u6682\u505c\u5ba1\u8ba1_\u5f00\u53d1\u9a8c\u6536.md": "dcc4e6e57e451accb4d04323a02eb252baeca0b898b4e09c767151429719fce5",
+    "docs\\development-log\\2026-11-04_08-46_P05\u5929\u6c14\u804a\u5929\u5361\u4e0e\u53d7\u9650\u7f51\u5173_\u5f00\u53d1\u9a8c\u6536.md": "ff156db0de9b6e8d9b1e031bd45bb350fe8f48022d0105f5d082f57d38a4062c",
+    "NEXT_ACTION.md": "5ce8648e9f18189d5d748174f9f3488d6668f4020d4b95374b58cfd8f91d2cd6",
+    "docs\\product\\README.md": "7e56df35f988333765ef3f9652cecce738c925d486347b48763d729710c48e6a",
+    "docs\\development-log\\README.md": "8086cdb00372ec2f8d09bef553dcd4b37b53e5f72c05e300f8ec00ebc5f42dc9",
+    "docs\\product\\p00-p07\\11_\u8de8\u9636\u6bb5\u603b\u9a8c\u6536\u77e9\u9635.md": "db71a1f27f6fe16229cad1df4472264d710aa81a3d437ae6b3ccedc46863c072",
+    "docs\\product\\p00-p07\\P05\\P05_STAGE_LOG.md": "7d8bddca6baf295e1ffffb61887d1ab50efaa085d3ed126e573adfd0d3015f16",
+    "evidence\\p05\\chat-delivery-audit-r2.json": "be2f7a8a40535f448241b38e1759fbb31eaaea2dbfcc542c5c31b06f72c30ed0",
+    "evidence\\p05\\pause-git-status.json": "d19710a93d6ad444333004a0be691077334a1ed99180663cd1cf662547623e6f",
+    "evidence\\p05\\pause-services.json": "dc45c238d5c61bb2c52e828664d511f892fb9566e3564c844faa6496a3895e22",
+    "evidence\\p05\\pause-api-usage.json": "8a88980ca15cbdf0ddfdabc458c4400b2408b1005dc99b7a3ca4774e13ccf054",
+    "evidence\\p05\\pause-sensitive-scan.json": "54c526029009607f7786002ac943940638d0e7cb290f1b88276ad23f1e6b5d0b",
+    "evidence\\p05\\pause-stage-inventory.json": "dbb2911a36876b4c6fb6c2fb7680f75c252a6848d9de804a303ddb91fd131f86",
+    "evidence\\p05\\pause_audit_readonly.py": "6b9198ccf357aa920bd13fb00d03dc556cb41d372c345c039d857cd4732a2dd3"
+  }
+}

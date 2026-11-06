@@ -1,0 +1,64 @@
+{"status": "FAIL", "evidence": "evidence\\p05\\chat-8f295b3a3de34b4e"}
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpcore\_sync\http11.py", line 231, in _receive_event
+    raise RemoteProtocolError(msg)
+httpcore.RemoteProtocolError: Server disconnected without sending a response.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_chat.py", line 194, in <module>
+    main()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_chat.py", line 83, in main
+    served = httpx.get("http://127.0.0.1:3091/login", timeout=15, trust_env=False)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_api.py", line 195, in get
+    return request(
+           ^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_api.py", line 109, in request
+    return client.request(
+           ^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.

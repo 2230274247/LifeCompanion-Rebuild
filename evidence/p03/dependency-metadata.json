@@ -1,0 +1,28 @@
+[
+  {
+    "name": "APScheduler",
+    "version": "3.11.3",
+    "license": "MIT",
+    "classifiers": [
+      "License :: OSI Approved :: MIT License"
+    ]
+  },
+  {
+    "name": "SQLAlchemy",
+    "version": "2.0.55",
+    "license": "MIT",
+    "classifiers": []
+  },
+  {
+    "name": "langgraph",
+    "version": "1.2.19",
+    "license": "MIT",
+    "classifiers": []
+  },
+  {
+    "name": "langgraph-checkpoint-sqlite",
+    "version": "3.1.3",
+    "license": "MIT",
+    "classifiers": []
+  }
+]

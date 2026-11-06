@@ -1,0 +1,52 @@
+{
+  "evidence_level": "REBUILD_RUNTIME_VERIFIED",
+  "checks": {
+    "chat_a_persisted": "PASS",
+    "chat_a_other_user": "PASS",
+    "chat_b_persisted": "PASS",
+    "chat_b_other_user": "PASS",
+    "chat_c_persisted": "PASS",
+    "chat_c_other_user": "PASS",
+    "chat_d_persisted": "PASS",
+    "chat_d_other_user": "PASS",
+    "usb_umbrella_both_recalled": "PASS",
+    "draft_list_http": 200,
+    "draft_owner_isolation": 422,
+    "draft_owner_isolation_retry_http": 404
+  },
+  "provider": "existing Zhipu glm-4.7",
+  "new_chat_call_limit": 4,
+  "image_calls": 0,
+  "real_device_delivery": "UNKNOWN",
+  "synthetic_recall_answer": "根据您提供的记录，您明天需要带以下东西：\n\n1. **雨伞**（来源：[/knowledge/mem_4df7e87ba2e265d0f81c5291](/knowledge/mem_4df7e87ba2e265d0f81c5291)）\n2. **绿色 U 盘**（明确**不是银色的**）（来源：[/knowledge/mem_ca87f427e8e99bd19e39c172](/knowledge/mem_ca87f427e8e99bd19e39c172)）\n\n除上述物品外，目前没有其他证据支持您明天还需要带别的东西。",
+  "reminder_drafts": [
+    {
+      "draft_id": "rd_b38ac111acec467caa2003a4ca3674e8",
+      "status": "needs_input",
+      "missing_fields": [
+        "event_time"
+      ],
+      "quick_choice": {
+        "field": "event_time",
+        "options": [
+          {
+            "label": "08:00",
+            "value": "08:00"
+          },
+          {
+            "label": "09:00",
+            "value": "09:00"
+          },
+          {
+            "label": "10:00",
+            "value": "10:00"
+          }
+        ],
+        "other": "time"
+      },
+      "title": "带绿色 U 盘，不是银色的"
+    }
+  ],
+  "elapsed_seconds": 29.39,
+  "overall": "PARTIAL"
+}

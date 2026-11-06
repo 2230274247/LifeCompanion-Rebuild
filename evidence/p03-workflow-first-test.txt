@@ -1,0 +1,387 @@
+............FFFF....F                                                    [100%]
+================================== FAILURES ===================================
+_ test_ambiguous_reference_returns_owner_conversation_choices_without_execution _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-55/test_ambiguous_reference_retur0')
+
+    def test_ambiguous_reference_returns_owner_conversation_choices_without_execution(tmp_path):
+        app, client = make_app(tmp_path)
+        headers = {"Authorization": f"Bearer {token_for('ordinary-c')}"}
+        with client:
+            owner = client.get("/api/v1/me", headers=headers).json()["life_user_id"]
+            drafts = app.state.reminder_drafts
+>           first = drafts.create(owner, "conversation-c", "first", TEXT)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_reminder_drafts.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\reminder_drafts.py:218: in create
+    self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
+services\life-core\app\reminder_drafts.py:170: in checkpoint
+    return self.workflow.transition({
+services\life-core\app\reminder_workflow.py:40: in transition
+    snapshot = graph.get_state({"configurable": {
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:1466: in get_state
+    if subgraph := self._subgraph_for_namespace(config, checkpointer):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <langgraph.graph.state.CompiledStateGraph object at 0x0000023716459BB0>
+config = {'configurable': {'checkpoint_ns': 'reminder', 'thread_id': 'reminder:life_097596772c961894d823:rd_3d994316992c4a2a8ae6893791b0c3ab'}}
+checkpointer = <langgraph.checkpoint.sqlite.SqliteSaver object at 0x0000023716459250>
+
+    def _subgraph_for_namespace(
+        self, config: RunnableConfig, checkpointer: BaseCheckpointSaver
+    ) -> tuple[PregelProtocol, RunnableConfig] | None:
+        """The subgraph a state method's namespaced config addresses, and the
+        config to call it with, lending it `checkpointer`. `None` when the
+        config is for this graph."""
+        checkpoint_ns = config[CONF].get(CONFIG_KEY_CHECKPOINT_NS, "")
+        if not checkpoint_ns or CONFIG_KEY_CHECKPOINTER in config[CONF]:
+            return None
+        recast = recast_checkpoint_ns(checkpoint_ns)
+        for _, pregel in self.get_subgraphs(namespace=recast, recurse=True):
+            return pregel, patch_configurable(
+                config, {CONFIG_KEY_CHECKPOINTER: checkpointer}
+            )
+>       raise ValueError(f"Subgraph {recast} not found")
+E       ValueError: Subgraph reminder not found
+
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:900: ValueError
+___________________ test_deleted_source_blocks_confirmation ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002377C2C39B0>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-55/test_deleted_source_blocks_con0')
+
+    def test_deleted_source_blocks_confirmation(monkeypatch, tmp_path):
+        app, client = make_app(tmp_path)
+        headers = {"Authorization": f"Bearer {token_for('ordinary-c')}"}
+        monkeypatch.setattr("app.main.httpx.get", lambda *args, **kwargs: httpx.Response(404))
+        with client:
+            owner = client.get("/api/v1/me", headers=headers).json()["life_user_id"]
+>           draft = app.state.reminder_drafts.create(
+                owner, "conversation-c", "deleted-source", TEXT, fields=fields(event_date="2099-11-04"))
+
+services\life-core\tests\test_reminder_drafts.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\reminder_drafts.py:218: in create
+    self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
+services\life-core\app\reminder_drafts.py:170: in checkpoint
+    return self.workflow.transition({
+services\life-core\app\reminder_workflow.py:40: in transition
+    snapshot = graph.get_state({"configurable": {
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:1466: in get_state
+    if subgraph := self._subgraph_for_namespace(config, checkpointer):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <langgraph.graph.state.CompiledStateGraph object at 0x0000023716578D70>
+config = {'configurable': {'checkpoint_ns': 'reminder', 'thread_id': 'reminder:life_097596772c961894d823:rd_a6ce95d10dc44814bffe50df41696d91'}}
+checkpointer = <langgraph.checkpoint.sqlite.SqliteSaver object at 0x0000023716579070>
+
+    def _subgraph_for_namespace(
+        self, config: RunnableConfig, checkpointer: BaseCheckpointSaver
+    ) -> tuple[PregelProtocol, RunnableConfig] | None:
+        """The subgraph a state method's namespaced config addresses, and the
+        config to call it with, lending it `checkpointer`. `None` when the
+        config is for this graph."""
+        checkpoint_ns = config[CONF].get(CONFIG_KEY_CHECKPOINT_NS, "")
+        if not checkpoint_ns or CONFIG_KEY_CHECKPOINTER in config[CONF]:
+            return None
+        recast = recast_checkpoint_ns(checkpoint_ns)
+        for _, pregel in self.get_subgraphs(namespace=recast, recurse=True):
+            return pregel, patch_configurable(
+                config, {CONFIG_KEY_CHECKPOINTER: checkpointer}
+            )
+>       raise ValueError(f"Subgraph {recast} not found")
+E       ValueError: Subgraph reminder not found
+
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:900: ValueError
+______ test_real_draft_lifecycle_owner_revision_concurrency_and_recovery ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002377C2F0EC0>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-55/test_real_draft_lifecycle_owne0')
+
+    def test_real_draft_lifecycle_owner_revision_concurrency_and_recovery(monkeypatch, tmp_path):
+        app, client = make_app(tmp_path)
+        a = {"Authorization": f"Bearer {token_for('ordinary-c')}"}
+        b = {"Authorization": f"Bearer {token_for('ordinary-d')}"}
+        requests = []
+        tasks = []
+    
+        def upstream(method, url, **kwargs):
+            requests.append((method, url))
+            if method == "POST":
+                task = {"id": len(tasks) + 1, **kwargs["json"]}
+                tasks.append(task)
+                return httpx.Response(200, json=task)
+            return httpx.Response(200, json={"items": tasks})
+    
+        monkeypatch.setattr("app.reminders.httpx.request", upstream)
+        monkeypatch.setattr("app.main.httpx.get", lambda url, **kwargs: httpx.Response(
+            200, json=[{"messageId": url.rsplit("/", 1)[-1], "isCreatedByUser": True, "text": TEXT}]))
+        with client:
+            owner = client.get("/api/v1/me", headers=a).json()["life_user_id"]
+            client.get("/api/v1/me", headers=b)
+            app.state.settings.vikunja_users[owner] = {
+                "api_token": "synthetic", "project_id": 1, "vikunja_user_id": 1}
+            body = {"conversation_id": "conversation-c", "source_message_id": "message-c", "text": TEXT}
+>           draft = client.post("/api/v1/reminder-drafts", headers=a, json=body).json()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_reminder_drafts.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:1203: in post
+    return self.request(
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:518: in request
+    return super().request(
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:796: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:993: in send
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:987: in send
+    response.read()
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:877: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:893: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:948: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:143: in __iter__
+    yield from self._stream
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:399: in close_app
+    raise exception
+infra\runtime\p02\venv\Lib\site-packages\anyio\from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:1330: in handle
+    await super().handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:289: in handle
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:745: in app
+    raw_response = await run_endpoint_function(
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:374: in run_endpoint_function
+    return await run_in_threadpool(
+infra\runtime\p02\venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:2779: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:1124: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\main.py:1023: in create_draft
+    return request.app.state.reminder_drafts.create(
+services\life-core\app\reminder_drafts.py:218: in create
+    self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
+services\life-core\app\reminder_drafts.py:170: in checkpoint
+    return self.workflow.transition({
+services\life-core\app\reminder_workflow.py:40: in transition
+    snapshot = graph.get_state({"configurable": {
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:1466: in get_state
+    if subgraph := self._subgraph_for_namespace(config, checkpointer):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <langgraph.graph.state.CompiledStateGraph object at 0x00000237166F1340>
+config = {'configurable': {'checkpoint_ns': 'reminder', 'thread_id': 'reminder:life_097596772c961894d823:rd_4061620565704d5b9d693f9dd4d1158a'}}
+checkpointer = <langgraph.checkpoint.sqlite.SqliteSaver object at 0x00000237166F1250>
+
+    def _subgraph_for_namespace(
+        self, config: RunnableConfig, checkpointer: BaseCheckpointSaver
+    ) -> tuple[PregelProtocol, RunnableConfig] | None:
+        """The subgraph a state method's namespaced config addresses, and the
+        config to call it with, lending it `checkpointer`. `None` when the
+        config is for this graph."""
+        checkpoint_ns = config[CONF].get(CONFIG_KEY_CHECKPOINT_NS, "")
+        if not checkpoint_ns or CONFIG_KEY_CHECKPOINTER in config[CONF]:
+            return None
+        recast = recast_checkpoint_ns(checkpoint_ns)
+        for _, pregel in self.get_subgraphs(namespace=recast, recurse=True):
+            return pregel, patch_configurable(
+                config, {CONFIG_KEY_CHECKPOINTER: checkpointer}
+            )
+>       raise ValueError(f"Subgraph {recast} not found")
+E       ValueError: Subgraph reminder not found
+
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:900: ValueError
+_________ test_saved_account_timezone_is_used_without_china_location __________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-55/test_saved_account_timezone_is0')
+
+    def test_saved_account_timezone_is_used_without_china_location(tmp_path):
+        from test_api import bootstrap, make_app
+        from test_memory_pipeline import auth
+        app,client = make_app(tmp_path)
+        with client:
+            user = bootstrap(client)
+            response = client.patch("/api/v1/me/settings",headers=auth(),json={"timezone":"America/New_York"})
+            assert response.status_code == 200
+            assert client.get("/api/v1/me",headers=auth()).json()["timezone"] == "America/New_York"
+>           draft = app.state.reminder_drafts.create(user["life_user_id"],"new-york-chat","new-york-message","�������������Ҵ���ɡ��")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_v023_reminders.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\reminder_drafts.py:218: in create
+    self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
+services\life-core\app\reminder_drafts.py:170: in checkpoint
+    return self.workflow.transition({
+services\life-core\app\reminder_workflow.py:40: in transition
+    snapshot = graph.get_state({"configurable": {
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:1466: in get_state
+    if subgraph := self._subgraph_for_namespace(config, checkpointer):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <langgraph.graph.state.CompiledStateGraph object at 0x00000237182822D0>
+config = {'configurable': {'checkpoint_ns': 'reminder', 'thread_id': 'reminder:life_ec82aa87040897c46bc0:rd_b74bc780fb3b4484b8fa63b1c7e6e0d2'}}
+checkpointer = <langgraph.checkpoint.sqlite.SqliteSaver object at 0x0000023718281850>
+
+    def _subgraph_for_namespace(
+        self, config: RunnableConfig, checkpointer: BaseCheckpointSaver
+    ) -> tuple[PregelProtocol, RunnableConfig] | None:
+        """The subgraph a state method's namespaced config addresses, and the
+        config to call it with, lending it `checkpointer`. `None` when the
+        config is for this graph."""
+        checkpoint_ns = config[CONF].get(CONFIG_KEY_CHECKPOINT_NS, "")
+        if not checkpoint_ns or CONFIG_KEY_CHECKPOINTER in config[CONF]:
+            return None
+        recast = recast_checkpoint_ns(checkpoint_ns)
+        for _, pregel in self.get_subgraphs(namespace=recast, recurse=True):
+            return pregel, patch_configurable(
+                config, {CONFIG_KEY_CHECKPOINTER: checkpointer}
+            )
+>       raise ValueError(f"Subgraph {recast} not found")
+E       ValueError: Subgraph reminder not found
+
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:900: ValueError
+___ test_quick_selection_creates_once_real_adapter_and_cancel_updates_draft ___
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002371677ACC0>
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-55/test_quick_selection_creates_o0')
+
+    def test_quick_selection_creates_once_real_adapter_and_cancel_updates_draft(monkeypatch, tmp_path):
+        app, client = make_app(tmp_path)
+        a = {"Authorization": "Bearer " + token_for("v023-a")}
+        b = {"Authorization": "Bearer " + token_for("v023-b")}
+        tasks = []
+    
+        def upstream(method, url, **kwargs):
+            if method == "POST":
+                tasks.append({"id": 9301, **kwargs["json"]})
+                return httpx.Response(200, json=tasks[-1])
+            if method == "DELETE":
+                return httpx.Response(200, json={})
+            return httpx.Response(200, json={"items": tasks})
+    
+        monkeypatch.setattr("app.reminders.httpx.request", upstream)
+        text = "�������������Ҵ���ɫ U �̣�������ɫ�ġ�"
+        monkeypatch.setattr("app.main.httpx.get", lambda *_a, **_k: httpx.Response(
+            200, json=[{"messageId": "source", "isCreatedByUser": True, "text": text}]))
+        with client:
+            owner = client.get("/api/v1/me", headers=a).json()["life_user_id"]
+            client.get("/api/v1/me", headers=b)
+            app.state.settings.vikunja_users[owner] = {"api_token": "synthetic", "project_id": 1, "vikunja_user_id": 1}
+            client.patch("/api/v1/me/settings", headers=a, json={"notification_consent": True})
+>           draft = app.state.reminder_drafts.create(owner, "conversation", "source", text)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_v023_reminders.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\reminder_drafts.py:218: in create
+    self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
+services\life-core\app\reminder_drafts.py:170: in checkpoint
+    return self.workflow.transition({
+services\life-core\app\reminder_workflow.py:40: in transition
+    snapshot = graph.get_state({"configurable": {
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:1466: in get_state
+    if subgraph := self._subgraph_for_namespace(config, checkpointer):
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <langgraph.graph.state.CompiledStateGraph object at 0x00000237182C50A0>
+config = {'configurable': {'checkpoint_ns': 'reminder', 'thread_id': 'reminder:life_92e28d2b447e57e1f944:rd_4214c1772f624a599ccb7b44c4acc6ae'}}
+checkpointer = <langgraph.checkpoint.sqlite.SqliteSaver object at 0x00000237182C5070>
+
+    def _subgraph_for_namespace(
+        self, config: RunnableConfig, checkpointer: BaseCheckpointSaver
+    ) -> tuple[PregelProtocol, RunnableConfig] | None:
+        """The subgraph a state method's namespaced config addresses, and the
+        config to call it with, lending it `checkpointer`. `None` when the
+        config is for this graph."""
+        checkpoint_ns = config[CONF].get(CONFIG_KEY_CHECKPOINT_NS, "")
+        if not checkpoint_ns or CONFIG_KEY_CHECKPOINTER in config[CONF]:
+            return None
+        recast = recast_checkpoint_ns(checkpoint_ns)
+        for _, pregel in self.get_subgraphs(namespace=recast, recurse=True):
+            return pregel, patch_configurable(
+                config, {CONFIG_KEY_CHECKPOINTER: checkpointer}
+            )
+>       raise ValueError(f"Subgraph {recast} not found")
+E       ValueError: Subgraph reminder not found
+
+infra\runtime\p02\venv\Lib\site-packages\langgraph\pregel\main.py:900: ValueError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_reminder_drafts.py::test_ambiguous_reference_returns_owner_conversation_choices_without_execution
+FAILED services/life-core/tests/test_reminder_drafts.py::test_deleted_source_blocks_confirmation
+FAILED services/life-core/tests/test_reminder_drafts.py::test_real_draft_lifecycle_owner_revision_concurrency_and_recovery
+FAILED services/life-core/tests/test_v023_reminders.py::test_saved_account_timezone_is_used_without_china_location
+FAILED services/life-core/tests/test_v023_reminders.py::test_quick_selection_creates_once_real_adapter_and_cancel_updates_draft
+5 failed, 16 passed in 7.03s

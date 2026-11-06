@@ -1,0 +1,8 @@
+Synthetic account a: registered, distinct Memos identity, mapped.
+Synthetic account b: registered, distinct Memos identity, mapped.
+Synthetic account c: registered, distinct Memos identity, mapped.
+Synthetic account d: registered, distinct Memos identity, mapped.
+Synthetic account e: registered, distinct Memos identity, mapped.
+Synthetic account f: registered, distinct Memos identity, mapped.
+Synthetic account g: registered, distinct Memos identity, mapped.
+Synthetic account h: registered, distinct Memos identity, mapped.

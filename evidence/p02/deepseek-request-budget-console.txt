@@ -1,0 +1,2 @@
+Error in MemoryModelAudit.on_chat_model_start callback: MemoryModelBudgetError('MEMORY_MODEL_REQUEST_BUDGET')
+{"status": "PASS", "run_id": "97b5ef4146644c32", "checked_at": "2026-11-03T16:09:35.551665+00:00", "persisted_requests_before": 12, "persisted_requests_after": 12, "http_send_attempts": 0, "additional_generation_calls": 0, "scope": "real persisted acceptance ledger and LangMem/SDK; HTTP transport disabled"}

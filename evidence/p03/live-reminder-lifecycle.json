@@ -1,0 +1,22 @@
+{
+  "run_id": "e2771431115f43aa",
+  "started_at": "2026-11-03T16:21:14.366341+00:00",
+  "status": "PASS",
+  "provider_calls": 0,
+  "provider_key_configured": false,
+  "database": "infra\\runtime\\p02\\p03-reminders-e2771431115f43aa.sqlite3",
+  "upstream": "verified lcr-acceptance-20261103-vikunja-1 at 127.0.0.1:3461",
+  "device_delivery": "UNKNOWN",
+  "checks": {
+    "per_user_vikunja_and_ntfy_provisioning": "PASS",
+    "create_real_vikunja_task_and_sqlite_projection": "PASS",
+    "cross_account_reminder_access_denied": "PASS",
+    "update_and_authoritative_vikunja_reconciliation": "PASS",
+    "cancel_is_idempotent_and_vikunja_delete_succeeded": "PASS",
+    "service_restart_restores_cancelled_state": "PASS",
+    "no_model_requests": "PASS"
+  },
+  "reminder_id": "rem_f43ed69847bd4c80ae5f08c8c37f1969",
+  "model_call_rows": 0,
+  "ended_at": "2026-11-03T16:21:46.369101+00:00"
+}

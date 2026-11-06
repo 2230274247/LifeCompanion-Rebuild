@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "real_provider": "existing Zhipu glm-4.7",
+  "provider_calls": 1,
+  "composition_enter_kept_text": true,
+  "composition_did_not_submit": true,
+  "successful_enter_cleared_input": true,
+  "reply_visible": true,
+  "conversation_id": "4700bb00-325c-5016-9f6f-e82fc7e41293",
+  "refresh_restored_real_messages": true,
+  "mongo_user_and_assistant_messages_persisted": true,
+  "reply_text": "已收到",
+  "initial_wait_matched_user_prompt": true,
+  "corrected_verification": "Mongo user+assistant rows and a separate browser reload verify the completed turn."
+}

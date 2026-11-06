@@ -1,0 +1,199 @@
+--- before/moments.py
++++ after/moments.py
+@@ -101,19 +101,29 @@
+                 (owner,json.dumps(previous),json.dumps(config.model_dump()),stamp))
+             if not config.enabled:
+                 db.execute("""UPDATE moments SET status='cancelled',error_code='AUTOMATION_DISABLED',
+-                    updated_at=? WHERE user_id=? AND status IN ('queued','pending_provider','generating','failed','unknown')""",
++                    image=NULL,mime=NULL,caption='',selection='[]',updated_at=?
++                    WHERE user_id=? AND status IN ('queued','pending_provider','generating','failed','unknown')""",
+                     (stamp,owner))
+         return self.config(owner)
+ 
+     def authorized(self, owner, sources=None):
++        return self.config(owner)["enabled"] and self.sources_authorized(owner, sources)
++
++    def sources_authorized(self, owner, sources=None):
+         user = self.store.get_user(owner)
+-        if not user or not user["memory_consent"] or not user["image_consent"] or not self.config(owner)["enabled"]:
++        if not user or not user["memory_consent"] or not user["image_consent"]:
+             return False
+         for identifier in sources or []:
+             item = self.memory.detail(owner, identifier)
+             if not item or item["state"] != "active" or item["kind"] != "life_event":
+                 return False
+-            if item["sensitivity"] != "ordinary" and not self.memory.permissions(owner)["sensitive_consent"]:
++            # Permission to remember sensitive facts does not authorize automatic images.
++            if item["sensitivity"] != "ordinary":
++                return False
++            event = self.store.get_event(item["event_id"], owner) if item["event_id"] else None
++            if not event or event["status"] == "withdrawn" or event["consent_state"] != "granted":
++                return False
++            if not item["sources"]:
+                 return False
+             with self.store.connect() as db:
+                 excluded = db.execute("SELECT excluded FROM moment_exclusions WHERE user_id=? AND memory_id=?",
+@@ -122,6 +132,32 @@
+                 return False
+         return True
+ 
++    def revoke_owner(self, owner):
++        with self.store.connect() as db:
++            db.execute("""UPDATE moments SET status=CASE WHEN status='skipped' THEN 'skipped' ELSE 'cancelled' END,
++                error_code='CONSENT_REVOKED',
++                image=NULL,mime=NULL,caption='',selection='[]',updated_at=? WHERE user_id=?""",
++                (utc_now(),owner))
++
++    def refresh_sources(self, owner):
++        with self.store.connect() as db:
++            rows = db.execute("""SELECT moment_id,source_memory_ids,status,caption,selection,mime,
++                image IS NOT NULL AS has_image FROM moments
++                WHERE user_id=? AND status<>'skipped'""", (owner,)).fetchall()
++        for row in rows:
++            if row["status"] == "cancelled" and not (
++                row["caption"] or row["selection"] != "[]" or row["mime"] or row["has_image"]
++            ):
++                continue
++            sources = json.loads(row["source_memory_ids"])
++            if row["status"] == "cancelled" or not sources or not self.sources_authorized(owner, sources):
++                with self.store.connect() as db:
++                    db.execute("""UPDATE moments SET
++                        error_code=CASE WHEN status='cancelled' THEN error_code ELSE 'CONSENT_OR_SOURCE_REVOKED' END,
++                        status='cancelled',
++                        image=NULL,mime=NULL,caption='',selection='[]',updated_at=?
++                        WHERE user_id=? AND moment_id=?""", (utc_now(),owner,row["moment_id"]))
++
+     def exclude(self, owner, identifier):
+         if not self.memory.detail(owner, identifier):
+             raise LookupError("MEMORY_NOT_FOUND")
+@@ -133,7 +169,7 @@
+         with self.store.connect() as db:
+             for row in db.execute("SELECT moment_id,source_memory_ids FROM moments WHERE user_id=?", (owner,)).fetchall():
+                 if identifier in json.loads(row["source_memory_ids"]):
+-                    db.execute("""UPDATE moments SET status='cancelled',image=NULL,caption='',
++                    db.execute("""UPDATE moments SET status='cancelled',image=NULL,mime=NULL,caption='',
+                         selection='[]',error_code='SOURCE_WITHDRAWN',updated_at=? WHERE moment_id=?""",
+                         (utc_now(),row["moment_id"]))
+ 
+@@ -197,7 +233,9 @@
+                             continue
+                     ranked = self.select(owner,start,end,config)
+                     chosen = ranked[0] if ranked and ranked[0]["score"] >= self.settings.moment_min_score else None
+-                    with self.store.connect() as db:
++                    with self.memory.lock, self.store.connect() as db:
++                        if not self.authorized(owner, [chosen["memory_id"]] if chosen else []):
++                            continue
+                         db.execute("""INSERT OR IGNORE INTO moments
+                             (moment_id,user_id,window_start,window_end,timezone,slot,status,source_memory_ids,
+                              selection,caption,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)""",
+@@ -227,21 +265,26 @@
+                 except httpx.TimeoutException:
+                     status,error = "unknown","PROVIDER_RESULT_UNKNOWN"
+                 except httpx.HTTPStatusError as exc:
+-                    status,error = "failed",f"IMAGE_HTTP_{exc.response.status_code}"
++                    code = exc.response.status_code
++                    status,error = ("unknown" if code >= 500 or code == 408 else "failed"),f"IMAGE_HTTP_{code}"
+                 except ValueError as exc:
+                     code = str(exc)
+                     status,error = "failed",code if code in (
+                         "INVALID_IMAGE_RESULT","UNTRUSTED_IMAGE_HOST","IMAGE_TOO_LARGE","UNSUPPORTED_IMAGE_FORMAT"
+                     ) else "IMAGE_PROVIDER_FAILED"
++                except httpx.ConnectError:
++                    status,error = "failed","IMAGE_PROVIDER_CONNECT_FAILED"
+                 except httpx.HTTPError:
+-                    status,error = "failed","IMAGE_PROVIDER_FAILED"
++                    status,error = "unknown","PROVIDER_RESULT_UNKNOWN"
+         with self.memory.lock:
+             if not self.authorized(owner,sources):
+                 status,error,image,mime = "cancelled","CONSENT_OR_SOURCE_REVOKED",None,None
+             with self.store.connect() as db:
+-                db.execute("""UPDATE moments SET status=?,error_code=?,image=?,mime=?,updated_at=?
++                db.execute("""UPDATE moments SET status=?,error_code=?,image=?,mime=?,updated_at=?,
++                    caption=CASE WHEN ?='cancelled' THEN '' ELSE caption END,
++                    selection=CASE WHEN ?='cancelled' THEN '[]' ELSE selection END
+                     WHERE moment_id=? AND status='generating'""",
+-                    (status,error,image,mime,utc_now(),item["moment_id"]))
++                    (status,error,image,mime,utc_now(),status,status,item["moment_id"]))
+         return True
+ 
+     def generate(self, caption):
+@@ -278,14 +321,16 @@
+             return image,mime
+ 
+     def list(self, owner):
+-        with self.store.connect() as db:
++        with self.memory.lock, self.store.connect() as db:
++            self.refresh_sources(owner)
+             rows = db.execute("""SELECT moment_id,window_start,window_end,timezone,slot,status,
+                 source_memory_ids,caption,error_code,attempts,created_at,updated_at FROM moments
+                 WHERE user_id=? AND status<>'skipped' ORDER BY window_end DESC""",(owner,)).fetchall()
+         return [{**dict(r),"source_memory_ids":json.loads(r["source_memory_ids"]),"ai_generated":True} for r in rows]
+ 
+     def detail(self, owner, identifier):
+-        with self.store.connect() as db:
++        with self.memory.lock, self.store.connect() as db:
++            self.refresh_sources(owner)
+             row = db.execute("SELECT * FROM moments WHERE user_id=? AND moment_id=?", (owner,identifier)).fetchone()
+         if not row:
+             return None
+@@ -295,8 +340,18 @@
+         item["source_memory_ids"] = json.loads(item["source_memory_ids"])
+         item["selection"] = json.loads(item["selection"])
+         item["ai_generated"] = True
++        item["retry_allowed"] = self.retry_allowed(item)
+         item["image_data"] = f"data:{item['mime']};base64,{base64.b64encode(image).decode()}" if image else None
+         return item
++
++    @staticmethod
++    def retry_allowed(item):
++        safe_failure = item["error_code"] in {
++            "IMAGE_HTTP_400", "IMAGE_HTTP_401", "IMAGE_HTTP_403", "IMAGE_HTTP_404",
++            "IMAGE_HTTP_422", "IMAGE_HTTP_429", "IMAGE_PROVIDER_CONNECT_FAILED",
++        }
++        return item["attempts"] < 3 and (
++            item["status"] == "pending_provider" or item["status"] == "failed" and safe_failure)
+ 
+     def retry(self, owner, identifier):
+         item = self.detail(owner,identifier)
+@@ -304,14 +359,18 @@
+             raise LookupError("MOMENT_NOT_FOUND")
+         if not self.authorized(owner,item["source_memory_ids"]):
+             raise ValueError("CONSENT_OR_SOURCE_REVOKED")
++        if item["status"] == "unknown":
++            raise ValueError("IMAGE_RESULT_RECONCILIATION_REQUIRED")
++        if not self.retry_allowed(item):
++            raise ValueError("IMAGE_RETRY_UNSAFE")
+         with self.store.connect() as db:
+             db.execute("""UPDATE moments SET status='queued',error_code=NULL,updated_at=?
+-                WHERE moment_id=? AND user_id=? AND status IN ('failed','pending_provider','unknown') AND attempts<3""",
++                WHERE moment_id=? AND user_id=? AND status IN ('failed','pending_provider') AND attempts<3""",
+                 (utc_now(),identifier,owner))
+         return self.detail(owner,identifier)
+ 
+     def delete(self, owner, identifier):
+         with self.store.connect() as db:
+-            return db.execute("""UPDATE moments SET status='cancelled',image=NULL,caption='',selection='[]',
++            return db.execute("""UPDATE moments SET status='cancelled',image=NULL,mime=NULL,caption='',selection='[]',
+                 error_code='USER_DELETED',updated_at=? WHERE user_id=? AND moment_id=?""",
+                 (utc_now(),owner,identifier)).rowcount
+--- before/main.py
++++ after/main.py
+@@ -346,6 +346,8 @@
+                 with request.app.state.store.connect() as db:
+                     db.execute("""UPDATE memory_jobs SET payload=NULL,status='revoked'
+                         WHERE user_id=? AND status IN ('queued','running')""", (life_id,))
++            if body.memory_consent is False or body.image_consent is False:
++                request.app.state.moments.revoke_owner(life_id)
+             return {
+                 "memory_consent": bool(updated["memory_consent"]),
+                 "image_consent": bool(updated["image_consent"]),
+@@ -998,6 +1000,9 @@
+         except LookupError as exc:
+             raise HTTPException(404,detail={"code":"MOMENT_NOT_FOUND"}) from exc
+         except ValueError as exc:
++            code = str(exc)
++            if code in {"IMAGE_RESULT_RECONCILIATION_REQUIRED", "IMAGE_RETRY_UNSAFE"}:
++                raise HTTPException(409,detail={"code":code}) from exc
+             raise HTTPException(403,detail={"code":"CONSENT_OR_SOURCE_REVOKED"}) from exc
+ 
+     @app.delete("/api/v1/moments/{moment_id}")

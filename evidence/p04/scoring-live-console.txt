@@ -1,0 +1,2 @@
+{"phase": "waiting_real_clock", "ends": ["03:02", "03:04", "03:06"], "closes_at": "2026-11-04T03:02:00+08:00", "cloud_call_upper_bound": 2}
+{"status": "PASS", "report": "evidence\\p04\\scoring-7352368da5744a1b\\scoring-live.json", "scoring_call_rows": 1}

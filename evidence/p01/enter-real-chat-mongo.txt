@@ -1,0 +1,36 @@
+{
+  messageId: '45ee2e5f-f1a4-4184-ab6e-eede75fc2ab3',
+  conversationId: '4700bb00-325c-5016-9f6f-e82fc7e41293',
+  error: false,
+  isCreatedByUser: true,
+  text: 'P01_SYNTHETIC_ENTER: 请只回复“已收到”。',
+  unfinished: false
+}
+[
+  {
+    messageId: '45ee2e5f-f1a4-4184-ab6e-eede75fc2ab3',
+    conversationId: '4700bb00-325c-5016-9f6f-e82fc7e41293',
+    error: false,
+    isCreatedByUser: true,
+    model: null,
+    parentMessageId: '00000000-0000-0000-0000-000000000000',
+    text: 'P01_SYNTHETIC_ENTER: 请只回复“已收到”。',
+    unfinished: false
+  },
+  {
+    messageId: 'a5dffdad-97ab-4e8a-a3db-1929d8d83ea3',
+    content: [
+      {
+        type: 'text',
+        text: '已收到'
+      }
+    ],
+    conversationId: '4700bb00-325c-5016-9f6f-e82fc7e41293',
+    error: false,
+    isCreatedByUser: false,
+    model: 'glm-4.7',
+    parentMessageId: '45ee2e5f-f1a4-4184-ab6e-eede75fc2ab3',
+    text: '',
+    unfinished: false
+  }
+]

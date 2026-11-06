@@ -1,0 +1,8 @@
+{"status": "FAIL", "evidence": "evidence\\p05\\chat-e7d08b69c818460f"}
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_chat.py", line 194, in <module>
+    main()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_chat.py", line 85, in main
+    assert scripts and all(source in served.text for source in scripts), "FRONTEND_RELOAD_REQUIRED"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: FRONTEND_RELOAD_REQUIRED

@@ -1,0 +1,70 @@
+[
+  {
+    "path": "00_阅读顺序与冲突裁决.md",
+    "matches": true
+  },
+  {
+    "path": "01_全项目回顾_现状_问题根因假设与差距.md",
+    "matches": true
+  },
+  {
+    "path": "10_Codex总控目标提示词_持续执行直到验收.md",
+    "matches": true
+  },
+  {
+    "path": "11_跨阶段总验收矩阵.md",
+    "matches": true
+  },
+  {
+    "path": "P00_项目身份锁定_架构审计_选择性移植.md",
+    "matches": true
+  },
+  {
+    "path": "P01_聊天真实闭环_统一入口_跨页导航与账号.md",
+    "matches": true
+  },
+  {
+    "path": "P02_长时记忆_人物关系_图谱_跨会话检索.md",
+    "matches": true
+  },
+  {
+    "path": "P03_自然语言主动提醒_Vikunja_ntfy_快捷选项.md",
+    "matches": true
+  },
+  {
+    "path": "P04_早中晚静默回忆_AI生图_相册闭环.md",
+    "matches": true
+  },
+  {
+    "path": "P05_生活工具_主动回访_语音与方言.md",
+    "matches": true
+  },
+  {
+    "path": "P06_家庭关系连接_授权共享_关心转达.md",
+    "matches": true
+  },
+  {
+    "path": "P07_后台质量_隐私_部署与上线门禁.md",
+    "matches": true
+  },
+  {
+    "path": "VERIFY_REBUILD_WORKSPACE.ps1",
+    "matches": true
+  },
+  {
+    "path": "原任务书归档_只读参考/LifeCompanion-Rebuild_V0.2_智能记忆图谱_智能回忆_主动提醒_强制开源集成与选择性移植_Codex开发任务书_V2.0.md",
+    "matches": true
+  },
+  {
+    "path": "原任务书归档_只读参考/时光有声_V0.2.3_对话提醒_跨会话记忆_三段回忆_专项整改提示词.md",
+    "matches": true
+  },
+  {
+    "path": "原任务书归档_只读参考/时光有声_V0.2_智能记忆与主动提醒_强制开源集成开发任务书.md",
+    "matches": true
+  },
+  {
+    "path": "原任务书归档_只读参考/时光有声_V0.2_智能记忆与主动提醒_强制开源集成开发任务书_云端API版_V1.1.md",
+    "matches": true
+  }
+]

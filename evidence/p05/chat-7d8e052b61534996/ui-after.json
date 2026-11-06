@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scenarios": [
+    {
+      "width": 1440,
+      "mode": "after",
+      "source_rendered": true
+    },
+    {
+      "width": 390,
+      "mode": "after",
+      "source_rendered": true
+    }
+  ],
+  "model_generation_requests": 0
+}

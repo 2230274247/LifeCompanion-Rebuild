@@ -1,0 +1,57 @@
+{
+  "authenticated": true,
+  "viewports": [
+    {
+      "width": 390,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 430,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 768,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1440,
+      "horizontal_overflow": false
+    },
+    {
+      "width": 1920,
+      "horizontal_overflow": false
+    }
+  ],
+  "routes": [
+    {
+      "route": "/memories",
+      "http": 200,
+      "resulting_path": "/memories"
+    },
+    {
+      "route": "/memory-settings",
+      "http": 200,
+      "resulting_path": "/memory-settings"
+    },
+    {
+      "route": "/reminders",
+      "http": 200,
+      "resulting_path": "/reminders"
+    },
+    {
+      "route": "/moments/settings",
+      "http": 200,
+      "resulting_path": "/moments/settings"
+    }
+  ],
+  "javascript_errors": [],
+  "memory_link": {
+    "href": "/knowledge/mem_4df7e87ba2e265d0f81c5291",
+    "target": "_blank",
+    "opened_popup": true,
+    "path": "/knowledge/mem_4df7e87ba2e265d0f81c5291",
+    "document_requests": [],
+    "article_contains_synthetic_fact": true,
+    "refresh": "PASS"
+  }
+}

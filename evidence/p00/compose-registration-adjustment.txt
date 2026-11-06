@@ -1,0 +1,7 @@
+ Container lcr-acceptance-20261103-mongo-1 Running 
+ Container lcr-acceptance-20261103-librechat-1 Recreate 
+ Container lcr-acceptance-20261103-librechat-1 Recreated 
+ Container lcr-acceptance-20261103-mongo-1 Waiting 
+ Container lcr-acceptance-20261103-mongo-1 Healthy 
+ Container lcr-acceptance-20261103-librechat-1 Starting 
+ Container lcr-acceptance-20261103-librechat-1 Started 

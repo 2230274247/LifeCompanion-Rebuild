@@ -1,0 +1,9 @@
+Real chat a started.
+Real chat a: PASS
+Real chat b started.
+Real chat b: PASS
+Real chat c started.
+Real chat c: PASS
+Real chat d started.
+Real chat d: PASS
+{"overall": "PARTIAL", "checks": {"chat_a_persisted": "PASS", "chat_a_other_user": "PASS", "chat_b_persisted": "PASS", "chat_b_other_user": "PASS", "chat_c_persisted": "PASS", "chat_c_other_user": "PASS", "chat_d_persisted": "PASS", "chat_d_other_user": "PASS", "usb_umbrella_both_recalled": "PASS", "draft_list_http": 200, "draft_owner_isolation": 422}}

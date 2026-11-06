@@ -1,0 +1,68 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+_______ test_explicit_weather_waits_for_stored_place_choice_and_replays _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-93/test_explicit_weather_waits_fo0')
+
+    def test_explicit_weather_waits_for_stored_place_choice_and_replays(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+            response = chat(client)
+>           assert response.status_code == 200
+E           assert 404 == 200
+E            +  where 404 = <Response [404 Not Found]>.status_code
+
+services\life-core\tests\test_tool_chat.py:43: AssertionError
+_____ test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-93/test_missing_place_asks_one_qu0')
+
+    def test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+>           assert chat(client, "今天天气怎么样？").json()["status"] == "needs_place"
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'status'
+
+services\life-core\tests\test_tool_chat.py:64: KeyError
+___ test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider ___
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-93/test_foreign_stale_invalid_and0')
+
+    def test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            bootstrap(client, "lc-user-b", "users/b")
+            calls = configured(app)
+            item = chat(client).json()
+>           url = f"/api/v1/tool-chats/{item['interaction_id']}"
+                                        ^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'interaction_id'
+
+services\life-core\tests\test_tool_chat.py:77: KeyError
+______ test_place_form_is_revision_guarded_and_result_expiry_is_durable _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-93/test_place_form_is_revision_gu0')
+
+    def test_place_form_is_revision_guarded_and_result_expiry_is_durable(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+            item = chat(client, "明天天气怎么样？").json()
+>           url = f"/api/v1/tool-chats/{item['interaction_id']}/select"
+                                        ^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'interaction_id'
+
+services\life-core\tests\test_tool_chat.py:94: KeyError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_tool_chat.py::test_explicit_weather_waits_for_stored_place_choice_and_replays
+FAILED services/life-core/tests/test_tool_chat.py::test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet
+FAILED services/life-core/tests/test_tool_chat.py::test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider
+FAILED services/life-core/tests/test_tool_chat.py::test_place_form_is_revision_guarded_and_result_expiry_is_durable
+4 failed in 5.71s

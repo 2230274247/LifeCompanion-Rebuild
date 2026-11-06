@@ -1,0 +1,38 @@
+............................F.........                                   [100%]
+================================== FAILURES ===================================
+______ test_no_consent_no_event_no_invented_moment_and_revoked_inflight _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-82/test_no_consent_no_event_no_in0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000020F75A6F5C0>
+
+    def test_no_consent_no_event_no_invented_moment_and_revoked_inflight(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            user = bootstrap(client)
+            assert client.put("/api/v1/moment-settings",headers=auth(),json={"enabled":True}).status_code == 403
+            owner,start = prepare(app,client,monkeypatch)
+            app.state.moments.schedule(datetime.now(timezone.utc)+timedelta(days=1))
+            score_pending(structured_scoring_fixture(app,monkeypatch))
+            assert app.state.moments.list(owner) == []
+            save(client,"【模拟聊天】今天第一次在公园散步，看见银杏，特别开心！","event",start+timedelta(minutes=1))
+            # Use a different day after the empty window was already finalized.
+            with app.state.store.connect() as db:
+                db.execute("DELETE FROM moments WHERE user_id=? AND status='skipped'",(owner,))
+            app.state.moments.schedule(datetime.now(timezone.utc)+timedelta(days=1))
+            app.state.moments.settings = replace(app.state.moments.settings,memory_llm_provider="zhipu",memory_llm_key="synthetic")
+            def revoke_during_provider(_caption):
+                app.state.store.update_consent(owner,image_consent=False)
+                return b"\x89PNG\r\n\x1a\nsynthetic","image/png"
+            monkeypatch.setattr(app.state.moments,"generate",revoke_during_provider)
+            app.state.moments.run_one()
+            item = app.state.moments.list(owner)[0]
+>           assert item["status"] == "cancelled"
+E           AssertionError: assert 'awaiting_score' == 'cancelled'
+E             
+E             - cancelled
+E             + awaiting_score
+
+services\life-core\tests\test_v023_moments.py:161: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v023_moments.py::test_no_consent_no_event_no_invented_moment_and_revoked_inflight
+1 failed, 37 passed in 43.67s

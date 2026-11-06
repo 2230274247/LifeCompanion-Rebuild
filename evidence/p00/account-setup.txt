@@ -1,0 +1,13 @@
+Synthetic account a: registered, distinct Memos identity, mapped.
+Synthetic account b: registered, distinct Memos identity, mapped.
+Synthetic account c: registered, distinct Memos identity, mapped.
+Synthetic account d: registered, distinct Memos identity, mapped.
+Synthetic account e: registered, distinct Memos identity, mapped.
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p00.py", line 189, in <module>
+    {"setup": setup, "run": run}[sys.argv[1]]()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p00.py", line 57, in setup
+    check(httpx.post(BASE + "/api/auth/register", json={
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p00.py", line 24, in check
+    raise RuntimeError(f"{label}_HTTP_{response.status_code}")
+RuntimeError: REGISTER_HTTP_429

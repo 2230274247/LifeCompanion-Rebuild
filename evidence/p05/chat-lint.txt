@@ -1,0 +1,9 @@
+
+H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\ReminderCards.tsx
+  199:12  error  Do not nest ternary expressions  no-nested-ternary
+
+H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\packages\api\src\memory\life.ts
+  76:11  error  Do not nest ternary expressions  no-nested-ternary
+
+✖ 2 problems (2 errors, 0 warnings)
+

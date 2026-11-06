@@ -1,0 +1,39 @@
+....................F..                                                  [100%]
+================================== FAILURES ===================================
+______ test_worker_preserves_budget_blocked_job_without_automatic_retry _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-53/test_worker_preserves_budget_b0')
+
+    def test_worker_preserves_budget_blocked_job_without_automatic_retry(tmp_path):
+        from app.memory import MemoryProviderQuotaError
+    
+        app, client = make_app(tmp_path)
+        with client:
+            user = bootstrap(client)
+            app.state.memory.enqueue(user, {
+                "text": "synthetic", "source_message_id": "budget-job",
+                "occurred_at": "2026-11-04T00:00:00+08:00",
+            })
+    
+            def blocked(**kwargs):
+                raise MemoryProviderQuotaError("MEMORY_MODEL_REQUEST_BUDGET")
+    
+            app.state.memory.run_one(blocked)
+            with app.state.store.connect() as db:
+                row = db.execute("SELECT * FROM memory_jobs WHERE job_id LIKE 'extract_%'").fetchone()
+>           assert row["status"] == "blocked_provider"
+E           AssertionError: assert 'succeeded' == 'blocked_provider'
+E             
+E             - blocked_provider
+E             + succeeded
+
+services\life-core\tests\test_memory_pipeline.py:304: AssertionError
+============================== warnings summary ===============================
+services/life-core/tests/test_memory_pipeline.py::test_langmem_fabricated_source_is_rejected
+  H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\trustcall\_base.py:46: LangGraphDeprecatedSinceV10: Importing Send from langgraph.constants is deprecated. Please use 'from langgraph.types import Send' instead. Deprecated in LangGraph V1.0 to be removed in V2.0.
+    from langgraph.constants import Send
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_memory_pipeline.py::test_worker_preserves_budget_blocked_job_without_automatic_retry
+1 failed, 22 passed, 1 warning in 28.59s

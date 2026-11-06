@@ -1,0 +1,8 @@
+{
+  "accounts": 8,
+  "synthetic": true,
+  "distinct_librechat_ids": 8,
+  "distinct_memos_ids": 8,
+  "image_consent": false,
+  "notification_consent": false
+}

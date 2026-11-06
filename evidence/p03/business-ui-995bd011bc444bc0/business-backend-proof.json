@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "run_id": "995bd011bc444bc0",
+  "provider_calls": 0,
+  "started_at": "2026-11-03T17:32:18.091644+00:00",
+  "database": "infra\\runtime\\p02\\business-ui-995bd011bc444bc0\\life.sqlite3",
+  "gateway_origin": "http://127.0.0.1:25683",
+  "temporary_core_url": "http://127.0.0.1:25680",
+  "graph_states": [
+    {
+      "draft_id": "rd_e7ee571ee9254ee6bb6306888e1a8d89",
+      "next": [],
+      "status": "cancelled",
+      "business_revision": 2
+    },
+    {
+      "draft_id": "rd_82f8d2171e3740b088ac7eac20b1486a",
+      "next": [],
+      "status": "cancelled",
+      "business_revision": 2
+    }
+  ],
+  "model_call_rows": 0,
+  "browser_report": "evidence\\p03\\business-ui-995bd011bc444bc0\\chips-live-ui.json",
+  "ended_at": "2026-11-03T17:34:12.435751+00:00"
+}

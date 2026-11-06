@@ -1,0 +1,101 @@
+{
+  "checked_at": "2026-11-03T17:06:58.759996+00:00",
+  "scope": "current content hashes; HEAD diff also includes earlier work",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "86eeb102dafcfd21d0fd04b189674cd263ea8a6a1bf0f86c32f501a9e09e293f",
+      "bytes": 889
+    },
+    {
+      "path": "services/life-core/app/config.py",
+      "sha256": "caa3896e266f712a380c46cde3f6c2a358e7ad3adeb6184b2ba7947d0339ed21",
+      "bytes": 5255
+    },
+    {
+      "path": "services/life-core/app/main.py",
+      "sha256": "fe4d69e572c97be17905689a94b13b09c6222b9af9409c0216257b7a582eccc8",
+      "bytes": 57911
+    },
+    {
+      "path": "services/life-core/app/store.py",
+      "sha256": "55a37bd71d8e69433d313cf989bf65de02ce93808b1c0b2e13f25154f1284101",
+      "bytes": 24721
+    },
+    {
+      "path": "services/life-core/app/reminders.py",
+      "sha256": "b73f257a26ba0f88a01447599f9894a04797ecc61f7869b42276bce5d74f813d",
+      "bytes": 16863
+    },
+    {
+      "path": "services/life-core/tests/test_reminder_delivery_recovery.py",
+      "sha256": "8ff7119ec210a727c9b6bf50bf292f0e8ee9d8de2d8ae8d4713842b7ebc5f9c1",
+      "bytes": 3746
+    },
+    {
+      "path": "scripts/run_reminder_scheduler.py",
+      "sha256": "d295082e20448268e76350d5d78d0e514dbb2f8faed896d249f7bd6a47f3a57b",
+      "bytes": 862
+    },
+    {
+      "path": "scripts/acceptance_p03_chat_draft.py",
+      "sha256": "ae032e8b86bfaa890b96849109fcb2705e2d0fb6b41b9ba9021e1cbc8774cd70",
+      "bytes": 7742
+    },
+    {
+      "path": "scripts/acceptance_p03_delivery_recovery.py",
+      "sha256": "f26a2475518141da625eb503c2b9b17c82f956bdb4ebe2a9c0a83d4952c40ee2",
+      "bytes": 11604
+    },
+    {
+      "path": "scripts/acceptance_p03_chips_ui.cjs",
+      "sha256": "6e7723162fa207a8cdaf0a6f521279f966f0e5ec3de816815a38e34f12a43595",
+      "bytes": 7743
+    },
+    {
+      "path": "scripts/acceptance_p03_permissions.py",
+      "sha256": "932685a9f0796f2081a6c2114feb1b1f9fdf7af814033d9913fc926497b2d190",
+      "bytes": 3699
+    },
+    {
+      "path": "scripts/audit_p02_p03_runtime.py",
+      "sha256": "7e601dda4ca8ced4d924bbed1dc1e175e819e60bb17a52a70e07dcd3102ecc98",
+      "bytes": 4311
+    },
+    {
+      "path": "docs/product/p00-p07/P03/LANGGRAPH_STATE_MACHINE.md",
+      "sha256": "bdfef66762cfd60adcecf224dca386c00c017eeebdf29e7a5d71d177f963eabe",
+      "bytes": 1496
+    },
+    {
+      "path": "docs/product/p00-p07/P03/NTFY_DELIVERY_EVIDENCE.md",
+      "sha256": "167348256298ce09931357ea2a500027877c6ddebd2622d6a0f6e322c683941b",
+      "bytes": 1489
+    },
+    {
+      "path": "docs/product/p00-p07/P03/P03_STAGE_LOG.md",
+      "sha256": "980fa43dd94648db9f88216a3906a98495bec3676cf9bfdc25e22f73588de0b6",
+      "bytes": 2322
+    },
+    {
+      "path": "docs/product/p00-p07/P03/REMINDER_E2E.md",
+      "sha256": "1b29e7ce26669c1b862a41a30ac47d6903cdefaa193c84f96ac43d847543ab15",
+      "bytes": 3455
+    },
+    {
+      "path": "docs/product/p00-p07/P03/REMINDER_INTENT_SCHEMA.md",
+      "sha256": "9b3d6d065221d5edfdb1ad423f35656dc48e1809daa2492943807aad91b4a6fe",
+      "bytes": 2351
+    },
+    {
+      "path": "docs/product/p00-p07/P03/SCHEDULER_RELIABILITY.md",
+      "sha256": "226e0438bde0b7e21a761e010a96efa80dcff0032f13761314a1a776952f2807",
+      "bytes": 2703
+    },
+    {
+      "path": "docs/product/p00-p07/P03/VIKUNJA_API_ADAPTER.md",
+      "sha256": "b4362f129d5bedefdd1a20affff6c5eca9a052f1a04356fa4600a598542eb16e",
+      "bytes": 1813
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.......F.                                                                [100%]
+================================== FAILURES ===================================
+________ test_schedule_dedup_provider_failure_restart_retry_and_owner _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-74/test_schedule_dedup_provider_f0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001E00E28D100>
+
+    def test_schedule_dedup_provider_failure_restart_retry_and_owner(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, start = prepare(app,client,monkeypatch)
+            save(client,"【模拟聊天】今天在公园散步，看见银杏，特别放松。","event",start+timedelta(minutes=1))
+            now = datetime.now(timezone.utc)
+            # Force the last configured window to close around the saved source in this unit test.
+            app.state.moments.schedule(now+timedelta(days=1))
+            rows = app.state.moments.list(owner)
+            assert len(rows) == 1 and len(rows[0]["source_memory_ids"]) == 1
+            identifier = rows[0]["moment_id"]
+            app.state.moments.schedule(now+timedelta(days=1))
+            assert len(app.state.moments.list(owner)) == 1
+            assert app.state.moments.run_one()
+            assert app.state.moments.detail(owner,identifier)["status"] == "pending_provider"
+            app.state.moments.settings = replace(app.state.moments.settings,memory_llm_provider="zhipu",memory_llm_key="synthetic")
+            app.state.moments.retry(owner,identifier)
+            monkeypatch.setattr(app.state.moments,"generate",lambda _text: (_ for _ in ()).throw(httpx.ReadTimeout("synthetic")))
+            app.state.moments.run_one()
+            assert app.state.moments.detail(owner,identifier)["status"] == "unknown"
+            restarted = Moments(app.state.store,app.state.moments.settings,app.state.memory)
+            assert not restarted.run_one()
+            assert client.get(f"/api/v1/moments/{identifier}",headers=auth("lc-user-b")).status_code == 404
+            assert client.post(f"/api/v1/moments/{identifier}/retry",headers=auth("lc-user-b")).status_code == 404
+>           app.state.moments.retry(owner,identifier)
+
+services\life-core\tests\test_v023_moments.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.moments.Moments object at 0x000001E00E2F7B60>
+owner = 'life_ec82aa87040897c46bc0', identifier = 'mom_b0b7043a629379604859c45a'
+
+    def retry(self, owner, identifier):
+        item = self.detail(owner,identifier)
+        if not item:
+            raise LookupError("MOMENT_NOT_FOUND")
+        if not self.authorized(owner,item["source_memory_ids"]):
+            raise ValueError("CONSENT_OR_SOURCE_REVOKED")
+        if item["status"] == "unknown":
+>           raise ValueError("IMAGE_RESULT_RECONCILIATION_REQUIRED")
+E           ValueError: IMAGE_RESULT_RECONCILIATION_REQUIRED
+
+services\life-core\app\moments.py:355: ValueError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v023_moments.py::test_schedule_dedup_provider_failure_restart_retry_and_owner
+1 failed, 8 passed in 16.10s

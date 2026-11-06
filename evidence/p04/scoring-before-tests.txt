@@ -1,0 +1,54 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+______________ test_recollection_spending_is_disabled_by_default ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-80/test_recollection_spending_is_0')
+
+    def test_recollection_spending_is_disabled_by_default(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+>           assert getattr(app.state.settings, "moment_scoring_request_budget", None) == 0
+E           AssertionError: assert None == 0
+E            +  where None = getattr(Settings(database_path=WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-80/test_r..._password='', reminder_scheduler_db='', reminder_scheduler_external=False, embedding_provider='', embedding_api_key=''), 'moment_scoring_request_budget', None)
+E            +    where Settings(database_path=WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-80/test_r..._password='', reminder_scheduler_db='', reminder_scheduler_external=False, embedding_provider='', embedding_api_key='') = <starlette.datastructures.State object at 0x00000263EC48CC50>.settings
+E            +      where <starlette.datastructures.State object at 0x00000263EC48CC50> = <fastapi.applications.FastAPI object at 0x00000263EC48C6E0>.state
+
+services\life-core\tests\test_recollection_scoring.py:11: AssertionError
+_____________ test_new_life_event_preserves_exact_evidence_quote ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-80/test_new_life_event_preserves_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000263EC4EE570>
+
+    def test_new_life_event_preserves_exact_evidence_quote(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, start = prepare(app, client, monkeypatch)
+            text = "今天第一次在公园散步，看见银杏，特别开心。"
+            save(client, text, "quoted-source", start + timedelta(minutes=1))
+            with app.state.store.connect() as db:
+>               row = db.execute("SELECT evidence_quote FROM memory_evidence WHERE user_id=?", (owner,)).fetchone()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               sqlite3.OperationalError: no such column: evidence_quote
+
+services\life-core\tests\test_recollection_scoring.py:21: OperationalError
+_________ test_no_model_budget_never_falls_back_to_keyword_selection __________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-80/test_no_model_budget_never_fal0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000263EC5E97F0>
+
+    def test_no_model_budget_never_falls_back_to_keyword_selection(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, start = prepare(app, client, monkeypatch)
+            save(client, "今天第一次在公园散步，看见银杏，特别开心。", "no-budget", start + timedelta(minutes=1))
+            app.state.moments.schedule(datetime.now(timezone.utc) + timedelta(days=1))
+>           assert app.state.moments.score_one()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'Moments' object has no attribute 'score_one'
+
+services\life-core\tests\test_recollection_scoring.py:31: AttributeError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_scoring.py::test_recollection_spending_is_disabled_by_default
+FAILED services/life-core/tests/test_recollection_scoring.py::test_new_life_event_preserves_exact_evidence_quote
+FAILED services/life-core/tests/test_recollection_scoring.py::test_no_model_budget_never_falls_back_to_keyword_selection
+3 failed in 7.65s

@@ -1,0 +1,37 @@
+{
+  "status": "FAIL",
+  "run_id": "b29676162dc64adf",
+  "started_at": "2026-11-03T18:12:46.700510+00:00",
+  "scope": "real synthetic source ingest/Memos, configurable real-clock background job, Core restart and HTTP privacy; not model scoring or generated-image acceptance",
+  "database": "infra\\runtime\\p04\\privacy-b29676162dc64adf\\life.sqlite3",
+  "provider_calls": 0,
+  "image_status": "BLOCKED_IMAGE_PROVIDER",
+  "checks": {
+    "enable_without_separate_image_consent_refused": "PASS",
+    "persisted_event_evidence_and_real_private_memos_read": "PASS",
+    "empty_talk_not_an_invented_event": "PASS",
+    "real_clock_configured_background_text_job_no_browser": "PASS",
+    "cross_account_read_retry_delete_refused": "PASS",
+    "injected_inflight_restart_unknown_retry_409_no_duplicate": "PASS"
+  },
+  "window": {
+    "configured_ends": [
+      "02:14",
+      "02:16",
+      "02:18"
+    ],
+    "actual_window_end": "2026-11-04T02:14:00+08:00",
+    "observed_at": "2026-11-03T18:14:07.990559+00:00",
+    "source_memory_id": "mem_c5a02b87d2f2726847a9e02f",
+    "moment_id": "mom_60ffdb8610ba6c8cc0bf9344",
+    "image_data_present": false
+  },
+  "cross_account_statuses": [
+    404,
+    404,
+    404
+  ],
+  "error_type": "AssertionError",
+  "cleanup_errors": [],
+  "ended_at": "2026-11-03T18:15:04.912447+00:00"
+}

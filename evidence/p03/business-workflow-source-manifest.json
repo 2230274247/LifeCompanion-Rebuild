@@ -1,0 +1,23 @@
+{
+  "snapshot_at": "2026-11-04T01:52:49.744616+08:00",
+  "code_file_count": 16,
+  "scope": "batch source hashes; only the five app files have a full batch-start snapshot; Git HEAD diff includes earlier uncommitted work",
+  "files": {
+    "services/life-core/app/main.py": "b40f7728b6d5eafb1e757e52c6fbaa0d18d8619a4b275e310b58c02660fee265",
+    "services/life-core/app/store.py": "d4e7c106b4653c146b78f62e473fbb3813089c4257955e45cf752c95eb0f27b0",
+    "services/life-core/app/reminders.py": "89a0c947ccce3d90d96b9556889cbaac91be5cb0ae8f58082ca304ab0bae02d7",
+    "services/life-core/app/reminder_drafts.py": "63b374931bf72828fcda7455dcbf531f7100b9cb0715c14e437b4c19ad907114",
+    "services/life-core/app/reminder_workflow.py": "5937df0d489a0a643cfbe6e32fedceb1621d3f327ec8a273fd6b1a0e7f0e5a22",
+    "services/life-core/app/reminder_chat.py": "c5f67e0d8c889bd9c680239915897690f4572b00c6bd595c7f86ba3da167dde4",
+    "services/life-core/app/reminder_parser.py": "1b92294503a06d510eee76b08efb58eb1a4e9e1c60feb44979462c04e468e972",
+    "services/life-core/app/reminder_intent.py": "37ecf651706af1f8d7e45bd14895661d0fe523de324d49d3f905cac2c46fefa6",
+    "services/life-core/tests/test_reminder_business_workflow.py": "8886095eb3efa0c87dd85c7d9e2ddb7117e56e5a70e07e3a12e4294b09c688e2",
+    "services/life-core/tests/test_reminder_workflow.py": "16bd493497309730fa6c42a57610f8df9d955990866f0309cea1614958dfbfdd",
+    "scripts/acceptance_p03_business_workflow.py": "21935a8d32bf1688c8330f4e4945223b56dcec4932d3c9c9c7536a658d9be96a",
+    "scripts/acceptance_p03_business_ui.py": "a8cbe7609031ac13047fbee5e80c7dbc2cf78cc08b3893b73b564e99e2a77f31",
+    "scripts/acceptance_p03_chat_draft.py": "657f9882bd92d266a107049e9b2c634401de357bf08925aaba941405ae318269",
+    "scripts/acceptance_p03_chips_ui.cjs": "e3c8545a9855a9f2fd9bfe49c0c79cc39685da8f7a6d8804020f22db2ed11068",
+    "scripts/acceptance_p03_intent_guard.py": "dfdeb2c03c5a589a39d2c1e706b287d95bd552d613f4fde4f1282816880d164e",
+    "scripts/acceptance_p03_reload_core.py": "e42dbeb033252a8a06484f78bcc6484d6e4e2b0c07ebab5001f0a1ebc5ae58b7"
+  }
+}

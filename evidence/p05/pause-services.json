@@ -1,0 +1,214 @@
+{
+  "processes": [
+    {
+      "pid": 33160,
+      "parent": 60108,
+      "name": "python.exe",
+      "workspace": true,
+      "test_candidate": false,
+      "shell": false
+    },
+    {
+      "pid": 23012,
+      "parent": 33160,
+      "name": "python.exe",
+      "workspace": true,
+      "test_candidate": false,
+      "shell": false
+    },
+    {
+      "pid": 21368,
+      "parent": 57660,
+      "name": "powershell.exe",
+      "workspace": true,
+      "test_candidate": true,
+      "shell": true
+    }
+  ],
+  "listeners": [
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8097,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 8031,
+      "OwningProcess": 23012
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 7688,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 7475,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 5241,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3461,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3091,
+      "OwningProcess": 53736
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 3031,
+      "OwningProcess": 2056
+    }
+  ],
+  "containers": [
+    {
+      "name": "/lcr-acceptance-20261103-librechat-1",
+      "state": "running",
+      "project": "lcr-acceptance-20261103",
+      "service": "librechat",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\librechat.yaml",
+          "target": "/app/librechat.yaml",
+          "rw": false
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\logs",
+          "target": "/app/logs",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\uploads",
+          "target": "/app/uploads",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\client\\dist",
+          "target": "/app/client/dist",
+          "rw": false
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\packages\\api\\dist",
+          "target": "/app/packages/api/dist",
+          "rw": false
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\packages\\data-provider\\dist",
+          "target": "/app/packages/data-provider/dist",
+          "rw": false
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\products\\librechat-custom\\api\\app\\clients\\BaseClient.js",
+          "target": "/app/api/app/clients/BaseClient.js",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "name": "/lcr-acceptance-20261103-mongo-1",
+      "state": "running",
+      "project": "lcr-acceptance-20261103",
+      "service": "mongo",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "/var/lib/docker/volumes/08ad0762eaf1e7add5909d15a79057607fb9fb7c2353821f8b1a1e0716f04ce5/_data",
+          "target": "/data/configdb",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\mongo",
+          "target": "/data/db",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "name": "/lcr-acceptance-20261103-vikunja-1",
+      "state": "running",
+      "project": "lcr-acceptance-20261103",
+      "service": "vikunja",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\vikunja",
+          "target": "/db",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\vikunja-files",
+          "target": "/app/vikunja/files",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "name": "/lcr-acceptance-20261103-memos-1",
+      "state": "running",
+      "project": "lcr-acceptance-20261103",
+      "service": "memos",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\memos",
+          "target": "/var/opt/memos",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "name": "/lcr-acceptance-20261103-ntfy-1",
+      "state": "running",
+      "project": "lcr-acceptance-20261103",
+      "service": "ntfy",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\ntfy-cache",
+          "target": "/var/cache/ntfy",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p00\\ntfy-auth",
+          "target": "/var/lib/ntfy",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "name": "/lcr-p02-20261103-neo4j-1",
+      "state": "running",
+      "project": "lcr-p02-20261103",
+      "service": "neo4j",
+      "compose_workdir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra",
+      "mounts": [
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p02\\neo4j\\data",
+          "target": "/data",
+          "rw": true
+        },
+        {
+          "source": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\infra\\runtime\\p02\\neo4j\\logs",
+          "target": "/logs",
+          "rw": true
+        }
+      ]
+    }
+  ],
+  "checked_at": "2026-11-04T09:49:52.953924+08:00",
+  "health": {
+    "http://127.0.0.1:8031/health": 200,
+    "http://127.0.0.1:3031/health": 200,
+    "http://127.0.0.1:3091/login": 200,
+    "http://127.0.0.1:3031/life-api/api/v1/tool-chats": 401
+  },
+  "test_candidates_excluding_audit_shell": []
+}

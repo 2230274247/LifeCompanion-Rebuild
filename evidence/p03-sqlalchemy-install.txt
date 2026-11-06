@@ -1,0 +1,12 @@
+Collecting SQLAlchemy==2.0.55
+  Using cached sqlalchemy-2.0.55-cp312-cp312-win_amd64.whl.metadata (9.9 kB)
+Collecting greenlet>=1 (from SQLAlchemy==2.0.55)
+  Using cached greenlet-3.5.6-cp312-cp312-win_amd64.whl.metadata (3.9 kB)
+Requirement already satisfied: typing-extensions>=4.6.0 in h:\ai for research institute\lifecompanion-rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\lib\site-packages (from SQLAlchemy==2.0.55) (4.16.0)
+Using cached sqlalchemy-2.0.55-cp312-cp312-win_amd64.whl (2.2 MB)
+Using cached greenlet-3.5.6-cp312-cp312-win_amd64.whl (324 kB)
+Installing collected packages: greenlet, SQLAlchemy
+Successfully installed SQLAlchemy-2.0.55 greenlet-3.5.6
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Scripts\python.exe -m pip install --upgrade pip

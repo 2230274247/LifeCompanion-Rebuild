@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-11-03T15:32:08.774516+00:00",
+  "provider": "zhipu",
+  "model": "glm-4.7",
+  "checks": {
+    "real_langmem_to_sqlite": "PASS",
+    "source_evidence_count": 1,
+    "cross_session_recall_and_account_isolation": "PASS",
+    "cross_conversation_usb_umbrella_and_source": "PASS",
+    "correction_keeps_only_current_plan": "PASS",
+    "neo4j_projection_with_real_source_edge": "PASS",
+    "graph_keyword_retrieval": "PASS",
+    "sqlite_restore_after_core_restart": "PASS",
+    "withdrawal_propagates_to_graph": "PASS"
+  },
+  "status": "PASS",
+  "ended_at": "2026-11-03T15:33:18.206775+00:00"
+}

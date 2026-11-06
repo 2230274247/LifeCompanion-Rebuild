@@ -1,0 +1,6 @@
+{"status": "FAIL", "provider_calls": 0, "started_at": "2026-11-03T16:30:39.506066+00:00", "ended_at": "2026-11-03T16:31:14.611370+00:00"}
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p03_scheduler.py", line 40, in <module>
+    assert completed, "SCHEDULER_DID_NOT_COMPLETE_RECONCILIATION"
+           ^^^^^^^^^
+AssertionError: SCHEDULER_DID_NOT_COMPLETE_RECONCILIATION

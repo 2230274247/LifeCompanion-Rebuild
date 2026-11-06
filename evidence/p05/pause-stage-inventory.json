@@ -1,0 +1,555 @@
+{
+  "source": "docs/product/p00-p07/11_\u8de8\u9636\u6bb5\u603b\u9a8c\u6536\u77e9\u9635.md",
+  "total": 73,
+  "counts": {
+    "P00": {
+      "PASS": 5,
+      "PARTIAL": 1
+    },
+    "P01": {
+      "PASS": 4,
+      "PARTIAL": 3,
+      "BLOCKED": 1
+    },
+    "P02": {
+      "PARTIAL": 5,
+      "PASS": 2,
+      "BLOCKED": 1
+    },
+    "P03": {
+      "PARTIAL": 9,
+      "PASS": 2,
+      "UNVERIFIED": 1
+    },
+    "P04": {
+      "PASS": 1,
+      "PARTIAL": 7,
+      "BLOCKED": 1,
+      "UNVERIFIED": 1
+    },
+    "P05": {
+      "BLOCKED": 2,
+      "PARTIAL": 3,
+      "NOT_RUN": 4
+    },
+    "P06": {
+      "NOT_RUN": 10
+    },
+    "P07": {
+      "NOT_RUN": 10
+    }
+  },
+  "items": [
+    {
+      "id": "ROOT-01",
+      "stage": "P00",
+      "scenario": "\u4ed3\u5e93\u8eab\u4efd",
+      "status": "PASS",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "ROOT-02",
+      "stage": "P00",
+      "scenario": "\u65e7\u9879\u76ee\u53ea\u8bfb",
+      "status": "PARTIAL",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "ROOT-03",
+      "stage": "P00",
+      "scenario": "\u5b8c\u6574\u67b6\u6784\u94fe\u8def",
+      "status": "PASS",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "ROOT-04",
+      "stage": "P00",
+      "scenario": "\u5b88\u536b\u62e6\u622a",
+      "status": "PASS",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "ROOT-05",
+      "stage": "P00",
+      "scenario": "\u65e7\u6210\u679c\u6e05\u5355",
+      "status": "PASS",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "ROOT-06",
+      "stage": "P00",
+      "scenario": "\u771f\u5b9e\u57fa\u7ebf",
+      "status": "PASS",
+      "evidence": "P00/P00_STAGE_LOG.md + ../../../../evidence/p00/"
+    },
+    {
+      "id": "CHAT-01",
+      "stage": "P01",
+      "scenario": "\u771f\u5b9e\u804a\u5929",
+      "status": "PASS",
+      "evidence": "P01/P01_STAGE_LOG.md + ../../../../evidence/p01/enter-real-chat-mongo.txt"
+    },
+    {
+      "id": "CHAT-02",
+      "stage": "P01",
+      "scenario": "\u9519\u8bef\u6062\u590d",
+      "status": "PARTIAL",
+      "evidence": "P01/P01_STAGE_LOG.md + ../../../../evidence/p01/drill/ui-drill.json"
+    },
+    {
+      "id": "NAV-01",
+      "stage": "P01",
+      "scenario": "\u63d0\u9192\u8be6\u60c5\u94fe\u63a5",
+      "status": "PASS",
+      "evidence": "P01/ROUTE_TARGET_MATRIX.md + ../../../../evidence/p01/drill/ui-drill.json"
+    },
+    {
+      "id": "NAV-02",
+      "stage": "P01",
+      "scenario": "\u8bb0\u5fc6\u8be6\u60c5\u94fe\u63a5",
+      "status": "PASS",
+      "evidence": "P01/ROUTE_TARGET_MATRIX.md + ../../../../evidence/p01/p01-after/browser-baseline.json"
+    },
+    {
+      "id": "NAV-03",
+      "stage": "P01",
+      "scenario": "\u56de\u5fc6\u8be6\u60c5\u94fe\u63a5",
+      "status": "BLOCKED",
+      "evidence": "P01/P01_STAGE_LOG.md\uff1b`image_consent=false`\uff0c\u6ca1\u6709\u6388\u6743\u56fe\u7247\u8d44\u4ea7"
+    },
+    {
+      "id": "NAV-04",
+      "stage": "P01",
+      "scenario": "\u5168\u7ad9\u5355\u9875\u5207\u6362",
+      "status": "PASS",
+      "evidence": "P01/P01_STAGE_LOG.md + ../../../../evidence/p01/p01-after/browser-baseline.json"
+    },
+    {
+      "id": "AUTH-01",
+      "stage": "P01",
+      "scenario": "\u8de8\u670d\u52a1\u8eab\u4efd",
+      "status": "PARTIAL",
+      "evidence": "P01/IDENTITY_AND_SOURCE_ID_CONTRACT.md + ../../../../evidence/p01/identity-e2e-final.txt"
+    },
+    {
+      "id": "UX-01",
+      "stage": "P01",
+      "scenario": "\u8f93\u5165\u4e0e\u6e32\u67d3",
+      "status": "PARTIAL",
+      "evidence": "P01/P01_STAGE_LOG.md + ../../../../evidence/p01/enter-real-chat-persisted.json"
+    },
+    {
+      "id": "MEM-01",
+      "stage": "P02",
+      "scenario": "U\u76d8/\u96e8\u4f1e\u8de8\u4f1a\u8bdd",
+      "status": "PARTIAL",
+      "evidence": "\u540e\u7aef\u8de8\u4f1a\u8bdd\u68c0\u7d22\u771f\u5b9e\u901a\u8fc7\uff1bLibreChat \u7528\u6237\u804a\u5929\u8def\u5f84\u5f85\u9a8c\uff0c\u89c1 P02/MEMORY_E2E.md"
+    },
+    {
+      "id": "MEM-02",
+      "stage": "P02",
+      "scenario": "\u6765\u6e90\u56de\u6eaf",
+      "status": "PARTIAL",
+      "evidence": "API \u6765\u6e90\u8be6\u60c5\u901a\u8fc7\uff1b\u6d4f\u89c8\u5668\u6765\u6e90\u70b9\u51fb\u4ecd\u5f85\u9a8c\uff0c\u89c1 P02/MEMORY_E2E.md"
+    },
+    {
+      "id": "MEM-03",
+      "stage": "P02",
+      "scenario": "\u7ea0\u9519\u5408\u5e76",
+      "status": "PARTIAL",
+      "evidence": "\u672a\u6765\u8ba1\u5212\u7ea0\u6b63\u4e0e\u65e7\u7248\u672c\u72b6\u6001\u901a\u8fc7\uff1b\u957f\u671f\u4e8b\u5b9e\u56fe\u66f4\u65b0\u5f85\u9a8c\uff0c\u89c1 P02/MEMORY_E2E.md"
+    },
+    {
+      "id": "MEM-04",
+      "stage": "P02",
+      "scenario": "\u4eba\u7269/\u516c\u53f8\u65f6\u5e8f",
+      "status": "PASS",
+      "evidence": "\u516d\u6761\u771f\u5b9e DeepSeek/LangMem \u4e8b\u5b9e\u300112\u5929\u65f6\u5e8f\u3001\u4e24\u516c\u53f8\u53ca\u5c31\u804c/\u9080\u8bf7\uff1a../../../../evidence/p02/relationships-97b5ef4146644c32.json"
+    },
+    {
+      "id": "MEM-05",
+      "stage": "P02",
+      "scenario": "\u6301\u4e45\u6062\u590d",
+      "status": "PASS",
+      "evidence": "\u540c\u4e0a\uff1a\u4e71\u5e8f\u5386\u53f2\u5408\u5e76\u3001\u6765\u6e90\u91cd\u653e\u4e0d\u65b0\u589e\u4efb\u52a1\u6216\u6a21\u578b\u8bf7\u6c42\u3001\u771f\u5b9e HTTP Core \u91cd\u542f\u6062\u590d\uff1b\u4e0d\u4ee3\u8868\u5220\u9664\u4f20\u64ad\u5df2\u9a8c\u6536"
+    },
+    {
+      "id": "MEM-06",
+      "stage": "P02",
+      "scenario": "\u8de8\u7528\u6237\u9694\u79bb",
+      "status": "PARTIAL",
+      "evidence": "\u5408\u6210\u7528\u6237\u53ec\u56de\u9694\u79bb\u3001\u56fe\u8c31 namespace \u70df\u6d4b\u901a\u8fc7\uff1b\u5b8c\u6574\u8de8\u8d26\u53f7\u8d1f\u5411\u77e9\u9635\u5f85\u9a8c"
+    },
+    {
+      "id": "MEM-07",
+      "stage": "P02",
+      "scenario": "\u5220\u9664\u64a4\u6743",
+      "status": "PARTIAL",
+      "evidence": "SQLite/Neo4j \u64a4\u56de\u901a\u8fc7\uff1b\u6d88\u606f\u5220\u9664\u3001\u7f13\u5b58\u4e0e\u56de\u5fc6\u5168\u94fe\u8def\u5f85\u9a8c"
+    },
+    {
+      "id": "MEM-08",
+      "stage": "P02",
+      "scenario": "Graphiti \u5b9e\u9645\u95e8\u7981",
+      "status": "BLOCKED",
+      "evidence": "P02/GRAPHITI_NATIVE_STATUS.md\uff1b\u771f\u5b9e\u539f\u56e0\u662f\u672a\u914d\u7f6e Embedding"
+    },
+    {
+      "id": "REM-01",
+      "stage": "P03",
+      "scenario": "\u4ec5\u8865\u65f6\u95f4",
+      "status": "PARTIAL",
+      "evidence": "../../../../evidence/p03/business-ui-995bd011bc444bc0/business-backend-proof.json\uff1b\u65b0\u4e1a\u52a1\u56fe\u684c\u9762/390px\u89e6\u6478\u521b\u5efa\u3001\u53d6\u6d88\u5237\u65b0\u91cd\u767b\u901a\u8fc7\uff1b\u521d\u59cb\u6d88\u606f\u4e3a\u5408\u6210\u6301\u4e45\u5939\u5177\uff0c\u5b9e\u9645\u53d1\u9001\u4ecd\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-02",
+      "stage": "P03",
+      "scenario": "\u5b8c\u6574\u65f6\u95f4\u8bed\u4e49",
+      "status": "PARTIAL",
+      "evidence": "../../../../evidence/p03/business-workflow-a27b9a639da042f9.json\uff1a\u771f\u5b9eAPI/\u56fe/Vikunja\u65f6\u95f4\u5206\u522b\u6b63\u786e\uff1b\u5b8c\u6574UI\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-03",
+      "stage": "P03",
+      "scenario": "\u4ec5\u8865\u65e5\u671f",
+      "status": "PARTIAL",
+      "evidence": "\u540c\u4e0a\uff1a\u771f\u5b9e\u65e5\u671f\u9009\u62e9\u6062\u590d\u56fe\uff0c17:00\u51cf120\u5206\u949f=15:00\uff1b\u65e5\u671fChip\u6d4f\u89c8\u5668\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-04",
+      "stage": "P03",
+      "scenario": "\u6f5c\u5728\u65e5\u7a0b",
+      "status": "PARTIAL",
+      "evidence": "\u73b0\u6709\u89c4\u5219\u4e0e\u5355\u6d4b\uff1b\u5168\u8bed\u8a00\u8bef\u521b\u5efa\u95e8\u69db\u672a\u9a8c\u6536"
+    },
+    {
+      "id": "REM-05",
+      "stage": "P03",
+      "scenario": "\u53d6\u6d88\u6539\u671f",
+      "status": "PARTIAL",
+      "evidence": "\u771f\u5b9e API/Vikunja/\u505c\u673a\u6062\u590d\u4e0e\u539f\u65f6\u523b\u65e0\u6295\u9012\uff0cchips-live-ui.json\u8bc1\u660e\u53d6\u6d88\u540e\u5237\u65b0/\u91cd\u767b\u4e00\u81f4\uff1b\u65b0\u4f1a\u8bdd\u6539\u671fUI\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-06",
+      "stage": "P03",
+      "scenario": "\u5e42\u7b49",
+      "status": "PARTIAL",
+      "evidence": "business-workflow-a27b9a639da042f9.json\uff1a3\u6b21\u5e76\u53d1\u786e\u8ba4\u4ec51\u4efb\u52a1\u3001\u771f\u5b9eSQLite\u6545\u969c\u540eunknown\u8de8\u91cd\u542f\u6062\u590d\u4e0d\u589e\u4efb\u52a1\uff1b\u5b8c\u6574\u591a\u8fdb\u7a0b/\u6295\u9012\u7ade\u6001\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-07",
+      "stage": "P03",
+      "scenario": "\u65f6\u533a\u8de8\u5e74",
+      "status": "PARTIAL",
+      "evidence": "\u540e\u7aef IANA/DST \u6821\u9a8c\u5b58\u5728\uff1b\u5468\u4e94\u7b49\u89e3\u6790\u6709\u7f3a\u53e3"
+    },
+    {
+      "id": "REM-08",
+      "stage": "P03",
+      "scenario": "\u62d2\u7edd/\u7b2c\u4e09\u4eba",
+      "status": "PARTIAL",
+      "evidence": "../../../../evidence/p03/intent-guard-live-c35a53792bc046b9.json\uff1a11\u6761\u8d1f\u5411\u771f\u5b9eHTTP\u96f6\u65b0\u589e\u8349\u7a3f/\u4efb\u52a1\uff0c2\u6761\u6b63\u5411\u771f\u5b9e\u521b\u5efa\uff1b\u5b8c\u6574\u8bed\u8a00\u8bc4\u6d4b\u5f85\u9a8c"
+    },
+    {
+      "id": "REM-09",
+      "stage": "P03",
+      "scenario": "\u591a\u540c\u540d\u76ee\u6807",
+      "status": "PARTIAL",
+      "evidence": "\u5b8c\u6574\u540c\u540d/\u6a21\u7cca\u6539\u671f\u77e9\u9635\u672a\u9a8c"
+    },
+    {
+      "id": "REM-10",
+      "stage": "P03",
+      "scenario": "\u771f\u5b9e\u901a\u77e5",
+      "status": "PASS",
+      "evidence": "../../../../evidence/p03/delivery-recovery-0f6f567301144310.json\uff1b\u771f\u5b9e\u5230\u671f\u3001\u6545\u969c\u9000\u907f\u3001\u72ec\u7acb scheduler \u91cd\u542f\u3001ntfy accepted\uff1b\u8bbe\u5907 UNKNOWN"
+    },
+    {
+      "id": "REM-11",
+      "stage": "P03",
+      "scenario": "\u4efb\u52a1\u6743\u9650",
+      "status": "PASS",
+      "evidence": "../../../../evidence/p03/permissions-live.json\uff1a9\u9879\u68c0\u67e5\uff0c\u6b63\u5f0f\u4efb\u52a1\u8bfb/\u6539/\u53d6\u6d88\u4e0e\u8349\u7a3f\u64cd\u4f5c\u5747\u62d2\u7edd\u3001\u672c\u4eba\u72b6\u6001\u4e0d\u53d8\uff1b\u79c1\u6709topic\u533f\u540d403"
+    },
+    {
+      "id": "REM-12",
+      "stage": "P03",
+      "scenario": "\u610f\u56fe\u8bc4\u6d4b",
+      "status": "UNVERIFIED",
+      "evidence": "\u5c1a\u65e0\u7ecf\u8fc7\u4eba\u5de5\u590d\u6838\u7684 200 \u6761\u8bc4\u6d4b\uff0c\u4e0d\u4ee5\u81ea\u9020\u6807\u7b7e\u4ee3\u66ff"
+    },
+    {
+      "id": "MOM-01",
+      "stage": "P04",
+      "scenario": "\u5019\u9009\u7b5b\u9009",
+      "status": "PASS",
+      "evidence": "../../../../evidence/p04/scoring-7352368da5744a1b/scoring-live.json\uff1a\u771f\u5b9eDeepSeek\u516b\u7ef4\u30013\u5019\u9009\u30011\u5165\u9009\u3001\u7cbe\u786e\u6765\u6e90/\u539f\u8bdd\u4e0e\u62d2\u7edd\u7406\u7531"
+    },
+    {
+      "id": "MOM-02",
+      "stage": "P04",
+      "scenario": "\u65e0\u5185\u5bb9\u8df3\u8fc7",
+      "status": "PARTIAL",
+      "evidence": "../../../../evidence/p04/privacy-6be8c1bc45c34d49/privacy-live.json\uff1a\u201c\u665a\u5b89\u201d\u771f\u5b9e\u62d2\u7edd\uff1b\u5b8c\u6574\u65e0\u5185\u5bb9\u65f6\u7a97/\u6df7\u6dc6\u96c6\u5f85\u9a8c"
+    },
+    {
+      "id": "MOM-03",
+      "stage": "P04",
+      "scenario": "\u6388\u6743\u751f\u6548",
+      "status": "PARTIAL",
+      "evidence": "\u540c\u4e0a\uff1a\u542f\u7528\u524d403\u3001\u8bbe\u7f6e\u64a4\u6743\u540c\u6b65\u6e05\u7a7a\u3001\u91cd\u542f\u4e0d\u590d\u6d3b\uff1b\u771f\u5b9e\u56fe\u50cf\u4f9b\u5e94\u5546\u4ecdBLOCKED"
+    },
+    {
+      "id": "MOM-04",
+      "stage": "P04",
+      "scenario": "\u65e9\u4e2d\u665a\u4efb\u52a1",
+      "status": "PARTIAL",
+      "evidence": "\u540c\u4e0a\uff1a\u771f\u5b9e\u672c\u673a\u65f6\u949f02:23\u81ea\u5b9a\u4e49\u7a97\u540e\u53f0\u89e6\u53d1\uff1b\u9ed8\u8ba411\u70b9/\u8de8\u65e5/DST\u53ca\u957f\u671f\u8fd0\u884c\u5f85\u8865"
+    },
+    {
+      "id": "MOM-05",
+      "stage": "P04",
+      "scenario": "\u771f\u5b9e\u6587\u4ef6",
+      "status": "BLOCKED",
+      "evidence": "P04/IMAGE_ASSET_EVIDENCE.md\uff1b\u65e0\u5df2\u6388\u6743\u56fe\u50cf\u4f9b\u5e94\u5546\uff0c\u65e0\u771f\u5b9e\u56fe\u7247\u6587\u4ef6\uff0c\u4e0d\u80fd\u7528\u5408\u6210\u5b57\u8282\u4ee3\u66ff"
+    },
+    {
+      "id": "MOM-06",
+      "stage": "P04",
+      "scenario": "\u9759\u9ed8\u60ca\u559c",
+      "status": "PARTIAL",
+      "evidence": "P04/MOMENT_E2E.md\uff1b\u6587\u5b57\u7ba1\u7ebf\u6ca1\u6709\u901a\u77e5\u8c03\u7528\uff0c\u771f\u5b9e\u56fe\u50cf\u9759\u9ed8\u76f8\u518c\u4f53\u9a8c\u672a\u9a8c"
+    },
+    {
+      "id": "MOM-07",
+      "stage": "P04",
+      "scenario": "\u56de\u5fc6\u6765\u6e90",
+      "status": "PARTIAL",
+      "evidence": "scoring-55d9917195da4873/scoring-ui.json\uff1a1440/390px\u539f\u6d88\u606f\u70b9\u51fb\u771f\u5b9e\u901a\u8fc7\uff1b\u771f\u5b9e\u56fe\u50cf\u6587\u4ef6/\u4f9b\u5e94\u5546\u56de\u6267\u4ecdBLOCKED"
+    },
+    {
+      "id": "MOM-08",
+      "stage": "P04",
+      "scenario": "\u91cd\u8bd5\u5e42\u7b49",
+      "status": "PARTIAL",
+      "evidence": "scoring-7352368da5744a1b/scoring-live.json\uff1a\u540c\u7a97/\u91cd\u542f/\u6301\u4e45\u9884\u7b97\u4e0d\u518d\u53d1\u9001\uff1b\u56fe\u50cf\u4f9b\u5e94\u5546\u771f\u5b9e\u8ba1\u8d39/\u5e42\u7b49\u672a\u9a8c"
+    },
+    {
+      "id": "MOM-09",
+      "stage": "P04",
+      "scenario": "\u5220\u9664\u4f20\u9012",
+      "status": "PARTIAL",
+      "evidence": "\u540c\u4e0a\uff1a\u64a4\u6743\u7acb\u5373\u6e05\u7a7a\u6587\u5b57/selection/\u56fe\u7247\u5217\uff0c\u624b\u673a\u5237\u65b0\u53ca\u518d\u6b21\u91cd\u542f\u4e00\u81f4\uff1b\u771f\u5b9e\u6587\u4ef6/\u6d88\u606f\u5220\u9664\u5168\u94fe\u8def\u5f85\u8865"
+    },
+    {
+      "id": "MOM-10",
+      "stage": "P04",
+      "scenario": "\u667a\u80fd\u8bc4\u5206\u8bc4\u6d4b",
+      "status": "UNVERIFIED",
+      "evidence": "P04/EVENT_SCORING_EVAL.md\uff1b\u65e0\u5df2\u590d\u6838100\u5019\u9009\u8bc4\u6d4b\uff0c\u4e0d\u7f16\u9020\u4eba\u5de5\u6807\u7b7e"
+    },
+    {
+      "id": "TOOL-01",
+      "stage": "P05",
+      "scenario": "\u771f\u5b9e\u8d44\u6599\u641c\u7d22",
+      "status": "BLOCKED",
+      "evidence": "P05/P05_E2E.md\uff1b\u6ca1\u6709\u5df2\u914d\u7f6e\u641c\u7d22Provider\uff0c\u4e0d\u80fd\u7528LLM\u77e5\u8bc6\u66ff\u4ee3"
+    },
+    {
+      "id": "TOOL-02",
+      "stage": "P05",
+      "scenario": "\u5929\u6c14\u8def\u7ebf",
+      "status": "PARTIAL",
+      "evidence": "evidence/p05/chat-7d8e052b61534996\uff1a\u6301\u4e45\u6d88\u606f/\u539f\u751f\u6865\u63a5/\u771f\u5b9e\u5929\u6c14\u9009\u62e9\u53611440/390\u901a\u8fc7\uff1b\u8def\u7ebfAPI\u6709\u65e7\u8bc1\u636e\uff0c\u8def\u7ebf\u5361\u4e0e\u63d0\u9192\u8054\u52a8\u672a\u9a8c"
+    },
+    {
+      "id": "TOOL-03",
+      "stage": "P05",
+      "scenario": "\u670d\u52a1\u4e0d\u53ef\u7528",
+      "status": "PARTIAL",
+      "evidence": "\u641c\u7d22\u672a\u914d\u7f6eblocked\u3001\u7f3a\u8d77\u70b9\u53ea\u8865\u4e00\u9879\u6709\u771f\u5b9eAPI\u8bc1\u636e\uff1b\u5929\u6c14\u964d\u7ea7\u7ec4\u4ef6/\u914d\u989d\u6709\u672c\u5730\u6d4b\u8bd5\uff0c\u771f\u5b9e\u6d4f\u89c8\u5668\u6545\u969c\u8986\u76d6\u4ecd\u5f85\u9a8c"
+    },
+    {
+      "id": "TOOL-04",
+      "stage": "P05",
+      "scenario": "\u5de5\u5177\u9519\u8bef\u6062\u590d",
+      "status": "PARTIAL",
+      "evidence": "\u9996\u6b21503\u4fdd\u7559\uff1b\u7f51\u5173404\u771f\u5b9e\u5931\u8d25\u540e\u540c\u6e90\u6062\u590d\uff0c\u5929\u6c14\u5361\u5237\u65b0\u4e0e\u6e05\u9664\u901a\u8fc7\uff1b\u540c\u5e93\u7d2f\u8ba16\u6b21HTTP\uff0c\u65b0\u589e\u6a21\u578b0\uff1b\u5b8c\u6574\u804a\u5929\u65b0\u8f6e\u6b21/\u9650\u6d41UI\u672a\u9a8c"
+    },
+    {
+      "id": "VOICE-01",
+      "stage": "P05",
+      "scenario": "\u8bed\u97f3\u95ed\u73af",
+      "status": "BLOCKED",
+      "evidence": "P05/VOICE_EVAL.md\uff1b\u672a\u914d\u7f6e\u5e76\u6838\u51c6STT/TTS\uff0c\u4e0d\u63a2\u6d4b\u6536\u8d39\u7aef\u70b9"
+    },
+    {
+      "id": "VOICE-02",
+      "stage": "P05",
+      "scenario": "\u65b9\u8a00\u80fd\u529b",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FOLLOW-01",
+      "stage": "P05",
+      "scenario": "\u4e8b\u4ef6\u56de\u8bbf",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FOLLOW-02",
+      "stage": "P05",
+      "scenario": "\u53d6\u6d88\u56de\u8bbf",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FOLLOW-03",
+      "stage": "P05",
+      "scenario": "\u79c1\u5bc6\u4e8b\u4ef6",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-01",
+      "stage": "P06",
+      "scenario": "\u53cc\u8d26\u53f7\u9080\u8bf7",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-02",
+      "stage": "P06",
+      "scenario": "\u65e0\u6388\u6743\u67e5\u8be2",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-03",
+      "stage": "P06",
+      "scenario": "\u7ec6\u7c92\u5ea6\u5206\u4eab",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-04",
+      "stage": "P06",
+      "scenario": "\u64a4\u56de\u6388\u6743",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-05",
+      "stage": "P06",
+      "scenario": "\u5173\u5fc3\u8bf7\u6c42",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-06",
+      "stage": "P06",
+      "scenario": "\u53cd\u9a9a\u6270",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-07",
+      "stage": "P06",
+      "scenario": "\u9632 IDOR",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-08",
+      "stage": "P06",
+      "scenario": "\u5220\u9664\u4f20\u9012",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-09",
+      "stage": "P06",
+      "scenario": "\u522b\u540d\u4e0e\u8ba4\u8bc1",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "FAMILY-10",
+      "stage": "P06",
+      "scenario": "\u591a\u4eba\u5173\u7cfb",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-01",
+      "stage": "P07",
+      "scenario": "\u540e\u53f0\u771f\u5b9e\u7edf\u8ba1",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-02",
+      "stage": "P07",
+      "scenario": "\u6743\u9650\u4e0e\u5bc6\u94a5",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-03",
+      "stage": "P07",
+      "scenario": "\u6570\u636e\u5907\u4efd\u6062\u590d",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-04",
+      "stage": "P07",
+      "scenario": "\u6545\u969c\u6f14\u7ec3",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-05",
+      "stage": "P07",
+      "scenario": "\u591a\u89c6\u53e3UI",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-06",
+      "stage": "P07",
+      "scenario": "\u5f00\u6e90\u5408\u89c4",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-07",
+      "stage": "P07",
+      "scenario": "\u7528\u6237\u6570\u636e\u6cbb\u7406",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-08",
+      "stage": "P07",
+      "scenario": "Ubuntu\u8fc1\u79fb",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-09",
+      "stage": "P07",
+      "scenario": "\u6210\u672c\u4e0a\u9650",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    },
+    {
+      "id": "OPS-10",
+      "stage": "P07",
+      "scenario": "\u5b8c\u6574\u56de\u5f52",
+      "status": "NOT_RUN",
+      "evidence": "\u5f85\u586b\u5199"
+    }
+  ]
+}

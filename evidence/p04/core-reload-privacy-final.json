@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "identity": {
+    "status": "PASS",
+    "project_id": "LifeCompanion-Rebuild",
+    "worktree": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103",
+    "git_common_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.git",
+    "branch": "feat/rebuild-p00-p07-20261103",
+    "head": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1"
+  },
+  "previous_pid": 62068,
+  "launched_pid": 4804,
+  "before": {
+    "database": "infra\\runtime\\p00\\life-core.sqlite3",
+    "memory_jobs": {
+      "succeeded": 5
+    },
+    "image_consent_users": 0,
+    "model_call_rows": 0,
+    "reminder_revision_column": true
+  },
+  "after": {
+    "database": "infra\\runtime\\p00\\life-core.sqlite3",
+    "memory_jobs": {
+      "succeeded": 5
+    },
+    "image_consent_users": 0,
+    "model_call_rows": 0,
+    "reminder_revision_column": true
+  },
+  "health_status": 200,
+  "configuration_unchanged": true,
+  "added_model_call_rows": 0,
+  "scope": "isolated 8031 Core reload, not production or scheduler deployment"
+}

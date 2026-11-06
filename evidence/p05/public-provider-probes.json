@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-04T00:10:14.180763+00:00",
+  "status": "PARTIAL",
+  "model_calls": 0,
+  "paid_account_created": false,
+  "results": [
+    {
+      "name": "weather",
+      "status": "PASS",
+      "http_status": 200,
+      "queried_at": "2026-11-04T00:10:11.981830+00:00",
+      "url": "https://api.open-meteo.com/v1/forecast?latitude=31.2304&longitude=121.4737&current=temperature_2m%2Cprecipitation&timezone=Asia%2FShanghai",
+      "result": {
+        "latitude": 31.247803,
+        "longitude": 121.5,
+        "timezone": "Asia/Shanghai",
+        "current_units": {
+          "time": "iso8601",
+          "interval": "seconds",
+          "temperature_2m": "\u00b0C",
+          "precipitation": "mm"
+        },
+        "current": {
+          "time": "2026-11-04T08:00",
+          "interval": 900,
+          "temperature_2m": 16.4,
+          "precipitation": 0.2
+        }
+      },
+      "scope": "public landmark coordinates only; no personal data; no key or model request; provider probe is not P05 E2E"
+    },
+    {
+      "name": "route",
+      "status": "PASS",
+      "http_status": 200,
+      "queried_at": "2026-11-04T00:10:11.982831+00:00",
+      "url": "https://router.project-osrm.org/route/v1/driving/121.4737,31.2304;121.444,31.208?overview=false",
+      "result": {
+        "code": "Ok",
+        "routes": [
+          {
+            "distance": 5933,
+            "duration": 482.1
+          }
+        ]
+      },
+      "scope": "public landmark coordinates only; no personal data; no key or model request; provider probe is not P05 E2E"
+    }
+  ]
+}

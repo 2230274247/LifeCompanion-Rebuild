@@ -1,0 +1,27 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__ test_withdrawing_an_unscored_legacy_source_does_not_publish_an_empty_card __
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-86/test_withdrawing_an_unscored_l0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001E7DC157860>
+
+    def test_withdrawing_an_unscored_legacy_source_does_not_publish_an_empty_card(tmp_path,monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, start = prepare(app,client,monkeypatch)
+            save(client,"今天第一次在公园散步，看见银杏，特别开心。","legacy",start+timedelta(minutes=1))
+            with app.state.store.connect() as db:
+                memory_id = db.execute("SELECT memory_id FROM memory_items").fetchone()[0]
+                db.execute("UPDATE memory_evidence SET evidence_quote=''")
+            app.state.moments.schedule(datetime.now(timezone.utc)+timedelta(days=1))
+            app.state.moments.withdraw_source(owner,memory_id)
+>           assert app.state.moments.list(owner) == []
+E           AssertionError: assert [{'ai_generat...+00:00', ...}] == []
+E             
+E             Left contains one more item: {'ai_generated': True, 'attempts': 0, 'caption': '', 'created_at': '2026-11-03T23:57:40.555934+00:00', ...}
+E             Use -v to get more diff
+
+services\life-core\tests\test_recollection_scoring.py:231: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_scoring.py::test_withdrawing_an_unscored_legacy_source_does_not_publish_an_empty_card
+1 failed in 8.30s

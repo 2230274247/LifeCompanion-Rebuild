@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T02:37:39.192943+08:00",
+  "source_manifest_matches": true,
+  "source_files": 12,
+  "runtime_reports_checked": 6,
+  "independent_logs": [
+    "docs/development-log/2026-11-04_01-10_P03\u6301\u4e45\u4e1a\u52a1\u7f16\u6392\u4e0e\u5426\u5b9a\u8bef\u521b\u5efa\u4fee\u590d_\u5f00\u53d1\u9a8c\u6536.md",
+    "docs/development-log/2026-11-04_01-55_P04\u56de\u5fc6\u64a4\u6743\u4e0e\u672a\u77e5\u8bf7\u6c42\u989d\u5ea6\u4fdd\u62a4_\u5f00\u53d1\u9a8c\u6536.md"
+  ],
+  "health": {
+    "http://127.0.0.1:8031/health": 200,
+    "http://127.0.0.1:3031/login": 200,
+    "http://127.0.0.1:3091/login": 200
+  },
+  "main_core_model_call_rows": 0,
+  "main_core_image_consent_users": 0,
+  "upstream_patch_hash_matches": true,
+  "overall_project_status": "PARTIAL",
+  "image_provider": "BLOCKED_IMAGE_PROVIDER"
+}

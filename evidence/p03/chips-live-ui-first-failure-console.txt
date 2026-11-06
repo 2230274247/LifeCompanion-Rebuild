@@ -1,0 +1,5 @@
+{"status":"FAIL","started_at":"2026-11-03T16:49:39.677Z","provider_calls":0,"scope":"real browser on persisted synthetic source; generation endpoint blocked; no chat submission","scenarios":[],"error":"locator.waitFor: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"reminder-draft-card\"][data-source-message-id=\"p03-source-7e508dfeac19\"]') to be visible\u001b[22m\n","generation_attempts":0,"ended_at":"2026-11-03T16:50:35.176Z"}
+locator.waitFor: Timeout 45000ms exceeded.
+Call log:
+  - waiting for locator('[data-testid="reminder-draft-card"][data-source-message-id="p03-source-7e508dfeac19"]') to be visible
+

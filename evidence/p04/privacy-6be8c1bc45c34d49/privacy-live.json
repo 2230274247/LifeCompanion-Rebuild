@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "run_id": "6be8c1bc45c34d49",
+  "started_at": "2026-11-03T18:21:06.254697+00:00",
+  "scope": "real synthetic source ingest/Memos, configurable real-clock background job, Core restart and HTTP privacy; not model scoring or generated-image acceptance",
+  "database": "infra\\runtime\\p04\\privacy-6be8c1bc45c34d49\\life.sqlite3",
+  "provider_calls": 0,
+  "image_status": "BLOCKED_IMAGE_PROVIDER",
+  "checks": {
+    "enable_without_separate_image_consent_refused": "PASS",
+    "persisted_event_evidence_and_real_private_memos_read": "PASS",
+    "empty_talk_not_an_invented_event": "PASS",
+    "real_clock_configured_background_text_job_no_browser": "PASS",
+    "cross_account_read_retry_delete_refused": "PASS",
+    "injected_inflight_restart_unknown_retry_409_no_duplicate": "PASS",
+    "desktop_mobile_unknown_has_no_retry_and_revoked_refresh": "PASS",
+    "revocation_synchronously_scrubs_text_selection_image": "PASS",
+    "scrubbed_state_survives_another_core_restart": "PASS"
+  },
+  "window": {
+    "configured_ends": [
+      "02:23",
+      "02:25",
+      "02:27"
+    ],
+    "actual_window_end": "2026-11-04T02:23:00+08:00",
+    "observed_at": "2026-11-03T18:23:07.936672+00:00",
+    "source_memory_id": "mem_38b2bfaf548774285135b55e",
+    "moment_id": "mom_a202136518a782cb8c1ea45e",
+    "image_data_present": false
+  },
+  "cross_account_statuses": [
+    404,
+    404,
+    404
+  ],
+  "model_call_rows": 0,
+  "cleanup_errors": [],
+  "ended_at": "2026-11-03T18:23:39.763584+00:00"
+}

@@ -1,0 +1,127 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+___________ test_rescheduled_notification_is_suppressed_before_http ___________
+
+service = <app.reminders.ReminderService object at 0x0000022C5D234E90>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022C5D2357C0>
+
+    def test_rescheduled_notification_is_suppressed_before_http(service, monkeypatch):
+        old = datetime.now(UTC) - timedelta(minutes=1)
+        row = reminder(service, old)
+        event_id = queue(service, old)
+        service.store.update_reminder(row["reminder_id"], "a", title="synthetic",
+                                      scheduled_at=(old + timedelta(days=1)).isoformat(),
+                                      timezone="UTC")
+        sent = []
+        monkeypatch.setattr("app.reminders.httpx.post", lambda *args, **kwargs: sent.append(args))
+>       assert service.deliver_one_notification() is False
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_reminder_delivery_recovery.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.reminders.ReminderService object at 0x0000022C5D234E90>
+
+    def deliver_one_notification(self) -> bool:
+        event = self.store.next_reminder_notification()
+        if event is None:
+            return False
+        config = self._configs().get(event["owner_user_id"])
+        if not config or not self.notifications_allowed(event["owner_user_id"]):
+            self.store.suppress_reminder_notification(event["event_id"])
+            return False
+        task = event["payload"].get("data", {}).get("task", {})
+        reminder = self.store.get_reminder_by_task(task.get("id"), event["owner_user_id"])
+        if not reminder or reminder["status"] in ("cancelled", "completed"):
+            self.store.suppress_reminder_notification(event["event_id"])
+            return False
+        try:
+            if event["attempts"] > 1:
+                cached = httpx.get(
+                    f"{config['ntfy_base_url'].rstrip('/')}/{config['ntfy_topic']}/json",
+                    params={"poll": "1", "since": "24h"},
+                    auth=(config["ntfy_user"], config["ntfy_password"]),
+                    timeout=8,
+                )
+                cached.raise_for_status()
+                if any(
+                    json.loads(line).get("sequence_id") == event["event_id"]
+                    for line in cached.text.splitlines() if line
+                ):
+                    self.store.complete_reminder_notification(event["event_id"])
+                    return True
+            response = httpx.post(
+                f"{config['ntfy_base_url'].rstrip('/')}/{config['ntfy_topic']}",
+                content=task.get("title", "ʰ������").encode("utf-8"),
+                headers={"Title": "Shiguang", "X-Sequence-ID": event["event_id"]},
+                auth=(config["ntfy_user"], config["ntfy_password"]),
+                timeout=8,
+            )
+>           response.raise_for_status()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'raise_for_status'
+
+services\life-core\app\reminders.py:362: AttributeError
+____________________ test_reconcile_reads_each_owner_once _____________________
+
+service = <app.reminders.ReminderService object at 0x0000022C5D235F40>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022C5D235AC0>
+
+    def test_reconcile_reads_each_owner_once(service, monkeypatch):
+        owners = []
+        def request(config, *args, **kwargs):
+            owners.append(config["ntfy_user"])
+            return httpx.Response(200, json={"items": []})
+        monkeypatch.setattr(service, "_request", request)
+        assert service.reconcile_all() == (2, 0)
+>       assert owners == ["a", "b"]
+E       AssertionError: assert ['a', 'b', 'a', 'b'] == ['a', 'b']
+E         
+E         Left contains 2 more items, first extra item: 'a'
+E         Use -v to get more diff
+
+services\life-core\tests\test_reminder_delivery_recovery.py:64: AssertionError
+__________ test_delayed_upstream_notification_recovers_after_restart __________
+
+service = <app.reminders.ReminderService object at 0x0000022C5D236150>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022C5D2362D0>
+
+    def test_delayed_upstream_notification_recovers_after_restart(service, monkeypatch):
+        when = datetime.now(UTC) - timedelta(minutes=5)
+        reminder(service, when)
+        notification = {"name": "task.reminder", "created": (when + timedelta(seconds=7)).isoformat(),
+                        "notification": {"task": {"id": 42, "title": "synthetic"}}}
+        monkeypatch.setattr(service, "_request",
+                            lambda *args, **kwargs: httpx.Response(200, json={"items": [notification]}))
+        service.reconcile_notifications()
+        with service.store.connect() as db:
+>           assert db.execute("SELECT count(*) FROM reminder_notifications").fetchone()[0] == 1
+E           assert 0 == 1
+
+services\life-core\tests\test_reminder_delivery_recovery.py:76: AssertionError
+______________ test_early_notification_waits_until_planned_time _______________
+
+service = <app.reminders.ReminderService object at 0x0000022C5D236A50>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022C5D236C00>
+
+    def test_early_notification_waits_until_planned_time(service, monkeypatch):
+        when = datetime.now(UTC) + timedelta(seconds=25)
+        reminder(service, when)
+        notification = {"name": "task.reminder", "created": datetime.now(UTC).isoformat(),
+                        "notification": {"task": {"id": 42, "title": "synthetic"}}}
+        monkeypatch.setattr(service, "_request",
+                            lambda *args, **kwargs: httpx.Response(200, json={"items": [notification]}))
+        service.reconcile_notifications()
+>       assert service.store.next_reminder_notification() is None
+E       AssertionError: assert {'attempts': 1, 'created_at': '2026-11-03T16:38:50.716271+00:00', 'event_id': '70d05bc403222a2327cded9dc2fe8a04742204c5036554b606fe7dbaecfabeeb', 'last_error': None, ...} is None
+E        +  where {'attempts': 1, 'created_at': '2026-11-03T16:38:50.716271+00:00', 'event_id': '70d05bc403222a2327cded9dc2fe8a04742204c5036554b606fe7dbaecfabeeb', 'last_error': None, ...} = next_reminder_notification()
+E        +    where next_reminder_notification = <app.store.Store object at 0x0000022C5D236930>.next_reminder_notification
+E        +      where <app.store.Store object at 0x0000022C5D236930> = <app.reminders.ReminderService object at 0x0000022C5D236A50>.store
+
+services\life-core\tests\test_reminder_delivery_recovery.py:87: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_reminder_delivery_recovery.py::test_rescheduled_notification_is_suppressed_before_http
+FAILED services/life-core/tests/test_reminder_delivery_recovery.py::test_reconcile_reads_each_owner_once
+FAILED services/life-core/tests/test_reminder_delivery_recovery.py::test_delayed_upstream_notification_recovers_after_restart
+FAILED services/life-core/tests/test_reminder_delivery_recovery.py::test_early_notification_waits_until_planned_time
+4 failed in 1.18s

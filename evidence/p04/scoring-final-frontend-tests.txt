@@ -1,0 +1,37 @@
+
+> @librechat/frontend@v0.8.8 test:ci
+> cross-env NODE_ENV=development jest --ci --logHeapUsage --runInBand --coverage=false src/components/Life/__tests__/V023.spec.tsx
+
+  console.error
+    Error: synthetic outage
+        at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\V023.spec.tsx:94:68)
+        at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+        at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+        at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+        at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+        at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+        at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+        at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+        at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+        at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+        at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/V023.spec.tsx (25.718 s, 204 MB heap size)
+  √ one time chip creates immediately and replaces choices with a real detail link (824 ms)
+  √ failed chip request keeps choices and never reports created (276 ms)
+  √ two memory sources and a derived moment use stable backend IDs (67 ms)
+  √ provider pending moment stays text-only and links its actual job (81 ms)
+  √ opening automation settings does not grant permissions or opt the user in (150 ms)
+  √ unknown image result has an explanation and cannot be retried (76 ms)
+  √ scoring budget pause never claims a selected event or generated picture (68 ms)
+  √ stored scores show source links and readable dimensions instead of raw JSON (67 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        38.96 s
+Ran all test suites matching src/components/Life/__tests__/V023.spec.tsx.

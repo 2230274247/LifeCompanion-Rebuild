@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "provider_calls": 0,
+  "synthetic_account": true,
+  "scope": "LibreChat login + persisted synthetic message + real Life-core + Vikunja",
+  "message_id": "p03-source-12c68509d672",
+  "conversation_id": "e9b02085-779a-4810-8659-089945537eca",
+  "draft_id": "rd_ffebb2a4855a4cfb9f9b1b4e4c8ae14a",
+  "reminder_id": "rem_fc658731676440adbfaa7f818bdd3013",
+  "scheduled_at": "2026-11-05T09:30:00+08:00",
+  "checks": {
+    "real_librechat_message_ownership_verified": "PASS",
+    "only_missing_time_selected": "PASS",
+    "negative_constraint_preserved": "PASS",
+    "real_vikunja_task_created": "PASS",
+    "source_trace_back": "PASS",
+    "device_delivery": "UNKNOWN"
+  }
+}

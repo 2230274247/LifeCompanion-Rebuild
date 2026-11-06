@@ -1,0 +1,5 @@
+{"status":"FAIL","scenarios":[{"width":1440,"unknown_retry_buttons":0,"image_elements":0}],"model_generation_requests":0}
+AssertionError: The expression evaluated to a falsy value:
+
+  assert.ok((await page.locator('main').innerText()).includes(fixture.expected_caption))
+

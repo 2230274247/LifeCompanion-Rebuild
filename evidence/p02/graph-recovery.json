@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "run_id": "9d08bd8472f24f0fa9d96b7b108f5ae8",
+  "checks": {
+    "real_projection_and_namespaced_search": "PASS",
+    "new_generation_survives_stale_acknowledgment": "PASS",
+    "withdrawal_removes_evidence_entities_and_relations": "PASS",
+    "other_owner_content_preserved": "PASS",
+    "interrupted_job_requeued_after_restart": "PASS",
+    "real_auth_failure_retains_job_and_recovers": "PASS",
+    "test_namespace_cleanup": "PASS"
+  },
+  "ended_at": "2026-11-03T15:58:28.620048+00:00",
+  "provider_calls": 0
+}

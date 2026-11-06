@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p01.py", line 54, in <module>
+    {"prepare": prepare, "identities": verify_identities}[sys.argv[1]]()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p01.py", line 15, in prepare
+    client, _ = login("a")
+                ^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p00.py", line 35, in login
+    response = check(client.post("/api/auth/login", json={
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p00.py", line 24, in check
+    raise RuntimeError(f"{label}_HTTP_{response.status_code}")
+RuntimeError: LOGIN_HTTP_502

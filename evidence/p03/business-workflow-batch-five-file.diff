@@ -1,0 +1,563 @@
+--- before/main.py
++++ after/main.py
+@@ -243,6 +243,7 @@
+         app.state.provisioning = ReminderProvisioning(store, settings, app.state.reminders)
+         app.state.reminders.provisioning = app.state.provisioning
+         app.state.reminder_drafts = ReminderDrafts(store, settings, app.state.reminders)
++        app.state.reminders.drafts = app.state.reminder_drafts
+         app.state.reminder_chat = ReminderChat(store, settings, app.state.reminders)
+         app.state.reminder_chat.drafts = app.state.reminder_drafts
+         stop = threading.Event()
+@@ -1075,12 +1076,8 @@
+             return draft
+         verify_draft_source(request, draft["conversation_id"], draft["source_message_id"], draft["source_text"])
+         try:
+-            value = drafts.patch(identity[0], draft_id, body.revision,
++            return drafts.select(identity[0], draft_id, body.revision,
+                                  body.fields.model_dump(mode="json", exclude_unset=True))
+-            if value["missing_fields"] or value["error_code"]:
+-                return value
+-            return drafts.confirm(identity[0], draft_id, value["revision"],
+-                                  f"{draft_id}:{value['revision']}")
+         except ReminderUpstreamError as exc:
+             raise HTTPException(403 if isinstance(exc, ReminderPermissionError) else 503,
+                                 detail={"code": str(exc)}) from exc
+--- before/reminder_drafts.py
++++ after/reminder_drafts.py
+@@ -81,7 +81,7 @@
+ class ReminderDrafts:
+     def __init__(self, store, settings, reminders):
+         self.store, self.settings, self.reminders = store, settings, reminders
+-        self.workflow = ReminderWorkflow(store.database_path)
++        self.workflow = ReminderWorkflow(store.database_path, self)
+         with store.connect() as db:
+             db.executescript("""
+                 CREATE TABLE IF NOT EXISTS reminder_drafts (
+@@ -166,15 +166,89 @@
+             ]
+         return result
+ 
+-    def checkpoint(self, owner, draft, action):
+-        return self.workflow.transition({
+-            "owner_id": owner,
+-            "draft_id": draft["draft_id"],
+-            "action": action,
+-            "revision": draft["revision"],
+-            "missing_fields": draft["missing_fields"],
+-            "reminder_id": draft["reminder"]["reminder_id"] if draft["reminder"] else None,
+-        })
++    def _workflow_load(self, owner, draft_id):
++        draft = self.get(owner, draft_id)
++        return {"status": draft["status"], "revision": draft["revision"],
++                "missing_fields": draft["missing_fields"],
++                "reminder_id": draft["reminder"]["reminder_id"] if draft["reminder"] else None}
++
++    def _workflow_patch(self, owner, draft_id, command):
++        return self._patch(owner, draft_id, command["revision"], command["fields"])
++
++    def _workflow_authorize(self, owner, draft_id, command):
++        row = self._row(owner, draft_id)
++        if command["revision"] != row["revision"]:
++            raise HTTPException(409, detail={"code": "DRAFT_REVISION_CONFLICT"})
++        with self.store.connect() as db:
++            submission = db.execute(
++                "SELECT state FROM reminder_submissions WHERE owner_id=? AND draft_id=?",
++                (owner, draft_id)).fetchone()
++        if command["action"] == "confirm" and submission:
++            return
++        if command.get("done") is not True and not self.reminders.notifications_allowed(owner):
++            raise ReminderPermissionError("NOTIFICATION_CONSENT_REQUIRED")
++
++    def _workflow_commit(self, owner, draft_id, command):
++        return self._confirm(owner, draft_id, command["revision"], command["idempotency_key"])
++
++    def _workflow_cancel(self, owner, draft_id, command):
++        return self._cancel(owner, draft_id)
++
++    def _workflow_reconcile(self, owner, draft_id, command):
++        return self._reconcile(owner, draft_id)
++
++    def _workflow_update(self, owner, draft_id, command):
++        draft = self.get(owner, draft_id)
++        reminder = draft["reminder"]
++        if not reminder:
++            raise HTTPException(409, detail={"code": "REMINDER_NOT_CREATED"})
++        result = self.reminders._update(
++            owner, reminder["reminder_id"], title=command.get("title"),
++            scheduled_at=datetime.fromisoformat(command["scheduled_at"]) if command.get("scheduled_at") else None,
++            timezone_name=command.get("timezone_name"), done=command.get("done"))
++        if result is None:
++            raise HTTPException(409, detail={"code": "REMINDER_NOT_ACTIVE"})
++        if result["revision"] == reminder["revision"]:
++            return
++        row = self._row(owner, draft_id)
++        fields = json.loads(row["fields"])
++        when = datetime.fromisoformat(result["scheduled_at"]).astimezone(ZoneInfo(result["timezone"]))
++        fields.update(title=result["title"], timezone=result["timezone"],
++                      reminder_date=when.date().isoformat(),
++                      reminder_time=when.time().isoformat(timespec="minutes"))
++        with self.store.connect() as db:
++            db.execute("""UPDATE reminder_drafts SET fields=?,revision=revision+1,updated_at=?
++                WHERE owner_id=? AND draft_id=?""",
++                       (json.dumps(fields, ensure_ascii=False), utc_now(), owner, draft_id))
++
++    def patch(self, owner, draft_id, revision, changes):
++        self.workflow.send(owner, draft_id, {"action": "patch", "revision": revision, "fields": changes})
++        return self.get(owner, draft_id)
++
++    def select(self, owner, draft_id, revision, changes):
++        self.workflow.send(owner, draft_id, {"action": "select", "revision": revision, "fields": changes})
++        return self.get(owner, draft_id)
++
++    def confirm(self, owner, draft_id, revision, idempotency_key):
++        self.workflow.send(owner, draft_id, {"action": "confirm", "revision": revision,
++                                            "idempotency_key": idempotency_key})
++        return self.get(owner, draft_id)
++
++    def cancel(self, owner, draft_id):
++        self.workflow.send(owner, draft_id, {"action": "cancel"})
++        return self.get(owner, draft_id)
++
++    def reconcile(self, owner, draft_id):
++        self.workflow.send(owner, draft_id, {"action": "reconcile"})
++        return self.get(owner, draft_id)
++
++    def update_reminder(self, owner, draft_id, **changes):
++        current = self.get(owner, draft_id)
++        self.workflow.send(owner, draft_id, {
++            "action": "update", "revision": current["revision"],
++            **{key: value.isoformat() if isinstance(value, datetime) else value
++               for key, value in changes.items()}})
++        return self.store.get_reminder(current["reminder"]["reminder_id"], owner)
+ 
+     def get(self, owner, draft_id):
+         return self.public(self._row(owner, draft_id))
+@@ -196,6 +270,7 @@
+             old = db.execute("""SELECT draft_id FROM reminder_drafts WHERE owner_id=?
+                 AND conversation_id=? AND source_message_id=?""", (owner, conversation, source)).fetchone()
+         if old:
++            self.workflow.open(owner, old["draft_id"])
+             return self.get(owner, old["draft_id"])
+         if fields is None:
+             try:
+@@ -215,10 +290,10 @@
+             row = db.execute("""SELECT draft_id FROM reminder_drafts WHERE owner_id=?
+                 AND conversation_id=? AND source_message_id=?""", (owner, conversation, source)).fetchone()
+         value = self.get(owner, row["draft_id"])
+-        self.checkpoint(owner, value, "proposed" if value["missing_fields"] else "ready")
++        self.workflow.open(owner, row["draft_id"])
+         return value
+ 
+-    def patch(self, owner, draft_id, revision, changes):
++    def _patch(self, owner, draft_id, revision, changes):
+         row = self._row(owner, draft_id)
+         if REFERENCE.search(row["source_text"]):
+             raise HTTPException(409, detail={"code": "REFERENCE_SELECTION_ONLY"})
+@@ -247,24 +322,22 @@
+             if result.rowcount != 1:
+                 raise HTTPException(409, detail={"code": "DRAFT_REVISION_CONFLICT"})
+         value = self.get(owner, draft_id)
+-        self.checkpoint(owner, value, "collect_missing" if value["missing_fields"] else "ready")
+         return value
+ 
+-    def cancel(self, owner, draft_id):
++    def _cancel(self, owner, draft_id):
+         row = self._row(owner, draft_id)
+         if row["state"] in ("creating", "unknown"):
+             raise HTTPException(409, detail={"code": "CHECK_REMINDER_LIST"})
+         value = self.get(owner, draft_id)
+         if value["reminder"] and value["reminder"]["status"] not in ("cancelled", "completed"):
+-            self.reminders.cancel(owner, value["reminder"]["reminder_id"])
++            self.reminders._cancel(owner, value["reminder"]["reminder_id"])
+         with self.store.connect() as db:
+             db.execute("UPDATE reminder_drafts SET state='cancelled',updated_at=? WHERE owner_id=? AND draft_id=?",
+                        (utc_now(), owner, draft_id))
+         value = self.get(owner, draft_id)
+-        self.checkpoint(owner, value, "cancelled")
+         return value
+ 
+-    def confirm(self, owner, draft_id, revision, idempotency_key):
++    def _confirm(self, owner, draft_id, revision, idempotency_key):
+         row = self._row(owner, draft_id)
+         if REFERENCE.search(row["source_text"]):
+             raise HTTPException(409, detail={"code": "REFERENCE_SELECTION_ONLY"})
+@@ -303,7 +376,6 @@
+             if not inserted.rowcount:
+                 return self.get(owner, draft_id)
+             db.execute("UPDATE reminder_drafts SET state='creating',updated_at=? WHERE draft_id=?", (utc_now(), draft_id))
+-        self.checkpoint(owner, self.get(owner, draft_id), "committing")
+         try:
+             reminder = self.reminders.create(
+                 owner, title=fields["title"], scheduled_at=datetime.fromisoformat(value["scheduled_at"]),
+@@ -313,7 +385,6 @@
+                 db.execute("UPDATE reminder_submissions SET state='scheduled',reminder_id=?,updated_at=? WHERE owner_id=? AND draft_id=?",
+                            (reminder["reminder_id"], utc_now(), owner, draft_id))
+                 db.execute("UPDATE reminder_drafts SET state='scheduled',updated_at=? WHERE draft_id=?", (utc_now(), draft_id))
+-            self.checkpoint(owner, self.get(owner, draft_id), "active")
+         except Exception as exc:
+             # An HTTP timeout or failed local write may follow an upstream success.
+             # Keep the operation claimed and expose reconciliation, never auto-POST.
+@@ -322,7 +393,6 @@
+                 db.execute("UPDATE reminder_submissions SET state='unknown',last_error=?,updated_at=? WHERE owner_id=? AND draft_id=?",
+                            (code, utc_now(), owner, draft_id))
+                 db.execute("UPDATE reminder_drafts SET state='unknown',updated_at=? WHERE draft_id=?", (utc_now(), draft_id))
+-            self.checkpoint(owner, self.get(owner, draft_id), "unknown")
+         return self.get(owner, draft_id)
+ 
+     def _remember_remote(self, owner, draft_id, task):
+@@ -330,7 +400,7 @@
+             db.execute("UPDATE reminder_submissions SET task_json=?,updated_at=? WHERE owner_id=? AND draft_id=?",
+                        (json.dumps(task), utc_now(), owner, draft_id))
+ 
+-    def reconcile(self, owner, draft_id):
++    def _reconcile(self, owner, draft_id):
+         row = self._row(owner, draft_id)
+         if row["state"] != "unknown":
+             return self.get(owner, draft_id)
+@@ -364,5 +434,4 @@
+                 db.execute("UPDATE reminder_submissions SET state='scheduled',reminder_id=?,updated_at=?,last_error=NULL WHERE owner_id=? AND draft_id=?",
+                            (reminder["reminder_id"], utc_now(), owner, draft_id))
+                 db.execute("UPDATE reminder_drafts SET state='scheduled',updated_at=? WHERE draft_id=?", (utc_now(), draft_id))
+-            self.checkpoint(owner, self.get(owner, draft_id), "active")
+-        return self.get(owner, draft_id)
++        return self.get(owner, draft_id)
+--- before/reminder_workflow.py
++++ after/reminder_workflow.py
+@@ -2,44 +2,147 @@
+ 
+ import threading
+ from pathlib import Path
+-from typing import Literal, TypedDict
++from typing import TypedDict
+ 
++from fastapi import HTTPException
+ from langgraph.checkpoint.sqlite import SqliteSaver
+ from langgraph.graph import END, START, StateGraph
++from langgraph.types import Command, interrupt
+ 
+ 
+-class ReminderTransition(TypedDict):
++class ReminderState(TypedDict, total=False):
+     owner_id: str
+-    draft_id: str
+-    action: Literal["proposed", "collect_missing", "ready", "committing",
+-                    "active", "cancelled", "unknown"]
++    object_id: str
++    workflow_version: int
++    status: str
+     revision: int
+     missing_fields: list[str]
+     reminder_id: str | None
++    command: dict | None
+ 
+ 
+ class ReminderWorkflow:
+-    """Persistent workflow checkpoints supplement the SQLite reminder authority."""
++    """Durable business nodes; the bound authority always reads SQLite first."""
+ 
+-    def __init__(self, database_path: Path):
+-        self.database_path = database_path
++    def __init__(self, database_path: Path, authority, *, task=False):
++        self.database_path, self.authority = database_path, authority
++        self.prefix = "reminder-task" if task else "reminder"
+         self.lock = threading.RLock()
+-        graph = StateGraph(ReminderTransition)
+-        graph.add_node("record_transition", lambda state: {})
+-        graph.add_edge(START, "record_transition")
+-        graph.add_edge("record_transition", END)
++        graph = StateGraph(ReminderState)
++        graph.add_node("load_authority", self._load)
++        for name in ("collect_missing", "await_confirmation", "active", "unknown"):
++            graph.add_node(name, self._wait)
++            graph.add_conditional_edges(name, self._dispatch, {
++                "patch": "apply_patch", "select": "apply_patch",
++                "confirm": "authorize", "update": "authorize",
++                "cancel": "cancel", "reconcile": "reconcile",
++            })
++        graph.add_node("apply_patch", self._patch)
++        graph.add_conditional_edges(
++            "apply_patch",
++            lambda state: "authorize" if state["command"]["action"] == "confirm" else "load_authority",
++            {"authorize": "authorize", "load_authority": "load_authority"})
++        graph.add_node("authorize", self._authorize)
++        graph.add_conditional_edges(
++            "authorize", lambda state: "update" if state["command"]["action"] == "update" else "commit",
++            {"update": "update", "commit": "commit"})
++        for name in ("commit", "update", "cancel", "reconcile"):
++            graph.add_node(name, self._operation(name))
++            graph.add_edge(name, "load_authority")
++        graph.add_edge(START, "load_authority")
++        graph.add_conditional_edges("load_authority", self._phase, {
++            "collect_missing": "collect_missing", "await_confirmation": "await_confirmation",
++            "active": "active", "unknown": "unknown", "end": END,
++        })
+         self.graph_builder = graph
+ 
+-    def transition(self, state: ReminderTransition) -> dict:
+-        with self.lock:
+-            thread_id = f"reminder:{state['owner_id']}:{state['draft_id']}"
+-            with SqliteSaver.from_conn_string(str(self.database_path)) as checkpointer:
+-                graph = self.graph_builder.compile(checkpointer=checkpointer)
+-                config = {"configurable": {"thread_id": thread_id}}
+-                result = graph.invoke(state, config=config)
+-                snapshot = graph.get_state(config)
+-                return {
+-                    "checkpoint_id": snapshot.config["configurable"]["checkpoint_id"],
+-                    "status": result["action"],
+-                    "revision": result["revision"],
+-                }
++    def _load(self, state):
++        return {**self.authority._workflow_load(state["owner_id"], state["object_id"]),
++                "command": None}
++
++    @staticmethod
++    def _phase(state):
++        if state["status"] in ("cancelled", "expired"):
++            return "end"
++        if state["status"] in ("scheduled", "due", "completed"):
++            return "active"
++        if state["status"] in ("unknown", "creating"):
++            return "unknown"
++        return "collect_missing" if state["missing_fields"] else "await_confirmation"
++
++    @staticmethod
++    def _wait(state):
++        command = interrupt({
++            "object_id": state["object_id"], "status": state["status"],
++            "revision": state["revision"], "missing_fields": state["missing_fields"],
++        })
++        return {"command": command}
++
++    @staticmethod
++    def _dispatch(state):
++        action = state["command"].get("action")
++        if action not in {"patch", "select", "confirm", "update", "cancel", "reconcile"}:
++            raise ValueError("UNSUPPORTED_REMINDER_OPERATION")
++        return action
++
++    def _patch(self, state):
++        command = state["command"]
++        value = self.authority._workflow_patch(
++            state["owner_id"], state["object_id"], command)
++        if command["action"] == "select" and not value["missing_fields"] and not value["error_code"]:
++            return {"command": {
++                "action": "confirm", "revision": value["revision"],
++                "idempotency_key": f"{state['object_id']}:{value['revision']}",
++            }}
++        return {}
++
++    def _authorize(self, state):
++        self.authority._workflow_authorize(
++            state["owner_id"], state["object_id"], state["command"])
++        return {}
++
++    def _operation(self, name):
++        def execute(state):
++            getattr(self.authority, f"_workflow_{name}")(
++                state["owner_id"], state["object_id"], state["command"])
++            return {}
++        return execute
++
++    def _config(self, owner, object_id):
++        return {"configurable": {"thread_id": f"{self.prefix}:{owner}:{object_id}"}}
++
++    @staticmethod
++    def _interrupted(snapshot):
++        return any(task.interrupts for task in snapshot.tasks)
++
++    def _prepare(self, graph, config, owner, object_id):
++        snapshot = graph.get_state(config)
++        if snapshot.values.get("workflow_version") != 2 or not self._interrupted(snapshot):
++            # Legacy audit-only checkpoints and failed nodes restart from business
++            # authority. No old input may replay a remote write without a new command.
++            graph.invoke({"owner_id": owner, "object_id": object_id,
++                          "workflow_version": 2, "command": None}, config=config)
++
++    def open(self, owner, object_id):
++        self.authority._workflow_load(owner, object_id)
++        with self.lock, SqliteSaver.from_conn_string(str(self.database_path)) as saver:
++            graph = self.graph_builder.compile(checkpointer=saver)
++            self._prepare(graph, self._config(owner, object_id), owner, object_id)
++
++    def send(self, owner, object_id, command):
++        self.authority._workflow_load(owner, object_id)
++        with self.lock, SqliteSaver.from_conn_string(str(self.database_path)) as saver:
++            graph = self.graph_builder.compile(checkpointer=saver)
++            config = self._config(owner, object_id)
++            self._prepare(graph, config, owner, object_id)
++            if self._interrupted(graph.get_state(config)):
++                graph.invoke(Command(resume=command), config=config)
++            elif command["action"] not in {"cancel", "reconcile", "confirm"}:
++                raise HTTPException(409, detail={"code": "DRAFT_LOCKED"})
++
++    def snapshot(self, owner, object_id):
++        with self.lock, SqliteSaver.from_conn_string(str(self.database_path)) as saver:
++            graph = self.graph_builder.compile(checkpointer=saver)
++            snapshot = graph.get_state(self._config(owner, object_id))
++            return {"next": list(snapshot.next), "interrupted": self._interrupted(snapshot),
++                    "values": dict(snapshot.values)}
+--- before/reminders.py
++++ after/reminders.py
+@@ -8,8 +8,10 @@
+ from typing import Any
+ 
+ import httpx
++from fastapi import HTTPException
+ 
+ from .store import utc_now
++from .reminder_workflow import ReminderWorkflow
+ 
+ 
+ class ReminderUpstreamError(RuntimeError):
+@@ -25,6 +27,40 @@
+         self.store = store
+         self.settings = settings
+         self.provisioning = None
++        self.drafts = None
++        self.workflow = ReminderWorkflow(store.database_path, self, task=True)
++
++    def _draft_id(self, owner, reminder_id):
++        if self.drafts is None:
++            return None
++        with self.store.connect() as db:
++            row = db.execute(
++                "SELECT draft_id FROM reminder_submissions WHERE owner_id=? AND reminder_id=?",
++                (owner, reminder_id)).fetchone()
++        return row["draft_id"] if row else None
++
++    def _workflow_load(self, owner, reminder_id):
++        value = self.store.get_reminder(reminder_id, owner)
++        if value is None:
++            raise HTTPException(404, detail={"code": "REMINDER_NOT_FOUND"})
++        return {"status": value["status"], "revision": value["revision"],
++                "missing_fields": [], "reminder_id": reminder_id}
++
++    def _workflow_authorize(self, owner, reminder_id, command):
++        value = self._workflow_load(owner, reminder_id)
++        if value["revision"] != command["revision"]:
++            raise HTTPException(409, detail={"code": "REMINDER_REVISION_CONFLICT"})
++        if command.get("done") is not True and not self.notifications_allowed(owner):
++            raise ReminderPermissionError("NOTIFICATION_CONSENT_REQUIRED")
++
++    def _workflow_update(self, owner, reminder_id, command):
++        return self._update(
++            owner, reminder_id, title=command.get("title"),
++            scheduled_at=datetime.fromisoformat(command["scheduled_at"]) if command.get("scheduled_at") else None,
++            timezone_name=command.get("timezone_name"), done=command.get("done"))
++
++    def _workflow_cancel(self, owner, reminder_id, command):
++        return self._cancel(owner, reminder_id)
+ 
+     def configured(self, life_user_id: str) -> bool:
+         return bool(self._configs().get(life_user_id))
+@@ -144,7 +180,8 @@
+                 datetime.fromisoformat(remote_at.replace("Z", "+00:00")).timestamp() !=
+                 datetime.fromisoformat(record["scheduled_at"]).timestamp() else None
+             )
+-            if not changed_at and task["title"] == record["title"] and not task.get("done"):
++            if (not changed_at and task["title"] == record["title"]
++                    and bool(task.get("done")) == (record["status"] == "completed")):
+                 continue
+             self.store.update_reminder(
+                 record["reminder_id"], life_user_id, title=task["title"],
+@@ -195,9 +232,42 @@
+         current = self.store.get_reminder(reminder_id, life_user_id)
+         if current is None or current["status"] == "cancelled":
+             return None
++        values = dict(title=title, scheduled_at=scheduled_at,
++                      timezone_name=timezone_name, done=done)
++        draft_id = self._draft_id(life_user_id, reminder_id)
++        if draft_id:
++            return self.drafts.update_reminder(life_user_id, draft_id, **values)
++        self.workflow.send(life_user_id, reminder_id, {
++            "action": "update", "revision": current["revision"],
++            **{key: value.isoformat() if isinstance(value, datetime) else value
++               for key, value in values.items()}})
++        return self.store.get_reminder(reminder_id, life_user_id)
++
++    def _update(
++        self,
++        life_user_id: str,
++        reminder_id: str,
++        *,
++        title: str | None,
++        scheduled_at: datetime | None,
++        timezone_name: str | None,
++        done: bool | None = None,
++    ):
++        current = self.store.get_reminder(reminder_id, life_user_id)
++        if current is None or current["status"] == "cancelled":
++            return None
+         config = self._user_config(life_user_id)
+         if done is not True and not self.notifications_allowed(life_user_id):
+             raise ReminderPermissionError("NOTIFICATION_CONSENT_REQUIRED")
++        if scheduled_at is not None:
++            scheduled_at = self._minute_time(scheduled_at)
++        if (
++            (title is None or title == current["title"])
++            and (scheduled_at is None or scheduled_at.timestamp() == datetime.fromisoformat(current["scheduled_at"]).timestamp())
++            and (timezone_name is None or timezone_name == current["timezone"])
++            and (done is None or done == (current["status"] == "completed"))
++        ):
++            return current
+         task_response = self._request(config, "GET", f"/tasks/{current['upstream_task_id']}")
+         task = task_response.json()
+         task.pop("max_permission", None)
+@@ -226,10 +296,25 @@
+         current = self.store.get_reminder(reminder_id, life_user_id)
+         if current is None:
+             return None
++        draft_id = self._draft_id(life_user_id, reminder_id)
++        if draft_id:
++            self.drafts.cancel(life_user_id, draft_id)
++        else:
++            self.workflow.send(life_user_id, reminder_id, {"action": "cancel"})
++        return self.store.get_reminder(reminder_id, life_user_id)
++
++    def _cancel(self, life_user_id: str, reminder_id: str):
++        current = self.store.get_reminder(reminder_id, life_user_id)
++        if current is None:
++            return None
+         if current["status"] == "cancelled":
+             return current
+         config = self._user_config(life_user_id)
+-        self._request(config, "DELETE", f"/tasks/{current['upstream_task_id']}")
++        try:
++            self._request(config, "DELETE", f"/tasks/{current['upstream_task_id']}")
++        except ReminderUpstreamError as exc:
++            if str(exc) != "VIKUNJA_HTTP_404":
++                raise
+         return self.store.cancel_reminder(reminder_id, life_user_id)
+ 
+     def handle_webhook(self, raw_body: bytes, signature: str) -> bool:
+--- before/store.py
++++ after/store.py
+@@ -137,6 +137,8 @@
+             }
+             if "upstream_task_id" not in reminder_columns:
+                 db.execute("ALTER TABLE reminders ADD COLUMN upstream_task_id INTEGER")
++            if "revision" not in reminder_columns:
++                db.execute("ALTER TABLE reminders ADD COLUMN revision INTEGER NOT NULL DEFAULT 1")
+             db.execute("""CREATE UNIQUE INDEX IF NOT EXISTS idx_reminder_owner_task
+                 ON reminders(owner_user_id,upstream_task_id)""")
+             db.execute(
+@@ -488,7 +490,7 @@
+                 """
+                 UPDATE reminders
+                 SET title = ?, scheduled_at = COALESCE(?, scheduled_at),
+-                    timezone = COALESCE(?, timezone), updated_at = ?,
++                    timezone = COALESCE(?, timezone), updated_at = ?, revision = revision + 1,
+                     status = CASE WHEN ? = 1 THEN 'completed'
+                         WHEN ? = 0 OR ? IS NOT NULL THEN 'scheduled' ELSE status END
+                 WHERE reminder_id = ? AND owner_user_id = ? AND status != 'cancelled'
+@@ -509,8 +511,8 @@
+         with self.connect() as db:
+             db.execute(
+                 """
+-                UPDATE reminders SET status = 'cancelled', updated_at = ?
+-                WHERE reminder_id = ? AND owner_user_id = ?
++                UPDATE reminders SET status = 'cancelled', updated_at = ?, revision = revision + 1
++                WHERE reminder_id = ? AND owner_user_id = ? AND status != 'cancelled'
+                 """,
+                 (now, reminder_id, owner_user_id),
+             )

@@ -1,0 +1,7 @@
+{"status":"FAIL","scenarios":[],"model_generation_requests":0}
+TimeoutError: locator.fill: Timeout 45000ms exceeded.
+Call log:
+[2m  - waiting for locator('input[name="email"]')[22m
+[2m    - waiting for navigation to finish...[22m
+[2m    - navigated to "http://127.0.0.1:63222/login"[22m
+

@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "run_id": "55d9917195da4873",
+  "started_at": "2026-11-03T19:07:08.652926+00:00",
+  "identity": {
+    "status": "PASS",
+    "project_id": "LifeCompanion-Rebuild",
+    "worktree": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103",
+    "git_common_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.git",
+    "branch": "feat/rebuild-p00-p07-20261103",
+    "head": "e2711c7b87367b39b0e2acdc88f4fb9fde01edf1"
+  },
+  "database": "infra\\runtime\\p04\\scoring-acceptance\\life-browser-55d9917195da4873.sqlite3",
+  "persistent_quota_source": "infra\\runtime\\p04\\scoring-acceptance\\life.sqlite3",
+  "scope": "persisted synthetic Mongo messages verified by LibreChat HTTP; actual DeepSeek scoring/Memos/clock/Core/UI, not actual chat generation or image generation",
+  "request_budget": 2,
+  "image_calls": 0,
+  "image_status": "BLOCKED_IMAGE_PROVIDER",
+  "exact_money_cost": "UNKNOWN",
+  "checks": {
+    "reused_persisted_success_without_new_scoring": "PASS",
+    "three_persisted_eight_dimension_scores_one_selected_source_quote": "PASS",
+    "foreign_account_detail_denied": "PASS",
+    "core_restart_window_replay_and_persistent_cap_no_new_requests": "PASS",
+    "desktop_mobile_readable_scores_and_revocation": "PASS"
+  },
+  "calls_before": 1,
+  "selected_caption": "\u4eca\u5929\u7ec8\u4e8e\u5b8c\u6210\u4e86\u575a\u6301\u4e00\u5e74\u7684\u624b\u5199\u56de\u5fc6\u5f55\uff0c\u8fd9\u662f\u6211\u7b2c\u4e00\u6b21\u72ec\u7acb\u5b8c\u6210\u4e00\u672c\u4e66\uff0c\u6211\u7279\u522b\u5f00\u5fc3\u3002",
+  "candidates": [
+    {
+      "window_id": "mom_f074fed9906a371eea0c2c94",
+      "user_id": "life_423b9052f48772e06ec3",
+      "memory_id": "mem_ea8108b24fc9d2ff1c7d18ad",
+      "source_revision": 1,
+      "input_hash": "00897b11fbd704069071ef146041da7fb02444139f2537ac7cba2528a449a6c8",
+      "source_message_ids": "[\"p04-scoring-7352368da5744a1b-2\"]",
+      "dimensions": "{\"personal_meaning\": 0.9, \"uniqueness\": 0.85, \"expressed_feeling\": 0.85, \"event_clarity\": 0.9, \"source_sufficiency\": 0.9, \"window_relevance\": 0.9, \"privacy_suitability\": 0.95, \"novelty_or_development\": 0.9}",
+      "score": 0.893,
+      "eligible": 1,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "selected": 1,
+      "version": "recollection-v1"
+    },
+    {
+      "window_id": "mom_f074fed9906a371eea0c2c94",
+      "user_id": "life_423b9052f48772e06ec3",
+      "memory_id": "mem_dd7228e7d93bd2080b530f43",
+      "source_revision": 1,
+      "input_hash": "ccb92ebbe037fab5e3c50a08ad20dfdfee5c1e7c94928a3ff7d33d0c44f32021",
+      "source_message_ids": "[\"p04-scoring-7352368da5744a1b-1\"]",
+      "dimensions": "{\"personal_meaning\": 0.2, \"uniqueness\": 0.1, \"expressed_feeling\": 0.1, \"event_clarity\": 0.6, \"source_sufficiency\": 0.6, \"window_relevance\": 0.7, \"privacy_suitability\": 0.9, \"novelty_or_development\": 0.1}",
+      "score": 0.36,
+      "eligible": 0,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "ROUTINE_EVENT",
+      "selected": 0,
+      "version": "recollection-v1"
+    },
+    {
+      "window_id": "mom_f074fed9906a371eea0c2c94",
+      "user_id": "life_423b9052f48772e06ec3",
+      "memory_id": "mem_ffa7d894cfacca68a0425bd5",
+      "source_revision": 1,
+      "input_hash": "d47bd8a5715002649c36bcd30a18887c5a51e31f73383d2bd82661c36ada3b71",
+      "source_message_ids": "[\"p04-scoring-7352368da5744a1b-0\"]",
+      "dimensions": "{\"personal_meaning\": 0.1, \"uniqueness\": 0.05, \"expressed_feeling\": 0.05, \"event_clarity\": 0.5, \"source_sufficiency\": 0.5, \"window_relevance\": 0.6, \"privacy_suitability\": 0.9, \"novelty_or_development\": 0.05}",
+      "score": 0.286,
+      "eligible": 0,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "ROUTINE_EVENT",
+      "selected": 0,
+      "version": "recollection-v1"
+    }
+  ],
+  "calls": [
+    {
+      "window_id": "mom_f074fed9906a371eea0c2c94",
+      "user_id": "life_423b9052f48772e06ec3",
+      "model": "deepseek-flash",
+      "version": "recollection-v1",
+      "input_hash": "8497a746a95abe48ade740f429ed8b3ea79ca2f7912f3d5eba63a5601fa367f7",
+      "status": "succeeded",
+      "started_at": "2026-11-03T19:02:01.255495+00:00",
+      "completed_at": "2026-11-03T19:02:04.029657+00:00",
+      "input_tokens": 1363,
+      "output_tokens": 457,
+      "error_code": null
+    }
+  ],
+  "calls_after": 1,
+  "added_scoring_calls": 0,
+  "extraction_model_calls": 0,
+  "provider_configuration_unchanged": true,
+  "final_call_ledger": [
+    {
+      "window_id": "mom_f074fed9906a371eea0c2c94",
+      "user_id": "life_423b9052f48772e06ec3",
+      "model": "deepseek-flash",
+      "version": "recollection-v1",
+      "input_hash": "8497a746a95abe48ade740f429ed8b3ea79ca2f7912f3d5eba63a5601fa367f7",
+      "status": "succeeded",
+      "started_at": "2026-11-03T19:02:01.255495+00:00",
+      "completed_at": "2026-11-03T19:02:04.029657+00:00",
+      "input_tokens": 1363,
+      "output_tokens": 457,
+      "error_code": null
+    }
+  ],
+  "ended_at": "2026-11-03T19:07:55.172302+00:00"
+}

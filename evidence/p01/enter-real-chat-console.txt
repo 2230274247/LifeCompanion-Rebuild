@@ -1,0 +1,1 @@
+{"synthetic":true,"real_provider":"existing Zhipu glm-4.7","provider_calls":1,"composition_enter_kept_text":true,"composition_did_not_submit":true,"successful_enter_cleared_input":true,"reply_visible":true,"conversation_id":"new","refresh_restored_real_messages":true}

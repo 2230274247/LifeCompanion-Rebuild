@@ -1,0 +1,8 @@
+{"status": "FAIL", "provider_calls": 0, "started_at": "2026-11-03T17:00:34.548146+00:00", "checks": {"reminder_read": {"http_status": 404, "status": "PASS"}, "reminder_update": {"http_status": 404, "status": "PASS"}, "reminder_cancel": {"http_status": 404, "status": "PASS"}, "draft_read": {"http_status": 405}}, "ended_at": "2026-11-03T17:00:36.662313+00:00"}
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p03_permissions.py", line 63, in <module>
+    main()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p03_permissions.py", line 47, in main
+    assert response.status_code == 404, f"OWNERSHIP_DENIAL_FAILED_{label}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: OWNERSHIP_DENIAL_FAILED_draft_read

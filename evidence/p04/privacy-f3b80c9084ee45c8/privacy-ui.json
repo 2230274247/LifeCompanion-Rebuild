@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "scenarios": [
+    {
+      "width": 1440,
+      "unknown_retry_buttons": 0,
+      "image_elements": 0
+    }
+  ],
+  "model_generation_requests": 0
+}

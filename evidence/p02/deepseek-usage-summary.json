@@ -1,0 +1,10 @@
+{
+  "balance_available": true,
+  "currency": "CNY",
+  "observed_account_balance_delta": "0.00",
+  "attribution": "account-level observation; other account activity cannot be excluded",
+  "generation_requests_in_relationship_acceptance": 12,
+  "input_tokens": 33756,
+  "output_tokens": 1779,
+  "additional_generation_calls": 0
+}

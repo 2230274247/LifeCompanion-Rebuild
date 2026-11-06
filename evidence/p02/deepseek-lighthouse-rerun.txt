@@ -1,0 +1,293 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+
+[WebServer] (node:61728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] [e2e] Started memory MongoDB at mongodb://127.0.0.1:45559/LibreChat-e2e
+
+[WebServer] 2026-11-04 00:13:53 warn: [metrics] METRICS_SECRET is not set - /metrics will return 401 for all requests
+
+[WebServer] 2026-11-04 00:13:53 info: Mongo Connection options
+
+[WebServer] 2026-11-04 00:13:53 info: {
+[WebServer]   "bufferCommands": false
+[WebServer] }
+
+[WebServer] 2026-11-04 00:13:53 info: Connected to MongoDB
+
+[WebServer] 2026-11-04 00:13:53 warn: [Security] TRUST_TENANT_HEADER is active. Ensure your reverse proxy strips and sets X-Tenant-Id — untrusted clients must not be able to supply it directly.
+
+[WebServer] 2026-11-04 00:14:00 info: [ensureBaseConfig] Loading base configuration...
+
+[WebServer] 2026-11-04 00:14:00 info: Custom config file loaded:
+
+[WebServer] 2026-11-04 00:14:00 info: {
+[WebServer]   "version": "1.3.6",
+[WebServer]   "cache": true,
+[WebServer]   "endpoints": {
+[WebServer]     "openAI": {
+[WebServer]       "titleConvo": false
+[WebServer]     }
+[WebServer]   },
+[WebServer]   "openapi": {
+[WebServer]     "enabled": true
+[WebServer]   }
+[WebServer] }
+
+[WebServer] 2026-11-04 00:14:00 info: [deploymentSkills] Loaded 1 deployment skill(s) from H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\fixtures\deployment-skills
+
+[WebServer] 2026-11-04 00:14:00 warn: The `CHECK_BALANCE` environment variable is deprecated. Please use the `balance` field in the `librechat.yaml` config file instead.
+[WebServer] More info: https://librechat.ai/docs/configuration/librechat_yaml/object_structure/balance#overview
+
+[WebServer] 2026-11-04 00:14:01 info: [credentials] New database detected. Credential fingerprints were recorded for future key-drift checks.
+
+[WebServer] 2026-11-04 00:14:01 info: 
+[WebServer] Outdated Config version: 1.3.6
+[WebServer] Latest version: 1.3.17
+[WebServer] 
+[WebServer]       Check out the Config changelogs for the latest options and features added.
+[WebServer] 
+[WebServer]       https://www.librechat.ai/changelog
+[WebServer] 
+[WebServer] 
+
+[WebServer] 2026-11-04 00:14:01 warn: RAG API is either not running or not reachable at http://127.0.0.1:8791, you may experience errors with file uploads.
+
+[WebServer] 2026-11-04 00:14:08 info: [StreamServices] Created in-memory stream services
+
+[WebServer] 2026-11-04 00:14:08 info: [GenerationJobManager] Configured with in-memory stores
+
+[WebServer] 2026-11-04 00:14:08 info: HTTP server timeout configuration
+
+[WebServer] 2026-11-04 00:14:08 info: Server listening at http://127.0.0.1:3098
+
+[WebServer] 2026-11-04 00:14:08 info: [MCPServersRegistry] Creating new instance
+
+[WebServer] 2026-11-04 00:14:08 info: OAuth reconnect manager initialized successfully.
+
+[WebServer] 2026-11-04 00:14:08 info: Created collection: projects
+
+🤖: global setup has been started
+🤖: using baseURL http://127.0.0.1:3098
+🤖: using E2E user: testuser@example.com
+🤖: 🗝  authenticating user: testuser@example.com
+🤖: ✔️  localStorage: set Nav as Visible H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\storageState.json
+[WebServer] 2026-11-04 00:14:11 info: [agent-triggers] durable delivery engine started
+
+[WebServer] 2026-11-04 00:14:12 info: [schedules] engine started
+
+[WebServer] 2026-11-04 00:14:12 info: Server readiness checks passing.
+
+🤖: ✔️  user successfully registered
+[WebServer] 2026-11-04 00:14:22 info: [Login] [Login successful] [Username: testuser@example.com] [Request-IP: 127.0.0.1] {"requestId":"5af54d0b-11b7-4991-86ff-17917f3d9f82","request_id":"5af54d0b-11b7-4991-86ff-17917f3d9f82","request_method":"POST","request_path":"/api/auth"}
+
+🤖: ✔️  user successfully authenticated
+🤖: ✔️  authentication state successfully saved in H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\storageState.json
+🤖: global setup has been finished
+
+Running 1 test using 1 worker
+
+(node:22644) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] [chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets
+[chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets
+Lighthouse run 1/3 wrote H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-1.report.json
+
+Lighthouse run 2/3 wrote H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-2.report.json
+
+Lighthouse run 3/3 wrote H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-3.report.json
+
+http://127.0.0.1:3098/c/16390000-0000-4000-8000-000000000001: LCP 7.0 s
+
+┌─────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────┬────────────────────┬────────┐
+│ (index) │ url                                                                                                             │ startMs            │ endMs              │ status │
+├─────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────┼────────────────────┼────────┤
+│ 0       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 2029.8499999642372 │ 2057.9870000481606 │ 200    │
+│ 1       │ 'http://127.0.0.1:3098/api/auth/refresh'                                                                        │ 2031.3519999980927 │ 2593.2389999628067 │ 200    │
+│ 2       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 2685.559000015259  │ 3490.150000035763  │ 200    │
+│ 3       │ 'http://127.0.0.1:3098/api/banner'                                                                              │ 3266.9740000367165 │ 3793.4829999804497 │ 200    │
+│ 4       │ 'http://127.0.0.1:3098/api/endpoints'                                                                           │ 3268.875           │ 3571.1079999804497 │ 200    │
+│ 5       │ 'http://127.0.0.1:3098/api/files'                                                                               │ 3270.7800000309944 │ 3841.7229999899864 │ 200    │
+│ 6       │ 'http://127.0.0.1:3098/api/projects?sortBy=lastConversationAt&sortDirection=desc&limit=25'                      │ 3271.0849999785423 │ 3842.951000034809  │ 200    │
+│ 7       │ 'http://127.0.0.1:3098/api/agents/chat/active'                                                                  │ 3272.2360000014305 │ 3588.336999952793  │ 200    │
+│ 8       │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 3275.4430000185966 │ 4047.469000041485  │ 200    │
+│ 9       │ 'http://127.0.0.1:3098/api/user/settings/pinned-order'                                                          │ 3276.025000035763  │ 4138.131999969482  │ 200    │
+│ 10      │ 'http://127.0.0.1:3098/api/convos?sortBy=updatedAt&sortDirection=desc'                                          │ 3276.469000041485  │ 4425.041000008583  │ 200    │
+│ 11      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 3277.8949999809265 │ 4326.667999982834  │ 200    │
+│ 12      │ 'http://127.0.0.1:3098/api/files/speech/config/get'                                                             │ 3279.016000032425  │ 4133.197000026703  │ 200    │
+│ 13      │ 'http://127.0.0.1:3098/api/models'                                                                              │ 3279.684000015259  │ 4144.1449999809265 │ 200    │
+│ 14      │ 'http://127.0.0.1:3098/api/convos/16390000-0000-4000-8000-000000000001'                                         │ 3283.0640000104904 │ 4595.944999992847  │ 200    │
+│ 15      │ 'http://127.0.0.1:3098/api/search/enable'                                                                       │ 3286.1610000133514 │ 4403.643999993801  │ 200    │
+│ 16      │ 'http://127.0.0.1:3098/api/roles/USER'                                                                          │ 3287.333999991417  │ 4405.043999969959  │ 200    │
+│ 17      │ 'http://127.0.0.1:3098/api/roles/ADMIN'                                                                         │ 3288.438000023365  │ 4430.329999983311  │ 200    │
+│ 18      │ 'http://127.0.0.1:3098/api/user'                                                                                │ 3290.785000026226  │ 4597.769000053406  │ 200    │
+│ 19      │ 'http://127.0.0.1:3098/api/balance'                                                                             │ 3518.3299999833107 │ 4972.851000010967  │ 204    │
+│ 20      │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 4155.532000005245  │ 4974.670000016689  │ 200    │
+│ 21      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 4156.034000039101  │ 4977.842000007629  │ 200    │
+│ 22      │ 'http://127.0.0.1:3098/api/mcp/servers'                                                                         │ 4591.360000014305  │ 6114.886999964714  │ 200    │
+│ 23      │ 'http://127.0.0.1:3098/api/permissions/mcpServer/effective/all'                                                 │ 4596.512000024319  │ 5558.653999984264  │ 200    │
+│ 24      │ 'http://127.0.0.1:3098/api/prompts/groups?limit=10'                                                             │ 4599.038000047207  │ 6111.333999991417  │ 200    │
+│ 25      │ 'http://127.0.0.1:3098/api/keys?name=openAI'                                                                    │ 5131.601000010967  │ 5870.434000015259  │ 200    │
+│ 26      │ 'http://127.0.0.1:3098/api/presets'                                                                             │ 5132.009999990463  │ 5930.419000029564  │ 200    │
+│ 27      │ 'http://127.0.0.1:3098/api/tags'                                                                                │ 5134.217000007629  │ 5877.0139999985695 │ 200    │
+│ 28      │ 'http://127.0.0.1:3098/api/share/link/16390000-0000-4000-8000-000000000001'                                     │ 5138.457000017166  │ 6117.143000006676  │ 200    │
+│ 29      │ 'http://127.0.0.1:3098/api/messages/16390000-0000-4000-8000-000000000001'                                       │ 5145.420000016689  │ 6414.627999961376  │ 200    │
+│ 30      │ 'http://127.0.0.1:3098/api/files/config'                                                                        │ 5147.165000021458  │ 6156.004999995232  │ 200    │
+│ 31      │ 'http://127.0.0.1:3098/api/agents/tools/web_search/auth'                                                        │ 5148.189999997616  │ 9193.435000002384  │ 200    │
+│ 32      │ 'http://127.0.0.1:3098/api/endpoints/token-config'                                                              │ 5150.606999993324  │ 6399.572000026703  │ 200    │
+│ 33      │ 'http://127.0.0.1:3098/api/agents/tools/calls?conversationId=16390000-0000-4000-8000-000000000001'              │ 5152.726000010967  │ 6842.338999986649  │ 200    │
+│ 34      │ 'http://127.0.0.1:3098/api/agents/chat/status/16390000-0000-4000-8000-000000000001?generationProtocolVersion=2' │ 6741.780000030994  │ 7121.981999993324  │ 200    │
+└─────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────┴────────────────────┴────────┘
+
+http://127.0.0.1:3098/c/16390000-0000-4000-8000-000000000001: LCP 6.4 s
+
+┌─────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────┬────────────────────┬────────┐
+│ (index) │ url                                                                                                             │ startMs            │ endMs              │ status │
+├─────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────┼────────────────────┼────────┤
+│ 0       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 1986.3720000386238 │ 1999.966000020504  │ 200    │
+│ 1       │ 'http://127.0.0.1:3098/api/auth/refresh'                                                                        │ 1991.4110000133514 │ 2526.78100001812   │ 200    │
+│ 2       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 2617.1549999713898 │ 3671.261999964714  │ 200    │
+│ 3       │ 'http://127.0.0.1:3098/api/banner'                                                                              │ 3083.473000049591  │ 3641.0759999752045 │ 200    │
+│ 4       │ 'http://127.0.0.1:3098/api/endpoints'                                                                           │ 3084.7919999957085 │ 3392.400000035763  │ 200    │
+│ 5       │ 'http://127.0.0.1:3098/api/files'                                                                               │ 3087.856000006199  │ 3653.7680000066757 │ 200    │
+│ 6       │ 'http://127.0.0.1:3098/api/projects?sortBy=lastConversationAt&sortDirection=desc&limit=25'                      │ 3088.294000029564  │ 3660.3960000276566 │ 200    │
+│ 7       │ 'http://127.0.0.1:3098/api/agents/chat/active'                                                                  │ 3088.5650000572205 │ 3408.216000020504  │ 200    │
+│ 8       │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 3091.263000011444  │ 3945.385000050068  │ 200    │
+│ 9       │ 'http://127.0.0.1:3098/api/user/settings/pinned-order'                                                          │ 3092.400000035763  │ 3947.0370000600815 │ 200    │
+│ 10      │ 'http://127.0.0.1:3098/api/convos?sortBy=updatedAt&sortDirection=desc'                                          │ 3092.754000067711  │ 4437.643999993801  │ 200    │
+│ 11      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 3093.1650000214577 │ 4182.85799998045   │ 200    │
+│ 12      │ 'http://127.0.0.1:3098/api/files/speech/config/get'                                                             │ 3094.944000005722  │ 3927.2670000195503 │ 200    │
+│ 13      │ 'http://127.0.0.1:3098/api/models'                                                                              │ 3095.5389999747276 │ 3954.417999982834  │ 200    │
+│ 14      │ 'http://127.0.0.1:3098/api/convos/16390000-0000-4000-8000-000000000001'                                         │ 3096.0020000338554 │ 4452.249000012875  │ 200    │
+│ 15      │ 'http://127.0.0.1:3098/api/search/enable'                                                                       │ 3096.344000041485  │ 4225.297000050545  │ 200    │
+│ 16      │ 'http://127.0.0.1:3098/api/roles/USER'                                                                          │ 3097.4770000576973 │ 4229.795000016689  │ 200    │
+│ 17      │ 'http://127.0.0.1:3098/api/roles/ADMIN'                                                                         │ 3098.628000020981  │ 4236.333999991417  │ 200    │
+│ 18      │ 'http://127.0.0.1:3098/api/user'                                                                                │ 3099.5049999952316 │ 4454.245000004768  │ 200    │
+│ 19      │ 'http://127.0.0.1:3098/api/balance'                                                                             │ 3334.8740000128746 │ 4766.380999982357  │ 204    │
+│ 20      │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 3985.5889999866486 │ 4768.069999992847  │ 200    │
+│ 21      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 3986.4609999656677 │ 4769.25            │ 200    │
+│ 22      │ 'http://127.0.0.1:3098/api/mcp/servers'                                                                         │ 4313.170000016689  │ 5805.7419999837875 │ 200    │
+│ 23      │ 'http://127.0.0.1:3098/api/permissions/mcpServer/effective/all'                                                 │ 4314.004999995232  │ 5268.884000003338  │ 200    │
+│ 24      │ 'http://127.0.0.1:3098/api/prompts/groups?limit=10'                                                             │ 4314.8270000219345 │ 5800.717999994755  │ 200    │
+│ 25      │ 'http://127.0.0.1:3098/api/keys?name=openAI'                                                                    │ 4957.93700003624   │ 5498.42300003767   │ 200    │
+│ 26      │ 'http://127.0.0.1:3098/api/presets'                                                                             │ 4960.425999999046  │ 5499.670000016689  │ 200    │
+│ 27      │ 'http://127.0.0.1:3098/api/tags'                                                                                │ 4963.566999971867  │ 5501.266000032425  │ 200    │
+│ 28      │ 'http://127.0.0.1:3098/api/share/link/16390000-0000-4000-8000-000000000001'                                     │ 4963.893000006676  │ 5804.000999987125  │ 200    │
+│ 29      │ 'http://127.0.0.1:3098/api/messages/16390000-0000-4000-8000-000000000001'                                       │ 4964.125           │ 6032.920000016689  │ 200    │
+│ 30      │ 'http://127.0.0.1:3098/api/files/config'                                                                        │ 4964.981000006199  │ 5765.231000006199  │ 200    │
+│ 31      │ 'http://127.0.0.1:3098/api/agents/tools/web_search/auth'                                                        │ 4966.060000002384  │ 8684.714000046253  │ 200    │
+│ 32      │ 'http://127.0.0.1:3098/api/endpoints/token-config'                                                              │ 4966.798999965191  │ 6044.699000000954  │ 200    │
+│ 33      │ 'http://127.0.0.1:3098/api/agents/tools/calls?conversationId=16390000-0000-4000-8000-000000000001'              │ 4967.540000021458  │ 6339.5490000247955 │ 200    │
+│ 34      │ 'http://127.0.0.1:3098/api/agents/chat/status/16390000-0000-4000-8000-000000000001?generationProtocolVersion=2' │ 6230.81400001049   │ 6497.055000007153  │ 200    │
+└─────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────┴────────────────────┴────────┘
+
+http://127.0.0.1:3098/c/16390000-0000-4000-8000-000000000001: LCP 6.8 s
+
+┌─────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬────────────────────┬────────────────────┬────────┐
+│ (index) │ url                                                                                                             │ startMs            │ endMs              │ status │
+├─────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────────────────┼────────────────────┼────────┤
+│ 0       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 2401.434000015259  │ 2415.197000026703  │ 200    │
+│ 1       │ 'http://127.0.0.1:3098/api/auth/refresh'                                                                        │ 2401.8060000538826 │ 2922.5750000476837 │ 200    │
+│ 2       │ 'http://127.0.0.1:3098/api/config'                                                                              │ 3007.6290000081062 │ 3814.464000046253  │ 200    │
+│ 3       │ 'http://127.0.0.1:3098/api/banner'                                                                              │ 3429.7150000333786 │ 3971.936000049114  │ 200    │
+│ 4       │ 'http://127.0.0.1:3098/api/endpoints'                                                                           │ 3431.930000066757  │ 3715.7020000219345 │ 200    │
+│ 5       │ 'http://127.0.0.1:3098/api/files'                                                                               │ 3434.0810000896454 │ 3987.9700000286102 │ 200    │
+│ 6       │ 'http://127.0.0.1:3098/api/projects?sortBy=lastConversationAt&sortDirection=desc&limit=25'                      │ 3434.379000067711  │ 3991.066000044346  │ 200    │
+│ 7       │ 'http://127.0.0.1:3098/api/agents/chat/active'                                                                  │ 3435.201000034809  │ 3727.5280000567436 │ 200    │
+│ 8       │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 3436.5360000133514 │ 4263.021000027657  │ 200    │
+│ 9       │ 'http://127.0.0.1:3098/api/user/settings/pinned-order'                                                          │ 3436.850000023842  │ 4277.817000031471  │ 200    │
+│ 10      │ 'http://127.0.0.1:3098/api/convos?sortBy=updatedAt&sortDirection=desc'                                          │ 3438.0310000777245 │ 4602.007000029087  │ 200    │
+│ 11      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 3439.2610000371933 │ 4521.495000004768  │ 200    │
+│ 12      │ 'http://127.0.0.1:3098/api/files/speech/config/get'                                                             │ 3440.787000000477  │ 4274.669000029564  │ 200    │
+│ 13      │ 'http://127.0.0.1:3098/api/models'                                                                              │ 3442.417000055313  │ 4288.0490000247955 │ 200    │
+│ 14      │ 'http://127.0.0.1:3098/api/convos/16390000-0000-4000-8000-000000000001'                                         │ 3442.788000047207  │ 4815.482000052929  │ 200    │
+│ 15      │ 'http://127.0.0.1:3098/api/search/enable'                                                                       │ 3443.8740000724792 │ 4558.7930000424385 │ 200    │
+│ 16      │ 'http://127.0.0.1:3098/api/roles/USER'                                                                          │ 3445.0050000548363 │ 4565.882000029087  │ 200    │
+│ 17      │ 'http://127.0.0.1:3098/api/roles/ADMIN'                                                                         │ 3445.889000058174  │ 4568.045000016689  │ 200    │
+│ 18      │ 'http://127.0.0.1:3098/api/user'                                                                                │ 3448.2170000076294 │ 4786.320000052452  │ 200    │
+│ 19      │ 'http://127.0.0.1:3098/api/balance'                                                                             │ 3652.189000070095  │ 5081.73400002718   │ 204    │
+│ 20      │ 'http://127.0.0.1:3098/api/user/settings/favorites'                                                             │ 4309.289000034332  │ 5115.67300003767   │ 200    │
+│ 21      │ 'http://127.0.0.1:3098/api/convos?pinned=true&limit=100'                                                        │ 4310.254000008106  │ 5117.416000008583  │ 200    │
+│ 22      │ 'http://127.0.0.1:3098/api/mcp/servers'                                                                         │ 4658.401000022888  │ 5987.671000003815  │ 200    │
+│ 23      │ 'http://127.0.0.1:3098/api/permissions/mcpServer/effective/all'                                                 │ 4658.955000042915  │ 5584.1680000424385 │ 200    │
+│ 24      │ 'http://127.0.0.1:3098/api/prompts/groups?limit=10'                                                             │ 4660.046000063419  │ 6126.412999987602  │ 200    │
+│ 25      │ 'http://127.0.0.1:3098/api/keys?name=openAI'                                                                    │ 5329.879000067711  │ 5868.514000058174  │ 200    │
+│ 26      │ 'http://127.0.0.1:3098/api/presets'                                                                             │ 5331.511000037193  │ 5872.737000048161  │ 200    │
+│ 27      │ 'http://127.0.0.1:3098/api/tags'                                                                                │ 5332.744000017643  │ 5874.368000030518  │ 200    │
+│ 28      │ 'http://127.0.0.1:3098/api/share/link/16390000-0000-4000-8000-000000000001'                                     │ 5333.962000072002  │ 6124.953999996185  │ 200    │
+│ 29      │ 'http://127.0.0.1:3098/api/messages/16390000-0000-4000-8000-000000000001'                                       │ 5337.3500000834465 │ 6422.904000043869  │ 200    │
+│ 30      │ 'http://127.0.0.1:3098/api/files/config'                                                                        │ 5339.337000072002  │ 6145.9180000424385 │ 200    │
+│ 31      │ 'http://127.0.0.1:3098/api/agents/tools/web_search/auth'                                                        │ 5344.247000038624  │ 9075.098000049591  │ 200    │
+│ 32      │ 'http://127.0.0.1:3098/api/endpoints/token-config'                                                              │ 5344.6669999957085 │ 6256.185000002384  │ 200    │
+│ 33      │ 'http://127.0.0.1:3098/api/agents/tools/calls?conversationId=16390000-0000-4000-8000-000000000001'              │ 5345.101000070572  │ 6694.68700003624   │ 200    │
+│ 34      │ 'http://127.0.0.1:3098/api/agents/chat/status/16390000-0000-4000-8000-000000000001?generationProtocolVersion=2' │ 6689.154000043869  │ 6971.722000062466  │ 200    │
+└─────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────┴────────────────────┴────────┘
+
+Inspect .lighthouse HTML/JSON and e2e/lighthouse/README.md. Reuse loaded user/config data; overlap independent reads without bypassing authorization.
+
+┌─────────┬────────────────────────────┬──────────────────────┬───────┐
+│ (index) │ audit                      │ median               │ limit │
+├─────────┼────────────────────────────┼──────────────────────┼───────┤
+│ 0       │ 'largest-contentful-paint' │ 6836.668             │ 4500  │
+│ 1       │ 'cumulative-layout-shift'  │ 0.014956272053673055 │ 0.1   │
+│ 2       │ 'total-blocking-time'      │ 795.0369999389663    │ 500   │
+└─────────┴────────────────────────────┴──────────────────────┴───────┘
+
+  1) [chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets 
+
+    Error: Median largest-contentful-paint must stay within 4500
+
+    expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 4500
+    Received:    6836.668
+
+       at audit.ts:159
+
+      157 |   console.table(measured);
+      158 |   for (const { audit, median, limit } of measured) {
+    > 159 |     expect(median, `Median ${audit} must stay within ${limit}`).toBeLessThanOrEqual(limit);
+          |                                                                 ^
+      160 |   }
+      161 |   return results;
+      162 | }
+        at auditPage (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\lighthouse\audit.ts:159:65)
+        at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\lighthouse\load.spec.ts:33:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    e2e\lighthouse\.test-results\load-serial-database-latency-stays-within-web-vitals-budgets-chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: e2e\lighthouse\.test-results\load-serial-database-latency-stays-within-web-vitals-budgets-chrome\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    e2e\lighthouse\.test-results\load-serial-database-latency-stays-within-web-vitals-budgets-chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace e2e\lighthouse\.test-results\load-serial-database-latency-stays-within-web-vitals-budgets-chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+🤖: global teardown has been started
+2026-11-04 00:17:44 [32minfo[39m: [32mMongo Connection options[39m
+2026-11-04 00:17:44 [32minfo[39m: [32m{[39m
+[32m  "bufferCommands": false[39m
+[32m}[39m
+🤖:  ✅  Connected to Database
+🤖:  ✅  Found user in Database
+🤖:  ✅  Deleted 1 convos & 2 messages
+🤖:  ✅  Deleted user from Database
+🤖: global teardown has been started
+2026-11-04 00:17:47 [32minfo[39m: [32mMongo Connection options[39m
+2026-11-04 00:17:47 [32minfo[39m: [32m{[39m
+[32m  "bufferCommands": false[39m
+[32m}[39m
+🤖:  ✅  Connected to Database
+🤖:  ⚠️  User not found in Database
+  1 failed
+    [chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets 

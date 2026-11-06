@@ -1,0 +1,22 @@
+{
+  "status": 200,
+  "live_scripts": [
+    {
+      "path": "./assets/index.D8-nCWef.js",
+      "status": 404,
+      "content_type": null,
+      "built_file_exists": false
+    },
+    {
+      "path": "./registerSW.js",
+      "status": 200,
+      "content_type": "application/javascript; charset=UTF-8",
+      "built_file_exists": true
+    }
+  ],
+  "built_scripts": [
+    "./assets/index.CaQmzSRO.js",
+    "./registerSW.js"
+  ],
+  "isolated_container_identity": "PASS"
+}

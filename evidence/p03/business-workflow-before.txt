@@ -1,0 +1,75 @@
+FFFF.                                                                    [100%]
+================================== FAILURES ===================================
+__ test_missing_information_is_a_durable_interrupt_and_resumes_after_restart __
+
+business = (<fastapi.applications.FastAPI object at 0x000001D31C86A6C0>, 'life_572fa7b3f67442a6b918', {}, [])
+
+    def test_missing_information_is_a_durable_interrupt_and_resumes_after_restart(business):
+        app, owner, tasks, calls = business
+        draft = draft_for(app, owner)
+>       snapshot = app.state.reminder_drafts.workflow.snapshot(owner, draft["draft_id"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'ReminderWorkflow' object has no attribute 'snapshot'
+
+services\life-core\tests\test_reminder_business_workflow.py:55: AttributeError
+_ test_authorization_is_rechecked_in_graph_and_double_confirmation_creates_once _
+
+business = (<fastapi.applications.FastAPI object at 0x000001D31C8CB200>, 'life_572fa7b3f67442a6b918', {1: {'description': 'LifeCo... 1, 'reminders': [{'relative_period': 0, 'reminder': '2099-11-04T01:00:00Z'}], 'title': 'green not silver'}}, ['POST'])
+
+    def test_authorization_is_rechecked_in_graph_and_double_confirmation_creates_once(business):
+        app, owner, tasks, calls = business
+        draft = draft_for(app, owner)
+        drafts = app.state.reminder_drafts
+        drafts.patch(owner, draft["draft_id"], 1, {"event_time": "09:00"})
+        with pytest.raises(ReminderPermissionError):
+            drafts.confirm(owner, draft["draft_id"], 2, "same-operation")
+        assert calls == []
+        app.state.memory.set_permissions(owner, {"notification_consent": True})
+        with ThreadPoolExecutor(2) as pool:
+            results = list(pool.map(
+                lambda _: drafts.confirm(owner, draft["draft_id"], 2, "same-operation"), range(2)))
+>       assert all(value["status"] == "scheduled" for value in results)
+E       assert False
+E        +  where False = all(<generator object test_authorization_is_rechecked_in_graph_and_double_confirmation_creates_once.<locals>.<genexpr> at 0x000001D31C9B32A0>)
+
+services\life-core\tests\test_reminder_business_workflow.py:77: AssertionError
+___________ test_unknown_remote_success_recovers_without_reposting ____________
+
+business = (<fastapi.applications.FastAPI object at 0x000001D31C9AB2C0>, 'life_572fa7b3f67442a6b918', {1: {'description': 'LifeCo... 1, 'reminders': [{'relative_period': 0, 'reminder': '2099-11-04T01:00:00Z'}], 'title': 'green not silver'}}, ['POST'])
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001D31C9EFDA0>
+
+    def test_unknown_remote_success_recovers_without_reposting(business, monkeypatch):
+        app, owner, tasks, calls = business
+        app.state.memory.set_permissions(owner, {"notification_consent": True})
+        draft = draft_for(app, owner)
+        drafts = app.state.reminder_drafts
+        drafts.patch(owner, draft["draft_id"], 1, {"event_time": "09:00"})
+        create = app.state.store.create_reminder
+        monkeypatch.setattr(app.state.store, "create_reminder",
+                            lambda **_: (_ for _ in ()).throw(OSError("synthetic projection failure")))
+        assert drafts.confirm(owner, draft["draft_id"], 2, "unknown-operation")["status"] == "unknown"
+>       assert drafts.workflow.snapshot(owner, draft["draft_id"])["next"] == ["unknown"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'ReminderWorkflow' object has no attribute 'snapshot'
+
+services\life-core\tests\test_reminder_business_workflow.py:93: AttributeError
+________ test_update_and_cancel_keep_original_id_and_durable_versions _________
+
+business = (<fastapi.applications.FastAPI object at 0x000001D31CA5ECF0>, 'life_572fa7b3f67442a6b918', {}, [])
+
+    def test_update_and_cancel_keep_original_id_and_durable_versions(business):
+        app, owner, tasks, calls = business
+        app.state.memory.set_permissions(owner, {"notification_consent": True})
+        draft = draft_for(app, owner)
+        drafts = app.state.reminder_drafts
+>       scheduled = drafts.select(owner, draft["draft_id"], 1, {"event_time": "09:00"})
+                    ^^^^^^^^^^^^^
+E       AttributeError: 'ReminderDrafts' object has no attribute 'select'
+
+services\life-core\tests\test_reminder_business_workflow.py:106: AttributeError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_missing_information_is_a_durable_interrupt_and_resumes_after_restart
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_authorization_is_rechecked_in_graph_and_double_confirmation_creates_once
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_unknown_remote_success_recovers_without_reposting
+FAILED services/life-core/tests/test_reminder_business_workflow.py::test_update_and_cancel_keep_original_id_and_durable_versions
+4 failed, 1 passed in 10.23s

@@ -1,0 +1,8 @@
+{"status": "FAIL", "report": "evidence\\p05\\tools-live-26d3eb2fd3544019.json"}
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_tools.py", line 91, in <module>
+    main()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p05_tools.py", line 49, in main
+    assert item["status"] == "succeeded", item["error_code"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: TOOL_HTTP_503

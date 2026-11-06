@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-03T15:56:56.005362+00:00",
+  "provider": "zhipu",
+  "model": "glm-4.7",
+  "observed_http_status": 429,
+  "observed_response": "\u4f59\u989d\u4e0d\u8db3\u6216\u65e0\u53ef\u7528\u8d44\u6e90\u5305,\u8bf7\u5145\u503c\u3002",
+  "observed_error_class": "OpenAIRateLimitError",
+  "memory_pipeline_block": "MEMORY_PROVIDER_QUOTA_EXHAUSTED",
+  "new_paid_provider": false,
+  "payment_attempted": false,
+  "evidence_reference": "relationships-c18e31db5fbc4bbc.json"
+}

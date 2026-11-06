@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-03T23:43:18.5448062+08:00",
+  "health": {
+    "status": "ok",
+    "service": "life-core",
+    "memos_configured": false,
+    "internal_auth_configured": true,
+    "jwt_auth_configured": true
+  },
+  "local_address": "127.0.0.1",
+  "port": 8031,
+  "pid": 49044,
+  "parent_pid": 5576,
+  "command_line": "\"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\" \"H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\scripts\\acceptance_environment.py\" core"
+}

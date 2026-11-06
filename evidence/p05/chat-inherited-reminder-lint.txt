@@ -1,0 +1,8 @@
+
+H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\ReminderCards.tsx
+  198:12  error  Do not nest ternary expressions  no-nested-ternary
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+Exit code: 1

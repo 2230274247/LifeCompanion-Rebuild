@@ -1,0 +1,102 @@
+
+> LibreChat@v0.8.8 lighthouse:run
+> playwright test --config=e2e/playwright.config.lighthouse.ts
+
+
+[WebServer] (node:37444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] [e2e] Started memory MongoDB at mongodb://127.0.0.1:48363/LibreChat-e2e
+
+[WebServer] 2026-11-04 09:13:58 warn: [metrics] METRICS_SECRET is not set - /metrics will return 401 for all requests
+
+[WebServer] 2026-11-04 09:13:58 info: Mongo Connection options
+[WebServer] 2026-11-04 09:13:58 info: {
+[WebServer]   "bufferCommands": false
+[WebServer] }
+
+[WebServer] 2026-11-04 09:13:58 info: Connected to MongoDB
+
+[WebServer] 2026-11-04 09:13:58 warn: [Security] TRUST_TENANT_HEADER is active. Ensure your reverse proxy strips and sets X-Tenant-Id — untrusted clients must not be able to supply it directly.
+
+[WebServer] 2026-11-04 09:14:05 info: [ensureBaseConfig] Loading base configuration...
+
+[WebServer] 2026-11-04 09:14:05 info: Custom config file loaded:
+
+[WebServer] 2026-11-04 09:14:05 info: {
+[WebServer]   "version": "1.3.6",
+[WebServer]   "cache": true,
+[WebServer]   "endpoints": {
+[WebServer]     "openAI": {
+[WebServer]       "titleConvo": false
+[WebServer]     }
+[WebServer]   },
+[WebServer]   "openapi": {
+[WebServer]     "enabled": true
+[WebServer]   }
+[WebServer] }
+
+[WebServer] 2026-11-04 09:14:05 info: [deploymentSkills] Loaded 1 deployment skill(s) from H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\fixtures\deployment-skills
+
+[WebServer] 2026-11-04 09:14:05 warn: The `CHECK_BALANCE` environment variable is deprecated. Please use the `balance` field in the `librechat.yaml` config file instead.
+[WebServer] More info: https://librechat.ai/docs/configuration/librechat_yaml/object_structure/balance#overview
+
+[WebServer] 2026-11-04 09:14:06 info: [credentials] New database detected. Credential fingerprints were recorded for future key-drift checks.
+
+[WebServer] 2026-11-04 09:14:06 info: 
+[WebServer] Outdated Config version: 1.3.6
+[WebServer] Latest version: 1.3.17
+[WebServer] 
+[WebServer]       Check out the Config changelogs for the latest options and features added.
+[WebServer] 
+[WebServer]       https://www.librechat.ai/changelog
+[WebServer] 
+[WebServer] 
+
+[WebServer] 2026-11-04 09:14:06 warn: RAG API is either not running or not reachable at http://127.0.0.1:8791, you may experience errors with file uploads.
+
+[WebServer] 2026-11-04 09:14:15 info: [StreamServices] Created in-memory stream services
+
+[WebServer] 2026-11-04 09:14:15 info: [GenerationJobManager] Configured with in-memory stores
+
+[WebServer] 2026-11-04 09:14:15 info: HTTP server timeout configuration
+
+[WebServer] 2026-11-04 09:14:15 info: Server listening at http://localhost:3098
+
+[WebServer] 2026-11-04 09:14:15 info: [MCPServersRegistry] Creating new instance
+
+[WebServer] 2026-11-04 09:14:15 info: OAuth reconnect manager initialized successfully.
+
+[WebServer] 2026-11-04 09:14:15 info: Created collection: projects
+
+🤖: global setup has been started
+🤖: using baseURL http://localhost:3098
+🤖: using E2E user: testuser@example.com
+🤖: 🗝  authenticating user: testuser@example.com
+🤖: ✔️  localStorage: set Nav as Visible H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\storageState.json
+[WebServer] 2026-11-04 09:14:18 info: [agent-triggers] durable delivery engine started
+
+[WebServer] 2026-11-04 09:14:19 info: [schedules] engine started
+
+[WebServer] 2026-11-04 09:14:19 info: Server readiness checks passing.
+
+🤖: ✔️  user successfully registered
+[WebServer] 2026-11-04 09:14:29 info: [Login] [Login successful] [Username: testuser@example.com] [Request-IP: 127.0.0.1] {"requestId":"235ec89c-833f-479b-b306-19039898632d","request_id":"235ec89c-833f-479b-b306-19039898632d","request_method":"POST","request_path":"/api/auth"}
+
+🤖: ✔️  user successfully authenticated
+🤖: ✔️  authentication state successfully saved in H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\e2e\storageState.json
+🤖: global setup has been finished
+
+Running 1 test using 1 worker
+
+
+(node:21324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/1] [chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets
+[chrome] › e2e\lighthouse\load.spec.ts:10:5 › serial database latency stays within web-vitals budgets
+Lighthouse run 1/3 attempt 1 did not complete, retrying: Command failed: C:\Program Files\nodejs\node.exe H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\lighthouse\cli\index.js http://localhost:3098/c/16390000-0000-4000-8000-000000000001 --quiet --preset=desktop --throttling-method=provided --only-categories=performance --chrome-flags=--headless=new --extra-headers={"Cookie":"token_provider=librechat; refreshToken=[REDACTED_TEST_JWT]"} --output=json --output=html --output-path=H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-1
+
+Lighthouse run 1/3 wrote H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-1.report.json
+
+Lighthouse run 2/3 attempt 1 did not complete, retrying: Command failed: C:\Program Files\nodejs\node.exe H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\lighthouse\cli\index.js http://localhost:3098/c/16390000-0000-4000-8000-000000000001 --quiet --preset=desktop --throttling-method=provided --only-categories=performance --chrome-flags=--headless=new --extra-headers={"Cookie":"token_provider=librechat; refreshToken=[REDACTED_TEST_JWT]"} --output=json --output=html --output-path=H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\.lighthouse\lhr-2
+

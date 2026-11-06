@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T00:44:02.281572+00:00",
+  "scope": "P05 tool API increment only; not phase or full-goal completion",
+  "source_sha256": {
+    ".env.example": "0575499d28c48b683025844c463cfa939b15ec358da61224d627a916f0c263f6",
+    "services/life-core/app/config.py": "822326e30e1d4ede48d79d8a9ca0b9d3daaa4fa94253f5d95060cd03fe4ed357",
+    "services/life-core/app/main.py": "d8f66612cca62dd35dc2ec814002b1a8a853f2b28eaeaf872abd3c579dc0f663",
+    "services/life-core/app/tools.py": "4747ccb1c0a0678bda40105b82fbb3a9eeec5ec199f3d1280c318fff84789aa8",
+    "services/life-core/tests/test_tools.py": "bf48fc3c02f71475c5d49b3878b07b702eca1ba7ff4bea9fb893077880c6a489",
+    "scripts/acceptance_p05_tools.py": "f667054fa0535c2316cf32d383f9e97927e650a24e32b71b6515c00e0f6a4e9e"
+  },
+  "backend_passed": 157,
+  "additional_inflight_privacy_passed": 2,
+  "p05_network_attempts": 4,
+  "p05_new_model_calls": 0,
+  "p04_paid_scoring_calls": 1,
+  "p04_input_tokens": 1363,
+  "p04_output_tokens": 457,
+  "common_core_still_p04": true,
+  "ledger": [
+    [
+      "weather",
+      "failed",
+      1,
+      "TOOL_HTTP_503"
+    ],
+    [
+      "weather",
+      "succeeded",
+      1,
+      null
+    ],
+    [
+      "route",
+      "succeeded",
+      1,
+      null
+    ],
+    [
+      "place_search",
+      "succeeded",
+      1,
+      null
+    ],
+    [
+      "route",
+      "needs_input",
+      0,
+      null
+    ],
+    [
+      "search",
+      "blocked",
+      0,
+      "TOOL_PROVIDER_UNAVAILABLE"
+    ],
+    [
+      "weather",
+      "blocked",
+      0,
+      "TOOL_REQUEST_BUDGET"
+    ]
+  ],
+  "remaining": [
+    "native chat/receipt/location selection",
+    "search provider",
+    "reminder draft integration",
+    "voice",
+    "followups",
+    "P06-P07",
+    "earlier-stage gaps"
+  ]
+}

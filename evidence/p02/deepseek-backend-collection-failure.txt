@@ -1,0 +1,141 @@
+
+=================================== ERRORS ====================================
+____________ ERROR collecting services/life-core/tests/test_api.py ____________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_api.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_api.py:11: in <module>
+    from app.config import Settings
+E   ModuleNotFoundError: No module named 'app'
+________ ERROR collecting services/life-core/tests/test_extraction.py _________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_extraction.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_extraction.py:4: in <module>
+    from app.extraction import extract_event
+E   ModuleNotFoundError: No module named 'app'
+_______ ERROR collecting services/life-core/tests/test_llm_provider.py ________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_llm_provider.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_llm_provider.py:1: in <module>
+    from app.config import load_settings
+E   ModuleNotFoundError: No module named 'app'
+______ ERROR collecting services/life-core/tests/test_memory_pipeline.py ______
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memory_pipeline.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_memory_pipeline.py:3: in <module>
+    from test_api import bootstrap, make_app, token_for
+services\life-core\tests\test_api.py:11: in <module>
+    from app.config import Settings
+E   ModuleNotFoundError: No module named 'app'
+___ ERROR collecting services/life-core/tests/test_memory_relationships.py ____
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memory_relationships.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_memory_relationships.py:3: in <module>
+    from app.memory import Candidate, MemoryEntity, MemoryRelation
+E   ModuleNotFoundError: No module named 'app'
+___________ ERROR collecting services/life-core/tests/test_memos.py ___________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memos.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_memos.py:4: in <module>
+    from app.memos import MemosClient, MemosError
+E   ModuleNotFoundError: No module named 'app'
+____ ERROR collecting services/life-core/tests/test_provisioning_stdin.py _____
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_provisioning_stdin.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_provisioning_stdin.py:3: in <module>
+    from app.provisioning import ReminderProvisioning
+E   ModuleNotFoundError: No module named 'app'
+______ ERROR collecting services/life-core/tests/test_reminder_drafts.py ______
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_drafts.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_reminder_drafts.py:7: in <module>
+    from app.provisioning import protect, unprotect
+E   ModuleNotFoundError: No module named 'app'
+_________ ERROR collecting services/life-core/tests/test_reminders.py _________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminders.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_reminders.py:12: in <module>
+    from app.reminders import ReminderService
+E   ModuleNotFoundError: No module named 'app'
+________ ERROR collecting services/life-core/tests/test_v023_memory.py ________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_memory.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_v023_memory.py:4: in <module>
+    from test_api import bootstrap, make_app
+services\life-core\tests\test_api.py:11: in <module>
+    from app.config import Settings
+E   ModuleNotFoundError: No module named 'app'
+_______ ERROR collecting services/life-core/tests/test_v023_moments.py ________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_moments.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_v023_moments.py:6: in <module>
+    from app.moments import MomentSettings, Moments
+E   ModuleNotFoundError: No module named 'app'
+______ ERROR collecting services/life-core/tests/test_v023_reminders.py _______
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_reminders.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_v023_reminders.py:5: in <module>
+    from app.reminder_parser import parse, choices
+E   ModuleNotFoundError: No module named 'app'
+=========================== short test summary info ===========================
+ERROR services/life-core/tests/test_api.py
+ERROR services/life-core/tests/test_extraction.py
+ERROR services/life-core/tests/test_llm_provider.py
+ERROR services/life-core/tests/test_memory_pipeline.py
+ERROR services/life-core/tests/test_memory_relationships.py
+ERROR services/life-core/tests/test_memos.py
+ERROR services/life-core/tests/test_provisioning_stdin.py
+ERROR services/life-core/tests/test_reminder_drafts.py
+ERROR services/life-core/tests/test_reminders.py
+ERROR services/life-core/tests/test_v023_memory.py
+ERROR services/life-core/tests/test_v023_moments.py
+ERROR services/life-core/tests/test_v023_reminders.py
+!!!!!!!!!!!!!!!!!! Interrupted: 12 errors during collection !!!!!!!!!!!!!!!!!!!
+12 errors in 2.01s

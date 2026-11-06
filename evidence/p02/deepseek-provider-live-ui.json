@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "provider_calls": 0,
+  "scope": "live provider configuration, no chat submitted",
+  "provider_shape": [
+    {
+      "name": "agents"
+    },
+    {
+      "name": "Zhipu",
+      "type": "custom",
+      "modelDisplayLabel": "智谱"
+    },
+    {
+      "name": "DeepSeek",
+      "type": "custom",
+      "modelDisplayLabel": "DeepSeek"
+    }
+  ],
+  "endpoint": "DeepSeek",
+  "model": "deepseek-flash",
+  "models_http_status": 200,
+  "available_fields": [
+    "modelDisplayLabel",
+    "name",
+    "order",
+    "providerId",
+    "type",
+    "userProvide",
+    "userProvideURL"
+  ],
+  "config_verified_by": "YAML + live /api/endpoints advertisement",
+  "blocked_generation_attempts": 0
+}

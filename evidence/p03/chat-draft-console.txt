@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p03_chat_draft.py", line 98, in <module>
+    main()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\scripts\acceptance_p03_chat_draft.py", line 42, in main
+    message.raise_for_status()
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'http://127.0.0.1:3091/api/messages/e9b02085-779a-4810-8659-089945537eca/cff2a2be-4f20-4983-b6ec-35799f53bf2d'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404

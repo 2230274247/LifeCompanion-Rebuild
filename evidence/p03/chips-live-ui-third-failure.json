@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "started_at": "2026-11-03T16:54:44.144Z",
+  "provider_calls": 0,
+  "scope": "real browser on persisted synthetic source; generation endpoint blocked; no chat submission",
+  "scenarios": [],
+  "error": "Expected values to be strictly equal:\n\n404 !== 200\n",
+  "failure_path": "/c/87958608-3044-4028-a8f4-fc30b94e1c3d",
+  "visible_cards": 1,
+  "generation_attempts": 0,
+  "ended_at": "2026-11-03T16:55:07.725Z"
+}

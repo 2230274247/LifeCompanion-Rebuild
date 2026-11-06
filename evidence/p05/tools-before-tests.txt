@@ -1,0 +1,37 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+________ test_tool_catalog_is_authenticated_and_has_parameter_schemas _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-88/test_tool_catalog_is_authentic0')
+
+    def test_tool_catalog_is_authenticated_and_has_parameter_schemas(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+>           assert client.get("/api/v1/tools").status_code == 401
+E           AssertionError: assert 404 == 401
+E            +  where 404 = <Response [404 Not Found]>.status_code
+E            +    where <Response [404 Not Found]> = get('/api/v1/tools')
+E            +      where get = <starlette.testclient.TestClient object at 0x000002887DA0D7F0>.get
+
+services\life-core\tests\test_tools.py:10: AssertionError
+_______________ test_default_tool_budget_never_calls_a_provider _______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-88/test_default_tool_budget_never0')
+
+    def test_default_tool_budget_never_calls_a_provider(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            response = client.post("/api/v1/tools/execute",headers=auth(),json={
+                "name":"weather","idempotency_key":"default-weather-request",
+                "parameters":{"latitude":31.2304,"longitude":121.4737,"place_label":"Public test landmark"}})
+>           assert response.status_code == 200
+E           assert 404 == 200
+E            +  where 404 = <Response [404 Not Found]>.status_code
+
+services\life-core\tests\test_tools.py:25: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_tools.py::test_tool_catalog_is_authenticated_and_has_parameter_schemas
+FAILED services/life-core/tests/test_tools.py::test_default_tool_budget_never_calls_a_provider
+2 failed in 4.86s

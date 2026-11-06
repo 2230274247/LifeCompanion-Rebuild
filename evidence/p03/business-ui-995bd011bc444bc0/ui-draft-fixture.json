@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "provider_calls": 0,
+  "synthetic_account": true,
+  "scope": "synthetic Mongo source + real LibreChat ownership API + unconfirmed draft",
+  "message_id": "p03-source-e00778c784eb",
+  "conversation_id": "89c2f24b-60d1-4eb5-8f63-bf4b9d9412e0",
+  "draft_id": "rd_82f8d2171e3740b088ac7eac20b1486a",
+  "missing_fields": [
+    "event_time"
+  ],
+  "quick_choice": {
+    "field": "event_time",
+    "options": [
+      {
+        "label": "08:00",
+        "value": "08:00"
+      },
+      {
+        "label": "09:00",
+        "value": "09:00"
+      },
+      {
+        "label": "10:00",
+        "value": "10:00"
+      }
+    ],
+    "other": "time"
+  }
+}

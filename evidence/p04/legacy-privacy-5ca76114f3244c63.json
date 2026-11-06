@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "run_id": "5ca76114f3244c63",
+  "started_at": "2026-11-03T18:32:19.400226+00:00",
+  "provider_calls": 0,
+  "scope": "legacy cancelled text and empty skipped row fault injection; real HTTP/SQLite; no image asset or cloud request",
+  "legacy_payload_scrubbed": true,
+  "skipped_row_not_published_after_revocation": true,
+  "model_call_rows": 0,
+  "ended_at": "2026-11-03T18:32:21.718778+00:00"
+}

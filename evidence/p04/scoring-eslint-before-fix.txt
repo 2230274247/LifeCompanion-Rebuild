@@ -1,0 +1,16 @@
+
+H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\Moments.tsx
+  150:14  error  Do not nest ternary expressions                                                                                                                                                                                                                                                                                                                                                                                              no-nested-ternary
+  189:60  error  disallow literal string: <p>
+                        {localize(
+                          item.source_memory_ids.includes(candidate.memory_id)
+                            ? 'com_life_score_selected'
+                            : 'com_life_score_not_selected',
+                        )}
+                        {' · '}
+                        {Math.round(candidate.score * 100)} / 100
+                      </p>  i18next/no-literal-string
+  202:86  error  disallow literal string: <dd>{Math.round(candidate.dimensions[dimension] * 100)} / 100</dd>                                                                                                                                                                                                                                                                                                                                  i18next/no-literal-string
+
+✖ 3 problems (3 errors, 0 warnings)
+

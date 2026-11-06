@@ -1,0 +1,597 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+_______ test_explicit_weather_waits_for_stored_place_choice_and_replays _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-94/test_explicit_weather_waits_fo0')
+
+    def test_explicit_weather_waits_for_stored_place_choice_and_replays(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+>           response = chat(client)
+                       ^^^^^^^^^^^^
+
+services\life-core\tests\test_tool_chat.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\tests\test_tool_chat.py:32: in chat
+    return client.post("/internal/v1/tools/chat", headers={"X-Internal-Token": "test-internal"},
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:1203: in post
+    return self.request(
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:518: in request
+    return super().request(
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:796: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:993: in send
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:987: in send
+    response.read()
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:877: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:893: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:948: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:143: in __iter__
+    yield from self._stream
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:399: in close_app
+    raise exception
+infra\runtime\p02\venv\Lib\site-packages\anyio\from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:1330: in handle
+    await super().handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:289: in handle
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:745: in app
+    raw_response = await run_endpoint_function(
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:374: in run_endpoint_function
+    return await run_in_threadpool(
+infra\runtime\p02\venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:2779: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:1124: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\main.py:1002: in chat_tool
+    return request.app.state.tool_chat.execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.tool_chat.ToolChat object at 0x000002276466AF30>
+owner = 'life_ec82aa87040897c46bc0', message = 'weather-source'
+text = '上海天气怎么样？', conversation = 'weather-chat'
+
+    def execute(self, owner, message, text, conversation):
+        match = WEATHER.fullmatch(text.strip())
+        if not match:
+            return {"handled": False}
+        prefix = match["before"].strip()
+        if re.search(r"他说|她说|什么|喜欢|系统|昨天|前天|下周|后周|星期|周[一二三四五六日天]|\d", prefix):
+            return {"handled": False}
+        zone = self.memory.timezone(owner)
+        offset = 2 if "后天" in prefix else 1 if "明天" in prefix else 0
+        forecast = (datetime.now(ZoneInfo(zone)).date() + timedelta(days=offset)).isoformat() if offset else None
+        place = re.sub(r"今天|现在|明天|后天|的", "", prefix).strip()
+        request_hash = hashlib.sha256(f"{conversation}:{text}".encode()).hexdigest()
+        identifier = "tc_" + hashlib.sha256(f"{owner}:{message}".encode()).hexdigest()[:28]
+        data = {"forecast_date": forecast, "timezone": zone, "places": []}
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            existing = db.execute("SELECT * FROM tool_chats WHERE interaction_id=?", (identifier,)).fetchone()
+            if existing:
+                if existing["request_hash"] != request_hash:
+                    raise ValueError("TOOL_CHAT_CONFLICT")
+            else:
+>               db.execute("INSERT INTO tool_chats VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                           (identifier, owner, conversation, message, request_hash, "needs_place", 1,
+                            json.dumps(data), utc_now(),
+                            (datetime.now(timezone.utc)+timedelta(days=1)).isoformat()))
+E               sqlite3.OperationalError: table tool_chats has 10 columns but 11 values were supplied
+
+services\life-core\app\tool_chat.py:104: OperationalError
+_____ test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-94/test_missing_place_asks_one_qu0')
+
+    def test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+>           assert chat(client, "今天天气怎么样？").json()["status"] == "needs_place"
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_tool_chat.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\tests\test_tool_chat.py:32: in chat
+    return client.post("/internal/v1/tools/chat", headers={"X-Internal-Token": "test-internal"},
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:1203: in post
+    return self.request(
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:518: in request
+    return super().request(
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:796: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:993: in send
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:987: in send
+    response.read()
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:877: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:893: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:948: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:143: in __iter__
+    yield from self._stream
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:399: in close_app
+    raise exception
+infra\runtime\p02\venv\Lib\site-packages\anyio\from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:1330: in handle
+    await super().handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:289: in handle
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:745: in app
+    raw_response = await run_endpoint_function(
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:374: in run_endpoint_function
+    return await run_in_threadpool(
+infra\runtime\p02\venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:2779: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:1124: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\main.py:1002: in chat_tool
+    return request.app.state.tool_chat.execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.tool_chat.ToolChat object at 0x000002276635FE60>
+owner = 'life_ec82aa87040897c46bc0', message = 'weather-source'
+text = '今天天气怎么样？', conversation = 'weather-chat'
+
+    def execute(self, owner, message, text, conversation):
+        match = WEATHER.fullmatch(text.strip())
+        if not match:
+            return {"handled": False}
+        prefix = match["before"].strip()
+        if re.search(r"他说|她说|什么|喜欢|系统|昨天|前天|下周|后周|星期|周[一二三四五六日天]|\d", prefix):
+            return {"handled": False}
+        zone = self.memory.timezone(owner)
+        offset = 2 if "后天" in prefix else 1 if "明天" in prefix else 0
+        forecast = (datetime.now(ZoneInfo(zone)).date() + timedelta(days=offset)).isoformat() if offset else None
+        place = re.sub(r"今天|现在|明天|后天|的", "", prefix).strip()
+        request_hash = hashlib.sha256(f"{conversation}:{text}".encode()).hexdigest()
+        identifier = "tc_" + hashlib.sha256(f"{owner}:{message}".encode()).hexdigest()[:28]
+        data = {"forecast_date": forecast, "timezone": zone, "places": []}
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            existing = db.execute("SELECT * FROM tool_chats WHERE interaction_id=?", (identifier,)).fetchone()
+            if existing:
+                if existing["request_hash"] != request_hash:
+                    raise ValueError("TOOL_CHAT_CONFLICT")
+            else:
+>               db.execute("INSERT INTO tool_chats VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                           (identifier, owner, conversation, message, request_hash, "needs_place", 1,
+                            json.dumps(data), utc_now(),
+                            (datetime.now(timezone.utc)+timedelta(days=1)).isoformat()))
+E               sqlite3.OperationalError: table tool_chats has 10 columns but 11 values were supplied
+
+services\life-core\app\tool_chat.py:104: OperationalError
+___ test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider ___
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-94/test_foreign_stale_invalid_and0')
+
+    def test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            bootstrap(client, "lc-user-b", "users/b")
+            calls = configured(app)
+>           item = chat(client).json()
+                   ^^^^^^^^^^^^
+
+services\life-core\tests\test_tool_chat.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\tests\test_tool_chat.py:32: in chat
+    return client.post("/internal/v1/tools/chat", headers={"X-Internal-Token": "test-internal"},
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:1203: in post
+    return self.request(
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:518: in request
+    return super().request(
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:796: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:993: in send
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:987: in send
+    response.read()
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:877: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:893: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:948: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:143: in __iter__
+    yield from self._stream
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:399: in close_app
+    raise exception
+infra\runtime\p02\venv\Lib\site-packages\anyio\from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:1330: in handle
+    await super().handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:289: in handle
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:745: in app
+    raw_response = await run_endpoint_function(
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:374: in run_endpoint_function
+    return await run_in_threadpool(
+infra\runtime\p02\venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:2779: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:1124: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\main.py:1002: in chat_tool
+    return request.app.state.tool_chat.execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.tool_chat.ToolChat object at 0x0000022765EFF470>
+owner = 'life_ec82aa87040897c46bc0', message = 'weather-source'
+text = '上海天气怎么样？', conversation = 'weather-chat'
+
+    def execute(self, owner, message, text, conversation):
+        match = WEATHER.fullmatch(text.strip())
+        if not match:
+            return {"handled": False}
+        prefix = match["before"].strip()
+        if re.search(r"他说|她说|什么|喜欢|系统|昨天|前天|下周|后周|星期|周[一二三四五六日天]|\d", prefix):
+            return {"handled": False}
+        zone = self.memory.timezone(owner)
+        offset = 2 if "后天" in prefix else 1 if "明天" in prefix else 0
+        forecast = (datetime.now(ZoneInfo(zone)).date() + timedelta(days=offset)).isoformat() if offset else None
+        place = re.sub(r"今天|现在|明天|后天|的", "", prefix).strip()
+        request_hash = hashlib.sha256(f"{conversation}:{text}".encode()).hexdigest()
+        identifier = "tc_" + hashlib.sha256(f"{owner}:{message}".encode()).hexdigest()[:28]
+        data = {"forecast_date": forecast, "timezone": zone, "places": []}
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            existing = db.execute("SELECT * FROM tool_chats WHERE interaction_id=?", (identifier,)).fetchone()
+            if existing:
+                if existing["request_hash"] != request_hash:
+                    raise ValueError("TOOL_CHAT_CONFLICT")
+            else:
+>               db.execute("INSERT INTO tool_chats VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                           (identifier, owner, conversation, message, request_hash, "needs_place", 1,
+                            json.dumps(data), utc_now(),
+                            (datetime.now(timezone.utc)+timedelta(days=1)).isoformat()))
+E               sqlite3.OperationalError: table tool_chats has 10 columns but 11 values were supplied
+
+services\life-core\app\tool_chat.py:104: OperationalError
+______ test_place_form_is_revision_guarded_and_result_expiry_is_durable _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-94/test_place_form_is_revision_gu0')
+
+    def test_place_form_is_revision_guarded_and_result_expiry_is_durable(tmp_path):
+        app, client = make_app(tmp_path)
+        with client:
+            bootstrap(client)
+            calls = configured(app)
+>           item = chat(client, "明天天气怎么样？").json()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_tool_chat.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\tests\test_tool_chat.py:32: in chat
+    return client.post("/internal/v1/tools/chat", headers={"X-Internal-Token": "test-internal"},
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:1203: in post
+    return self.request(
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:518: in request
+    return super().request(
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:796: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:993: in send
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:987: in send
+    response.read()
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:877: in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:893: in iter_bytes
+    for raw_bytes in self.iter_raw():
+                     ^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_models.py:948: in iter_raw
+    for raw_stream_bytes in self.stream:
+                            ^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\httpx2\_client.py:143: in __iter__
+    yield from self._stream
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:384: in iter_body
+    exit_stack.close()
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:618: in close
+    self.__exit__(None, None, None)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:610: in __exit__
+    raise exc_details[1]
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\contextlib.py:595: in __exit__
+    if cb(*exc_details):
+       ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:399: in close_app
+    raise exception
+infra\runtime\p02\venv\Lib\site-packages\anyio\from_thread.py:272: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\starlette\testclient.py:366: in run_app
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\applications.py:1194: in __call__
+    await super().__call__(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:91: in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\cors.py:149: in simple_response
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:683: in __call__
+    await self.middleware_stack(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:2811: in app
+    await route.handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:1330: in handle
+    await super().handle(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\routing.py:289: in handle
+    await self.app(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:166: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+infra\runtime\p02\venv\Lib\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:152: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:745: in app
+    raw_response = await run_endpoint_function(
+infra\runtime\p02\venv\Lib\site-packages\fastapi\routing.py:374: in run_endpoint_function
+    return await run_in_threadpool(
+infra\runtime\p02\venv\Lib\site-packages\starlette\concurrency.py:34: in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:2779: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\anyio\_backends\_asyncio.py:1124: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+infra\runtime\p02\venv\Lib\site-packages\fastapi\telemetry\_api.py:244: in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\main.py:1002: in chat_tool
+    return request.app.state.tool_chat.execute(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.tool_chat.ToolChat object at 0x000002276483E360>
+owner = 'life_ec82aa87040897c46bc0', message = 'weather-source'
+text = '明天天气怎么样？', conversation = 'weather-chat'
+
+    def execute(self, owner, message, text, conversation):
+        match = WEATHER.fullmatch(text.strip())
+        if not match:
+            return {"handled": False}
+        prefix = match["before"].strip()
+        if re.search(r"他说|她说|什么|喜欢|系统|昨天|前天|下周|后周|星期|周[一二三四五六日天]|\d", prefix):
+            return {"handled": False}
+        zone = self.memory.timezone(owner)
+        offset = 2 if "后天" in prefix else 1 if "明天" in prefix else 0
+        forecast = (datetime.now(ZoneInfo(zone)).date() + timedelta(days=offset)).isoformat() if offset else None
+        place = re.sub(r"今天|现在|明天|后天|的", "", prefix).strip()
+        request_hash = hashlib.sha256(f"{conversation}:{text}".encode()).hexdigest()
+        identifier = "tc_" + hashlib.sha256(f"{owner}:{message}".encode()).hexdigest()[:28]
+        data = {"forecast_date": forecast, "timezone": zone, "places": []}
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            existing = db.execute("SELECT * FROM tool_chats WHERE interaction_id=?", (identifier,)).fetchone()
+            if existing:
+                if existing["request_hash"] != request_hash:
+                    raise ValueError("TOOL_CHAT_CONFLICT")
+            else:
+>               db.execute("INSERT INTO tool_chats VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                           (identifier, owner, conversation, message, request_hash, "needs_place", 1,
+                            json.dumps(data), utc_now(),
+                            (datetime.now(timezone.utc)+timedelta(days=1)).isoformat()))
+E               sqlite3.OperationalError: table tool_chats has 10 columns but 11 values were supplied
+
+services\life-core\app\tool_chat.py:104: OperationalError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_tool_chat.py::test_explicit_weather_waits_for_stored_place_choice_and_replays
+FAILED services/life-core/tests/test_tool_chat.py::test_missing_place_asks_one_question_and_ordinary_chat_stays_quiet
+FAILED services/life-core/tests/test_tool_chat.py::test_foreign_stale_invalid_and_cancelled_selection_cannot_call_provider
+FAILED services/life-core/tests/test_tool_chat.py::test_place_form_is_revision_guarded_and_result_expiry_is_durable
+4 failed in 13.47s

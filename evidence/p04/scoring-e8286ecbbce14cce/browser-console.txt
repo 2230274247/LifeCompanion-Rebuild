@@ -1,0 +1,1 @@
+{"status":"PASS","scenarios":[{"width":1440,"candidates":3,"dimensions":24,"selected":1,"source_message_opened":true,"image_elements":0},{"width":390,"candidates":3,"dimensions":24,"selected":1,"source_message_opened":true,"image_elements":0}],"model_generation_requests":0}

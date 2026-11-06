@@ -1,0 +1,22 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+______ test_legacy_cancelled_row_cannot_expose_payload_left_by_old_code _______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-77/test_legacy_cancelled_row_cann0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001DF4CA1D0A0>
+
+    def test_legacy_cancelled_row_cannot_expose_payload_left_by_old_code(tmp_path, monkeypatch):
+        app, client = make_app(tmp_path)
+        with client:
+            owner, _ = seeded(app, client, monkeypatch, status="cancelled")
+            app.state.store.update_consent(owner, image_consent=False)
+            rows = client.get("/api/v1/moments", headers=auth()).json()["moments"]
+>           assert rows[0]["caption"] == ""
+E           AssertionError: assert 'private-caption-sentinel' == ''
+E             
+E             + private-caption-sentinel
+
+services\life-core\tests\test_moment_privacy.py:115: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_moment_privacy.py::test_legacy_cancelled_row_cannot_expose_payload_left_by_old_code
+1 failed, 7 deselected in 4.72s
