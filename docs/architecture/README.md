@@ -14,6 +14,8 @@
 
 - [V0.3 双工作树实际架构与复用审计](../product/v0.3/仓库审计报告.md)
 - [V0.3 分阶段最小变更与迁移计划](../product/v0.3/实施计划.md)
+- [V0.4 Android 原生客户端架构](V04_ANDROID.md)
+  — 规划（DESIGN ONLY）：原生 Kotlin + Compose，复用现有网关 API；认证 / SSE 边界先经 P0 探针验证。
 
 2026-11-04 审计确认：当前 P03/P04 开发树已具备 APScheduler 持久 JobStore
 和八维事件评分，位于 `.work/p00-p07-20261103`；以下正文保留早期架构说明，

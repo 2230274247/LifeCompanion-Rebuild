@@ -11,6 +11,8 @@
 - [V0.3 B0 Kolors MIME 错配诊断与修复](../development-log/2026-11-04_14-15_Kolors_MIME错配诊断与修复_开发验收.md)
 - [V0.3 B0 Kolors 真实调用与严格 MIME 验收](../development-log/2026-11-04_14-21_Kolors真实调用与严格MIME验收_开发验收.md)
 - [V0.3 B0 Kolors 真实生图 REAL 验收](../development-log/2026-11-04_14-26_Kolors真实生图B0_REAL验收_开发验收.md)
+- [V0.4 Android 原生客户端实施计划](v0.4/实施计划.md) — 原生 Kotlin + Compose，复用现有网关 API（DESIGN ONLY）
+- [V0.4 Android 原生客户端架构](../architecture/V04_ANDROID.md)
 
 2026-11-04 V0.3：B0 已完成真实 Kolors 技术验证。在一次明确批准的新隔离尝试中，
 请求 1 次、下载 1 次、自动重试 0 次，取得通过完整解码、MIME 回退、尺寸和
