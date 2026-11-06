@@ -575,10 +575,10 @@ index 0000000000000000000000000000000000000000..da138eeaf867ebf71b0ac4e7198d8e3d
 +}
 diff --git a/client/src/components/Life/Connections.tsx b/client/src/components/Life/Connections.tsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb26528ca60
+index 0000000000000000000000000000000000000000..cf3384ea4f258952269976578f7debfaf71f345d
 --- /dev/null
 +++ b/client/src/components/Life/Connections.tsx
-@@ -0,0 +1,1091 @@
+@@ -0,0 +1,1226 @@
 +import { useMemo, useState } from 'react';
 +import { Button } from '@librechat/client';
 +import { QueryKeys, lifeService } from 'librechat-data-provider';
@@ -593,9 +593,11 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +  BriefcaseBusiness,
 +  Check,
 +  Clock3,
++  Copy,
 +  HeartHandshake,
 +  Home,
 +  Inbox,
++  Pencil,
 +  Search,
 +  ShieldCheck,
 +  Sparkles,
@@ -697,6 +699,15 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +  );
 +  const [availabilityLabel, setAvailabilityLabel] = useState('方便联系');
 +  const [notice, setNotice] = useState('');
++  const [editingName, setEditingName] = useState(false);
++  const [displayName, setDisplayName] = useState('');
++
++  function copyText(value: string, label: string) {
++    void navigator.clipboard?.writeText(value).then(
++      () => setNotice(`${label}已复制：${value}`),
++      () => setNotice(`复制失败，请手动选择：${value}`),
++    );
++  }
 +
 +  const me = useQuery({
 +    queryKey: [QueryKeys.lifeCollaborationMe, user?.id],
@@ -742,6 +753,18 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +    refetchInterval: 15_000,
 +  });
 +  const search = useMutation((query: string) => lifeService.searchCollaborationUsers(query));
++  const updateProfile = useMutation(
++    (body: { display_name: string; bio?: string }) =>
++      lifeService.updateCollaborationProfile(body),
++    {
++      onSuccess: () => {
++        setEditingName(false);
++        setNotice('个人信息已更新。');
++        void cache.invalidateQueries([QueryKeys.lifeCollaborationMe, user?.id]);
++      },
++      onError: (error) => setNotice(`保存失败：${errorCode(error)}`),
++    },
++  );
 +
 +  const refreshSocial = () => {
 +    for (const key of [
@@ -991,7 +1014,114 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +        </div>
 +
 +        {tab === 'people' ? (
-+          <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
++          <div className="mt-6 space-y-6">
++            <section
++              className="rounded-2xl border border-border-light bg-surface-primary-alt p-5"
++              aria-label="个人信息"
++            >
++              <div className="flex items-center justify-between gap-3">
++                <div>
++                  <h2 className="text-lg font-semibold">个人信息</h2>
++                  <p className="mt-1 text-sm text-text-secondary">
++                    显示名用于互相识别，认证 ID 是账号在登录系统里的唯一标识。
++                  </p>
++                </div>
++                {editingName ? (
++                  <Button
++                    size="sm"
++                    disabled={updateProfile.isLoading}
++                    onClick={() =>
++                      updateProfile.mutate({
++                        display_name: displayName.trim(),
++                        bio: me.data?.profile.bio ?? '',
++                      })
++                    }
++                  >
++                    保存
++                  </Button>
++                ) : (
++                  <Button
++                    size="sm"
++                    variant="outline"
++                    aria-label="编辑显示名"
++                    onClick={() => {
++                      setDisplayName(me.data?.profile.display_name ?? '');
++                      setEditingName(true);
++                    }}
++                  >
++                    <Pencil className="size-4" aria-hidden="true" />
++                    编辑
++                  </Button>
++                )}
++              </div>
++
++              <dl className="mt-4 grid gap-3 sm:grid-cols-2">
++                <div className="rounded-xl border border-border-light bg-surface-primary p-3">
++                  <dt className="text-xs text-text-secondary">显示名</dt>
++                  <dd className="mt-1">
++                    {editingName ? (
++                      <input
++                        className="min-h-10 w-full rounded-lg border border-border-medium bg-surface-primary px-2 text-sm"
++                        value={displayName}
++                        maxLength={40}
++                        onChange={(event) => setDisplayName(event.target.value)}
++                      />
++                    ) : (
++                      <span className="text-sm font-medium">
++                        {me.data?.profile.display_name ?? '尚未设置'}
++                      </span>
++                    )}
++                  </dd>
++                </div>
++                <div className="rounded-xl border border-border-light bg-surface-primary p-3">
++                  <dt className="text-xs text-text-secondary">自我介绍</dt>
++                  <dd className="mt-1 break-words text-sm">
++                    {me.data?.profile.bio || '还没有填写自我介绍'}
++                  </dd>
++                </div>
++                <div className="rounded-xl border border-border-light bg-surface-primary p-3">
++                  <dt className="text-xs text-text-secondary">认证 ID（登录账号唯一标识）</dt>
++                  <dd className="mt-1 flex items-center gap-2">
++                    <code className="min-w-0 break-all text-xs">
++                      {me.data?.profile.librechat_user_id ?? '—'}
++                    </code>
++                    <button
++                      type="button"
++                      className="min-h-8 min-w-8 shrink-0 rounded-md border border-border-medium hover:bg-surface-hover"
++                      aria-label="复制认证 ID"
++                      onClick={() =>
++                        copyText(
++                          me.data?.profile.librechat_user_id ?? '',
++                          '认证 ID',
++                        )
++                      }
++                    >
++                      <Copy className="mx-auto size-3.5" aria-hidden="true" />
++                    </button>
++                  </dd>
++                </div>
++                <div className="rounded-xl border border-border-light bg-surface-primary p-3">
++                  <dt className="text-xs text-text-secondary">拾光协作 ID</dt>
++                  <dd className="mt-1 flex items-center gap-2">
++                    <code className="min-w-0 break-all text-xs">
++                      {me.data?.profile.user_id ?? '—'}
++                    </code>
++                    <button
++                      type="button"
++                      className="min-h-8 min-w-8 shrink-0 rounded-md border border-border-medium hover:bg-surface-hover"
++                      aria-label="复制拾光协作 ID"
++                      onClick={() =>
++                        copyText(me.data?.profile.user_id ?? '', '拾光协作 ID')
++                      }
++                    >
++                      <Copy className="mx-auto size-3.5" aria-hidden="true" />
++                    </button>
++                  </dd>
++                </div>
++              </dl>
++            </section>
++
++            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
 +            <section className="rounded-2xl border border-border-light bg-surface-primary-alt p-5">
 +              <div className="flex items-center justify-between gap-3">
 +                <div>
@@ -1013,6 +1143,9 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +                        <h3 className="font-medium">{friend.display_name}</h3>
 +                        <p className="mt-1 max-w-md text-sm leading-6 text-text-secondary">
 +                          {friend.bio || '还没有填写自我介绍'}
++                        </p>
++                        <p className="mt-1 break-all text-xs text-text-secondary">
++                          认证 ID：{friend.librechat_user_id}
 +                        </p>
 +                      </div>
 +                      <div className="flex flex-wrap gap-2">
@@ -1089,7 +1222,8 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +                      <div className="min-w-0">
 +                        <p className="truncate font-medium">{candidate.display_name}</p>
 +                        <p className="truncate text-xs text-text-secondary">
-+                          {candidate.bio || candidate.user_id}
++                          {candidate.bio ||
++                            `认证 ID：${candidate.librechat_user_id}`}
 +                        </p>
 +                      </div>
 +                      <Button
@@ -1139,6 +1273,7 @@ index 0000000000000000000000000000000000000000..7db405210fa83ebf11d17f7f074dbcb2
 +                  ) : null}
 +                </div>
 +              </section>
++            </div>
 +            </div>
 +          </div>
 +        ) : null}
@@ -2021,11 +2156,11 @@ index 0000000000000000000000000000000000000000..c216816ba67240cae27f2cedc4defb02
 +}
 diff --git a/client/src/components/Life/Header.tsx b/client/src/components/Life/Header.tsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..80fd5980c5129dd6e738940c6a4a079771f12097
+index 0000000000000000000000000000000000000000..738d9f67fbcaf4f0c84b49c70a60dedb36307041
 --- /dev/null
 +++ b/client/src/components/Life/Header.tsx
-@@ -0,0 +1,35 @@
-+import { useLocation } from 'react-router-dom';
+@@ -0,0 +1,37 @@
++import { Link, useLocation } from 'react-router-dom';
 +import OpenSidebar from '~/components/Chat/Menus/OpenSidebar';
 +import { useLocalize } from '~/hooks';
 +import Navigation from './Navigation';
@@ -2039,12 +2174,14 @@ index 0000000000000000000000000000000000000000..80fd5980c5129dd6e738940c6a4a0797
 +        {!pathname.startsWith('/c/') ? (
 +          <OpenSidebar className="md:hidden" testId="life-open-sidebar" />
 +        ) : null}
-+        <span
-+          aria-hidden="true"
-+          className="font-serif flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-submit text-xl text-white"
++        <Link
++          to="/connections"
++          aria-label="查看个人信息、显示名与认证 ID"
++          title="查看个人信息、显示名与认证 ID"
++          className="font-serif flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-submit text-xl text-white no-underline hover:bg-surface-submit-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring-primary"
 +        >
 +          {localize('com_life_brand').slice(0, 1)}
-+        </span>
++        </Link>
 +        <div className="min-w-0">
 +          <p className="font-serif text-xl font-semibold tracking-widest text-text-primary">
 +            {localize('com_life_brand')}
@@ -2382,10 +2519,10 @@ index 0000000000000000000000000000000000000000..63327c7dffda6bb0352cb98c5825604f
 +}
 diff --git a/client/src/components/Life/Memories.tsx b/client/src/components/Life/Memories.tsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..23dcd1b6c4c1f159f5fb6ab598ad5ae1874584b6
+index 0000000000000000000000000000000000000000..2c24b58e443141cc2f9a974e0c262df373ac54bb
 --- /dev/null
 +++ b/client/src/components/Life/Memories.tsx
-@@ -0,0 +1,313 @@
+@@ -0,0 +1,347 @@
 +import { useEffect, useRef, useState } from 'react';
 +import { useQuery } from '@tanstack/react-query';
 +import { Button } from '@librechat/client';
@@ -2397,6 +2534,7 @@ index 0000000000000000000000000000000000000000..23dcd1b6c4c1f159f5fb6ab598ad5ae1
 +import MemoryCard from './MemoryCard';
 +import MemoryDetail from './MemoryDetail';
 +import MemorySkeleton from './MemorySkeleton';
++import SharedMemoryCard from './SharedMemoryCard';
 +
 +const timezone = 'Asia/Hong_Kong';
 +const dateKeyFormatter = new Intl.DateTimeFormat('en-CA', {
@@ -2457,6 +2595,13 @@ index 0000000000000000000000000000000000000000..23dcd1b6c4c1f159f5fb6ab598ad5ae1
 +  const list = useQuery({
 +    queryKey: [QueryKeys.lifeMemories, user?.id, queryString],
 +    queryFn: ({ signal }) => lifeService.memories(queryString, signal),
++    enabled: isAuthenticated && !memoryId,
++    retry: false,
++    staleTime: 0,
++  });
++  const shared = useQuery({
++    queryKey: [QueryKeys.lifeSharedMemories, user?.id],
++    queryFn: ({ signal }) => lifeService.sharedMemories(signal),
 +    enabled: isAuthenticated && !memoryId,
 +    retry: false,
 +    staleTime: 0,
@@ -2600,6 +2745,32 @@ index 0000000000000000000000000000000000000000..23dcd1b6c4c1f159f5fb6ab598ad5ae1
 +                ) : null}
 +              </details>
 +            </form>
++
++            {shared.data?.shared_memories.length ? (
++              <section className="mb-10" aria-labelledby="shared-memories-heading">
++                <div className="mb-4 flex items-end justify-between gap-4">
++                  <div className="min-w-0">
++                    <h2
++                      id="shared-memories-heading"
++                      className="font-serif text-2xl"
++                    >
++                      我们共同的回忆
++                    </h2>
++                    <p className="mt-1 text-sm leading-6 text-text-secondary">
++                      好友邀请你一起回忆的内容会出现在这里，点开即可看着文字、图片一起聊。
++                    </p>
++                  </div>
++                  <span className="shrink-0 text-xs text-text-secondary">
++                    {shared.data.shared_memories.length} 段
++                  </span>
++                </div>
++                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
++                  {shared.data.shared_memories.map((item, index) => (
++                    <SharedMemoryCard key={item.shared_memory_id} shared={item} index={index} />
++                  ))}
++                </div>
++              </section>
++            ) : null}
 +
 +            {query.isLoading ? <MemorySkeleton /> : null}
 +            {query.isError ? (
@@ -55252,6 +55423,100 @@ index 0000000000000000000000000000000000000000..6ac7e7da82e80dd3813d4f1191fe3de9
 +    </main>
 +  );
 +}
+diff --git a/client/src/components/Life/SharedMemoryCard.tsx b/client/src/components/Life/SharedMemoryCard.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..ec0cfe381ddc1e02183d034aa32d6d42ec881e22
+--- /dev/null
++++ b/client/src/components/Life/SharedMemoryCard.tsx
+@@ -0,0 +1,88 @@
++import { useState } from 'react';
++import type { LifeSharedMemorySummary } from 'librechat-data-provider';
++import { motion, useReducedMotion } from 'framer-motion';
++import { HeartHandshake, ImageOff, UsersRound } from 'lucide-react';
++import { Link } from 'react-router-dom';
++
++const timeFormatter = new Intl.DateTimeFormat('zh-CN', {
++  timeZone: 'Asia/Hong_Kong',
++  month: 'long',
++  day: 'numeric',
++  hour: '2-digit',
++  minute: '2-digit',
++  hour12: false,
++});
++
++export default function SharedMemoryCard({
++  shared,
++  index = 0,
++}: {
++  shared: LifeSharedMemorySummary;
++  index?: number;
++}) {
++  const reduceMotion = useReducedMotion();
++  const [imageFailed, setImageFailed] = useState(false);
++  const source = shared.sources[0];
++  const image = source?.image_data;
++
++  return (
++    <motion.article
++      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
++      animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
++      transition={{ duration: 0.24, delay: Math.min(index * 0.04, 0.2) }}
++      className="min-w-0"
++    >
++      <Link
++        to={`/shared-memories/${encodeURIComponent(shared.shared_memory_id)}`}
++        className="group flex h-full min-h-11 flex-col overflow-hidden rounded-[1.4rem] border border-border-light bg-surface-primary-alt text-text-primary no-underline shadow-sm transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-border-heavy hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring-primary motion-reduce:transform-none motion-reduce:transition-none"
++        aria-label={`${shared.title} · 打开共同回忆`}
++      >
++        <div className="relative aspect-[4/3] overflow-hidden bg-surface-secondary">
++          {image && !imageFailed ? (
++            <img
++              src={image}
++              alt=""
++              loading="lazy"
++              decoding="async"
++              onError={() => setImageFailed(true)}
++              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
++            />
++          ) : (
++            <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-text-secondary">
++              <ImageOff className="size-8" aria-hidden="true" />
++              <span className="text-center text-sm leading-6">这段共同回忆暂无配图</span>
++            </div>
++          )}
++          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 px-3 py-1 text-[11px] font-medium tracking-wide text-white backdrop-blur-sm">
++            <HeartHandshake className="size-3.5" aria-hidden="true" />
++            我们共同的回忆
++          </span>
++        </div>
++        <div className="flex flex-1 flex-col p-5">
++          <div className="mb-3 flex items-center justify-between gap-3 text-xs text-text-secondary">
++            <time dateTime={source?.occurred_at ?? shared.created_at}>
++              {timeFormatter.format(new Date(source?.occurred_at ?? shared.created_at))}
++            </time>
++            <span className="inline-flex items-center gap-1.5">
++              <UsersRound className="size-3.5" aria-hidden="true" />
++              {shared.member_count} 位成员
++            </span>
++          </div>
++          <h2 className="font-serif mb-3 line-clamp-2 break-words text-xl leading-relaxed">
++            {shared.title}
++          </h2>
++          <p className="line-clamp-3 whitespace-pre-wrap break-words text-sm leading-7 text-text-secondary">
++            {source?.summary || '点击进入，和好友一起补充这段回忆。'}
++          </p>
++          <p className="mt-auto pt-5 text-xs text-text-secondary">
++            {shared.owner_display_name
++              ? `${shared.owner_display_name} 发起`
++              : '共同回忆'}
++            {' · '}
++            <span className="font-semibold text-link">查看并一起聊</span>
++          </p>
++        </div>
++      </Link>
++    </motion.article>
++  );
++}
 diff --git a/client/src/components/Life/SharedMemoryCompanion.tsx b/client/src/components/Life/SharedMemoryCompanion.tsx
 new file mode 100644
 index 0000000000000000000000000000000000000000..e16e609f7eebe027f2f367932ee140a7d4b6b2e3
@@ -58093,44 +58358,6 @@ index 0000000000000000000000000000000000000000..1e5b830de1584e2be93377240328a035
 +  console.log(`\nSUMMARY: ${summary.passed}/${summary.total} passed`);
 +  process.exit(summary.failed ? 1 : 0);
 +})();
-diff --git a/e2e/v03-login-debug.cjs b/e2e/v03-login-debug.cjs
-new file mode 100644
-index 0000000000000000000000000000000000000000..038099295533a462695cc4242ede16105f0488bf
---- /dev/null
-+++ b/e2e/v03-login-debug.cjs
-@@ -0,0 +1,32 @@
-+const { chromium } = require('@playwright/test');
-+const fs = require('fs');
-+const path = require('path');
-+const root = path.resolve(__dirname, '..', '..', '..');
-+const accounts = JSON.parse(
-+  fs.readFileSync(path.join(root, 'infra/runtime/v03-acceptance/accounts.json'), 'utf8'),
-+);
-+(async () => {
-+  const browser = await chromium.launch({ headless: true });
-+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
-+  const page = await ctx.newPage();
-+  const logins = [];
-+  page.on('response', (res) => {
-+    if (res.url().includes('/api/auth/login')) {
-+      logins.push(res.status());
-+    }
-+  });
-+  page.on('console', (msg) => console.log('console:', msg.type(), msg.text().slice(0, 200)));
-+  await page.goto('http://127.0.0.1:3001/login', { waitUntil: 'domcontentloaded' });
-+  await page.locator('#email').waitFor({ timeout: 20000 });
-+  await page.locator('#email').fill(accounts.a.email);
-+  await page.locator('#password').fill(accounts.a.password);
-+  await page.screenshot({ path: path.join(root, 'evidence/v03-acceptance/browser/debug-before-submit.png') });
-+  await page.locator('[data-testid="login-button"]').click();
-+  await page.waitForTimeout(6000);
-+  console.log('login POST statuses:', logins);
-+  console.log('final URL:', page.url());
-+  const body = await page.locator('body').innerText().catch(() => '');
-+  console.log('body text head:', body.slice(0, 600));
-+  await page.screenshot({ path: path.join(root, 'evidence/v03-acceptance/browser/debug-after-submit.png') });
-+  await browser.close();
-+})();
 diff --git a/librechat.yaml b/librechat.yaml
 new file mode 100644
 index 0000000000000000000000000000000000000000..b59cfff32f0a56643f56aeda78b000a08910f779
@@ -59252,10 +59479,10 @@ index 5e1e7288074788b34f10dd4b225665c150a81866..b536924b358ba2a5c2d186285b75abb8
    sharedStartupConfig = 'sharedStartupConfig',
 diff --git a/packages/data-provider/src/life.ts b/packages/data-provider/src/life.ts
 new file mode 100644
-index 0000000000000000000000000000000000000000..aaa85adf8379c073307e4edb5af532350ab17418
+index 0000000000000000000000000000000000000000..2e456e3825dee3c29892bfa7896ec50e8dd674b7
 --- /dev/null
 +++ b/packages/data-provider/src/life.ts
-@@ -0,0 +1,798 @@
+@@ -0,0 +1,802 @@
 +import request from './request';
 +
 +export type LifeMemory = {
@@ -59458,6 +59685,7 @@ index 0000000000000000000000000000000000000000..aaa85adf8379c073307e4edb5af53235
 +
 +export type LifeFriend = {
 +  user_id: string;
++  librechat_user_id: string;
 +  display_name: string;
 +  bio: string;
 +  friends_since: string;
@@ -59595,6 +59823,8 @@ index 0000000000000000000000000000000000000000..aaa85adf8379c073307e4edb5af53235
 +  role: 'owner' | 'member';
 +  member_count: number;
 +  contribution_count: number;
++  sources: LifeSharedMemorySource[];
++  owner_display_name?: string | null;
 +};
 +
 +export type LifeSharedMemorySource = {
@@ -59786,6 +60016,7 @@ index 0000000000000000000000000000000000000000..aaa85adf8379c073307e4edb5af53235
 +    request.get<{
 +      users: Array<{
 +        user_id: string;
++        librechat_user_id: string;
 +        display_name: string;
 +        bio: string;
 +        is_friend: number;
@@ -60084,6 +60315,44 @@ index 4291ae0b0c3dc019520f8fa282f73d00bdf05e1b..3981263eb5d94df83141abdc77cf19dc
    });
    return response.data;
  }
+diff --git a/e2e/v03-login-debug.cjs b/e2e/v03-login-debug.cjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..038099295533a462695cc4242ede16105f0488bf
+--- /dev/null
++++ b/e2e/v03-login-debug.cjs
+@@ -0,0 +1,32 @@
++const { chromium } = require('@playwright/test');
++const fs = require('fs');
++const path = require('path');
++const root = path.resolve(__dirname, '..', '..', '..');
++const accounts = JSON.parse(
++  fs.readFileSync(path.join(root, 'infra/runtime/v03-acceptance/accounts.json'), 'utf8'),
++);
++(async () => {
++  const browser = await chromium.launch({ headless: true });
++  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
++  const page = await ctx.newPage();
++  const logins = [];
++  page.on('response', (res) => {
++    if (res.url().includes('/api/auth/login')) {
++      logins.push(res.status());
++    }
++  });
++  page.on('console', (msg) => console.log('console:', msg.type(), msg.text().slice(0, 200)));
++  await page.goto('http://127.0.0.1:3001/login', { waitUntil: 'domcontentloaded' });
++  await page.locator('#email').waitFor({ timeout: 20000 });
++  await page.locator('#email').fill(accounts.a.email);
++  await page.locator('#password').fill(accounts.a.password);
++  await page.screenshot({ path: path.join(root, 'evidence/v03-acceptance/browser/debug-before-submit.png') });
++  await page.locator('[data-testid="login-button"]').click();
++  await page.waitForTimeout(6000);
++  console.log('login POST statuses:', logins);
++  console.log('final URL:', page.url());
++  const body = await page.locator('body').innerText().catch(() => '');
++  console.log('body text head:', body.slice(0, 600));
++  await page.screenshot({ path: path.join(root, 'evidence/v03-acceptance/browser/debug-after-submit.png') });
++  await browser.close();
++})();
 diff --git a/scripts/capture-v02-gallery.mjs b/scripts/capture-v02-gallery.mjs
 new file mode 100644
 index 0000000000000000000000000000000000000000..48eaea57c2c25c2b3fc5911002026d8810d2f8e3
