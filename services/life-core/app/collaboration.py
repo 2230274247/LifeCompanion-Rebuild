@@ -574,7 +574,7 @@ class CollaborationService:
         like = f"%{query}%"
         with self.store.connect() as db:
             rows = db.execute(
-                """SELECT p.user_id,p.display_name,p.bio,
+                """SELECT p.user_id,p.librechat_user_id,p.display_name,p.bio,
                     EXISTS(SELECT 1 FROM collab_friend_edges e
                         WHERE e.user_low=? AND e.user_high=p.user_id) AS is_friend,
                     EXISTS(SELECT 1 FROM collab_blocks b
@@ -816,7 +816,7 @@ class CollaborationService:
     def list_friends(self, actor: str) -> dict[str, Any]:
         with self.store.connect() as db:
             friends = db.execute(
-                """SELECT p.user_id,p.display_name,p.bio,e.created_at AS friends_since
+                """SELECT p.user_id,p.librechat_user_id,p.display_name,p.bio,e.created_at AS friends_since
                 FROM collab_friend_edges e
                 JOIN collab_profiles p
                   ON p.user_id=CASE WHEN e.user_low=? THEN e.user_high ELSE e.user_low END
