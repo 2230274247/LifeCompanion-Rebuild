@@ -64,6 +64,10 @@ services:
       - ./librechat-custom/librechat.yaml:/app/librechat.yaml:ro
       - ./librechat-custom/api/server/middleware/canDeleteAccount.js:/app/api/server/middleware/canDeleteAccount.js:ro
       - ./librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro
+      - ./librechat-custom/api/server/controllers/AuthController.js:/app/api/server/controllers/AuthController.js:ro
+      - ./librechat-custom/api/server/services/AuthService.js:/app/api/server/services/AuthService.js:ro
+      - ./librechat-custom/api/strategies/validators.js:/app/api/strategies/validators.js:ro
+      - ./librechat-custom/api/strategies/localStrategy.js:/app/api/strategies/localStrategy.js:ro
       - ./librechat-custom/client/dist:/app/client/dist:ro
       - ./librechat-custom/packages/api/dist:/app/packages/api/dist:ro
       - ./librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro

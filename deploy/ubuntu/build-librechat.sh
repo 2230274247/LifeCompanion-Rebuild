@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds deploy/ubuntu/librechat-custom from the archived V0.3 patch.
+# Builds deploy/ubuntu/librechat-custom from the archived V0.3 patches.
 # Requirements: Node 24+, npm, git. Run from the repository root:
 #   bash deploy/ubuntu/build-librechat.sh
 set -euo pipefail
@@ -7,7 +7,8 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$repo_root"
 
-patch="patches/librechat-v0.8.8-v03-collaboration-20261106.patch"
+collab_patch="patches/librechat-v0.8.8-v03-collaboration-20261106.patch"
+registration_patch="patches/librechat-v0.8.8-registration-20261106.patch"
 base_commit="e8f3be08623663d4ad7f7241e693c94469b63bb0"
 work=".work/librechat-build"
 out="deploy/ubuntu/librechat-custom"
@@ -21,19 +22,31 @@ rm -rf "$work"
 mkdir -p "$work"
 git clone --filter=blob:none --no-checkout https://github.com/danny-avila/LibreChat.git "$work"
 git -C "$work" checkout "$base_commit"
-git -C "$work" apply "$repo_root/$patch"
+git -C "$work" apply "$repo_root/$collab_patch"
+git -C "$work" apply "$repo_root/$registration_patch"
 
 cd "$work"
 npm ci
 npm run frontend
 
 mkdir -p "$repo_root/$out/api/server/middleware" \
+  "$repo_root/$out/api/server/controllers" \
+  "$repo_root/$out/api/server/services" \
   "$repo_root/$out/api/app/clients" \
+  "$repo_root/$out/api/strategies" \
   "$repo_root/$out/packages"
 
 cp librechat.yaml "$repo_root/$out/librechat.yaml"
 cp api/server/middleware/canDeleteAccount.js \
   "$repo_root/$out/api/server/middleware/canDeleteAccount.js"
+cp api/server/controllers/AuthController.js \
+  "$repo_root/$out/api/server/controllers/AuthController.js"
+cp api/server/services/AuthService.js \
+  "$repo_root/$out/api/server/services/AuthService.js"
+cp api/strategies/validators.js \
+  "$repo_root/$out/api/strategies/validators.js"
+cp api/strategies/localStrategy.js \
+  "$repo_root/$out/api/strategies/localStrategy.js"
 cp api/app/clients/BaseClient.js \
   "$repo_root/$out/api/app/clients/BaseClient.js"
 cp -a client/dist "$repo_root/$out/client/dist"

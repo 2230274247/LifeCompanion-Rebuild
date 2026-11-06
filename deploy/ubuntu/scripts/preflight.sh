@@ -31,6 +31,10 @@ fi
 for path in \
   librechat-custom/librechat.yaml \
   librechat-custom/api/server/middleware/canDeleteAccount.js \
+  librechat-custom/api/server/controllers/AuthController.js \
+  librechat-custom/api/server/services/AuthService.js \
+  librechat-custom/api/strategies/validators.js \
+  librechat-custom/api/strategies/localStrategy.js \
   librechat-custom/api/app/clients/BaseClient.js \
   librechat-custom/client/dist/index.html \
   librechat-custom/packages/api/dist \
