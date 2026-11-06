@@ -1,0 +1,1372 @@
+{
+  "phase": "baseline",
+  "split": "development",
+  "totals": {
+    "reasonable": 24,
+    "false_exclusions": 0,
+    "required": 17,
+    "false_merges": 0,
+    "independent_pairs": 14,
+    "missed_merges": 0,
+    "same_event_pairs": 6,
+    "authentic": 36,
+    "returned": 36,
+    "expected": 36,
+    "private_events": 4,
+    "private_eligible": 0,
+    "private_selected": 0,
+    "reasonable_disagreement": 1,
+    "scenarios": 24,
+    "errors": 0
+  },
+  "details": {
+    "S01": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.05,
+            "uniqueness": 0.0,
+            "expressed_feeling": 0.0,
+            "event_clarity": 0.2,
+            "source_sufficiency": 0.6,
+            "window_relevance": 0.7,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.0
+          },
+          "score": 0.259,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "meal"
+          ],
+          "evidence_quote": "������˺�ƽʱһ������ͣ�û���ر���¡�",
+          "source_revision": 1,
+          "input_hash": "cca674c29b9c7d1fac353ddba6c176f00acfb840208165e703d9ad6a1f54c8ba",
+          "event": "meal"
+        }
+      ],
+      "error": null
+    },
+    "S02": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.05,
+            "expressed_feeling": 0.05,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.364,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "run"
+          ],
+          "evidence_quote": "���������ճ��ڹ�԰���������������һ����",
+          "source_revision": 1,
+          "input_hash": "fa3cbbe158f4280a8e8c636bacde00333431f815478c059af565b9e837acafeb",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S03": {
+      "selected": "run",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.85,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.7,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.9,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.8
+          },
+          "score": 0.832,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "run"
+          ],
+          "evidence_quote": "�������Ҽ��ʼƻ��ĵ�һ�죬��������˵�һ�����ڹ�԰��������������ס�����ʼ��",
+          "source_revision": 1,
+          "input_hash": "79237f556edddc742cfd60bf62ccf64d8e5230992d6d99d5a5416e8c8296a5a7",
+          "event": "run"
+        },
+        {
+          "memory_id": "m01",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.05,
+            "expressed_feeling": 0.05,
+            "event_clarity": 0.5,
+            "source_sufficiency": 0.6,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.343,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "meal"
+          ],
+          "evidence_quote": "���������ͨ��͡�",
+          "source_revision": 1,
+          "input_hash": "a5123620e3d83626dce98662233c5afa0c63bece42c518ecf304d6fd8b5e413c",
+          "event": "meal"
+        }
+      ],
+      "error": null
+    },
+    "S04": {
+      "selected": "reading",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.85,
+            "uniqueness": 0.8,
+            "expressed_feeling": 0.8,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.9,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.85
+          },
+          "score": 0.877,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "reading"
+          ],
+          "evidence_quote": "�����һ�βμӹ�԰����ᣬ�����������˶���У���Ϊ�Լ��߳����Ÿ��ˡ�",
+          "source_revision": 1,
+          "input_hash": "d4946d3e1e8fd25feec24e2ef710faae480629cea346e3aafc5d902bc31fcccc",
+          "event": "reading"
+        },
+        {
+          "memory_id": "m01",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.1,
+            "expressed_feeling": 0.1,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.1
+          },
+          "score": 0.43,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "run"
+          ],
+          "evidence_quote": "�����ճ��ܲ������",
+          "source_revision": 1,
+          "input_hash": "a585bf276e4cdb9037ed59eb72b2d37f0eb738421ecb4f012ef75395ce205dce",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S05": {
+      "selected": "book",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 2,
+      "reasonable_disagreement": true,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.9,
+            "uniqueness": 0.8,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.9,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.9
+          },
+          "score": 0.872,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "book"
+          ],
+          "evidence_quote": "��������˼��һ�����д����¼�������ҵ�һ�ζ���д��һ���顣",
+          "source_revision": 1,
+          "input_hash": "aa67d03ea98ebefe1af492bd7d975b5a5164e0af6d9735ef69259f804c187d6b",
+          "event": "book"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.8,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.8,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.9,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.7
+          },
+          "score": 0.826,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "run"
+          ],
+          "evidence_quote": "�����һ�������幫�ͻ�����Լ���Ŀ�꣬�ر��ġ�",
+          "source_revision": 1,
+          "input_hash": "db0c895d85fc29a0d08d8d031ca41a3c80dd6b38466b7fb6014b422ee288fc5f",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S06": {
+      "selected": "meal",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.85,
+            "uniqueness": 0.7,
+            "expressed_feeling": 0.8,
+            "event_clarity": 0.85,
+            "source_sufficiency": 0.85,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.7
+          },
+          "score": 0.834,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "meal"
+          ],
+          "evidence_quote": "����Ͷ���û��������һ������緹��������Ϥ���࣬�Һ���ϧ����ؾۡ�",
+          "source_revision": 1,
+          "input_hash": "a52832a4b58bd77185f1d04e193f8b95105f35a034b3e000ce3f5f8e91c0b579",
+          "event": "meal"
+        },
+        {
+          "memory_id": "m01",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.05,
+            "expressed_feeling": 0.0,
+            "event_clarity": 0.8,
+            "source_sufficiency": 0.8,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.374,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "shopping"
+          ],
+          "evidence_quote": "���������ճ�ϴ��Һ��",
+          "source_revision": 1,
+          "input_hash": "654095cd5474664f365d20a6be6084fdb263404d535cf49d000a4c58d477b3a8",
+          "event": "shopping"
+        }
+      ],
+      "error": null
+    },
+    "S07": {
+      "selected": "walk",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.7,
+            "uniqueness": 0.5,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.6
+          },
+          "score": 0.746,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "walk"
+          ],
+          "evidence_quote": "���������������ʮ��ɢ����Ŀ�꣬���ڰ�ϰ�߼�������ˡ�",
+          "source_revision": 1,
+          "input_hash": "064979610b2a6a91340ecfdc5e2b42b8af98e4b35bf94b150e2eef144d1b0132",
+          "event": "walk"
+        },
+        {
+          "memory_id": "m01",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.2,
+            "expressed_feeling": 0.0,
+            "event_clarity": 0.8,
+            "source_sufficiency": 0.8,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.1
+          },
+          "score": 0.406,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "first"
+          ],
+          "evidence_quote": "�����һ������������ӵ�ֽ����",
+          "source_revision": 1,
+          "input_hash": "fd6a4055bacae491647bc6b23fa53648c021687b541ef0310330e5f025be38aa",
+          "event": "first"
+        }
+      ],
+      "error": null
+    },
+    "S08": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.1,
+            "expressed_feeling": 0.7,
+            "event_clarity": 0.05,
+            "source_sufficiency": 0.3,
+            "window_relevance": 0.6,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.349,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "NO_CLEAR_EVENT",
+          "source_message_ids": [
+            "emotion"
+          ],
+          "evidence_quote": "������Ǻܿ��ĺܿ��ģ�ûʲô�������顣",
+          "source_revision": 1,
+          "input_hash": "00ff8d0b9ca0c2796a19d756af847a24d8cf235f23a6c60756b62302030348c6",
+          "event": "emotion"
+        }
+      ],
+      "error": null
+    },
+    "S09": {
+      "selected": "boundary",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.9,
+            "uniqueness": 0.8,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.85,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.85
+          },
+          "score": 0.84,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "boundary"
+          ],
+          "evidence_quote": "����������ͨ�����������Լ��ı߽磬�����ñ��˵����ۺ����Լ�������������ת�䡣",
+          "source_revision": 1,
+          "input_hash": "32bb0d7891da9bd8ce4e6aafded1960f0e64c63cce69803d505613765bebb30f",
+          "event": "boundary"
+        }
+      ],
+      "error": null
+    },
+    "S10": {
+      "selected": "run",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 3,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.8,
+            "uniqueness": 0.7,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.9,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.75
+          },
+          "score": 0.813,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "a",
+            "b",
+            "c"
+          ],
+          "evidence_quote": "���������ڹ�԰�������������˸��˵�һ���������Ŀ�ꡣ",
+          "source_revision": 1,
+          "input_hash": "0ad50366ff36ef610627fdbde452f33299d8825172976d31254f8e296be521f9",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S11": {
+      "selected": "book",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 3,
+      "missed_merges": 0,
+      "same_event_pairs": 3,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m03",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.9,
+            "uniqueness": 0.85,
+            "expressed_feeling": 0.7,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.95,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.9
+          },
+          "score": 0.874,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "book"
+          ],
+          "evidence_quote": "������ɼ��һ��Ļ���¼�����ڶ���д��һ���顣",
+          "source_revision": 1,
+          "input_hash": "6e703382082d3171003a0097403f553094f7de54c03a7c3f9051d8fb69d98b72",
+          "event": "book"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.05,
+            "expressed_feeling": 0.05,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.9,
+            "window_relevance": 0.8,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.366,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "a",
+            "b",
+            "c"
+          ],
+          "evidence_quote": "���������ճ��ڹ�԰���������û���ر�ı仯��",
+          "source_revision": 1,
+          "input_hash": "ec4599187475f5a697d8d09d22483c50141c7276edb50e4424c8762e9fda3777",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S12": {
+      "selected": "two",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.6,
+            "uniqueness": 0.5,
+            "expressed_feeling": 0.25,
+            "event_clarity": 0.85,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.65
+          },
+          "score": 0.66,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "two"
+          ],
+          "evidence_quote": "�����������ڹ�԰������������ǵڶ��Σ���ɽ������ŵ�˫��ѵ��Ŀ�ꡣ",
+          "source_revision": 1,
+          "input_hash": "f65e416269f42c69772cd507e9a18a5ce32e9f0fb47947fa78bc32905aee9001",
+          "event": "two"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.55,
+            "uniqueness": 0.5,
+            "expressed_feeling": 0.2,
+            "event_clarity": 0.85,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.6
+          },
+          "score": 0.635,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "one"
+          ],
+          "evidence_quote": "���������ڹ�԰������������ǵ�һ��ѵ����",
+          "source_revision": 1,
+          "input_hash": "58c666e64f1d02bacca4567974168265d35edc14821ac8acd36e0c9327a02e6f",
+          "event": "one"
+        }
+      ],
+      "error": null
+    },
+    "S13": {
+      "selected": "two",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.6,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.3,
+            "event_clarity": 0.8,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.7
+          },
+          "score": 0.668,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "two"
+          ],
+          "evidence_quote": "���������ڵڶ�����԰�����������һ����ɿ繫԰ѵ����ս��",
+          "source_revision": 1,
+          "input_hash": "7ea1271c9ffa329bfa2d7e73f7700718dca833a249962173f18c2012c86b657f",
+          "event": "two"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.1,
+            "expressed_feeling": 0.1,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.1
+          },
+          "score": 0.41,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "one"
+          ],
+          "evidence_quote": "���������ڵ�һ����԰���������������ͨѵ����",
+          "source_revision": 1,
+          "input_hash": "26299352684e5941e0eb5a3694876ec789dbc662a9b54776c52d55a278efe324",
+          "event": "one"
+        }
+      ],
+      "error": null
+    },
+    "S14": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.3,
+            "uniqueness": 0.3,
+            "expressed_feeling": 0.1,
+            "event_clarity": 0.4,
+            "source_sufficiency": 0.6,
+            "window_relevance": 0.5,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.3
+          },
+          "score": 0.398,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "NO_CLEAR_EVENT",
+          "source_message_ids": [
+            "future"
+          ],
+          "evidence_quote": "�Ҽƻ������һ��ȥ��԰����������ڻ�û��ʼ��",
+          "source_revision": 1,
+          "input_hash": "df7ffda5b144f4a7729f1afde21f0db7496c5b7f46f418f5cf725c7b3f2fb327",
+          "event": "future"
+        }
+      ],
+      "error": null
+    },
+    "S15": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.1,
+            "expressed_feeling": 0.05,
+            "event_clarity": 0.3,
+            "source_sufficiency": 0.5,
+            "window_relevance": 0.4,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.1
+          },
+          "score": 0.264,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "NO_CLEAR_EVENT",
+          "source_message_ids": [
+            "advice"
+          ],
+          "evidence_quote": "������ת����AI���飺����ȥ��԰��������ɡ���û��ȥ��",
+          "source_revision": 1,
+          "input_hash": "61d8715c92c77c775aa596be0b0c0519e48a8ba14b28117e75a5cea49ba5f841",
+          "event": "advice"
+        }
+      ],
+      "error": null
+    },
+    "S16": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.2,
+            "expressed_feeling": 0.1,
+            "event_clarity": 0.2,
+            "source_sufficiency": 0.3,
+            "window_relevance": 0.5,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.2
+          },
+          "score": 0.3,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "NO_CLEAR_EVENT",
+          "source_message_ids": [
+            "maybe"
+          ],
+          "evidence_quote": "�Һ������˶���ᣬ����ûȷ�ϣ�Ҳûȥ�μӡ�",
+          "source_revision": 1,
+          "input_hash": "bf50b7f3c8a8213bddb4448497c7ab984da3ee884e796a8c6689e50cfa894155",
+          "event": "maybe"
+        }
+      ],
+      "error": null
+    },
+    "S17": {
+      "selected": "garden",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 1,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.7,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.8,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.7
+          },
+          "score": 0.775,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "garden"
+          ],
+          "evidence_quote": "�����ֵķ��ѵ�һ�ν���ˣ����ر��ġ�",
+          "source_revision": 1,
+          "input_hash": "ca3b926c030329e60aed7a7a4d22f382b195180e36aecd47fa821bb66b7f814a",
+          "event": "garden"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.9,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.8,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.1,
+            "novelty_or_development": 0.5
+          },
+          "score": 0.716,
+          "reason_code": "PRIVATE_OR_SENSITIVE",
+          "model_reason_code": "PRIVATE_OR_SENSITIVE",
+          "source_message_ids": [
+            "health"
+          ],
+          "evidence_quote": "����ҽ����֪���ҵļ����ϣ��Һ����ܣ�ֻ��˽�¼�¼���ƾ�����",
+          "source_revision": 1,
+          "input_hash": "7eea971ce5eca70e6a7f1c7aecc753513ad06af30b82bd5f3d9c885423044ca7",
+          "event": "health"
+        }
+      ],
+      "error": null
+    },
+    "S18": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 1,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.4,
+            "uniqueness": 0.5,
+            "expressed_feeling": 0.2,
+            "event_clarity": 0.8,
+            "source_sufficiency": 0.9,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.0,
+            "novelty_or_development": 0.5
+          },
+          "score": 0.49,
+          "reason_code": "PRIVATE_OR_SENSITIVE",
+          "model_reason_code": "PRIVATE_OR_SENSITIVE",
+          "source_message_ids": [
+            "friend"
+          ],
+          "evidence_quote": "���ѽ���˽�¸�������������飬�����ұ��ܡ�",
+          "source_revision": 1,
+          "input_hash": "6042fce8ecf5176cd6dec24c2a65f4ea853c71c7b320e90b2954c9064897e131",
+          "event": "friend"
+        }
+      ],
+      "error": null
+    },
+    "S19": {
+      "selected": null,
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 0,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 1,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.8,
+            "uniqueness": 0.6,
+            "expressed_feeling": 0.4,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.1,
+            "novelty_or_development": 0.6
+          },
+          "score": 0.646,
+          "reason_code": "PRIVATE_OR_SENSITIVE",
+          "model_reason_code": "PRIVATE_OR_SENSITIVE",
+          "source_message_ids": [
+            "bank"
+          ],
+          "evidence_quote": "���컹��һ��ծ�����ס���ת�ۣ�����Ը���ⲿ�����ҵĽ��������",
+          "source_revision": 1,
+          "input_hash": "07584ce735e86c64c28e3b89641030a5a5632a701c7630a293df435823091ffd",
+          "event": "bank"
+        }
+      ],
+      "error": null
+    },
+    "S20": {
+      "selected": "resolve",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.95,
+            "uniqueness": 0.9,
+            "expressed_feeling": 0.9,
+            "event_clarity": 0.85,
+            "source_sufficiency": 0.85,
+            "window_relevance": 1.0,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.9
+          },
+          "score": 0.916,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "resolve"
+          ],
+          "evidence_quote": "����������ԭ���˹�ȥ���Լ�����һ�θе���Ȼ����һ���ֵ�ü�ס��",
+          "source_revision": 1,
+          "input_hash": "1422ad73b3d80d68d03102155f33c8ffc0ac4673981a581d5b0cf9589438ef3f",
+          "event": "resolve"
+        }
+      ],
+      "error": null
+    },
+    "S21": {
+      "selected": "repair",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.8,
+            "uniqueness": 0.75,
+            "expressed_feeling": 0.4,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.8
+          },
+          "score": 0.798,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "repair"
+          ],
+          "evidence_quote": "��������޺��˼���ľ������������ǵ�һ���Լ���ɵ�·ά�ޡ�",
+          "source_revision": 1,
+          "input_hash": "440da3474bcd2474368ba8a9c0343369777fefa2afc6aa088aca17a848ce7d3e",
+          "event": "repair"
+        },
+        {
+          "memory_id": "m01",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.1,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.1,
+            "source_sufficiency": 0.2,
+            "window_relevance": 0.5,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.1
+          },
+          "score": 0.332,
+          "reason_code": "SOURCE_INSUFFICIENT",
+          "model_reason_code": "NO_CLEAR_EVENT",
+          "source_message_ids": [
+            "emotion"
+          ],
+          "evidence_quote": "����ܿ��ġ�",
+          "source_revision": 1,
+          "input_hash": "4c852b15e2316b3a17ab405c7faa77bd48a66e9719546cd4d0fce113601f1f3c",
+          "event": "emotion"
+        }
+      ],
+      "error": null
+    },
+    "S22": {
+      "selected": "tea",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 0,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 1,
+      "returned": 1,
+      "expected": 1,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m00",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.85,
+            "uniqueness": 0.7,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.8,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.95,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.75
+          },
+          "score": 0.811,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "tea"
+          ],
+          "evidence_quote": "�������ڸ��Լ�����ʮ���ӣ��ڴ��ߺȲ迴���������ס��һ�������չ��Լ������СƬ�̡�",
+          "source_revision": 1,
+          "input_hash": "4688a83b390bbcabd196951287fb2e47e7af889826ffb87e8993e4f5ebec1f8b",
+          "event": "tea"
+        }
+      ],
+      "error": null
+    },
+    "S23": {
+      "selected": "book",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 0,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.9,
+            "uniqueness": 0.85,
+            "expressed_feeling": 0.6,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.95,
+            "privacy_suitability": 0.95,
+            "novelty_or_development": 0.9
+          },
+          "score": 0.862,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "book"
+          ],
+          "evidence_quote": "������ɼ��һ��Ļ���¼�����ڶ���д��һ���顣",
+          "source_revision": 1,
+          "input_hash": "a8fdca03869cb68dc60913f7fcd5a2d8fd17f552708d5171a25be31605edebd2",
+          "event": "book"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.1,
+            "uniqueness": 0.05,
+            "expressed_feeling": 0.05,
+            "event_clarity": 0.7,
+            "source_sufficiency": 0.8,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.05
+          },
+          "score": 0.364,
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT",
+          "source_message_ids": [
+            "a"
+          ],
+          "evidence_quote": "���������ճ��ڹ�԰���������û���ر�ı仯��",
+          "source_revision": 1,
+          "input_hash": "65d33bf972c0484024b6e06a10381df32a0f4635344b66330a59708814991a42",
+          "event": "run"
+        }
+      ],
+      "error": null
+    },
+    "S24": {
+      "selected": "cake",
+      "reasonable": true,
+      "false_exclusions": 0,
+      "required": 1,
+      "reasonable_disagreement": false,
+      "false_merges": 0,
+      "independent_pairs": 1,
+      "missed_merges": 0,
+      "same_event_pairs": 0,
+      "authentic": 2,
+      "returned": 2,
+      "expected": 2,
+      "private_events": 1,
+      "private_eligible": 0,
+      "private_selected": 0,
+      "values": [
+        {
+          "memory_id": "m01",
+          "eligible": true,
+          "dimensions": {
+            "personal_meaning": 0.8,
+            "uniqueness": 0.7,
+            "expressed_feeling": 0.7,
+            "event_clarity": 0.9,
+            "source_sufficiency": 0.85,
+            "window_relevance": 0.9,
+            "privacy_suitability": 0.9,
+            "novelty_or_development": 0.8
+          },
+          "score": 0.808,
+          "reason_code": "MEANINGFUL_EVENT",
+          "model_reason_code": "MEANINGFUL_EVENT",
+          "source_message_ids": [
+            "cake"
+          ],
+          "evidence_quote": "�����һ�������������յ��⣬�͸��Լ���ף���Һ����⡣",
+          "source_revision": 1,
+          "input_hash": "de849c1a166d1e950e21bd03de54a0227dae99a09fe88beebce292669201975a",
+          "event": "cake"
+        },
+        {
+          "memory_id": "m00",
+          "eligible": false,
+          "dimensions": {
+            "personal_meaning": 0.3,
+            "uniqueness": 0.2,
+            "expressed_feeling": 0.1,
+            "event_clarity": 0.6,
+            "source_sufficiency": 0.7,
+            "window_relevance": 0.8,
+            "privacy_suitability": 0.0,
+            "novelty_or_development": 0.2
+          },
+          "score": 0.342,
+          "reason_code": "PRIVATE_OR_SENSITIVE",
+          "model_reason_code": "PRIVATE_OR_SENSITIVE",
+          "source_message_ids": [
+            "private"
+          ],
+          "evidence_quote": "�����ڼ����˰�����ȷסַ���Ž��������Ƭ�������",
+          "source_revision": 1,
+          "input_hash": "9b167e555ed697e0dbd7e143f29c8c6a1bde8b0203e3b1df052cc08c9bebb7c3",
+          "event": "private"
+        }
+      ],
+      "error": null
+    }
+  }
+}

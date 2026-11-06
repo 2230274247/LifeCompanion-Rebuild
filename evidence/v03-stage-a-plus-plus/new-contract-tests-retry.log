@@ -1,0 +1,23 @@
+.....................F.                                                  [100%]
+================================== FAILURES ===================================
+_ test_existing_queued_v03_row_without_policy_cannot_use_legacy_image_generator _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-5/test_existing_queued_v03_row_w0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000013A2D666F90>
+
+    def test_existing_queued_v03_row_without_policy_cannot_use_legacy_image_generator(tmp_path, monkeypatch):
+        moments, user, store, memory = build(tmp_path)
+        item = seed(memory,store,user,"今天在公园跑了三公里，完成了第一次训练目标。",
+                    "safe",instant("2026-11-03T09:00:00+08:00"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='queued',caption='original-source-caption',
+                source_memory_ids=?""", ('["'+item["memory_id"]+'"]',))
+>       moments.settings = replace(moments.settings,moment_image_generation_enabled=True)
+                           ^^^^^^^
+E       NameError: name 'replace' is not defined
+
+services\life-core\tests\test_recollection_authorization.py:84: NameError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_authorization.py::test_existing_queued_v03_row_without_policy_cannot_use_legacy_image_generator
+1 failed, 22 passed in 6.78s

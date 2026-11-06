@@ -1,0 +1,28 @@
+.F.....                                                                  [100%]
+================================== FAILURES ===================================
+____________ test_aplusplus_schema_upgrade_preserves_stage_a_rows _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-11/test_aplusplus_schema_upgrade_0')
+
+    def test_aplusplus_schema_upgrade_preserves_stage_a_rows(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "�����ڹ�԰��������������ѵ��Ŀ�ꡣ",
+             "schema-upgrade", instant("2026-11-03T09:00:00+08:00"))
+        scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        assert moments.score_one()
+        with store.connect() as db:
+            moment_ids = [row[0] for row in db.execute("SELECT moment_id FROM moments")]
+            candidate_ids = [row[0] for row in db.execute(
+                "SELECT memory_id FROM recollection_candidates")]
+            db.execute("DROP TABLE recollection_egress_consents")
+            db.execute("ALTER TABLE recollection_candidates DROP COLUMN policy_json")
+    
+>       Moments(store, moments.settings, memory)
+        ^^^^^^^
+E       NameError: name 'Moments' is not defined
+
+services\life-core\tests\test_recollection_authorization.py:60: NameError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_authorization.py::test_aplusplus_schema_upgrade_preserves_stage_a_rows
+1 failed, 6 passed in 5.49s

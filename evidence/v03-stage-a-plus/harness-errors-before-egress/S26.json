@@ -1,0 +1,54 @@
+{
+  "id": "S26",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天是我学游泳的第一天，终于敢下水练习呼吸，迈出了害怕已久的一步。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "swim",
+          "quote": "今天是我学游泳的第一天，终于敢下水练习呼吸，迈出了害怕已久的一步。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "27a42f14de8fb4a40ad20e56b4813f02235a15b3069812ac1bfa5b9e50c9a521"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次买蓝色毛巾，没有其他特别的事情。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "buy",
+          "quote": "今天第一次买蓝色毛巾，没有其他特别的事情。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "6924bacb804a7a5f19a225048051807a51d8ed138b4b742ce8b1a22a4bc16442"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

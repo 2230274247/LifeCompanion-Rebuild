@@ -1,0 +1,48 @@
+.F......................F.........                                       [100%]
+================================== FAILURES ===================================
+_______ test_night_closes_on_previous_business_date_after_five_minutes ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-101/test_night_closes_on_previous_0')
+
+    def test_night_closes_on_previous_business_date_after_five_minutes(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������ںӱ�ɢ����������ϼ��", "night",
+             instant("2026-11-03T23:59:59+08:00"))
+        moments.schedule(instant("2026-11-04T00:04:59+08:00"))
+        assert len(rows(store)) == 2
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        result = rows(store)
+        assert len(result) == 3
+>       assert [r["local_date"] for r in result] == ["2026-11-03"] * 3
+E       AssertionError: assert ['2026-11-03'... '2026-11-02'] == ['2026-11-03'... '2026-11-03']
+E         
+E         At index 2 diff: '2026-11-02' != '2026-11-03'
+E         Use -v to get more diff
+
+services\life-core\tests\test_v03_windows.py:96: AssertionError
+_ test_similar_but_independent_occurrences_do_not_merge[\u4eca\u5929\u65e9\u4e0a\u5728\u53e6\u4e00\u5ea7\u516c\u56ed\u8dd1\u4e86\u4e09\u516c\u91cc\uff0c\u56de\u6765\u611f\u89c9\u7cbe\u795e\u5f88\u597d\u3002] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-101/test_similar_but_independent_o2')
+second = '������������һ����԰��������������о�����ܺá�'
+
+    @pytest.mark.parametrize("second", [
+        "�����������ڹ�԰������������ǵڶ��Ρ�",
+        "���������ڹ�԰��������������о�����ܺá�",
+        "������������һ����԰��������������о�����ܺá�",
+    ])
+    def test_similar_but_independent_occurrences_do_not_merge(tmp_path, second):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������ڹ�԰��������������о�����ܺá�", "first",
+             instant("2026-11-03T09:00:00+08:00"))
+        seed(memory, store, user, second, "second", instant("2026-11-03T15:00:00+08:00"))
+        inputs, _ = moments.candidate_inputs(user["life_user_id"],
+            instant("2026-11-03T00:00:00+08:00"), instant("2026-11-04T00:00:00+08:00"))
+>       assert len(inputs) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([{'event_id': 'evt_a07e877c9e35bf15a409b1f1', 'group_key': 'grp_f49a10fedb88db5d6a4b6db3', 'input_hash': '10cc271b60207cf188e152fbdcf8df03775c00c9e0171f2778e796f29e69c9f5', 'memory_id': 'mem_8ac798bcb0cbc06104309f25', ...}])
+
+services\life-core\tests\test_v03_selection.py:46: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_windows.py::test_night_closes_on_previous_business_date_after_five_minutes
+FAILED services/life-core/tests/test_v03_selection.py::test_similar_but_independent_occurrences_do_not_merge[\u4eca\u5929\u65e9\u4e0a\u5728\u53e6\u4e00\u5ea7\u516c\u56ed\u8dd1\u4e86\u4e09\u516c\u91cc\uff0c\u56de\u6765\u611f\u89c9\u7cbe\u795e\u5f88\u597d\u3002]
+2 failed, 32 passed in 15.82s

@@ -1,0 +1,45 @@
+{
+  "id": "S33",
+  "split": "holdout",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "grief",
+          "quote": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "2fc10af3bea4cc754941fae2d258bff181131224412fd1d6fd9d0a54c4028180"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "明确表达对逝去亲人的思念，并称这是自己的内心进展，属于有意义的内心变化。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "重要内心变化与哀伤，没有可见动作、物件或地点，且明确只希望留下文字。",
+      "source_message_ids": [
+        "grief"
+      ],
+      "evidence_quote": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+      "visual_facts": []
+    }
+  ]
+}

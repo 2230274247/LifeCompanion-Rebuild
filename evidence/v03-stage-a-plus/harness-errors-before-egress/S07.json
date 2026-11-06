@@ -1,0 +1,54 @@
+{
+  "id": "S07",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "walk",
+          "quote": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "064979610b2a6a91340ecfdc5e2b42b8af98e4b35bf94b150e2eef144d1b0132"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次买了这个牌子的纸巾。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "first",
+          "quote": "今天第一次买了这个牌子的纸巾。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "fd6a4055bacae491647bc6b23fa53648c021687b541ef0310330e5f025be38aa"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

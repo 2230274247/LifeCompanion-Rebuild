@@ -1,0 +1,142 @@
+{
+  "baseline": "evidence/v03-stage-a/before + explicit stage-A additions",
+  "business_code_files": 8,
+  "test_files": 4,
+  "documentation_files": 3,
+  "evidence_scripts": 4,
+  "files": [
+    {
+      "path": ".env.example",
+      "status": "MODIFIED",
+      "reason": "V0.3及图像Worker默认关闭开关",
+      "before_sha256": "0575499d28c48b683025844c463cfa939b15ec358da61224d627a916f0c263f6",
+      "after_sha256": "2e129e11e0bec44302ffb5da1d735458d44d8330111a6701c5c6cfe40c522c17"
+    },
+    {
+      "path": "services/life-core/app/config.py",
+      "status": "MODIFIED",
+      "reason": "增加V0.3恢复、租约和Worker配置",
+      "before_sha256": "822326e30e1d4ede48d79d8a9ca0b9d3daaa4fa94253f5d95060cd03fe4ed357",
+      "after_sha256": "e29bb659743742e1007c9a92f928240eaaaa35983a9d4769f01a76aa6be974c5"
+    },
+    {
+      "path": "services/life-core/app/main.py",
+      "status": "MODIFIED",
+      "reason": "时区同步、授权分离和结算入口",
+      "before_sha256": "f4690a26b7ec10ce4555387120b3acab042563b59bba481d206c6cf9ea2bd723",
+      "after_sha256": "1bc47bf24d837b6d3754befbb968238339007c8b80b1dadcf22ef2d2b9c34eae"
+    },
+    {
+      "path": "services/life-core/app/moments.py",
+      "status": "MODIFIED",
+      "reason": "窗口、迁移、唯一键、claimed scoring、恢复和审查记录",
+      "before_sha256": "72bfb0a22164b9bc442d8a0d3bf72f4051fb8e2a090cd5bc7e8fd2009ad2e235",
+      "after_sha256": "6896a52a28105d6f42d4cb40cd940284c9bfff5b6f7ea1598c4b1a0fd923662e"
+    },
+    {
+      "path": "services/life-core/app/recollection_scoring.py",
+      "status": "MODIFIED",
+      "reason": "复用P04并补充同事件复述上下文",
+      "before_sha256": "5a5175a2e30119d270f8292dc8cc409f7ff5055f966435bd8ae6948710920780",
+      "after_sha256": "ef571e3f15af12a358ff6580f2086a7e95683178035cee48e1dac210e31bf45c"
+    },
+    {
+      "path": "services/life-core/app/reminder_scheduler.py",
+      "status": "MODIFIED",
+      "reason": "在既有APScheduler注册结算意图",
+      "before_sha256": "2080b02076ddf2abf2374dbfed1c0f85801e78cab99381f7cf6cfecc4e3290d6",
+      "after_sha256": "d3112a026b5b637a7e69f5644c5176daf501748210fbc7eca3ba764413f3a3d1"
+    },
+    {
+      "path": "services/life-core/app/moment_windows.py",
+      "status": "ADDED",
+      "reason": "三时段、UTC边界和策略cursor",
+      "before_sha256": null,
+      "after_sha256": "af73c4fb8a6b49f7cfd913fd0213a85c343c8ddf8b17148544970c960ffbfb47"
+    },
+    {
+      "path": "services/life-core/app/moment_semantics.py",
+      "status": "ADDED",
+      "reason": "保守同事件聚合、完整相容聚类与原文保留",
+      "before_sha256": null,
+      "after_sha256": "1a8492048edab32a9b0489dc6f01c6c897dd86bfca04a2bacdc5538c43733078"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_windows.py",
+      "status": "ADDED",
+      "reason": "窗口、DST、时区、唯一约束和授权测试",
+      "before_sha256": null,
+      "after_sha256": "1683d60048469c39e76e37a329be93bf864c8c9dcdd4c9027312dd11a5576c03"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_selection.py",
+      "status": "ADDED",
+      "reason": "同事件聚合、独立发生反例、桥接反例、审查和评分上下文测试",
+      "before_sha256": null,
+      "after_sha256": "468dc9ef4eafc21ae160faa31b8b2973cc36e4942933d6a1b17474d5e03df5e8"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_recovery.py",
+      "status": "ADDED",
+      "reason": "迁移、并发、重启、租约和迟到证据测试",
+      "before_sha256": null,
+      "after_sha256": "5997e551947c3782b4893cf7c28a0e55da2e924f9d525bdff4a3289bb62c0547"
+    },
+    {
+      "path": "services/life-core/tests/test_reminder_workflow.py",
+      "status": "MODIFIED_EXISTING_UNTRACKED",
+      "reason": "补充结算任务持久化断言",
+      "before_sha256": null,
+      "after_sha256": "35e6362b8b503bea9388e0ac8f4f4bfcfe952c51a26beea0bfd8138ae9ecabfe"
+    },
+    {
+      "path": "evidence/v03-stage-a/run_stage_a_acceptance.py",
+      "status": "ADDED",
+      "reason": "独立合成库Mock验收与审查页",
+      "before_sha256": null,
+      "after_sha256": "82c662d2a85cba349bf95b7dca7c340b855a3f948cebfffa41d07820b935e40a"
+    },
+    {
+      "path": "evidence/v03-stage-a/run_stage_a_real_scoring.py",
+      "status": "ADDED",
+      "reason": "一次有上限的真实DeepSeek评分验收",
+      "before_sha256": null,
+      "after_sha256": "cba35ed562aeeb285f58d913bbf1feb27a4f923c2ff4aec574073894d782790f"
+    },
+    {
+      "path": "evidence/v03-stage-a/run_migration_evidence.py",
+      "status": "ADDED",
+      "reason": "迁移、二次执行、备份与回滚证据",
+      "before_sha256": null,
+      "after_sha256": "0c265a79355f111ebf6be7b6fc6bee4c954156cd9e352e59f908566838d84523"
+    },
+    {
+      "path": "evidence/v03-stage-a/capture_review.cjs",
+      "status": "ADDED",
+      "reason": "1440/390浏览器截图",
+      "before_sha256": null,
+      "after_sha256": "669594bde347b2bdf63f1d275b8cc2e6921b73394ab5a2750650ce982d1268bd"
+    },
+    {
+      "path": "docs/development-log/2026-11-04_12-31_V03阶段A窗口聚合与幂等结算_开发验收.md",
+      "status": "ADDED",
+      "reason": "阶段A独立验收日志",
+      "before_sha256": null,
+      "after_sha256": "a6c571718e235c084e44d80e20410fee3d2407bb7d021cce19013be785dd336f"
+    },
+    {
+      "path": "docs/development-log/README.md",
+      "status": "MODIFIED",
+      "reason": "更新开发日志索引",
+      "before_sha256": "8086cdb00372ec2f8d09bef553dcd4b37b53e5f72c05e300f8ec00ebc5f42dc9",
+      "after_sha256": "461c713b258a5e93cef7629d6e5a03b6c5d025aa0338fa10d361006fc455ddd7"
+    },
+    {
+      "path": "docs/product/README.md",
+      "status": "MODIFIED",
+      "reason": "更新V0.3阶段A产品入口",
+      "before_sha256": "7e56df35f988333765ef3f9652cecce738c925d486347b48763d729710c48e6a",
+      "after_sha256": "ac6520d30daa2cc44fdd0dee405d2ecbf3f6823d5508d49826dff1d2d91650a8"
+    }
+  ]
+}

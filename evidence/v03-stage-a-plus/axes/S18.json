@@ -1,0 +1,45 @@
+{
+  "id": "S18",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "朋友今天私下告诉我他正在离婚，他让我保密。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "friend",
+          "quote": "朋友今天私下告诉我他正在离婚，他让我保密。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "6042fce8ecf5176cd6dec24c2a65f4ea853c71c7b320e90b2954c9064897e131"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "朋友私下倾诉离婚并请求保密，是重要的人际信任事件，具有个人意义。",
+      "imageability": "PRIVATE_SKIP",
+      "image_reason": "涉及他人婚姻隐私与明确保密请求，不宜生成画面。",
+      "source_message_ids": [
+        "friend"
+      ],
+      "evidence_quote": "朋友今天私下告诉我他正在离婚，他让我保密。",
+      "visual_facts": []
+    }
+  ]
+}

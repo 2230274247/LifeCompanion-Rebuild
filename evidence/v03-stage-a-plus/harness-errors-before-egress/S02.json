@@ -1,0 +1,32 @@
+{
+  "id": "S02",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，和往常一样。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天早上照常在公园跑了三公里，和往常一样。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "fa3cbbe158f4280a8e8c636bacde00333431f815478c059af565b9e837acafeb"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

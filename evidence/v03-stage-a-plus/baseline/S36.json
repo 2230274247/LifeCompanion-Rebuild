@@ -1,0 +1,56 @@
+{
+  "id": "S36",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天完成写给自己的私密日记，里面有我的医疗和家庭秘密，不要发给其他服务。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "diary",
+          "quote": "今天完成写给自己的私密日记，里面有我的医疗和家庭秘密，不要发给其他服务。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "cfedc131a78c7b15cb5b02e5f34fa21022eff6d4f2f8df3fbadcbbee6d290e16"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.6,
+        "uniqueness": 0.4,
+        "expressed_feeling": 0.2,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.0,
+        "novelty_or_development": 0.3
+      },
+      "score": 0.504,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "diary"
+      ],
+      "evidence_quote": "今天完成写给自己的私密日记，里面有我的医疗和家庭秘密，不要发给其他服务。",
+      "source_revision": 1,
+      "input_hash": "cfedc131a78c7b15cb5b02e5f34fa21022eff6d4f2f8df3fbadcbbee6d290e16"
+    }
+  ]
+}

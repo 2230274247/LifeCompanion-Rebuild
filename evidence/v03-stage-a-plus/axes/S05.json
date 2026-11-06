@@ -1,0 +1,79 @@
+{
+  "id": "S05",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "db0c895d85fc29a0d08d8d031ca41a3c80dd6b38466b7fb6014b422ee288fc5f"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "book",
+          "quote": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "aa67d03ea98ebefe1af492bd7d975b5a5164e0af6d9735ef69259f804c187d6b"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "首次跑完五公里并突破个人目标，是明确的个人成就与努力事件。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "仅有跑步成绩与心情，没有可见动作、场景或物件细节，不宜虚构画面。",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+      "visual_facts": []
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "KEEP",
+      "memorial_reason": "坚持一年完成手写回忆录，是长期投入与首次独立完成作品的里程碑。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "核心是完成作品的意义与内心感受，缺少可安全描绘的可见场景。",
+      "source_message_ids": [
+        "book"
+      ],
+      "evidence_quote": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+      "visual_facts": []
+    }
+  ]
+}

@@ -1,0 +1,605 @@
+FF....FFFFFFFFFFFFFF.F....FFFFFFFF                                       [100%]
+================================== FAILURES ===================================
+_________________ test_new_window_policy_covers_the_whole_day _________________
+
+    def test_new_window_policy_covers_the_whole_day():
+>       assert MomentSettings().ends == ["11:00", "16:00", "24:00"]
+E       AssertionError: assert ['11:00', '17:00', '23:00'] == ['11:00', '16:00', '24:00']
+E         
+E         At index 1 diff: '17:00' != '16:00'
+E         Use -v to get more diff
+
+services\life-core\tests\test_v03_windows.py:84: AssertionError
+_______ test_night_closes_on_previous_business_date_after_five_minutes ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_night_closes_on_previous_0')
+
+    def test_night_closes_on_previous_business_date_after_five_minutes(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������ںӱ�ɢ����������ϼ��", "night",
+             instant("2026-11-03T23:59:59+08:00"))
+        moments.schedule(instant("2026-11-04T00:04:59+08:00"))
+>       assert len(rows(store)) == 2
+E       AssertionError: assert 3 == 2
+E        +  where 3 = len([{'attempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:26.999928+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...ttempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:27.096719+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...}])
+E        +    where [{'attempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:26.999928+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...ttempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:27.096719+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...}] = rows(<app.store.Store object at 0x0000018FA9983C80>)
+
+services\life-core\tests\test_v03_windows.py:92: AssertionError
+______________ test_source_boundaries_are_half_open[16:00:00-2] _______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_source_boundaries_are_hal4')
+source_time = '16:00:00', slot = 2
+
+    @pytest.mark.parametrize("source_time,slot", [
+        ("00:00:00", 0), ("10:59:59", 0), ("11:00:00", 1),
+        ("15:59:59", 1), ("16:00:00", 2), ("23:59:59", 2),
+    ])
+    def test_source_boundaries_are_half_open(tmp_path, source_time, slot):
+        moments, user, store, memory = build(tmp_path)
+        item = seed(memory, store, user, "�����һ�βμӹ�԰�������ر��ġ�", "boundary",
+                    instant(f"2026-11-03T{source_time}+08:00"))
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        with store.connect() as db:
+            matches = db.execute("""SELECT m.slot FROM moments m JOIN recollection_candidates c
+                ON c.window_id=m.moment_id WHERE c.memory_id=?""", (item["memory_id"],)).fetchall()
+>       assert [r[0] for r in matches] == [slot]
+E       assert [1] == [2]
+E         
+E         At index 0 diff: 1 != 2
+E         Use -v to get more diff
+
+services\life-core\tests\test_v03_windows.py:116: AssertionError
+______________ test_source_boundaries_are_half_open[23:59:59-2] _______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_source_boundaries_are_hal5')
+source_time = '23:59:59', slot = 2
+
+    @pytest.mark.parametrize("source_time,slot", [
+        ("00:00:00", 0), ("10:59:59", 0), ("11:00:00", 1),
+        ("15:59:59", 1), ("16:00:00", 2), ("23:59:59", 2),
+    ])
+    def test_source_boundaries_are_half_open(tmp_path, source_time, slot):
+        moments, user, store, memory = build(tmp_path)
+        item = seed(memory, store, user, "�����һ�βμӹ�԰�������ر��ġ�", "boundary",
+                    instant(f"2026-11-03T{source_time}+08:00"))
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        with store.connect() as db:
+            matches = db.execute("""SELECT m.slot FROM moments m JOIN recollection_candidates c
+                ON c.window_id=m.moment_id WHERE c.memory_id=?""", (item["memory_id"],)).fetchall()
+>       assert [r[0] for r in matches] == [slot]
+E       assert [] == [2]
+E         
+E         Right contains one more item: 2
+E         Use -v to get more diff
+
+services\life-core\tests\test_v03_windows.py:116: AssertionError
+_ test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[America/New_York-2026-03-08-23] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_dst_and_fractional_offset0')
+zone = 'America/New_York', day = '2026-03-08', hours = 23
+
+    @pytest.mark.parametrize("zone,day,hours", [
+        ("America/New_York", "2026-03-08", 23),
+        ("America/New_York", "2026-11-01", 25),
+        ("Australia/Lord_Howe", "2026-04-05", 24.5),
+        ("Australia/Lord_Howe", "2026-10-04", 23.5),
+        ("Asia/Kathmandu", "2026-11-03", 24),
+    ])
+    def test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals(tmp_path, zone, day, hours):
+        from zoneinfo import ZoneInfo
+        local_start = datetime.fromisoformat(day).replace(tzinfo=ZoneInfo(zone))
+        moments, _, store, _ = build(tmp_path, zone=zone, start=local_start.isoformat())
+        next_midnight = local_start + timedelta(days=1)
+        moments.schedule(next_midnight.astimezone(UTC) + timedelta(minutes=5))
+        result = rows(store)
+        assert len(result) == 3
+        assert instant(result[0]["window_start"]) == local_start.astimezone(UTC)
+        assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+>       assert (instant(result[-1]["window_end"]) - instant(result[0]["window_start"])).total_seconds() / 3600 == hours
+E       AssertionError: assert (79200.0 / 3600) == 23
+E        +  where 79200.0 = <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A53120>()
+E        +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A53120> = (datetime.datetime(2026, 3, 9, 3, 0, tzinfo=datetime.timezone.utc) - datetime.datetime(2026, 3, 8, 5, 0, tzinfo=datetime.timezone.utc)).total_seconds
+E        +      where datetime.datetime(2026, 3, 9, 3, 0, tzinfo=datetime.timezone.utc) = instant('2026-03-08T23:00:00-04:00')
+E        +      and   datetime.datetime(2026, 3, 8, 5, 0, tzinfo=datetime.timezone.utc) = instant('2026-03-08T00:00:00-05:00')
+
+services\life-core\tests\test_v03_windows.py:137: AssertionError
+_ test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[America/New_York-2026-11-01-25] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_dst_and_fractional_offset1')
+zone = 'America/New_York', day = '2026-11-01', hours = 25
+
+    @pytest.mark.parametrize("zone,day,hours", [
+        ("America/New_York", "2026-03-08", 23),
+        ("America/New_York", "2026-11-01", 25),
+        ("Australia/Lord_Howe", "2026-04-05", 24.5),
+        ("Australia/Lord_Howe", "2026-10-04", 23.5),
+        ("Asia/Kathmandu", "2026-11-03", 24),
+    ])
+    def test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals(tmp_path, zone, day, hours):
+        from zoneinfo import ZoneInfo
+        local_start = datetime.fromisoformat(day).replace(tzinfo=ZoneInfo(zone))
+        moments, _, store, _ = build(tmp_path, zone=zone, start=local_start.isoformat())
+        next_midnight = local_start + timedelta(days=1)
+        moments.schedule(next_midnight.astimezone(UTC) + timedelta(minutes=5))
+        result = rows(store)
+        assert len(result) == 3
+        assert instant(result[0]["window_start"]) == local_start.astimezone(UTC)
+        assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+>       assert (instant(result[-1]["window_end"]) - instant(result[0]["window_start"])).total_seconds() / 3600 == hours
+E       AssertionError: assert (86400.0 / 3600) == 25
+E        +  where 86400.0 = <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A59260>()
+E        +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A59260> = (datetime.datetime(2026, 11, 2, 4, 0, tzinfo=datetime.timezone.utc) - datetime.datetime(2026, 11, 1, 4, 0, tzinfo=datetime.timezone.utc)).total_seconds
+E        +      where datetime.datetime(2026, 11, 2, 4, 0, tzinfo=datetime.timezone.utc) = instant('2026-11-01T23:00:00-05:00')
+E        +      and   datetime.datetime(2026, 11, 1, 4, 0, tzinfo=datetime.timezone.utc) = instant('2026-11-01T00:00:00-04:00')
+
+services\life-core\tests\test_v03_windows.py:137: AssertionError
+_ test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Australia/Lord_Howe-2026-04-05-24.5] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_dst_and_fractional_offset2')
+zone = 'Australia/Lord_Howe', day = '2026-04-05', hours = 24.5
+
+    @pytest.mark.parametrize("zone,day,hours", [
+        ("America/New_York", "2026-03-08", 23),
+        ("America/New_York", "2026-11-01", 25),
+        ("Australia/Lord_Howe", "2026-04-05", 24.5),
+        ("Australia/Lord_Howe", "2026-10-04", 23.5),
+        ("Asia/Kathmandu", "2026-11-03", 24),
+    ])
+    def test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals(tmp_path, zone, day, hours):
+        from zoneinfo import ZoneInfo
+        local_start = datetime.fromisoformat(day).replace(tzinfo=ZoneInfo(zone))
+        moments, _, store, _ = build(tmp_path, zone=zone, start=local_start.isoformat())
+        next_midnight = local_start + timedelta(days=1)
+        moments.schedule(next_midnight.astimezone(UTC) + timedelta(minutes=5))
+        result = rows(store)
+        assert len(result) == 3
+        assert instant(result[0]["window_start"]) == local_start.astimezone(UTC)
+        assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+>       assert (instant(result[-1]["window_end"]) - instant(result[0]["window_start"])).total_seconds() / 3600 == hours
+E       AssertionError: assert (84600.0 / 3600) == 24.5
+E        +  where 84600.0 = <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A5B3C0>()
+E        +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A5B3C0> = (datetime.datetime(2026, 4, 5, 12, 30, tzinfo=datetime.timezone.utc) - datetime.datetime(2026, 4, 4, 13, 0, tzinfo=datetime.timezone.utc)).total_seconds
+E        +      where datetime.datetime(2026, 4, 5, 12, 30, tzinfo=datetime.timezone.utc) = instant('2026-04-05T23:00:00+10:30')
+E        +      and   datetime.datetime(2026, 4, 4, 13, 0, tzinfo=datetime.timezone.utc) = instant('2026-04-05T00:00:00+11:00')
+
+services\life-core\tests\test_v03_windows.py:137: AssertionError
+_ test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Australia/Lord_Howe-2026-10-04-23.5] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_dst_and_fractional_offset3')
+zone = 'Australia/Lord_Howe', day = '2026-10-04', hours = 23.5
+
+    @pytest.mark.parametrize("zone,day,hours", [
+        ("America/New_York", "2026-03-08", 23),
+        ("America/New_York", "2026-11-01", 25),
+        ("Australia/Lord_Howe", "2026-04-05", 24.5),
+        ("Australia/Lord_Howe", "2026-10-04", 23.5),
+        ("Asia/Kathmandu", "2026-11-03", 24),
+    ])
+    def test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals(tmp_path, zone, day, hours):
+        from zoneinfo import ZoneInfo
+        local_start = datetime.fromisoformat(day).replace(tzinfo=ZoneInfo(zone))
+        moments, _, store, _ = build(tmp_path, zone=zone, start=local_start.isoformat())
+        next_midnight = local_start + timedelta(days=1)
+        moments.schedule(next_midnight.astimezone(UTC) + timedelta(minutes=5))
+        result = rows(store)
+        assert len(result) == 3
+        assert instant(result[0]["window_start"]) == local_start.astimezone(UTC)
+        assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+>       assert (instant(result[-1]["window_end"]) - instant(result[0]["window_start"])).total_seconds() / 3600 == hours
+E       AssertionError: assert (81000.0 / 3600) == 23.5
+E        +  where 81000.0 = <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9896F10>()
+E        +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9896F10> = (datetime.datetime(2026, 10, 4, 12, 0, tzinfo=datetime.timezone.utc) - datetime.datetime(2026, 10, 3, 13, 30, tzinfo=datetime.timezone.utc)).total_seconds
+E        +      where datetime.datetime(2026, 10, 4, 12, 0, tzinfo=datetime.timezone.utc) = instant('2026-10-04T23:00:00+11:00')
+E        +      and   datetime.datetime(2026, 10, 3, 13, 30, tzinfo=datetime.timezone.utc) = instant('2026-10-04T00:00:00+10:30')
+
+services\life-core\tests\test_v03_windows.py:137: AssertionError
+_ test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Asia/Kathmandu-2026-11-03-24] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_dst_and_fractional_offset4')
+zone = 'Asia/Kathmandu', day = '2026-11-03', hours = 24
+
+    @pytest.mark.parametrize("zone,day,hours", [
+        ("America/New_York", "2026-03-08", 23),
+        ("America/New_York", "2026-11-01", 25),
+        ("Australia/Lord_Howe", "2026-04-05", 24.5),
+        ("Australia/Lord_Howe", "2026-10-04", 23.5),
+        ("Asia/Kathmandu", "2026-11-03", 24),
+    ])
+    def test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals(tmp_path, zone, day, hours):
+        from zoneinfo import ZoneInfo
+        local_start = datetime.fromisoformat(day).replace(tzinfo=ZoneInfo(zone))
+        moments, _, store, _ = build(tmp_path, zone=zone, start=local_start.isoformat())
+        next_midnight = local_start + timedelta(days=1)
+        moments.schedule(next_midnight.astimezone(UTC) + timedelta(minutes=5))
+        result = rows(store)
+        assert len(result) == 3
+        assert instant(result[0]["window_start"]) == local_start.astimezone(UTC)
+        assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+>       assert (instant(result[-1]["window_end"]) - instant(result[0]["window_start"])).total_seconds() / 3600 == hours
+E       AssertionError: assert (82800.0 / 3600) == 24
+E        +  where 82800.0 = <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A58CF0>()
+E        +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018FA9A58CF0> = (datetime.datetime(2026, 11, 3, 17, 15, tzinfo=datetime.timezone.utc) - datetime.datetime(2026, 11, 2, 18, 15, tzinfo=datetime.timezone.utc)).total_seconds
+E        +      where datetime.datetime(2026, 11, 3, 17, 15, tzinfo=datetime.timezone.utc) = instant('2026-11-03T23:00:00+05:45')
+E        +      and   datetime.datetime(2026, 11, 2, 18, 15, tzinfo=datetime.timezone.utc) = instant('2026-11-03T00:00:00+05:45')
+
+services\life-core\tests\test_v03_windows.py:137: AssertionError
+___ test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[UTC] ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_zone_change_neither_repea0')
+destination = 'UTC'
+
+    @pytest.mark.parametrize("destination", ["UTC", "America/Los_Angeles", "Pacific/Kiritimati", "Pacific/Pago_Pago"])
+    def test_zone_change_neither_repeats_business_keys_nor_loses_utc_time(tmp_path, destination):
+        moments, user, store, _ = build(tmp_path)
+        change_at = instant("2026-11-03T12:00:00+08:00")
+        moments.schedule(change_at)
+        before = rows(store)
+        configure(moments, user, change_at, timezone=destination)
+        moments.schedule(instant("2026-11-07T12:00:00+00:00"))
+        result = rows(store)
+        assert result[0] == before[0]
+>       assert len({(r["user_id"], r["local_date"], r["slot"]) for r in result}) == len(result)
+                                   ^^^^^^^^^^^^^^^
+E       KeyError: 'local_date'
+
+services\life-core\tests\test_v03_windows.py:150: KeyError
+_ test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[America/Los_Angeles] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_zone_change_neither_repea1')
+destination = 'America/Los_Angeles'
+
+    @pytest.mark.parametrize("destination", ["UTC", "America/Los_Angeles", "Pacific/Kiritimati", "Pacific/Pago_Pago"])
+    def test_zone_change_neither_repeats_business_keys_nor_loses_utc_time(tmp_path, destination):
+        moments, user, store, _ = build(tmp_path)
+        change_at = instant("2026-11-03T12:00:00+08:00")
+        moments.schedule(change_at)
+        before = rows(store)
+        configure(moments, user, change_at, timezone=destination)
+        moments.schedule(instant("2026-11-07T12:00:00+00:00"))
+        result = rows(store)
+>       assert result[0] == before[0]
+E       AssertionError: assert {'attempts': ..._SOURCE', ...} == {'attempts': ..._SOURCE', ...}
+E         
+E         Omitting 10 identical items, use -vv to show
+E         Differing items:
+E         {'moment_id': 'mom_6d89e2c1fff309d4ac26c456'} != {'moment_id': 'mom_02187db3cad9d1151611f766'}
+E         {'created_at': '2026-11-04T03:29:32.369291+00:00'} != {'created_at': '2026-11-04T03:29:32.191409+00:00'}
+E         {'window_end': '2026-11-02T11:00:00-08:00'} != {'window_end': '2026-11-03T11:00:00+08:00'}
+E         {'updated_at': '2026-11-04T03:29:32.369291+00:00'} != {'updated_at': '2026-11-04T03:29:32.191409+00:00'}...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+services\life-core\tests\test_v03_windows.py:149: AssertionError
+_ test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[Pacific/Kiritimati] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_zone_change_neither_repea2')
+destination = 'Pacific/Kiritimati'
+
+    @pytest.mark.parametrize("destination", ["UTC", "America/Los_Angeles", "Pacific/Kiritimati", "Pacific/Pago_Pago"])
+    def test_zone_change_neither_repeats_business_keys_nor_loses_utc_time(tmp_path, destination):
+        moments, user, store, _ = build(tmp_path)
+        change_at = instant("2026-11-03T12:00:00+08:00")
+        moments.schedule(change_at)
+        before = rows(store)
+        configure(moments, user, change_at, timezone=destination)
+        moments.schedule(instant("2026-11-07T12:00:00+00:00"))
+        result = rows(store)
+>       assert result[0] == before[0]
+E       AssertionError: assert {'attempts': ..._SOURCE', ...} == {'attempts': ..._SOURCE', ...}
+E         
+E         Omitting 10 identical items, use -vv to show
+E         Differing items:
+E         {'moment_id': 'mom_61b4a6326fff749d578403b4'} != {'moment_id': 'mom_02187db3cad9d1151611f766'}
+E         {'created_at': '2026-11-04T03:29:33.542486+00:00'} != {'created_at': '2026-11-04T03:29:33.409590+00:00'}
+E         {'window_end': '2026-11-03T11:00:00+14:00'} != {'window_end': '2026-11-03T11:00:00+08:00'}
+E         {'updated_at': '2026-11-04T03:29:33.542486+00:00'} != {'updated_at': '2026-11-04T03:29:33.409590+00:00'}...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+services\life-core\tests\test_v03_windows.py:149: AssertionError
+_ test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[Pacific/Pago_Pago] _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_zone_change_neither_repea3')
+destination = 'Pacific/Pago_Pago'
+
+    @pytest.mark.parametrize("destination", ["UTC", "America/Los_Angeles", "Pacific/Kiritimati", "Pacific/Pago_Pago"])
+    def test_zone_change_neither_repeats_business_keys_nor_loses_utc_time(tmp_path, destination):
+        moments, user, store, _ = build(tmp_path)
+        change_at = instant("2026-11-03T12:00:00+08:00")
+        moments.schedule(change_at)
+        before = rows(store)
+        configure(moments, user, change_at, timezone=destination)
+        moments.schedule(instant("2026-11-07T12:00:00+00:00"))
+        result = rows(store)
+>       assert result[0] == before[0]
+E       AssertionError: assert {'attempts': ..._SOURCE', ...} == {'attempts': ..._SOURCE', ...}
+E         
+E         Omitting 10 identical items, use -vv to show
+E         Differing items:
+E         {'moment_id': 'mom_504ebb98131304617c1ef2d4'} != {'moment_id': 'mom_02187db3cad9d1151611f766'}
+E         {'created_at': '2026-11-04T03:29:34.649429+00:00'} != {'created_at': '2026-11-04T03:29:34.503622+00:00'}
+E         {'window_end': '2026-11-02T11:00:00-11:00'} != {'window_end': '2026-11-03T11:00:00+08:00'}
+E         {'updated_at': '2026-11-04T03:29:34.649429+00:00'} != {'updated_at': '2026-11-04T03:29:34.503622+00:00'}...
+E         
+E         ...Full output truncated (3 lines hidden), use '-vv' to show
+
+services\life-core\tests\test_v03_windows.py:149: AssertionError
+________ test_repeated_policy_changes_and_restart_use_persisted_cursor ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_repeated_policy_changes_a0')
+
+    def test_repeated_policy_changes_and_restart_use_persisted_cursor(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        moments.schedule(instant("2026-11-03T12:00:00+08:00"))
+        configure(moments, user, instant("2026-11-03T12:05:00+08:00"), timezone="UTC")
+        configure(moments, user, instant("2026-11-03T12:06:00+08:00"), timezone="Asia/Tokyo")
+        restarted = Moments(store, moments.settings, memory)
+        restarted.schedule(instant("2026-11-05T12:00:00+00:00"))
+        result = rows(store)
+>       assert all(instant(a["window_end"]) == instant(b["window_start"])
+                   for a, b in zip(result, result[1:]))
+E       assert False
+E        +  where False = all(<generator object test_repeated_policy_changes_and_restart_use_persisted_cursor.<locals>.<genexpr> at 0x0000018F9074ED40>)
+
+services\life-core\tests\test_v03_windows.py:171: AssertionError
+____________ test_database_itself_rejects_duplicate_business_slot _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_database_itself_rejects_d0')
+
+    def test_database_itself_rejects_duplicate_business_slot(tmp_path):
+        moments, _, store, _ = build(tmp_path)
+        moments.schedule(instant("2026-11-03T12:00:00+08:00"))
+        item = rows(store)[0]
+        with store.connect() as db:
+            columns = list(item)
+            duplicate = dict(item, moment_id="duplicate", window_start="2026-11-03T01:00:00+00:00",
+                             window_end="2026-11-03T04:00:00+00:00", policy_version="future-policy")
+>           with pytest.raises(sqlite3.IntegrityError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE <class 'sqlite3.IntegrityError'>
+
+services\life-core\tests\test_v03_windows.py:185: Failed
+_________ test_no_consent_records_skip_without_candidates_or_requests _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_no_consent_records_skip_w0')
+
+    def test_no_consent_records_skip_without_candidates_or_requests(tmp_path):
+        moments, user, store, _ = build(tmp_path)
+        store.update_consent(user["life_user_id"], image_consent=False)
+        moments.schedule(instant("2026-11-03T12:00:00+08:00"))
+        result = rows(store)
+>       assert len(result) == 1 and result[0]["status"] == "skipped"
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+services\life-core\tests\test_v03_windows.py:195: AssertionError
+___________ test_retellings_merge_and_preserve_all_original_quotes ____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_retellings_merge_and_pres0')
+
+    def test_retellings_merge_and_preserve_all_original_quotes(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        messages = [
+            ("run-a", "���������ڹ�԰��������������о�����ܺá�"),
+            ("run-b", "�糿�ڹ�԰�ܲ��������ĺܷ��ɡ�"),
+            ("run-c", "�ղ��Ǵ��ܲ�������֮���һ����úܿ��ġ�"),
+        ]
+        originals = []
+        for minute, (source, text) in enumerate(messages):
+            originals.append(seed(memory, store, user, text, source,
+                                  instant(f"2026-11-03T09:0{minute}:00+08:00"),
+                                  occurred=instant("2026-11-03T09:00:00+08:00")))
+        inputs, rejected = moments.candidate_inputs(user["life_user_id"],
+            instant("2026-11-03T00:00:00+08:00"), instant("2026-11-03T11:00:00+08:00"))
+>       assert not rejected and len(inputs) == 1
+E       AssertionError: assert (not [] and 3 == 1)
+E        +  where 3 = len([{'input_hash': '0b2ceb72800e781603a895f5080a27a7018841d8fd52e6c5b3f26742a68bcf3d', 'memory_id': 'mem_2afb8dd72aca76e7...f793be3', 'memory_id': 'mem_554da990ab2c4b408a9c15d2', 'occurred_at': '2026-11-03T01:00:00+00:00', 'revision': 1, ...}])
+
+services\life-core\tests\test_v03_selection.py:27: AssertionError
+______ test_day_selects_zero_to_three_events_and_explains_each_window[0] ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_day_selects_zero_to_three0')
+count = 0
+
+    @pytest.mark.parametrize("count", [0, 1, 2, 3])
+    def test_day_selects_zero_to_three_events_and_explains_each_window(tmp_path, count):
+        moments, user, store, memory = build(tmp_path)
+        for index in range(count):
+            seed(memory, store, user, f"�����ڵ�{index}���μ��˵�һ�μ������ر��ġ�",
+                 f"source-{index}", instant(f"2026-11-03T{[9, 12, 20][index]:02}:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        while moments.score_one():
+            pass
+        result = rows(store)
+        assert len(result) == 3
+        assert sum(bool(json.loads(r["source_memory_ids"])) for r in result) == count
+        assert len(calls) == count
+        for row in result:
+            detail = moments.detail(user["life_user_id"], row["moment_id"])
+>           assert "review" in detail and detail["review"]["decision"]
+E           AssertionError: assert ('review' in {'ai_generated': True, 'attempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:38.969010+00:00', ...})
+
+services\life-core\tests\test_v03_selection.py:102: AssertionError
+______ test_day_selects_zero_to_three_events_and_explains_each_window[1] ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_day_selects_zero_to_three1')
+count = 1
+
+    @pytest.mark.parametrize("count", [0, 1, 2, 3])
+    def test_day_selects_zero_to_three_events_and_explains_each_window(tmp_path, count):
+        moments, user, store, memory = build(tmp_path)
+        for index in range(count):
+            seed(memory, store, user, f"�����ڵ�{index}���μ��˵�һ�μ������ر��ġ�",
+                 f"source-{index}", instant(f"2026-11-03T{[9, 12, 20][index]:02}:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        while moments.score_one():
+            pass
+        result = rows(store)
+        assert len(result) == 3
+        assert sum(bool(json.loads(r["source_memory_ids"])) for r in result) == count
+        assert len(calls) == count
+        for row in result:
+            detail = moments.detail(user["life_user_id"], row["moment_id"])
+>           assert "review" in detail and detail["review"]["decision"]
+E           AssertionError: assert ('review' in {'ai_generated': True, 'attempts': 0, 'caption': '�����ڵ�0���μ��˵�һ�μ������ر��ġ�', 'created_at': '2026-11-04T03:29:39.353438+00:00', ...})
+
+services\life-core\tests\test_v03_selection.py:102: AssertionError
+______ test_day_selects_zero_to_three_events_and_explains_each_window[2] ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_day_selects_zero_to_three2')
+count = 2
+
+    @pytest.mark.parametrize("count", [0, 1, 2, 3])
+    def test_day_selects_zero_to_three_events_and_explains_each_window(tmp_path, count):
+        moments, user, store, memory = build(tmp_path)
+        for index in range(count):
+            seed(memory, store, user, f"�����ڵ�{index}���μ��˵�һ�μ������ر��ġ�",
+                 f"source-{index}", instant(f"2026-11-03T{[9, 12, 20][index]:02}:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        while moments.score_one():
+            pass
+        result = rows(store)
+        assert len(result) == 3
+        assert sum(bool(json.loads(r["source_memory_ids"])) for r in result) == count
+        assert len(calls) == count
+        for row in result:
+            detail = moments.detail(user["life_user_id"], row["moment_id"])
+>           assert "review" in detail and detail["review"]["decision"]
+E           AssertionError: assert ('review' in {'ai_generated': True, 'attempts': 0, 'caption': '�����ڵ�0���μ��˵�һ�μ������ر��ġ�', 'created_at': '2026-11-04T03:29:39.969427+00:00', ...})
+
+services\life-core\tests\test_v03_selection.py:102: AssertionError
+______ test_day_selects_zero_to_three_events_and_explains_each_window[3] ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_day_selects_zero_to_three3')
+count = 3
+
+    @pytest.mark.parametrize("count", [0, 1, 2, 3])
+    def test_day_selects_zero_to_three_events_and_explains_each_window(tmp_path, count):
+        moments, user, store, memory = build(tmp_path)
+        for index in range(count):
+            seed(memory, store, user, f"�����ڵ�{index}���μ��˵�һ�μ������ر��ġ�",
+                 f"source-{index}", instant(f"2026-11-03T{[9, 12, 20][index]:02}:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        while moments.score_one():
+            pass
+        result = rows(store)
+        assert len(result) == 3
+        assert sum(bool(json.loads(r["source_memory_ids"])) for r in result) == count
+        assert len(calls) == count
+        for row in result:
+            detail = moments.detail(user["life_user_id"], row["moment_id"])
+>           assert "review" in detail and detail["review"]["decision"]
+E           AssertionError: assert ('review' in {'ai_generated': True, 'attempts': 0, 'caption': '�����ڵ�0���μ��˵�һ�μ������ر��ġ�', 'created_at': '2026-11-04T03:29:40.963673+00:00', ...})
+
+services\life-core\tests\test_v03_selection.py:102: AssertionError
+_______ test_running_beats_breakfast_and_other_candidates_have_reasons ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_running_beats_breakfast_a0')
+
+    def test_running_beats_breakfast_and_other_candidates_have_reasons(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        messages = [
+            ("running", "�����һ�βμӹ�԰�������ܲ�����ɺ��ر��ġ�"),
+            ("breakfast", "�������ϳ�����ͨ��͡�"),
+            ("reading", "�������϶������Ȿ�飬�ر��ид���"),
+        ]
+        for index, (source, text) in enumerate(messages):
+            seed(memory, store, user, text, source, instant(f"2026-11-03T09:0{index}:00+08:00"))
+        scorer_fixture(moments, {"running": .95, "breakfast": .2, "reading": .7})
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        assert moments.score_one()
+>       review = moments.detail(user["life_user_id"], rows(store)[0]["moment_id"])["review"]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'review'
+
+services\life-core\tests\test_v03_selection.py:118: KeyError
+_______ test_all_members_of_selected_event_are_reserved_across_windows ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_all_members_of_selected_e0')
+
+    def test_all_members_of_selected_event_are_reserved_across_windows(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        for index, text in enumerate(["�����ڹ�԰����������ر��ġ�", "�糿�ڹ�԰�ܲ�������о��ܷ��ɡ�"]):
+            seed(memory, store, user, text, f"run-{index}", instant(f"2026-11-03T09:0{index}:00+08:00"))
+        scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        assert moments.score_one()
+>       assert len(json.loads(rows(store)[0]["source_memory_ids"])) == 2
+E       assert 1 == 2
+E        +  where 1 = len(['mem_803f355611e25613641f58a6'])
+E        +    where ['mem_803f355611e25613641f58a6'] = <function loads at 0x0000018F8D3EA840>('["mem_803f355611e25613641f58a6"]')
+E        +      where <function loads at 0x0000018F8D3EA840> = json.loads
+
+services\life-core\tests\test_v03_selection.py:136: AssertionError
+____ test_late_extraction_is_attached_to_its_already_settled_source_window ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_late_extraction_is_attach0')
+
+    def test_late_extraction_is_attached_to_its_already_settled_source_window(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        assert rows(store)[0]["status"] == "skipped"
+        seed(memory, store, user, "���������һ���ڹ�԰�ܲ����ر��ġ�", "late",
+             instant("2026-11-03T10:59:59+08:00"))
+        moments.schedule(instant("2026-11-03T11:10:00+08:00"))
+>       assert len(rows(store)) == 1 and rows(store)[0]["status"] == "awaiting_score"
+E       AssertionError: assert (1 == 1 and 'skipped' == 'awaiting_score'
+E        +  where 1 = len([{'attempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:43.452338+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...}])
+E        +    where [{'attempts': 0, 'caption': '', 'created_at': '2026-11-04T03:29:43.452338+00:00', 'error_code': 'NO_ELIGIBLE_SOURCE', ...}] = rows(<app.store.Store object at 0x0000018FA9A52120>)
+E         
+E         - awaiting_score
+E         + skipped)
+
+services\life-core\tests\test_v03_selection.py:146: AssertionError
+_____ test_restart_keeps_fresh_scoring_claim_and_never_resubmits_unknown ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-100/test_restart_keeps_fresh_scori0')
+
+    def test_restart_keeps_fresh_scoring_claim_and_never_resubmits_unknown(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�", "source",
+             instant("2026-11-03T09:00:00+08:00"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        with store.connect() as db:
+>           db.execute("""UPDATE moments SET status='scoring',score_claim_id='live-worker',
+                score_lease_until='2099-01-01T00:00:00+00:00'""")
+E           sqlite3.OperationalError: no such column: score_claim_id
+
+services\life-core\tests\test_v03_selection.py:155: OperationalError
+- generated xml file: H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\evidence\v03-stage-a\red-baseline\pytest.xml -
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_windows.py::test_new_window_policy_covers_the_whole_day
+FAILED services/life-core/tests/test_v03_windows.py::test_night_closes_on_previous_business_date_after_five_minutes
+FAILED services/life-core/tests/test_v03_windows.py::test_source_boundaries_are_half_open[16:00:00-2]
+FAILED services/life-core/tests/test_v03_windows.py::test_source_boundaries_are_half_open[23:59:59-2]
+FAILED services/life-core/tests/test_v03_windows.py::test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[America/New_York-2026-03-08-23]
+FAILED services/life-core/tests/test_v03_windows.py::test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[America/New_York-2026-11-01-25]
+FAILED services/life-core/tests/test_v03_windows.py::test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Australia/Lord_Howe-2026-04-05-24.5]
+FAILED services/life-core/tests/test_v03_windows.py::test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Australia/Lord_Howe-2026-10-04-23.5]
+FAILED services/life-core/tests/test_v03_windows.py::test_dst_and_fractional_offsets_preserve_contiguous_utc_intervals[Asia/Kathmandu-2026-11-03-24]
+FAILED services/life-core/tests/test_v03_windows.py::test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[UTC]
+FAILED services/life-core/tests/test_v03_windows.py::test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[America/Los_Angeles]
+FAILED services/life-core/tests/test_v03_windows.py::test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[Pacific/Kiritimati]
+FAILED services/life-core/tests/test_v03_windows.py::test_zone_change_neither_repeats_business_keys_nor_loses_utc_time[Pacific/Pago_Pago]
+FAILED services/life-core/tests/test_v03_windows.py::test_repeated_policy_changes_and_restart_use_persisted_cursor
+FAILED services/life-core/tests/test_v03_windows.py::test_database_itself_rejects_duplicate_business_slot
+FAILED services/life-core/tests/test_v03_windows.py::test_no_consent_records_skip_without_candidates_or_requests
+FAILED services/life-core/tests/test_v03_selection.py::test_retellings_merge_and_preserve_all_original_quotes
+FAILED services/life-core/tests/test_v03_selection.py::test_day_selects_zero_to_three_events_and_explains_each_window[0]
+FAILED services/life-core/tests/test_v03_selection.py::test_day_selects_zero_to_three_events_and_explains_each_window[1]
+FAILED services/life-core/tests/test_v03_selection.py::test_day_selects_zero_to_three_events_and_explains_each_window[2]
+FAILED services/life-core/tests/test_v03_selection.py::test_day_selects_zero_to_three_events_and_explains_each_window[3]
+FAILED services/life-core/tests/test_v03_selection.py::test_running_beats_breakfast_and_other_candidates_have_reasons
+FAILED services/life-core/tests/test_v03_selection.py::test_all_members_of_selected_event_are_reserved_across_windows
+FAILED services/life-core/tests/test_v03_selection.py::test_late_extraction_is_attached_to_its_already_settled_source_window
+FAILED services/life-core/tests/test_v03_selection.py::test_restart_keeps_fresh_scoring_claim_and_never_resubmits_unknown
+25 failed, 9 passed in 19.31s

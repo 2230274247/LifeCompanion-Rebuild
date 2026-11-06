@@ -1,0 +1,54 @@
+{
+  "id": "S04",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天第一次参加公园读书会，还主动分享了读后感，我为自己走出家门高兴。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "reading",
+          "quote": "今天第一次参加公园读书会，还主动分享了读后感，我为自己走出家门高兴。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "d4946d3e1e8fd25feec24e2ef710faae480629cea346e3aafc5d902bc31fcccc"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天照常跑步三公里。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天照常跑步三公里。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "a585bf276e4cdb9037ed59eb72b2d37f0eb738421ecb4f012ef75395ce205dce"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

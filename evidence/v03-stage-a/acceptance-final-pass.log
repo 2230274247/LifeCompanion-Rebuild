@@ -1,0 +1,1 @@
+{"output": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\v03-stage-a\\acceptance\\20261104T043637Z", "decision": "SELECTED", "selected_sources": ["run-a", "run-b", "run-c"], "model_calls": 1, "image_api_calls": 0, "scheduler_jobs": ["moment-settlement-intent", "reminder-notification-reconciliation"]}

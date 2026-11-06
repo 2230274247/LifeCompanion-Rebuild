@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "checks": {
+    "pre_aplusplus_evidence_374_unchanged": true,
+    "p04_scoring_unchanged": true,
+    "window_logic_unchanged": true,
+    "semantic_aggregation_unchanged": true,
+    "aplus_ledger_still_108_unique_received": true,
+    "aplusplus_real_requests_zero": true,
+    "aplusplus_image_requests_zero": true,
+    "holdout_offline_contract_pass": true,
+    "holdout_not_model_or_human_evidence": true,
+    "historical_replay_not_model_retest": true,
+    "original_36_references_preserved": true,
+    "new_holdout_20_preserved": true,
+    "human_review_still_pending": true,
+    "s12_ambiguity_flagged": true,
+    "reference_freeze_hashes_match": true,
+    "image_generation_default_off": true,
+    "configured_secrets_absent_from_aplusplus_scope": true
+  },
+  "pre_aplusplus_evidence_files": 374,
+  "aplus_ledger_requests": 108,
+  "aplusplus_real_requests": 0,
+  "aplusplus_image_requests": 0,
+  "reference_scenarios": 36,
+  "holdout_scenarios": 20,
+  "secret_scan_files": 85,
+  "secret_match_files": []
+}

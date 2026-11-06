@@ -1,0 +1,62 @@
+......................................F..F.............................. [ 75%]
+........................                                                 [100%]
+================================== FAILURES ===================================
+_____________ test_expired_claim_before_request_is_replayed_once ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-3/test_expired_claim_before_requ0')
+
+    def test_expired_claim_before_request_is_replayed_once(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "今天上午第一次参加公园读书活动，特别开心。",
+             "unrequested", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-worker',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+        restarted = Moments(store, moments.settings, memory)
+        restarted.scorer.transport = moments.scorer.transport
+        assert restarted.score_one()
+        assert len(calls) == 1
+>       assert rows(store)[0]["status"] == "queued"
+E       AssertionError: assert 'private_text' == 'queued'
+E         
+E         - queued
+E         + private_text
+
+services\life-core\tests\test_v03_recovery.py:154: AssertionError
+___ test_persisted_success_is_finalized_after_crash_without_second_request ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-3/test_persisted_success_is_fina0')
+
+    def test_persisted_success_is_finalized_after_crash_without_second_request(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "今天上午第一次参加公园读书活动，特别开心。",
+             "cached", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        row = rows(store)[0]
+        start, end = instant(row["window_start"]), instant(row["window_end"])
+        inputs, _ = moments.candidate_inputs(user["life_user_id"], start, end)
+        moments.scorer.settings = moments.settings
+        ranked = moments.scorer.evaluate(
+            user["life_user_id"], row["moment_id"], {"start":row["window_start"],"end":row["window_end"]},
+            inputs, moments.config(user["life_user_id"])["weights"])
+        assert calls == ["MOCK_SCORING"] and ranked
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-after-success',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+        restarted = Moments(store, moments.settings, memory)
+        assert restarted.score_one()
+        assert calls == ["MOCK_SCORING"]
+>       assert rows(store)[0]["status"] == "queued"
+E       AssertionError: assert 'private_text' == 'queued'
+E         
+E         - queued
+E         + private_text
+
+services\life-core\tests\test_v03_recovery.py:200: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_recovery.py::test_expired_claim_before_request_is_replayed_once
+FAILED services/life-core/tests/test_v03_recovery.py::test_persisted_success_is_finalized_after_crash_without_second_request
+2 failed, 94 passed in 59.04s

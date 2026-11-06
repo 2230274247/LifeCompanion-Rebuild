@@ -1,0 +1,56 @@
+{
+  "id": "S19",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天还清一笔债务，想记住这个转折，但不愿向外部发送我的金融情况。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "bank",
+          "quote": "今天还清一笔债务，想记住这个转折，但不愿向外部发送我的金融情况。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "07584ce735e86c64c28e3b89641030a5a5632a701c7630a293df435823091ffd"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.8,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.4,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.1,
+        "novelty_or_development": 0.6
+      },
+      "score": 0.646,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "bank"
+      ],
+      "evidence_quote": "今天还清一笔债务，想记住这个转折，但不愿向外部发送我的金融情况。",
+      "source_revision": 1,
+      "input_hash": "07584ce735e86c64c28e3b89641030a5a5632a701c7630a293df435823091ffd"
+    }
+  ]
+}

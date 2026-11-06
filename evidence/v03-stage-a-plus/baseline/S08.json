@@ -1,0 +1,56 @@
+{
+  "id": "S08",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天就是很开心很开心，没什么具体事情。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "emotion",
+          "quote": "今天就是很开心很开心，没什么具体事情。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "00ff8d0b9ca0c2796a19d756af847a24d8cf235f23a6c60756b62302030348c6"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.2,
+        "uniqueness": 0.1,
+        "expressed_feeling": 0.7,
+        "event_clarity": 0.05,
+        "source_sufficiency": 0.3,
+        "window_relevance": 0.6,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.349,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "NO_CLEAR_EVENT",
+      "source_message_ids": [
+        "emotion"
+      ],
+      "evidence_quote": "今天就是很开心很开心，没什么具体事情。",
+      "source_revision": 1,
+      "input_hash": "00ff8d0b9ca0c2796a19d756af847a24d8cf235f23a6c60756b62302030348c6"
+    }
+  ]
+}

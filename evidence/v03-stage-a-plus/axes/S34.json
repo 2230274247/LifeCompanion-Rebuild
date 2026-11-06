@@ -1,0 +1,45 @@
+{
+  "id": "S34",
+  "split": "holdout",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "太激动了！太棒了！",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "emotion",
+          "quote": "太激动了！太棒了！",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "bb101fab8d6489e21974a26349259f220da67b0140f126eb150e5175aeb3698e"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只有情绪表达，没有具体事件或内在改变，无法构成有意义的纪念。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "纯情绪感叹，无可视动作、物件或地点。",
+      "source_message_ids": [
+        "emotion"
+      ],
+      "evidence_quote": "太激动了！太棒了！",
+      "visual_facts": []
+    }
+  ]
+}

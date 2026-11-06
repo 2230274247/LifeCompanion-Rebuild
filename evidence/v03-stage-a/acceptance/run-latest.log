@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\evidence\v03-stage-a\run_stage_a_acceptance.py", line 195, in <module>
+    assert by_source["reading"]["outcome"] == "NOT_SELECTED"
+           ~~~~~~~~~^^^^^^^^^^^
+KeyError: 'reading'

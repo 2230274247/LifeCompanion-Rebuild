@@ -1,0 +1,157 @@
+F..FFFF.                                                                 [100%]
+================================== FAILURES ===================================
+___ test_old_schema_migrates_twice_without_data_loss_and_rolls_back_safely ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-103/test_old_schema_migrates_twice0')
+
+    def test_old_schema_migrates_twice_without_data_loss_and_rolls_back_safely(tmp_path):
+        path = tmp_path / "migration.sqlite3"
+        legacy = settings_for(path, v03=False)
+        store = Store(path)
+        store.initialize()
+        memory = MemoryService(store, legacy)
+        memory.initialize()
+        old_moments = Moments(store, legacy, memory)
+        user = store.bootstrap_user(
+            librechat_user_id="legacy-user", memos_user_id="users/legacy",
+            memos_username="legacy", display_name="Legacy",
+            memory_consent=True, image_consent=True,
+        )
+        with patch("app.moments.utc_now", return_value="2026-11-03T00:00:00+00:00"):
+            old_moments.configure(user, MomentSettings(
+                enabled=True, ends=list(LEGACY_ENDS), timezone="Asia/Hong_Kong"))
+        seed(memory, store, user, "���������ڹ�԰ɢ����������ϼ��", "legacy-source",
+             instant("2026-11-03T12:00:00+08:00"))
+        old_moments.schedule(instant("2026-11-03T12:30:00+08:00"))
+        before = rows(store)
+        assert before and before[0]["local_date"] is None
+    
+        upgraded = settings_for(path)
+        Moments(store, upgraded, memory)
+        Moments(store, upgraded, memory)
+        after = rows(store)
+        assert after[0]["moment_id"] == before[0]["moment_id"]
+        assert after[0]["window_start"] == before[0]["window_start"]
+        with store.connect() as db:
+            indexes = {row["name"] for row in db.execute("PRAGMA index_list(moments)")}
+>           migrations = {row["name"] for row in db.execute("SELECT name FROM schema_migrations")}
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           sqlite3.OperationalError: no such table: schema_migrations
+
+services\life-core\tests\test_v03_recovery.py:63: OperationalError
+_____________ test_expired_claim_before_request_is_replayed_once ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-103/test_expired_claim_before_requ0')
+
+    def test_expired_claim_before_request_is_replayed_once(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "unrequested", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-worker',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+        restarted = Moments(store, moments.settings, memory)
+>       assert restarted.score_one()
+E       assert False
+E        +  where False = score_one()
+E        +    where score_one = <app.moments.Moments object at 0x00000159AAAB5F10>.score_one
+
+services\life-core\tests\test_v03_recovery.py:141: AssertionError
+___ test_expired_request_without_safe_result_is_never_resubmitted[running] ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-103/test_expired_request_without_s0')
+call_status = 'running'
+
+    @pytest.mark.parametrize("call_status", ["running", "unknown"])
+    def test_expired_request_without_safe_result_is_never_resubmitted(tmp_path, call_status):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "unknown", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        identifier = rows(store)[0]["moment_id"]
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-worker',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+            db.execute("""INSERT INTO recollection_model_calls
+                (window_id,user_id,model,version,input_hash,status,started_at,error_code)
+                VALUES (?,?,'synthetic',?,'hash',?,?,'SCORING_RESULT_UNKNOWN')""",
+                (identifier,user["life_user_id"],VERSION,call_status,
+                 "2026-11-03T03:00:00+00:00"))
+        restarted = Moments(store, moments.settings, memory)
+>       assert restarted.score_one()
+E       assert False
+E        +  where False = score_one()
+E        +    where score_one = <app.moments.Moments object at 0x000001598E8B8BC0>.score_one
+
+services\life-core\tests\test_v03_recovery.py:163: AssertionError
+___ test_expired_request_without_safe_result_is_never_resubmitted[unknown] ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-103/test_expired_request_without_s1')
+call_status = 'unknown'
+
+    @pytest.mark.parametrize("call_status", ["running", "unknown"])
+    def test_expired_request_without_safe_result_is_never_resubmitted(tmp_path, call_status):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "unknown", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        identifier = rows(store)[0]["moment_id"]
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-worker',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+            db.execute("""INSERT INTO recollection_model_calls
+                (window_id,user_id,model,version,input_hash,status,started_at,error_code)
+                VALUES (?,?,'synthetic',?,'hash',?,?,'SCORING_RESULT_UNKNOWN')""",
+                (identifier,user["life_user_id"],VERSION,call_status,
+                 "2026-11-03T03:00:00+00:00"))
+        restarted = Moments(store, moments.settings, memory)
+>       assert restarted.score_one()
+E       assert False
+E        +  where False = score_one()
+E        +    where score_one = <app.moments.Moments object at 0x00000159AAC58860>.score_one
+
+services\life-core\tests\test_v03_recovery.py:163: AssertionError
+___ test_persisted_success_is_finalized_after_crash_without_second_request ____
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-103/test_persisted_success_is_fina0')
+
+    def test_persisted_success_is_finalized_after_crash_without_second_request(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "cached", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        row = rows(store)[0]
+        start, end = instant(row["window_start"]), instant(row["window_end"])
+        inputs, _ = moments.candidate_inputs(user["life_user_id"], start, end)
+>       ranked = moments.scorer.evaluate(
+            user["life_user_id"], row["moment_id"], {"start":row["window_start"],"end":row["window_end"]},
+            inputs, moments.config(user["life_user_id"])["weights"])
+
+services\life-core\tests\test_v03_recovery.py:178: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.recollection_scoring.RecollectionScorer object at 0x00000159AAAA8B60>
+owner = 'life_3b0a7ca3a01569f4af07', window_id = 'mom_825aa17d587a2c1e31ba988d'
+window = {'end': '2026-11-03T03:00:00+00:00', 'start': '2026-11-02T16:00:00+00:00'}
+inputs = [{'event_id': 'evt_8b353024aaf139a97cac30a8', 'group_key': 'grp_602c2dbc3db88a9404b101d3', 'input_hash': 'f51da6e7c5b5e4628f3dd63be0761d2094526f9e5fc09d514a0511ac2ddd3d90', 'memory_id': 'mem_407f999d8ddcd8bb4cacd5aa', ...}]
+weights = {'event_clarity': 0.06, 'expressed_feeling': 0.12, 'novelty_or_development': 0.08, 'personal_meaning': 0.3, ...}
+
+    def evaluate(self, owner, window_id, window, inputs, weights):
+        settings = self.settings
+        if settings.moment_scoring_request_budget == 0:
+>           raise ScoringBlocked("SCORING_BUDGET_DISABLED")
+E           app.recollection_scoring.ScoringBlocked: SCORING_BUDGET_DISABLED
+
+services\life-core\app\recollection_scoring.py:132: ScoringBlocked
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_recovery.py::test_old_schema_migrates_twice_without_data_loss_and_rolls_back_safely
+FAILED services/life-core/tests/test_v03_recovery.py::test_expired_claim_before_request_is_replayed_once
+FAILED services/life-core/tests/test_v03_recovery.py::test_expired_request_without_safe_result_is_never_resubmitted[running]
+FAILED services/life-core/tests/test_v03_recovery.py::test_expired_request_without_safe_result_is_never_resubmitted[unknown]
+FAILED services/life-core/tests/test_v03_recovery.py::test_persisted_success_is_finalized_after_crash_without_second_request
+5 failed, 3 passed in 5.25s

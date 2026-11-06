@@ -1,0 +1,83 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_______________ test_text_recall_does_not_require_image_consent _______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-115/test_text_recall_does_not_requ0')
+
+    def test_text_recall_does_not_require_image_consent(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "text-only", instant("2026-11-03T09:00:00+08:00"))
+        store.update_consent(user["life_user_id"], image_consent=False)
+>       configure(moments, store.get_user(user["life_user_id"]),
+                  instant("2026-11-03T09:30:00+08:00"))
+
+services\life-core\tests\test_v03_windows.py:207: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\tests\test_v03_windows.py:58: in configure
+    return moments.configure(user, MomentSettings(**config))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.moments.Moments object at 0x000001BF59F8B0B0>
+user = {'created_at': '2026-11-04T03:56:42.009612+00:00', 'display_name': 'Synthetic A', 'image_consent': 0, 'librechat_user_id': 'synthetic-a', ...}
+config = MomentSettings(enabled=True, timezone='Asia/Hong_Kong', ends=['11:00', '16:00', '24:00'], weights={'personal_meaning':...0.06, 'source_sufficiency': 0.12, 'window_relevance': 0.1, 'privacy_suitability': 0.1, 'novelty_or_development': 0.08})
+
+    def configure(self, user, config):
+        if config.enabled and not (user["memory_consent"] and user["image_consent"]):
+>           raise ValueError("MEMORY_AND_IMAGE_CONSENT_REQUIRED")
+E           ValueError: MEMORY_AND_IMAGE_CONSENT_REQUIRED
+
+services\life-core\app\moments.py:183: ValueError
+________ test_authenticated_image_revocation_keeps_v03_text_settlement ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-115/test_authenticated_image_revoc0')
+
+    def test_authenticated_image_revocation_keeps_v03_text_settlement(tmp_path):
+        settings = replace(
+            settings_for(tmp_path / "image-consent.sqlite3"),
+            moment_workers_enabled=False,
+            moment_scheduler_external=True,
+            jwt_secret="test-jwt",
+            jwt_refresh_secret="test-refresh",
+        )
+        app = create_app(settings)
+        client = TestClient(app)
+        with client:
+            bootstrap = client.post(
+                "/internal/v1/users/bootstrap",
+                headers={"X-Internal-Token":"synthetic-internal"},
+                json={
+                    "librechat_user_id":"image-off-user","memos_user_id":"users/image-off",
+                    "memos_username":"image-off","display_name":"Image Off",
+                    "memory_consent":True,"image_consent":True,
+                },
+            )
+            assert bootstrap.status_code == 200
+            user = app.state.store.get_user(bootstrap.json()["life_user_id"])
+            with patch("app.moments.utc_now", return_value="2026-11-03T00:00:00+00:00"):
+                app.state.moments.configure(user, MomentSettings(
+                    enabled=True, timezone="Asia/Hong_Kong"))
+            seed(app.state.memory, app.state.store, user,
+                 "���������һ�βμӹ�԰�������ر��ġ�", "text-only-api",
+                 instant("2026-11-03T09:00:00+08:00"))
+            app.state.moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+            assert rows(app.state.store)[0]["status"] == "awaiting_score"
+    
+            response = client.patch(
+                "/api/v1/me/settings",
+                headers=auth("image-off-user"),
+                json={"image_consent":False},
+            )
+            assert response.status_code == 200
+>           assert rows(app.state.store)[0]["status"] == "awaiting_score"
+E           AssertionError: assert 'cancelled' == 'awaiting_score'
+E             
+E             - awaiting_score
+E             + cancelled
+
+services\life-core\tests\test_v03_recovery.py:346: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_windows.py::test_text_recall_does_not_require_image_consent
+FAILED services/life-core/tests/test_v03_recovery.py::test_authenticated_image_revocation_keeps_v03_text_settlement
+2 failed in 4.08s

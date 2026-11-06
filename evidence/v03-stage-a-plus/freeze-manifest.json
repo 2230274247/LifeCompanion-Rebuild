@@ -1,0 +1,13 @@
+{
+  "cases_sha256": "aba8d66b5b0172d8f6107b35c56acf555ca0cdaa086418b52beccbac83e975d3",
+  "rubric_sha256": "51cdabf07a665f07f9a542a3855b21dfd0162987d30ac9f21153c09ded5dacb6",
+  "scenarios": 36,
+  "development": 24,
+  "holdout": 12,
+  "max_requests": 108,
+  "max_output_tokens": 2048,
+  "max_input_bytes": 26000,
+  "automatic_retries": 0,
+  "currency_cost": "UNKNOWN",
+  "label_status": "AGENT_AUTHORED_PENDING_HUMAN_REVIEW"
+}

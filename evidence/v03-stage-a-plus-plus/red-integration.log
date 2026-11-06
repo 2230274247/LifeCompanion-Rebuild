@@ -1,0 +1,158 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+__________ test_s33_is_saved_locally_without_image_or_scoring_egress __________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_s33_is_saved_locally_with0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022ECDE02CC0>
+
+    def test_s33_is_saved_locally_without_image_or_scoring_egress(tmp_path, monkeypatch):
+        moments, user, store, memory = build(tmp_path)
+        owner = user["life_user_id"]
+        text = "������������˵������ȥ���˵�˼��������Լ������Ľ�չ��ֻϣ���������֡�"
+        source = seed(memory, store, user, text, "grief", instant("2026-11-03T09:00:00+08:00"))
+        store.update_consent(owner, image_consent=False)
+        moments.settings = replace(moments.settings, moment_scoring_request_budget=10,
+                                   memory_llm_key="synthetic")
+        monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Unconsented scoring"))
+        monkeypatch.setattr(moments, "generate", lambda *_: pytest.fail("Image forbidden"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+>       assert moments.score_one()
+               ^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_recollection_separation.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\moments.py:822: in score_one
+    return self._score_one_v03()
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\moments.py:929: in _score_one_v03
+    ranked = cached or self.scorer.evaluate(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+_ = ('life_3b0a7ca3a01569f4af07', 'mom_825aa17d587a2c1e31ba988d', {'end': '2026-11-03T03:00:00+00:00', 'start': '2026-11-0.....}], {'event_clarity': 0.06, 'expressed_feeling': 0.12, 'novelty_or_development': 0.08, 'personal_meaning': 0.3, ...})
+
+>   monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Unconsented scoring"))
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Unconsented scoring
+
+services\life-core\tests\test_recollection_separation.py:22: Failed
+________ test_third_party_secret_cannot_be_automatically_memorialized _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_third_party_secret_cannot0')
+
+    def test_third_party_secret_cannot_be_automatically_memorialized(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���ѽ���˽�¸�������������飬�����ұ��ܡ�",
+             "other-private", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        while moments.score_one():
+            pass
+>       assert calls == []
+E       AssertionError: assert ['MOCK_SCORING'] == []
+E         
+E         Left contains one more item: 'MOCK_SCORING'
+E         Use -v to get more diff
+
+services\life-core\tests\test_recollection_separation.py:48: AssertionError
+________ test_legacy_boolean_consents_do_not_authorize_scoring_egress _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_legacy_boolean_consents_d0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022ECDD79610>
+
+    def test_legacy_boolean_consents_do_not_authorize_scoring_egress(tmp_path, monkeypatch):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "�����һ���ڹ�԰��������������ס�����ʼ��",
+             "event", instant("2026-11-03T09:00:00+08:00"))
+        moments.settings = replace(moments.settings, memory_llm_key="synthetic",
+                                   moment_scoring_request_budget=10)
+        monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Real egress forbidden"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+>       assert moments.score_one()
+               ^^^^^^^^^^^^^^^^^^^
+
+services\life-core\tests\test_recollection_separation.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\life-core\app\moments.py:822: in score_one
+    return self._score_one_v03()
+           ^^^^^^^^^^^^^^^^^^^^^
+services\life-core\app\moments.py:929: in _score_one_v03
+    ranked = cached or self.scorer.evaluate(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+_ = ('life_3b0a7ca3a01569f4af07', 'mom_825aa17d587a2c1e31ba988d', {'end': '2026-11-03T03:00:00+00:00', 'start': '2026-11-0.....}], {'event_clarity': 0.06, 'expressed_feeling': 0.12, 'novelty_or_development': 0.08, 'personal_meaning': 0.3, ...})
+
+>   monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Real egress forbidden"))
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: Real egress forbidden
+
+services\life-core\tests\test_recollection_separation.py:59: Failed
+_ test_grants_are_owner_purpose_provider_and_version_scoped_and_survive_restart _
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_grants_are_owner_purpose_0')
+
+    def test_grants_are_owner_purpose_provider_and_version_scoped_and_survive_restart(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        owner = user["life_user_id"]
+>       assert not moments.egress_allowed(owner, "semantic_scoring", "deepseek")
+                   ^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'Moments' object has no attribute 'egress_allowed'. Did you mean: 'retry_allowed'?
+
+services\life-core\tests\test_recollection_separation.py:69: AttributeError
+__ test_sensitive_self_text_needs_text_permission_but_never_image_permission __
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_sensitive_self_text_needs0')
+
+    def test_sensitive_self_text_needs_text_permission_but_never_image_permission(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        owner = user["life_user_id"]
+        text = "����ҽ����֪���ҵļ����ϣ��Ҿ����������ƣ�ֻ��˽�¼�¼���������"
+        item = seed(memory, store, user, text, "self-health", instant("2026-11-03T09:00:00+08:00"))
+        with store.connect() as db:
+            db.execute("UPDATE memory_items SET sensitivity='sensitive' WHERE memory_id=?", (item["memory_id"],))
+        assert not moments.sources_authorized(owner, [item["memory_id"]])
+        memory.set_permissions(owner, {"sensitive_consent": True})
+>       assert moments.sources_authorized(owner, [item["memory_id"]])
+E       AssertionError: assert False
+E        +  where False = sources_authorized('life_3b0a7ca3a01569f4af07', ['mem_2e58f1212dd4a157cec34442'])
+E        +    where sources_authorized = <app.moments.Moments object at 0x0000022ECDE37500>.sources_authorized
+
+services\life-core\tests\test_recollection_separation.py:91: AssertionError
+_______ test_cached_s33_result_keeps_all_original_dimensions_and_score ________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-1/test_cached_s33_result_keeps_a0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000022ECDE37D10>
+
+    def test_cached_s33_result_keeps_all_original_dimensions_and_score(tmp_path, monkeypatch):
+        moments, user, store, memory = build(tmp_path)
+        owner = user["life_user_id"]
+        seed(memory, store, user,
+             "������������˵������ȥ���˵�˼��������Լ������Ľ�չ��ֻϣ���������֡�",
+             "grief", instant("2026-11-03T09:00:00+08:00"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        original = json.loads((Path(__file__).resolve().parents[3]
+            / "evidence/v03-stage-a-plus/baseline/S33.json").read_text(encoding="utf-8"))["values"][0]
+        inputs, _ = moments.candidate_inputs(owner, instant(rows(store)[0]["window_start"]),
+                                             instant(rows(store)[0]["window_end"]))
+        cached = {**original, "memory_id": inputs[0]["memory_id"],
+                  "source_revision": inputs[0]["revision"], "input_hash": inputs[0]["input_hash"]}
+        monkeypatch.setattr(moments.scorer, "cached_result", lambda *_: [cached])
+        monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Must reuse result"))
+        assert moments.score_one()
+        detail = moments.detail(owner, rows(store)[0]["moment_id"])
+        value = detail["selection"][0]
+        assert value["score"] == original["score"]
+        assert value["dimensions"] == original["dimensions"]
+        assert value["eligible"] is False
+>       assert detail["review"]["candidates"][0]["policy"]["memorial_eligible"] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'policy'
+
+services\life-core\tests\test_recollection_separation.py:122: KeyError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_separation.py::test_s33_is_saved_locally_without_image_or_scoring_egress
+FAILED services/life-core/tests/test_recollection_separation.py::test_third_party_secret_cannot_be_automatically_memorialized
+FAILED services/life-core/tests/test_recollection_separation.py::test_legacy_boolean_consents_do_not_authorize_scoring_egress
+FAILED services/life-core/tests/test_recollection_separation.py::test_grants_are_owner_purpose_provider_and_version_scoped_and_survive_restart
+FAILED services/life-core/tests/test_recollection_separation.py::test_sensitive_self_text_needs_text_permission_but_never_image_permission
+FAILED services/life-core/tests/test_recollection_separation.py::test_cached_s33_result_keeps_all_original_dimensions_and_score
+6 failed in 4.98s

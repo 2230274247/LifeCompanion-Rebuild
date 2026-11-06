@@ -1,0 +1,45 @@
+{
+  "id": "S20",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天我真正原谅了过去的自己，第一次感到释然，这一天很值得记住。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "resolve",
+          "quote": "今天我真正原谅了过去的自己，第一次感到释然，这一天很值得记住。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "1422ad73b3d80d68d03102155f33c8ffc0ac4673981a581d5b0cf9589438ef3f"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "明确的内在转变：真正原谅过去的自己并首次释然，是值得记住的里程碑。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "核心是内心释然与自我和解，没有可见动作、物件或场景，不宜虚构画面。",
+      "source_message_ids": [
+        "resolve"
+      ],
+      "evidence_quote": "今天我真正原谅了过去的自己，第一次感到释然，这一天很值得记住。",
+      "visual_facts": []
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "id": "S06",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天和多年没见的妈妈一起吃了早饭，还是熟悉的粥，我很珍惜这次重聚。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "meal",
+          "quote": "今天和多年没见的妈妈一起吃了早饭，还是熟悉的粥，我很珍惜这次重聚。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "a52832a4b58bd77185f1d04e193f8b95105f35a034b3e000ce3f5f8e91c0b579"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天买了日常洗衣液。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "shopping",
+          "quote": "今天买了日常洗衣液。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "654095cd5474664f365d20a6be6084fdb263404d535cf49d000a4c58d477b3a8"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.85,
+        "uniqueness": 0.7,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.85,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.834,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "meal"
+      ],
+      "evidence_quote": "今天和多年没见的妈妈一起吃了早饭，还是熟悉的粥，我很珍惜这次重聚。",
+      "source_revision": 1,
+      "input_hash": "a52832a4b58bd77185f1d04e193f8b95105f35a034b3e000ce3f5f8e91c0b579"
+    },
+    {
+      "memory_id": "m01",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.05,
+        "expressed_feeling": 0.0,
+        "event_clarity": 0.8,
+        "source_sufficiency": 0.8,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.374,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "shopping"
+      ],
+      "evidence_quote": "今天买了日常洗衣液。",
+      "source_revision": 1,
+      "input_hash": "654095cd5474664f365d20a6be6084fdb263404d535cf49d000a4c58d477b3a8"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____________ test_late_reconciliation_rotates_past_the_scan_limit _____________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-112/test_late_reconciliation_rotat0')
+
+    def test_late_reconciliation_rotates_past_the_scan_limit(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        moments.settings = replace(moments.settings, moment_settlement_scan_limit=2)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        moments.schedule(instant("2026-11-03T16:05:00+08:00"))
+        moments.schedule(instant("2026-11-04T00:05:00+08:00"))
+        assert len(rows(store)) == 3
+    
+        seed(memory, store, user, "�����ںӱ�ɢ����������������ϼ��", "late-night",
+             instant("2026-11-03T20:00:00+08:00"))
+        for minute in range(10, 30):
+            moments.schedule(instant(f"2026-11-04T00:{minute:02}:00+08:00"))
+    
+        night = next(row for row in rows(store) if row["slot"] == 2)
+>       assert night["status"] == "awaiting_score"
+E       AssertionError: assert 'skipped' == 'awaiting_score'
+E         
+E         - awaiting_score
+E         + skipped
+
+services\life-core\tests\test_v03_recovery.py:239: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_recovery.py::test_late_reconciliation_rotates_past_the_scan_limit
+1 failed in 4.69s

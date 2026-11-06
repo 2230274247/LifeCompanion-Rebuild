@@ -1,0 +1,83 @@
+{
+  "id": "S23",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，没有特别的变化。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "65d33bf972c0484024b6e06a10381df32a0f4635344b66330a59708814991a42"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "occurred_at": "2026-11-03T09:06:00+08:00",
+      "sources": [
+        {
+          "message_id": "book",
+          "quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+          "message_at": "2026-11-03T09:06:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "a8fdca03869cb68dc60913f7fcd5a2d8fd17f552708d5171a25be31605edebd2"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是照常跑步，明确说没有特别变化，属于日常重复，不构成有意义事件。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见动作和地点：早上在公园跑步，可作场景。",
+      "source_message_ids": [
+        "a"
+      ],
+      "evidence_quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+      "visual_facts": [
+        "早上",
+        "公园",
+        "跑了三公里"
+      ]
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "KEEP",
+      "memorial_reason": "坚持一年完成回忆录并独立写完一本书，是明确的个人目标达成与努力成果。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "核心是完成写作的成就与内心意义，缺少可具体描绘的可见场景，不宜虚构画面。",
+      "source_message_ids": [
+        "book"
+      ],
+      "evidence_quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "visual_facts": []
+    }
+  ]
+}

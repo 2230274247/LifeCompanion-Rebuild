@@ -1,0 +1,16 @@
+
+=================================== ERRORS ====================================
+_____ ERROR collecting services/life-core/tests/test_reminder_workflow.py _____
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_reminder_workflow.py:3: in <module>
+    from app.reminder_scheduler import (
+E   ImportError: cannot import name 'MOMENT_SETTLEMENT_JOB_ID' from 'app.reminder_scheduler' (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\app\reminder_scheduler.py)
+=========================== short test summary info ===========================
+ERROR services/life-core/tests/test_reminder_workflow.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 4.41s

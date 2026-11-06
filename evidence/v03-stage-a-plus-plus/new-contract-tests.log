@@ -1,0 +1,43 @@
+..................F....                                                  [100%]
+================================== FAILURES ===================================
+__ test_grant_api_requires_authenticated_owner_explicit_provider_and_version __
+
+self = <starlette.datastructures.State object at 0x00000234C986B6E0>
+key = 'settings'
+
+    def __getattr__(self, key: Any) -> Any:
+        try:
+>           return self._state[key]
+                   ^^^^^^^^^^^^^^^^
+E           KeyError: 'settings'
+
+infra\runtime\p02\venv\Lib\site-packages\starlette\datastructures.py:696: KeyError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-4/test_grant_api_requires_authen0')
+
+    def test_grant_api_requires_authenticated_owner_explicit_provider_and_version(tmp_path):
+        original, _ = make_app(tmp_path)
+>       app = create_app(replace(original.state.settings, moment_windows_v03=True,
+                                 ^^^^^^^^^^^^^^^^^^^^^^^
+                                 moment_workers_enabled=False))
+
+services\life-core\tests\test_recollection_authorization.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <starlette.datastructures.State object at 0x00000234C986B6E0>
+key = 'settings'
+
+    def __getattr__(self, key: Any) -> Any:
+        try:
+            return self._state[key]
+        except KeyError:
+            message = "'{}' object has no attribute '{}'"
+>           raise AttributeError(message.format(self.__class__.__name__, key))
+E           AttributeError: 'State' object has no attribute 'settings'
+
+infra\runtime\p02\venv\Lib\site-packages\starlette\datastructures.py:699: AttributeError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_authorization.py::test_grant_api_requires_authenticated_owner_explicit_provider_and_version
+1 failed, 22 passed in 7.28s

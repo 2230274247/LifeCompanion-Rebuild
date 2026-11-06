@@ -1,0 +1,7 @@
+{
+  "decision": "KEEP_P04_WEIGHTS_AND_PROMPT_UNCHANGED",
+  "basis": "24/24 development selections acceptable; 0/17 false exclusions",
+  "adjustment": "offline per-candidate fail-closed visual-evidence gate only",
+  "p04_sha256": "ef571e3f15af12a358ff6580f2086a7e95683178035cee48e1dac210e31bf45c",
+  "holdout_outputs_inspected": false
+}

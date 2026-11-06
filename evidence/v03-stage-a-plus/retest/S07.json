@@ -1,0 +1,101 @@
+{
+  "id": "S07",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "walk",
+          "quote": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "064979610b2a6a91340ecfdc5e2b42b8af98e4b35bf94b150e2eef144d1b0132"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次买了这个牌子的纸巾。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "first",
+          "quote": "今天第一次买了这个牌子的纸巾。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "fd6a4055bacae491647bc6b23fa53648c021687b541ef0310330e5f025be38aa"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.7,
+        "uniqueness": 0.5,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 1.0,
+        "novelty_or_development": 0.6
+      },
+      "score": 0.746,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "walk"
+      ],
+      "evidence_quote": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+      "source_revision": 1,
+      "input_hash": "064979610b2a6a91340ecfdc5e2b42b8af98e4b35bf94b150e2eef144d1b0132"
+    },
+    {
+      "memory_id": "m01",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.2,
+        "expressed_feeling": 0.0,
+        "event_clarity": 0.8,
+        "source_sufficiency": 0.8,
+        "window_relevance": 1.0,
+        "privacy_suitability": 1.0,
+        "novelty_or_development": 0.1
+      },
+      "score": 0.406,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "first"
+      ],
+      "evidence_quote": "今天第一次买了这个牌子的纸巾。",
+      "source_revision": 1,
+      "input_hash": "fd6a4055bacae491647bc6b23fa53648c021687b541ef0310330e5f025be38aa"
+    }
+  ]
+}

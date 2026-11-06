@@ -1,0 +1,45 @@
+{
+  "id": "S30",
+  "split": "holdout",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天我第一次接纳自己可以有不同的人生节奏，想为这个内心转折留一段文字。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "identity",
+          "quote": "今天我第一次接纳自己可以有不同的人生节奏，想为这个内心转折留一段文字。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "2fd54b53b4a20a4e81393f1502cfe146cf139bad5c2925f37cc73f16ae9a0c70"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "明确记录第一次接纳自己的人生节奏，属于有意义的内心转变。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "内容是抽象的内在转变，没有可见的动作、物件或场景。",
+      "source_message_ids": [
+        "identity"
+      ],
+      "evidence_quote": "今天我第一次接纳自己可以有不同的人生节奏，想为这个内心转折留一段文字。",
+      "visual_facts": []
+    }
+  ]
+}

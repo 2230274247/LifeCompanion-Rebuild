@@ -1,0 +1,91 @@
+{
+  "id": "S35",
+  "split": "holdout",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00",
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园跑了三公里，只是普通日常。\n刚才那次跑步就是每天的锻炼。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上在公园跑了三公里，只是普通日常。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        },
+        {
+          "message_id": "b",
+          "quote": "刚才那次跑步就是每天的锻炼。",
+          "message_at": "2026-11-03T09:02:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1,
+        "m01": 1
+      },
+      "group_key": "grp_8d23c5dfb25e162097f3e7db",
+      "input_hash": "1376f9c6ae4d211374d412e1cf6b6a11d77374a190b6315129bdacb83ee1b177"
+    },
+    {
+      "memory_id": "m02",
+      "memory_ids": [
+        "m02"
+      ],
+      "revision": 1,
+      "event_id": "raw-2",
+      "text": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+      "occurred_at": "2026-11-03T09:05:00+08:00",
+      "sources": [
+        {
+          "message_id": "learn",
+          "quote": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+          "message_at": "2026-11-03T09:05:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m02": 1
+      },
+      "group_key": "grp_207d517b8c9ed8f67ae74264",
+      "input_hash": "80d344cf8eb6fc844e387036901fd3eb2f1c7e81c62757bf8efcb99eaf6b4961"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "明确说明只是普通日常锻炼，重复性活动，无特殊意义事件或内在变化。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见动作与地点：早上在公园跑步三公里。",
+      "source_message_ids": [
+        "a",
+        "b"
+      ],
+      "evidence_quote": "今天早上在公园跑了三公里，只是普通日常。",
+      "visual_facts": [
+        "今天早上在公园跑了三公里"
+      ]
+    },
+    {
+      "memory_id": "m02",
+      "memorial": "KEEP",
+      "memorial_reason": "第一次独立学会补胎，是个人技能成长与努力达成的有意义事件。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见动作与对象：给自行车补胎。",
+      "source_message_ids": [
+        "learn"
+      ],
+      "evidence_quote": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+      "visual_facts": [
+        "给自行车补胎"
+      ]
+    }
+  ]
+}

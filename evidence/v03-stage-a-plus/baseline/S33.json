@@ -1,0 +1,56 @@
+{
+  "id": "S33",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "grief",
+          "quote": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "2fc10af3bea4cc754941fae2d258bff181131224412fd1d6fd9d0a54c4028180"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.9,
+        "uniqueness": 0.8,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.6,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.1,
+        "novelty_or_development": 0.8
+      },
+      "score": 0.758,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "grief"
+      ],
+      "evidence_quote": "今天我终于能说出对逝去亲人的思念，这是我自己的内心进展，只希望留下文字。",
+      "source_revision": 1,
+      "input_hash": "2fc10af3bea4cc754941fae2d258bff181131224412fd1d6fd9d0a54c4028180"
+    }
+  ]
+}

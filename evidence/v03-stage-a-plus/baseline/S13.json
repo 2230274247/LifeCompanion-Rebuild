@@ -1,0 +1,101 @@
+{
+  "id": "S13",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在第一个公园跑了三公里，做了普通训练。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "one",
+          "quote": "今天早上在第一个公园跑了三公里，做了普通训练。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "26299352684e5941e0eb5a3694876ec789dbc662a9b54776c52d55a278efe324"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天早上在第二个公园跑了三公里，第一次完成跨公园训练挑战。",
+      "occurred_at": "2026-11-03T09:10:00+08:00",
+      "sources": [
+        {
+          "message_id": "two",
+          "quote": "今天早上在第二个公园跑了三公里，第一次完成跨公园训练挑战。",
+          "message_at": "2026-11-03T09:10:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "7ea1271c9ffa329bfa2d7e73f7700718dca833a249962173f18c2012c86b657f"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m01",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.6,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.3,
+        "event_clarity": 0.8,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.668,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "two"
+      ],
+      "evidence_quote": "今天早上在第二个公园跑了三公里，第一次完成跨公园训练挑战。",
+      "source_revision": 1,
+      "input_hash": "7ea1271c9ffa329bfa2d7e73f7700718dca833a249962173f18c2012c86b657f"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.2,
+        "uniqueness": 0.1,
+        "expressed_feeling": 0.1,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.1
+      },
+      "score": 0.41,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "one"
+      ],
+      "evidence_quote": "今天早上在第一个公园跑了三公里，做了普通训练。",
+      "source_revision": 1,
+      "input_hash": "26299352684e5941e0eb5a3694876ec789dbc662a9b54776c52d55a278efe324"
+    }
+  ]
+}

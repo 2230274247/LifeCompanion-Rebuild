@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LifeCompanion V0.3 阶段 A 真实评分审查</title>
+<style>
+:root{--ink:#14251f;--paper:#f4f0e5;--run:#146b4a;--muted:#68746d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 5%,#d5e6d6,transparent 34%),var(--paper);
+color:var(--ink);font:16px/1.55 Georgia,"Noto Serif SC",serif}main{max-width:1180px;margin:auto;padding:48px 28px 72px}
+.eyebrow{font:700 12px/1.2 Consolas,monospace;letter-spacing:.18em;color:var(--run)}
+h1{font-size:clamp(34px,6vw,72px);line-height:.98;letter-spacing:-.04em;margin:12px 0 20px;max-width:900px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:28px 0 38px}
+.summary div{border-top:3px solid var(--ink);padding-top:10px}.summary b{display:block;font-size:20px}
+.window{font:13px/1.5 Consolas,monospace;color:var(--muted);overflow-wrap:anywhere}
+.candidates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.candidate{background:#fffdf7;border:1px solid #c9c3b4;padding:20px;box-shadow:0 13px 34px #26372b12}
+.candidate.selected{border:3px solid var(--run)}.candidate.not_selected{border-color:#ae944e}
+.candidate.excluded{opacity:.82}.outcome{font:700 12px/1 monospace;letter-spacing:.12em;color:var(--muted)}
+h2{font-size:24px;line-height:1.18;margin:14px 0 8px}h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;margin-top:22px}
+.reason,.window{font:12px/1.6 Consolas,monospace;color:var(--muted)}.dimensions{display:flex;flex-wrap:wrap;gap:5px}
+.dimensions span{background:#e7eadf;padding:3px 6px;font:11px/1.4 Consolas,monospace}ul{padding-left:18px}
+blockquote{margin:5px 0;padding-left:10px;border-left:2px solid var(--run);font-size:14px}code{font-family:Consolas,monospace}
+.foot{margin-top:36px;border-top:1px solid #918e82;padding-top:16px;font:12px/1.6 Consolas,monospace;color:var(--muted);overflow-wrap:anywhere}
+@media(max-width:820px){main{padding:28px 18px 48px}.summary{grid-template-columns:repeat(2,1fr)}.candidates{grid-template-columns:1fr}}
+</style></head><body><main>
+<div class="eyebrow">STAGE A · REAL P04 SCORING REVIEW</div>
+<h1>阶段 A 真实评分选择审查</h1>
+<p>本页来自隔离合成数据库与一次有上限的真实 <b>DEEPSEEK</b> 评分请求；未调用图片或 Kolors API。</p>
+<section class="summary">
+  <div><span>决定</span><b>NO_MEANINGFUL_EVENT</b></div>
+  <div><span>候选数</span><b>3</b></div>
+  <div><span>真实调用</span><b>1</b></div>
+  <div><span>验收</span><b>FAIL</b></div>
+</section>
+<p class="window">BUSINESS 2026-11-03 SLOT 0 ·
+UTC 2026-11-03T00:00:00+00:00 → 2026-11-03T03:00:00+00:00 ·
+POLICY v03-a</p>
+<section class="candidates">
+            <article class="candidate excluded">
+              <div class="outcome">EXCLUDED</div>
+              <h2>今天上午第一次参加公园读书活动，特别有感触。</h2>
+              <p class="reason">理由码：<code>SOURCE_INSUFFICIENT</code>
+                 · 得分：0.697</p>
+              <div class="dimensions"><span>personal_meaning <b>0.60</b></span><span>uniqueness <b>0.65</b></span><span>expressed_feeling <b>0.60</b></span><span>event_clarity <b>0.70</b></span><span>source_sufficiency <b>0.70</b></span><span>window_relevance <b>0.90</b></span><span>privacy_suitability <b>0.95</b></span><span>novelty_or_development <b>0.70</b></span></div>
+              <h3>原始来源证据</h3><ul><li><code>reading</code><blockquote>今天上午第一次参加公园读书活动，特别有感触。</blockquote></li></ul>
+            </article>
+            <article class="candidate excluded">
+              <div class="outcome">EXCLUDED</div>
+              <h2>今天早上在公园跑了三公里，回来感觉精神很好。</h2>
+              <p class="reason">理由码：<code>DUPLICATE_EVENT</code>
+                 · 得分：0.573</p>
+              <div class="dimensions"><span>personal_meaning <b>0.45</b></span><span>uniqueness <b>0.20</b></span><span>expressed_feeling <b>0.60</b></span><span>event_clarity <b>0.75</b></span><span>source_sufficiency <b>0.80</b></span><span>window_relevance <b>0.90</b></span><span>privacy_suitability <b>0.95</b></span><span>novelty_or_development <b>0.20</b></span></div>
+              <h3>原始来源证据</h3><ul><li><code>run-a</code><blockquote>今天早上在公园跑了三公里，回来感觉精神很好。</blockquote></li><li><code>run-b</code><blockquote>早晨在公园跑步三公里，真的很放松。</blockquote></li><li><code>run-c</code><blockquote>今天上午在公园跑了三公里，特别开心。</blockquote></li></ul>
+            </article>
+            <article class="candidate excluded">
+              <div class="outcome">EXCLUDED</div>
+              <h2>今天早上吃了普通早餐。</h2>
+              <p class="reason">理由码：<code>SOURCE_INSUFFICIENT</code>
+                 · 得分：0.313</p>
+              <div class="dimensions"><span>personal_meaning <b>0.05</b></span><span>uniqueness <b>0.05</b></span><span>expressed_feeling <b>0.05</b></span><span>event_clarity <b>0.50</b></span><span>source_sufficiency <b>0.60</b></span><span>window_relevance <b>0.85</b></span><span>privacy_suitability <b>0.95</b></span><span>novelty_or_development <b>0.05</b></span></div>
+              <h3>原始来源证据</h3><ul><li><code>breakfast</code><blockquote>今天早上吃了普通早餐。</blockquote></li></ul>
+            </article></section>
+<p class="foot">DATABASE H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\evidence\v03-stage-a\acceptance\20261104T042133Z-real-scoring\stage-a-real.sqlite3<br>SHA256 b1b2f7c298624b04df5c2e834a927d99dc99c885e1897f5c22a8c6c551280f3e</p>
+</main></body></html>

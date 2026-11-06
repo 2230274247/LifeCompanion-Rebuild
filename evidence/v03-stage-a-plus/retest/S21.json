@@ -1,0 +1,101 @@
+{
+  "id": "S21",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天独立修好了家里的旧收音机，这是第一次自己完成电路维修。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "repair",
+          "quote": "今天独立修好了家里的旧收音机，这是第一次自己完成电路维修。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "440da3474bcd2474368ba8a9c0343369777fefa2afc6aa088aca17a848ce7d3e"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天很开心。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "emotion",
+          "quote": "今天很开心。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "4c852b15e2316b3a17ab405c7faa77bd48a66e9719546cd4d0fce113601f1f3c"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.8,
+        "uniqueness": 0.75,
+        "expressed_feeling": 0.4,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.8
+      },
+      "score": 0.793,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "repair"
+      ],
+      "evidence_quote": "今天独立修好了家里的旧收音机，这是第一次自己完成电路维修。",
+      "source_revision": 1,
+      "input_hash": "440da3474bcd2474368ba8a9c0343369777fefa2afc6aa088aca17a848ce7d3e"
+    },
+    {
+      "memory_id": "m01",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.2,
+        "uniqueness": 0.1,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.1,
+        "source_sufficiency": 0.2,
+        "window_relevance": 0.5,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.1
+      },
+      "score": 0.322,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "NO_CLEAR_EVENT",
+      "source_message_ids": [
+        "emotion"
+      ],
+      "evidence_quote": "今天很开心。",
+      "source_revision": 1,
+      "input_hash": "4c852b15e2316b3a17ab405c7faa77bd48a66e9719546cd4d0fce113601f1f3c"
+    }
+  ]
+}

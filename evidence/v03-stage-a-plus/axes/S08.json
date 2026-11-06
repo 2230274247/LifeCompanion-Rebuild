@@ -1,0 +1,45 @@
+{
+  "id": "S08",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天就是很开心很开心，没什么具体事情。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "emotion",
+          "quote": "今天就是很开心很开心，没什么具体事情。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "00ff8d0b9ca0c2796a19d756af847a24d8cf235f23a6c60756b62302030348c6"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是笼统的开心情绪，没有具体事件或明确的内在转变，不足以成为有意义的纪念。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "纯情绪表达，没有可见的动作、物件或地点，无法构成安全场景。",
+      "source_message_ids": [
+        "emotion"
+      ],
+      "evidence_quote": "今天就是很开心很开心，没什么具体事情。",
+      "visual_facts": []
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+..............F...                                                       [100%]
+================================== FAILURES ===================================
+________ test_legacy_boolean_consents_do_not_authorize_scoring_egress _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-2/test_legacy_boolean_consents_d0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001C14B6F86E0>
+
+    def test_legacy_boolean_consents_do_not_authorize_scoring_egress(tmp_path, monkeypatch):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "今天第一次在公园跑完三公里，我想记住这个开始。",
+             "event", instant("2026-11-03T09:00:00+08:00"))
+        moments.settings = replace(moments.settings, memory_llm_key="synthetic",
+                                   moment_scoring_request_budget=10)
+        monkeypatch.setattr(moments.scorer, "evaluate", lambda *_: pytest.fail("Real egress forbidden"))
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        assert moments.score_one()
+>       assert rows(store)[0]["error_code"] == "SCORING_EGRESS_NOT_AUTHORIZED"
+E       AssertionError: assert None == 'SCORING_EGRESS_NOT_AUTHORIZED'
+
+services\life-core\tests\test_recollection_separation.py:62: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_separation.py::test_legacy_boolean_consents_do_not_authorize_scoring_egress
+1 failed, 17 passed in 5.15s

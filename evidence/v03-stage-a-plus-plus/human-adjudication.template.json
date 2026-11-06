@@ -1,0 +1,432 @@
+{
+  "version": "human-adjudication-v1",
+  "source_reference": "fixtures\\recollection-policy-v2\\reference-v2-draft.json",
+  "source_reference_sha256": "c25fb3b3acef94d25b063fd6721ca08fb7d9f86e4388bcee7092395e6bc2850d",
+  "reviewer_type": "PENDING_HUMAN",
+  "reviewer_id": "",
+  "reviewed_at": "",
+  "status": "PENDING",
+  "scenes": [
+    {
+      "id": "S01",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S02",
+      "decision": "PENDING",
+      "acceptable": [
+        null,
+        "run"
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S03",
+      "decision": "PENDING",
+      "acceptable": [
+        "run"
+      ],
+      "required": [
+        "run"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S04",
+      "decision": "PENDING",
+      "acceptable": [
+        "reading"
+      ],
+      "required": [
+        "reading"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S05",
+      "decision": "PENDING",
+      "acceptable": [
+        "run",
+        "book"
+      ],
+      "required": [
+        "run",
+        "book"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S06",
+      "decision": "PENDING",
+      "acceptable": [
+        "meal"
+      ],
+      "required": [
+        "meal"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S07",
+      "decision": "PENDING",
+      "acceptable": [
+        "walk"
+      ],
+      "required": [
+        "walk"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S08",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S09",
+      "decision": "PENDING",
+      "acceptable": [
+        "boundary"
+      ],
+      "required": [
+        "boundary"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S10",
+      "decision": "PENDING",
+      "acceptable": [
+        "run"
+      ],
+      "required": [
+        "run"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S11",
+      "decision": "PENDING",
+      "acceptable": [
+        "book"
+      ],
+      "required": [
+        "book"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S12",
+      "decision": "PENDING",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "ambiguity": "第一次训练可能指当天第一场，也可能指人生首次；保留v1标签，不自动裁决",
+      "note": ""
+    },
+    {
+      "id": "S13",
+      "decision": "PENDING",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S14",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S15",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S16",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S17",
+      "decision": "PENDING",
+      "acceptable": [
+        "garden",
+        "health"
+      ],
+      "required": [
+        "garden",
+        "health"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S18",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S19",
+      "decision": "PENDING",
+      "acceptable": [
+        "bank"
+      ],
+      "required": [
+        "bank"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S20",
+      "decision": "PENDING",
+      "acceptable": [
+        "resolve"
+      ],
+      "required": [
+        "resolve"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S21",
+      "decision": "PENDING",
+      "acceptable": [
+        "repair"
+      ],
+      "required": [
+        "repair"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S22",
+      "decision": "PENDING",
+      "acceptable": [
+        "tea"
+      ],
+      "required": [
+        "tea"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S23",
+      "decision": "PENDING",
+      "acceptable": [
+        "book"
+      ],
+      "required": [
+        "book"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S24",
+      "decision": "PENDING",
+      "acceptable": [
+        "cake"
+      ],
+      "required": [
+        "cake"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S25",
+      "decision": "PENDING",
+      "acceptable": [
+        "two"
+      ],
+      "required": [
+        "two"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S26",
+      "decision": "PENDING",
+      "acceptable": [
+        "swim"
+      ],
+      "required": [
+        "swim"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S27",
+      "decision": "PENDING",
+      "acceptable": [
+        "noodle"
+      ],
+      "required": [
+        "noodle"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S28",
+      "decision": "PENDING",
+      "acceptable": [
+        "plant",
+        "knit"
+      ],
+      "required": [
+        "plant",
+        "knit"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S29",
+      "decision": "PENDING",
+      "acceptable": [
+        "bird"
+      ],
+      "required": [
+        "bird"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S30",
+      "decision": "PENDING",
+      "acceptable": [
+        "identity"
+      ],
+      "required": [
+        "identity"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S31",
+      "decision": "PENDING",
+      "acceptable": [
+        "walk"
+      ],
+      "required": [
+        "walk"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S32",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S33",
+      "decision": "PENDING",
+      "acceptable": [
+        "grief"
+      ],
+      "required": [
+        "grief"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S34",
+      "decision": "PENDING",
+      "acceptable": [
+        null
+      ],
+      "required": [],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S35",
+      "decision": "PENDING",
+      "acceptable": [
+        "learn"
+      ],
+      "required": [
+        "learn"
+      ],
+      "ambiguity": null,
+      "note": ""
+    },
+    {
+      "id": "S36",
+      "decision": "PENDING",
+      "acceptable": [
+        "diary"
+      ],
+      "required": [
+        "diary"
+      ],
+      "ambiguity": null,
+      "note": ""
+    }
+  ]
+}

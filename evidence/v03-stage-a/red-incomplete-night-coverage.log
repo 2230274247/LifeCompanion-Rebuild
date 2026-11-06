@@ -1,0 +1,16 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_________________ test_v03_rejects_night_end_before_midnight __________________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-123/test_v03_rejects_night_end_bef0')
+
+    def test_v03_rejects_night_end_before_midnight(tmp_path):
+        moments, user, _, _ = build(tmp_path)
+>       with pytest.raises(ValueError, match="FINAL_WINDOW_MUST_END_AT_24"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+services\life-core\tests\test_v03_windows.py:89: Failed
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_windows.py::test_v03_rejects_night_end_before_midnight
+1 failed in 1.51s

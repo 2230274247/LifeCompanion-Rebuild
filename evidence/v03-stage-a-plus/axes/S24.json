@@ -1,0 +1,82 @@
+{
+  "id": "S24",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天在家拍了包含精确住址和门禁密码的照片，想留念。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "private",
+          "quote": "今天在家拍了包含精确住址和门禁密码的照片，想留念。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "9b167e555ed697e0dbd7e143f29c8c6a1bde8b0203e3b1df052cc08c9bebb7c3"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次亲手做成生日蛋糕，送给自己庆祝，我很满意。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "cake",
+          "quote": "今天第一次亲手做成生日蛋糕，送给自己庆祝，我很满意。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "de849c1a166d1e950e21bd03de54a0227dae99a09fe88beebce292669201975a"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "想留念的拍照行为，但内容涉及住址密码，纪念价值有限；仍属个人留念事件。",
+      "imageability": "PRIVATE_SKIP",
+      "image_reason": "包含精确住址和门禁密码等敏感标识，不可用于卡片。",
+      "source_message_ids": [
+        "private"
+      ],
+      "evidence_quote": "今天在家拍了包含精确住址和门禁密码的照片，想留念。",
+      "visual_facts": []
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "KEEP",
+      "memorial_reason": "第一次亲手做成生日蛋糕并为自己庆祝，是明确的个人成就与自我关怀事件。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有可见动作与对象：亲手做成的生日蛋糕，可用于画面。",
+      "source_message_ids": [
+        "cake"
+      ],
+      "evidence_quote": "今天第一次亲手做成生日蛋糕，送给自己庆祝，我很满意。",
+      "visual_facts": [
+        "亲手做成生日蛋糕",
+        "送给自己庆祝"
+      ]
+    }
+  ]
+}

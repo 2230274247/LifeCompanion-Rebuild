@@ -1,0 +1,38 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+______ test_ambiguous_bridge_does_not_transitively_merge_all_occurrences ______
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-135/test_ambiguous_bridge_does_not0')
+
+    def test_ambiguous_bridge_does_not_transitively_merge_all_occurrences(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        messages = [
+            ("bridge-a", "���������ڹ�԰�����������������ܺá�", "08:00"),
+            ("bridge-b", "���������ڹ�԰����������о����ɡ�", "08:20"),
+            ("bridge-c", "���������ڹ�԰������������е��ᡣ", "08:40"),
+        ]
+        seeded = [
+            seed(
+                memory,
+                store,
+                user,
+                text,
+                source,
+                instant(f"2026-11-03T{clock}:00+08:00"),
+                occurred=instant(f"2026-11-03T{clock}:00+08:00"),
+            )
+            for source, text, clock in messages
+        ]
+        inputs, _ = moments.candidate_inputs(
+            user["life_user_id"],
+            instant("2026-11-03T00:00:00+08:00"),
+            instant("2026-11-03T11:00:00+08:00"),
+        )
+>       assert len(inputs) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([{'event_id': 'evt_75dc4450768969b9d9789238', 'group_key': 'grp_a1cd2b41975c13d540b07d93', 'input_hash': 'f1e703164c4fe90ed41cbe52587d4a986eb81681251fd1f860529f88006a3bc3', 'memory_id': 'mem_40c6cd247569e9b93ea5999d', ...}])
+
+services\life-core\tests\test_v03_selection.py:123: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_selection.py::test_ambiguous_bridge_does_not_transitively_merge_all_occurrences
+1 failed in 1.71s

@@ -1,0 +1,54 @@
+{
+  "id": "S28",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天养了两年的兰花第一次开了，我一直盼着这个时刻。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "plant",
+          "quote": "今天养了两年的兰花第一次开了，我一直盼着这个时刻。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "03aced122b5f8795fa97db2da17b22d2832b74e2ead96c4748b50884716e20d4"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天完成给自己织的第一条围巾，坚持了一个月。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "knit",
+          "quote": "今天完成给自己织的第一条围巾，坚持了一个月。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "190d7335d9ad8df2d005924719b81c52bcb5bae065b8eb946c003ebff9848950"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

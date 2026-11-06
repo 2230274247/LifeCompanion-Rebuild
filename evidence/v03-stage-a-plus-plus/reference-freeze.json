@@ -1,0 +1,21 @@
+{
+  "frozen_at": "2026-11-04T14:12:02.549429+08:00",
+  "mode": "OFFLINE_ONLY",
+  "real_request_budget": 0,
+  "image_request_budget": 0,
+  "human_review": "NOT TESTED",
+  "holdout_independence": "new narratives; same agent author; not independent human blind study",
+  "amendments": [
+    {
+      "at": "2026-11-04T14:12:02.549429+08:00",
+      "scope": "holdout.json",
+      "note": "Hash corrected after the holdout acceptability reference was amended during authoring but before its first execution. No holdout result had been observed when the amendment was made.",
+      "previous_sha256": "43579e35e39b6ec2d1074448aae15cb83e9e2a9d69b849e9a29f1de8966dcc3a",
+      "final_sha256": "d46d160add5116f61ca36ccfa9556ed81a04d4e24fce85af922a3082f303204b"
+    }
+  ],
+  "files": {
+    "fixtures\\recollection-policy-v2\\reference-v2-draft.json": "c25fb3b3acef94d25b063fd6721ca08fb7d9f86e4388bcee7092395e6bc2850d",
+    "fixtures\\recollection-policy-v2\\holdout.json": "d46d160add5116f61ca36ccfa9556ed81a04d4e24fce85af922a3082f303204b"
+  }
+}

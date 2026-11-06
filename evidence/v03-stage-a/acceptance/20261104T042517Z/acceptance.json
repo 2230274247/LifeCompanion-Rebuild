@@ -1,0 +1,509 @@
+{
+  "generated_at_utc": "2026-11-04T04:25:19.150558+00:00",
+  "mode": {
+    "api": "MOCK_SCORING",
+    "image_api": "DISABLED",
+    "database": "SYNTHETIC_SQLITE",
+    "scheduler": "REAL_APSCHEDULER_SQLALCHEMY_JOBSTORE",
+    "memos": "SYNTHETIC_FUNCTION"
+  },
+  "database": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\v03-stage-a\\acceptance\\20261104T042517Z\\stage-a.sqlite3",
+  "database_sha256": "32c5823bfd5b4b887467a45b14219e6a59d37e39f713fac14afb5f936f526d2d",
+  "configure": {
+    "enabled": true,
+    "timezone": "Asia/Hong_Kong",
+    "ends": [
+      "11:00",
+      "16:00",
+      "24:00"
+    ],
+    "weights": {
+      "personal_meaning": 0.3,
+      "uniqueness": 0.12,
+      "expressed_feeling": 0.12,
+      "event_clarity": 0.06,
+      "source_sufficiency": 0.12,
+      "window_relevance": 0.1,
+      "privacy_suitability": 0.1,
+      "novelty_or_development": 0.08
+    },
+    "enabled_at": "2026-11-03T00:00:00+00:00",
+    "proposed": false
+  },
+  "ingested": [
+    {
+      "source_id": "run-a",
+      "text": "今天早上在公园跑了三公里，回来感觉精神很好。",
+      "response": {
+        "accepted": true,
+        "event": {
+          "event_id": "evt_18061d7c9608fdb74a3687a6",
+          "source_type": "chat",
+          "source_message_ids": [
+            "run-a"
+          ],
+          "conversation_id": "stage-a-chat",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "title": "今天早上在公园跑了三公里",
+          "summary": "今天早上在公园跑了三公里，回来感觉精神很好。",
+          "confidence": 0.65,
+          "consent_state": "granted",
+          "memo_ref": "synthetic/evt_18061d7c9608fdb74a3687a6",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-04T04:25:17.787186+00:00",
+          "updated_at": "2026-11-04T04:25:17.837777+00:00"
+        }
+      }
+    },
+    {
+      "source_id": "breakfast",
+      "text": "今天早上吃了普通早餐。",
+      "response": {
+        "accepted": true,
+        "event": {
+          "event_id": "evt_752407027c37dc6083680f62",
+          "source_type": "chat",
+          "source_message_ids": [
+            "breakfast"
+          ],
+          "conversation_id": "stage-a-chat",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "title": "今天早上吃了普通早餐",
+          "summary": "今天早上吃了普通早餐。",
+          "confidence": 0.65,
+          "consent_state": "granted",
+          "memo_ref": "synthetic/evt_752407027c37dc6083680f62",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-04T04:25:17.901415+00:00",
+          "updated_at": "2026-11-04T04:25:17.963366+00:00"
+        }
+      }
+    },
+    {
+      "source_id": "run-b",
+      "text": "早晨在公园跑步三公里，真的很放松。",
+      "response": {
+        "accepted": true,
+        "event": {
+          "event_id": "evt_2fb022ef4c6f8c9d89e87e46",
+          "source_type": "chat",
+          "source_message_ids": [
+            "run-b"
+          ],
+          "conversation_id": "stage-a-chat",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "title": "早晨在公园跑步三公里",
+          "summary": "早晨在公园跑步三公里，真的很放松。",
+          "confidence": 0.62,
+          "consent_state": "granted",
+          "memo_ref": "synthetic/evt_2fb022ef4c6f8c9d89e87e46",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-04T04:25:18.006889+00:00",
+          "updated_at": "2026-11-04T04:25:18.048497+00:00"
+        }
+      }
+    },
+    {
+      "source_id": "reading",
+      "text": "今天上午第一次参加公园读书活动，特别有感触。",
+      "response": {
+        "accepted": true,
+        "event": {
+          "event_id": "evt_8b946caef0d02c424cb24743",
+          "source_type": "chat",
+          "source_message_ids": [
+            "reading"
+          ],
+          "conversation_id": "stage-a-chat",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "title": "今天上午第一次参加公园读书活动",
+          "summary": "今天上午第一次参加公园读书活动，特别有感触。",
+          "confidence": 0.72,
+          "consent_state": "granted",
+          "memo_ref": "synthetic/evt_8b946caef0d02c424cb24743",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-04T04:25:18.094656+00:00",
+          "updated_at": "2026-11-04T04:25:18.151384+00:00"
+        }
+      }
+    },
+    {
+      "source_id": "run-c",
+      "text": "今天上午在公园跑了三公里，特别开心。",
+      "response": {
+        "accepted": true,
+        "event": {
+          "event_id": "evt_71bc2b717037fd5bafb2e9cf",
+          "source_type": "chat",
+          "source_message_ids": [
+            "run-c"
+          ],
+          "conversation_id": "stage-a-chat",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "title": "今天上午在公园跑了三公里",
+          "summary": "今天上午在公园跑了三公里，特别开心。",
+          "confidence": 0.65,
+          "consent_state": "granted",
+          "memo_ref": "synthetic/evt_71bc2b717037fd5bafb2e9cf",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-04T04:25:18.203891+00:00",
+          "updated_at": "2026-11-04T04:25:18.254080+00:00"
+        }
+      }
+    }
+  ],
+  "scored_loop": [
+    "score_one"
+  ],
+  "settle_endpoint": {
+    "status": "settlement_intents_recorded",
+    "mode": "PERSISTENT_ONLY"
+  },
+  "image_worker_changed_data": false,
+  "network_request_log": [
+    {
+      "path": "/v1/chat/completions",
+      "mode": "MOCK_SCORING"
+    }
+  ],
+  "moments": [
+    {
+      "moment_id": "mom_a16e3625123ea0e25c22c071",
+      "local_date": "2026-11-03",
+      "slot": 0,
+      "window_start": "2026-11-03T00:00:00+00:00",
+      "window_end": "2026-11-03T03:00:00+00:00",
+      "settle_after_utc": "2026-11-03T03:00:00+00:00",
+      "timezone": "Asia/Hong_Kong",
+      "policy_version": "v03-a",
+      "status": "queued",
+      "source_memory_ids": "[\"mem_ff842c1a5ea73ffacc651097\", \"mem_ec279dee66b8c36cd4fec356\", \"mem_5d39dd848c1e5931579223a0\"]",
+      "review_json": "{\"decision\": \"SELECTED\", \"reason_code\": null, \"threshold\": 0.4, \"scoring_mode\": \"MOCK_SCORING\", \"policy_version\": \"v03-a\", \"window\": {\"start\": \"2026-11-03T00:00:00+00:00\", \"end\": \"2026-11-03T03:00:00+00:00\", \"timezone\": \"Asia/Hong_Kong\", \"local_date\": \"2026-11-03\", \"slot\": 0}, \"coverage_note\": \"POLICY_TRANSITION_CARRY\", \"candidates\": [{\"memory_id\": \"mem_ff842c1a5ea73ffacc651097\", \"memory_ids\": [\"mem_ff842c1a5ea73ffacc651097\", \"mem_ec279dee66b8c36cd4fec356\", \"mem_5d39dd848c1e5931579223a0\"], \"text\": \"今天早上在公园跑了三公里，回来感觉精神很好。\\n早晨在公园跑步三公里，真的很放松。\\n今天上午在公园跑了三公里，特别开心。\", \"occurred_at\": \"2026-11-03T09:00:00+08:00\", \"sources\": [{\"message_id\": \"run-a\", \"quote\": \"今天早上在公园跑了三公里，回来感觉精神很好。\", \"message_at\": \"2026-11-03T09:00:00+08:00\"}, {\"message_id\": \"run-b\", \"quote\": \"早晨在公园跑步三公里，真的很放松。\", \"message_at\": \"2026-11-03T09:02:00+08:00\"}, {\"message_id\": \"run-c\", \"quote\": \"今天上午在公园跑了三公里，特别开心。\", \"message_at\": \"2026-11-03T09:04:00+08:00\"}], \"dimensions\": {\"personal_meaning\": 0.95, \"uniqueness\": 0.95, \"expressed_feeling\": 0.95, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.95}, \"score\": 0.969, \"eligible\": true, \"outcome\": \"SELECTED\", \"reason_code\": \"HIGHEST_ELIGIBLE_RANK\", \"model_reason_code\": \"MEANINGFUL_EVENT\"}, {\"memory_id\": \"mem_aa5c870b71ec0c57e932f6c7\", \"memory_ids\": [\"mem_aa5c870b71ec0c57e932f6c7\"], \"text\": \"今天上午第一次参加公园读书活动，特别有感触。\", \"occurred_at\": \"2026-11-03T09:00:00+08:00\", \"sources\": [{\"message_id\": \"reading\", \"quote\": \"今天上午第一次参加公园读书活动，特别有感触。\", \"message_at\": \"2026-11-03T09:03:00+08:00\"}], \"dimensions\": {\"personal_meaning\": 0.7, \"uniqueness\": 0.7, \"expressed_feeling\": 0.7, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.7}, \"score\": 0.814, \"eligible\": true, \"outcome\": \"NOT_SELECTED\", \"reason_code\": \"LOWER_RANK\", \"model_reason_code\": \"MEANINGFUL_EVENT\"}, {\"memory_id\": \"mem_7ac323e8f2ae1e1013c315db\", \"memory_ids\": [\"mem_7ac323e8f2ae1e1013c315db\"], \"text\": \"今天早上吃了普通早餐。\", \"occurred_at\": \"2026-11-03T09:00:00+08:00\", \"sources\": [{\"message_id\": \"breakfast\", \"quote\": \"今天早上吃了普通早餐。\", \"message_at\": \"2026-11-03T09:01:00+08:00\"}], \"dimensions\": {\"personal_meaning\": 0.2, \"uniqueness\": 0.2, \"expressed_feeling\": 0.2, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.2}, \"score\": 0.504, \"eligible\": false, \"outcome\": \"EXCLUDED\", \"reason_code\": \"LOW_PERSONAL_MEANING\", \"model_reason_code\": \"ROUTINE_EVENT\"}]}"
+    },
+    {
+      "moment_id": "mom_fb1a2a1f95cdb4eab8ecd6c9",
+      "local_date": "2026-11-03",
+      "slot": 1,
+      "window_start": "2026-11-03T03:00:00+00:00",
+      "window_end": "2026-11-03T08:00:00+00:00",
+      "settle_after_utc": "2026-11-03T08:00:00+00:00",
+      "timezone": "Asia/Hong_Kong",
+      "policy_version": "v03-a",
+      "status": "skipped",
+      "source_memory_ids": "[]",
+      "review_json": "{\"decision\": \"SKIPPED_NO_EVENT\", \"reason_code\": \"NO_ELIGIBLE_SOURCE\", \"policy_version\": \"v03-a\", \"window\": {\"start\": \"2026-11-03T03:00:00+00:00\", \"end\": \"2026-11-03T08:00:00+00:00\", \"settle_after\": \"2026-11-03T08:00:00+00:00\", \"timezone\": \"Asia/Hong_Kong\", \"local_date\": \"2026-11-03\", \"slot\": 1}, \"coverage_note\": null, \"candidates\": []}"
+    },
+    {
+      "moment_id": "mom_5028a1ec823b060cee4434b4",
+      "local_date": "2026-11-03",
+      "slot": 2,
+      "window_start": "2026-11-03T08:00:00+00:00",
+      "window_end": "2026-11-03T16:00:00+00:00",
+      "settle_after_utc": "2026-11-03T16:05:00+00:00",
+      "timezone": "Asia/Hong_Kong",
+      "policy_version": "v03-a",
+      "status": "skipped",
+      "source_memory_ids": "[]",
+      "review_json": "{\"decision\": \"SKIPPED_NO_EVENT\", \"reason_code\": \"NO_ELIGIBLE_SOURCE\", \"policy_version\": \"v03-a\", \"window\": {\"start\": \"2026-11-03T08:00:00+00:00\", \"end\": \"2026-11-03T16:00:00+00:00\", \"settle_after\": \"2026-11-03T16:05:00+00:00\", \"timezone\": \"Asia/Hong_Kong\", \"local_date\": \"2026-11-03\", \"slot\": 2}, \"coverage_note\": null, \"candidates\": []}"
+    },
+    {
+      "moment_id": "mom_28c3ee80e4111059f339ae42",
+      "local_date": "2026-11-04",
+      "slot": 0,
+      "window_start": "2026-11-03T16:00:00+00:00",
+      "window_end": "2026-11-04T03:00:00+00:00",
+      "settle_after_utc": "2026-11-04T03:00:00+00:00",
+      "timezone": "Asia/Hong_Kong",
+      "policy_version": "v03-a",
+      "status": "skipped",
+      "source_memory_ids": "[]",
+      "review_json": "{\"decision\": \"SKIPPED_NO_EVENT\", \"reason_code\": \"NO_ELIGIBLE_SOURCE\", \"policy_version\": \"v03-a\", \"window\": {\"start\": \"2026-11-03T16:00:00+00:00\", \"end\": \"2026-11-04T03:00:00+00:00\", \"settle_after\": \"2026-11-04T03:00:00+00:00\", \"timezone\": \"Asia/Hong_Kong\", \"local_date\": \"2026-11-04\", \"slot\": 0}, \"coverage_note\": null, \"candidates\": []}"
+    }
+  ],
+  "model_calls": [
+    {
+      "window_id": "mom_a16e3625123ea0e25c22c071",
+      "status": "succeeded",
+      "input_hash": "455f2daafc0f4e5714b9c4f14b55bc03039733857510ebad785607bcbcfec525",
+      "result_json": "[{\"memory_id\": \"mem_ff842c1a5ea73ffacc651097\", \"eligible\": true, \"dimensions\": {\"personal_meaning\": 0.95, \"uniqueness\": 0.95, \"expressed_feeling\": 0.95, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.95}, \"score\": 0.969, \"reason_code\": \"MEANINGFUL_EVENT\", \"model_reason_code\": \"MEANINGFUL_EVENT\", \"source_message_ids\": [\"run-a\", \"run-b\", \"run-c\"], \"evidence_quote\": \"今天早上在公园跑了三公里，回来感觉精神很好。\", \"source_revision\": 1, \"input_hash\": \"4fa75dc3c606ee0660aed96e0731c8d246e6bb084820b45def4d93cf177e86fa\"}, {\"memory_id\": \"mem_aa5c870b71ec0c57e932f6c7\", \"eligible\": true, \"dimensions\": {\"personal_meaning\": 0.7, \"uniqueness\": 0.7, \"expressed_feeling\": 0.7, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.7}, \"score\": 0.814, \"reason_code\": \"MEANINGFUL_EVENT\", \"model_reason_code\": \"MEANINGFUL_EVENT\", \"source_message_ids\": [\"reading\"], \"evidence_quote\": \"今天上午第一次参加公园读书活动，特别有感触。\", \"source_revision\": 1, \"input_hash\": \"bf161152b259bf613965fa708631e587b3abe88b269752d2dcc81bc359c34808\"}, {\"memory_id\": \"mem_7ac323e8f2ae1e1013c315db\", \"eligible\": false, \"dimensions\": {\"personal_meaning\": 0.2, \"uniqueness\": 0.2, \"expressed_feeling\": 0.2, \"event_clarity\": 1.0, \"source_sufficiency\": 1.0, \"window_relevance\": 1.0, \"privacy_suitability\": 1.0, \"novelty_or_development\": 0.2}, \"score\": 0.504, \"reason_code\": \"LOW_PERSONAL_MEANING\", \"model_reason_code\": \"ROUTINE_EVENT\", \"source_message_ids\": [\"breakfast\"], \"evidence_quote\": \"今天早上吃了普通早餐。\", \"source_revision\": 1, \"input_hash\": \"7a952b009bb1ab24bbc4a4f8d7f3e88e34508c6b188b7b8165900b33ff3c4e05\"}]",
+      "error_code": null
+    }
+  ],
+  "candidate_rows": [
+    {
+      "window_id": "mom_a16e3625123ea0e25c22c071",
+      "memory_id": "mem_ff842c1a5ea73ffacc651097",
+      "member_memory_ids": "[\"mem_ff842c1a5ea73ffacc651097\", \"mem_ec279dee66b8c36cd4fec356\", \"mem_5d39dd848c1e5931579223a0\"]",
+      "source_message_ids": "[\"run-a\", \"run-b\", \"run-c\"]",
+      "score": 0.969,
+      "eligible": 1,
+      "reason_code": "MEANINGFUL_EVENT",
+      "selected": 1,
+      "source_revisions": "{\"mem_ff842c1a5ea73ffacc651097\": 1}"
+    },
+    {
+      "window_id": "mom_a16e3625123ea0e25c22c071",
+      "memory_id": "mem_aa5c870b71ec0c57e932f6c7",
+      "member_memory_ids": "[\"mem_aa5c870b71ec0c57e932f6c7\"]",
+      "source_message_ids": "[\"reading\"]",
+      "score": 0.814,
+      "eligible": 1,
+      "reason_code": "MEANINGFUL_EVENT",
+      "selected": 0,
+      "source_revisions": "{\"mem_aa5c870b71ec0c57e932f6c7\": 1}"
+    },
+    {
+      "window_id": "mom_a16e3625123ea0e25c22c071",
+      "memory_id": "mem_7ac323e8f2ae1e1013c315db",
+      "member_memory_ids": "[\"mem_7ac323e8f2ae1e1013c315db\"]",
+      "source_message_ids": "[\"breakfast\"]",
+      "score": 0.504,
+      "eligible": 0,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "selected": 0,
+      "source_revisions": "{\"mem_7ac323e8f2ae1e1013c315db\": 1}"
+    }
+  ],
+  "selected_moment": {
+    "moment_id": "mom_a16e3625123ea0e25c22c071",
+    "window_start": "2026-11-03T00:00:00+00:00",
+    "window_end": "2026-11-03T03:00:00+00:00",
+    "timezone": "Asia/Hong_Kong",
+    "slot": 0,
+    "status": "queued",
+    "source_memory_ids": [
+      "mem_ff842c1a5ea73ffacc651097",
+      "mem_ec279dee66b8c36cd4fec356",
+      "mem_5d39dd848c1e5931579223a0"
+    ],
+    "selection": [
+      {
+        "memory_id": "mem_ff842c1a5ea73ffacc651097",
+        "eligible": true,
+        "dimensions": {
+          "personal_meaning": 0.95,
+          "uniqueness": 0.95,
+          "expressed_feeling": 0.95,
+          "event_clarity": 1.0,
+          "source_sufficiency": 1.0,
+          "window_relevance": 1.0,
+          "privacy_suitability": 1.0,
+          "novelty_or_development": 0.95
+        },
+        "score": 0.969,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "source_message_ids": [
+          "run-a",
+          "run-b",
+          "run-c"
+        ],
+        "source_revision": 1,
+        "input_hash": "4fa75dc3c606ee0660aed96e0731c8d246e6bb084820b45def4d93cf177e86fa"
+      },
+      {
+        "memory_id": "mem_aa5c870b71ec0c57e932f6c7",
+        "eligible": true,
+        "dimensions": {
+          "personal_meaning": 0.7,
+          "uniqueness": 0.7,
+          "expressed_feeling": 0.7,
+          "event_clarity": 1.0,
+          "source_sufficiency": 1.0,
+          "window_relevance": 1.0,
+          "privacy_suitability": 1.0,
+          "novelty_or_development": 0.7
+        },
+        "score": 0.814,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "source_message_ids": [
+          "reading"
+        ],
+        "source_revision": 1,
+        "input_hash": "bf161152b259bf613965fa708631e587b3abe88b269752d2dcc81bc359c34808"
+      },
+      {
+        "memory_id": "mem_7ac323e8f2ae1e1013c315db",
+        "eligible": false,
+        "dimensions": {
+          "personal_meaning": 0.2,
+          "uniqueness": 0.2,
+          "expressed_feeling": 0.2,
+          "event_clarity": 1.0,
+          "source_sufficiency": 1.0,
+          "window_relevance": 1.0,
+          "privacy_suitability": 1.0,
+          "novelty_or_development": 0.2
+        },
+        "score": 0.504,
+        "reason_code": "LOW_PERSONAL_MEANING",
+        "model_reason_code": "ROUTINE_EVENT",
+        "source_message_ids": [
+          "breakfast"
+        ],
+        "source_revision": 1,
+        "input_hash": "7a952b009bb1ab24bbc4a4f8d7f3e88e34508c6b188b7b8165900b33ff3c4e05"
+      }
+    ],
+    "caption": "今天早上在公园跑了三公里，回来感觉精神很好。",
+    "mime": null,
+    "attempts": 0,
+    "error_code": null,
+    "local_date": "2026-11-03",
+    "settle_after_utc": "2026-11-03T03:00:00+00:00",
+    "policy_version": "v03-a",
+    "policy_config": "{\"timezone\": \"Asia/Hong_Kong\", \"ends\": [\"11:00\", \"16:00\", \"24:00\"]}",
+    "policy_effective_utc": "2026-11-03T00:00:00+00:00",
+    "coverage_note": "POLICY_TRANSITION_CARRY",
+    "score_claim_id": null,
+    "score_lease_until": null,
+    "reviewed_late_memory_ids": "[]",
+    "created_at": "2026-11-04T04:25:18.425456+00:00",
+    "updated_at": "2026-11-04T04:25:18.745646+00:00",
+    "late_checked_at": "2026-11-04T04:25:18.962944+00:00",
+    "review": {
+      "decision": "SELECTED",
+      "reason_code": null,
+      "threshold": 0.4,
+      "scoring_mode": "MOCK_SCORING",
+      "policy_version": "v03-a",
+      "window": {
+        "start": "2026-11-03T00:00:00+00:00",
+        "end": "2026-11-03T03:00:00+00:00",
+        "timezone": "Asia/Hong_Kong",
+        "local_date": "2026-11-03",
+        "slot": 0
+      },
+      "coverage_note": "POLICY_TRANSITION_CARRY",
+      "candidates": [
+        {
+          "memory_id": "mem_ff842c1a5ea73ffacc651097",
+          "memory_ids": [
+            "mem_ff842c1a5ea73ffacc651097",
+            "mem_ec279dee66b8c36cd4fec356",
+            "mem_5d39dd848c1e5931579223a0"
+          ],
+          "text": "今天早上在公园跑了三公里，回来感觉精神很好。\n早晨在公园跑步三公里，真的很放松。\n今天上午在公园跑了三公里，特别开心。",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "sources": [
+            {
+              "message_id": "run-a",
+              "quote": "今天早上在公园跑了三公里，回来感觉精神很好。",
+              "message_at": "2026-11-03T09:00:00+08:00"
+            },
+            {
+              "message_id": "run-b",
+              "quote": "早晨在公园跑步三公里，真的很放松。",
+              "message_at": "2026-11-03T09:02:00+08:00"
+            },
+            {
+              "message_id": "run-c",
+              "quote": "今天上午在公园跑了三公里，特别开心。",
+              "message_at": "2026-11-03T09:04:00+08:00"
+            }
+          ],
+          "dimensions": {
+            "personal_meaning": 0.95,
+            "uniqueness": 0.95,
+            "expressed_feeling": 0.95,
+            "event_clarity": 1.0,
+            "source_sufficiency": 1.0,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.95
+          },
+          "score": 0.969,
+          "eligible": true,
+          "outcome": "SELECTED",
+          "reason_code": "HIGHEST_ELIGIBLE_RANK",
+          "model_reason_code": "MEANINGFUL_EVENT"
+        },
+        {
+          "memory_id": "mem_aa5c870b71ec0c57e932f6c7",
+          "memory_ids": [
+            "mem_aa5c870b71ec0c57e932f6c7"
+          ],
+          "text": "今天上午第一次参加公园读书活动，特别有感触。",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "sources": [
+            {
+              "message_id": "reading",
+              "quote": "今天上午第一次参加公园读书活动，特别有感触。",
+              "message_at": "2026-11-03T09:03:00+08:00"
+            }
+          ],
+          "dimensions": {
+            "personal_meaning": 0.7,
+            "uniqueness": 0.7,
+            "expressed_feeling": 0.7,
+            "event_clarity": 1.0,
+            "source_sufficiency": 1.0,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.7
+          },
+          "score": 0.814,
+          "eligible": true,
+          "outcome": "NOT_SELECTED",
+          "reason_code": "LOWER_RANK",
+          "model_reason_code": "MEANINGFUL_EVENT"
+        },
+        {
+          "memory_id": "mem_7ac323e8f2ae1e1013c315db",
+          "memory_ids": [
+            "mem_7ac323e8f2ae1e1013c315db"
+          ],
+          "text": "今天早上吃了普通早餐。",
+          "occurred_at": "2026-11-03T09:00:00+08:00",
+          "sources": [
+            {
+              "message_id": "breakfast",
+              "quote": "今天早上吃了普通早餐。",
+              "message_at": "2026-11-03T09:01:00+08:00"
+            }
+          ],
+          "dimensions": {
+            "personal_meaning": 0.2,
+            "uniqueness": 0.2,
+            "expressed_feeling": 0.2,
+            "event_clarity": 1.0,
+            "source_sufficiency": 1.0,
+            "window_relevance": 1.0,
+            "privacy_suitability": 1.0,
+            "novelty_or_development": 0.2
+          },
+          "score": 0.504,
+          "eligible": false,
+          "outcome": "EXCLUDED",
+          "reason_code": "LOW_PERSONAL_MEANING",
+          "model_reason_code": "ROUTINE_EVENT"
+        }
+      ]
+    },
+    "ai_generated": true,
+    "retry_allowed": false,
+    "image_data": null
+  },
+  "scheduler": {
+    "job_ids_before_restart": [
+      "moment-settlement-intent",
+      "reminder-notification-reconciliation"
+    ],
+    "job_ids_after_restart": [
+      "moment-settlement-intent",
+      "reminder-notification-reconciliation"
+    ],
+    "jobstore_size": 16384
+  }
+}

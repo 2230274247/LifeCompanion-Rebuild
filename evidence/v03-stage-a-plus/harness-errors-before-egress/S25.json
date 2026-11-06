@@ -1,0 +1,54 @@
+{
+  "id": "S25",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园跑了三公里，完成普通锻炼。",
+      "occurred_at": "2026-11-03T07:30:00+08:00",
+      "sources": [
+        {
+          "message_id": "one",
+          "quote": "今天早上在公园跑了三公里，完成普通锻炼。",
+          "message_at": "2026-11-03T07:30:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "112fa3ea13f7cb9fe2e73c812cbc4bc72134c1cdc093db07026e1718803c32b7"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天早上在公园跑了三公里，第一次参加社区公益接力，完成了接力任务。",
+      "occurred_at": "2026-11-03T09:30:00+08:00",
+      "sources": [
+        {
+          "message_id": "two",
+          "quote": "今天早上在公园跑了三公里，第一次参加社区公益接力，完成了接力任务。",
+          "message_at": "2026-11-03T09:30:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "9d6a82d7e8c0060a71908ab36d9841941b9dad31279e49f4463d24c5abb7b5e6"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

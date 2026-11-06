@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>V0.3 阶段 A 迁移与回滚证据</title>
+<style>
+body{margin:0;background:#f4f0e5;color:#14251f;font:16px/1.55 Georgia,"Noto Serif SC",serif}
+main{max-width:1000px;margin:auto;padding:48px 24px}h1{font-size:clamp(32px,6vw,64px);line-height:1}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+.grid div{border-top:3px solid #146b4a;padding-top:10px}.grid b{display:block;font-size:22px}
+pre{background:#14251f;color:#e8eadf;padding:18px;overflow:auto;font:12px/1.5 Consolas,monospace}
+.note{border-left:4px solid #a64b2a;padding-left:14px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head><body><main>
+<p>STAGE A · SYNTHETIC MIGRATION EVIDENCE</p>
+<h1>旧库增量迁移与特性关闭回滚</h1>
+<section class="grid"><div><span>旧数据行</span><b>保留</b></div>
+<div><span>二次迁移</span><b>幂等</b></div><div><span>回滚方式</span><b>关闭 V0.3</b></div></section>
+<p class="note">本页只使用合成的 SQLite。没有连接或迁移生产/原始用户数据库，也没有生图 API 调用。</p>
+<h2>Schema 前后</h2>
+<pre>{
+  &quot;before&quot;: [
+    &quot;moment_id&quot;,
+    &quot;user_id&quot;,
+    &quot;window_start&quot;,
+    &quot;window_end&quot;,
+    &quot;timezone&quot;,
+    &quot;slot&quot;,
+    &quot;status&quot;,
+    &quot;source_memory_ids&quot;,
+    &quot;selection&quot;,
+    &quot;caption&quot;,
+    &quot;image&quot;,
+    &quot;mime&quot;,
+    &quot;attempts&quot;,
+    &quot;error_code&quot;,
+    &quot;created_at&quot;,
+    &quot;updated_at&quot;
+  ],
+  &quot;after&quot;: [
+    &quot;moment_id&quot;,
+    &quot;user_id&quot;,
+    &quot;window_start&quot;,
+    &quot;window_end&quot;,
+    &quot;timezone&quot;,
+    &quot;slot&quot;,
+    &quot;status&quot;,
+    &quot;source_memory_ids&quot;,
+    &quot;selection&quot;,
+    &quot;caption&quot;,
+    &quot;image&quot;,
+    &quot;mime&quot;,
+    &quot;attempts&quot;,
+    &quot;error_code&quot;,
+    &quot;created_at&quot;,
+    &quot;updated_at&quot;,
+    &quot;local_date&quot;,
+    &quot;settle_after_utc&quot;,
+    &quot;policy_version&quot;,
+    &quot;policy_config&quot;,
+    &quot;policy_effective_utc&quot;,
+    &quot;coverage_note&quot;,
+    &quot;score_claim_id&quot;,
+    &quot;score_lease_until&quot;,
+    &quot;review_json&quot;,
+    &quot;reviewed_late_memory_ids&quot;,
+    &quot;late_checked_at&quot;
+  ]
+}</pre>
+<h2>迁移记录</h2>
+<pre>[
+  {
+    &quot;name&quot;: &quot;moment_windows_v03&quot;,
+    &quot;applied_at&quot;: &quot;2026-11-03T00:00:00+00:00&quot;
+  }
+]</pre>
+<h2>保留字段</h2>
+<pre>{
+  &quot;moment_id&quot;: &quot;mom_legacy_synthetic&quot;,
+  &quot;user_id&quot;: &quot;life_dddb55adc80339191bf6&quot;,
+  &quot;window_start&quot;: &quot;2026-11-03T04:00:00+00:00&quot;,
+  &quot;window_end&quot;: &quot;2026-11-03T08:00:00+00:00&quot;,
+  &quot;timezone&quot;: &quot;Asia/Hong_Kong&quot;,
+  &quot;slot&quot;: 0,
+  &quot;status&quot;: &quot;generated&quot;,
+  &quot;source_memory_ids&quot;: &quot;[\&quot;mem_0e978c456abfedfd4fc8939a\&quot;]&quot;,
+  &quot;selection&quot;: &quot;[]&quot;,
+  &quot;caption&quot;: &quot;旧版文字回忆保留&quot;,
+  &quot;attempts&quot;: 1,
+  &quot;error_code&quot;: null,
+  &quot;created_at&quot;: &quot;2026-11-03T04:00:00+00:00&quot;,
+  &quot;updated_at&quot;: &quot;2026-11-03T04:00:00+00:00&quot;
+}</pre>
+<p>DATABASE H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\evidence\v03-stage-a\migration\20261104T040056Z\stage-a-migration.sqlite3<br>SHA256 a51b6db291d81c7e5a7cc45c310adc23b19ce9f38de776593067acfbc1d45635</p>
+</main></body></html>

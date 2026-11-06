@@ -1,0 +1,54 @@
+{
+  "id": "S06",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天和多年没见的妈妈一起吃了早饭，还是熟悉的粥，我很珍惜这次重聚。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "meal",
+          "quote": "今天和多年没见的妈妈一起吃了早饭，还是熟悉的粥，我很珍惜这次重聚。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "a52832a4b58bd77185f1d04e193f8b95105f35a034b3e000ce3f5f8e91c0b579"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天买了日常洗衣液。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "shopping",
+          "quote": "今天买了日常洗衣液。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "654095cd5474664f365d20a6be6084fdb263404d535cf49d000a4c58d477b3a8"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "AXIS_FABRICATED_VISUAL_FACT",
+  "values": []
+}

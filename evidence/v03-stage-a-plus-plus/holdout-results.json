@@ -1,0 +1,1472 @@
+{
+  "contract": "OFFLINE_LOCAL_JUDGMENT_ONLY",
+  "model_evidence": false,
+  "real_requests": 0,
+  "image_requests": 0,
+  "human_reviewed": false,
+  "fixture_sha256": "d46d160add5116f61ca36ccfa9556ed81a04d4e24fce85af922a3082f303204b",
+  "totals": {
+    "scenes": 20,
+    "memorial": 20,
+    "occurrence": 20,
+    "image": 20,
+    "egress_safe": 20,
+    "fabricated_visual_facts": 0,
+    "source_failures": 0
+  },
+  "status": "PASS",
+  "details": [
+    {
+      "id": "H01",
+      "text": "今天终于接纳自己不必和别人比较，这是我的内心转折，只希望留下文字。",
+      "local_judgment": {
+        "occurrence": "SELF_INNER_CHANGE",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "DENY",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": true,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_INNER_CHANGE",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "DENY",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": true,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "本人内心进展，文字与外发分开"
+    },
+    {
+      "id": "H02",
+      "text": "同事今天私下告诉我他的病情，要求我保密。",
+      "local_judgment": {
+        "occurrence": "OTHER_OCCURRED",
+        "memorial": "SKIP",
+        "imageability": "PRIVATE_SKIP",
+        "egress_preference": "DENY",
+        "memorial_reason": "OTHER_PERSON_PRIVATE",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "OTHER_PERSON_PRIVATE",
+        "imageability": "PRIVATE_SKIP",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "OTHER_OCCURRED",
+          "memorial": "SKIP",
+          "imageability": "PRIVATE_SKIP",
+          "egress_preference": "DENY",
+          "memorial_reason": "OTHER_PERSON_PRIVATE",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "他人秘密不能自动纪念"
+    },
+    {
+      "id": "H03",
+      "text": "我打算下个月学做陶器，现在还没开始。",
+      "local_judgment": {
+        "occurrence": "PLANNED",
+        "memorial": "SKIP",
+        "imageability": "NOT_APPLICABLE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "NON_OCCURRED_FUTURE",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "NON_OCCURRED_FUTURE",
+        "imageability": "NOT_APPLICABLE",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "PLANNED",
+          "memorial": "SKIP",
+          "imageability": "NOT_APPLICABLE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "NON_OCCURRED_FUTURE",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "计划不是已发生事件"
+    },
+    {
+      "id": "H04",
+      "text": "这是我转贴的AI建议：明天去湖边散步，我没有行动。",
+      "local_judgment": {
+        "occurrence": "QUOTED_OR_GENERATED",
+        "memorial": "SKIP",
+        "imageability": "NOT_APPLICABLE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "NOT_SELF_OBSERVED_EVENT",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "NOT_SELF_OBSERVED_EVENT",
+        "imageability": "NOT_APPLICABLE",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "QUOTED_OR_GENERATED",
+          "memorial": "SKIP",
+          "imageability": "NOT_APPLICABLE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "NOT_SELF_OBSERVED_EVENT",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "生成建议不是本人事实"
+    },
+    {
+      "id": "H05",
+      "text": "我似乎完成了报名，但还没确认。",
+      "local_judgment": {
+        "occurrence": "UNCERTAIN",
+        "memorial": "SKIP",
+        "imageability": "NOT_APPLICABLE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "EVENT_NOT_CONFIRMED",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "EVENT_NOT_CONFIRMED",
+        "imageability": "NOT_APPLICABLE",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "UNCERTAIN",
+          "memorial": "SKIP",
+          "imageability": "NOT_APPLICABLE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "EVENT_NOT_CONFIRMED",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "未确认的事实不自动纪念"
+    },
+    {
+      "id": "H06",
+      "text": "今天我还清了自己的债务，想记住这个转折，不愿向外部发送我的金融情况。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "PRIVATE_SKIP",
+        "egress_preference": "DENY",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": true,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "PRIVATE_SKIP",
+        "image_content_eligible": false,
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "PRIVATE_SKIP",
+          "egress_preference": "DENY",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "私人或敏感内容不自动形成图片",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": true,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "自己的金融里程碑可获敏感文字授权后私存"
+    },
+    {
+      "id": "H07",
+      "text": "今天在河边走了三公里，第一次完成康复散步目标。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "SAFE_SCENE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "visual_facts": [
+          {
+            "fact_type": "ACTION",
+            "statement": "今天在河边走了三公里",
+            "source_message_ids": [
+              "H07-source"
+            ],
+            "source_span": "今天在河边走了三公里",
+            "verification": "SOURCE_EXACT",
+            "canonical_fact": {
+              "action": "WALK",
+              "location": "河边",
+              "distance": "三公里"
+            },
+            "verifier_version": "visual-grounding-v1",
+            "source_hashes": {
+              "H07-source": "0322350f496b298ef2235f5fe95caaa6ef0e371bab146dee40d2fe663476d7e4"
+            }
+          }
+        ],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "SAFE_SCENE",
+        "image_content_eligible": true,
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "egress_authorized": true,
+        "egress_status": "AUTHORIZED",
+        "image_dispatch_allowed": true,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "SAFE_SCENE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+          "visual_facts": [
+            {
+              "fact_type": "ACTION",
+              "statement": "今天在河边走了三公里",
+              "source_message_ids": [
+                "H07-source"
+              ],
+              "source_span": "今天在河边走了三公里",
+              "verification": "SOURCE_EXACT",
+              "canonical_fact": {
+                "action": "WALK",
+                "location": "河边",
+                "distance": "三公里"
+              },
+              "verifier_version": "visual-grounding-v1",
+              "source_hashes": {
+                "H07-source": "0322350f496b298ef2235f5fe95caaa6ef0e371bab146dee40d2fe663476d7e4"
+              }
+            }
+          ],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "有明确可见动作与地点，不添加天气"
+    },
+    {
+      "id": "H08",
+      "text": "今天独立修好了家里的旧台灯，第一次完成维修。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "SAFE_SCENE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "visual_facts": [
+          {
+            "fact_type": "ACTION",
+            "statement": "今天独立修好了家里的旧台灯",
+            "source_message_ids": [
+              "H08-source"
+            ],
+            "source_span": "今天独立修好了家里的旧台灯",
+            "verification": "SOURCE_EXACT",
+            "canonical_fact": {
+              "action": "REPAIR",
+              "object": "台灯",
+              "independent": true,
+              "condition": "OLD"
+            },
+            "verifier_version": "visual-grounding-v1",
+            "source_hashes": {
+              "H08-source": "b78828002e06c30535639e6f536361b4da584e8d13ae4f7a5bccdf2734754cce"
+            }
+          }
+        ],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "SAFE_SCENE",
+        "image_content_eligible": true,
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "egress_authorized": true,
+        "egress_status": "AUTHORIZED",
+        "image_dispatch_allowed": true,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "SAFE_SCENE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+          "visual_facts": [
+            {
+              "fact_type": "ACTION",
+              "statement": "今天独立修好了家里的旧台灯",
+              "source_message_ids": [
+                "H08-source"
+              ],
+              "source_span": "今天独立修好了家里的旧台灯",
+              "verification": "SOURCE_EXACT",
+              "canonical_fact": {
+                "action": "REPAIR",
+                "object": "台灯",
+                "independent": true,
+                "condition": "OLD"
+              },
+              "verifier_version": "visual-grounding-v1",
+              "source_hashes": {
+                "H08-source": "b78828002e06c30535639e6f536361b4da584e8d13ae4f7a5bccdf2734754cce"
+              }
+            }
+          ],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "有明确物体与动作"
+    },
+    {
+      "id": "H09",
+      "text": "今天画完了人生第一幅水彩画，想记住这个开始。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": true,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": true,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "画与绘画动作明确，局部场景不需要虚构人物"
+    },
+    {
+      "id": "H10",
+      "text": "今天完成写给自己的私密日记，里面有我的医疗秘密，不要发给其他服务。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "PRIVATE_SKIP",
+        "egress_preference": "DENY",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "PRIVATE_SKIP",
+        "image_content_eligible": false,
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "PRIVATE_SKIP",
+          "egress_preference": "DENY",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "私人或敏感内容不自动形成图片",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "仅限获准的敏感私人文字，不授权外发"
+    },
+    {
+      "id": "H11",
+      "text": "朋友今天告诉我她正在离婚，让我不要告诉别人。",
+      "local_judgment": {
+        "occurrence": "OTHER_OCCURRED",
+        "memorial": "SKIP",
+        "imageability": "PRIVATE_SKIP",
+        "egress_preference": "DENY",
+        "memorial_reason": "OTHER_PERSON_PRIVATE",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "OTHER_PERSON_PRIVATE",
+        "imageability": "PRIVATE_SKIP",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "OTHER_OCCURRED",
+          "memorial": "SKIP",
+          "imageability": "PRIVATE_SKIP",
+          "egress_preference": "DENY",
+          "memorial_reason": "OTHER_PERSON_PRIVATE",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "关系信任不等于可自动纪念他人秘密"
+    },
+    {
+      "id": "H12",
+      "text": "如果下周能骑车去海边就好了，现在只是想象。",
+      "local_judgment": {
+        "occurrence": "PLANNED",
+        "memorial": "SKIP",
+        "imageability": "NOT_APPLICABLE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "NON_OCCURRED_FUTURE",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "NON_OCCURRED_FUTURE",
+        "imageability": "NOT_APPLICABLE",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "PLANNED",
+          "memorial": "SKIP",
+          "imageability": "NOT_APPLICABLE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "NON_OCCURRED_FUTURE",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "愿望不等于已发生"
+    },
+    {
+      "id": "H13",
+      "text": "今天终于学会给自己织围巾，这是一个月坚持的成果。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "具体技能成果可有事实性画面"
+    },
+    {
+      "id": "H14",
+      "text": "今天我原谅了过去的自己，愿意按自己的节奏生活，只想留一段文字。",
+      "local_judgment": {
+        "occurrence": "SELF_INNER_CHANGE",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "DENY",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": true,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_INNER_CHANGE",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "DENY",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": true,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "内在变化不应被图像资格抹掉"
+    },
+    {
+      "id": "H15",
+      "text": "今天在公园跑了三公里，普通训练，没什么特别。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "SAFE_SCENE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "visual_facts": [
+          {
+            "fact_type": "ACTION",
+            "statement": "今天在公园跑了三公里",
+            "source_message_ids": [
+              "H15-source"
+            ],
+            "source_span": "今天在公园跑了三公里",
+            "verification": "SOURCE_EXACT",
+            "canonical_fact": {
+              "action": "RUN",
+              "location": "公园",
+              "distance": "三公里"
+            },
+            "verifier_version": "visual-grounding-v1",
+            "source_hashes": {
+              "H15-source": "3eb5ac747dcef1dd7b42705735e7064d50995ca6654be3ca6ac40fa3a247e663"
+            }
+          }
+        ],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "SAFE_SCENE",
+        "image_content_eligible": true,
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "egress_authorized": true,
+        "egress_status": "AUTHORIZED",
+        "image_dispatch_allowed": true,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "SAFE_SCENE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+          "visual_facts": [
+            {
+              "fact_type": "ACTION",
+              "statement": "今天在公园跑了三公里",
+              "source_message_ids": [
+                "H15-source"
+              ],
+              "source_span": "今天在公园跑了三公里",
+              "verification": "SOURCE_EXACT",
+              "canonical_fact": {
+                "action": "RUN",
+                "location": "公园",
+                "distance": "三公里"
+              },
+              "verifier_version": "visual-grounding-v1",
+              "source_hashes": {
+                "H15-source": "3eb5ac747dcef1dd7b42705735e7064d50995ca6654be3ca6ac40fa3a247e663"
+              }
+            }
+          ],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "普通锻炼可以不自动纪念；画面资格不等于纪念价值"
+    },
+    {
+      "id": "H16",
+      "text": "今天看见一只鸟，后来才发现那是模型生成的故事，不是我的经历。",
+      "local_judgment": {
+        "occurrence": "QUOTED_OR_GENERATED",
+        "memorial": "SKIP",
+        "imageability": "NOT_APPLICABLE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "NOT_SELF_OBSERVED_EVENT",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "NOT_SELF_OBSERVED_EVENT",
+        "imageability": "NOT_APPLICABLE",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "QUOTED_OR_GENERATED",
+          "memorial": "SKIP",
+          "imageability": "NOT_APPLICABLE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "NOT_SELF_OBSERVED_EVENT",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "生成故事不是真实经历"
+    },
+    {
+      "id": "H17",
+      "text": "今天我确诊了自己的疾病，只想私下记录认真治疗的决定。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "PRIVATE_SKIP",
+        "egress_preference": "DENY",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": true,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "PRIVATE_SKIP",
+        "image_content_eligible": false,
+        "image_reason": "私人或敏感内容不自动形成图片",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "PRIVATE_SKIP",
+          "egress_preference": "DENY",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "私人或敏感内容不自动形成图片",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": true,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "需要敏感文字授权，不自动外发"
+    },
+    {
+      "id": "H18",
+      "text": "今天在公园散步，第一次完整走完自己的路线。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "SAFE_SCENE",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "visual_facts": [
+          {
+            "fact_type": "ACTION",
+            "statement": "今天在公园散步",
+            "source_message_ids": [
+              "H18-source"
+            ],
+            "source_span": "今天在公园散步",
+            "verification": "SOURCE_EXACT",
+            "canonical_fact": {
+              "action": "WALK",
+              "location": "公园"
+            },
+            "verifier_version": "visual-grounding-v1",
+            "source_hashes": {
+              "H18-source": "70d73697d0d5fe03f8446735bae6b37e279308e9b215db6da815531ae5cd193e"
+            }
+          }
+        ],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "SAFE_SCENE",
+        "image_content_eligible": true,
+        "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+        "egress_authorized": true,
+        "egress_status": "AUTHORIZED",
+        "image_dispatch_allowed": true,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "SAFE_SCENE",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "仅使用带类型、来源片段和核验规则的明确动作事实",
+          "visual_facts": [
+            {
+              "fact_type": "ACTION",
+              "statement": "今天在公园散步",
+              "source_message_ids": [
+                "H18-source"
+              ],
+              "source_span": "今天在公园散步",
+              "verification": "SOURCE_EXACT",
+              "canonical_fact": {
+                "action": "WALK",
+                "location": "公园"
+              },
+              "verifier_version": "visual-grounding-v1",
+              "source_hashes": {
+                "H18-source": "70d73697d0d5fe03f8446735bae6b37e279308e9b215db6da815531ae5cd193e"
+              }
+            }
+          ],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "具体动作允许安全事实，不凭空新增人物"
+    },
+    {
+      "id": "H19",
+      "text": "今天在家烤好了第一个面包，我很珍惜这个小进步。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "KEEP_PRIVATE_TEXT",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "UNSPECIFIED",
+        "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": true,
+        "text_storage_authorized": true,
+        "storage_status": "PRIVATE_TEXT",
+        "reason_code": "P04_MEANINGFUL_EVENT",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "NOT_APPLICABLE",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "KEEP_PRIVATE_TEXT",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "UNSPECIFIED",
+          "memorial_reason": "沿用已保存的本人事件，纪念准入仍由P04判定",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "平凡生活可以有个人意义"
+    },
+    {
+      "id": "H20",
+      "text": "今天终于对过去释然，只希望留下文字，不要自动纪念或记录。",
+      "local_judgment": {
+        "occurrence": "SELF_OCCURRED",
+        "memorial": "SKIP",
+        "imageability": "TEXT_ONLY",
+        "egress_preference": "DENY",
+        "memorial_reason": "USER_DECLINED_MEMORIAL",
+        "image_reason": "尚无已核验视觉事实",
+        "visual_facts": [],
+        "contract_version": "recollection-policy-v2",
+        "explicit_private_request": false,
+        "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+      },
+      "p04_fixture": {
+        "eligible": true,
+        "reason_code": "MEANINGFUL_EVENT",
+        "model_reason_code": "MEANINGFUL_EVENT",
+        "score": 0.7625,
+        "dimensions": {
+          "personal_meaning": 0.85,
+          "uniqueness": 0.85,
+          "expressed_feeling": 0.85,
+          "event_clarity": 0.85,
+          "source_sufficiency": 0.85,
+          "window_relevance": 0.9,
+          "privacy_suitability": 0.1,
+          "novelty_or_development": 0.85
+        }
+      },
+      "decision": {
+        "contract_version": "recollection-policy-v2",
+        "memorial_eligible": false,
+        "text_storage_authorized": true,
+        "storage_status": "SKIP",
+        "reason_code": "USER_OR_POLICY_DECLINED",
+        "imageability": "TEXT_ONLY",
+        "image_content_eligible": false,
+        "image_reason": "尚无已核验视觉事实",
+        "egress_authorized": false,
+        "egress_status": "EVENT_DENIED",
+        "image_dispatch_allowed": false,
+        "judgment": {
+          "occurrence": "SELF_OCCURRED",
+          "memorial": "SKIP",
+          "imageability": "TEXT_ONLY",
+          "egress_preference": "DENY",
+          "memorial_reason": "USER_DECLINED_MEMORIAL",
+          "image_reason": "尚无已核验视觉事实",
+          "visual_facts": [],
+          "contract_version": "recollection-policy-v2",
+          "explicit_private_request": false,
+          "assessment_mode": "LOCAL_CONSERVATIVE_RULES"
+        }
+      },
+      "checks": {
+        "memorial": true,
+        "occurrence": true,
+        "image": true,
+        "egress": true,
+        "facts": true
+      },
+      "reference_note": "明确拒绝自动纪念优先"
+    }
+  ]
+}

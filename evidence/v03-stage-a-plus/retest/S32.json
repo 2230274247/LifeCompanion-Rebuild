@@ -1,0 +1,56 @@
+{
+  "id": "S32",
+  "split": "holdout",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "wish",
+          "quote": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "9b34198677eee753251fb93fcbe2f0371d863ca2c0ac46b3b5fef89e251a20a1"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.2,
+        "uniqueness": 0.1,
+        "expressed_feeling": 0.3,
+        "event_clarity": 0.1,
+        "source_sufficiency": 0.6,
+        "window_relevance": 0.5,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.1
+      },
+      "score": 0.334,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "NO_CLEAR_EVENT",
+      "source_message_ids": [
+        "wish"
+      ],
+      "evidence_quote": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+      "source_revision": 1,
+      "input_hash": "9b34198677eee753251fb93fcbe2f0371d863ca2c0ac46b3b5fef89e251a20a1"
+    }
+  ]
+}

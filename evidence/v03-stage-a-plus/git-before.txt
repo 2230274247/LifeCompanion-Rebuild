@@ -1,0 +1,123 @@
+ M .env.example
+ M .gitignore
+ M README.md
+ M apps/product-portal/favicon.svg
+ M apps/product-portal/index.html
+ M apps/product-portal/package.json
+ M apps/product-portal/portal.css
+ M apps/product-portal/portal.js
+ M apps/product-portal/run.ps1
+ M apps/product-portal/server.mjs
+ M docs/ACCEPTANCE_2026-11-04.md
+ M docs/ANDROID_PLAN.md
+ M docs/ARCHITECTURE.md
+ M docs/BLOCKERS.md
+ M docs/DECISIONS.md
+ M docs/RUNBOOK.md
+ M docs/UPSTREAM_BASELINE.md
+ M docs/UPSTREAM_DIFF.md
+ M docs/UPSTREAM_MANIFEST.md
+ M fixtures/README.md
+ M infra/compose.baseline.yaml
+ M services/life-core/app/__init__.py
+ M services/life-core/app/auth.py
+ M services/life-core/app/config.py
+ M services/life-core/app/extraction.py
+ M services/life-core/app/main.py
+ M services/life-core/app/memos.py
+ M services/life-core/app/store.py
+ M services/life-core/requirements.txt
+ M services/life-core/run.ps1
+ M services/life-core/tests/test_api.py
+ M services/life-core/tests/test_extraction.py
+ M tests/RESULTS.md
+?? AGENTS.md
+?? NEXT_ACTION.md
+?? WORKSPACE_LOCK.json
+?? WORK_LOG.md
+?? docs/DEVELOPMENT_LOG_POLICY.md
+?? docs/V02_IMPLEMENTATION.md
+?? docs/architecture/
+?? docs/design/
+?? docs/development-log/
+?? docs/product/
+?? docs/task-pack/
+?? evidence/p00/
+?? evidence/p01/
+?? evidence/p02-venv-freeze.txt
+?? evidence/p02/
+?? evidence/p03-dependencies-install.txt
+?? evidence/p03-scheduler-unit-test-final.txt
+?? evidence/p03-scheduler-unit-test-rerun.txt
+?? evidence/p03-scheduler-unit-test.txt
+?? evidence/p03-sqlalchemy-install.txt
+?? evidence/p03-workflow-first-test.txt
+?? evidence/p03-workflow-second-test.txt
+?? evidence/p03/
+?? evidence/p04/
+?? evidence/p05/
+?? evidence/v03-stage-a-plus/
+?? evidence/v03-stage-a/
+?? infra/compose.acceptance.yaml
+?? infra/compose.p02.yaml
+?? infra/compose.reminders.yaml
+?? infra/compose.spa.yaml
+?? infra/reminders.env.example
+?? logs/
+?? patches/
+?? scripts/
+?? services/life-core/app/graph.py
+?? services/life-core/app/graphiti_provider.py
+?? services/life-core/app/memory.py
+?? services/life-core/app/memory_model_audit.py
+?? services/life-core/app/moment_semantics.py
+?? services/life-core/app/moment_windows.py
+?? services/life-core/app/moments.py
+?? services/life-core/app/provisioning.py
+?? services/life-core/app/recollection_scoring.py
+?? services/life-core/app/reminder_chat.py
+?? services/life-core/app/reminder_drafts.py
+?? services/life-core/app/reminder_intent.py
+?? services/life-core/app/reminder_parser.py
+?? services/life-core/app/reminder_scheduler.py
+?? services/life-core/app/reminder_workflow.py
+?? services/life-core/app/reminders.py
+?? services/life-core/app/tool_chat.py
+?? services/life-core/app/tools.py
+?? services/life-core/requirements-p02.txt
+?? services/life-core/requirements-p03.txt
+?? services/life-core/tests/test_llm_provider.py
+?? services/life-core/tests/test_memory_pipeline.py
+?? services/life-core/tests/test_memory_relationships.py
+?? services/life-core/tests/test_memos.py
+?? services/life-core/tests/test_moment_privacy.py
+?? services/life-core/tests/test_provisioning_stdin.py
+?? services/life-core/tests/test_recollection_scoring.py
+?? services/life-core/tests/test_reminder_business_workflow.py
+?? services/life-core/tests/test_reminder_delivery_recovery.py
+?? services/life-core/tests/test_reminder_drafts.py
+?? services/life-core/tests/test_reminder_workflow.py
+?? services/life-core/tests/test_reminders.py
+?? services/life-core/tests/test_tool_chat.py
+?? services/life-core/tests/test_tools.py
+?? services/life-core/tests/test_v023_memory.py
+?? services/life-core/tests/test_v023_moments.py
+?? services/life-core/tests/test_v023_reminders.py
+?? services/life-core/tests/test_v03_recovery.py
+?? services/life-core/tests/test_v03_selection.py
+?? services/life-core/tests/test_v03_windows.py
+?? tests/bootstrap-isolated-accounts.py
+?? tests/gateway.test.mjs
+?? tests/lighthouse-errors.test.cjs
+?? tests/live-delivery-v022.py
+?? tests/live-life-reminders-v021.py
+?? tests/live-memory-v021.py
+?? tests/live-p02-memory.py
+?? tests/live-reminder-dialog-v022.py
+?? tests/live-reminder-withdrawal-v021.py
+?? tests/live-spa-reminders-v021.py
+?? tests/live-v02.py
+?? tests/live-v023.py
+?? tests/live-vikunja-ntfy-v021.py
+?? tests/live-zhipu-v022.py
+?? tests/test_workspace_guard.py

@@ -1,0 +1,56 @@
+{
+  "id": "S09",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天终于想通并决定尊重自己的边界，不再用别人的评价衡量自己，我想记下这个转变。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "boundary",
+          "quote": "今天终于想通并决定尊重自己的边界，不再用别人的评价衡量自己，我想记下这个转变。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "32bb0d7891da9bd8ce4e6aafded1960f0e64c63cce69803d505613765bebb30f"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.9,
+        "uniqueness": 0.8,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.85
+      },
+      "score": 0.84,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "boundary"
+      ],
+      "evidence_quote": "今天终于想通并决定尊重自己的边界，不再用别人的评价衡量自己，我想记下这个转变。",
+      "source_revision": 1,
+      "input_hash": "32bb0d7891da9bd8ce4e6aafded1960f0e64c63cce69803d505613765bebb30f"
+    }
+  ]
+}

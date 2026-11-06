@@ -1,0 +1,45 @@
+{
+  "id": "S15",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "这是我转贴的AI建议：明天去公园跑三公里吧。我没有去。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "advice",
+          "quote": "这是我转贴的AI建议：明天去公园跑三公里吧。我没有去。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "61d8715c92c77c775aa596be0b0c0519e48a8ba14b28117e75a5cea49ba5f841"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是转贴AI建议且未执行，没有真实发生的事件或内在改变。",
+      "imageability": "PRIVATE_SKIP",
+      "image_reason": "内容为AI建议与未行动，无可用的真实场景，且属转贴建议不宜成卡。",
+      "source_message_ids": [
+        "advice"
+      ],
+      "evidence_quote": "这是我转贴的AI建议：明天去公园跑三公里吧。我没有去。",
+      "visual_facts": []
+    }
+  ]
+}

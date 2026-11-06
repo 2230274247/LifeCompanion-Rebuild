@@ -1,0 +1,56 @@
+{
+  "id": "S22",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天终于给自己留了十分钟，在窗边喝茶看树，我想记住第一次认真照顾自己的这个小片刻。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "tea",
+          "quote": "今天终于给自己留了十分钟，在窗边喝茶看树，我想记住第一次认真照顾自己的这个小片刻。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "4688a83b390bbcabd196951287fb2e47e7af889826ffb87e8993e4f5ebec1f8b"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.85,
+        "uniqueness": 0.7,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.8,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.75
+      },
+      "score": 0.816,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "tea"
+      ],
+      "evidence_quote": "今天终于给自己留了十分钟，在窗边喝茶看树，我想记住第一次认真照顾自己的这个小片刻。",
+      "source_revision": 1,
+      "input_hash": "4688a83b390bbcabd196951287fb2e47e7af889826ffb87e8993e4f5ebec1f8b"
+    }
+  ]
+}

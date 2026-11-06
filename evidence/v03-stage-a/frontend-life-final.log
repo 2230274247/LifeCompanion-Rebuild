@@ -1,0 +1,303 @@
+PASS src/components/Life/__tests__/ToolCards.spec.tsx (44.356 s)
+  ● Console
+
+    console.error
+      Error: network
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\ToolCards.spec.tsx:129:58)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/Memories.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\Memories.spec.tsx:98:28)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/Reminders.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream unavailable
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\Reminders.spec.tsx:99:58)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/V023.spec.tsx
+  ● Console
+
+    console.error
+      Error: AggregateError
+          at Object.dispatchError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:62:19)
+          at Request.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\XMLHttpRequest-impl.js:655:18)
+          at Request.emit (node:events:531:35)
+          at ClientRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\http-request.js:127:14)
+          at ClientRequest.emit (node:events:519:28)
+          at emitErrorEvent (node:_http_client:107:11)
+          at Socket.socketErrorListener (node:_http_client:574:5)
+          at Socket.emit (node:events:519:28)
+          at emitErrorNT (node:internal/streams/destroy:170:8)
+          at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+          at processTicksAndRejections (node:internal/process/task_queues:90:21) {
+        type: 'XMLHttpRequest'
+      }
+
+      at VirtualConsole.<anonymous> (../node_modules/@jest/environment-jsdom-abstract/build/index.js:91:27)
+      at Object.dispatchError (../node_modules/jsdom/lib/jsdom/living/xhr/xhr-utils.js:65:53)
+      at Request.<anonymous> (../node_modules/jsdom/lib/jsdom/living/xhr/XMLHttpRequest-impl.js:655:18)
+      at ClientRequest.<anonymous> (../node_modules/jsdom/lib/jsdom/living/helpers/http-request.js:127:14)
+
+    console.error
+      AxiosError: Network Error
+          at XMLHttpRequest.handleError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\axios\dist\browser\axios.cjs:3797:21)
+          at XMLHttpRequest.invokeTheCallbackFunction (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\generated\EventHandlerNonNull.js:14:28)
+          at XMLHttpRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\create-event-accessor.js:35:32)
+          at innerInvokeEventListeners (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:350:25)
+          at invokeEventListeners (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:286:3)
+          at XMLHttpRequestImpl._dispatch (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:233:9)
+          at fireAnEvent (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\events.js:18:36)
+          at requestErrorSteps (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:130:3)
+          at Object.dispatchError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:59:3)
+          at Request.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\XMLHttpRequest-impl.js:655:18)
+          at Request.emit (node:events:531:35)
+          at ClientRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\http-request.js:127:14)
+          at ClientRequest.emit (node:events:519:28)
+          at emitErrorEvent (node:_http_client:107:11)
+          at Socket.socketErrorListener (node:_http_client:574:5)
+          at Socket.emit (node:events:519:28)
+          at emitErrorNT (node:internal/streams/destroy:170:8)
+          at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+          at processTicksAndRejections (node:internal/process/task_queues:90:21)
+          at Axios.request (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\axios\dist\browser\axios.cjs:5251:43)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object._get [as get] (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\packages\data-provider\src\request.ts:10:10) {
+        isAxiosError: true,
+        code: 'ERR_NETWORK',
+        config: [Object: null prototype] {
+          transitional: {
+            silentJSONParsing: true,
+            forcedJSONParsing: true,
+            clarifyTimeoutError: false,
+            legacyInterceptorReqResOrdering: true,
+            advertiseZstdAcceptEncoding: false,
+            validateStatusUndefinedResolves: true
+          },
+          adapter: [ 'xhr', 'http', 'fetch' ],
+          transformRequest: [ [Function: transformRequest] ],
+          transformResponse: [ [Function: transformResponse] ],
+          timeout: 0,
+          xsrfCookieName: 'XSRF-TOKEN',
+          xsrfHeaderName: 'X-XSRF-TOKEN',
+          maxContentLength: -1,
+          maxBodyLength: -1,
+          env: { FormData: [class FormData], Blob: [class Blob] },
+          validateStatus: [Function: validateStatus],
+          headers: Object [AxiosHeaders] {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': undefined
+          },
+          signal: AbortSignal {},
+          method: 'get',
+          url: '/life-api/api/v1/tool-chats?conversation_id=chat-a',
+          allowAbsoluteUrls: true,
+          data: undefined
+        },
+        request: XMLHttpRequest {},
+        event: ProgressEvent { isTrusted: [Getter] }
+      }
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+    console.error
+      Error: synthetic outage
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\V023.spec.tsx:94:68)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at runNextTicks (node:internal/process/task_queues:65:5)
+          at listOnTimeout (node:internal/timers:549:9)
+          at processTimers (node:internal/timers:523:7)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+    console.error
+      Error: AggregateError
+          at Object.dispatchError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:62:19)
+          at Request.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\XMLHttpRequest-impl.js:655:18)
+          at Request.emit (node:events:531:35)
+          at ClientRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\http-request.js:127:14)
+          at ClientRequest.emit (node:events:519:28)
+          at emitErrorEvent (node:_http_client:107:11)
+          at Socket.socketErrorListener (node:_http_client:574:5)
+          at Socket.emit (node:events:519:28)
+          at emitErrorNT (node:internal/streams/destroy:170:8)
+          at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+          at processTicksAndRejections (node:internal/process/task_queues:90:21) {
+        type: 'XMLHttpRequest'
+      }
+
+      at VirtualConsole.<anonymous> (../node_modules/@jest/environment-jsdom-abstract/build/index.js:91:27)
+      at Object.dispatchError (../node_modules/jsdom/lib/jsdom/living/xhr/xhr-utils.js:65:53)
+      at Request.<anonymous> (../node_modules/jsdom/lib/jsdom/living/xhr/XMLHttpRequest-impl.js:655:18)
+      at ClientRequest.<anonymous> (../node_modules/jsdom/lib/jsdom/living/helpers/http-request.js:127:14)
+
+    console.error
+      AxiosError: Network Error
+          at XMLHttpRequest.handleError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\axios\dist\browser\axios.cjs:3797:21)
+          at XMLHttpRequest.invokeTheCallbackFunction (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\generated\EventHandlerNonNull.js:14:28)
+          at XMLHttpRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\create-event-accessor.js:35:32)
+          at innerInvokeEventListeners (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:350:25)
+          at invokeEventListeners (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:286:3)
+          at XMLHttpRequestImpl._dispatch (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\events\EventTarget-impl.js:233:9)
+          at fireAnEvent (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\events.js:18:36)
+          at requestErrorSteps (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:130:3)
+          at Object.dispatchError (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\xhr-utils.js:59:3)
+          at Request.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\xhr\XMLHttpRequest-impl.js:655:18)
+          at Request.emit (node:events:531:35)
+          at ClientRequest.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jsdom\lib\jsdom\living\helpers\http-request.js:127:14)
+          at ClientRequest.emit (node:events:519:28)
+          at emitErrorEvent (node:_http_client:107:11)
+          at Socket.socketErrorListener (node:_http_client:574:5)
+          at Socket.emit (node:events:519:28)
+          at emitErrorNT (node:internal/streams/destroy:170:8)
+          at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+          at processTicksAndRejections (node:internal/process/task_queues:90:21)
+          at Axios.request (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\axios\dist\browser\axios.cjs:5251:43)
+          at processTicksAndRejections (node:internal/process/task_queues:105:5)
+          at Object._get [as get] (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\packages\data-provider\src\request.ts:10:10) {
+        isAxiosError: true,
+        code: 'ERR_NETWORK',
+        config: [Object: null prototype] {
+          transitional: {
+            silentJSONParsing: true,
+            forcedJSONParsing: true,
+            clarifyTimeoutError: false,
+            legacyInterceptorReqResOrdering: true,
+            advertiseZstdAcceptEncoding: false,
+            validateStatusUndefinedResolves: true
+          },
+          adapter: [ 'xhr', 'http', 'fetch' ],
+          transformRequest: [ [Function: transformRequest] ],
+          transformResponse: [ [Function: transformResponse] ],
+          timeout: 0,
+          xsrfCookieName: 'XSRF-TOKEN',
+          xsrfHeaderName: 'X-XSRF-TOKEN',
+          maxContentLength: -1,
+          maxBodyLength: -1,
+          env: { FormData: [class FormData], Blob: [class Blob] },
+          validateStatus: [Function: validateStatus],
+          headers: Object [AxiosHeaders] {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': undefined
+          },
+          signal: AbortSignal {},
+          method: 'get',
+          url: '/life-api/api/v1/tool-chats?conversation_id=chat-a',
+          allowAbsoluteUrls: true,
+          data: undefined
+        },
+        request: XMLHttpRequest {},
+        event: ProgressEvent { isTrusted: [Getter] }
+      }
+
+      at Object.error [as onError] (../node_modules/@tanstack/query-core/src/query.ts:446:23)
+      at onError (../node_modules/@tanstack/query-core/src/retryer.ts:112:14)
+      at reject (../node_modules/@tanstack/query-core/src/retryer.ts:174:11)
+
+PASS src/components/Life/__tests__/Knowledge.spec.tsx
+  ● Console
+
+    console.error
+      Error: upstream failed
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\Knowledge.spec.tsx:57:55)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+
+PASS src/components/Life/__tests__/ReminderCards.spec.tsx
+  ● Console
+
+    console.error
+      Error: network
+          at Object.<anonymous> (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\client\src\components\Life\__tests__\ReminderCards.spec.tsx:144:68)
+          at Promise.finally.completed (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1557:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1497:10)
+          at _callCircusTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1007:40)
+          at _runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:947:3)
+          at H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:849:7
+          at _runTestsForDescribeBlock (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:862:11)
+          at run (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:761:3)
+          at runAndTransformResultsToJestFormat (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\jestAdapterInit.js:1918:21)
+          at jestAdapter (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-circus\build\runner.js:103:25)
+          at runTestInternal (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:300:22)
+          at runTest (H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\node_modules\jest\node_modules\jest-runner\build\index.js:368:13)
+
+      at Mutation.error [as execute] (../node_modules/@tanstack/query-core/src/mutation.ts:261:23)
+

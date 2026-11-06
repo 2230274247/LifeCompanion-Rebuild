@@ -1,0 +1,101 @@
+{
+  "id": "S29",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "同事私下告诉我他的病情，明确让我不要告诉别人。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "secret",
+          "quote": "同事私下告诉我他的病情，明确让我不要告诉别人。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "238d526f458328f725d3798ddaec413eb6765c43e3ab69721e18e29d568612fc"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天在阳台第一次拍到小鸟来吃我准备的谷物，我很惊喜。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "bird",
+          "quote": "今天在阳台第一次拍到小鸟来吃我准备的谷物，我很惊喜。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "f228d1ae8d3b0727117337dea423466f2427fc5146b93873eb4f206a48df0965"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m01",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.7,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.9,
+        "window_relevance": 1.0,
+        "privacy_suitability": 1.0,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.796,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "bird"
+      ],
+      "evidence_quote": "今天在阳台第一次拍到小鸟来吃我准备的谷物，我很惊喜。",
+      "source_revision": 1,
+      "input_hash": "f228d1ae8d3b0727117337dea423466f2427fc5146b93873eb4f206a48df0965"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.4,
+        "uniqueness": 0.3,
+        "expressed_feeling": 0.1,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.0,
+        "novelty_or_development": 0.2
+      },
+      "score": 0.412,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "secret"
+      ],
+      "evidence_quote": "同事私下告诉我他的病情，明确让我不要告诉别人。",
+      "source_revision": 1,
+      "input_hash": "238d526f458328f725d3798ddaec413eb6765c43e3ab69721e18e29d568612fc"
+    }
+  ]
+}

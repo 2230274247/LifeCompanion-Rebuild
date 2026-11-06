@@ -1,0 +1,455 @@
+
+=================================== ERRORS ====================================
+_____________________ ERROR collecting tests/test_api.py ______________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_api.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+______________ ERROR collecting tests/test_direct_moment_test.py ______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_direct_moment_test.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_direct_moment_test.py:8: in <module>
+    from test_api import bootstrap, make_app
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_____________ ERROR collecting tests/test_memory_open_language.py _____________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memory_open_language.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_memory_open_language.py:8: in <module>
+    from app.memory import Candidate
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_______________ ERROR collecting tests/test_memory_pipeline.py ________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memory_pipeline.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_memory_pipeline.py:3: in <module>
+    from test_api import bootstrap, make_app, token_for
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_____________ ERROR collecting tests/test_memory_relationships.py _____________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_memory_relationships.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_memory_relationships.py:3: in <module>
+    from app.memory import Candidate, MemoryEntity, MemoryRelation
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_______________ ERROR collecting tests/test_moment_fidelity.py ________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_moment_fidelity.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_moment_fidelity.py:7: in <module>
+    from app.moment_fidelity import (
+app\moment_fidelity.py:11: in <module>
+    from .recollection_prompt import PromptBlocked
+app\recollection_prompt.py:11: in <module>
+    from .memory import digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+______________ ERROR collecting tests/test_moment_idempotency.py ______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_moment_idempotency.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_moment_idempotency.py:7: in <module>
+    from test_v03_windows import build
+tests\test_v03_windows.py:10: in <module>
+    from PIL import Image
+E   ModuleNotFoundError: No module named 'PIL'
+________________ ERROR collecting tests/test_moment_privacy.py ________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_moment_privacy.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_moment_privacy.py:7: in <module>
+    from app.image_provider import ImageProviderError
+app\image_provider.py:15: in <module>
+    from PIL import Image, UnidentifiedImageError
+E   ModuleNotFoundError: No module named 'PIL'
+______________ ERROR collecting tests/test_provisioning_stdin.py ______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_provisioning_stdin.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_provisioning_stdin.py:3: in <module>
+    from app.provisioning import ReminderProvisioning
+app\provisioning.py:14: in <module>
+    from .reminders import ReminderPermissionError, ReminderUpstreamError
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+__________ ERROR collecting tests/test_recollection_authorization.py __________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_recollection_authorization.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_recollection_authorization.py:8: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_____________ ERROR collecting tests/test_recollection_prompt.py ______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_recollection_prompt.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_recollection_prompt.py:8: in <module>
+    from app.recollection_prompt import (
+app\recollection_prompt.py:11: in <module>
+    from .memory import digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_____________ ERROR collecting tests/test_recollection_scoring.py _____________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_recollection_scoring.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_recollection_scoring.py:10: in <module>
+    from app.moments import MomentSettings, Moments
+app\moments.py:15: in <module>
+    from .image_provider import (
+app\image_provider.py:15: in <module>
+    from PIL import Image, UnidentifiedImageError
+E   ModuleNotFoundError: No module named 'PIL'
+___________ ERROR collecting tests/test_recollection_separation.py ____________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_recollection_separation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_recollection_separation.py:8: in <module>
+    from app.moments import Moments
+app\moments.py:15: in <module>
+    from .image_provider import (
+app\image_provider.py:15: in <module>
+    from PIL import Image, UnidentifiedImageError
+E   ModuleNotFoundError: No module named 'PIL'
+__________ ERROR collecting tests/test_reminder_business_workflow.py __________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_business_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_reminder_business_workflow.py:7: in <module>
+    from app.reminder_drafts import ReminderDrafts
+app\reminder_drafts.py:14: in <module>
+    from .reminders import ReminderPermissionError, ReminderUpstreamError
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+__________ ERROR collecting tests/test_reminder_delivery_recovery.py __________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_delivery_recovery.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_reminder_delivery_recovery.py:8: in <module>
+    from app.reminders import ReminderService
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+_______________ ERROR collecting tests/test_reminder_drafts.py ________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_drafts.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_reminder_drafts.py:7: in <module>
+    from app.provisioning import protect, unprotect
+app\provisioning.py:14: in <module>
+    from .reminders import ReminderPermissionError, ReminderUpstreamError
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+______________ ERROR collecting tests/test_reminder_workflow.py _______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminder_workflow.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_reminder_workflow.py:1: in <module>
+    from apscheduler.schedulers.background import BackgroundScheduler
+E   ModuleNotFoundError: No module named 'apscheduler'
+__________________ ERROR collecting tests/test_reminders.py ___________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_reminders.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_reminders.py:12: in <module>
+    from app.reminders import ReminderService
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+__________________ ERROR collecting tests/test_tool_chat.py ___________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_tool_chat.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_tool_chat.py:8: in <module>
+    from test_api import bootstrap, make_app
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+____________________ ERROR collecting tests/test_tools.py _____________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_tools.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_tools.py:2: in <module>
+    from test_api import bootstrap, make_app
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_________________ ERROR collecting tests/test_v023_memory.py __________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_memory.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v023_memory.py:4: in <module>
+    from test_api import bootstrap, make_app
+tests\test_api.py:12: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_________________ ERROR collecting tests/test_v023_moments.py _________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_moments.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v023_moments.py:8: in <module>
+    from PIL import Image
+E   ModuleNotFoundError: No module named 'PIL'
+________________ ERROR collecting tests/test_v023_reminders.py ________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v023_reminders.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v023_reminders.py:21: in <module>
+    from app.reminder_drafts import preview
+app\reminder_drafts.py:14: in <module>
+    from .reminders import ReminderPermissionError, ReminderUpstreamError
+app\reminders.py:14: in <module>
+    from .reminder_workflow import ReminderWorkflow
+app\reminder_workflow.py:8: in <module>
+    from langgraph.checkpoint.sqlite import SqliteSaver
+E   ModuleNotFoundError: No module named 'langgraph'
+_______________ ERROR collecting tests/test_v03_moment_media.py _______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_moment_media.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v03_moment_media.py:6: in <module>
+    from PIL import Image
+E   ModuleNotFoundError: No module named 'PIL'
+_________________ ERROR collecting tests/test_v03_recovery.py _________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_recovery.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v03_recovery.py:15: in <module>
+    from app.main import create_app
+app\main.py:33: in <module>
+    from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+________________ ERROR collecting tests/test_v03_selection.py _________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_selection.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v03_selection.py:8: in <module>
+    from app.moments import Moments
+app\moments.py:15: in <module>
+    from .image_provider import (
+app\image_provider.py:15: in <module>
+    from PIL import Image, UnidentifiedImageError
+E   ModuleNotFoundError: No module named 'PIL'
+______________ ERROR collecting tests/test_v03_semantic_eval.py _______________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_semantic_eval.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v03_semantic_eval.py:9: in <module>
+    from v03_semantic_eval import (
+..\..\scripts\v03_semantic_eval.py:22: in <module>
+    from app.moment_semantics import group_items, merge_group
+app\moment_semantics.py:8: in <module>
+    from .memory import digest, normalized
+app\memory.py:14: in <module>
+    from .graph import GraphProjector
+app\graph.py:5: in <module>
+    from neo4j import GraphDatabase
+E   ModuleNotFoundError: No module named 'neo4j'
+_________________ ERROR collecting tests/test_v03_windows.py __________________
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_windows.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_v03_windows.py:10: in <module>
+    from PIL import Image
+E   ModuleNotFoundError: No module named 'PIL'
+============================== warnings summary ===============================
+..\..\..\..\services\life-core\.venv\Lib\site-packages\fastapi\testclient.py:1
+  H:\AI For research institute\LifeCompanion-Rebuild\services\life-core\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR tests/test_api.py
+ERROR tests/test_direct_moment_test.py
+ERROR tests/test_memory_open_language.py
+ERROR tests/test_memory_pipeline.py
+ERROR tests/test_memory_relationships.py
+ERROR tests/test_moment_fidelity.py
+ERROR tests/test_moment_idempotency.py
+ERROR tests/test_moment_privacy.py
+ERROR tests/test_provisioning_stdin.py
+ERROR tests/test_recollection_authorization.py
+ERROR tests/test_recollection_prompt.py
+ERROR tests/test_recollection_scoring.py
+ERROR tests/test_recollection_separation.py
+ERROR tests/test_reminder_business_workflow.py
+ERROR tests/test_reminder_delivery_recovery.py
+ERROR tests/test_reminder_drafts.py
+ERROR tests/test_reminder_workflow.py
+ERROR tests/test_reminders.py
+ERROR tests/test_tool_chat.py
+ERROR tests/test_tools.py
+ERROR tests/test_v023_memory.py
+ERROR tests/test_v023_moments.py
+ERROR tests/test_v023_reminders.py
+ERROR tests/test_v03_moment_media.py
+ERROR tests/test_v03_recovery.py
+ERROR tests/test_v03_selection.py
+ERROR tests/test_v03_semantic_eval.py
+ERROR tests/test_v03_windows.py
+!!!!!!!!!!!!!!!!!! Interrupted: 28 errors during collection !!!!!!!!!!!!!!!!!!!
+1 warning, 28 errors in 5.60s

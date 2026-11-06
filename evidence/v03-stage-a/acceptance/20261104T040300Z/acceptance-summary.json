@@ -1,0 +1,37 @@
+{
+  "acceptance_dir": "H:\\AI For research institute\\LifeCompanion-Rebuild\\.work\\p00-p07-20261103\\evidence\\v03-stage-a\\acceptance\\20261104T040300Z",
+  "decision": "SELECTED",
+  "scoring_mode": "MOCK_SCORING",
+  "selected_sources": [
+    "run-a",
+    "run-b",
+    "run-c"
+  ],
+  "selected_quotes": [
+    "今天早上在公园跑了三公里，回来感觉精神很好。",
+    "早晨在公园跑步三公里，真的很放松。",
+    "今天上午在公园跑了三公里，特别开心。"
+  ],
+  "reading": {
+    "outcome": "NOT_SELECTED",
+    "reason_code": "LOWER_RANK",
+    "score": 0.814
+  },
+  "breakfast": {
+    "outcome": "EXCLUDED",
+    "reason_code": "LOW_PERSONAL_MEANING",
+    "score": 0.504
+  },
+  "model_call_count": 1,
+  "request_paths": [
+    "/v1/chat/completions"
+  ],
+  "image_worker_changed_data": false,
+  "moment_rows": 4,
+  "business_key_index_present": true,
+  "business_key_sql": "CREATE UNIQUE INDEX idx_moment_business_key\n                    ON moments(user_id,local_date,slot) WHERE local_date IS NOT NULL",
+  "schedule_cursor_utc": "2026-11-04T03:00:00+00:00",
+  "schedule_timezone": "Asia/Hong_Kong",
+  "last_slot_has_late_checked_at": true,
+  "browser_console_log": ""
+}

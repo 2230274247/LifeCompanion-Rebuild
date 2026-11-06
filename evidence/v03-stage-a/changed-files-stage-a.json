@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-11-04T04:03:48.8281744Z",
+  "baseline": "evidence/v03-stage-a/before plus explicit stage-A additions",
+  "changed": [
+    {
+      "path": ".env.example",
+      "status": "MODIFIED",
+      "before_sha256": "0575499d28c48b683025844c463cfa939b15ec358da61224d627a916f0c263f6",
+      "after_sha256": "2e129e11e0bec44302ffb5da1d735458d44d8330111a6701c5c6cfe40c522c17"
+    },
+    {
+      "path": "services/life-core/app/config.py",
+      "status": "MODIFIED",
+      "before_sha256": "822326e30e1d4ede48d79d8a9ca0b9d3daaa4fa94253f5d95060cd03fe4ed357",
+      "after_sha256": "e29bb659743742e1007c9a92f928240eaaaa35983a9d4769f01a76aa6be974c5"
+    },
+    {
+      "path": "services/life-core/app/main.py",
+      "status": "MODIFIED",
+      "before_sha256": "f4690a26b7ec10ce4555387120b3acab042563b59bba481d206c6cf9ea2bd723",
+      "after_sha256": "36290b7fda484d45f69dccc64749cc4ccc48a5b669f3afb4bd021747049546b7"
+    },
+    {
+      "path": "services/life-core/app/moments.py",
+      "status": "MODIFIED",
+      "before_sha256": "72bfb0a22164b9bc442d8a0d3bf72f4051fb8e2a090cd5bc7e8fd2009ad2e235",
+      "after_sha256": "ba035d2a0e6b2fc1ae5a0f39cd88665b461b78484916618a1f8ffcfe7ae97671"
+    },
+    {
+      "path": "services/life-core/app/recollection_scoring.py",
+      "status": "MODIFIED",
+      "before_sha256": "5a5175a2e30119d270f8292dc8cc409f7ff5055f966435bd8ae6948710920780",
+      "after_sha256": "6f5200fe4fc9c6b40d0524ad94e2e8d9a2b1706819265306a55589b6e3a22d34"
+    },
+    {
+      "path": "services/life-core/app/reminder_scheduler.py",
+      "status": "MODIFIED",
+      "before_sha256": "2080b02076ddf2abf2374dbfed1c0f85801e78cab99381f7cf6cfecc4e3290d6",
+      "after_sha256": "d3112a026b5b637a7e69f5644c5176daf501748210fbc7eca3ba764413f3a3d1"
+    },
+    {
+      "path": "services/life-core/app/moment_windows.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "af73c4fb8a6b49f7cfd913fd0213a85c343c8ddf8b17148544970c960ffbfb47"
+    },
+    {
+      "path": "services/life-core/app/moment_semantics.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "dea53f79fad7aee4a7254e17de7f95b94b7dd298ac6a7bb7d01dc4186a7f0056"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_windows.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4fc15fab8b2a674987175adec503f5bbc866f546badb5a01086006b25ba24a69"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_selection.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "17c765220ccd58710b035885328333be815657c11d0cae6c533be7aa9c360d9e"
+    },
+    {
+      "path": "services/life-core/tests/test_v03_recovery.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "4741d473775e50f732e908282e197e2923b1edfa7cbd5312b297a7a0612bd8e6"
+    },
+    {
+      "path": "evidence/v03-stage-a/run_stage_a_acceptance.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "82c662d2a85cba349bf95b7dca7c340b855a3f948cebfffa41d07820b935e40a"
+    },
+    {
+      "path": "evidence/v03-stage-a/capture_review.cjs",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "21225ac0f1a965a376f0f6ed36d330685d6d337e89c37421b37e794990946f90"
+    },
+    {
+      "path": "evidence/v03-stage-a/run_migration_evidence.py",
+      "status": "ADDED",
+      "before_sha256": null,
+      "after_sha256": "38d430792248dcac0c3249dd6af594438825f5b05c6f234031403b21fab7e89b"
+    }
+  ],
+  "evidence_directory": "evidence/v03-stage-a/",
+  "documents_pending": [
+    "docs/development-log/README.md",
+    "new stage-A development log",
+    "docs/product/README.md if index changed"
+  ]
+}

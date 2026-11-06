@@ -1,0 +1,12 @@
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+................................                                         [100%]
+============================== warnings summary ===============================
+services/life-core/tests/test_memory_pipeline.py::test_langmem_fabricated_source_is_rejected
+  H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\infra\runtime\p02\venv\Lib\site-packages\trustcall\_base.py:46: LangGraphDeprecatedSinceV10: Importing Send from langgraph.constants is deprecated. Please use 'from langgraph.types import Send' instead. Deprecated in LangGraph V1.0 to be removed in V2.0.
+    from langgraph.constants import Send
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\evidence\v03-stage-a-plus-plus\backend-final-after-fix.xml -
+248 passed, 1 warning in 105.09s (0:01:45)

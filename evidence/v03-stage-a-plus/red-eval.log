@@ -1,0 +1,16 @@
+
+=================================== ERRORS ====================================
+_____ ERROR collecting services/life-core/tests/test_v03_semantic_eval.py _____
+ImportError while importing test module 'H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\services\life-core\tests\test_v03_semantic_eval.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\Administrator\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\life-core\tests\test_v03_semantic_eval.py:9: in <module>
+    from v03_semantic_eval import BudgetLedger, pair_counts, selection_metrics, validate_axes
+E   ModuleNotFoundError: No module named 'v03_semantic_eval'
+=========================== short test summary info ===========================
+ERROR services/life-core/tests/test_v03_semantic_eval.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.51s

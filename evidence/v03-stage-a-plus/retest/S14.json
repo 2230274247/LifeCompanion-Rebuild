@@ -1,0 +1,56 @@
+{
+  "id": "S14",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "我计划明天第一次去公园跑三公里，现在还没开始。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "future",
+          "quote": "我计划明天第一次去公园跑三公里，现在还没开始。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "df7ffda5b144f4a7729f1afde21f0db7496c5b7f46f418f5cf725c7b3f2fb327"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.3,
+        "uniqueness": 0.3,
+        "expressed_feeling": 0.1,
+        "event_clarity": 0.4,
+        "source_sufficiency": 0.6,
+        "window_relevance": 0.5,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.3
+      },
+      "score": 0.398,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "NO_CLEAR_EVENT",
+      "source_message_ids": [
+        "future"
+      ],
+      "evidence_quote": "我计划明天第一次去公园跑三公里，现在还没开始。",
+      "source_revision": 1,
+      "input_hash": "df7ffda5b144f4a7729f1afde21f0db7496c5b7f46f418f5cf725c7b3f2fb327"
+    }
+  ]
+}

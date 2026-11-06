@@ -1,0 +1,38 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+_ test_unverified_visual_phrase_downgrades_only_its_candidate_without_losing_text _
+
+    def test_unverified_visual_phrase_downgrades_only_its_candidate_without_losing_text():
+        inputs = [
+            {"memory_id": "a", "sources": [
+                {"message_id": "a-source", "quote": "��������޺��˾���������"}
+            ]},
+            {"memory_id": "b", "sources": [
+                {"message_id": "b-source", "quote": "��������̨����������������"}
+            ]},
+        ]
+        def value(identifier, quote, fact):
+            return dict(memory_id=identifier, memorial="KEEP", memorial_reason="����Ƭ��",
+                        imageability="SAFE_SCENE", image_reason="���嶯��",
+                        source_message_ids=[identifier + "-source"], evidence_quote=quote,
+                        visual_facts=[fact])
+        body = {"candidates": [
+            value("a", "�����޺��˾�������", "�����޺�������"),
+            value("b", "����̨��������������", "��������"),
+        ]}
+        grounded = gate_axes(body, inputs)
+        assert grounded[0]["memorial"] == "KEEP"
+        assert grounded[0]["imageability"] == "TEXT_ONLY"
+        assert grounded[0]["visual_facts"] == []
+        assert grounded[0]["gate_reason"] == "UNVERIFIED_VISUAL_FACT"
+        assert grounded[1]["imageability"] == "SAFE_SCENE"
+        assert grounded[1]["visual_facts"] == ["��������"]
+        assert body["candidates"][0]["visual_facts"] == ["�����޺�������"]
+>       entry["visual_facts"] = []
+        ^^^^^
+E       NameError: name 'entry' is not defined
+
+services\life-core\tests\test_v03_semantic_eval.py:91: NameError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_semantic_eval.py::test_unverified_visual_phrase_downgrades_only_its_candidate_without_losing_text
+1 failed, 4 passed in 2.99s

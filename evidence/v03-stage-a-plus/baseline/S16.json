@@ -1,0 +1,56 @@
+{
+  "id": "S16",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "我好像报名了读书会，但还没确认，也没去参加。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "maybe",
+          "quote": "我好像报名了读书会，但还没确认，也没去参加。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "bf50b7f3c8a8213bddb4448497c7ab984da3ee884e796a8c6689e50cfa894155"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.2,
+        "uniqueness": 0.2,
+        "expressed_feeling": 0.1,
+        "event_clarity": 0.2,
+        "source_sufficiency": 0.3,
+        "window_relevance": 0.5,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.2
+      },
+      "score": 0.3,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "NO_CLEAR_EVENT",
+      "source_message_ids": [
+        "maybe"
+      ],
+      "evidence_quote": "我好像报名了读书会，但还没确认，也没去参加。",
+      "source_revision": 1,
+      "input_hash": "bf50b7f3c8a8213bddb4448497c7ab984da3ee884e796a8c6689e50cfa894155"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+...F....                                                                 [100%]
+================================== FAILURES ===================================
+_____________ test_expired_claim_before_request_is_replayed_once ______________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-104/test_expired_claim_before_requ0')
+
+    def test_expired_claim_before_request_is_replayed_once(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        seed(memory, store, user, "���������һ�βμӹ�԰�������ر��ġ�",
+             "unrequested", instant("2026-11-03T09:00:00+08:00"))
+        calls = scorer_fixture(moments)
+        moments.schedule(instant("2026-11-03T11:00:00+08:00"))
+        with store.connect() as db:
+            db.execute("""UPDATE moments SET status='scoring',score_claim_id='dead-worker',
+                score_lease_until='2026-11-03T02:59:00+00:00'""")
+        restarted = Moments(store, moments.settings, memory)
+        assert restarted.score_one()
+>       assert len(calls) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+services\life-core\tests\test_v03_recovery.py:142: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_recovery.py::test_expired_claim_before_request_is_replayed_once
+1 failed, 7 passed in 5.71s

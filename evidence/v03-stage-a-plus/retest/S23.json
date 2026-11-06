@@ -1,0 +1,101 @@
+{
+  "id": "S23",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，没有特别的变化。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "65d33bf972c0484024b6e06a10381df32a0f4635344b66330a59708814991a42"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "occurred_at": "2026-11-03T09:06:00+08:00",
+      "sources": [
+        {
+          "message_id": "book",
+          "quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+          "message_at": "2026-11-03T09:06:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "a8fdca03869cb68dc60913f7fcd5a2d8fd17f552708d5171a25be31605edebd2"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m01",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.9,
+        "uniqueness": 0.85,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.85,
+        "window_relevance": 0.95,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.9
+      },
+      "score": 0.862,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "book"
+      ],
+      "evidence_quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "source_revision": 1,
+      "input_hash": "a8fdca03869cb68dc60913f7fcd5a2d8fd17f552708d5171a25be31605edebd2"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.05,
+        "expressed_feeling": 0.05,
+        "event_clarity": 0.6,
+        "source_sufficiency": 0.7,
+        "window_relevance": 0.8,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.336,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "a"
+      ],
+      "evidence_quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+      "source_revision": 1,
+      "input_hash": "65d33bf972c0484024b6e06a10381df32a0f4635344b66330a59708814991a42"
+    }
+  ]
+}

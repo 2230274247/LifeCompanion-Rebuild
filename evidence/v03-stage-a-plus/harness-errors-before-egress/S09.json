@@ -1,0 +1,32 @@
+{
+  "id": "S09",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天终于想通并决定尊重自己的边界，不再用别人的评价衡量自己，我想记下这个转变。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "boundary",
+          "quote": "今天终于想通并决定尊重自己的边界，不再用别人的评价衡量自己，我想记下这个转变。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "32bb0d7891da9bd8ce4e6aafded1960f0e64c63cce69803d505613765bebb30f"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

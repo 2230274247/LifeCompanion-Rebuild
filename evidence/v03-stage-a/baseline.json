@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-04T11:16:48.841470+08:00",
+  "source_hashes": {
+    "services/life-core/app/auth.py": "07169522635d08bd07d54e93077cb9d88206f94fb642081f0efea7a97a88324b",
+    "services/life-core/app/config.py": "822326e30e1d4ede48d79d8a9ca0b9d3daaa4fa94253f5d95060cd03fe4ed357",
+    "services/life-core/app/extraction.py": "074a912bac84d2f49b04568f91e520773c146dfce5228dc65b4b2e242c880944",
+    "services/life-core/app/graph.py": "8503a74e0d547167ca6c5e01bd17de67f70193413afa3ff8307e1ec42a469d9a",
+    "services/life-core/app/graphiti_provider.py": "b5eee0f7126a09c7c1b498852568a11e67d8440b17343c6e8c768c8bcd15b819",
+    "services/life-core/app/main.py": "f4690a26b7ec10ce4555387120b3acab042563b59bba481d206c6cf9ea2bd723",
+    "services/life-core/app/memory.py": "fabb5a0881e86f1a09a4e34f3590b4dbdae7513c6b8ddf88dcae3860442b29a5",
+    "services/life-core/app/memory_model_audit.py": "17b75f776fc1172a1175df977c01d3881b8c76e9b8f369d3430e42fb92f4e123",
+    "services/life-core/app/memos.py": "cdbc2912511b351695d8b9563b828751965408ff1cdf50afa1b7d69e92754066",
+    "services/life-core/app/moments.py": "72bfb0a22164b9bc442d8a0d3bf72f4051fb8e2a090cd5bc7e8fd2009ad2e235",
+    "services/life-core/app/provisioning.py": "a8f3e7c78323d4014e1ea4d6d45597b82e58922dd99c0cfa3b7c6a3955ad4a89",
+    "services/life-core/app/recollection_scoring.py": "5a5175a2e30119d270f8292dc8cc409f7ff5055f966435bd8ae6948710920780",
+    "services/life-core/app/reminders.py": "89a0c947ccce3d90d96b9556889cbaac91be5cb0ae8f58082ca304ab0bae02d7",
+    "services/life-core/app/reminder_chat.py": "c5f67e0d8c889bd9c680239915897690f4572b00c6bd595c7f86ba3da167dde4",
+    "services/life-core/app/reminder_drafts.py": "63b374931bf72828fcda7455dcbf531f7100b9cb0715c14e437b4c19ad907114",
+    "services/life-core/app/reminder_intent.py": "37ecf651706af1f8d7e45bd14895661d0fe523de324d49d3f905cac2c46fefa6",
+    "services/life-core/app/reminder_parser.py": "1b92294503a06d510eee76b08efb58eb1a4e9e1c60feb44979462c04e468e972",
+    "services/life-core/app/reminder_scheduler.py": "2080b02076ddf2abf2374dbfed1c0f85801e78cab99381f7cf6cfecc4e3290d6",
+    "services/life-core/app/reminder_workflow.py": "5937df0d489a0a643cfbe6e32fedceb1621d3f327ec8a273fd6b1a0e7f0e5a22",
+    "services/life-core/app/store.py": "d4e7c106b4653c146b78f62e473fbb3813089c4257955e45cf752c95eb0f27b0",
+    "services/life-core/app/tools.py": "4747ccb1c0a0678bda40105b82fbb3a9eeec5ec199f3d1280c318fff84789aa8",
+    "services/life-core/app/tool_chat.py": "f9efc3248a2c2837bfd910e67c120ddec2ad78787e6ecd4d76890d70cea67c59",
+    "services/life-core/app/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    ".env.example": "0575499d28c48b683025844c463cfa939b15ec358da61224d627a916f0c263f6",
+    "apps/product-portal/server.mjs": "8cedff7c68ce135e24ed3837cae6233f96119c08cff0969a4114f89c75e002a8",
+    "docs/product/README.md": "7e56df35f988333765ef3f9652cecce738c925d486347b48763d729710c48e6a",
+    "docs/architecture/README.md": "45800851f427a56415c2a7a681bf6f3313e38c5f2b62d1f3b0c3a564d8cbf6dd",
+    "docs/development-log/README.md": "8086cdb00372ec2f8d09bef553dcd4b37b53e5f72c05e300f8ec00ebc5f42dc9"
+  }
+}

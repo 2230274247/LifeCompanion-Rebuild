@@ -1,0 +1,81 @@
+{
+  "id": "S07",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "walk",
+          "quote": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "064979610b2a6a91340ecfdc5e2b42b8af98e4b35bf94b150e2eef144d1b0132"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次买了这个牌子的纸巾。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "first",
+          "quote": "今天第一次买了这个牌子的纸巾。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "fd6a4055bacae491647bc6b23fa53648c021687b541ef0310330e5f025be38aa"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "完成连续三十天散步目标，是个人坚持与努力的成果，属于有意义的个人目标达成。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "主要是内在习惯坚持与成就感，没有明确可见的动作或场景细节。",
+      "source_message_ids": [
+        "walk"
+      ],
+      "evidence_quote": "今天完成了连续三十天散步的目标，终于把习惯坚持下来了。",
+      "visual_facts": []
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "SKIP",
+      "memorial_reason": "只是首次购买某品牌纸巾，属于日常琐事，缺乏明确个人意义或内在变化。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有可见的购买动作与物品（纸巾），但内容为普通日常，不构成纪念意义。",
+      "source_message_ids": [
+        "first"
+      ],
+      "evidence_quote": "今天第一次买了这个牌子的纸巾。",
+      "visual_facts": [
+        "买了这个牌子的纸巾"
+      ]
+    }
+  ]
+}

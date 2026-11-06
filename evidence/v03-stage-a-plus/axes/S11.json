@@ -1,0 +1,98 @@
+{
+  "id": "S11",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00",
+        "m01",
+        "m02"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，没有特别的变化。\n早晨在公园跑步三公里，和每天一样。\n刚才那次跑步就是日常锻炼，没其他特别的事。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        },
+        {
+          "message_id": "b",
+          "quote": "早晨在公园跑步三公里，和每天一样。",
+          "message_at": "2026-11-03T09:02:00+08:00"
+        },
+        {
+          "message_id": "c",
+          "quote": "刚才那次跑步就是日常锻炼，没其他特别的事。",
+          "message_at": "2026-11-03T09:04:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1,
+        "m01": 1,
+        "m02": 1
+      },
+      "group_key": "grp_9668ecadc15bc7c3fa6030fa",
+      "input_hash": "ec4599187475f5a697d8d09d22483c50141c7276edb50e4424c8762e9fda3777"
+    },
+    {
+      "memory_id": "m03",
+      "memory_ids": [
+        "m03"
+      ],
+      "revision": 1,
+      "event_id": "raw-3",
+      "text": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "occurred_at": "2026-11-03T09:06:00+08:00",
+      "sources": [
+        {
+          "message_id": "book",
+          "quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+          "message_at": "2026-11-03T09:06:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m03": 1
+      },
+      "group_key": "grp_8d2b302ae7848e0fa1669b9f",
+      "input_hash": "6e703382082d3171003a0097403f553094f7de54c03a7c3f9051d8fb69d98b72"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "明确说明是日常锻炼、没有特别变化，重复频率不构成意义。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见动作与地点：公园跑步三公里。",
+      "source_message_ids": [
+        "a",
+        "b",
+        "c"
+      ],
+      "evidence_quote": "今天早上照常在公园跑了三公里，没有特别的变化。",
+      "visual_facts": [
+        "公园",
+        "跑步三公里"
+      ]
+    },
+    {
+      "memory_id": "m03",
+      "memorial": "KEEP",
+      "memorial_reason": "坚持一年完成回忆录、独立写完一本书，是明确的个人目标达成与努力成果。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "核心是长期坚持与完成著作的内在成就，缺少可具体描绘的可见场景。",
+      "source_message_ids": [
+        "book"
+      ],
+      "evidence_quote": "今天完成坚持一年的回忆录，终于独立写完一本书。",
+      "visual_facts": []
+    }
+  ]
+}

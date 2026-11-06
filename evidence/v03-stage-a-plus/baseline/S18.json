@@ -1,0 +1,56 @@
+{
+  "id": "S18",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "朋友今天私下告诉我他正在离婚，他让我保密。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "friend",
+          "quote": "朋友今天私下告诉我他正在离婚，他让我保密。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "6042fce8ecf5176cd6dec24c2a65f4ea853c71c7b320e90b2954c9064897e131"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.4,
+        "uniqueness": 0.5,
+        "expressed_feeling": 0.2,
+        "event_clarity": 0.8,
+        "source_sufficiency": 0.9,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.0,
+        "novelty_or_development": 0.5
+      },
+      "score": 0.49,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "friend"
+      ],
+      "evidence_quote": "朋友今天私下告诉我他正在离婚，他让我保密。",
+      "source_revision": 1,
+      "input_hash": "6042fce8ecf5176cd6dec24c2a65f4ea853c71c7b320e90b2954c9064897e131"
+    }
+  ]
+}

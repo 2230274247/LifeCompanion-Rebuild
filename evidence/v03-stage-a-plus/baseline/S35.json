@@ -1,0 +1,109 @@
+{
+  "id": "S35",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00",
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园跑了三公里，只是普通日常。\n刚才那次跑步就是每天的锻炼。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上在公园跑了三公里，只是普通日常。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        },
+        {
+          "message_id": "b",
+          "quote": "刚才那次跑步就是每天的锻炼。",
+          "message_at": "2026-11-03T09:02:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1,
+        "m01": 1
+      },
+      "group_key": "grp_8d23c5dfb25e162097f3e7db",
+      "input_hash": "1376f9c6ae4d211374d412e1cf6b6a11d77374a190b6315129bdacb83ee1b177"
+    },
+    {
+      "memory_id": "m02",
+      "memory_ids": [
+        "m02"
+      ],
+      "revision": 1,
+      "event_id": "raw-2",
+      "text": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+      "occurred_at": "2026-11-03T09:05:00+08:00",
+      "sources": [
+        {
+          "message_id": "learn",
+          "quote": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+          "message_at": "2026-11-03T09:05:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m02": 1
+      },
+      "group_key": "grp_207d517b8c9ed8f67ae74264",
+      "input_hash": "80d344cf8eb6fc844e387036901fd3eb2f1c7e81c62757bf8efcb99eaf6b4961"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m02",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.6,
+        "uniqueness": 0.5,
+        "expressed_feeling": 0.4,
+        "event_clarity": 0.85,
+        "source_sufficiency": 0.85,
+        "window_relevance": 0.95,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.687,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "learn"
+      ],
+      "evidence_quote": "今天学会了给自行车补胎，第一次能独立解决这个问题。",
+      "source_revision": 1,
+      "input_hash": "80d344cf8eb6fc844e387036901fd3eb2f1c7e81c62757bf8efcb99eaf6b4961"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.05,
+        "expressed_feeling": 0.05,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.364,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "a",
+        "b"
+      ],
+      "evidence_quote": "今天早上在公园跑了三公里，只是普通日常。",
+      "source_revision": 1,
+      "input_hash": "1376f9c6ae4d211374d412e1cf6b6a11d77374a190b6315129bdacb83ee1b177"
+    }
+  ]
+}

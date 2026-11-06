@@ -1,0 +1,49 @@
+{
+  "id": "S02",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，和往常一样。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天早上照常在公园跑了三公里，和往常一样。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "fa3cbbe158f4280a8e8c636bacde00333431f815478c059af565b9e837acafeb"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是照常晨跑，属于日常惯例，没有明确的意义事件或内在变化。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见的动作和地点：早上在公园跑步三公里。",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天早上照常在公园跑了三公里，和往常一样。",
+      "visual_facts": [
+        "今天早上",
+        "在公园",
+        "跑了三公里"
+      ]
+    }
+  ]
+}

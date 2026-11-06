@@ -1,0 +1,72 @@
+{
+  "id": "S10",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00",
+        "m01",
+        "m02"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园跑了三公里，完成了个人第一次三公里的目标。\n刚才那次跑步，是我第一次完成三公里，我为自己高兴。\n今天早晨在公园跑步三公里，终于迈出目标的第一步。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "a",
+          "quote": "今天早上在公园跑了三公里，完成了个人第一次三公里的目标。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        },
+        {
+          "message_id": "b",
+          "quote": "刚才那次跑步，是我第一次完成三公里，我为自己高兴。",
+          "message_at": "2026-11-03T09:02:00+08:00"
+        },
+        {
+          "message_id": "c",
+          "quote": "今天早晨在公园跑步三公里，终于迈出目标的第一步。",
+          "message_at": "2026-11-03T09:04:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1,
+        "m01": 1,
+        "m02": 1
+      },
+      "group_key": "grp_9668ecadc15bc7c3fa6030fa",
+      "input_hash": "0ad50366ff36ef610627fdbde452f33299d8825172976d31254f8e296be521f9"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.8,
+        "uniqueness": 0.7,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.9,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.75
+      },
+      "score": 0.813,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "a",
+        "b",
+        "c"
+      ],
+      "evidence_quote": "今天早上在公园跑了三公里，完成了个人第一次三公里的目标。",
+      "source_revision": 1,
+      "input_hash": "0ad50366ff36ef610627fdbde452f33299d8825172976d31254f8e296be521f9"
+    }
+  ]
+}

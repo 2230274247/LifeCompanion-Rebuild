@@ -1,0 +1,101 @@
+{
+  "id": "S05",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "db0c895d85fc29a0d08d8d031ca41a3c80dd6b38466b7fb6014b422ee288fc5f"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "book",
+          "quote": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "aa67d03ea98ebefe1af492bd7d975b5a5164e0af6d9735ef69259f804c187d6b"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m01",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.9,
+        "uniqueness": 0.8,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.9,
+        "window_relevance": 1.0,
+        "privacy_suitability": 1.0,
+        "novelty_or_development": 0.9
+      },
+      "score": 0.872,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "book"
+      ],
+      "evidence_quote": "今天完成了坚持一年的手写回忆录，这是我第一次独立写完一本书。",
+      "source_revision": 1,
+      "input_hash": "aa67d03ea98ebefe1af492bd7d975b5a5164e0af6d9735ef69259f804c187d6b"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.8,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.9,
+        "window_relevance": 1.0,
+        "privacy_suitability": 1.0,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.826,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天第一次跑完五公里，突破了自己的目标，特别开心。",
+      "source_revision": 1,
+      "input_hash": "db0c895d85fc29a0d08d8d031ca41a3c80dd6b38466b7fb6014b422ee288fc5f"
+    }
+  ]
+}

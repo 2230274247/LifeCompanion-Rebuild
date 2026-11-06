@@ -1,0 +1,371 @@
+.......FFF..........F..                                                  [100%]
+================================== FAILURES ===================================
+_____ test_unverified_people_places_clothing_weather_are_rejected[fact0] ______
+
+fact = {'fact_type': 'WEATHER', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '晴天'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+        with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+>           validate_judgment(
+                judgment(imageability="SAFE_SCENE", visual_facts=[fact]),
+                SOURCE,
+            )
+
+services\life-core\tests\test_recollection_policy.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = {'egress_preference': 'UNSPECIFIED', 'image_reason': '没有足够的具体可见事实', 'imageability': 'SAFE_SCENE', 'memorial': 'KEEP_PRIVATE_TEXT', ...}
+candidate = {'memory_id': 'm1', 'sources': [{'message_id': 'source-1', 'quote': '今天在公园跑了三公里，回家后很开心。'}]}
+
+    def validate_judgment(value, candidate):
+        parsed = Judgment.model_validate(value)
+        result = parsed.model_dump()
+        if parsed.imageability == "SAFE_SCENE" and not parsed.visual_facts:
+            raise ValueError("SAFE_SCENE_REQUIRES_FACTS")
+        if parsed.imageability == "SAFE_SCENE" and not any(
+            fact.fact_type in ("ACTION", "OBJECT") for fact in parsed.visual_facts
+        ):
+>           raise ValueError("SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT")
+E           ValueError: SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT
+
+services\life-core\app\recollection_policy.py:154: ValueError
+
+During handling of the above exception, another exception occurred:
+
+fact = {'fact_type': 'WEATHER', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '晴天'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+>       with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'VISUAL_FACT_UNSUPPORTED'
+E        Input: 'SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT'
+
+services\life-core\tests\test_recollection_policy.py:188: AssertionError
+_____ test_unverified_people_places_clothing_weather_are_rejected[fact1] ______
+
+fact = {'fact_type': 'CLOTHING', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '穿红色运动服'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+        with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+>           validate_judgment(
+                judgment(imageability="SAFE_SCENE", visual_facts=[fact]),
+                SOURCE,
+            )
+
+services\life-core\tests\test_recollection_policy.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = {'egress_preference': 'UNSPECIFIED', 'image_reason': '没有足够的具体可见事实', 'imageability': 'SAFE_SCENE', 'memorial': 'KEEP_PRIVATE_TEXT', ...}
+candidate = {'memory_id': 'm1', 'sources': [{'message_id': 'source-1', 'quote': '今天在公园跑了三公里，回家后很开心。'}]}
+
+    def validate_judgment(value, candidate):
+        parsed = Judgment.model_validate(value)
+        result = parsed.model_dump()
+        if parsed.imageability == "SAFE_SCENE" and not parsed.visual_facts:
+            raise ValueError("SAFE_SCENE_REQUIRES_FACTS")
+        if parsed.imageability == "SAFE_SCENE" and not any(
+            fact.fact_type in ("ACTION", "OBJECT") for fact in parsed.visual_facts
+        ):
+>           raise ValueError("SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT")
+E           ValueError: SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT
+
+services\life-core\app\recollection_policy.py:154: ValueError
+
+During handling of the above exception, another exception occurred:
+
+fact = {'fact_type': 'CLOTHING', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '穿红色运动服'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+>       with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'VISUAL_FACT_UNSUPPORTED'
+E        Input: 'SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT'
+
+services\life-core\tests\test_recollection_policy.py:188: AssertionError
+_____ test_unverified_people_places_clothing_weather_are_rejected[fact2] ______
+
+fact = {'fact_type': 'LOCATION', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '河边'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+        with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+>           validate_judgment(
+                judgment(imageability="SAFE_SCENE", visual_facts=[fact]),
+                SOURCE,
+            )
+
+services\life-core\tests\test_recollection_policy.py:189: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = {'egress_preference': 'UNSPECIFIED', 'image_reason': '没有足够的具体可见事实', 'imageability': 'SAFE_SCENE', 'memorial': 'KEEP_PRIVATE_TEXT', ...}
+candidate = {'memory_id': 'm1', 'sources': [{'message_id': 'source-1', 'quote': '今天在公园跑了三公里，回家后很开心。'}]}
+
+    def validate_judgment(value, candidate):
+        parsed = Judgment.model_validate(value)
+        result = parsed.model_dump()
+        if parsed.imageability == "SAFE_SCENE" and not parsed.visual_facts:
+            raise ValueError("SAFE_SCENE_REQUIRES_FACTS")
+        if parsed.imageability == "SAFE_SCENE" and not any(
+            fact.fact_type in ("ACTION", "OBJECT") for fact in parsed.visual_facts
+        ):
+>           raise ValueError("SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT")
+E           ValueError: SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT
+
+services\life-core\app\recollection_policy.py:154: ValueError
+
+During handling of the above exception, another exception occurred:
+
+fact = {'fact_type': 'LOCATION', 'source_message_ids': ['source-1'], 'source_span': '在公园跑了三公里', 'statement': '河边'}
+
+    @pytest.mark.parametrize(
+        "fact",
+        [
+            {
+                "fact_type": "WEATHER",
+                "statement": "晴天",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "CLOTHING",
+                "statement": "穿红色运动服",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "LOCATION",
+                "statement": "河边",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+            {
+                "fact_type": "ACTION",
+                "statement": "在晴天公园穿运动服跑步",
+                "source_message_ids": ["source-1"],
+                "source_span": "在公园跑了三公里",
+            },
+        ],
+    )
+    def test_unverified_people_places_clothing_weather_are_rejected(fact):
+>       with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E        Regex: 'VISUAL_FACT_UNSUPPORTED'
+E        Input: 'SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT'
+
+services\life-core\tests\test_recollection_policy.py:188: AssertionError
+_ test_privacy_or_non_event_sources_cannot_become_visual_facts_by_copying_substring _
+
+    def test_privacy_or_non_event_sources_cannot_become_visual_facts_by_copying_substring():
+        for text, span, kind in (
+            ("今天不是晴天。", "晴天", "WEATHER"),
+            ("今天我没穿红衣。", "穿红衣", "CLOTHING"),
+            ("我不知道是否下雨。", "下雨", "WEATHER"),
+            ("这是AI生成的故事：今天在公园跑步。", "在公园跑步", "ACTION"),
+        ):
+            candidate = {"memory_id":"m1", "sources":[{"message_id":"q","quote":text}]}
+            value = {
+                "occurrence":"SELF_OCCURRED","memorial":"KEEP_PRIVATE_TEXT",
+                "imageability":"SAFE_SCENE","egress_preference":"UNSPECIFIED",
+                "memorial_reason":"fixture","image_reason":"fixture",
+                "visual_facts":[{"fact_type":kind,"statement":span,"source_span":span,
+                                 "source_message_ids":["q"]}],
+            }
+            with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+>               validate_judgment(value,candidate)
+
+services\life-core\tests\test_recollection_authorization.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = {'egress_preference': 'UNSPECIFIED', 'image_reason': 'fixture', 'imageability': 'SAFE_SCENE', 'memorial': 'KEEP_PRIVATE_TEXT', ...}
+candidate = {'memory_id': 'm1', 'sources': [{'message_id': 'q', 'quote': '今天不是晴天。'}]}
+
+    def validate_judgment(value, candidate):
+        parsed = Judgment.model_validate(value)
+        result = parsed.model_dump()
+        if parsed.imageability == "SAFE_SCENE" and not parsed.visual_facts:
+            raise ValueError("SAFE_SCENE_REQUIRES_FACTS")
+        if parsed.imageability == "SAFE_SCENE" and not any(
+            fact.fact_type in ("ACTION", "OBJECT") for fact in parsed.visual_facts
+        ):
+>           raise ValueError("SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT")
+E           ValueError: SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT
+
+services\life-core\app\recollection_policy.py:154: ValueError
+
+During handling of the above exception, another exception occurred:
+
+    def test_privacy_or_non_event_sources_cannot_become_visual_facts_by_copying_substring():
+        for text, span, kind in (
+            ("今天不是晴天。", "晴天", "WEATHER"),
+            ("今天我没穿红衣。", "穿红衣", "CLOTHING"),
+            ("我不知道是否下雨。", "下雨", "WEATHER"),
+            ("这是AI生成的故事：今天在公园跑步。", "在公园跑步", "ACTION"),
+        ):
+            candidate = {"memory_id":"m1", "sources":[{"message_id":"q","quote":text}]}
+            value = {
+                "occurrence":"SELF_OCCURRED","memorial":"KEEP_PRIVATE_TEXT",
+                "imageability":"SAFE_SCENE","egress_preference":"UNSPECIFIED",
+                "memorial_reason":"fixture","image_reason":"fixture",
+                "visual_facts":[{"fact_type":kind,"statement":span,"source_span":span,
+                                 "source_message_ids":["q"]}],
+            }
+>           with pytest.raises(ValueError, match="VISUAL_FACT_UNSUPPORTED"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: Regex pattern did not match.
+E            Regex: 'VISUAL_FACT_UNSUPPORTED'
+E            Input: 'SAFE_SCENE_REQUIRES_ACTION_OR_OBJECT'
+
+services\life-core\tests\test_recollection_authorization.py:74: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_recollection_policy.py::test_unverified_people_places_clothing_weather_are_rejected[fact0]
+FAILED services/life-core/tests/test_recollection_policy.py::test_unverified_people_places_clothing_weather_are_rejected[fact1]
+FAILED services/life-core/tests/test_recollection_policy.py::test_unverified_people_places_clothing_weather_are_rejected[fact2]
+FAILED services/life-core/tests/test_recollection_authorization.py::test_privacy_or_non_event_sources_cannot_become_visual_facts_by_copying_substring
+4 failed, 19 passed in 7.84s

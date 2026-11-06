@@ -1,0 +1,39 @@
+{
+  "id": "S31",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00",
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园散步，第一次走完自己设定的康乐路线。\n刚才那次散步，我终于完成了自己的路线目标。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "one",
+          "quote": "今天早上在公园散步，第一次走完自己设定的康乐路线。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        },
+        {
+          "message_id": "two",
+          "quote": "刚才那次散步，我终于完成了自己的路线目标。",
+          "message_at": "2026-11-03T09:03:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1,
+        "m01": 1
+      },
+      "group_key": "grp_8d23c5dfb25e162097f3e7db",
+      "input_hash": "36e8c90b2ec45c314c1955e730769c01d1c512486e0390f91238442cc80b0e62"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": "PydanticUserError",
+  "values": []
+}

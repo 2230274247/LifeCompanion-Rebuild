@@ -1,0 +1,83 @@
+{
+  "id": "S03",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "79237f556edddc742cfd60bf62ccf64d8e5230992d6d99d5a5416e8c8296a5a7"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天吃了普通早餐。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "meal",
+          "quote": "今天吃了普通早餐。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "a5123620e3d83626dce98662233c5afa0c63bece42c518ecf304d6fd8b5e413c"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "减肥计划第一天，主动迈出第一步并跑完三公里，是明确的个人目标起点与努力。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有可见动作与地点：在公园跑步三公里。",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+      "visual_facts": [
+        "在公园跑完三公里"
+      ]
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "SKIP",
+      "memorial_reason": "只是普通早餐，属日常例行，无明确意义事件或内在变化。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有可见的吃早餐动作，但内容普通；仅按事实可成像。",
+      "source_message_ids": [
+        "meal"
+      ],
+      "evidence_quote": "今天吃了普通早餐。",
+      "visual_facts": [
+        "今天吃了普通早餐"
+      ]
+    }
+  ]
+}

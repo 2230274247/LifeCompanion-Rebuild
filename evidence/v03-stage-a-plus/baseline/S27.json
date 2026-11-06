@@ -1,0 +1,101 @@
+{
+  "id": "S27",
+  "split": "holdout",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天和十年没见的老同学吃了一碗面，我们都很珍惜这次重逢。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "noodle",
+          "quote": "今天和十年没见的老同学吃了一碗面，我们都很珍惜这次重逢。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "ef927d9887d34825c356b52f99b57fc3e9d84c06dbd5b8091668ee74d2857eaa"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天第一次用新水杯喝水。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "new",
+          "quote": "今天第一次用新水杯喝水。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "1fe3a9ea7921cbcb53423a045bee3807151e043ba37f495b024da403ced1076e"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.85,
+        "uniqueness": 0.8,
+        "expressed_feeling": 0.7,
+        "event_clarity": 0.85,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.75
+      },
+      "score": 0.838,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "noodle"
+      ],
+      "evidence_quote": "今天和十年没见的老同学吃了一碗面，我们都很珍惜这次重逢。",
+      "source_revision": 1,
+      "input_hash": "ef927d9887d34825c356b52f99b57fc3e9d84c06dbd5b8091668ee74d2857eaa"
+    },
+    {
+      "memory_id": "m01",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.15,
+        "uniqueness": 0.1,
+        "expressed_feeling": 0.05,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.7,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.1
+      },
+      "score": 0.392,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "new"
+      ],
+      "evidence_quote": "今天第一次用新水杯喝水。",
+      "source_revision": 1,
+      "input_hash": "1fe3a9ea7921cbcb53423a045bee3807151e043ba37f495b024da403ced1076e"
+    }
+  ]
+}

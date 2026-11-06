@@ -1,0 +1,12 @@
+{
+  "frozen_at": "2026-11-04T13:51:31.050025+08:00",
+  "mode": "OFFLINE_ONLY",
+  "real_request_budget": 0,
+  "image_request_budget": 0,
+  "human_review": "NOT TESTED",
+  "holdout_independence": "new narratives; same agent author; not independent human blind study",
+  "files": {
+    "fixtures\\recollection-policy-v2\\reference-v2-draft.json": "c25fb3b3acef94d25b063fd6721ca08fb7d9f86e4388bcee7092395e6bc2850d",
+    "fixtures\\recollection-policy-v2\\holdout.json": "43579e35e39b6ec2d1074448aae15cb83e9e2a9d69b849e9a29f1de8966dcc3a"
+  }
+}

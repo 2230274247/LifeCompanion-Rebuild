@@ -1,0 +1,310 @@
+{
+  "phase": "after",
+  "base_url": "http://127.0.0.1:3090",
+  "account_kind": "existing isolated synthetic account",
+  "credentials_printed": false,
+  "status": "FAIL",
+  "checks": {
+    "login": "PASS",
+    "pages_loaded": "PASS",
+    "no_horizontal_overflow": "PASS",
+    "no_browser_errors": "FAIL"
+  },
+  "pages": [
+    {
+      "id": "chat",
+      "route": "/c/new",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "screenshot": "chat-390x844.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 390,
+          "bodyClientWidth": 390,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 430,
+          "height": 932,
+          "screenshot": "chat-430x932.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 430,
+          "bodyClientWidth": 430,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "screenshot": "chat-768x1024.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 768,
+          "bodyClientWidth": 768,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "screenshot": "chat-1440x1000.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1440,
+          "bodyClientWidth": 1440,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "screenshot": "chat-1920x1080.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1920,
+          "bodyClientWidth": 1920,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        }
+      ]
+    },
+    {
+      "id": "memories",
+      "route": "/memories",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "screenshot": "memories-390x844.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 390,
+          "bodyClientWidth": 390,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 430,
+          "height": 932,
+          "screenshot": "memories-430x932.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 430,
+          "bodyClientWidth": 430,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "screenshot": "memories-768x1024.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 768,
+          "bodyClientWidth": 768,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "screenshot": "memories-1440x1000.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1440,
+          "bodyClientWidth": 1440,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "screenshot": "memories-1920x1080.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1920,
+          "bodyClientWidth": 1920,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        }
+      ]
+    },
+    {
+      "id": "reminders",
+      "route": "/reminders",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "screenshot": "reminders-390x844.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 390,
+          "bodyClientWidth": 390,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 430,
+          "height": 932,
+          "screenshot": "reminders-430x932.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 430,
+          "bodyClientWidth": 430,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "screenshot": "reminders-768x1024.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 768,
+          "bodyClientWidth": 768,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "screenshot": "reminders-1440x1000.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1440,
+          "bodyClientWidth": 1440,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "screenshot": "reminders-1920x1080.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1920,
+          "bodyClientWidth": 1920,
+          "headerCount": 0,
+          "visibleHeaders": 0,
+          "overflowX": false
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "route": "/memory-settings",
+      "viewports": [
+        {
+          "width": 390,
+          "height": 844,
+          "screenshot": "settings-390x844.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 390,
+          "bodyClientWidth": 390,
+          "headerCount": 2,
+          "visibleHeaders": 2,
+          "overflowX": false
+        },
+        {
+          "width": 430,
+          "height": 932,
+          "screenshot": "settings-430x932.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 430,
+          "bodyClientWidth": 430,
+          "headerCount": 2,
+          "visibleHeaders": 2,
+          "overflowX": false
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "screenshot": "settings-768x1024.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 768,
+          "bodyClientWidth": 768,
+          "headerCount": 2,
+          "visibleHeaders": 2,
+          "overflowX": false
+        },
+        {
+          "width": 1440,
+          "height": 1000,
+          "screenshot": "settings-1440x1000.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1440,
+          "bodyClientWidth": 1440,
+          "headerCount": 2,
+          "visibleHeaders": 2,
+          "overflowX": false
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "screenshot": "settings-1920x1080.png",
+          "title": "拾光 · Life Companion",
+          "bodyScrollWidth": 1920,
+          "bodyClientWidth": 1920,
+          "headerCount": 2,
+          "visibleHeaders": 2,
+          "overflowX": false
+        }
+      ]
+    }
+  ],
+  "console_errors": [
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+    "The above error occurred in the <MomentList> component:\n\n    at MomentList (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:256:19)\n    at main\n    at div\n    at LifePage (http://127.0.0.1:3090/src/components/Life/ui.tsx:10:61)\n    at Memories (http://127.0.0.1:3090/src/components/Life/Memories.tsx?t=1793807456812:29:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'some')\n    at Object.refetchInterval (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:262:43)\n    at QueryObserver.computeRefetchInterval (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1704:76)\n    at QueryObserver.setOptions (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1630:36)\n    at http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2425:12\n    at commitHookEffectListMount (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13825:24)\n    at commitPassiveMountOnFiber (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14766:7)\n    at commitPassiveMountEffects_complete (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14740:7)\n    at commitPassiveMountEffects_begin (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14731:12)\n    at commitPassiveMountEffects (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14722:4)\n    at flushPassiveEffectsImpl (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15794:4)",
+    "The above error occurred in the <MomentList> component:\n\n    at MomentList (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:256:19)\n    at main\n    at div\n    at LifePage (http://127.0.0.1:3090/src/components/Life/ui.tsx:10:61)\n    at Memories (http://127.0.0.1:3090/src/components/Life/Memories.tsx?t=1793807456812:29:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'some')\n    at Object.refetchInterval (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:262:43)\n    at QueryObserver.computeRefetchInterval (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1704:76)\n    at QueryObserver.setOptions (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1630:36)\n    at http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2425:12\n    at commitHookEffectListMount (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13825:24)\n    at commitPassiveMountOnFiber (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14766:7)\n    at commitPassiveMountEffects_complete (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14740:7)\n    at commitPassiveMountEffects_begin (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14731:12)\n    at commitPassiveMountEffects (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14722:4)\n    at flushPassiveEffectsImpl (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15794:4)",
+    "The above error occurred in the <MomentList> component:\n\n    at MomentList (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:256:19)\n    at main\n    at div\n    at LifePage (http://127.0.0.1:3090/src/components/Life/ui.tsx:10:61)\n    at Memories (http://127.0.0.1:3090/src/components/Life/Memories.tsx?t=1793807456812:29:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'some')\n    at Object.refetchInterval (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:262:43)\n    at QueryObserver.computeRefetchInterval (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1704:76)\n    at QueryObserver.setOptions (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1630:36)\n    at http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2425:12\n    at commitHookEffectListMount (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13825:24)\n    at commitPassiveMountOnFiber (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14766:7)\n    at commitPassiveMountEffects_complete (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14740:7)\n    at commitPassiveMountEffects_begin (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14731:12)\n    at commitPassiveMountEffects (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14722:4)\n    at flushPassiveEffectsImpl (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15794:4)",
+    "The above error occurred in the <MomentList> component:\n\n    at MomentList (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:256:19)\n    at main\n    at div\n    at LifePage (http://127.0.0.1:3090/src/components/Life/ui.tsx:10:61)\n    at Memories (http://127.0.0.1:3090/src/components/Life/Memories.tsx?t=1793807456812:29:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'some')\n    at Object.refetchInterval (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:262:43)\n    at QueryObserver.computeRefetchInterval (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1704:76)\n    at QueryObserver.setOptions (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1630:36)\n    at http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2425:12\n    at commitHookEffectListMount (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13825:24)\n    at commitPassiveMountOnFiber (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14766:7)\n    at commitPassiveMountEffects_complete (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14740:7)\n    at commitPassiveMountEffects_begin (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14731:12)\n    at commitPassiveMountEffects (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14722:4)\n    at flushPassiveEffectsImpl (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15794:4)",
+    "The above error occurred in the <MomentList> component:\n\n    at MomentList (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:256:19)\n    at main\n    at div\n    at LifePage (http://127.0.0.1:3090/src/components/Life/ui.tsx:10:61)\n    at Memories (http://127.0.0.1:3090/src/components/Life/Memories.tsx?t=1793807456812:29:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'some')\n    at Object.refetchInterval (http://127.0.0.1:3090/src/components/Life/Moments.tsx?t=1793807456594:262:43)\n    at QueryObserver.computeRefetchInterval (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1704:76)\n    at QueryObserver.setOptions (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:1630:36)\n    at http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2425:12\n    at commitHookEffectListMount (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13825:24)\n    at commitPassiveMountOnFiber (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14766:7)\n    at commitPassiveMountEffects_complete (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14740:7)\n    at commitPassiveMountEffects_begin (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14731:12)\n    at commitPassiveMountEffects (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:14722:4)\n    at flushPassiveEffectsImpl (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15794:4)",
+    "The above error occurred in the <Reminders> component:\n\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:53:19)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'length')\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:434:46)\n    at renderWithHooks (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:9629:19)\n    at updateFunctionComponent (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:12123:19)\n    at beginWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13097:13)\n    at beginWork$1 (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15983:12)\n    at performUnitOfWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15566:12)\n    at workLoopSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15515:36)\n    at renderRootSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15498:6)\n    at recoverFromConcurrentError (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15191:21)\n    at performSyncWorkOnRoot (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15302:19)",
+    "The above error occurred in the <Reminders> component:\n\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:53:19)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'length')\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:434:46)\n    at renderWithHooks (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:9629:19)\n    at updateFunctionComponent (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:12123:19)\n    at beginWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13097:13)\n    at beginWork$1 (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15983:12)\n    at performUnitOfWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15566:12)\n    at workLoopSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15515:36)\n    at renderRootSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15498:6)\n    at recoverFromConcurrentError (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15191:21)\n    at performSyncWorkOnRoot (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15302:19)",
+    "The above error occurred in the <Reminders> component:\n\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:53:19)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'length')\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:434:46)\n    at renderWithHooks (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:9629:19)\n    at updateFunctionComponent (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:12123:19)\n    at beginWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13097:13)\n    at beginWork$1 (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15983:12)\n    at performUnitOfWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15566:12)\n    at workLoopSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15515:36)\n    at renderRootSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15498:6)\n    at recoverFromConcurrentError (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15191:21)\n    at performConcurrentWorkOnRoot (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15144:20)",
+    "The above error occurred in the <Reminders> component:\n\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:53:19)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'length')\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:434:46)\n    at renderWithHooks (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:9629:19)\n    at updateFunctionComponent (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:12123:19)\n    at beginWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13097:13)\n    at beginWork$1 (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15983:12)\n    at performUnitOfWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15566:12)\n    at workLoopSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15515:36)\n    at renderRootSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15498:6)\n    at recoverFromConcurrentError (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15191:21)\n    at performSyncWorkOnRoot (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15302:19)",
+    "The above error occurred in the <Reminders> component:\n\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:53:19)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at div\n    at div\n    at div\n    at PromptGroupsProvider (http://127.0.0.1:3090/src/Providers/PromptGroupsContext.tsx:12:40)\n    at SetConvoProvider (http://127.0.0.1:3090/src/Providers/SetConvoContext.tsx:7:36)\n    at Root (http://127.0.0.1:3090/src/routes/Root.tsx?t=1793807539121:50:36)\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at Outlet (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4793:25)\n    at WithRum (http://127.0.0.1:3090/src/lib/rum/WithRum.tsx:5:35)\n    at AuthContextProvider (http://127.0.0.1:3090/src/hooks/AuthContext.tsx:30:32)\n    at AuthLayout\n    at RenderedRoute (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4166:26)\n    at RenderErrorBoundary (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4098:3)\n    at DataRoutes2 (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4733:24)\n    at Router (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4798:29)\n    at RouterProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-router-dom.js?v=9220ec37:4543:27)\n    at RouterProvider2\n    at DndProvider (http://127.0.0.1:3090/node_modules/.vite/deps/react-dnd.js?v=6026c4ba:1358:8)\n    at ToastProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:9253:26)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at Provider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-BFktqfpa.js?v=659bf231:53:12)\n    at CollectionProvider (http://127.0.0.1:3090/node_modules/.vite/deps/dist-DsY7jUsz.js?v=659bf231:174:11)\n    at ToastProvider (http://127.0.0.1:3090/node_modules/.vite/deps/@radix-ui_react-toast.js?v=518f7ae0:64:10)\n    at ThemeProvider (http://127.0.0.1:3090/@fs/H:/AI%20For%20research%20institute/LifeCompanion-Rebuild/.work/p00-p07-20261103/products/librechat-custom/packages/client/dist/index.mjs:7160:26)\n    at LiveAnnouncer (http://127.0.0.1:3090/src/a11y/LiveAnnouncer.tsx:8:26)\n    at RecoilRoot_INTERNAL (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2774:32)\n    at RecoilRoot (http://127.0.0.1:3090/node_modules/.vite/deps/recoil.js?v=aac4071c:2850:10)\n    at QueryClientProvider (http://127.0.0.1:3090/node_modules/.vite/deps/lib-BbQ38q8O.js?v=659bf231:2278:30)\n    at App (http://127.0.0.1:3090/src/App.jsx?t=1793807539121:23:23)\n    at ScreenshotProvider (http://127.0.0.1:3090/src/hooks/ScreenshotContext.tsx:81:38)\n    at default\n    at ApiErrorBoundaryProvider (http://127.0.0.1:3090/src/hooks/ApiErrorBoundaryContext.tsx:7:44)\n\nReact will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary.",
+    "React Router caught the following error during render TypeError: Cannot read properties of undefined (reading 'length')\n    at Reminders (http://127.0.0.1:3090/src/components/Life/Reminders.tsx?t=1793807214482:434:46)\n    at renderWithHooks (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:9629:19)\n    at updateFunctionComponent (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:12123:19)\n    at beginWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:13097:13)\n    at beginWork$1 (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15983:12)\n    at performUnitOfWork (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15566:12)\n    at workLoopSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15515:36)\n    at renderRootSync (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15498:6)\n    at recoverFromConcurrentError (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15191:21)\n    at performSyncWorkOnRoot (http://127.0.0.1:3090/node_modules/.vite/deps/react-dom-B24ivm4q.js?v=659bf231:15302:19)"
+  ],
+  "page_errors": [
+    "Cannot read properties of undefined (reading 'some')",
+    "Cannot read properties of undefined (reading 'some')",
+    "Cannot read properties of undefined (reading 'some')",
+    "Cannot read properties of undefined (reading 'some')",
+    "Cannot read properties of undefined (reading 'some')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')",
+    "Cannot read properties of undefined (reading 'length')"
+  ],
+  "network_errors": [
+    "GET /api/tags: HTTP 403",
+    "GET /api/tags: HTTP 403",
+    "GET /api/tags: HTTP 403",
+    "GET /api/tags: HTTP 403",
+    "GET /api/tags: HTTP 403"
+  ]
+}

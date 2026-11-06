@@ -1,0 +1,87 @@
+{
+  "id": "S12",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上在公园跑了三公里，这是第一次训练。",
+      "occurred_at": "2026-11-03T07:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "one",
+          "quote": "今天早上在公园跑了三公里，这是第一次训练。",
+          "message_at": "2026-11-03T07:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "58c666e64f1d02bacca4567974168265d35edc14821ac8acd36e0c9327a02e6f"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天上午又在公园跑了三公里，这是第二次，完成教练安排的双次训练目标。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "two",
+          "quote": "今天上午又在公园跑了三公里，这是第二次，完成教练安排的双次训练目标。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "f65e416269f42c69772cd507e9a18a5ce32e9f0fb47947fa78bc32905aee9001"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "KEEP",
+      "memorial_reason": "第一次训练是明确的个人目标起点，具有意义。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有明确可见动作与地点：早上在公园跑步。",
+      "source_message_ids": [
+        "one"
+      ],
+      "evidence_quote": "今天早上在公园跑了三公里，这是第一次训练。",
+      "visual_facts": [
+        "今天早上",
+        "在公园",
+        "跑了三公里"
+      ]
+    },
+    {
+      "memory_id": "m01",
+      "memorial": "KEEP",
+      "memorial_reason": "完成教练安排的双次训练目标，是具体努力与目标达成。",
+      "imageability": "SAFE_SCENE",
+      "image_reason": "有可见动作与地点：上午在公园跑步。",
+      "source_message_ids": [
+        "two"
+      ],
+      "evidence_quote": "今天上午又在公园跑了三公里，这是第二次，完成教练安排的双次训练目标。",
+      "visual_facts": [
+        "今天上午",
+        "在公园",
+        "跑了三公里"
+      ]
+    }
+  ]
+}

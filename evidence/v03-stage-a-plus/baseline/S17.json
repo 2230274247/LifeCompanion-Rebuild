@@ -1,0 +1,101 @@
+{
+  "id": "S17",
+  "split": "development",
+  "phase": "baseline",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天医生告知了我的检查诊断，我很难受，只想私下记录治疗决定。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "health",
+          "quote": "今天医生告知了我的检查诊断，我很难受，只想私下记录治疗决定。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "7eea971ce5eca70e6a7f1c7aecc753513ad06af30b82bd5f3d9c885423044ca7"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天种的番茄第一次结果了，我特别开心。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "garden",
+          "quote": "今天种的番茄第一次结果了，我特别开心。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "ca3b926c030329e60aed7a7a4d22f382b195180e36aecd47fa821bb66b7f814a"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m01",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.7,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.85,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.7
+      },
+      "score": 0.775,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "garden"
+      ],
+      "evidence_quote": "今天种的番茄第一次结果了，我特别开心。",
+      "source_revision": 1,
+      "input_hash": "ca3b926c030329e60aed7a7a4d22f382b195180e36aecd47fa821bb66b7f814a"
+    },
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.9,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.8,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.1,
+        "novelty_or_development": 0.5
+      },
+      "score": 0.716,
+      "reason_code": "PRIVATE_OR_SENSITIVE",
+      "model_reason_code": "PRIVATE_OR_SENSITIVE",
+      "source_message_ids": [
+        "health"
+      ],
+      "evidence_quote": "今天医生告知了我的检查诊断，我很难受，只想私下记录治疗决定。",
+      "source_revision": 1,
+      "input_hash": "7eea971ce5eca70e6a7f1c7aecc753513ad06af30b82bd5f3d9c885423044ca7"
+    }
+  ]
+}

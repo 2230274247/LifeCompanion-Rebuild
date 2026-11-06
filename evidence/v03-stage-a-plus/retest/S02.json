@@ -1,0 +1,56 @@
+{
+  "id": "S02",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天早上照常在公园跑了三公里，和往常一样。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天早上照常在公园跑了三公里，和往常一样。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "fa3cbbe158f4280a8e8c636bacde00333431f815478c059af565b9e837acafeb"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.05,
+        "expressed_feeling": 0.05,
+        "event_clarity": 0.7,
+        "source_sufficiency": 0.8,
+        "window_relevance": 0.9,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.364,
+      "reason_code": "LOW_PERSONAL_MEANING",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天早上照常在公园跑了三公里，和往常一样。",
+      "source_revision": 1,
+      "input_hash": "fa3cbbe158f4280a8e8c636bacde00333431f815478c059af565b9e837acafeb"
+    }
+  ]
+}

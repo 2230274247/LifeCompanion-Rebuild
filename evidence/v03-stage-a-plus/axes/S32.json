@@ -1,0 +1,45 @@
+{
+  "id": "S32",
+  "split": "holdout",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "wish",
+          "quote": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "9b34198677eee753251fb93fcbe2f0371d863ca2c0ac46b3b5fef89e251a20a1"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是对未来的想象，尚未开始，没有已发生的事件或改变。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "内容为未来愿望与情绪，无可用的具体可见场景。",
+      "source_message_ids": [
+        "wish"
+      ],
+      "evidence_quote": "如果下周能学会弹琴，我一定很开心，现在只是想象还没开始。",
+      "visual_facts": []
+    }
+  ]
+}

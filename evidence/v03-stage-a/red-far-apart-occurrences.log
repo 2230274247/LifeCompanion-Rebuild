@@ -1,0 +1,29 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_same_text_anchors_far_apart_are_independent_occurrences _________
+
+tmp_path = WindowsPath('C:/Users/Administrator/AppData/Local/Temp/pytest-of-Administrator/pytest-121/test_same_text_anchors_far_apa0')
+
+    def test_same_text_anchors_far_apart_are_independent_occurrences(tmp_path):
+        moments, user, store, memory = build(tmp_path)
+        first = seed(memory, store, user, "���������ڹ�԰�����������������ܺá�",
+                     "far-a", instant("2026-11-03T09:00:00+08:00"),
+                     occurred=instant("2026-11-03T07:30:00+08:00"))
+        second = seed(memory, store, user, "���������ڹ�԰������������е��ᡣ",
+                      "far-b", instant("2026-11-03T15:00:00+08:00"),
+                      occurred=instant("2026-11-03T14:30:00+08:00"))
+        inputs, _ = moments.candidate_inputs(user["life_user_id"],
+            instant("2026-11-03T00:00:00+08:00"), instant("2026-11-04T00:00:00+08:00"))
+>       assert {item["memory_id"] for item in inputs} == {
+            first["memory_id"], second["memory_id"]
+        }
+E       AssertionError: assert {'mem_e4fbbb2...183d145a6a0f'} == {'mem_17fcfa8...183d145a6a0f'}
+E         
+E         Extra items in the right set:
+E         'mem_17fcfa8232ab85f79656c269'
+E         Use -v to get more diff
+
+services\life-core\tests\test_v03_selection.py:68: AssertionError
+=========================== short test summary info ===========================
+FAILED services/life-core/tests/test_v03_selection.py::test_same_text_anchors_far_apart_are_independent_occurrences
+1 failed in 1.58s

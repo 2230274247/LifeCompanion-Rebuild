@@ -1,0 +1,101 @@
+{
+  "id": "S03",
+  "split": "development",
+  "phase": "retest",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "run",
+          "quote": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "79237f556edddc742cfd60bf62ccf64d8e5230992d6d99d5a5416e8c8296a5a7"
+    },
+    {
+      "memory_id": "m01",
+      "memory_ids": [
+        "m01"
+      ],
+      "revision": 1,
+      "event_id": "raw-1",
+      "text": "今天吃了普通早餐。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "meal",
+          "quote": "今天吃了普通早餐。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m01": 1
+      },
+      "group_key": "grp_3b6f803fccf28f378a574776",
+      "input_hash": "a5123620e3d83626dce98662233c5afa0c63bece42c518ecf304d6fd8b5e413c"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "eligible": true,
+      "dimensions": {
+        "personal_meaning": 0.8,
+        "uniqueness": 0.6,
+        "expressed_feeling": 0.6,
+        "event_clarity": 0.9,
+        "source_sufficiency": 0.85,
+        "window_relevance": 1.0,
+        "privacy_suitability": 0.95,
+        "novelty_or_development": 0.8
+      },
+      "score": 0.799,
+      "reason_code": "MEANINGFUL_EVENT",
+      "model_reason_code": "MEANINGFUL_EVENT",
+      "source_message_ids": [
+        "run"
+      ],
+      "evidence_quote": "今天是我减肥计划的第一天，真的迈出了第一步，在公园跑完三公里，我想记住这个开始。",
+      "source_revision": 1,
+      "input_hash": "79237f556edddc742cfd60bf62ccf64d8e5230992d6d99d5a5416e8c8296a5a7"
+    },
+    {
+      "memory_id": "m01",
+      "eligible": false,
+      "dimensions": {
+        "personal_meaning": 0.1,
+        "uniqueness": 0.05,
+        "expressed_feeling": 0.05,
+        "event_clarity": 0.4,
+        "source_sufficiency": 0.5,
+        "window_relevance": 0.8,
+        "privacy_suitability": 0.9,
+        "novelty_or_development": 0.05
+      },
+      "score": 0.3,
+      "reason_code": "SOURCE_INSUFFICIENT",
+      "model_reason_code": "ROUTINE_EVENT",
+      "source_message_ids": [
+        "meal"
+      ],
+      "evidence_quote": "今天吃了普通早餐。",
+      "source_revision": 1,
+      "input_hash": "a5123620e3d83626dce98662233c5afa0c63bece42c518ecf304d6fd8b5e413c"
+    }
+  ]
+}

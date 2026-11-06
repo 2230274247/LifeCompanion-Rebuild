@@ -1,0 +1,29 @@
+
+> librechat-data-provider@0.8.527 build
+> npm run clean && tsdown && tsc -p tsconfig.build.json
+
+
+> librechat-data-provider@0.8.527 clean
+> rimraf dist
+
+ℹ tsdown v0.22.2 powered by rolldown v1.1.0
+ℹ config file: H:\AI For research institute\LifeCompanion-Rebuild\.work\p00-p07-20261103\products\librechat-custom\packages\data-provider\tsdown.config.mjs 
+ℹ entry: src/index.ts, src/react-query/index.ts
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ [ESM] dist\index.mjs                      327.32 kB │ gzip:  78.42 kB
+ℹ [ESM] dist\react-query\index.mjs           12.74 kB │ gzip:   2.19 kB
+ℹ [ESM] dist\data-service-vMBYLCiH.mjs.map  767.36 kB │ gzip: 175.68 kB
+ℹ [ESM] dist\index.mjs.map                  591.12 kB │ gzip: 130.22 kB
+ℹ [ESM] dist\data-service-vMBYLCiH.mjs      401.99 kB │ gzip: 105.03 kB
+ℹ [ESM] dist\react-query\index.mjs.map       27.63 kB │ gzip:   4.62 kB
+ℹ [ESM] 6 files, total: 2.13 MB
+✔ Build complete in 456ms
+ℹ [CJS] dist\index.js                      351.31 kB │ gzip:  76.64 kB
+ℹ [CJS] dist\react-query\index.js           15.48 kB │ gzip:   2.18 kB
+ℹ [CJS] dist\data-service-Cz56ViJ8.js.map  775.68 kB │ gzip: 176.26 kB
+ℹ [CJS] dist\index.js.map                  594.77 kB │ gzip: 130.92 kB
+ℹ [CJS] dist\data-service-Cz56ViJ8.js      462.31 kB │ gzip: 106.94 kB
+ℹ [CJS] dist\react-query\index.js.map       27.64 kB │ gzip:   4.49 kB
+ℹ [CJS] 6 files, total: 2.23 MB
+✔ Build complete in 463ms

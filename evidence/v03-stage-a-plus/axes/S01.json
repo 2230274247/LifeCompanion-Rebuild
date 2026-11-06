@@ -1,0 +1,45 @@
+{
+  "id": "S01",
+  "split": "development",
+  "phase": "axes",
+  "inputs": [
+    {
+      "memory_id": "m00",
+      "memory_ids": [
+        "m00"
+      ],
+      "revision": 1,
+      "event_id": "raw-0",
+      "text": "今天吃了和平时一样的早餐，没有特别的事。",
+      "occurred_at": "2026-11-03T09:00:00+08:00",
+      "sources": [
+        {
+          "message_id": "meal",
+          "quote": "今天吃了和平时一样的早餐，没有特别的事。",
+          "message_at": "2026-11-03T09:00:00+08:00"
+        }
+      ],
+      "source_revisions": {
+        "m00": 1
+      },
+      "group_key": "grp_ca64bd236090260412de05c0",
+      "input_hash": "cca674c29b9c7d1fac353ddba6c176f00acfb840208165e703d9ad6a1f54c8ba"
+    }
+  ],
+  "mode": "REAL_DEEPSEEK",
+  "error": null,
+  "values": [
+    {
+      "memory_id": "m00",
+      "memorial": "SKIP",
+      "memorial_reason": "只是与平时相同的早餐，明确说没有特别的事，属于日常重复，不构成有意义事件或内心变化。",
+      "imageability": "TEXT_ONLY",
+      "image_reason": "没有具体可见的食物、动作或地点细节，无法在不编造的情况下构成场景。",
+      "source_message_ids": [
+        "meal"
+      ],
+      "evidence_quote": "今天吃了和平时一样的早餐，没有特别的事。",
+      "visual_facts": []
+    }
+  ]
+}
