@@ -61,15 +61,28 @@ print(json.dumps({
 PY
 )"
 
-code="$(curl -s -o /tmp/lc-bootstrap-admin.json -w '%{http_code}' --max-time 15 \
-  -X POST http://127.0.0.1:8010/internal/v1/users/bootstrap \
-  -H "X-Internal-Token: $internal_token" \
-  -H 'Content-Type: application/json' \
-  --data-binary "$payload")"
-if [[ "$code" != "200" ]]; then
-  echo "ERROR: life-core bootstrap failed (HTTP $code): $(head -c 300 /tmp/lc-bootstrap-admin.json)" >&2
-  exit 1
-fi
+# life-core's 8010 is not published by compose, so call it from inside the
+# container where the HTTP listener is reachable.
+printf '%s' "$payload" | docker compose exec -T -e LIFE_INTERNAL_TOKEN="$internal_token" \
+  life-core python3 -c '
+import json, os, sys, urllib.error, urllib.request
+payload = json.load(sys.stdin)
+request = urllib.request.Request(
+    "http://127.0.0.1:8010/internal/v1/users/bootstrap",
+    data=json.dumps(payload).encode(),
+    headers={
+        "Content-Type": "application/json",
+        "X-Internal-Token": os.environ["LIFE_INTERNAL_TOKEN"],
+    },
+)
+try:
+    response = urllib.request.urlopen(request, timeout=15)
+except urllib.error.HTTPError as exc:
+    print(exc.code, file=sys.stderr)
+    print(exc.read().decode()[:300], file=sys.stderr)
+    sys.exit(1)
+print(response.status)
+'
 
 set_env() {
   local key="$1" value="$2"
@@ -90,7 +103,9 @@ docker compose up -d --force-recreate --no-deps life-core
 
 echo "Waiting for life-core to become ready..."
 for _ in $(seq 1 20); do
-  if [[ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 3 http://127.0.0.1:8010/health 2>/dev/null || true)" == "200" ]]; then
+  if docker compose exec -T life-core python3 -c \
+    'import urllib.request; urllib.request.urlopen("http://127.0.0.1:8010/health", timeout=3)' \
+    >/dev/null 2>&1; then
     break
   fi
   sleep 1
