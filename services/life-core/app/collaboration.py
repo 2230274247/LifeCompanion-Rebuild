@@ -1992,7 +1992,9 @@ class CollaborationService:
                 ORDER BY s.created_at DESC""",
                 (actor,),
             ).fetchall()
-        return [dict(row) for row in rows]
+            return [
+                self._shared_summary_payload(db, actor, dict(row)) for row in rows
+            ]
 
     def find_shared_memories_by_source(
         self, actor: str, source_kind: str, source_id: str
@@ -2016,7 +2018,55 @@ class CollaborationService:
                 ORDER BY s.created_at DESC""",
                 (actor, source_kind, source_id),
             ).fetchall()
-        return [dict(row) for row in rows]
+            return [
+                self._shared_summary_payload(db, actor, dict(row)) for row in rows
+            ]
+
+    def _shared_summary_payload(
+        self, db: Any, actor: str, row: dict[str, Any]
+    ) -> dict[str, Any]:
+        # Enrich the lightweight list row with source snapshots so the shared
+        # memories gallery can render text and images without an N+1 detail call.
+        payload = dict(row)
+        sources = db.execute(
+            "SELECT * FROM collab_shared_memory_sources WHERE shared_memory_id=?",
+            (payload["shared_memory_id"],),
+        ).fetchall()
+        source_payload = []
+        for source in sources:
+            if not db.execute(
+                """SELECT 1 FROM collab_shared_memory_members
+                WHERE shared_memory_id=? AND user_id=? AND left_at IS NULL""",
+                (payload["shared_memory_id"], source["owner_user_id"]),
+            ).fetchone():
+                continue
+            try:
+                snapshot = self._source_snapshot(
+                    source["owner_user_id"], source["source_kind"], source["source_id"]
+                )
+                snapshot["available"] = True
+                source_payload.append(snapshot)
+            except HTTPException:
+                source_payload.append(
+                    {
+                        "owner_user_id": source["owner_user_id"],
+                        "source_kind": source["source_kind"],
+                        "source_id": source["source_id"],
+                        "title": "来源暂不可用",
+                        "summary": "",
+                        "occurred_at": None,
+                        "image_data": None,
+                        "ai_generated": False,
+                        "available": False,
+                    }
+                )
+        payload["sources"] = source_payload
+        owner = db.execute(
+            "SELECT display_name FROM collab_profiles WHERE user_id=?",
+            (payload["created_by"],),
+        ).fetchone()
+        payload["owner_display_name"] = owner["display_name"] if owner else None
+        return payload
 
     def _require_shared_member(self, db: Any, shared_id: str, actor: str) -> dict[str, Any]:
         row = db.execute(

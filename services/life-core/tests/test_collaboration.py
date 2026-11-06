@@ -566,6 +566,10 @@ def test_shared_memory_by_source_only_returns_memberships(tmp_path):
             assert found.status_code == 200
             assert len(found.json()["shared_memories"]) == 1
             assert found.json()["shared_memories"][0]["member_count"] == 2
+            item = found.json()["shared_memories"][0]
+            assert item["sources"][0]["title"] == source["title"]
+            assert item["sources"][0]["summary"] == source["summary"]
+            assert item["owner_display_name"] == "阿青"
 
         outsider = client.get(
             "/api/v1/shared-memories/by-source",
