@@ -23,7 +23,7 @@ class Settings:
     allowed_origins: tuple[str, ...]
     memory_llm_key: str = ""
     memory_llm_url: str = "https://api.deepseek.com/v1"
-    memory_llm_model: str = "deepseek-flash"
+    memory_llm_model: str = "deepseek-chat"
     memory_llm_provider: str = "deepseek"
     memory_llm_max_tokens: int = 2048
     memory_llm_request_budget: int = 0
@@ -88,7 +88,7 @@ def load_settings() -> Settings:
     else:
         llm_key = os.getenv("DEEPSEEK_API_KEY", "")
         llm_url = os.getenv("MEMORY_LLM_URL") or os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1")
-        llm_model = os.getenv("MEMORY_LLM_MODEL") or os.getenv("DEEPSEEK_MODEL", "deepseek-flash")
+        llm_model = os.getenv("MEMORY_LLM_MODEL") or os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
     max_tokens = int(os.getenv("MEMORY_LLM_MAX_TOKENS", "2048"))
     request_budget = int(os.getenv("MEMORY_LLM_REQUEST_BUDGET", "0"))
     scoring_budget = int(os.getenv("LIFE_MOMENT_SCORING_REQUEST_BUDGET", "0"))

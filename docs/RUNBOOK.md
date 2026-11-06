@@ -94,6 +94,8 @@ V0.2 组合配置校验应另加 `-f "compose.spa.yaml"`。前端类型检查、
 和 Lighthouse 的完整命令与实际结果见本次独立开发日志。
 `tests/live-v02.py` 需要现有本地测试账号，可对指定真实会话执行回忆读取和同来源重试，
 仅使用 `infra/runtime/test-accounts.json` 与服务端密钥文件；不输出密码或令牌。
+本地 UI、无障碍与截图验收统一使用该文件的 `librechat` 固定账户；不要按历史阶段
+切换登录账户。测试数据通过会话、来源消息与图片 fixture 隔离。
 
 ## 排障
 
