@@ -23,6 +23,7 @@ from .config import Settings, load_settings
 from .extraction import extract_event
 from .memos import MemosClient, MemosError
 from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+from .retrieval import MemoryRetriever
 from .moments import Moments, MomentSettings
 from .reminders import ReminderPermissionError, ReminderService, ReminderUpstreamError
 from .reminder_chat import ReminderChat
@@ -67,11 +68,30 @@ class ConsentRequest(BaseModel):
         return value
 
 
+class RecallContext(BaseModel):
+    text: str = Field(max_length=500)
+    role: Literal["user"] = "user"
+    conversation_id: str | None = None
+
+
 class RecallRequest(BaseModel):
     source_user_id: str
     query: str = Field(max_length=4000)
     conversation_id: str | None = None
     source_message_id: str | None = None
+    recent_messages: list[RecallContext] = Field(default_factory=list, max_length=4)
+
+
+class MemoryTelemetry(BaseModel):
+    source_user_id: str
+    source_message_id: str | None = None
+    conversation_id: str | None = None
+    stage: Literal["recall", "delivery"] = "recall"
+    status: Literal["injected", "unavailable", "disabled", "empty_input", "not_attempted",
+                    "matched", "no_match", "permission_denied", "user_not_mapped", "excluded"]
+    reason: str | None = Field(default=None, max_length=80)
+    item_count: int = Field(default=0, ge=0, le=100)
+    elapsed_ms: int | None = Field(default=None, ge=0, le=300000)
 
 
 class ReminderChatRequest(BaseModel):
@@ -178,7 +198,7 @@ def current_identity(request: Request) -> tuple[str, str, dict[str, Any]]:
     return user["life_user_id"], librechat_user_id, user
 
 
-def require_internal(token: Annotated[str | None, Header(alias="X-Internal-Token")], request: Request) -> None:
+def require_internal(request: Request, token: Annotated[str | None, Header(alias="X-Internal-Token")] = None) -> None:
     expected = request.app.state.settings.internal_token
     if not expected or not token or token != expected:
         raise HTTPException(status_code=401, detail={"code": "INVALID_INTERNAL_TOKEN"})
@@ -243,6 +263,10 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         app.state.memos = MemosClient(settings.memos_base_url, settings.memos_api_token)
         app.state.memory = MemoryService(store, settings)
         app.state.memory.initialize()
+        app.state.memory.retriever = MemoryRetriever(app.state.memory)
+        if settings.memory_embedding_model:
+            threading.Thread(target=app.state.memory.retriever.warmup,
+                             name="memory-embedding-warmup", daemon=True).start()
         app.state.moments = Moments(
             store, settings, app.state.memory, publish_event=publish_event
         )
@@ -263,12 +287,20 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             while not stop.is_set():
                 import time
                 if time.monotonic() >= next_cleanup:
-                    retry_memo_cleanup()
-                    app.state.reminders.reconcile_notifications()
-                    app.state.provisioning.maintain()
+                    try:
+                        retry_memo_cleanup()
+                        app.state.reminders.reconcile_notifications()
+                        app.state.provisioning.maintain()
+                    except Exception:
+                        # A reminder/provisioning outage (e.g. missing credential
+                        # master key) must never kill the memory extraction loop.
+                        pass
                     next_cleanup = time.monotonic() + 30
                 if time.monotonic() >= next_notification_retry:
-                    app.state.reminders.deliver_one_notification()
+                    try:
+                        app.state.reminders.deliver_one_notification()
+                    except Exception:
+                        pass
                     next_notification_retry = time.monotonic() + 5
                 if not app.state.memory.run_one(process_event):
                     stop.wait(0.5)
@@ -280,6 +312,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 app.state.moments.publish_generated_one()
                 stop.wait(20)
         moment_worker = threading.Thread(target=moment_work, name="moment-generation", daemon=True)
+        app.state.memory_worker = worker
         worker.start()
         moment_worker.start()
         try:
@@ -309,6 +342,12 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             "memos_configured": settings.memos_configured,
             "internal_auth_configured": bool(settings.internal_token),
             "jwt_auth_configured": bool(settings.jwt_secret and settings.jwt_refresh_secret),
+            "memory_pipeline": {
+                "version": "memory-v03",
+                "database_id": digest(str(settings.database_path.resolve()))[:12],
+                "worker_alive": request.app.state.memory_worker.is_alive(),
+                "extractor": settings.memory_llm_provider if settings.memory_llm_key else "rules",
+            },
         }
 
     @app.get("/api/v1/me")
@@ -374,7 +413,60 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             image_consent=body.image_consent,
         )
 
-    def process_event(
+    def process_event(**kwargs):
+        import time
+        start = time.monotonic()
+        owner = kwargs["user"]["life_user_id"]
+        message_id = kwargs["source_message_ids"][0]
+        try:
+            memory = app.state.memory
+            with app.state.store.connect() as db:
+                batch_row = db.execute("SELECT status FROM memory_batches WHERE user_id=? AND message_id=?",
+                                       (owner, message_id)).fetchone()
+            previous = app.state.store.get_ingest_attempt(owner, message_id)
+            context = memory.contextual_event(owner, kwargs.get("conversation_id"), kwargs["text"], kwargs["occurred_at"])
+            if batch_row and batch_row["status"] == "completed":
+                with app.state.store.connect() as db:
+                    saved = [dict(r) for r in db.execute("""SELECT m.* FROM memory_items m
+                        JOIN memory_evidence e ON m.memory_id=e.memory_id
+                        WHERE e.user_id=? AND e.message_id=? AND m.state='active'""", (owner, message_id))]
+                result = {"accepted": bool(saved), "reason": "batch_duplicate",
+                          "results": [{"accepted": True, "memory": item} for item in saved]}
+            elif FORGET.search(kwargs["text"]) or context or not memory.allowed(kwargs["user"], kwargs["text"]) or (previous and not batch_row):
+                result = process_single_event(**kwargs)
+            else:
+                candidates, reason = memory.classify_many(kwargs["text"], kwargs["occurred_at"], use_llm=kwargs.get("use_llm", False))
+                if not candidates:
+                    result = {"accepted": False, "reason": reason}
+                else:
+                    is_batch = len(candidates) > 1 or bool(batch_row)
+                    if is_batch:
+                        with app.state.store.connect() as db:
+                            db.execute("INSERT OR IGNORE INTO memory_batches VALUES (?,?,'running')", (owner,message_id))
+                    results = []
+                    for candidate in candidates:
+                        args = {**kwargs, "text": candidate.evidence_quote,
+                                "candidate_override": candidate, "reason_override": reason, "batch": is_batch}
+                        results.append(process_single_event(**args))
+                    result = {**results[0], "accepted": any(r["accepted"] for r in results), "results": results}
+                    if is_batch:
+                        with app.state.store.connect() as db:
+                            db.execute("UPDATE memory_batches SET status='completed' WHERE user_id=? AND message_id=?", (owner,message_id))
+        except Exception as exc:
+            app.state.memory.trace.record(owner, message_id, kwargs.get("conversation_id"),
+                "extraction", "failed", type(exc).__name__.upper(),
+                elapsed_ms=int((time.monotonic()-start)*1000))
+            raise
+        with app.state.store.connect() as db:
+            count = db.execute("""SELECT COUNT(*) FROM memory_evidence e JOIN memory_items m
+                ON e.memory_id=m.memory_id WHERE e.user_id=? AND e.message_id=? AND m.state='active'""",
+                (owner, message_id)).fetchone()[0]
+        app.state.memory.trace.record(owner, message_id, kwargs.get("conversation_id"),
+            "extraction", "saved" if count else "rejected", result.get("reason"), count,
+            int((time.monotonic()-start)*1000))
+        return result
+
+    def process_single_event(
         *,
         user: dict[str, Any],
         text: str,
@@ -383,12 +475,15 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         conversation_id: str | None,
         occurred_at: datetime,
         use_llm: bool = False,
+        candidate_override: Candidate | None = None,
+        reason_override: str | None = None,
+        batch: bool = False,
     ) -> dict[str, Any]:
         settings = app.state.settings
         memory = app.state.memory
         user = app.state.store.get_user(user["life_user_id"])
         previous = app.state.store.get_ingest_attempt(user["life_user_id"], source_message_ids[0])
-        if previous:
+        if previous and not batch:
             if previous["event_id"]:
                 event = app.state.store.get_event(previous["event_id"], user["life_user_id"])
                 if event and event["status"] == "failed":
@@ -416,7 +511,10 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             app.state.store.record_ingest_attempt(user_id=user["life_user_id"],
                 source_message_id=source_message_ids[0],status="accepted",reason="context_merged",event_id=event["event_id"])
             return {"accepted":True,"event":public_event(app.state.store.get_event(event["event_id"]))}
-        candidate, reason = memory.classify(text, occurred_at, use_llm=use_llm)
+        if candidate_override is not None:
+            candidate, reason = candidate_override, reason_override or "validated_candidate"
+        else:
+            candidate, reason = memory.classify(text, occurred_at, use_llm=use_llm)
         if candidate is None:
             return {"accepted": False, "reason": reason}
         if candidate.sensitivity != "ordinary" and not memory.permissions(user["life_user_id"])["sensitive_consent"]:
@@ -471,7 +569,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             confidence=candidate.confidence,
             consent_state="granted" if consent else "pending",
             status="pending_consent" if not consent else "pending",
-            idempotency_key=f"{user['life_user_id']}:{source_type}:{source_message_ids[0]}",
+            idempotency_key=f"{user['life_user_id']}:{source_type}:{source_message_ids[0]}" + (f":{digest(key)[:16]}" if batch else ""),
         )
         memory.save(user["life_user_id"],candidate,key,source_message_ids[0],
                     conversation_id,text,occurred_at,event["event_id"])
@@ -523,6 +621,8 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 completed_at=datetime.now(ZoneInfo(app.state.settings.timezone)).isoformat(),
                 last_error=reason,
             )
+            app.state.memory.trace.record(event["user_id"], event["source_message_ids"][0],
+                event.get("conversation_id"), "publication", "failed", "MEMOS_PUBLISH_FAILED")
             raise HTTPException(status_code=502, detail={"code": "MEMOS_PUBLISH_FAILED"}) from exc
 
         updated = app.state.store.set_event_status(
@@ -540,6 +640,8 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             completed_at=datetime.now(ZoneInfo(app.state.settings.timezone)).isoformat(),
             upstream_reference=memo_ref,
         )
+        app.state.memory.trace.record(event["user_id"], event["source_message_ids"][0],
+            event.get("conversation_id"), "publication", "published", item_count=1)
         return {"accepted": True, "event": public_event(updated)}
 
     @app.post("/internal/v1/events/ingest")
@@ -553,20 +655,6 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         if user is None:
             raise HTTPException(status_code=403, detail={"code": "USER_NOT_MAPPED"})
 
-        previous = store.get_ingest_attempt(user["life_user_id"], body.source_message_id)
-        if previous:
-            if previous["event_id"]:
-                event = store.get_event(previous["event_id"], user["life_user_id"])
-                if event is None or event["status"] == "withdrawn":
-                    return {"accepted":False,"reason":"MEMORY_WITHDRAWN"}
-                if event["status"] == "failed":
-                    return publish_event(event)
-                return {"accepted": True, "event": public_event(event)}
-            return {
-                "accepted": False,
-                "reason": previous["reason"],
-                "source_message_ids": [body.source_message_id],
-            }
         with request.app.state.memory.lock:
             return process_event(
                 user=user, text=body.text, source_type="chat",
@@ -630,17 +718,28 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
     def internal_recall(body: RecallRequest, request: Request):
         user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
         if not user:
-            return {"items": []}
-        items = request.app.state.memory.recall(user["life_user_id"], body.query)
+            return {"status": "user_not_mapped", "reason": "USER_NOT_MAPPED", "items": [], "profile": []}
+        memory = request.app.state.memory
+        recalled = memory.retriever.retrieve(user["life_user_id"], body.query,
+            recent_messages=[m.model_dump() for m in body.recent_messages
+                             if m.conversation_id in (None, body.conversation_id)], conversation_id=body.conversation_id)
+        items = recalled["items"]
+        profile = recalled["profile"]
+        status = recalled["status"]
+        memory.trace.record(user["life_user_id"], body.source_message_id, body.conversation_id,
+                            "recall", status, item_count=len(items)+len(profile))
         if body.conversation_id and body.source_message_id:
             with request.app.state.store.connect() as db:
-                for item in items:
+                for item in [*profile, *items]:
                     db.execute("INSERT OR IGNORE INTO memory_recall_hits VALUES (?,?,?,?,?)",
                         (user["life_user_id"],body.conversation_id,body.source_message_id,item["memory_id"],
                          datetime.now().astimezone().isoformat()))
-        result = [{"text": i["canonical_text"], "valid_from": i["valid_from"],
-                   "kind": i["kind"], "url": f"/knowledge/{i['memory_id']}"} for i in items]
-        if request.app.state.memory.permissions(user["life_user_id"])["recall_consent"] and re.search(r"提醒|带什么|带哪些", body.query):
+        def evidence(i):
+            return {"memory_id": i["memory_id"], "text": i["canonical_text"],
+                    "valid_from": i["valid_from"], "kind": i["kind"], "url": f"/knowledge/{i['memory_id']}"}
+        result = [evidence(i) for i in items]
+        profile_result = [evidence(i) for i in profile]
+        if status not in ("excluded", "permission_denied", "empty_input") and re.search(r"提醒|带什么|带哪些", body.query):
             for reminder in request.app.state.store.list_reminders(user["life_user_id"])[:40]:
                 if SENSITIVE.search(reminder["title"]) and not request.app.state.memory.permissions(user["life_user_id"])["sensitive_consent"]:
                     continue
@@ -648,7 +747,26 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                     continue
                 result.append({"text": reminder["title"], "status": reminder["status"],
                                "kind": "reminder", "url": f"/reminders/{reminder['reminder_id']}"})
-        return {"items": result}
+        return {"status": "matched" if result or profile_result else status, "items": result,
+                "profile": profile_result, "retrieval": recalled["retrieval"]}
+
+    @app.post("/internal/v1/memory/telemetry", dependencies=[Depends(require_internal)])
+    def memory_telemetry(body: MemoryTelemetry, request: Request):
+        user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
+        if not user:
+            return {"status": "user_not_mapped"}
+        request.app.state.memory.trace.record(user["life_user_id"], body.source_message_id,
+            body.conversation_id, body.stage, body.status, body.reason, body.item_count, body.elapsed_ms)
+        return {"status": "recorded"}
+
+    @app.get("/api/v1/memory-status")
+    def memory_status(request: Request, conversation_id: str | None = None, identity=Depends(current_identity)):
+        memory = request.app.state.memory
+        return {**memory.trace.recent(identity[0], conversation_id),
+                "permissions": memory.permissions(identity[0]),
+                "memory_consent": bool(identity[2]["memory_consent"]),
+                "database_id": digest(str(request.app.state.settings.database_path.resolve()))[:12],
+                "extractor_configured": bool(request.app.state.settings.memory_llm_key)}
 
     @app.get("/api/v1/knowledge")
     def knowledge(request: Request, identity=Depends(current_identity)):

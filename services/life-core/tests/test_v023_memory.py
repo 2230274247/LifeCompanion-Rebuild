@@ -97,9 +97,13 @@ def test_eligibility_rejects_question_hypothetical_negation_and_assistant_invent
     with client:
         bootstrap(client)
         for index,text in enumerate(("如果项目终于结束了，我会很开心", "项目结束了吗", "今天很开心",
-                                     "明天项目就结束了", "今天并没有完成项目", "怎么才能完成项目？")):
+                                     "今天并没有完成项目", "怎么才能完成项目？")):
             assert not add(client,text,"excluded-"+str(index),"excluded-chat").json()["accepted"]
         assert app.state.memory.list_items(app.state.store.get_user_by_librechat_id("lc-user-a")["life_user_id"]) == []
+        # A concrete future completion is a plan, not an occurred event or a fact.
+        planned = add(client, "明天项目就结束了", "future", "excluded-chat").json()
+        assert planned["accepted"] and planned["memory"]["kind"] == "future_plan"
+        assert app.state.store.list_events(app.state.store.get_user_by_librechat_id("lc-user-a")["life_user_id"]) == []
 
 
 def test_event_correction_preserves_raw_source_and_supersedes_old_retrieval(tmp_path,monkeypatch):

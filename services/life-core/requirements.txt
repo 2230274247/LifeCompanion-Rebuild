@@ -5,4 +5,5 @@ pytest==8.4.2
 tzdata==2025.2
 cryptography==45.0.5
 pillow==10.4.0
+fastembed==0.7.4
 
