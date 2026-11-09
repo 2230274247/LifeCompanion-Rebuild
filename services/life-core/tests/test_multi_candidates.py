@@ -151,6 +151,28 @@ def test_llm_single_batch_and_exact_user_source(service, monkeypatch):
     assert_grounded(items, text)
 
 
+@pytest.mark.parametrize("bad_first", [False, True])
+def test_llm_rejects_ungrounded_item_without_losing_grounded_sibling(service, monkeypatch, bad_first):
+    text = "我喜欢龙井茶，每天下午都会泡一杯。"
+    good = model_item("我喜欢龙井茶", value="龙井茶")
+    bad = model_item("每天下午都会泡一杯", key="interest", value="下午喝茶")
+    payload = {"items": [bad, good] if bad_first else [good, bad]}
+    calls = provider(monkeypatch, json.dumps(payload, ensure_ascii=False))
+    items, reason = extract_candidates(service, text, NOW, True)
+    assert reason == "llm_validated"
+    assert [(item.fact_key, item.value) for item in items] == [("drink_preference", "龙井茶")]
+    assert len(calls) == 1
+    assert_grounded(items, text)
+
+
+def test_json_response_format_has_explicit_json_instruction(service, monkeypatch):
+    calls = provider(monkeypatch, '{"items": []}')
+    extract_candidates(service, "今天很开心", NOW, True)
+    body = calls[0][1]["json"]
+    assert body["response_format"] == {"type": "json_object"}
+    assert "json" in body["messages"][0]["content"].lower()
+
+
 def test_llm_legacy_single_candidate(service, monkeypatch):
     provider(monkeypatch, json.dumps(model_item("我喜欢咖啡"), ensure_ascii=False))
     items, _ = extract_candidates(service, "我喜欢咖啡", NOW, True)
