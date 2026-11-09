@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-09",
+  "scope": "synthetic-account real chat through gateway and configured DeepSeek provider",
+  "runtime_version": "initial no-match fix 13d06b45f; final boundary clarification 3c6e3210f built but process reload blocked",
+  "unit_tests": {"passed": 24, "total": 24},
+  "git_governance": {"passed": 24, "failed": 0},
+  "api_typecheck": "PASS",
+  "api_build": "PASS",
+  "eslint": "PASS after flattening existing nested ternary",
+  "prettier": "PASS",
+  "real_chat_cases": [
+    {"case": "personal-history", "query": "最近15天，我做了什么", "recall_status": "no_match", "recall_items": 0, "generation_completed": true, "manual_observation": "Reply says retrieval found no records; does not invent personal events, dates or source links", "limitation": "False negative remains: the database contains in-range events; overview retrieval is not fixed"},
+    {"case": "general-knowledge", "query": "请解释数据库索引为什么能加快查询，不用结合我的个人经历。", "recall_status": "no_match", "generation_completed": true, "manual_observation": "Reply explains indexes without claiming personal experience"}
+  ],
+  "failed_attempt": "First harness requests returned Illegal request due to incomplete browser request metadata; reused established acceptance request format and both generations completed",
+  "final_reload": {"status": "BLOCKED", "reason": "Automatic approval rejected docker restart as Interfere With Workloads"},
+  "conclusion": "PARTIAL: runtime baseline behavior verified on two real cases; final clarification process reload and final-version end-to-end verification remain blocked. No zero-hallucination guarantee."
+}
