@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-09 | [记忆编排P5综合验收](2026-11-09_18-45_记忆编排P5综合验收_开发验收.md) | PARTIAL（中文用例/部署回滚就绪）；NOT TESTED（真实模型/浏览器） | [用例集](../development/MEMORY_ACCEPTANCE_CASES.md) |
 | 2026-11-09 | [记忆编排P4证据与业务执行](2026-11-09_18-43_记忆编排P4证据与业务执行_开发验收.md) | PASS（life-core 298/1跳过 + memory 52测试 + tsc 0错误）；NOT TESTED（真实模型/部署/真实提醒联网上游） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
 | 2026-11-09 | [记忆编排P3服务端接入规划器](2026-11-09_17-57_记忆编排P3服务端接入规划器_开发验收.md) | PASS（memory 5套件51测试 + tsc 0错误）；NOT TESTED（真实模型/部署/LibreChat全量构建） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
 | 2026-11-09 | [记忆编排P2语义协议与概览](2026-11-09_17-33_记忆编排P2语义协议与概览_开发验收.md) | PASS（plan 7 + api 3；全量297/1跳过）；NOT TESTED（真实模型/部署/LibreChat接入） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
