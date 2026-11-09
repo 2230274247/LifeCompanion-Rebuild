@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from app.retrieval import MemoryRetriever, _day
+from app.retrieval import MemoryRetriever, _day, _range, _rewrite_query
 from test_hybrid_retrieval import memory, put, NOW
 
 
@@ -41,13 +41,73 @@ def test_semantics_wins_over_identical_text(memory):
     assert got['retrieval']['mode'] == 'semantic_only'
 
 
-def test_same_content_encodes_once_but_preserves_both_memory_sources(memory):
+def test_same_content_encodes_once_but_result_deduplicates_identical_text(memory):
     put(memory, 'a', '午后在河岸散步')
     put(memory, 'b', '午后在河岸散步')
     r = search(memory, {'午后在河岸散步': [1,0,0]})
     assert r.prepare_user('alice') == 2
     assert r.embedder.calls == ['午后在河岸散步']
-    assert {i['memory_id'] for i in r.retrieve('alice', '我曾做过什么活动')['items']} == {'a', 'b'}
+    got = r.retrieve('alice', '我曾做过什么活动')
+    assert len(got['items']) == 1 and got['items'][0]['memory_id'] in {'a', 'b'}
+    assert got['retrieval']['dedup_dropped'] == 1
+
+
+def test_duplicate_content_across_dates_collapses_to_one_slot(memory):
+    # 用户真实失败：同一事实按 4 个时段重复，曾淹没 top-8、挤掉其他不同事实。
+    for i, day in enumerate([8, 5, 2, 1]):
+        put(memory, f'calligraphy-{i}', '老师提醒我写字要横平竖直',
+            semantic_key=f"event:2026-11-{day:02d}:calligraphy")
+    put(memory, 'math', '老师提醒我做题要检查')
+    r = search(memory, {'老师提醒我写字要横平竖直': [1,0,0], '老师提醒我做题要检查': [1,0,0]})
+    r.prepare_user('alice')
+    got = r.retrieve('alice', '老师提醒我注意什么')
+    hit_ids = [i['memory_id'] for i in got['items']]
+    assert 'math' in hit_ids
+    assert sum(1 for i in hit_ids if i.startswith('calligraphy')) == 1
+    assert got['retrieval']['dedup_dropped'] == 3
+
+
+def test_rerank_reorders_bi_encoder_candidates_when_ready(memory):
+    # 双塔余弦同分无法区分时，交叉编码器应给出真实相关顺序。
+    put(memory, 'a', '老师提醒我写字要横平竖直')
+    put(memory, 'b', '老师提醒我做题要检查')
+    r = search(memory, {'老师提醒我写字要横平竖直': [1,0,0], '老师提醒我做题要检查': [1,0,0]})
+    r.prepare_user('alice')
+    r.reranker.status = 'ready'
+
+    def fake_rerank(query, docs):
+        assert docs == ['老师提醒我写字要横平竖直', '老师提醒我做题要检查']
+        return [3.0, 6.0]  # b 更相关
+
+    r.reranker.rerank = fake_rerank
+    got = r.retrieve('alice', '老师提醒我注意什么')
+    assert got['retrieval']['rerank_used'] is True
+    assert got['retrieval']['rerank_pool'] == 2
+    assert [i['memory_id'] for i in got['items']] == ['b', 'a']
+
+
+def test_rerank_not_ready_falls_back_to_bi_encoder_ordering(memory):
+    put(memory, 'a', '老师提醒我写字要横平竖直')
+    r = search(memory, {'老师提醒我写字要横平竖直': [1,0,0]})
+    r.prepare_user('alice')
+    got = r.retrieve('alice', '老师提醒我注意什么')
+    assert got['retrieval']['rerank_used'] is False
+    assert [i['memory_id'] for i in got['items']] == ['a']
+
+
+def test_rewrite_query_returns_original_without_llm_key():
+    assert _rewrite_query(SimpleNamespace(), '总结老师提醒我注意什么', {}) == '总结老师提醒我注意什么'
+
+
+def test_query_rewrite_replaces_embedded_query_when_enabled(memory, monkeypatch):
+    put(memory, 'a', '老师提醒我写字要横平竖直')
+    r = search(memory, {'老师提醒我写字要横平竖直': [1,0,0]})
+    r.prepare_user('alice')
+    monkeypatch.setattr('app.retrieval._rewrite_query', lambda settings, q, cache: '写字横平竖直 做题检查')
+    got = r.retrieve('alice', '老师提醒我注意什么')
+    assert got['retrieval']['query_rewritten'] is True
+    assert r.embedder.query_calls == ['写字横平竖直 做题检查']
+    assert [i['memory_id'] for i in got['items']] == ['a']
 
 
 def test_configured_large_model_missing_cache_never_loads_or_downloads(memory, monkeypatch):
@@ -148,6 +208,39 @@ def test_relative_date_metadata_constraints(query,expected):
 
 def test_calendar_month_end_uses_valid_previous_month_day():
     assert _day('一个月前',date(2026,3,31)) == date(2026,2,28)
+
+
+@pytest.mark.parametrize('query,expected', [
+    ('近15天', (date(2026,10,26), date(2026,11,9))),
+    ('近一个月', (date(2026,10,9), date(2026,11,9))),
+    ('近3个月', (date(2026,8,9), date(2026,11,9))),
+    ('本月', (date(2026,11,1), date(2026,11,9))),
+    ('上个月', (date(2026,10,1), date(2026,10,31))),
+    ('上周', (date(2026,11,2), date(2026,11,8))),
+    ('这周', (date(2026,11,9), date(2026,11,9))),
+    ('最近几天', (date(2026,11,6), date(2026,11,9))),
+    ('最近', (date(2026,10,27), date(2026,11,9))),
+])
+def test_range_metadata_constraints(query, expected):
+    assert _range(query, date(2026,11,9)) == expected
+
+
+def test_non_temporal_query_has_no_range_constraint():
+    assert _range('总结老师提醒我注意什么', date(2026,11,9)) is None
+    assert _range('11月5日的日程', date(2026,11,9)) is None
+
+
+def test_range_constrains_candidates_to_window(memory):
+    put(memory, 'old', '旧时段的日程记录', semantic_key="event:2026-10-01:old",
+        valid_from=NOW - timedelta(days=40))
+    put(memory, 'recent', '最近时段的日程记录', semantic_key="event:2026-11-07:recent",
+        valid_from=NOW - timedelta(days=2))
+    r = search(memory, {'旧时段的日程记录': [1,0,0], '最近时段的日程记录': [1,0,0]})
+    r.prepare_user('alice')
+    got = r.retrieve('alice', '近15天的日程')
+    assert [i['memory_id'] for i in got['items']] == ['recent']
+    assert got['retrieval']['semantic_candidates'] == 1
+    assert got['retrieval']['indexed_count'] == 2
 
 
 def test_public_recall_cannot_supply_owner_or_bypass_auth(tmp_path):

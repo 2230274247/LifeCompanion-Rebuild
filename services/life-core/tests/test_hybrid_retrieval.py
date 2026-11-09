@@ -578,8 +578,8 @@ def test_lexical_overlap_is_not_enough_and_vector_hits_are_capped_at_eight(memor
     retrieval = ready(memory)
     assert retrieval.retrieve("alice", "项目组计划观测星空")["items"] == []
     for index in range(12):
-        put(memory, f"walk-{index:02}", "公园散步")
-    retrieval.embedder.vectors["公园散步"] = MATCH
+        put(memory, f"walk-{index:02}", f"公园散步编号{index}")
+    retrieval.embedder.vectors.update({f"公园散步编号{index}": MATCH for index in range(12)})
     retrieval.prepare_user("alice")
     result = retrieval.retrieve("alice", "公园散步")
     assert ids(result) == [f"walk-{index:02}" for index in range(8)]

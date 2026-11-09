@@ -1,0 +1,59 @@
+{
+  "task": "记忆召回优化验证（时间段解析 + 去重 + 交叉编码重排 + 查询改写）",
+  "date": "2026-11-09",
+  "branch": "claude/elegant-visvesvaraya-f65860",
+  "environment": {
+    "embedder": "BAAI/bge-large-zh-v1.5-pinned-q8 (1024d, CLS, rev a48549b3259a6165364f226599cd91f39923d5d5)",
+    "reranker": "Xenova/bge-reranker-base (rev 280bcc27a84e0b898c251e06fddb25171bd9b101)",
+    "db": "复制自产品库 life-core.sqlite3（原库未改动），owner life_c91717eedf15e3adc63f 401 条 active 记忆",
+    "query_rewrite": "off（无 LLM key，优雅回退原查询）"
+  },
+  "queries": [
+    {
+      "query": "总结老师提醒我注意什么",
+      "before": "书法事实分数 0.508（贴近阈值 0.48），4×书法 + 4×数学重复副本淹没 top-8，仅 2 个不同事实",
+      "after": {
+        "status": "matched",
+        "dedup_dropped": 9,
+        "rerank_used": true,
+        "rerank_pool": 12,
+        "top": [
+          {"score": 0.7338, "date": "2026-11-06", "text": "练习毛笔书法横画起笔，老师提醒我不能一直用同样的力道。"},
+          {"score": 0.4973, "date": "2026-11-02", "text": "复习化学酸碱滴定实验，重点记住读数时视线必须和液面相平。"},
+          {"score": 0.0369, "date": "2026-10-09", "text": "复习线性代数的特征向量，画图后理解了变换中方向不变的含义。"}
+        ],
+        "note": "书法事实从 0.508 提升到 0.7338 并排第一，重复副本被去重，返回 3 个不同事实而非 2 个"
+      }
+    },
+    {
+      "query": "近15天的日程",
+      "before": "不识别时间段，回退到全库语义搜索（401 候选），日程弱匹配预算/表格记忆，仅返回 2 条",
+      "after": {
+        "range": ["2026-10-26", "2026-11-09"],
+        "status": "matched",
+        "candidates": 301,
+        "dedup_dropped": 8,
+        "rerank_used": true,
+        "top_dates": ["2026-11-08", "2026-11-08", "2026-11-09", "2026-11-06", "2026-11-02"],
+        "note": "时间段正确解析并把候选从 401 收窄到 301，返回日期全部落在 15 天窗口内"
+      }
+    },
+    {
+      "query": "近一个月的日程",
+      "before": "不识别时间段，回退到全库语义搜索",
+      "after": {
+        "range": ["2026-10-09", "2026-11-09"],
+        "status": "matched",
+        "candidates": 401,
+        "dedup_dropped": 12,
+        "rerank_used": true,
+        "top_dates": ["2026-11-08", "2026-11-06", "2026-11-09", "2026-10-09", "2026-11-02"],
+        "note": "近一个月覆盖全部四个时段，候选保持 401，返回日期全部在窗口内"
+      }
+    }
+  ],
+  "remaining_limitations": [
+    "合成数据集中没有真正的「日程/安排」类内容，近15天/近一个月日程返回的是会议记录、报表等弱相关项（重排置信度 0.03~0.0007），属于数据缺失而非代码缺陷",
+    "查询改写（LLM 前置）需要 DEEPSEEK_API_KEY，本轮离线验证未启用，已由单元测试覆盖其优雅回退与生效路径"
+  ]
+}

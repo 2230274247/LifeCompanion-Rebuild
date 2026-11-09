@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import calendar
 import hashlib
+import httpx
 import json
 import math
 import re
@@ -16,7 +17,7 @@ import threading
 from datetime import date, datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from .embedding import EmbeddingUnavailable, LocalEmbedding, MODEL_NAME
+from .embedding import EmbeddingUnavailable, LocalEmbedding, LocalReranker, MODEL_NAME
 from .memory import FORGET, SENSITIVE
 
 _WITHDRAW = re.compile(FORGET.pattern + r"|撤回|不许记|删掉.*记忆|别再提|不要再用.*(?:资料|记忆)")
@@ -61,6 +62,60 @@ def _content_query(query):
     return content or query
 
 
+_CN_NUM = {"一": 1, "两": 2, "二": 2, "三": 3, "四": 4, "五": 5,
+           "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
+_NUM = r"(\d+|[一两二三四五六七八九十])"
+_RANGE_DAYS = re.compile(rf"(?:近|最近|过去)\s*{_NUM}\s*个?\s*(?:天|日)")
+_RANGE_MONTHS = re.compile(rf"(?:近|最近|过去)\s*{_NUM}\s*个?\s*月")
+_RANGE_PHRASE = re.compile(
+    rf"(?:近|最近|过去)\s*(?:\d+|[一两二三四五六七八九十])\s*个?\s*(?:天|日|月)"
+    r"|上(?:个)?月|上月|(?:这个|本)月|上(?:个)?(?:周|星期)|上周|(?:这|本)(?:周|星期)|最近|近期|近来"
+)
+
+
+def _num(text):
+    return int(text) if text.isdigit() else _CN_NUM.get(text)
+
+
+def _months_back(today, n):
+    year, month = today.year, today.month - n
+    while month <= 0:
+        year -= 1
+        month += 12
+    return date(year, month, min(today.day, calendar.monthrange(year, month)[1]))
+
+
+def _range(query, today):
+    """Temporal window constraint (近N天/近N月/这周/本月/上个月/最近).
+
+    Returns an inclusive (start, end) date pair, or None when the query carries
+    no window language. This is metadata, never a content relevance score.
+    """
+    match = _RANGE_DAYS.search(query)
+    if match:
+        n = max(1, _num(match.group(1)) or 1)
+        return (today - timedelta(days=n - 1), today)
+    match = _RANGE_MONTHS.search(query)
+    if match:
+        n = max(1, _num(match.group(1)) or 1)
+        return (_months_back(today, n), today)
+    if re.search(r"上(?:个)?月|上月", query):
+        start = _months_back(today, 1).replace(day=1)
+        return (start, today.replace(day=1) - timedelta(days=1))
+    if re.search(r"(?:这个|本)月", query):
+        return (today.replace(day=1), today)
+    if re.search(r"上(?:个)?(?:周|星期)|上周", query):
+        monday = today - timedelta(days=today.weekday())
+        return (monday - timedelta(days=7), monday - timedelta(days=1))
+    if re.search(r"(?:这|本)(?:周|星期)", query):
+        return (today - timedelta(days=today.weekday()), today)
+    if re.search(r"最近几[天日]|近几[天日]", query):
+        return (today - timedelta(days=3), today)
+    if re.search(r"最近|近期|近来", query):
+        return (today - timedelta(days=13), today)
+    return None
+
+
 def _item_day(item, zone):
     match = re.match(r"(?:event|plan):(\d{4}-\d{2}-\d{2}):", item.get("semantic_key", ""))
     try:
@@ -82,6 +137,53 @@ def _unit(vector):
     return tuple(value / norm for value in values)
 
 
+def _confidence(logit):
+    logit = float(logit)
+    return 1.0 / (1.0 + math.exp(-max(-50.0, min(50.0, logit))))
+
+
+_QUERY_REWRITE_PROMPT = (
+    "你是一名记忆检索改写器。把用户对个人记忆的提问改写成一句自足、具体、适合向量检索的查询短语："
+    "展开代词、缩写和抽象请求，指向它们真正想找的具体事实、事件或偏好；只改写、不回答、不臆造，"
+    "控制在40字以内。严格返回JSON：{\"query\": \"改写后的查询\"}。"
+)
+
+
+def _rewrite_query(settings, query, cache):
+    """Optional LLM pre-step (HyDE-style). Falls back to the original query on
+    any failure so a slow or absent LLM never blocks or degrades recall."""
+    key = query.strip()
+    if not key or not getattr(settings, "memory_llm_key", ""):
+        return key
+    if cache is not None and key in cache:
+        return cache[key]
+    try:
+        url = getattr(settings, "memory_llm_url", "https://api.deepseek.com/v1").rstrip("/")
+        with httpx.Client(timeout=httpx.Timeout(4.0, connect=2.0), trust_env=False) as client:
+            response = client.post(
+                f"{url}/chat/completions",
+                headers={"Authorization": f"Bearer {settings.memory_llm_key}"},
+                json={"model": getattr(settings, "memory_llm_model", "deepseek-chat"),
+                      "temperature": 0,
+                      **getattr(settings, "memory_llm_options", {}),
+                      "response_format": {"type": "json_object"},
+                      "messages": [{"role": "system", "content": _QUERY_REWRITE_PROMPT},
+                                   {"role": "user", "content": query}]})
+        if not response.is_success:
+            return key
+        rewritten = json.loads(response.json()["choices"][0]["message"]["content"]).get("query", "").strip()
+        if not rewritten:
+            return key
+        rewritten = rewritten[:400]
+        if cache is not None:
+            if len(cache) >= 512:
+                cache.clear()
+            cache[key] = rewritten
+        return rewritten
+    except Exception:
+        return key
+
+
 class MemoryRetriever:
     def __init__(self, memory, embedder=None, *, embedding_budget=48,
                  embedding_char_budget=24000, candidate_budget=256, cache_size=1024,
@@ -92,6 +194,11 @@ class MemoryRetriever:
             getattr(memory.settings, "memory_embedding_model", None))
         self.semantic_threshold = float(semantic_threshold if semantic_threshold is not None else
                                         getattr(memory.settings, "memory_semantic_threshold", 0.58))
+        self.reranker = LocalReranker(getattr(memory.settings, "memory_embedding_cache", None))
+        self.rerank_enabled = bool(getattr(memory.settings, "memory_rerank_enabled", True))
+        self.rerank_candidates = max(8, int(getattr(memory.settings, "memory_rerank_candidates", 32)))
+        self.rewrite_enabled = bool(getattr(memory.settings, "memory_query_rewrite_enabled", True))
+        self._rewrite_cache = {}
         self._now = now or (lambda zone: datetime.now(zone))
         self._lock = threading.RLock()
         self._index_lock = threading.Lock()
@@ -150,6 +257,11 @@ class MemoryRetriever:
     def warmup(self):
         warm = getattr(self.embedder, "warmup", None)
         status = warm() if warm else "ready"
+        if self.rerank_enabled:
+            try:
+                self.reranker.warmup()
+            except Exception:
+                pass
         if status == "ready":
             with self.memory.store.connect() as db:
                 users = db.execute("SELECT user_id FROM memory_permissions WHERE recall_consent=1").fetchall()
@@ -231,7 +343,8 @@ class MemoryRetriever:
         meta = dict(mode="semantic_only", model=self.model, threshold=self.semantic_threshold,
                     semantic_status="not_used", context_source="none", context_used=False,
                     candidate_count=0, semantic_candidates=0, embedded_count=0, cache_hits=0,
-                    budget_exhausted=False, profile_match_ids=[], keyword_retrieval=False)
+                    budget_exhausted=False, profile_match_ids=[], keyword_retrieval=False,
+                    dedup_dropped=0, rerank_used=False, rerank_pool=0, query_rewritten=False)
         result = dict(status="no_match", items=[], profile=[], retrieval=meta)
         if not self.memory.permissions(user_id).get("recall_consent"):
             self._purge(user_id)
@@ -263,8 +376,16 @@ class MemoryRetriever:
         except ValueError:
             meta["semantic_status"] = "invalid_date"
             return result
+        span = _range(query, now.date())
         search = _content_query(query) if requested is not None else query
+        if span is not None:
+            search = _RANGE_PHRASE.sub("", search, count=1).strip() or search
         search = search[:2000]
+        if self.rewrite_enabled and not _ANAPHORA.search(query):
+            rewritten = _rewrite_query(self.memory.settings, search, self._rewrite_cache)
+            if rewritten != search:
+                search = rewritten[:2000]
+                meta["query_rewritten"] = True
         if _ANAPHORA.search(query):
             if recent:
                 search = recent[-1] + "\n" + search[:1000]
@@ -278,7 +399,14 @@ class MemoryRetriever:
                     meta["context_source"] = "ambiguous"
                     return result
         profile = [i for i in allowed if i["kind"] == "stable_fact" and i["semantic_key"].removeprefix("fact:") in _PROFILE_KEYS]
-        candidates = [i for i in allowed if (requested is None or _item_day(i, zone) == requested)]
+        if span is not None:
+            start, end = span
+            candidates = [i for i in allowed
+                          if (day := _item_day(i, zone)) is not None and start <= day <= end]
+        elif requested is not None:
+            candidates = [i for i in allowed if _item_day(i, zone) == requested]
+        else:
+            candidates = list(allowed)
         vectors = self._vectors(user_id, allowed)
         meta.update(candidate_count=len(candidates), indexed_count=len(vectors), total_count=len(allowed))
         if getattr(self.embedder, "status", "ready") != "ready":
@@ -305,6 +433,29 @@ class MemoryRetriever:
             if score >= self.semantic_threshold:
                 scored.append((score, item))
         scored.sort(key=lambda pair: (-pair[0], pair[1]["memory_id"]))
+        if (self.rerank_enabled and self.reranker.status == "ready" and len(scored) > 1):
+            head, tail = scored[:self.rerank_candidates], scored[self.rerank_candidates:]
+            try:
+                logits = self.reranker.rerank(search, [_text(item) for _, item in head])
+                if len(logits) == len(head):
+                    reranked = sorted(
+                        ((_confidence(logit), item) for (_, item), logit in zip(head, logits)),
+                        key=lambda pair: (-pair[0], pair[1]["memory_id"]))
+                    scored = reranked + tail
+                    meta["rerank_used"] = True
+                    meta["rerank_pool"] = len(head)
+            except Exception:
+                pass
+        deduped = []
+        seen_hashes = set()
+        for score, item in scored:
+            digest = self._key(user_id, item)[2]
+            if digest in seen_hashes:
+                continue
+            seen_hashes.add(digest)
+            deduped.append((score, item))
+        meta["dedup_dropped"] = len(scored) - len(deduped)
+        scored = deduped
         result["items"] = [item for _, item in scored[:8] if item not in profile]
         # A profile is an explicitly bounded background, separately labelled.
         # It is not reported as a semantic hit unless it passes the vector threshold.

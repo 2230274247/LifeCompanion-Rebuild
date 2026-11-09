@@ -45,6 +45,9 @@ class Settings:
     memory_embedding_model: str = LARGE_MODEL_NAME
     memory_semantic_threshold: float = 0.48
     memory_embedding_cache: str = str(SERVICE_ROOT / "data" / "embedding-models")
+    memory_rerank_enabled: bool = True
+    memory_rerank_candidates: int = 32
+    memory_query_rewrite_enabled: bool = True
 
     @property
     def memos_configured(self) -> bool:
@@ -136,5 +139,8 @@ def load_settings() -> Settings:
         memory_semantic_threshold=float(os.getenv("LIFE_MEMORY_SEMANTIC_THRESHOLD", "0.48")),
         memory_embedding_model=os.getenv("LIFE_MEMORY_EMBEDDING_MODEL", LARGE_MODEL_NAME),
         memory_embedding_cache=os.getenv("LIFE_MEMORY_EMBEDDING_CACHE", str(SERVICE_ROOT / "data" / "embedding-models")),
+        memory_rerank_enabled=os.getenv("LIFE_MEMORY_RERANK_ENABLED", "true").lower() == "true",
+        memory_rerank_candidates=int(os.getenv("LIFE_MEMORY_RERANK_CANDIDATES", "32")),
+        memory_query_rewrite_enabled=os.getenv("LIFE_MEMORY_QUERY_REWRITE_ENABLED", "true").lower() == "true",
     )
 
