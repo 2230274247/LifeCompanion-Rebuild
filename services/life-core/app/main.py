@@ -424,6 +424,13 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         message_id = kwargs["source_message_ids"][0]
         try:
             memory = app.state.memory
+            source = memory.sources.record(kwargs["user"], {
+                "source_message_id": message_id, "text": kwargs["text"],
+                "conversation_id": kwargs.get("conversation_id"),
+                "occurred_at": kwargs["occurred_at"].isoformat(),
+            })
+            if source.get("status") == "revoked":
+                return {"accepted": False, "reason": "source_revoked"}
             with app.state.store.connect() as db:
                 batch_row = db.execute("SELECT status FROM memory_batches WHERE user_id=? AND message_id=?",
                                        (owner, message_id)).fetchone()
@@ -457,6 +464,8 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                         with app.state.store.connect() as db:
                             db.execute("UPDATE memory_batches SET status='completed' WHERE user_id=? AND message_id=?", (owner,message_id))
         except Exception as exc:
+            if str(exc) != "SOURCE_MESSAGE_CONFLICT":
+                app.state.memory.sources.set_status(owner, message_id, "failed")
             app.state.memory.trace.record(owner, message_id, kwargs.get("conversation_id"),
                 "extraction", "failed", type(exc).__name__.upper(),
                 elapsed_ms=int((time.monotonic()-start)*1000))
@@ -465,6 +474,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             count = db.execute("""SELECT COUNT(*) FROM memory_evidence e JOIN memory_items m
                 ON e.memory_id=m.memory_id WHERE e.user_id=? AND e.message_id=? AND m.state='active'""",
                 (owner, message_id)).fetchone()[0]
+        app.state.memory.sources.set_status(owner, message_id, "extracted" if count else "no_memory")
         app.state.memory.trace.record(owner, message_id, kwargs.get("conversation_id"),
             "extraction", "saved" if count else "rejected", result.get("reason"), count,
             int((time.monotonic()-start)*1000))
@@ -660,18 +670,28 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             raise HTTPException(status_code=403, detail={"code": "USER_NOT_MAPPED"})
 
         with request.app.state.memory.lock:
-            return process_event(
-                user=user, text=body.text, source_type="chat",
-                source_message_ids=[body.source_message_id],
-                conversation_id=body.conversation_id, occurred_at=body.occurred_at,
-            )
+            try:
+                return process_event(
+                    user=user, text=body.text, source_type="chat",
+                    source_message_ids=[body.source_message_id],
+                    conversation_id=body.conversation_id, occurred_at=body.occurred_at,
+                )
+            except ValueError as exc:
+                if str(exc) == "SOURCE_MESSAGE_CONFLICT":
+                    raise HTTPException(409, detail={"code": "SOURCE_MESSAGE_CONFLICT"}) from exc
+                raise
 
     @app.post("/internal/v1/events/enqueue", dependencies=[Depends(require_internal)])
     def enqueue(body: IngestRequest, request: Request):
         user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
         if not user:
             raise HTTPException(status_code=403, detail={"code":"USER_NOT_MAPPED"})
-        return request.app.state.memory.enqueue(user, body.model_dump(mode="json"))
+        try:
+            return request.app.state.memory.enqueue(user, body.model_dump(mode="json"))
+        except ValueError as exc:
+            if str(exc) == "SOURCE_MESSAGE_CONFLICT":
+                raise HTTPException(409, detail={"code": "SOURCE_MESSAGE_CONFLICT"}) from exc
+            raise
 
     def perform_memory_command(body: MemoryCommand, request: Request):
         user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
@@ -762,7 +782,35 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 "permissions": memory.permissions(identity[0]),
                 "memory_consent": bool(identity[2]["memory_consent"]),
                 "database_id": digest(str(request.app.state.settings.database_path.resolve()))[:12],
-                "extractor_configured": bool(request.app.state.settings.memory_llm_key)}
+                "extractor_configured": bool(request.app.state.settings.memory_llm_key),
+                "source_coverage": memory.sources.coverage(identity[0])}
+
+    @app.get("/api/v1/memory-sources/coverage")
+    def source_coverage(request: Request, identity=Depends(current_identity)):
+        return request.app.state.memory.sources.coverage(identity[0])
+
+    @app.get("/api/v1/memory-sources/{source_id}")
+    def source_detail(source_id: str, request: Request, identity=Depends(current_identity)):
+        item = request.app.state.memory.sources.detail(identity[0], source_id)
+        if item is None:
+            raise HTTPException(404, detail={"code": "SOURCE_NOT_FOUND"})
+        return {"item": item}
+
+    @app.delete("/api/v1/memory-sources/{source_id}")
+    def source_withdraw(source_id: str, request: Request, identity=Depends(current_identity)):
+        memory = request.app.state.memory
+        with memory.lock:
+            item = memory.sources.detail(identity[0], source_id)
+            if item is None:
+                raise HTTPException(404, detail={"code": "SOURCE_NOT_FOUND"})
+            with memory.store.connect() as db:
+                derived = db.execute("""SELECT DISTINCT memory_id FROM memory_evidence
+                    WHERE user_id=? AND message_id=?""",
+                    (identity[0], item["source_message_id"])).fetchall()
+            for row in derived:
+                revoke_item(identity[0], row["memory_id"])
+            memory.sources.withdraw(identity[0], source_id)
+            return {"state": "withdrawn"}
 
     @app.get("/api/v1/knowledge")
     def knowledge(request: Request, identity=Depends(current_identity)):
@@ -779,7 +827,9 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
 
     @app.get("/api/v1/knowledge/{memory_id}")
     def knowledge_detail(memory_id: str, request: Request, identity=Depends(current_identity)):
-        item = request.app.state.memory.detail(identity[0], memory_id)
+        memory = request.app.state.memory
+        item = (memory.sources.detail(identity[0], memory_id) if memory_id.startswith("source_")
+                else memory.detail(identity[0], memory_id))
         if item is None:
             raise HTTPException(404, detail={"code":"MEMORY_NOT_FOUND"})
         return {"item":item}

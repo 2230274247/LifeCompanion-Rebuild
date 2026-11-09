@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-09 | [记忆编排P1授权来源与覆盖](2026-11-09_17-06_记忆编排P1授权来源与覆盖_开发验收.md) | PASS（来源14+API4+管线7）；NOT TESTED（真实模型/部署） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
 | 2026-11-09 | [记忆编排P0方案与续接状态](2026-11-09_16-53_记忆编排P0方案与续接状态_开发验收.md) | PASS（方案文档），NOT TESTED（实现） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
 | 2026-11-09 | [成熟助手记忆与开源方案调研](2026-11-09_16-03_成熟助手记忆与开源方案调研_开发验收.md) | PASS（调研文档）；NOT TESTED（实施/性能）：官方能力与限制、4类开源方案、现有差距和推荐路线 | [调研报告](../architecture/MEMORY_AGENT_RESEARCH_2026-11-09.md) |
 | 2026-11-09 | [聊天容器重启与最终边界验收](2026-11-09_14-41_聊天容器重启与最终边界验收_开发验收.md) | PASS：最终修复重载、健康与配置200、真实模型两例完成；时间概览漏查仍存在 | [最终版本验收](../../evidence/memory-load-20261109/no-match-final-restart-verification.json) |

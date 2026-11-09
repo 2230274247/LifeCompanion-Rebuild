@@ -15,6 +15,7 @@ from .extraction import extract_event
 from .store import Store, utc_now
 from .reminder_parser import calendar_day
 from .memory_trace import MemoryTrace
+from .memory_sources import MemorySources
 
 
 VERSION = "memory-v02.1"
@@ -51,6 +52,7 @@ class MemoryService:
         self.store, self.settings = store, settings
         self.lock = threading.RLock()
         self.trace = MemoryTrace(store)
+        self.sources = MemorySources(self)
 
     def initialize(self):
         self.trace.initialize()
@@ -117,6 +119,7 @@ class MemoryService:
             if "message_at" not in columns:
                 db.execute("ALTER TABLE memory_evidence ADD COLUMN message_at TEXT")
             db.execute("UPDATE memory_jobs SET status='queued' WHERE status='running'")
+        self.sources.initialize()
 
     def permissions(self, user_id):
         with self.store.connect() as db:
@@ -258,24 +261,34 @@ class MemoryService:
         return dict(row)
 
     def invalidate(self, user_id, item_id, state="withdrawn", source_message_id=None):
-        with self.store.connect() as db:
-            row = db.execute("SELECT * FROM memory_items WHERE memory_id=? AND user_id=?",
-                             (item_id,user_id)).fetchone()
-            if row is None:
-                return None
-            db.execute("""UPDATE memory_items SET state=?,valid_until=?,updated_at=?,revision=revision+1
-                WHERE memory_id=?""", (state,utc_now(),utc_now(),item_id))
-            db.execute("INSERT INTO memory_revisions VALUES (?,?,?,?,?)",
-                       (item_id,row["revision"]+1,state,source_message_id,utc_now()))
+        with self.lock, self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            return self._invalidate(db, user_id, item_id, state, source_message_id)
+
+    def _invalidate(self, db, user_id, item_id, state, source_message_id=None):
+        if state not in {"withdrawn", "superseded"}:
+            raise ValueError("INVALID_MEMORY_STATE")
+        row = db.execute("SELECT * FROM memory_items WHERE memory_id=? AND user_id=?",
+                         (item_id,user_id)).fetchone()
+        if row is None:
+            return None
+        # Read source links before removing evidence, within the same transaction.
+        self.sources.withdraw_for_item(db, user_id, item_id, state)
+        if row["state"] == "withdrawn":
+            return dict(row)
+        db.execute("""UPDATE memory_items SET state=?,valid_until=?,updated_at=?,revision=revision+1
+            WHERE memory_id=?""", (state,utc_now(),utc_now(),item_id))
+        db.execute("INSERT INTO memory_revisions VALUES (?,?,?,?,?)",
+                   (item_id,row["revision"]+1,state,source_message_id,utc_now()))
+        if row["event_id"]:
+            db.execute("UPDATE events SET status='withdrawn',updated_at=? WHERE event_id=?",
+                       (utc_now(),row["event_id"]))
+        if state == "withdrawn":
+            # Keep only a non-content tombstone to prevent replay resurrection.
+            db.execute("UPDATE memory_items SET canonical_text='',value='' WHERE memory_id=?", (item_id,))
+            db.execute("DELETE FROM memory_evidence WHERE memory_id=?", (item_id,))
             if row["event_id"]:
-                db.execute("UPDATE events SET status='withdrawn',updated_at=? WHERE event_id=?",
-                           (utc_now(),row["event_id"]))
-            if state == "withdrawn":
-                # Keep only a non-content tombstone to prevent replay resurrection.
-                db.execute("UPDATE memory_items SET canonical_text='',value='' WHERE memory_id=?", (item_id,))
-                db.execute("DELETE FROM memory_evidence WHERE memory_id=?", (item_id,))
-                if row["event_id"]:
-                    db.execute("UPDATE events SET title='已撤回',summary='' WHERE event_id=?", (row["event_id"],))
+                db.execute("UPDATE events SET title='已撤回',summary='' WHERE event_id=?", (row["event_id"],))
         return dict(row)
 
     def list_items(self, user_id):
@@ -309,6 +322,13 @@ class MemoryService:
         return []
 
     def enqueue(self, user, body):
+        with self.lock:
+            return self._enqueue(user, body)
+
+    def _enqueue(self, user, body):
+        source = self.sources.record(user, body)
+        if source["status"] == "revoked":
+            return {"accepted": False, "status": "revoked", "reason": "SOURCE_REVOKED"}
         if not self.allowed(user, body["text"]) and not FORGET.search(body["text"]):
             self.trace.record(user["life_user_id"], body["source_message_id"], body.get("conversation_id"),
                               "enqueue", "permission_denied", "MEMORY_CONSENT_REQUIRED")
@@ -327,9 +347,18 @@ class MemoryService:
     def run_one(self, processor):
         with self.lock:
             with self.store.connect() as db:
+                cutoff = (datetime.now(UTC)-timedelta(hours=24)).isoformat()
+                expired = db.execute("""SELECT user_id,payload FROM memory_jobs
+                    WHERE payload IS NOT NULL AND created_at<?""", (cutoff,)).fetchall()
+                for job in expired:
+                    try:
+                        message_id = json.loads(job["payload"])["source_message_id"]
+                    except (ValueError, TypeError, KeyError):
+                        continue
+                    self.sources._set_status(db, job["user_id"], message_id, "expired",
+                                             only_if={"queued", "running", "failed"})
                 db.execute("""UPDATE memory_jobs SET payload=NULL,status='expired'
-                    WHERE payload IS NOT NULL AND created_at<?""",
-                    ((datetime.now(UTC)-timedelta(hours=24)).isoformat(),))
+                    WHERE payload IS NOT NULL AND created_at<?""", (cutoff,))
                 row = db.execute("""SELECT * FROM memory_jobs WHERE status='queued' AND available_at<=?
                     ORDER BY created_at LIMIT 1""", (utc_now(),)).fetchone()
                 if row is None:
@@ -338,6 +367,7 @@ class MemoryService:
                            (row["job_id"],))
             try:
                 payload = json.loads(row["payload"])
+                self.sources.set_status(row["user_id"], payload["source_message_id"], "running")
                 user = self.store.get_user(row["user_id"])
                 processor(user=user,text=payload["text"],source_type="chat",
                     source_message_ids=[payload["source_message_id"]],
@@ -351,10 +381,19 @@ class MemoryService:
                 with self.store.connect() as db:
                     db.execute("""UPDATE memory_jobs SET status=?,last_error='EXTRACTION_OR_PUBLISH_FAILED',
                         payload=CASE WHEN ? THEN payload ELSE NULL END,available_at=?,updated_at=?
-                        WHERE job_id=?""", ("queued" if retry else "failed",int(retry),
+                        WHERE job_id=? AND status='running'""", ("queued" if retry else "failed",int(retry),
                         (datetime.now(UTC)+timedelta(seconds=10)).isoformat(),utc_now(),row["job_id"]))
+                    if 'payload' in locals() and isinstance(payload, dict):
+                        self.sources._set_status(db, row["user_id"], payload.get("source_message_id"), "failed")
             else:
                 with self.store.connect() as db:
-                    db.execute("UPDATE memory_jobs SET status='succeeded',payload=NULL,updated_at=? WHERE job_id=?",
-                               (utc_now(),row["job_id"]))
+                    db.execute("""UPDATE memory_jobs SET status='succeeded',payload=NULL,updated_at=?
+                        WHERE job_id=? AND status='running'""", (utc_now(),row["job_id"]))
+                    count = db.execute("""SELECT COUNT(*) FROM memory_evidence e JOIN memory_items m
+                        ON e.user_id=m.user_id AND e.memory_id=m.memory_id WHERE e.user_id=?
+                        AND e.message_id=? AND m.state='active'""",
+                        (row["user_id"],payload["source_message_id"])).fetchone()[0]
+                    # process_event may already have recorded a more precise terminal status.
+                    self.sources._set_status(db, row["user_id"], payload["source_message_id"],
+                        "extracted" if count else "no_memory", only_if={"queued", "running"})
         return True
