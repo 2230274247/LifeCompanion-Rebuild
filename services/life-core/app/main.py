@@ -74,12 +74,16 @@ class RecallContext(BaseModel):
     conversation_id: str | None = None
 
 
-class RecallRequest(BaseModel):
-    source_user_id: str
+class UserRecallRequest(BaseModel):
+    model_config = {"extra": "forbid"}
     query: str = Field(max_length=4000)
     conversation_id: str | None = None
     source_message_id: str | None = None
     recent_messages: list[RecallContext] = Field(default_factory=list, max_length=4)
+
+
+class RecallRequest(UserRecallRequest):
+    source_user_id: str
 
 
 class MemoryTelemetry(BaseModel):
@@ -739,14 +743,6 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                     "valid_from": i["valid_from"], "kind": i["kind"], "url": f"/knowledge/{i['memory_id']}"}
         result = [evidence(i) for i in items]
         profile_result = [evidence(i) for i in profile]
-        if status not in ("excluded", "permission_denied", "empty_input") and re.search(r"提醒|带什么|带哪些", body.query):
-            for reminder in request.app.state.store.list_reminders(user["life_user_id"])[:40]:
-                if SENSITIVE.search(reminder["title"]) and not request.app.state.memory.permissions(user["life_user_id"])["sensitive_consent"]:
-                    continue
-                if not re.search(r"带|提醒", body.query) or not re.search(r"带|盘|伞", reminder["title"]):
-                    continue
-                result.append({"text": reminder["title"], "status": reminder["status"],
-                               "kind": "reminder", "url": f"/reminders/{reminder['reminder_id']}"})
         return {"status": "matched" if result or profile_result else status, "items": result,
                 "profile": profile_result, "retrieval": recalled["retrieval"]}
 
@@ -771,6 +767,11 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
     @app.get("/api/v1/knowledge")
     def knowledge(request: Request, identity=Depends(current_identity)):
         return {"items":request.app.state.memory.list_items(identity[0])}
+
+    @app.post("/api/v1/knowledge/recall")
+    def user_recall(body: UserRecallRequest, request: Request, identity=Depends(current_identity)):
+        # Same retrieval contract, but the owner comes exclusively from the JWT.
+        return internal_recall(RecallRequest(source_user_id=identity[1], **body.model_dump()), request)
 
     @app.get("/api/v1/knowledge/recall")
     def recall(request: Request, q: str = Query(max_length=4000), identity=Depends(current_identity)):

@@ -1,0 +1,5713 @@
+{
+  "checked_at": "2026-11-09T01:29:19.305623+00:00",
+  "dataset_count": 400,
+  "questions": 144,
+  "hit_at_1": 44,
+  "hit_at_3": 44,
+  "hit_at_8": 44,
+  "p50_ms": 384.35,
+  "p95_ms": 725.13,
+  "per_bucket": {
+    "1d": {
+      "questions": 30,
+      "hit_at_8": 9
+    },
+    "3d": {
+      "questions": 30,
+      "hit_at_8": 9
+    },
+    "7d": {
+      "questions": 30,
+      "hit_at_8": 9
+    },
+    "1m": {
+      "questions": 30,
+      "hit_at_8": 10
+    }
+  },
+  "context_tests": [
+    {
+      "bucket": "1d",
+      "anchor": "家中清洗衣物的设备出了故障",
+      "query": "2026-11-08，那件事我后来怎么处理的？",
+      "expected_key": "1d-002",
+      "rank": 1,
+      "elapsed_ms": 582.05,
+      "metadata": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "recent_users",
+        "context_used": true,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6777,
+          0.6066
+        ]
+      }
+    },
+    {
+      "bucket": "3d",
+      "anchor": "查订单的网络服务变得很慢",
+      "query": "2026-11-06，那件事我后来怎么处理的？",
+      "expected_key": "3d-034",
+      "rank": 2,
+      "elapsed_ms": 534.81,
+      "metadata": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "recent_users",
+        "context_used": true,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6184,
+          0.6099
+        ]
+      }
+    },
+    {
+      "bucket": "7d",
+      "anchor": "我学的新证据改变概率判断的方法",
+      "query": "2026-11-02，那件事我后来怎么处理的？",
+      "expected_key": "7d-070",
+      "rank": null,
+      "elapsed_ms": 485.24,
+      "metadata": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "recent_users",
+        "context_used": true,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      }
+    },
+    {
+      "bucket": "1m",
+      "anchor": "我学弹六根弦的乐器时碰到了困难",
+      "query": "2026-10-09，那件事我后来怎么处理的？",
+      "expected_key": "1m-071",
+      "rank": 1,
+      "elapsed_ms": 391.13,
+      "metadata": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "recent_users",
+        "context_used": true,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5884
+        ]
+      }
+    }
+  ],
+  "context_hits": 3,
+  "safety_checks": 556,
+  "safety_failures": [],
+  "published": 0,
+  "selected": 32,
+  "results": [
+    {
+      "key": "1d-000",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我用什么活动增加了每天的运动量？",
+      "expected_keys": [
+        "1d-000"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 703.63,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "06ccb375-afba-4b9f-8fac-46ffc2f13cda",
+      "returned": []
+    },
+    {
+      "key": "1d-001",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我为长辈准备了怎样的一顿家常餐？",
+      "expected_keys": [
+        "1d-001"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 539.43,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6029
+        ]
+      },
+      "test_conversation_id": "930e17de-7465-4c78-b114-293c08b69660",
+      "returned": [
+        {
+          "key": "1d-001",
+          "text": "给父母做了清蒸鲈鱼和番茄炒蛋，一家人坐下来慢慢吃饭。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        }
+      ]
+    },
+    {
+      "key": "1d-002",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，家里的衣物清洁设备出了什么故障，又如何解决？",
+      "expected_keys": [
+        "1d-002"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 425.83,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6402,
+          0.6023
+        ]
+      },
+      "test_conversation_id": "9b457fdc-ab58-4d57-bb98-403d5788223c",
+      "returned": [
+        {
+          "key": "1d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        },
+        {
+          "key": "1d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "82899d42-1e94-5ec4-b6c5-8559d066c13e"
+        }
+      ]
+    },
+    {
+      "key": "1d-003",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我怎样照料家中可以做香料的植物？",
+      "expected_keys": [
+        "1d-003"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 401.49,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "472c3a2d-7a84-465e-8ca6-72c24645fd22",
+      "returned": []
+    },
+    {
+      "key": "1d-004",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我买回来的蔬菜如何保鲜？",
+      "expected_keys": [
+        "1d-004"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 364.69,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6204
+        ]
+      },
+      "test_conversation_id": "d4b679a3-965d-4934-8f5e-89ba2ae70269",
+      "returned": [
+        {
+          "key": "1d-004",
+          "text": "去菜市场挑了新鲜菠菜和胡萝卜，回家分装冷冻以免浪费。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        }
+      ]
+    },
+    {
+      "key": "1d-005",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我改善休息环境时处理了哪种外界干扰？",
+      "expected_keys": [
+        "1d-005"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 456.91,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "cd251b61-bf9b-4fb2-b7ae-a3a009c89865",
+      "returned": []
+    },
+    {
+      "key": "1d-006",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我在哪里借到文学读物并安静待了半天？",
+      "expected_keys": [
+        "1d-006"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 447.38,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6393
+        ]
+      },
+      "test_conversation_id": "9f542ab4-a8b3-402a-876c-5159c054fb48",
+      "returned": [
+        {
+          "key": "1d-006",
+          "text": "在社区图书馆借了两本散文集，坐在靠窗的座位读到傍晚。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        }
+      ]
+    },
+    {
+      "key": "1d-007",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我自制甜点时出现了什么技术失误？",
+      "expected_keys": [
+        "1d-007"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 452.27,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "2a028c82-d10f-42fc-83c5-8cf0f4e2b5fc",
+      "returned": []
+    },
+    {
+      "key": "1d-008",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我和以前的同窗一起做了什么户外锻炼？",
+      "expected_keys": [
+        "1d-008"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 360.14,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "7c6a0123-4273-4fe3-a671-4fddc7b6c4c8",
+      "returned": []
+    },
+    {
+      "key": "1d-009",
+      "bucket": "1d",
+      "domain": "生活",
+      "query": "2026-11-08那天，我如何处理闲置但还能使用的衣服？",
+      "expected_keys": [
+        "1d-009"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 391.64,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5935
+        ]
+      },
+      "test_conversation_id": "7b0b02e5-44d4-447b-a8e3-cada7c8307a1",
+      "returned": [
+        {
+          "key": "1d-009",
+          "text": "整理换季衣物，把不再穿的外套清洗后交给社区捐赠站。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        }
+      ]
+    },
+    {
+      "key": "1d-034",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我怎样让查订单的服务快了一个数量级？",
+      "expected_keys": [
+        "1d-034"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 422.73,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "b51732ac-22fe-4c23-8f71-957d0a46b588",
+      "returned": []
+    },
+    {
+      "key": "1d-035",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我如何帮助刚入职的伙伴尽快独立上手？",
+      "expected_keys": [
+        "1d-035"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 457.61,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "c1af4615-d6d3-4eb3-9ce6-5e40c04364df",
+      "returned": []
+    },
+    {
+      "key": "1d-036",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我核对账目时纠正了哪一项多记的支出？",
+      "expected_keys": [
+        "1d-036"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 487.55,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "5d5de356-bd45-427d-a358-23ece2ae6bc4",
+      "returned": []
+    },
+    {
+      "key": "1d-037",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，面对提前交货的变化，我如何调整团队执行顺序？",
+      "expected_keys": [
+        "1d-037"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 676.13,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6275,
+          0.6121,
+          0.5866
+        ]
+      },
+      "test_conversation_id": "12fa7e0c-252a-4db9-85ec-8508a754d5e7",
+      "returned": [
+        {
+          "key": "1d-037",
+          "text": "客户临时要求提前验收，我和设计同事重新安排优先级，先交付核心页面。",
+          "source_conversation_id": "5382755d-1fb7-5017-be5d-746d1d4b6c68"
+        },
+        {
+          "key": "1d-043",
+          "text": "参加跨部门复盘，大家约定需求变更必须先书面确认，避免口头遗漏。",
+          "source_conversation_id": "57e10598-2493-58f6-ad8e-37cd2fa43a7a"
+        },
+        {
+          "key": "1d-045",
+          "text": "修改客服知识库，把退款流程拆成了六个清晰步骤。",
+          "source_conversation_id": "57e10598-2493-58f6-ad8e-37cd2fa43a7a"
+        }
+      ]
+    },
+    {
+      "key": "1d-038",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，公开介绍产品时设备出了意外，我采取了什么替代方案？",
+      "expected_keys": [
+        "1d-038"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 786.69,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5919
+        ]
+      },
+      "test_conversation_id": "319873da-5410-4660-a598-2aa2ea3ceac3",
+      "returned": [
+        {
+          "key": "1d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "5382755d-1fb7-5017-be5d-746d1d4b6c68"
+        }
+      ]
+    },
+    {
+      "key": "1d-039",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我定位并处理了哪种系统资源泄漏？",
+      "expected_keys": [
+        "1d-039"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 1246.65,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "84b14bc0-a14b-4b01-a055-dc18da56c449",
+      "returned": []
+    },
+    {
+      "key": "1d-040",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我检查采购品时发现了什么规格偏差？",
+      "expected_keys": [
+        "1d-040"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 896.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "898dcda6-1e3d-427e-9094-0db1a1cd2b22",
+      "returned": []
+    },
+    {
+      "key": "1d-041",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我从使用者意见中选出了什么改进方向？",
+      "expected_keys": [
+        "1d-041"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 713.45,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "3015f001-21f4-4969-bd68-db722f145776",
+      "returned": []
+    },
+    {
+      "key": "1d-042",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，我用自动化减少了哪种重复劳动？",
+      "expected_keys": [
+        "1d-042"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 687.88,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "5166a2d4-f140-4200-a427-bb3d5fe9bfe5",
+      "returned": []
+    },
+    {
+      "key": "1d-043",
+      "bucket": "1d",
+      "domain": "工作",
+      "query": "2026-11-08那天，团队回顾后形成了什么协作规则？",
+      "expected_keys": [
+        "1d-043"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 725.13,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "54a8fc20-caf5-4a51-a1f6-474e599bad69",
+      "returned": []
+    },
+    {
+      "key": "1d-068",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我弄明白了哪种层次数据结构的访问次序？",
+      "expected_keys": [
+        "1d-068"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 563.21,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1632e02e-8ea9-4544-95e4-0cdfb3e905de",
+      "returned": []
+    },
+    {
+      "key": "1d-069",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我用什么模仿练习来提升外语口语？",
+      "expected_keys": [
+        "1d-069"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 478.03,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "04b49724-b88d-4042-bb47-50622d31d77c",
+      "returned": []
+    },
+    {
+      "key": "1d-070",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我借助什么例子理解了新证据如何改变原有判断？",
+      "expected_keys": [
+        "1d-070"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 370.17,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "e648227e-fb1a-47ab-ae12-5e9c12336312",
+      "returned": []
+    },
+    {
+      "key": "1d-071",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我练乐器时遇到什么手指控制问题？",
+      "expected_keys": [
+        "1d-071"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 337.34,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5957
+        ]
+      },
+      "test_conversation_id": "3ddd2b02-bf51-4933-991e-09fec8f6fd50",
+      "returned": [
+        {
+          "key": "1d-071",
+          "text": "学习吉他和弦转换，左手无名指容易碰到旁边的弦，放慢速度练习。",
+          "source_conversation_id": "073d94c2-15d8-58f1-a590-deab2d9fb8ab"
+        }
+      ]
+    },
+    {
+      "key": "1d-072",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我从阅读中采用了怎样的专注安排？",
+      "expected_keys": [
+        "1d-072"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 320.25,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5931
+        ]
+      },
+      "test_conversation_id": "22478985-92e3-4517-8416-96e0ff078ef6",
+      "returned": [
+        {
+          "key": "1d-072",
+          "text": "读完一本讲注意力管理的书，尝试把学习拆成二十五分钟一段。",
+          "source_conversation_id": "073d94c2-15d8-58f1-a590-deab2d9fb8ab"
+        }
+      ]
+    },
+    {
+      "key": "1d-073",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我学会了怎样从一堆账单中归纳规律？",
+      "expected_keys": [
+        "1d-073"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 272.13,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1f416aa8-5d5c-4df9-803d-95ac2e0ddd6f",
+      "returned": []
+    },
+    {
+      "key": "1d-074",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我做手工容器时因什么动作问题没有成形？",
+      "expected_keys": [
+        "1d-074"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 286.68,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "fb4495fb-6c8f-4127-9333-ac4d2464fa02",
+      "returned": []
+    },
+    {
+      "key": "1d-075",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我拍低光环境时在研究哪个参数与模糊的关系？",
+      "expected_keys": [
+        "1d-075"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 295.61,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "74e9b695-174e-4ff1-ac6c-9dbf650ee734",
+      "returned": []
+    },
+    {
+      "key": "1d-076",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我学习建站后完成了哪项对外展示成果？",
+      "expected_keys": [
+        "1d-076"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 250.79,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "722dab6a-adb4-406c-841d-d93c304aafb4",
+      "returned": []
+    },
+    {
+      "key": "1d-077",
+      "bucket": "1d",
+      "domain": "学习",
+      "query": "2026-11-08那天，我在科普活动中了解了哪些环境现象之间的关系？",
+      "expected_keys": [
+        "1d-077"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 246.3,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "9131eb73-39e6-4134-9d92-0a97be5dae2b",
+      "returned": []
+    },
+    {
+      "key": "3d-000",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我用什么活动增加了每天的运动量？",
+      "expected_keys": [
+        "3d-000"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 248.8,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "5bdb258e-5e7e-4016-9c13-01e52678e9ff",
+      "returned": []
+    },
+    {
+      "key": "3d-001",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我为长辈准备了怎样的一顿家常餐？",
+      "expected_keys": [
+        "3d-001"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 241.9,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6106
+        ]
+      },
+      "test_conversation_id": "20b5c1c0-595b-45c7-bbc6-8ac8c2b93d03",
+      "returned": [
+        {
+          "key": "3d-001",
+          "text": "给父母做了清蒸鲈鱼和番茄炒蛋，一家人坐下来慢慢吃饭。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        }
+      ]
+    },
+    {
+      "key": "3d-002",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，家里的衣物清洁设备出了什么故障，又如何解决？",
+      "expected_keys": [
+        "3d-002"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 234.47,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6359,
+          0.6037
+        ]
+      },
+      "test_conversation_id": "ac310277-024c-4576-aa12-72770fc626d3",
+      "returned": [
+        {
+          "key": "3d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        },
+        {
+          "key": "3d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "a858aa3e-cc09-57ce-9cdf-28cd65e66309"
+        }
+      ]
+    },
+    {
+      "key": "3d-003",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我怎样照料家中可以做香料的植物？",
+      "expected_keys": [
+        "3d-003"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 230.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "c6d8d146-c9c8-4ad3-8c8c-3ccbf3bd3069",
+      "returned": []
+    },
+    {
+      "key": "3d-004",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我买回来的蔬菜如何保鲜？",
+      "expected_keys": [
+        "3d-004"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 254.41,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6143
+        ]
+      },
+      "test_conversation_id": "be44ab0d-3e91-4d56-815b-f81b31364630",
+      "returned": [
+        {
+          "key": "3d-004",
+          "text": "去菜市场挑了新鲜菠菜和胡萝卜，回家分装冷冻以免浪费。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        }
+      ]
+    },
+    {
+      "key": "3d-005",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我改善休息环境时处理了哪种外界干扰？",
+      "expected_keys": [
+        "3d-005"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 244.96,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "563a5e4d-c20e-40a9-9f65-d4fed017d17d",
+      "returned": []
+    },
+    {
+      "key": "3d-006",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我在哪里借到文学读物并安静待了半天？",
+      "expected_keys": [
+        "3d-006"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 279.03,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6418
+        ]
+      },
+      "test_conversation_id": "c358b56f-f0db-4f26-ad02-712f89645028",
+      "returned": [
+        {
+          "key": "3d-006",
+          "text": "在社区图书馆借了两本散文集，坐在靠窗的座位读到傍晚。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        }
+      ]
+    },
+    {
+      "key": "3d-007",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我自制甜点时出现了什么技术失误？",
+      "expected_keys": [
+        "3d-007"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 349.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "23ee8cd3-da2f-4987-9800-95ae09d84dd6",
+      "returned": []
+    },
+    {
+      "key": "3d-008",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我和以前的同窗一起做了什么户外锻炼？",
+      "expected_keys": [
+        "3d-008"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 412.26,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "68a4585c-23bb-42d1-8fe3-cc01dce6ee55",
+      "returned": []
+    },
+    {
+      "key": "3d-009",
+      "bucket": "3d",
+      "domain": "生活",
+      "query": "2026-11-06那天，我如何处理闲置但还能使用的衣服？",
+      "expected_keys": [
+        "3d-009"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 340.9,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5822
+        ]
+      },
+      "test_conversation_id": "c9d9e236-f039-4924-a1a4-a98b2c46df60",
+      "returned": [
+        {
+          "key": "3d-009",
+          "text": "整理换季衣物，把不再穿的外套清洗后交给社区捐赠站。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        }
+      ]
+    },
+    {
+      "key": "3d-034",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我怎样让查订单的服务快了一个数量级？",
+      "expected_keys": [
+        "3d-034"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 283.42,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "6d50b40b-2aa2-420b-b2e1-f44aa7003f4b",
+      "returned": []
+    },
+    {
+      "key": "3d-035",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我如何帮助刚入职的伙伴尽快独立上手？",
+      "expected_keys": [
+        "3d-035"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 422.36,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "3e038259-25ad-4e9c-903b-6671226168e6",
+      "returned": []
+    },
+    {
+      "key": "3d-036",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我核对账目时纠正了哪一项多记的支出？",
+      "expected_keys": [
+        "3d-036"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 656.8,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "2b866f13-c6dd-4f19-a61f-cfcb383245d9",
+      "returned": []
+    },
+    {
+      "key": "3d-037",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，面对提前交货的变化，我如何调整团队执行顺序？",
+      "expected_keys": [
+        "3d-037"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 592.49,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.626,
+          0.6106,
+          0.5888
+        ]
+      },
+      "test_conversation_id": "7ce4f595-fcb6-498c-b615-924114c8db7a",
+      "returned": [
+        {
+          "key": "3d-037",
+          "text": "客户临时要求提前验收，我和设计同事重新安排优先级，先交付核心页面。",
+          "source_conversation_id": "48038ace-e7ad-5a4d-9bf6-809c03e6e8b9"
+        },
+        {
+          "key": "3d-043",
+          "text": "参加跨部门复盘，大家约定需求变更必须先书面确认，避免口头遗漏。",
+          "source_conversation_id": "46f8f31c-c58e-50af-a273-0da62e685574"
+        },
+        {
+          "key": "3d-045",
+          "text": "修改客服知识库，把退款流程拆成了六个清晰步骤。",
+          "source_conversation_id": "46f8f31c-c58e-50af-a273-0da62e685574"
+        }
+      ]
+    },
+    {
+      "key": "3d-038",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，公开介绍产品时设备出了意外，我采取了什么替代方案？",
+      "expected_keys": [
+        "3d-038"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 556.08,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5907
+        ]
+      },
+      "test_conversation_id": "f12f1fd3-fecd-45de-901d-42398d2a2646",
+      "returned": [
+        {
+          "key": "3d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "48038ace-e7ad-5a4d-9bf6-809c03e6e8b9"
+        }
+      ]
+    },
+    {
+      "key": "3d-039",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我定位并处理了哪种系统资源泄漏？",
+      "expected_keys": [
+        "3d-039"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 594.24,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "12d67c3a-03d1-4961-930a-9f2df8361a56",
+      "returned": []
+    },
+    {
+      "key": "3d-040",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我检查采购品时发现了什么规格偏差？",
+      "expected_keys": [
+        "3d-040"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 529.28,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1d87edf4-9b2c-45fc-80d3-818a2512d760",
+      "returned": []
+    },
+    {
+      "key": "3d-041",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我从使用者意见中选出了什么改进方向？",
+      "expected_keys": [
+        "3d-041"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 603.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "2838c0e0-98b9-4284-8219-d23ffdd12ff0",
+      "returned": []
+    },
+    {
+      "key": "3d-042",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，我用自动化减少了哪种重复劳动？",
+      "expected_keys": [
+        "3d-042"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 553.72,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "e9ab69f8-e979-4657-947d-624f2a9226e0",
+      "returned": []
+    },
+    {
+      "key": "3d-043",
+      "bucket": "3d",
+      "domain": "工作",
+      "query": "2026-11-06那天，团队回顾后形成了什么协作规则？",
+      "expected_keys": [
+        "3d-043"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 430.92,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "7c30e2e2-dbb6-41b1-aa5e-a2bfee9fd448",
+      "returned": []
+    },
+    {
+      "key": "3d-068",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我弄明白了哪种层次数据结构的访问次序？",
+      "expected_keys": [
+        "3d-068"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 390.16,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "603d7ba3-b20b-4bc2-b214-e0791fb3a179",
+      "returned": []
+    },
+    {
+      "key": "3d-069",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我用什么模仿练习来提升外语口语？",
+      "expected_keys": [
+        "3d-069"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 319.16,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "796a0816-20ee-4a47-84d0-ee09ceab3766",
+      "returned": []
+    },
+    {
+      "key": "3d-070",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我借助什么例子理解了新证据如何改变原有判断？",
+      "expected_keys": [
+        "3d-070"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 234.0,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "21e808b4-fca0-47ba-88ac-da10bfc1bb5c",
+      "returned": []
+    },
+    {
+      "key": "3d-071",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我练乐器时遇到什么手指控制问题？",
+      "expected_keys": [
+        "3d-071"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 243.76,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5969
+        ]
+      },
+      "test_conversation_id": "15fbad1b-4eb8-4ceb-8b60-00d7ebf329ea",
+      "returned": [
+        {
+          "key": "3d-071",
+          "text": "学习吉他和弦转换，左手无名指容易碰到旁边的弦，放慢速度练习。",
+          "source_conversation_id": "b5d95876-d5e3-53e3-ba6a-8eda2d54f5ab"
+        }
+      ]
+    },
+    {
+      "key": "3d-072",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我从阅读中采用了怎样的专注安排？",
+      "expected_keys": [
+        "3d-072"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 274.7,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5893
+        ]
+      },
+      "test_conversation_id": "87881587-5b2c-4022-9bad-996f77471307",
+      "returned": [
+        {
+          "key": "3d-072",
+          "text": "读完一本讲注意力管理的书，尝试把学习拆成二十五分钟一段。",
+          "source_conversation_id": "b5d95876-d5e3-53e3-ba6a-8eda2d54f5ab"
+        }
+      ]
+    },
+    {
+      "key": "3d-073",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我学会了怎样从一堆账单中归纳规律？",
+      "expected_keys": [
+        "3d-073"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 290.02,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "ab2e0b00-d58c-4d23-ae25-9c1e0e8def06",
+      "returned": []
+    },
+    {
+      "key": "3d-074",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我做手工容器时因什么动作问题没有成形？",
+      "expected_keys": [
+        "3d-074"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 326.53,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "558d40b0-86e9-47e2-a8db-e2f69e00343f",
+      "returned": []
+    },
+    {
+      "key": "3d-075",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我拍低光环境时在研究哪个参数与模糊的关系？",
+      "expected_keys": [
+        "3d-075"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 320.39,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "f2a92ad2-608f-492c-b3e2-b695f4bbca59",
+      "returned": []
+    },
+    {
+      "key": "3d-076",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我学习建站后完成了哪项对外展示成果？",
+      "expected_keys": [
+        "3d-076"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 327.38,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "73f9a32e-1f0d-458b-8b41-5d9d00f93dad",
+      "returned": []
+    },
+    {
+      "key": "3d-077",
+      "bucket": "3d",
+      "domain": "学习",
+      "query": "2026-11-06那天，我在科普活动中了解了哪些环境现象之间的关系？",
+      "expected_keys": [
+        "3d-077"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 325.05,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "4f48aeae-3011-444f-b0c0-eb2bbb786786",
+      "returned": []
+    },
+    {
+      "key": "7d-000",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我用什么活动增加了每天的运动量？",
+      "expected_keys": [
+        "7d-000"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 289.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "fe089828-7fba-40c5-b957-c2965f5ca05c",
+      "returned": []
+    },
+    {
+      "key": "7d-001",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我为长辈准备了怎样的一顿家常餐？",
+      "expected_keys": [
+        "7d-001"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 276.14,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6084
+        ]
+      },
+      "test_conversation_id": "701efaac-5c39-477f-a0cb-88de297014c7",
+      "returned": [
+        {
+          "key": "7d-001",
+          "text": "给父母做了清蒸鲈鱼和番茄炒蛋，一家人坐下来慢慢吃饭。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        }
+      ]
+    },
+    {
+      "key": "7d-002",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，家里的衣物清洁设备出了什么故障，又如何解决？",
+      "expected_keys": [
+        "7d-002"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 380.49,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6296,
+          0.5976
+        ]
+      },
+      "test_conversation_id": "2b092840-2c7f-43e2-9419-c6bf7c0d69d8",
+      "returned": [
+        {
+          "key": "7d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        },
+        {
+          "key": "7d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "8ffc8917-e019-5178-8632-5b5af2aa7127"
+        }
+      ]
+    },
+    {
+      "key": "7d-003",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我怎样照料家中可以做香料的植物？",
+      "expected_keys": [
+        "7d-003"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 405.14,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "de5673af-a3ab-426c-9093-424ae47b0e45",
+      "returned": []
+    },
+    {
+      "key": "7d-004",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我买回来的蔬菜如何保鲜？",
+      "expected_keys": [
+        "7d-004"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 252.31,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6147
+        ]
+      },
+      "test_conversation_id": "9a335b5c-7348-4795-9f6f-cd8996a3eace",
+      "returned": [
+        {
+          "key": "7d-004",
+          "text": "去菜市场挑了新鲜菠菜和胡萝卜，回家分装冷冻以免浪费。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        }
+      ]
+    },
+    {
+      "key": "7d-005",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我改善休息环境时处理了哪种外界干扰？",
+      "expected_keys": [
+        "7d-005"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 283.48,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "7450e26f-799a-49a2-abf4-74d96a97bf24",
+      "returned": []
+    },
+    {
+      "key": "7d-006",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我在哪里借到文学读物并安静待了半天？",
+      "expected_keys": [
+        "7d-006"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 317.68,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6419
+        ]
+      },
+      "test_conversation_id": "f1f21fe0-b33d-46fd-b8b4-a53d9ab6cae7",
+      "returned": [
+        {
+          "key": "7d-006",
+          "text": "在社区图书馆借了两本散文集，坐在靠窗的座位读到傍晚。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        }
+      ]
+    },
+    {
+      "key": "7d-007",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我自制甜点时出现了什么技术失误？",
+      "expected_keys": [
+        "7d-007"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 471.06,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "6a2ee060-6d30-4128-a820-a19d5a0c0879",
+      "returned": []
+    },
+    {
+      "key": "7d-008",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我和以前的同窗一起做了什么户外锻炼？",
+      "expected_keys": [
+        "7d-008"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 272.35,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "fc28527f-5950-4f1a-988a-2b6ac2c0b29a",
+      "returned": []
+    },
+    {
+      "key": "7d-009",
+      "bucket": "7d",
+      "domain": "生活",
+      "query": "2026-11-02那天，我如何处理闲置但还能使用的衣服？",
+      "expected_keys": [
+        "7d-009"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 246.76,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5816
+        ]
+      },
+      "test_conversation_id": "258dba13-727e-4898-b705-1fb3afe75538",
+      "returned": [
+        {
+          "key": "7d-009",
+          "text": "整理换季衣物，把不再穿的外套清洗后交给社区捐赠站。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        }
+      ]
+    },
+    {
+      "key": "7d-034",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我怎样让查订单的服务快了一个数量级？",
+      "expected_keys": [
+        "7d-034"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 296.0,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "041f205f-2116-419e-9479-efd3113d263d",
+      "returned": []
+    },
+    {
+      "key": "7d-035",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我如何帮助刚入职的伙伴尽快独立上手？",
+      "expected_keys": [
+        "7d-035"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 305.29,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "56efa684-ed15-4238-a781-9687cd0bf549",
+      "returned": []
+    },
+    {
+      "key": "7d-036",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我核对账目时纠正了哪一项多记的支出？",
+      "expected_keys": [
+        "7d-036"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 284.78,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "44a72b88-d4f0-4317-8390-f7cf611aa982",
+      "returned": []
+    },
+    {
+      "key": "7d-037",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，面对提前交货的变化，我如何调整团队执行顺序？",
+      "expected_keys": [
+        "7d-037"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 295.01,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6224,
+          0.6079
+        ]
+      },
+      "test_conversation_id": "2a25ccb8-ee39-4966-9a3b-5087e932300c",
+      "returned": [
+        {
+          "key": "7d-037",
+          "text": "客户临时要求提前验收，我和设计同事重新安排优先级，先交付核心页面。",
+          "source_conversation_id": "055b3069-9b38-5a70-9f98-02aa8605fd5a"
+        },
+        {
+          "key": "7d-043",
+          "text": "参加跨部门复盘，大家约定需求变更必须先书面确认，避免口头遗漏。",
+          "source_conversation_id": "9d513e57-2605-5846-8481-479cbc2e9348"
+        }
+      ]
+    },
+    {
+      "key": "7d-038",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，公开介绍产品时设备出了意外，我采取了什么替代方案？",
+      "expected_keys": [
+        "7d-038"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 373.51,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5868
+        ]
+      },
+      "test_conversation_id": "29c56ebc-d114-408d-ad71-f4a43213dd86",
+      "returned": [
+        {
+          "key": "7d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "055b3069-9b38-5a70-9f98-02aa8605fd5a"
+        }
+      ]
+    },
+    {
+      "key": "7d-039",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我定位并处理了哪种系统资源泄漏？",
+      "expected_keys": [
+        "7d-039"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 377.88,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "622da7dd-0cec-44e8-a211-237fef6d99ea",
+      "returned": []
+    },
+    {
+      "key": "7d-040",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我检查采购品时发现了什么规格偏差？",
+      "expected_keys": [
+        "7d-040"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 384.35,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "0c12ae09-2b7f-44b7-9d40-3235965a4529",
+      "returned": []
+    },
+    {
+      "key": "7d-041",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我从使用者意见中选出了什么改进方向？",
+      "expected_keys": [
+        "7d-041"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 394.49,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1ecb34a9-501b-4586-8589-c54306c8c7f5",
+      "returned": []
+    },
+    {
+      "key": "7d-042",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，我用自动化减少了哪种重复劳动？",
+      "expected_keys": [
+        "7d-042"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 306.82,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8b0087f3-4e31-41c9-bbcc-6258b016fa9c",
+      "returned": []
+    },
+    {
+      "key": "7d-043",
+      "bucket": "7d",
+      "domain": "工作",
+      "query": "2026-11-02那天，团队回顾后形成了什么协作规则？",
+      "expected_keys": [
+        "7d-043"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 279.67,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "4dacdd1d-5c09-4bf5-9df3-e9dfdb2e1f0d",
+      "returned": []
+    },
+    {
+      "key": "7d-068",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我弄明白了哪种层次数据结构的访问次序？",
+      "expected_keys": [
+        "7d-068"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 245.85,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "e29c7a70-d356-4cc6-aafb-22e5a721cff2",
+      "returned": []
+    },
+    {
+      "key": "7d-069",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我用什么模仿练习来提升外语口语？",
+      "expected_keys": [
+        "7d-069"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 255.91,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "89784a9b-f083-4825-acd3-2d4b46a6d036",
+      "returned": []
+    },
+    {
+      "key": "7d-070",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我借助什么例子理解了新证据如何改变原有判断？",
+      "expected_keys": [
+        "7d-070"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 413.48,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "91bf5b5e-9a65-4e41-b73b-2954367258c7",
+      "returned": []
+    },
+    {
+      "key": "7d-071",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我练乐器时遇到什么手指控制问题？",
+      "expected_keys": [
+        "7d-071"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 493.62,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5937
+        ]
+      },
+      "test_conversation_id": "2ade4f18-dde0-4d59-8825-260fe9c682e3",
+      "returned": [
+        {
+          "key": "7d-071",
+          "text": "学习吉他和弦转换，左手无名指容易碰到旁边的弦，放慢速度练习。",
+          "source_conversation_id": "7995eaa3-0ff0-5b31-8a28-4560c4532f1d"
+        }
+      ]
+    },
+    {
+      "key": "7d-072",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我从阅读中采用了怎样的专注安排？",
+      "expected_keys": [
+        "7d-072"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 428.32,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5958
+        ]
+      },
+      "test_conversation_id": "19527862-d30c-4f1d-b705-ef291ab1f17d",
+      "returned": [
+        {
+          "key": "7d-072",
+          "text": "读完一本讲注意力管理的书，尝试把学习拆成二十五分钟一段。",
+          "source_conversation_id": "7995eaa3-0ff0-5b31-8a28-4560c4532f1d"
+        }
+      ]
+    },
+    {
+      "key": "7d-073",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我学会了怎样从一堆账单中归纳规律？",
+      "expected_keys": [
+        "7d-073"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 396.35,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "3b828a14-6a4f-4647-9cf6-235fc56b5523",
+      "returned": []
+    },
+    {
+      "key": "7d-074",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我做手工容器时因什么动作问题没有成形？",
+      "expected_keys": [
+        "7d-074"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 442.96,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8d6e9d27-c3c5-4c0e-8334-f093a4cb7d93",
+      "returned": []
+    },
+    {
+      "key": "7d-075",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我拍低光环境时在研究哪个参数与模糊的关系？",
+      "expected_keys": [
+        "7d-075"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 504.22,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "a494865a-e49f-4cdd-8c63-42db6bb83529",
+      "returned": []
+    },
+    {
+      "key": "7d-076",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我学习建站后完成了哪项对外展示成果？",
+      "expected_keys": [
+        "7d-076"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 511.78,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "3f1c6817-be76-4812-8370-e61ced60e1d1",
+      "returned": []
+    },
+    {
+      "key": "7d-077",
+      "bucket": "7d",
+      "domain": "学习",
+      "query": "2026-11-02那天，我在科普活动中了解了哪些环境现象之间的关系？",
+      "expected_keys": [
+        "7d-077"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 465.37,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "6e5dc151-6b57-412e-a815-9865a8dc0a76",
+      "returned": []
+    },
+    {
+      "key": "1m-000",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我用什么活动增加了每天的运动量？",
+      "expected_keys": [
+        "1m-000"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 537.58,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "116c6dbe-cb93-466f-ad04-86461171cfd6",
+      "returned": []
+    },
+    {
+      "key": "1m-001",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我为长辈准备了怎样的一顿家常餐？",
+      "expected_keys": [
+        "1m-001"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 429.97,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6107
+        ]
+      },
+      "test_conversation_id": "e34e1533-9d1c-40d4-a999-402d268293b4",
+      "returned": [
+        {
+          "key": "1m-001",
+          "text": "给父母做了清蒸鲈鱼和番茄炒蛋，一家人坐下来慢慢吃饭。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        }
+      ]
+    },
+    {
+      "key": "1m-002",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，家里的衣物清洁设备出了什么故障，又如何解决？",
+      "expected_keys": [
+        "1m-002"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 365.99,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6461,
+          0.6051,
+          0.5833
+        ]
+      },
+      "test_conversation_id": "17c48366-3dd0-4b4e-9e9f-1b2993780596",
+      "returned": [
+        {
+          "key": "1m-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        },
+        {
+          "key": "1m-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "922972af-9f46-54bf-8880-372c759d086f"
+        },
+        {
+          "key": "1m-031",
+          "text": "给客厅地毯做了深度清洁，晾干后房间气味清新了很多。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        }
+      ]
+    },
+    {
+      "key": "1m-003",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我怎样照料家中可以做香料的植物？",
+      "expected_keys": [
+        "1m-003"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 404.55,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "273d6b25-d11d-44a0-8ea6-1fce5095df7e",
+      "returned": []
+    },
+    {
+      "key": "1m-004",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我买回来的蔬菜如何保鲜？",
+      "expected_keys": [
+        "1m-004"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 524.88,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6197
+        ]
+      },
+      "test_conversation_id": "76ff2e0d-b45e-46d8-9db3-e9333659a90f",
+      "returned": [
+        {
+          "key": "1m-004",
+          "text": "去菜市场挑了新鲜菠菜和胡萝卜，回家分装冷冻以免浪费。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        }
+      ]
+    },
+    {
+      "key": "1m-005",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我改善休息环境时处理了哪种外界干扰？",
+      "expected_keys": [
+        "1m-005"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 365.76,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "ae18e88f-7d56-4553-945b-4d3072f73896",
+      "returned": []
+    },
+    {
+      "key": "1m-006",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我在哪里借到文学读物并安静待了半天？",
+      "expected_keys": [
+        "1m-006"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 452.01,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6387
+        ]
+      },
+      "test_conversation_id": "11254927-cf1a-4b37-a741-f1e0d186b2e9",
+      "returned": [
+        {
+          "key": "1m-006",
+          "text": "在社区图书馆借了两本散文集，坐在靠窗的座位读到傍晚。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        }
+      ]
+    },
+    {
+      "key": "1m-007",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我自制甜点时出现了什么技术失误？",
+      "expected_keys": [
+        "1m-007"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 375.6,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "c185ed82-2eb1-411f-883a-6a504d77fdda",
+      "returned": []
+    },
+    {
+      "key": "1m-008",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我和以前的同窗一起做了什么户外锻炼？",
+      "expected_keys": [
+        "1m-008"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 327.06,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8dbea654-0d69-4f57-a5e3-bd2ef3d81fb5",
+      "returned": []
+    },
+    {
+      "key": "1m-009",
+      "bucket": "1m",
+      "domain": "生活",
+      "query": "2026-10-09那天，我如何处理闲置但还能使用的衣服？",
+      "expected_keys": [
+        "1m-009"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 495.3,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5863
+        ]
+      },
+      "test_conversation_id": "76c987fe-f5aa-4d9f-ae0b-6cee8cfa61be",
+      "returned": [
+        {
+          "key": "1m-009",
+          "text": "整理换季衣物，把不再穿的外套清洗后交给社区捐赠站。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        }
+      ]
+    },
+    {
+      "key": "1m-034",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我怎样让查订单的服务快了一个数量级？",
+      "expected_keys": [
+        "1m-034"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 374.61,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5961,
+          0.582
+        ]
+      },
+      "test_conversation_id": "e9737dc2-82b7-4cb8-b3a3-f8bcaa489ec9",
+      "returned": [
+        {
+          "key": "1m-034",
+          "text": "将订单查询接口加入复合索引，响应延迟从九百毫秒降到了九十毫秒。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        },
+        {
+          "key": "1m-037",
+          "text": "客户临时要求提前验收，我和设计同事重新安排优先级，先交付核心页面。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        }
+      ]
+    },
+    {
+      "key": "1m-035",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我如何帮助刚入职的伙伴尽快独立上手？",
+      "expected_keys": [
+        "1m-035"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 425.77,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "4f6acee4-d56a-4ffc-87b6-5177636d6a9f",
+      "returned": []
+    },
+    {
+      "key": "1m-036",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我核对账目时纠正了哪一项多记的支出？",
+      "expected_keys": [
+        "1m-036"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 569.48,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "83df7aab-dddf-4583-a6de-0dbb4c968499",
+      "returned": []
+    },
+    {
+      "key": "1m-037",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，面对提前交货的变化，我如何调整团队执行顺序？",
+      "expected_keys": [
+        "1m-037"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 532.05,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6391,
+          0.6156,
+          0.5872
+        ]
+      },
+      "test_conversation_id": "2826aad2-2dda-4e63-b21d-eab50a522d0c",
+      "returned": [
+        {
+          "key": "1m-037",
+          "text": "客户临时要求提前验收，我和设计同事重新安排优先级，先交付核心页面。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        },
+        {
+          "key": "1m-043",
+          "text": "参加跨部门复盘，大家约定需求变更必须先书面确认，避免口头遗漏。",
+          "source_conversation_id": "bd260876-87d8-52ef-bbc3-526c58e3d3eb"
+        },
+        {
+          "key": "1m-045",
+          "text": "修改客服知识库，把退款流程拆成了六个清晰步骤。",
+          "source_conversation_id": "bd260876-87d8-52ef-bbc3-526c58e3d3eb"
+        }
+      ]
+    },
+    {
+      "key": "1m-038",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，公开介绍产品时设备出了意外，我采取了什么替代方案？",
+      "expected_keys": [
+        "1m-038"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 583.68,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5954
+        ]
+      },
+      "test_conversation_id": "2d2bc7e9-7397-464d-aaa2-0eaefcd8e353",
+      "returned": [
+        {
+          "key": "1m-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        }
+      ]
+    },
+    {
+      "key": "1m-039",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我定位并处理了哪种系统资源泄漏？",
+      "expected_keys": [
+        "1m-039"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 944.28,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "5d6522ee-f9e6-4b52-96d1-31bd1ee82f89",
+      "returned": []
+    },
+    {
+      "key": "1m-040",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我检查采购品时发现了什么规格偏差？",
+      "expected_keys": [
+        "1m-040"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 720.09,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "5fb78d7a-7fd9-4ae6-8766-50d421f4b066",
+      "returned": []
+    },
+    {
+      "key": "1m-041",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我从使用者意见中选出了什么改进方向？",
+      "expected_keys": [
+        "1m-041"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 921.58,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "e613a0f2-a6ce-45c7-97d7-3ea38fcb6c14",
+      "returned": []
+    },
+    {
+      "key": "1m-042",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，我用自动化减少了哪种重复劳动？",
+      "expected_keys": [
+        "1m-042"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 606.65,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "3b0e2f8e-bca2-4382-8290-95357d91ab07",
+      "returned": []
+    },
+    {
+      "key": "1m-043",
+      "bucket": "1m",
+      "domain": "工作",
+      "query": "2026-10-09那天，团队回顾后形成了什么协作规则？",
+      "expected_keys": [
+        "1m-043"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 706.42,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "2e81d94d-c3e3-481d-9739-45eba3466c1e",
+      "returned": []
+    },
+    {
+      "key": "1m-068",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我弄明白了哪种层次数据结构的访问次序？",
+      "expected_keys": [
+        "1m-068"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 712.16,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "96113299-418d-49eb-bcf8-a8d264cb1ab1",
+      "returned": []
+    },
+    {
+      "key": "1m-069",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我用什么模仿练习来提升外语口语？",
+      "expected_keys": [
+        "1m-069"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 770.93,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1054277d-9ffa-414a-b563-541a717e3163",
+      "returned": []
+    },
+    {
+      "key": "1m-070",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我借助什么例子理解了新证据如何改变原有判断？",
+      "expected_keys": [
+        "1m-070"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 604.08,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "f04f0ebb-24ec-40ff-b612-749104ea7822",
+      "returned": []
+    },
+    {
+      "key": "1m-071",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我练乐器时遇到什么手指控制问题？",
+      "expected_keys": [
+        "1m-071"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 296.67,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5994
+        ]
+      },
+      "test_conversation_id": "c4121664-f08b-41d9-ba4b-63eda72396fe",
+      "returned": [
+        {
+          "key": "1m-071",
+          "text": "学习吉他和弦转换，左手无名指容易碰到旁边的弦，放慢速度练习。",
+          "source_conversation_id": "93bfe94d-2d0f-5b9b-8148-f083b4f3f58e"
+        }
+      ]
+    },
+    {
+      "key": "1m-072",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我从阅读中采用了怎样的专注安排？",
+      "expected_keys": [
+        "1m-072"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 334.91,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5936
+        ]
+      },
+      "test_conversation_id": "d57f4ac2-b199-48a9-9c77-4595702be54d",
+      "returned": [
+        {
+          "key": "1m-072",
+          "text": "读完一本讲注意力管理的书，尝试把学习拆成二十五分钟一段。",
+          "source_conversation_id": "93bfe94d-2d0f-5b9b-8148-f083b4f3f58e"
+        }
+      ]
+    },
+    {
+      "key": "1m-073",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我学会了怎样从一堆账单中归纳规律？",
+      "expected_keys": [
+        "1m-073"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 391.85,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "22c9a0f3-cf62-4a7e-ba6a-010fe4c81266",
+      "returned": []
+    },
+    {
+      "key": "1m-074",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我做手工容器时因什么动作问题没有成形？",
+      "expected_keys": [
+        "1m-074"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 465.35,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "a4928a97-449b-4345-865b-9e2363b3483e",
+      "returned": []
+    },
+    {
+      "key": "1m-075",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我拍低光环境时在研究哪个参数与模糊的关系？",
+      "expected_keys": [
+        "1m-075"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 475.53,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "162abcb8-5275-4bdd-85f2-628d8020b815",
+      "returned": []
+    },
+    {
+      "key": "1m-076",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我学习建站后完成了哪项对外展示成果？",
+      "expected_keys": [
+        "1m-076"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 294.15,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "79b53616-25c7-4db6-a188-0c248e4abcf6",
+      "returned": []
+    },
+    {
+      "key": "1m-077",
+      "bucket": "1m",
+      "domain": "学习",
+      "query": "2026-10-09那天，我在科普活动中了解了哪些环境现象之间的关系？",
+      "expected_keys": [
+        "1m-077"
+      ],
+      "kind": "dated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 230.38,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 100,
+        "semantic_candidates": 100,
+        "embedded_count": 0,
+        "cache_hits": 100,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8c608854-69a6-47a5-aaf7-c0bfd9ba7eb6",
+      "returned": []
+    },
+    {
+      "key": "general-002",
+      "query": "家里的衣物清洁设备出了什么故障，又如何解决？",
+      "expected_keys": [
+        "1d-002",
+        "3d-002",
+        "7d-002",
+        "1m-002"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 277.7,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6381,
+          0.6381,
+          0.6381,
+          0.6381,
+          0.6146,
+          0.6146,
+          0.6146,
+          0.6146
+        ]
+      },
+      "test_conversation_id": "3105f678-7bdf-4a7b-b557-806b04e94856",
+      "returned": [
+        {
+          "key": "3d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "7c7ec4af-65ad-5851-8612-a35fbefe0076"
+        },
+        {
+          "key": "1m-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "e2906d15-a3cf-5474-adae-7238a26f0433"
+        },
+        {
+          "key": "1d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe"
+        },
+        {
+          "key": "7d-002",
+          "text": "发现洗衣机排水管堵住了，请维修师傅疏通后恢复正常。",
+          "source_conversation_id": "0c65bb21-f615-5ff7-be55-e4b87585a8bc"
+        },
+        {
+          "key": "3d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "a858aa3e-cc09-57ce-9cdf-28cd65e66309"
+        },
+        {
+          "key": "1m-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "922972af-9f46-54bf-8880-372c759d086f"
+        },
+        {
+          "key": "7d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "8ffc8917-e019-5178-8632-5b5af2aa7127"
+        },
+        {
+          "key": "1d-023",
+          "text": "清洗了空调过滤网，发现积灰很多，洗完后出风明显顺畅。",
+          "source_conversation_id": "82899d42-1e94-5ec4-b6c5-8559d066c13e"
+        }
+      ]
+    },
+    {
+      "key": "general-008",
+      "query": "我和以前的同窗一起做了什么户外锻炼？",
+      "expected_keys": [
+        "1d-008",
+        "3d-008",
+        "7d-008",
+        "1m-008"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 259.85,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "447950d3-5ecd-4c04-879d-a64946dfc76b",
+      "returned": []
+    },
+    {
+      "key": "general-010",
+      "query": "我丢掉的乘车凭证最后是怎样回到手里的？",
+      "expected_keys": [
+        "1d-010",
+        "3d-010",
+        "7d-010",
+        "1m-010"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 297.93,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6321,
+          0.6321,
+          0.6321,
+          0.6321
+        ]
+      },
+      "test_conversation_id": "940bdcfe-2b6e-49b6-9e95-4a0652899f64",
+      "returned": [
+        {
+          "key": "1m-010",
+          "text": "公交卡掉在了便利店，店员通过失物登记联系我取回。",
+          "source_conversation_id": "43639bd4-40e3-549d-81cd-5809beeeccd4"
+        },
+        {
+          "key": "3d-010",
+          "text": "公交卡掉在了便利店，店员通过失物登记联系我取回。",
+          "source_conversation_id": "0c81035c-b2b5-55fb-8cb2-374e828ba065"
+        },
+        {
+          "key": "1d-010",
+          "text": "公交卡掉在了便利店，店员通过失物登记联系我取回。",
+          "source_conversation_id": "b9b53ac1-7d08-5d1a-8778-728b5fc3716c"
+        },
+        {
+          "key": "7d-010",
+          "text": "公交卡掉在了便利店，店员通过失物登记联系我取回。",
+          "source_conversation_id": "14089239-e671-578e-8066-593036bbac39"
+        }
+      ]
+    },
+    {
+      "key": "general-015",
+      "query": "野外过夜时天气给我带来了什么麻烦？",
+      "expected_keys": [
+        "1d-015",
+        "3d-015",
+        "7d-015",
+        "1m-015"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 287.74,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.5995,
+          0.5995,
+          0.5995,
+          0.5995
+        ]
+      },
+      "test_conversation_id": "8c0ce001-7fd5-4ba6-8ba8-052d409b5972",
+      "returned": [
+        {
+          "key": "1d-015",
+          "text": "周末去郊外露营，夜里风大，把帐篷绳重新拉紧才睡稳。",
+          "source_conversation_id": "b9b53ac1-7d08-5d1a-8778-728b5fc3716c"
+        },
+        {
+          "key": "1m-015",
+          "text": "周末去郊外露营，夜里风大，把帐篷绳重新拉紧才睡稳。",
+          "source_conversation_id": "43639bd4-40e3-549d-81cd-5809beeeccd4"
+        },
+        {
+          "key": "7d-015",
+          "text": "周末去郊外露营，夜里风大，把帐篷绳重新拉紧才睡稳。",
+          "source_conversation_id": "14089239-e671-578e-8066-593036bbac39"
+        },
+        {
+          "key": "3d-015",
+          "text": "周末去郊外露营，夜里风大，把帐篷绳重新拉紧才睡稳。",
+          "source_conversation_id": "0c81035c-b2b5-55fb-8cb2-374e828ba065"
+        }
+      ]
+    },
+    {
+      "key": "general-018",
+      "query": "邻里互换物品时我拿什么换到了什么？",
+      "expected_keys": [
+        "1d-018",
+        "3d-018",
+        "7d-018",
+        "1m-018"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 329.58,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "a5887b9e-203f-49d8-977a-12fae3f23b11",
+      "returned": []
+    },
+    {
+      "key": "general-025",
+      "query": "我调整了什么夜间习惯来帮助更快入眠？",
+      "expected_keys": [
+        "1d-025",
+        "3d-025",
+        "7d-025",
+        "1m-025"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 305.33,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6405,
+          0.6405,
+          0.6405,
+          0.6405,
+          0.6211,
+          0.6211,
+          0.6211,
+          0.6211
+        ]
+      },
+      "test_conversation_id": "a2ee060e-2d28-4abd-b5cb-6e5eb1dcbd00",
+      "returned": [
+        {
+          "key": "3d-025",
+          "text": "尝试睡前半小时不看手机，改听舒缓的音乐，入睡更快了。",
+          "source_conversation_id": "a858aa3e-cc09-57ce-9cdf-28cd65e66309"
+        },
+        {
+          "key": "1m-025",
+          "text": "尝试睡前半小时不看手机，改听舒缓的音乐，入睡更快了。",
+          "source_conversation_id": "922972af-9f46-54bf-8880-372c759d086f"
+        },
+        {
+          "key": "7d-025",
+          "text": "尝试睡前半小时不看手机，改听舒缓的音乐，入睡更快了。",
+          "source_conversation_id": "8ffc8917-e019-5178-8632-5b5af2aa7127"
+        },
+        {
+          "key": "1d-025",
+          "text": "尝试睡前半小时不看手机，改听舒缓的音乐，入睡更快了。",
+          "source_conversation_id": "82899d42-1e94-5ec4-b6c5-8559d066c13e"
+        },
+        {
+          "key": "7d-095",
+          "text": "阅读一篇关于睡眠的综述，知道深睡眠参与巩固白天形成的记忆。",
+          "source_conversation_id": "330aeac8-528c-51a2-be49-e39b9b2f9bff"
+        },
+        {
+          "key": "3d-095",
+          "text": "阅读一篇关于睡眠的综述，知道深睡眠参与巩固白天形成的记忆。",
+          "source_conversation_id": "266c3f58-8e6f-5d08-a115-5af3fec28eac"
+        },
+        {
+          "key": "1d-095",
+          "text": "阅读一篇关于睡眠的综述，知道深睡眠参与巩固白天形成的记忆。",
+          "source_conversation_id": "50a0c4f9-859f-5bbe-8bd8-f0fa8e389149"
+        },
+        {
+          "key": "1m-095",
+          "text": "阅读一篇关于睡眠的综述，知道深睡眠参与巩固白天形成的记忆。",
+          "source_conversation_id": "dbf29da6-f247-5119-bdf5-bed32583cd51"
+        }
+      ]
+    },
+    {
+      "key": "general-034",
+      "query": "我怎样让查订单的服务快了一个数量级？",
+      "expected_keys": [
+        "1d-034",
+        "3d-034",
+        "7d-034",
+        "1m-034"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 291.98,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8fdc6ea2-3b57-482a-b638-75bfcd9cf1f6",
+      "returned": []
+    },
+    {
+      "key": "general-035",
+      "query": "我如何帮助刚入职的伙伴尽快独立上手？",
+      "expected_keys": [
+        "1d-035",
+        "3d-035",
+        "7d-035",
+        "1m-035"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 343.28,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "6201a2be-e036-4b60-a72d-19d940ec6693",
+      "returned": []
+    },
+    {
+      "key": "general-038",
+      "query": "公开介绍产品时设备出了意外，我采取了什么替代方案？",
+      "expected_keys": [
+        "1d-038",
+        "3d-038",
+        "7d-038",
+        "1m-038"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 297.94,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.587,
+          0.587,
+          0.587,
+          0.587
+        ]
+      },
+      "test_conversation_id": "db3a0757-bb08-4ae6-9ebc-651d0be5e350",
+      "returned": [
+        {
+          "key": "7d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "055b3069-9b38-5a70-9f98-02aa8605fd5a"
+        },
+        {
+          "key": "3d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "48038ace-e7ad-5a4d-9bf6-809c03e6e8b9"
+        },
+        {
+          "key": "1m-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        },
+        {
+          "key": "1d-038",
+          "text": "演示时投影仪突然黑屏，改用共享屏幕完成了产品介绍。",
+          "source_conversation_id": "5382755d-1fb7-5017-be5d-746d1d4b6c68"
+        }
+      ]
+    },
+    {
+      "key": "general-039",
+      "query": "我定位并处理了哪种系统资源泄漏？",
+      "expected_keys": [
+        "1d-039",
+        "3d-039",
+        "7d-039",
+        "1m-039"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 374.0,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "2c321bbc-6319-44c4-8730-53b9a8220dda",
+      "returned": []
+    },
+    {
+      "key": "general-043",
+      "query": "团队回顾后形成了什么协作规则？",
+      "expected_keys": [
+        "1d-043",
+        "3d-043",
+        "7d-043",
+        "1m-043"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 353.68,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "c33d82a0-338c-4005-b654-011c83aba8d8",
+      "returned": []
+    },
+    {
+      "key": "general-044",
+      "query": "我检验数据恢复能力时暴露了什么缺失？",
+      "expected_keys": [
+        "1d-044",
+        "3d-044",
+        "7d-044",
+        "1m-044"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 294.77,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.7101,
+          0.7101,
+          0.7101,
+          0.7101,
+          0.5964,
+          0.5964,
+          0.5964,
+          0.5964
+        ]
+      },
+      "test_conversation_id": "5caa0bcc-541d-4bd7-ba5f-180360e3eb6b",
+      "returned": [
+        {
+          "key": "1d-044",
+          "text": "给测试环境做数据库备份，恢复演练发现缺了一个触发器，补齐后通过。",
+          "source_conversation_id": "57e10598-2493-58f6-ad8e-37cd2fa43a7a"
+        },
+        {
+          "key": "1m-044",
+          "text": "给测试环境做数据库备份，恢复演练发现缺了一个触发器，补齐后通过。",
+          "source_conversation_id": "bd260876-87d8-52ef-bbc3-526c58e3d3eb"
+        },
+        {
+          "key": "3d-044",
+          "text": "给测试环境做数据库备份，恢复演练发现缺了一个触发器，补齐后通过。",
+          "source_conversation_id": "46f8f31c-c58e-50af-a273-0da62e685574"
+        },
+        {
+          "key": "7d-044",
+          "text": "给测试环境做数据库备份，恢复演练发现缺了一个触发器，补齐后通过。",
+          "source_conversation_id": "9d513e57-2605-5846-8481-479cbc2e9348"
+        },
+        {
+          "key": "3d-039",
+          "text": "线上服务出现内存持续上涨，排查到未释放的图片缓存，修复后恢复稳定。",
+          "source_conversation_id": "48038ace-e7ad-5a4d-9bf6-809c03e6e8b9"
+        },
+        {
+          "key": "1d-039",
+          "text": "线上服务出现内存持续上涨，排查到未释放的图片缓存，修复后恢复稳定。",
+          "source_conversation_id": "5382755d-1fb7-5017-be5d-746d1d4b6c68"
+        },
+        {
+          "key": "7d-039",
+          "text": "线上服务出现内存持续上涨，排查到未释放的图片缓存，修复后恢复稳定。",
+          "source_conversation_id": "055b3069-9b38-5a70-9f98-02aa8605fd5a"
+        },
+        {
+          "key": "1m-039",
+          "text": "线上服务出现内存持续上涨，排查到未释放的图片缓存，修复后恢复稳定。",
+          "source_conversation_id": "9f8101b5-da25-5a7d-9114-f5913d615804"
+        }
+      ]
+    },
+    {
+      "key": "general-048",
+      "query": "我排查统计偏差时找到了什么时间处理错误？",
+      "expected_keys": [
+        "1d-048",
+        "3d-048",
+        "7d-048",
+        "1m-048"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_8": true,
+      "elapsed_ms": 241.23,
+      "status": "matched",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": [
+          0.6257,
+          0.6257,
+          0.6257,
+          0.6257,
+          0.5824,
+          0.5824,
+          0.5824,
+          0.5824
+        ]
+      },
+      "test_conversation_id": "aa0434dd-bec0-4a8c-9a43-ef12eb38bd1f",
+      "returned": [
+        {
+          "key": "3d-048",
+          "text": "发现报表数字和原始日志不一致，最终查到时区转换多算了一天。",
+          "source_conversation_id": "46f8f31c-c58e-50af-a273-0da62e685574"
+        },
+        {
+          "key": "7d-048",
+          "text": "发现报表数字和原始日志不一致，最终查到时区转换多算了一天。",
+          "source_conversation_id": "9d513e57-2605-5846-8481-479cbc2e9348"
+        },
+        {
+          "key": "1m-048",
+          "text": "发现报表数字和原始日志不一致，最终查到时区转换多算了一天。",
+          "source_conversation_id": "bd260876-87d8-52ef-bbc3-526c58e3d3eb"
+        },
+        {
+          "key": "1d-048",
+          "text": "发现报表数字和原始日志不一致，最终查到时区转换多算了一天。",
+          "source_conversation_id": "57e10598-2493-58f6-ad8e-37cd2fa43a7a"
+        },
+        {
+          "key": "3d-081",
+          "text": "读了一篇推荐系统论文，重点理解了负采样为什么影响排序效果。",
+          "source_conversation_id": "7520e32c-bf79-5c05-8d23-de0701dfc174"
+        },
+        {
+          "key": "7d-081",
+          "text": "读了一篇推荐系统论文，重点理解了负采样为什么影响排序效果。",
+          "source_conversation_id": "4227d864-aa3a-5c27-81e6-03ee5b7b9da0"
+        },
+        {
+          "key": "1m-081",
+          "text": "读了一篇推荐系统论文，重点理解了负采样为什么影响排序效果。",
+          "source_conversation_id": "0244261e-cda3-50c1-ae3a-fa865ac7271a"
+        },
+        {
+          "key": "1d-081",
+          "text": "读了一篇推荐系统论文，重点理解了负采样为什么影响排序效果。",
+          "source_conversation_id": "e7875b86-06c8-5840-bd93-fe67fce63d9b"
+        }
+      ]
+    },
+    {
+      "key": "general-053",
+      "query": "我采用了什么策略来降低软件升级的影响范围？",
+      "expected_keys": [
+        "1d-053",
+        "3d-053",
+        "7d-053",
+        "1m-053"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 263.41,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "f4f56b19-3696-4410-9b04-d14bea1121c8",
+      "returned": []
+    },
+    {
+      "key": "general-058",
+      "query": "我为使用辅助技术的人改善了怎样的界面细节？",
+      "expected_keys": [
+        "1d-058",
+        "3d-058",
+        "7d-058",
+        "1m-058"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 284.88,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "7a7ec8c6-39a5-4f71-b6b9-4bf9e2f2ddb7",
+      "returned": []
+    },
+    {
+      "key": "general-068",
+      "query": "我弄明白了哪种层次数据结构的访问次序？",
+      "expected_keys": [
+        "1d-068",
+        "3d-068",
+        "7d-068",
+        "1m-068"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 294.97,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "eeff143c-389b-4504-bd8a-7d08f83f25ef",
+      "returned": []
+    },
+    {
+      "key": "general-069",
+      "query": "我用什么模仿练习来提升外语口语？",
+      "expected_keys": [
+        "1d-069",
+        "3d-069",
+        "7d-069",
+        "1m-069"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 495.06,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "33723570-8cc1-441f-9ad2-950125152ab2",
+      "returned": []
+    },
+    {
+      "key": "general-070",
+      "query": "我借助什么例子理解了新证据如何改变原有判断？",
+      "expected_keys": [
+        "1d-070",
+        "3d-070",
+        "7d-070",
+        "1m-070"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 616.85,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "89aeb0db-58b5-4e56-b87b-4f86e55d0087",
+      "returned": []
+    },
+    {
+      "key": "general-073",
+      "query": "我学会了怎样从一堆账单中归纳规律？",
+      "expected_keys": [
+        "1d-073",
+        "3d-073",
+        "7d-073",
+        "1m-073"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 812.95,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "9b15ce7b-1b7f-4ab9-a957-8243fde903e2",
+      "returned": []
+    },
+    {
+      "key": "general-076",
+      "query": "我学习建站后完成了哪项对外展示成果？",
+      "expected_keys": [
+        "1d-076",
+        "3d-076",
+        "7d-076",
+        "1m-076"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 507.79,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "9d9d33f5-9054-4783-9c9f-12a16fde8c18",
+      "returned": []
+    },
+    {
+      "key": "general-078",
+      "query": "我用可视化弄懂了哪类矩阵变换特性？",
+      "expected_keys": [
+        "1d-078",
+        "3d-078",
+        "7d-078",
+        "1m-078"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 690.87,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "8bb0bb76-787e-4de2-9798-b06cf9f47f43",
+      "returned": []
+    },
+    {
+      "key": "general-080",
+      "query": "我记外语文字时哪一类符号还不熟练？",
+      "expected_keys": [
+        "1d-080",
+        "3d-080",
+        "7d-080",
+        "1m-080"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 553.2,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "1ea92fe5-2af7-464d-8d23-5df50f6b751b",
+      "returned": []
+    },
+    {
+      "key": "general-085",
+      "query": "我查资料后知道了一处地名的什么由来？",
+      "expected_keys": [
+        "1d-085",
+        "3d-085",
+        "7d-085",
+        "1m-085"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 693.73,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "62b94f58-53e2-4065-8cf2-046b07224c8e",
+      "returned": []
+    },
+    {
+      "key": "general-091",
+      "query": "我学欧洲语言时为什么需要加强声音分辨？",
+      "expected_keys": [
+        "1d-091",
+        "3d-091",
+        "7d-091",
+        "1m-091"
+      ],
+      "kind": "undated_paraphrase",
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_8": false,
+      "elapsed_ms": 618.52,
+      "status": "no_match",
+      "retrieval": {
+        "mode": "semantic_only",
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 400,
+        "semantic_candidates": 400,
+        "embedded_count": 0,
+        "cache_hits": 400,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "indexed_count": 400,
+        "total_count": 400,
+        "top_scores": []
+      },
+      "test_conversation_id": "52baa6f3-e3c0-4281-a88b-198008336ece",
+      "returned": []
+    }
+  ]
+}

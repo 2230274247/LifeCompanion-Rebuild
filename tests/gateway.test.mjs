@@ -55,6 +55,7 @@ test("gateway allows reminder CRUD but never exposes the callback or execution h
     const checks = [
       ["GET", "/api/v1/reminders"],
       ["POST", "/api/v1/reminders"],
+      ["POST", "/api/v1/knowledge/recall"],
       ["GET", `/api/v1/reminders/${reminderId}`],
       ["PATCH", `/api/v1/reminders/${reminderId}`],
       ["DELETE", `/api/v1/reminders/${reminderId}`],

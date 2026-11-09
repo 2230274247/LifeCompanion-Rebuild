@@ -1,5 +1,7 @@
 # 产品文档索引
 
+- [400条历史记忆与纯语义召回验收](../../evidence/memory-load-20261109/README.md) — 四时段合成资料、跨聊天实际回复与完整失败记录；32条回忆候选尚未正式发布，整体状态以本轮日志为准。
+
 - [拾光 V0.2 自然聊天与图文影集验收](v0.2/ACCEPTANCE.md)
 - [拾光 V0.2 仓库审计](v0.2/AUDIT_V02_NATURAL_CHAT_MEMORY_GALLERY.md)
 - [拾光 V0.2 文件级实施计划](v0.2/IMPLEMENTATION_PLAN_V02_NATURAL_CHAT_MEMORY_GALLERY.md)

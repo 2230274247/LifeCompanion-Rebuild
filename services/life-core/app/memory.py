@@ -253,6 +253,8 @@ class MemoryService:
                     db.execute("UPDATE events SET source_message_ids=?,updated_at=? WHERE event_id=?",
                                (json.dumps(sources+[message_id]),stamp,event_id))
             row = db.execute("SELECT * FROM memory_items WHERE memory_id=?", (item_id,)).fetchone()
+        if hasattr(self, "retriever"):
+            self.retriever._schedule(user_id)
         return dict(row)
 
     def invalidate(self, user_id, item_id, state="withdrawn", source_message_id=None):
@@ -303,29 +305,8 @@ class MemoryService:
             found = self.retriever.retrieve(user_id, query)
             matching = set(found["retrieval"].get("profile_match_ids", []))
             return [i for i in found["profile"] if i["memory_id"] in matching] + found["items"]
-        if not self.permissions(user_id)["recall_consent"] or FORGET.search(query):
-            return []
-        needle = normalized(query)
-        grams = {needle[i:i+2] for i in range(len(needle)-1)}
-        ranked = []
-        requested_day = calendar_day(query, datetime.now(ZoneInfo(self.timezone(user_id))).date())
-        for item in self.list_items(user_id):
-            if item["sensitivity"] != "ordinary" and not self.permissions(user_id)["sensitive_consent"]:
-                continue
-            text = normalized(item["canonical_text"])
-            score = len(grams & {text[i:i+2] for i in range(len(text)-1)})
-            if item["kind"] == "future_plan":
-                if requested_day and not item["semantic_key"].startswith(f"plan:{requested_day}:"):
-                    continue
-                if re.search(r"带|东西|物品|除了|还有", query):
-                    score += 3
-            if item["semantic_key"] == "fact:drink_preference" and re.search(r"茶|喝|饮品", query):
-                score += 2
-            if "residence" in item["semantic_key"] and re.search(r"住|居住|城市", query):
-                score += 2
-            if score:
-                ranked.append((score,item["importance"],item))
-        return [item for _,_,item in sorted(ranked,key=lambda x:(x[0],x[1]),reverse=True)[:12]]
+        # No lexical fallback: unavailable vectors must not change the retrieval contract.
+        return []
 
     def enqueue(self, user, body):
         if not self.allowed(user, body["text"]) and not FORGET.search(body["text"]):

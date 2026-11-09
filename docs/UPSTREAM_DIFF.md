@@ -1,5 +1,11 @@
 # Upstream Diff
 
+2026-11-09 增补：已归档聊天提交 `7cf65d5fc428d3f308104ea871383603c523a91d`
+为 `patches/librechat-memory-context-7cf65d5-20261109.patch`（8文件增量，基于该提交的父提交）。
+该提交为前一阶段记忆注入修复，本轮归档不包含13个既有认证工作区改动；
+本轮纯向量检索、历史注入与泛化验收发生在根仓库life-core、网关及scripts。
+当前聊天支持DeepSeek/deepseek-chat；后文V0.1的deepseek-flash是历史记录。
+
 基线：2026-11-02。以下差异均可通过两个独立上游 Git 仓库与根仓库历史追溯。
 
 ## LibreChat

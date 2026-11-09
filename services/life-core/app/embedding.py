@@ -6,6 +6,9 @@ from pathlib import Path
 
 
 MODEL_NAME = "BAAI/bge-small-zh-v1.5"
+LARGE_MODEL_NAME = "BAAI/bge-large-zh-v1.5-pinned-q8"
+LARGE_MODEL_REVISION = "a48549b3259a6165364f226599cd91f39923d5d5"
+LARGE_MODEL_FOLDER = "bge-large-zh-" + LARGE_MODEL_REVISION
 
 
 class EmbeddingUnavailable(RuntimeError):
@@ -21,8 +24,9 @@ class LocalEmbedding:
 
     model_name = MODEL_NAME
 
-    def __init__(self, cache_dir):
+    def __init__(self, cache_dir, model_name=None):
         self.cache_dir = Path(cache_dir) if cache_dir else None
+        self.model_name = model_name or MODEL_NAME
         self.status = "not_warmed"
         self._model = None
         self._lock = threading.Lock()
@@ -40,12 +44,29 @@ class LocalEmbedding:
             try:
                 from fastembed import TextEmbedding
 
+                options = {}
+                if self.model_name == LARGE_MODEL_NAME:
+                    local_path = self.cache_dir / LARGE_MODEL_FOLDER / "context-512"
+                    if not (local_path / "onnx/model_quantized.onnx").is_file():
+                        self.status = "cache_missing"
+                        return self.status
+                    from fastembed.common.model_description import PoolingType, ModelSource
+                    if not any(row["model"] == LARGE_MODEL_NAME for row in TextEmbedding.list_supported_models()):
+                        TextEmbedding.add_custom_model(
+                            LARGE_MODEL_NAME, pooling=PoolingType.CLS, normalization=True,
+                            sources=ModelSource(hf="Xenova/bge-large-zh-v1.5"), dim=1024,
+                            model_file="onnx/model_quantized.onnx", license="mit")
+                    options["specific_model_path"] = str(local_path)
+                elif self.model_name != MODEL_NAME:
+                    self.status = "unsupported_model"
+                    return self.status
                 model = TextEmbedding(
                     model_name=self.model_name,
                     cache_dir=str(self.cache_dir),
                     threads=2,
                     local_files_only=True,
                     lazy_load=False,
+                    **options,
                 )
                 # Materialize one non-user probe while still in the startup worker.
                 list(model.embed(["本地模型预热"], batch_size=1))

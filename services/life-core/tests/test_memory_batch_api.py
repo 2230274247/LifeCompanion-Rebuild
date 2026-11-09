@@ -2,6 +2,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from test_api import make_app, bootstrap
 from test_memory_pipeline import auth
+from test_hybrid_retrieval import prepare_app, MATCH
 
 
 def send(client, text, source='multi-source', conversation='chat-a'):
@@ -24,6 +25,8 @@ def test_one_message_retains_multiple_facts_with_original_source_and_replay(tmp_
             assert detail['sources'][0]['message_id'] == 'multi-source'
         assert send(client, '我的生日是六月十五日。我最喜欢喝无糖拿铁。我是一名软件工程师。').status_code == 200
         assert len(app.state.memory.list_items(rows[0]['user_id'])) == 3
+        birthday = next(row for row in rows if '六月十五日' in row['canonical_text'])
+        prepare_app(app, {birthday['canonical_text']: MATCH})
         recalled = client.get('/api/v1/knowledge/recall?q=我的生日', headers=auth()).json()['items']
         assert any('六月十五日' in i['canonical_text'] for i in recalled)
 
@@ -53,7 +56,7 @@ def test_negative_preference_never_becomes_positive(tmp_path):
 
 
 def test_current_avoidance_supersedes_previously_positive_profile(tmp_path):
-    _, client = make_app(tmp_path)
+    app, client = make_app(tmp_path)
     with client:
         bootstrap(client)
         client.patch('/api/v1/me/settings', headers=auth(), json={'recall_consent': True})
@@ -61,6 +64,7 @@ def test_current_avoidance_supersedes_previously_positive_profile(tmp_path):
         send(client, '我现在不喜欢咖啡', source='negative')
         rows = client.get('/api/v1/knowledge', headers=auth()).json()['items']
         assert len(rows) == 1 and rows[0]['canonical_text'] == '不喜欢喝咖啡'
+        prepare_app(app)
         recalled = client.get('/api/v1/knowledge/recall?q=咖啡', headers=auth()).json()['items']
         assert recalled and all('不喜欢' in i['canonical_text'] for i in recalled)
 

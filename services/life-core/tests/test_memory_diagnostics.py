@@ -1,5 +1,6 @@
 from test_api import bootstrap, make_app
 from test_memory_pipeline import auth, ingest
+from test_hybrid_retrieval import prepare_app
 
 HEADERS = {"X-Internal-Token": "test-internal"}
 
@@ -12,11 +13,23 @@ def test_recall_distinguishes_mapping_permission_no_match_and_hits(tmp_path):
         bootstrap(client)
         assert client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()["status"] == "permission_denied"
         client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
+        retrieval = prepare_app(app)
+        retrieval.embedder.status = "cache_missing"
+        unavailable = client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()
+        assert unavailable["status"] == "unavailable"
+        assert unavailable["items"] == unavailable["profile"] == []
+        assert unavailable["retrieval"]["keyword_retrieval"] is False
+        retrieval.embedder.status = "ready"
         assert client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()["status"] == "no_match"
         ingest(client, "我最喜欢喝龙井茶")
-        assert client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()["status"] == "matched"
+        prepare_app(app)
+        found = client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()
+        assert found["status"] == "matched"
+        assert found["items"] == [] and len(found["profile"]) == 1
+        assert found["retrieval"]["profile_match_ids"] == [found["profile"][0]["memory_id"]]
+        assert found["retrieval"]["keyword_retrieval"] is False
         traces = client.get("/api/v1/memory-status", headers=auth()).json()["traces"]
-        assert {t["status"] for t in traces} >= {"permission_denied", "no_match", "matched"}
+        assert {t["status"] for t in traces} >= {"permission_denied", "unavailable", "no_match", "matched"}
         assert "龙井" not in str(traces)
         bootstrap(client, "lc-user-b", "users/b")
         assert client.get("/api/v1/memory-status", headers=auth("lc-user-b")).json()["traces"] == []
@@ -29,6 +42,7 @@ def test_recall_accepts_wire_context_and_ignores_another_conversation(tmp_path, 
         client.patch('/api/v1/me/settings', headers=auth(), json={'recall_consent': True})
         monkeypatch.setattr(app.state.memos, 'create_private_memo', lambda event: 'memos/'+event['event_id'])
         ingest(client, '今天加入了星河项目组', 'wire-event')
+        prepare_app(app)
         body = {'source_user_id': 'lc-user-a', 'query': '那个项目后来怎么样',
                 'conversation_id': 'chat-b', 'recent_messages': [
                     {'text': '星河项目组', 'conversation_id': 'chat-b'}]}

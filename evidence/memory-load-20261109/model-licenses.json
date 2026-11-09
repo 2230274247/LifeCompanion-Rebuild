@@ -1,0 +1,20 @@
+[
+  {
+    "repository": "BAAI/bge-large-zh-v1.5",
+    "revision": "79e7739b6ab944e86d6171e44d24c997fc1e0116",
+    "license": "mit",
+    "url": "https://huggingface.co/BAAI/bge-large-zh-v1.5"
+  },
+  {
+    "repository": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "license": "mit",
+    "url": "https://huggingface.co/BAAI/bge-reranker-base"
+  },
+  {
+    "repository": "intfloat/multilingual-e5-small",
+    "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "license": "mit",
+    "url": "https://huggingface.co/intfloat/multilingual-e5-small"
+  }
+]

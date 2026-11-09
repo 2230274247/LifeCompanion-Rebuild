@@ -1,0 +1,26 @@
+[
+  {
+    "bucket": "1d",
+    "http_status": 200,
+    "source_present": true,
+    "message_count": 10
+  },
+  {
+    "bucket": "3d",
+    "http_status": 200,
+    "source_present": true,
+    "message_count": 10
+  },
+  {
+    "bucket": "7d",
+    "http_status": 200,
+    "source_present": true,
+    "message_count": 10
+  },
+  {
+    "bucket": "1m",
+    "http_status": 200,
+    "source_present": true,
+    "message_count": 10
+  }
+]
