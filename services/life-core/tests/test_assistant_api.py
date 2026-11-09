@@ -96,3 +96,44 @@ def test_execute_runs_overview_and_memory_without_forging_success(monkeypatch, t
         assert payload["results"][0]["action"] == "overview"
         assert payload["results"][0]["status"] == "matched"
         assert len(payload["results"][0]["items"]) == 2
+
+
+def test_execute_reports_business_status_without_forging_success(monkeypatch, tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        bootstrap(client)
+        enable_planner(app)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
+
+        class Provider:
+            def __init__(self, **_kwargs): pass
+            def __enter__(self): return self
+            def __exit__(self, *_args): pass
+            def post(self, *_args, **_kwargs):
+                return httpx.Response(200, request=httpx.Request("POST", "https://synthetic.invalid"),
+                                      json={"choices": [{"message": {"content": (
+                    '{"version":"1","tasks":['
+                    '{"action":"query_reminders"},'
+                    '{"action":"prepare_reminder","reminder":{"title":"买花"}},'
+                    '{"action":"web_search","query":"今天天气"},'
+                    '{"action":"clarify","clarification":"请告诉具体时间"}'
+                    ']}')}}]})
+        monkeypatch.setattr("app.assistant_plan.httpx.Client", Provider)
+
+        response = client.post("/internal/v1/assistant/execute",
+                               headers={"X-Internal-Token": "test-internal"}, json={
+                                   "source_user_id": "lc-user-a", "query": "提醒和天气",
+                                   "conversation_id": "c1", "source_message_id": "u1",
+                                   "recent_messages": []})
+        assert response.status_code == 200
+        payload = response.json()
+        assert payload["status"] == "executed"
+        by_action = {r["action"]: r for r in payload["results"]}
+        assert by_action["query_reminders"]["status"] == "ready"
+        assert by_action["prepare_reminder"]["status"] == "needs_draft"
+        assert by_action["prepare_reminder"]["fields"]["title"] == "买花"
+        assert by_action["web_search"]["status"] == "unavailable"
+        assert by_action["clarify"]["status"] == "clarify"
+        assert by_action["clarify"]["clarification"] == "请告诉具体时间"
+        # Business execution never forges a successful write or search.
+        assert all(r.get("status") not in ("succeeded", "searched") for r in payload["results"])

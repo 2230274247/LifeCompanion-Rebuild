@@ -10,6 +10,8 @@
 
 - [LibreChat 服务端接入语义规划器（P3，2026-11-09）](../development-log/2026-11-09_17-57_记忆编排P3服务端接入规划器_开发验收.md) — `withLifeMemory` 先走 `/assistant/plan` 与 `/assistant/execute`，收集 `search_memory`/`overview` 证据注入本次模型调用；规划器未配置回退 `/knowledge/recall`；权限与畸形响应不冒称“无记录”。
 
+- [证据与业务执行（P4，2026-11-09）](../development-log/2026-11-09_18-43_记忆编排P4证据与业务执行_开发验收.md) — 提醒/澄清/联网/分页状态如实注入：提醒只有 `scheduled` 才算已设置，联网不可用不冒称已搜索，部分结果不称全量；执行端返回真实回执而非伪造成功。
+
 - [应用内宠物（Otis）](PET_IN_APP.md)
   — 交付形态：只在聊天路由渲染的 200×256 可拉伸脸，随页面打开；
   复用原 WebGL 引擎，alpha 掩码做指针穿透，不接入数据链路。
