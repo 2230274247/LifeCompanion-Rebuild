@@ -833,8 +833,14 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 query = task.query or body.query
                 recalled = memory.retriever.retrieve(life_id, query,
                     recent_messages=recent, conversation_id=body.conversation_id)
+                matched_profile_ids = set(recalled["retrieval"].get("profile_match_ids", []))
+                # Retrieval labels profile facts separately; pass only semantic matches,
+                # not unrelated background facts, into the task's evidence items.
+                evidence_items = recalled["items"] + [
+                    item for item in recalled.get("profile", [])
+                    if item["memory_id"] in matched_profile_ids]
                 entry.update(status=recalled["status"],
-                             items=[_overview_evidence(i, zone) for i in recalled["items"]],
+                             items=[_overview_evidence(i, zone) for i in evidence_items],
                              retrieval=recalled["retrieval"])
             elif task.action == "overview":
                 today = datetime.now(zone).date()

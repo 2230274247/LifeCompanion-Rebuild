@@ -98,6 +98,48 @@ def test_execute_runs_overview_and_memory_without_forging_success(monkeypatch, t
         assert len(payload["results"][0]["items"]) == 2
 
 
+def test_execute_preserves_matched_profile_evidence_without_unrelated_background(monkeypatch, tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        bootstrap(client)
+        enable_planner(app)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
+
+        class Provider:
+            def __init__(self, **_kwargs): pass
+            def __enter__(self): return self
+            def __exit__(self, *_args): pass
+            def post(self, *_args, **_kwargs):
+                return httpx.Response(200, request=httpx.Request("POST", "https://synthetic.invalid"),
+                                      json={"choices": [{"message": {"content": (
+                                          '{"version":"1","tasks":[{"action":"search_memory",'
+                                          '"query":"日常饮品偏好"}]}')}}]})
+        monkeypatch.setattr("app.assistant_plan.httpx.Client", Provider)
+        # A semantic hit can live only in profile, with no event items.
+        profiles = [
+            {"memory_id": "tea", "kind": "stable_fact", "canonical_text": "喜欢喝龙井茶",
+             "valid_from": "2025-08-10T09:00:00+08:00"},
+            {"memory_id": "residence", "kind": "stable_fact", "canonical_text": "住在北京",
+             "valid_from": "2025-09-01T09:00:00+08:00"},
+        ]
+        monkeypatch.setattr(app.state.memory.retriever, "retrieve", lambda *_args, **_kwargs: {
+            "status": "matched", "items": [], "profile": profiles,
+            "retrieval": {"mode": "semantic_only", "profile_match_ids": ["tea"],
+                          "keyword_retrieval": False},
+        })
+        response = client.post("/internal/v1/assistant/execute",
+                               headers={"X-Internal-Token": "test-internal"}, json={
+                                   "source_user_id": "lc-user-a", "query": "我平常喝什么饮料",
+                                   "conversation_id": "c1", "source_message_id": "u1"})
+        assert response.status_code == 200
+        task = response.json()["results"][0]
+        assert task["status"] == "matched"
+        assert task["items"] == [{"memory_id": "tea", "kind": "stable_fact",
+                                  "text": "喜欢喝龙井茶", "url": "/knowledge/tea",
+                                  "valid_from": "2025-08-10T09:00:00+08:00"}]
+        assert task["retrieval"]["keyword_retrieval"] is False
+
+
 def test_execute_reports_business_status_without_forging_success(monkeypatch, tmp_path):
     app, client = make_app(tmp_path)
     with client:

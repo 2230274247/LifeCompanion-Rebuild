@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-11-09T21:27:40.766410+08:00",
+  "overall": "PARTIAL",
+  "method": "人工逐项复核完整合成证据；api-matrix原自动标记不是最终结论",
+  "seed_result": {
+    "requested": 8,
+    "extracted_initially": 7,
+    "pet_seed": "MEMORY_UNGROUNDED_OUTPUT"
+  },
+  "records": [
+    {
+      "case": "A1",
+      "title": "跨年同主题",
+      "status": "PASS",
+      "reason": "两次真实聊天均区分2024年与2025年，并引用各自来源。补充独立执行曾在权限恢复后的首次请求返回index_not_ready，不隐藏这一暂态。"
+    },
+    {
+      "case": "A2",
+      "title": "同义泛化",
+      "status": "PASS",
+      "reason": "修复前semantic_only已命中资料但items为空；修复后传出龙井茶，真实聊天正确回答并引用。keyword_retrieval=false。"
+    },
+    {
+      "case": "A3",
+      "title": "指代与省略",
+      "status": "PASS",
+      "reason": "真实第二轮澄清是否为刚才的猫，并说明没有年龄记录，未臆测年龄；独立宠物资料种子抽取失败另记。"
+    },
+    {
+      "case": "A4",
+      "title": "纠正覆盖",
+      "status": "PASS",
+      "reason": "旧北京为superseded，新徐汇区为active；修复后新会话回答上海徐汇区，未复活北京住址。"
+    },
+    {
+      "case": "A5",
+      "title": "撤回不复活",
+      "status": "FAIL",
+      "reason": "已发忘记住址，但withdrawn_count=0；修复资料证据传递后新会话仍回答徐汇区。初始自动PASS无效。"
+    },
+    {
+      "case": "B1",
+      "title": "时间概览",
+      "status": "FAIL",
+      "reason": "overview可列出茶馆等事件，但将上个月搬家标为11月9日发生；香山上周六按11月2日记载时应为10月31日，实际occurrence_day为11月2日，发生日与记录日混淆。"
+    },
+    {
+      "case": "B2",
+      "title": "主观回顾",
+      "status": "PARTIAL",
+      "reason": "真实回复比较候选并明确我觉得/可能，未把最有意思当确定事实；候选时间标注仍受B1缺陷影响。"
+    },
+    {
+      "case": "C1",
+      "title": "记忆与提醒混合",
+      "status": "FAIL",
+      "reason": "完整原句真实执行返回planner_unavailable；最终只索取周五时间，未证明周四准备与记忆写入分别完成。没有冒称已设置。"
+    },
+    {
+      "case": "C2",
+      "title": "无命中",
+      "status": "PASS",
+      "reason": "未提供表哥名字，真实回复没有记录，不捏造名字。"
+    },
+    {
+      "case": "C3",
+      "title": "权限关闭",
+      "status": "PARTIAL",
+      "reason": "results[].status=permission_denied且items=[]；聊天未泄漏偏好，但说没有查到记录，未明确是授权关闭。恢复授权后首次索引暂不可用，随后恢复。"
+    },
+    {
+      "case": "C4",
+      "title": "规划器无密钥",
+      "status": "NOT TESTED",
+      "reason": "本轮真实服务始终使用已有密钥；仅现有受控测试验证无密钥返回planner_unavailable，不冒充真实故障注入。"
+    },
+    {
+      "case": "C5",
+      "title": "联网不可用",
+      "status": "PASS",
+      "reason": "真实web_search=unavailable；回复明确无实时天气数据，不冒称联网。"
+    },
+    {
+      "case": "D1",
+      "title": "来源引用",
+      "status": "PASS",
+      "reason": "修复后真实回复含合法knowledge链接；5次详情校验（4个唯一记忆）均由所有者认证得到HTTP200。跨用户引用读取本轮未新增实机验证。"
+    },
+    {
+      "case": "D2",
+      "title": "分页与截断",
+      "status": "PARTIAL",
+      "reason": "请求每页1条，聊天展示1条并说明下一页；后端实际返回6条且has_more=false，未真正触发服务端分页/截断，不能验收端到端分页。"
+    }
+  ],
+  "browser": "NOT TESTED: installed preview cannot attach existing URL",
+  "billing": "NOT TESTED: no provider billing receipt; chat token_count is partial",
+  "counts": {
+    "PASS": 7,
+    "FAIL": 3,
+    "PARTIAL": 3,
+    "NOT TESTED": 1
+  }
+}

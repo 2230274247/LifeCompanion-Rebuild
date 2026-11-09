@@ -1,0 +1,280 @@
+{
+  "records": [
+    {
+      "case": "A2-after-fix",
+      "input": "我平常喝什么饮料",
+      "http_status": 200,
+      "execute": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "search_memory",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_84b60a7b0c846d76996163a3",
+                "text": "喜欢喝龙井茶",
+                "valid_from": "2025-08-10T09:00:00+08:00",
+                "kind": "stable_fact",
+                "url": "/knowledge/mem_84b60a7b0c846d76996163a3"
+              }
+            ],
+            "retrieval": {
+              "mode": "semantic_only",
+              "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+              "threshold": 0.48,
+              "semantic_status": "ready",
+              "context_source": "none",
+              "context_used": false,
+              "candidate_count": 13,
+              "semantic_candidates": 13,
+              "embedded_count": 0,
+              "cache_hits": 13,
+              "budget_exhausted": false,
+              "profile_match_ids": [
+                "mem_84b60a7b0c846d76996163a3"
+              ],
+              "keyword_retrieval": false,
+              "dedup_dropped": 0,
+              "rerank_used": false,
+              "rerank_pool": 0,
+              "query_rewritten": true,
+              "indexed_count": 13,
+              "total_count": 13,
+              "top_scores": [
+                0.5184
+              ]
+            }
+          }
+        ]
+      },
+      "execute_seconds": 3.094,
+      "chat": {
+        "reply": "根据已有记录，你平常喜欢喝**龙井茶**（记录于 2025-08-10）[来源](/knowledge/mem_84b60a7b0c846d76996163a3)。\n\n除此之外，我没有找到关于你其他常喝饮料的记录，所以无法判断你是否还常喝别的饮品。",
+        "stream_id": "bcb733f2-e90a-4c0d-80a5-eeb9ec61b945",
+        "error": false,
+        "elapsed": 4.91,
+        "token_count": 69,
+        "message_id": "ea4c6064-d64a-4939-a74a-53e3c92c5425",
+        "conversation_id": "bcb733f2-e90a-4c0d-80a5-eeb9ec61b945"
+      }
+    },
+    {
+      "case": "A4-after-fix",
+      "input": "我现在住在哪里",
+      "http_status": 200,
+      "execute": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "search_memory",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_d4b7de171b1047680730f58e",
+                "text": "我上个月搬到上海了",
+                "valid_from": "2026-11-09T13:19:13.259000+00:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_d4b7de171b1047680730f58e",
+                "occurrence_day": "2026-11-09"
+              },
+              {
+                "memory_id": "mem_4b11e066800e494400166900",
+                "text": "现在住在徐汇区",
+                "valid_from": "2026-11-09T13:19:13.259000+00:00",
+                "kind": "stable_fact",
+                "url": "/knowledge/mem_4b11e066800e494400166900"
+              },
+              {
+                "memory_id": "mem_05843ccb05ec2ec0daa12081",
+                "text": "在朝阳区上班",
+                "valid_from": "2025-09-01T09:00:00+08:00",
+                "kind": "stable_fact",
+                "url": "/knowledge/mem_05843ccb05ec2ec0daa12081"
+              }
+            ],
+            "retrieval": {
+              "mode": "semantic_only",
+              "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+              "threshold": 0.48,
+              "semantic_status": "ready",
+              "context_source": "none",
+              "context_used": false,
+              "candidate_count": 13,
+              "semantic_candidates": 13,
+              "embedded_count": 0,
+              "cache_hits": 13,
+              "budget_exhausted": false,
+              "profile_match_ids": [
+                "mem_4b11e066800e494400166900",
+                "mem_05843ccb05ec2ec0daa12081"
+              ],
+              "keyword_retrieval": false,
+              "dedup_dropped": 0,
+              "rerank_used": true,
+              "rerank_pool": 3,
+              "query_rewritten": false,
+              "indexed_count": 13,
+              "total_count": 13,
+              "top_scores": [
+                0.2917,
+                0.0035,
+                0.0003
+              ]
+            }
+          }
+        ]
+      },
+      "execute_seconds": 3.234,
+      "chat": {
+        "reply": "根据记录，你目前住在上海徐汇区。相关信息：\n\n- 你上个月搬到了上海（[来源](/knowledge/mem_d4b7de171b1047680730f58e)）\n- 你现在住在徐汇区（[来源](/knowledge/mem_4b11e066800e494400166900)）\n\n另外记录里提到你在朝阳区上班（[来源](/knowledge/mem_05843ccb05ec2ec0daa12081)），但那是工作地点，不是居住地。",
+        "stream_id": "ec0118f5-20f4-4b68-900b-856ebfd0267c",
+        "error": false,
+        "elapsed": 6.14,
+        "token_count": 112,
+        "message_id": "d4f9c092-821e-4c9f-83c1-378a57ac07f3",
+        "conversation_id": "ec0118f5-20f4-4b68-900b-856ebfd0267c"
+      }
+    },
+    {
+      "case": "A5-after-forget-fresh-conversation",
+      "input": "我住在哪里",
+      "http_status": 200,
+      "execute": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "search_memory",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_4b11e066800e494400166900",
+                "text": "现在住在徐汇区",
+                "valid_from": "2026-11-09T13:19:13.259000+00:00",
+                "kind": "stable_fact",
+                "url": "/knowledge/mem_4b11e066800e494400166900"
+              }
+            ],
+            "retrieval": {
+              "mode": "semantic_only",
+              "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+              "threshold": 0.48,
+              "semantic_status": "ready",
+              "context_source": "none",
+              "context_used": false,
+              "candidate_count": 13,
+              "semantic_candidates": 13,
+              "embedded_count": 0,
+              "cache_hits": 13,
+              "budget_exhausted": false,
+              "profile_match_ids": [
+                "mem_4b11e066800e494400166900"
+              ],
+              "keyword_retrieval": false,
+              "dedup_dropped": 0,
+              "rerank_used": false,
+              "rerank_pool": 0,
+              "query_rewritten": false,
+              "indexed_count": 13,
+              "total_count": 13,
+              "top_scores": [
+                0.5613
+              ]
+            }
+          }
+        ]
+      },
+      "execute_seconds": 3.219,
+      "chat": {
+        "reply": "根据记录，你现在住在徐汇区（自 2026-11-09 起）：[来源](/knowledge/mem_4b11e066800e494400166900)。\n\n记录中只提到“徐汇区”，没有更具体的地址。",
+        "stream_id": "9f3d2a30-d595-435c-8668-95b44163eb27",
+        "error": false,
+        "elapsed": 4.94,
+        "token_count": 53,
+        "message_id": "b6aefc28-def4-430e-9ec9-1f11e9698419",
+        "conversation_id": "9f3d2a30-d595-435c-8668-95b44163eb27"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "memory_id": "mem_84b60a7b0c846d76996163a3",
+      "http_status": 200,
+      "readable_by_owner": true
+    },
+    {
+      "memory_id": "mem_d4b7de171b1047680730f58e",
+      "http_status": 200,
+      "readable_by_owner": true
+    },
+    {
+      "memory_id": "mem_4b11e066800e494400166900",
+      "http_status": 200,
+      "readable_by_owner": true
+    },
+    {
+      "memory_id": "mem_05843ccb05ec2ec0daa12081",
+      "http_status": 200,
+      "readable_by_owner": true
+    },
+    {
+      "memory_id": "mem_4b11e066800e494400166900",
+      "http_status": 200,
+      "readable_by_owner": true
+    }
+  ],
+  "database": {
+    "items": 14,
+    "vectors": 13,
+    "dimensions": [
+      1024
+    ],
+    "residence": [
+      {
+        "semantic_key": "fact:residence",
+        "value": "北京",
+        "state": "superseded"
+      },
+      {
+        "semantic_key": "fact:residence",
+        "value": "徐汇区",
+        "state": "active"
+      }
+    ],
+    "seed_status": [
+      {
+        "message_id": "seed-a1-2024",
+        "extraction_status": "extracted"
+      },
+      {
+        "message_id": "seed-a1-2025",
+        "extraction_status": "extracted"
+      },
+      {
+        "message_id": "seed-a2",
+        "extraction_status": "extracted"
+      },
+      {
+        "message_id": "seed-a4",
+        "extraction_status": "revoked"
+      },
+      {
+        "message_id": "seed-a3",
+        "extraction_status": "failed"
+      },
+      {
+        "message_id": "seed-b1-1",
+        "extraction_status": "extracted"
+      },
+      {
+        "message_id": "seed-b1-2",
+        "extraction_status": "extracted"
+      },
+      {
+        "message_id": "seed-b1-3",
+        "extraction_status": "extracted"
+      }
+    ],
+    "withdrawn_count": 0
+  }
+}
