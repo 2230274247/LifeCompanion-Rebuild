@@ -6,6 +6,8 @@
 
 - [纯语义记忆召回与历史压力验收](MEMORY_SEMANTIC_RECALL.md) — 全量持久向量、时间元数据约束、JWT公开召回接口与真实验收边界；禁止关键词兜底。
 
+- [语义任务规划与事件时间概览（P2，2026-11-09）](../development-log/2026-11-09_17-33_记忆编排P2语义协议与概览_开发验收.md) — 模型输出严格结构化任务（answer/search_memory/overview/query_reminders/prepare_reminder/web_search/clarify），后端校验与受控执行；事件概览按发生时间窗口分页，绕过相似度阈值；内部 `/assistant/plan` 与 `/assistant/execute` 接入证据。
+
 - [应用内宠物（Otis）](PET_IN_APP.md)
   — 交付形态：只在聊天路由渲染的 200×256 可拉伸脸，随页面打开；
   复用原 WebGL 引擎，alpha 掩码做指针穿透，不接入数据链路。

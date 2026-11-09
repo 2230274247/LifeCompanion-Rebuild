@@ -24,6 +24,7 @@ from .extraction import extract_event
 from .memos import MemosClient, MemosError
 from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
 from .retrieval import MemoryRetriever
+from .assistant_plan import AssistantPlan, PlanUnavailable, SemanticPlanner
 from .moments import Moments, MomentSettings
 from .reminders import ReminderPermissionError, ReminderService, ReminderUpstreamError
 from .reminder_chat import ReminderChat
@@ -84,6 +85,16 @@ class UserRecallRequest(BaseModel):
 
 class RecallRequest(UserRecallRequest):
     source_user_id: str
+
+
+class PlanRequest(UserRecallRequest):
+    model_config = {"extra": "forbid"}
+    source_user_id: str
+
+
+class PlanResponse(BaseModel):
+    version: str = "1"
+    tasks: list[dict[str, Any]]
 
 
 class MemoryTelemetry(BaseModel):
@@ -284,6 +295,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         app.state.reminder_drafts = ReminderDrafts(store, settings, app.state.reminders)
         app.state.reminder_chat = ReminderChat(store, settings, app.state.reminders)
         app.state.reminder_chat.drafts = app.state.reminder_drafts
+        app.state.planner = SemanticPlanner(settings)
         stop = threading.Event()
         def work():
             next_cleanup = 0.0
@@ -765,6 +777,85 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         profile_result = [evidence(i) for i in profile]
         return {"status": "matched" if result or profile_result else status, "items": result,
                 "profile": profile_result, "retrieval": recalled["retrieval"]}
+
+    @app.post("/internal/v1/assistant/plan", dependencies=[Depends(require_internal)])
+    def internal_plan(body: PlanRequest, request: Request):
+        user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
+        if not user:
+            return {"status": "user_not_mapped", "tasks": []}
+        life_id = user["life_user_id"]
+        memory = request.app.state.memory
+        if not memory.permissions(life_id).get("recall_consent"):
+            return {"status": "permission_denied", "tasks": []}
+        try:
+            plan = request.app.state.planner.plan(
+                body.query,
+                now=datetime.now(ZoneInfo(memory.timezone(life_id))),
+                timezone=memory.timezone(life_id),
+                recent_messages=[m.model_dump() for m in body.recent_messages
+                                 if m.conversation_id in (None, body.conversation_id)],
+            )
+        except PlanUnavailable:
+            return {"status": "planner_unavailable", "tasks": []}
+        return {"status": "planned",
+                "tasks": [task.model_dump(mode="json") for task in plan.tasks]}
+
+    def _overview_evidence(item, zone):
+        day = item.get("semantic_key")
+        evidence = {"memory_id": item["memory_id"], "text": item["canonical_text"],
+                    "valid_from": item.get("valid_from") or item.get("recorded_at"),
+                    "kind": item["kind"], "url": f"/knowledge/{item['memory_id']}"}
+        if item["kind"] == "life_event":
+            match = re.match(r"event:(\d{4}-\d{2}-\d{2}):", day or "")
+            evidence["occurrence_day"] = match[1] if match else None
+        return evidence
+
+    @app.post("/internal/v1/assistant/execute", dependencies=[Depends(require_internal)])
+    def internal_execute(body: PlanRequest, request: Request):
+        user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
+        if not user:
+            return {"status": "user_not_mapped", "results": []}
+        life_id = user["life_user_id"]
+        memory = request.app.state.memory
+        zone = ZoneInfo(memory.timezone(life_id))
+        recent = [m.model_dump() for m in body.recent_messages
+                  if m.conversation_id in (None, body.conversation_id)]
+        try:
+            plan = request.app.state.planner.plan(
+                body.query, now=datetime.now(zone), timezone=memory.timezone(life_id),
+                recent_messages=recent)
+        except PlanUnavailable:
+            return {"status": "planner_unavailable", "results": []}
+        results = []
+        for task in plan.tasks:
+            entry = {"action": task.action, "status": "skipped"}
+            if task.action in ("search_memory", "answer"):
+                query = task.query or body.query
+                recalled = memory.retriever.retrieve(life_id, query,
+                    recent_messages=recent, conversation_id=body.conversation_id)
+                entry.update(status=recalled["status"],
+                             items=[_overview_evidence(i, zone) for i in recalled["items"]],
+                             retrieval=recalled["retrieval"])
+            elif task.action == "overview":
+                today = datetime.now(zone).date()
+                window = task.window.resolve(today) if task.window else None
+                found = memory.retriever.overview(life_id, window=window, today=today,
+                                                  limit=task.limit, offset=task.offset, zone=zone)
+                entry.update(status=found["status"],
+                             items=[_overview_evidence(i, zone) for i in found["items"]],
+                             retrieval=found["retrieval"])
+            elif task.action == "query_reminders":
+                records = app.state.reminders.list(life_id)
+                entry.update(status="ready", reminders=[
+                    {k: item[k] for k in ("reminder_id", "title", "scheduled_at", "status")
+                     if k in item} for item in records[:40]])
+            elif task.action == "prepare_reminder" and task.reminder is not None:
+                entry.update(status="needs_draft", fields=task.reminder.model_dump(mode="json"))
+            elif task.action in ("web_search", "clarify"):
+                entry.update(status="unavailable" if task.action == "web_search" else "clarify",
+                             clarification=task.clarification)
+            results.append(entry)
+        return {"status": "executed", "results": results}
 
     @app.post("/internal/v1/memory/telemetry", dependencies=[Depends(require_internal)])
     def memory_telemetry(body: MemoryTelemetry, request: Request):

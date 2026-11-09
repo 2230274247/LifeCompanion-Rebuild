@@ -224,7 +224,8 @@ class MemoryRetriever:
         if not permissions.get("recall_consent"):
             return []
         sensitive = permissions.get("sensitive_consent", False)
-        return [item for item in self.memory.list_items(user_id)
+        items = self.memory.list_items(user_id)
+        return [item for item in items
                 if item.get("user_id") == user_id and item.get("state") == "active" and _text(item)
                 and (sensitive or (item.get("sensitivity") == "ordinary" and not SENSITIVE.search(_text(item))))]
 
@@ -338,6 +339,44 @@ class MemoryRetriever:
             if row["message_id"] == latest and row["memory_id"] in allowed:
                 ids.append(allowed[row["memory_id"]])
         return ids
+
+    def overview(self, user_id, *, window=None, today=None, limit=20, offset=0, zone=None):
+        """List what happened in a period without requiring a content relevance score.
+
+        Each event and dated source is included by its occurrence day, never by how
+        similar it is to the word 'interesting'. Undated sources are reported but never
+        assigned a date, so they cannot masquerade as events on the wrong day.
+        """
+        meta = dict(mode="overview", start=None, end=None, returned=0, truncated=False,
+                    has_more=False, undated_count=0, total_count=0)
+        result = dict(status="no_match", items=[], retrieval=meta)
+        if not self.memory.permissions(user_id).get("recall_consent"):
+            self._purge(user_id)
+            result["status"] = meta["semantic_status"] = "permission_denied"
+            return result
+        zone = zone or ZoneInfo(self.memory.timezone(user_id))
+        today = today or self._now(zone).date()
+        start, end = (window[0], window[1]) if window else (today - timedelta(days=13), today)
+        meta.update(start=start.isoformat(), end=end.isoformat())
+        allowed = self._allowed(user_id)
+        sources = self.memory.sources.items(user_id) if hasattr(self.memory, "sources") else []
+        dated, undated = [], []
+        for item in allowed:
+            day = _item_day(item, zone)
+            (dated if day is not None and start <= day <= end else undated).append(item)
+        # A source quote is the message timestamp, not an event occurrence day,
+        # so it is reported separately and never placed on an event timeline.
+        undated.extend(sources)
+        dated.sort(key=lambda item: _item_day(item, zone))
+        undated.sort(key=lambda item: (item.get("recorded_at") or item.get("created_at") or ""))
+        total = len(dated) + len(undated)
+        page = dated[offset:offset + limit]
+        result["items"] = page
+        result["status"] = "matched" if page else "no_match"
+        meta.update(returned=len(page), total_count=total,
+                    truncated=offset + len(page) < len(dated),
+                    has_more=offset + len(page) < len(dated), undated_count=len(undated))
+        return result
 
     def retrieve(self, user_id, query, recent_messages=None, conversation_id=None):
         meta = dict(mode="semantic_only", model=self.model, threshold=self.semantic_threshold,
