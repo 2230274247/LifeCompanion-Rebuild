@@ -16,6 +16,7 @@
 - `real-chat-report.json`：最终串行实测，隔离owner通过真实DeepSeek在两个新对话分别询问一天前、一个月前的记录；2/2含对应事实与可点击来源链接，新会话ID不同于原历史会话。
 - `real-chat-concurrent-timeout.json`：完整回归并行占用CPU期间的失败记录，2题中1题召回超时（遥测3606ms），模型未获得事实；保留该失败，不以之后串行成功覆盖高负载风险。
 - `verification-summary.json`：后端253通过/1跳过、网关3通过、Git治理24通过，以及浏览器401认证边界实测；无全量云端输入抓包。
+- `publication-report.json`：32条候选经真实 `POST /api/v1/memories/publish` 发布尝试，32/32返回502 `MEMOS_PUBLISH_FAILED`；底层错误为 `MEMOS_WRITER_MISMATCH`（owner没有逐用户Memos PAT，life-core回退到全局管理员token，身份不匹配）。逐条事件已置为 `failed`，召回不受影响，重试可恢复。
 
 ## 模型与阈值
 
@@ -26,7 +27,7 @@
 
 ## 状态边界
 
-- `published=0`、`selected=32`：32条回忆候选已选且SQLite事件存在，但尚未通过官方Memos API发布。正式发布受服务凭据相关操作审批约束，不得以伪造memo_ref或改status替代。发布完成前不可标记为已发布。
+- `published=0`、`selected=32`：32条回忆候选已选且SQLite事件存在，但发布尝试因 `MEMOS_WRITER_MISMATCH` 失败。要正式发布需为隔离owner开通逐用户Memos PAT（`scripts/provision-memory-load-memos.py`），该操作需管理员服务凭据并写入共享令牌文件，被自动审批以 `Sensitive-Source Provenance`、`Secret-Store Writes`、`Credential Exploration` 拒绝。未绕过；发布完成前不可标记为已发布。
 - 历史来源会话endpoint字段修正受到 `Modify Shared Resources` 自动审批拒绝；40个合成历史会话仍保留旧标签。四时段来源API均返回200，每个抽查会话10条消息；不将此等同于旧会话可直接继续聊天的验收。
 - 当前真实聊天诊断 `extractor_configured=false`；本轮采用系统注入，不能证明云端多事实抽取已在运行环境配置完成。
 - 本目录只提交合成内容与无秘密报告；模型权重、运行账号、真实数据库和聊天事件原文不进入Git。
