@@ -1,5 +1,9 @@
 # 上游补丁归档
 
+## 发生日期与真实记忆页收尾（2026-11-10）
+
+`librechat-memory-occurrence-ui-20261110.patch` 归档从 `ff42cacdaa11bbcbe0730c94591d746068585b77` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7` 的增量，包含 `4b193f81e` 发生日期包实现及本轮7文件前端收尾。30,247 bytes，SHA256 `e8428dcab4a1bb5af47f2735d6d14447719210156de83ce793ad37f6c71b6a1d`；当前树反向应用检查PASS。必须配套父仓库发生日期后端使用，已含上述提交的上游不要重复应用。本轮18项组件测试、client tsc/ESLint/build、真实DeepSeek完整聊天与记忆页通过，详见[本轮证据](../evidence/memory-chat-ui-20261110/README.md)。
+
 ## 聊天语义撤回增量（2026-11-10）
 
 `librechat-semantic-forget-20261110.patch` 对应独立上游提交

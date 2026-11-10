@@ -1,0 +1,36 @@
+- main [ref=f5e4]:
+  - generic [ref=f5e6]:
+    - paragraph [ref=f5e7]: 生活有迹可循
+    - heading "回忆详情" [level=1] [ref=f5e8]
+  - generic [ref=f5e10]:
+    - generic [ref=f5e11]:
+      - link "返回回忆" [ref=f5e12] [cursor=pointer]:
+        - /url: /memories
+      - article [ref=f5e13]:
+        - paragraph [ref=f5e22]: 这段回忆暂时没有配图，文字内容仍可阅读。
+        - generic [ref=f5e23]:
+          - time [ref=f5e25]: 2026-11-09
+          - heading "昨天我参观了上海科技馆" [level=1] [ref=f5e26]
+          - paragraph [ref=f5e27]: 昨天我参观了上海科技馆，看到了有趣的机器人展览。
+          - generic [ref=f5e28]:
+            - heading "回忆文字" [level=2] [ref=f5e29]
+            - generic [ref=f5e30]: 昨天我参观了上海科技馆，看到了有趣的机器人展览。
+          - list "回忆标签" [ref=f5e31]:
+            - listitem [ref=f5e32]: "#生活回忆"
+            - listitem [ref=f5e33]: "#AI生活伙伴"
+          - generic [ref=f5e34]:
+            - link "查看来源对话" [ref=f5e35] [cursor=pointer]:
+              - /url: /c/80de8277-c913-4897-89a9-86669535551e
+            - link "管理记忆与权限" [ref=f5e36] [cursor=pointer]:
+              - /url: /memory-settings
+            - button "邀请亲友共同回忆" [ref=f5e37] [cursor=pointer]
+    - complementary [ref=f5e38]:
+      - region "共同回忆入口" [ref=f5e39]:
+        - generic [ref=f5e41]:
+          - strong [ref=f5e42]: 共同回忆
+          - generic [ref=f5e43]: Parlor · 邀请亲友一起补充
+        - generic [ref=f5e44]:
+          - paragraph [ref=f5e45]: 这段回忆还只有你自己。邀请一位亲友，你们就能在右侧小窗里共同回忆、补充细节。
+          - paragraph [ref=f5e46]: 只有对方在站内亲自接受后才会看到；原始回忆不会被复制或改写。
+          - button "邀请亲友共同回忆" [ref=f5e47] [cursor=pointer]
+  - paragraph [ref=f5e53]: 私有回忆 · 仅展示当前映射账户的已发布生活事件。当前为单用户内测。

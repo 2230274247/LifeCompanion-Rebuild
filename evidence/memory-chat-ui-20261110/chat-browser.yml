@@ -1,0 +1,121 @@
+- main [ref=f4e422]:
+  - generic [ref=f4e424]:
+    - heading "New Chat" [level=1] [ref=f4e425]
+    - button "导出/共享" [ref=f4e429] [cursor=pointer]
+    - generic [ref=f4e436]:
+      - generic [ref=f4e438]:
+        - generic [ref=f4e441]:
+          - group "发送消息给 1" [ref=f4e444]:
+            - generic [ref=f4e445]:
+              - heading [level=2] [ref=f4e722]:
+                - text: "提示词 1: P5 Acceptance"
+                - time [ref=f4e447]: 4分钟前
+              - generic [ref=f4e448]:
+                - paragraph [ref=f4e452]: 昨天我参观了上海科技馆，看到了有趣的机器人展览。
+                - generic [ref=f4e455]:
+                  - button "大声朗读" [ref=f4e456] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e459] [cursor=pointer]
+                  - button "编辑" [ref=f4e462] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e465] [cursor=pointer]
+          - group "发送消息给 2" [ref=f4e473]:
+            - generic [ref=f4e474]:
+              - 'heading "响应 2: DeepSeek 4分钟前" [level=2] [ref=f4e723]':
+                - generic [ref=f4e479]: "响应 2:"
+                - generic [ref=f4e480]: DeepSeek
+                - time [ref=f4e481]: 4分钟前
+              - generic [ref=f4e482]:
+                - generic [ref=f4e483]:
+                  - paragraph [ref=f4e486]: 你提到昨天参观了上海科技馆，并看到了有趣的机器人展览。这听起来是一次不错的参观体验。如果你愿意，可以继续分享展览中让你印象深刻的机器人类型、互动项目或展区内容，我可以基于你提供的信息帮你整理、延伸背景知识或讨论相关科技话题。
+                  - generic "业务来源" [ref=f4e487]:
+                    - link "查看记忆 · 昨天我参观了上海科技馆，看到了有趣的机器人展览。" [ref=f4e488] [cursor=pointer]:
+                      - /url: /knowledge/mem_cfce7e02530434ffd706df3c
+                - generic [ref=f4e491]:
+                  - button "大声朗读" [ref=f4e492] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e495] [cursor=pointer]
+                  - button "编辑" [ref=f4e498] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e501] [cursor=pointer]
+                  - button "喜欢" [ref=f4e507] [cursor=pointer]
+                  - button "需改进" [ref=f4e510] [cursor=pointer]
+                  - button "重新生成" [ref=f4e513] [cursor=pointer]
+          - group "发送消息给 3" [ref=f4e518]:
+            - generic [ref=f4e519]:
+              - heading [level=2] [ref=f4e724]:
+                - text: "提示词 3: P5 Acceptance"
+                - time [ref=f4e521]: 4分钟前
+              - generic [ref=f4e522]:
+                - paragraph [ref=f4e526]: 我刚才说去了哪里，看了什么？
+                - generic [ref=f4e529]:
+                  - button "大声朗读" [ref=f4e530] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e533] [cursor=pointer]
+                  - button "编辑" [ref=f4e536] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e539] [cursor=pointer]
+          - group "发送消息给 4" [ref=f4e547]:
+            - generic [ref=f4e548]:
+              - 'heading "响应 4: DeepSeek 4分钟前" [level=2] [ref=f4e725]':
+                - generic [ref=f4e553]: "响应 4:"
+                - generic [ref=f4e554]: DeepSeek
+                - time [ref=f4e555]: 4分钟前
+              - generic [ref=f4e556]:
+                - generic [ref=f4e557]:
+                  - paragraph [ref=f4e560]:
+                    - text: 你刚才在对话中说：昨天参观了
+                    - strong [ref=f4e561]: 上海科技馆
+                    - text: ，看到了
+                    - strong [ref=f4e562]: 有趣的机器人展览
+                    - text: 。
+                  - generic "业务来源"
+                - generic [ref=f4e565]:
+                  - button "大声朗读" [ref=f4e566] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e569] [cursor=pointer]
+                  - button "编辑" [ref=f4e572] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e575] [cursor=pointer]
+                  - button "喜欢" [ref=f4e581] [cursor=pointer]
+                  - button "需改进" [ref=f4e584] [cursor=pointer]
+                  - button "重新生成" [ref=f4e587] [cursor=pointer]
+          - group "发送消息给 5" [ref=f4e592]:
+            - generic [ref=f4e593]:
+              - 'heading "提示词 5: P5 Acceptance" [level=2] [ref=f4e594]'
+              - generic [ref=f4e595]:
+                - paragraph [ref=f4e599]: 请用一句话帮我整理昨天这次参观的回忆。
+                - generic [ref=f4e602]:
+                  - button "大声朗读" [ref=f4e603] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e606] [cursor=pointer]
+                  - button "编辑" [ref=f4e609] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e612] [cursor=pointer]
+          - group "发送消息给 6" [ref=f4e620]:
+            - generic [ref=f4e621]:
+              - 'heading "响应 6: DeepSeek" [level=2] [ref=f4e622]':
+                - generic [ref=f4e626]: "响应 6:"
+                - generic [ref=f4e627]: DeepSeek
+              - generic [ref=f4e628]:
+                - generic [ref=f4e629]:
+                  - paragraph [ref=f4e632]: 昨天我参观了上海科技馆，并看到了有趣的机器人展览。
+                  - generic "业务来源"
+                - generic [ref=f4e635]:
+                  - button "大声朗读" [ref=f4e636] [cursor=pointer]
+                  - button "复制到剪贴板" [ref=f4e639] [cursor=pointer]
+                  - button "编辑" [ref=f4e642] [cursor=pointer]
+                  - button "Open Fork Menu" [ref=f4e645] [cursor=pointer]
+                  - button "喜欢" [ref=f4e651] [cursor=pointer]
+                  - button "需改进" [ref=f4e654] [cursor=pointer]
+                  - button "重新生成" [ref=f4e657] [cursor=pointer]
+        - navigation "Message navigation" [ref=f4e660]:
+          - button "Navigate to previous message" [disabled] [ref=f4e661]
+          - button "Scroll to top" [ref=f4e665] [cursor=pointer]
+          - generic [ref=f4e667] [cursor=pointer]:
+            - 'button "Go to user message: 昨天我参观了上海科技馆，看到了有趣的机器人展览。" [ref=f4e668]'
+            - 'button "Go to assistant message: 你提到昨天参观了上海科技馆，并看到了有趣的机器人展览。这听起" [ref=f4e670]'
+            - 'button "Go to user message: 我刚才说去了哪里，看了什么？" [ref=f4e672]'
+            - 'button "Go to assistant message: 你刚才在对话中说：昨天参观了**上海科技馆**，看到了**有" [ref=f4e674]'
+            - 'button "Go to user message: 请用一句话帮我整理昨天这次参观的回忆。" [ref=f4e676]'
+            - 'button "Go to assistant message: 昨天我参观了上海科技馆，并看到了有趣的机器人展览。" [ref=f4e678]'
+          - button "Scroll to bottom" [ref=f4e681] [cursor=pointer]
+          - button "Navigate to next message" [disabled] [ref=f4e683]
+      - generic [ref=f4e691]:
+        - textbox "消息输入" [active] [ref=f4e694]:
+          - /placeholder: 发送消息给 DeepSeek
+        - generic [ref=f4e696]:
+          - button "Tools Options" [ref=f4e698] [cursor=pointer]
+          - 'button "Context window: 292 of 11.6万 tokens used (0%)" [ref=f4e703] [cursor=pointer]':
+            - meter "Context usage" [ref=f4e704]
+          - button "发送消息" [disabled] [ref=f4e709]

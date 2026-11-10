@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-10",
+  "scope": "current epic worktree; synthetic acceptance only",
+  "upstream_head": "4b83c57a16d3db1f7ef9425d7c6a395037cc87c7",
+  "checks": [
+    {"name": "Memories Jest", "command": "npx jest src/components/Life/__tests__/Memories.spec.tsx --ci --runInBand", "cwd": "products/librechat-custom/client", "status": "PASS", "suites": 1, "tests": 18, "duration_seconds": 216.331},
+    {"name": "Client TypeScript", "command": "../node_modules/.bin/tsc --noEmit", "cwd": "products/librechat-custom/client", "status": "PASS", "exit_code": 0},
+    {"name": "Changed frontend ESLint", "scope": "Memories.tsx, MemoryCard.tsx, MemoryDetail.tsx, SharedMemoryCard.tsx, occurrence.ts, __tests__/Memories.spec.tsx", "status": "PASS", "exit_code": 0},
+    {"name": "Client production build", "command": "npm run build", "cwd": "products/librechat-custom/client", "status": "PASS", "exit_code": 0},
+    {"name": "Git governance", "command": "powershell -NoProfile -File tests/git-governance.ps1", "status": "PASS", "passed": 24, "failed": 0},
+    {"name": "Product and nested workspace inspection", "command": "powershell -NoProfile -File scripts/git/inspect-workspace.ps1 -RepoPath <explicit-worktree>", "status": "PASS"},
+    {"name": "Upstream whitespace", "command": "git diff --check", "status": "PASS", "exit_code": 0},
+    {"name": "Upstream patch reverse validation", "command": "git apply --check --reverse patches/librechat-memory-occurrence-ui-20261110.patch", "cwd": "products/librechat-custom (patch path absolute)", "status": "PASS", "exit_code": 0},
+    {"name": "Portable compose configuration", "command": "docker compose --env-file <private-env> -f infra/compose.memory-acceptance.yaml config --quiet", "status": "PASS", "exit_code": 0},
+    {"name": "First three real DeepSeek turns", "status": "PASS", "evidence": "results.json"},
+    {"name": "Repeat with committed launcher source", "status": "PASS", "evidence": "reproduction-results.json"},
+    {"name": "Browser send and official Memos verification", "status": "PASS", "evidence": "browser-turn.json"},
+    {"name": "Mobile layout", "status": "PASS", "viewport_width": 390, "document_width": 390, "evidence": "mobile-layout.json"},
+    {"name": "Full original P5 matrix, long-run stability and billing", "status": "NOT TESTED"},
+    {"name": "Entire life-core test suite in this task", "status": "NOT TESTED", "reason": "No backend source change; current task exercised live integration and pending frontend changes"},
+    {"name": "Lighthouse", "status": "NOT TESTED", "reason": "No product startup/auth/message-loading implementation change"}
+  ],
+  "known_nonblocking_observations": [
+    "Existing BOOKMARKS permissions return HTTP403 for /api/tags in chat UI",
+    "Core restart caused a transient notification HTTP502, then HTTP200",
+    "Early temporary rules extraction is excluded from real DeepSeek extraction evidence",
+    "Initial acceptance probe failures are documented in the independent Chinese log"
+  ],
+  "push_status": "REMOTE_CONFIGURED_NOT_PUSHED"
+}

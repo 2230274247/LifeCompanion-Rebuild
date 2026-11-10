@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "interaction": "browser textarea fill + Enter, followed by durable API reread",
+  "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+  "user_message_id": "0516c858-1509-49f2-858e-920138b8c8ca",
+  "assistant_message_id": "83f2e332-808e-4d56-b86f-bd4801f6fd73",
+  "input": "请用一句话帮我整理昨天这次参观的回忆。",
+  "reply": "昨天我参观了上海科技馆，并看到了有趣的机器人展览。",
+  "unfinished": false,
+  "error": false,
+  "model": "deepseek-chat",
+  "citation_get_status": 200,
+  "official_memos_get_status": 200,
+  "official_memos_content_matches_life_api": true
+}

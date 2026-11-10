@@ -1,0 +1,5 @@
+573. [GET] http://127.0.0.1:3001/life-api/api/v1/memories/evt_1bafc27e4b21bd92509e2007 => [FAILED] net::ERR_ABORTED
+584. [GET] http://127.0.0.1:3001/life-api/api/v1/memories/evt_1bafc27e4b21bd92509e2007 => [200] OK
+586. [GET] http://127.0.0.1:3001/life-api/api/v1/shared-memories/by-source?source_kind=memory&source_id=evt_1bafc27e4b21bd92509e2007 => [200] OK
+
+Note: 52 static requests not shown, run with "static" option to see them.

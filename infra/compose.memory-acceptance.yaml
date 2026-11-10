@@ -1,0 +1,39 @@
+# Local synthetic P5 stack only. Existing p5-mongo and p5-memos retain their data.
+# P5_SOURCE_ROOT is this worktree; P5_CONFIG_ROOT holds existing credential files.
+# LIFE_INTERNAL_TOKEN must be supplied to Compose without printing it.
+name: p5-acceptance
+services:
+  librechat:
+    image: ghcr.io/librechat-ai/librechat:v0.8.8
+    container_name: p5-librechat
+    ports:
+      - "127.0.0.1:3810:3080"
+    env_file:
+      - "${P5_CONFIG_ROOT:?set configuration root}/products/librechat-custom/.env"
+    environment:
+      HOST: 0.0.0.0
+      PORT: "3080"
+      MONGO_URI: mongodb://host.docker.internal:27019/LibreChatP5
+      SEARCH: "false"
+      LIFE_CORE_URL: http://host.docker.internal:8010
+      LIFE_INTERNAL_TOKEN: ${LIFE_INTERNAL_TOKEN:?set internal token}
+      LIFE_CORE_INGEST_TIMEOUT_MS: "4000"
+      ALLOW_REGISTRATION: "true"
+      DOMAIN_CLIENT: http://localhost:3810
+      DOMAIN_SERVER: http://localhost:3810
+      TZ: Asia/Hong_Kong
+    volumes:
+      - "${P5_CONFIG_ROOT}/products/librechat-custom/.env:/app/.env:ro"
+      - "${P5_SOURCE_ROOT:?set source worktree}/products/librechat-custom/librechat.yaml:/app/librechat.yaml:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/packages/api/dist:/app/packages/api/dist:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/packages/data-provider/dist:/app/packages/data-provider/dist:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/packages/data-schemas/dist:/app/packages/data-schemas/dist:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/client/dist:/app/client/dist:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/api/app/clients/BaseClient.js:/app/api/app/clients/BaseClient.js:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/api/strategies/localStrategy.js:/app/api/strategies/localStrategy.js:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/api/strategies/validators.js:/app/api/strategies/validators.js:ro"
+      - "${P5_SOURCE_ROOT}/products/librechat-custom/api/server/middleware/canDeleteAccount.js:/app/api/server/middleware/canDeleteAccount.js:ro"
+      - "${P5_SOURCE_ROOT}/infra/runtime/p5/lc-images:/app/client/public/images"
+      - "${P5_SOURCE_ROOT}/infra/runtime/p5/lc-uploads:/app/uploads"
+      - "${P5_SOURCE_ROOT}/infra/runtime/p5/lc-logs:/app/logs"
+    restart: unless-stopped

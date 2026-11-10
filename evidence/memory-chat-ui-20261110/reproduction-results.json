@@ -1,0 +1,521 @@
+{
+  "scope": "isolated synthetic account; real DeepSeek chat/extraction; official Memos",
+  "health": {
+    "status": "ok",
+    "service": "life-core",
+    "memos_configured": true,
+    "internal_auth_configured": true,
+    "jwt_auth_configured": true,
+    "memory_pipeline": {
+      "version": "memory-v03",
+      "database_id": "6fbe55b784a9",
+      "worker_alive": true,
+      "extractor": "deepseek"
+    }
+  },
+  "turns": [
+    {
+      "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+      "user_message_id": "2b21deec-f9fa-4e2d-887e-d7fad4d532c5",
+      "assistant_message_id": "3001a008-d155-4d58-ab94-9dab28c86441",
+      "input": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+      "reply": "根据你提供的记录，昨天（2026年11月9日）你参观了上海科技馆，并看到了有趣的机器人展览。用一句话整理：**昨天我在上海科技馆参观了一场有趣的机器人展览。**\n\n来源：[参观记录](/knowledge/mem_cfce7e02530434ffd706df3c)、[整理请求](/knowledge/mem_fc972535a2feaf5d16257a79)",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 88,
+      "usage": {
+        "input": 380,
+        "output": 88,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 7.23,
+      "stream_id": "52c8500c-0258-40ed-98d5-bb68950bae9c"
+    },
+    {
+      "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+      "user_message_id": "b6856963-a95f-4941-9d17-2cbe9bdd81a8",
+      "assistant_message_id": "f8910df4-b6dd-4f94-ab88-38f7e47a0059",
+      "input": "我刚才说去了哪里，看了什么？",
+      "reply": "你刚才说的是：**昨天参观了上海科技馆，看到了有趣的机器人展览**。也就是去了**上海科技馆**，看了**机器人展览**。",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 31,
+      "usage": {
+        "input": 272,
+        "output": 31,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 6.2,
+      "stream_id": "52c8500c-0258-40ed-98d5-bb68950bae9c"
+    },
+    {
+      "conversation_id": "2b42b664-5025-4466-b1cd-5b57bf391bc1",
+      "user_message_id": "fb744460-e8bc-4366-9151-7ea667cb2695",
+      "assistant_message_id": "87cbe842-a09c-4585-8d26-c3012976d04a",
+      "input": "我昨天参观了什么地方，看到了什么展览？",
+      "reply": "根据记录，你昨天（2026年11月9日）参观了**上海科技馆**，看到了**有趣的机器人展览**。 ([来源](/knowledge/mem_cfce7e02530434ffd706df3c))",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 49,
+      "usage": {
+        "input": 377,
+        "output": 49,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 4.12,
+      "stream_id": "2b42b664-5025-4466-b1cd-5b57bf391bc1"
+    }
+  ],
+  "status": "PASS",
+  "memory": {
+    "event_id": "evt_1bafc27e4b21bd92509e2007",
+    "source_type": "chat",
+    "source_message_ids": [
+      "6b46a65d-021a-4605-ba1d-68685b23077c",
+      "489b8281-da2a-4476-9dfe-52be286c8789",
+      "2b21deec-f9fa-4e2d-887e-d7fad4d532c5"
+    ],
+    "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+    "occurred_at": "2026-11-09T00:00:00+08:00",
+    "occurrence_start": "2026-11-09",
+    "occurrence_end": "2026-11-09",
+    "occurrence_precision": "day",
+    "title": "昨天我参观了上海科技馆",
+    "summary": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+    "confidence": 0.95,
+    "consent_state": "granted",
+    "memo_ref": "memos/1b7c9f94-0b07-584e-b972-142aec490c3d",
+    "status": "published",
+    "error_message": null,
+    "attempts": 1,
+    "created_at": "2026-11-10T05:58:56.536783+00:00",
+    "updated_at": "2026-11-10T06:14:21.723300+00:00",
+    "content": "# 昨天我参观了上海科技馆\n\n昨天我参观了上海科技馆，看到了有趣的机器人展览。\n\n> AI 生活伙伴记录 · 事件 `evt_1bafc27e4b21bd92509e2007`\n> 来源消息：`6b46a65d-021a-4605-ba1d-68685b23077c`\n\n#生活回忆 #AI生活伙伴",
+    "tags": [
+      "生活回忆",
+      "AI生活伙伴"
+    ],
+    "event_type": "life_event",
+    "has_image": false,
+    "media": null
+  },
+  "memory_detail": {
+    "memory": {
+      "event_id": "evt_1bafc27e4b21bd92509e2007",
+      "source_type": "chat",
+      "source_message_ids": [
+        "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "489b8281-da2a-4476-9dfe-52be286c8789",
+        "2b21deec-f9fa-4e2d-887e-d7fad4d532c5"
+      ],
+      "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+      "occurred_at": "2026-11-09T00:00:00+08:00",
+      "occurrence_start": "2026-11-09",
+      "occurrence_end": "2026-11-09",
+      "occurrence_precision": "day",
+      "title": "昨天我参观了上海科技馆",
+      "summary": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/1b7c9f94-0b07-584e-b972-142aec490c3d",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T05:58:56.536783+00:00",
+      "updated_at": "2026-11-10T06:14:21.723300+00:00",
+      "content": "# 昨天我参观了上海科技馆\n\n昨天我参观了上海科技馆，看到了有趣的机器人展览。\n\n> AI 生活伙伴记录 · 事件 `evt_1bafc27e4b21bd92509e2007`\n> 来源消息：`6b46a65d-021a-4605-ba1d-68685b23077c`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    }
+  },
+  "memory_status": {
+    "traces": [
+      {
+        "trace_id": 32,
+        "message_id": "b6856963-a95f-4941-9d17-2cbe9bdd81a8",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "extraction",
+        "status": "rejected",
+        "reason": "llm_validated",
+        "item_count": 0,
+        "elapsed_ms": 890,
+        "created_at": "2026-11-10T06:14:27.791085+00:00"
+      },
+      {
+        "trace_id": 31,
+        "message_id": "b6856963-a95f-4941-9d17-2cbe9bdd81a8",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:14:26.704906+00:00"
+      },
+      {
+        "trace_id": 30,
+        "message_id": "b6856963-a95f-4941-9d17-2cbe9bdd81a8",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "no_usable_evidence",
+        "item_count": 0,
+        "elapsed_ms": 4053,
+        "created_at": "2026-11-10T06:14:26.672857+00:00"
+      },
+      {
+        "trace_id": 29,
+        "message_id": "2b21deec-f9fa-4e2d-887e-d7fad4d532c5",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1687,
+        "created_at": "2026-11-10T06:14:21.744192+00:00"
+      },
+      {
+        "trace_id": 28,
+        "message_id": "2b21deec-f9fa-4e2d-887e-d7fad4d532c5",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:14:19.864625+00:00"
+      },
+      {
+        "trace_id": 27,
+        "message_id": "2b21deec-f9fa-4e2d-887e-d7fad4d532c5",
+        "conversation_id": "52c8500c-0258-40ed-98d5-bb68950bae9c",
+        "stage": "delivery",
+        "status": "injected",
+        "reason": "",
+        "item_count": 2,
+        "elapsed_ms": 3945,
+        "created_at": "2026-11-10T06:14:19.596301+00:00"
+      },
+      {
+        "trace_id": 26,
+        "message_id": "0516c858-1509-49f2-858e-920138b8c8ca",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1922,
+        "created_at": "2026-11-10T06:06:32.020351+00:00"
+      },
+      {
+        "trace_id": 25,
+        "message_id": "0516c858-1509-49f2-858e-920138b8c8ca",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "publication",
+        "status": "published",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:06:31.996061+00:00"
+      },
+      {
+        "trace_id": 24,
+        "message_id": "0516c858-1509-49f2-858e-920138b8c8ca",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:06:29.597253+00:00"
+      },
+      {
+        "trace_id": 23,
+        "message_id": "0516c858-1509-49f2-858e-920138b8c8ca",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 2716,
+        "created_at": "2026-11-10T06:06:29.545576+00:00"
+      },
+      {
+        "trace_id": 22,
+        "message_id": "0bd09208-7b08-4d8d-966b-613ec6b03dea",
+        "conversation_id": "35fd8dcf-4c08-4e14-87f7-c377705aec80",
+        "stage": "extraction",
+        "status": "rejected",
+        "reason": "llm_validated",
+        "item_count": 0,
+        "elapsed_ms": 1530,
+        "created_at": "2026-11-10T06:05:03.052240+00:00"
+      },
+      {
+        "trace_id": 21,
+        "message_id": "0bd09208-7b08-4d8d-966b-613ec6b03dea",
+        "conversation_id": "35fd8dcf-4c08-4e14-87f7-c377705aec80",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:05:01.331591+00:00"
+      },
+      {
+        "trace_id": 20,
+        "message_id": "0bd09208-7b08-4d8d-966b-613ec6b03dea",
+        "conversation_id": "35fd8dcf-4c08-4e14-87f7-c377705aec80",
+        "stage": "delivery",
+        "status": "injected",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 2252,
+        "created_at": "2026-11-10T06:05:01.278303+00:00"
+      },
+      {
+        "trace_id": 19,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "extraction",
+        "status": "rejected",
+        "reason": "llm_validated",
+        "item_count": 0,
+        "elapsed_ms": 1250,
+        "created_at": "2026-11-10T06:04:57.901735+00:00"
+      },
+      {
+        "trace_id": 18,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:04:56.481628+00:00"
+      },
+      {
+        "trace_id": 17,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "no_usable_evidence",
+        "item_count": 0,
+        "elapsed_ms": 4293,
+        "created_at": "2026-11-10T06:04:56.388836+00:00"
+      },
+      {
+        "trace_id": 16,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1672,
+        "created_at": "2026-11-10T06:04:52.496377+00:00"
+      },
+      {
+        "trace_id": 15,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:04:50.472113+00:00"
+      },
+      {
+        "trace_id": 14,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 3474,
+        "created_at": "2026-11-10T06:04:50.339519+00:00"
+      },
+      {
+        "trace_id": 13,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 2593,
+        "created_at": "2026-11-10T05:58:57.311557+00:00"
+      },
+      {
+        "trace_id": 12,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "publication",
+        "status": "published",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:58:57.276163+00:00"
+      },
+      {
+        "trace_id": 11,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:58:54.572897+00:00"
+      },
+      {
+        "trace_id": 10,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 4187,
+        "created_at": "2026-11-10T05:58:52.469657+00:00"
+      },
+      {
+        "trace_id": 9,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1468,
+        "created_at": "2026-11-10T05:45:58.855167+00:00"
+      },
+      {
+        "trace_id": 8,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "publication",
+        "status": "published",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:58.821620+00:00"
+      },
+      {
+        "trace_id": 7,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:57.237138+00:00"
+      },
+      {
+        "trace_id": 6,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "recall",
+        "status": "unavailable",
+        "reason": "invalid_response",
+        "item_count": 0,
+        "elapsed_ms": 127,
+        "created_at": "2026-11-10T05:45:57.036889+00:00"
+      },
+      {
+        "trace_id": 5,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "recall",
+        "status": "unavailable",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:56.978310+00:00"
+      },
+      {
+        "trace_id": 4,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "stable_fact",
+        "item_count": 2,
+        "elapsed_ms": 187,
+        "created_at": "2026-11-10T05:41:26.423362+00:00"
+      },
+      {
+        "trace_id": 3,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:41:26.080803+00:00"
+      },
+      {
+        "trace_id": 2,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 618,
+        "created_at": "2026-11-10T05:41:25.340798+00:00"
+      },
+      {
+        "trace_id": 1,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:41:25.160101+00:00"
+      }
+    ],
+    "jobs": {
+      "succeeded": 9
+    },
+    "permissions": {
+      "recall_consent": true,
+      "sensitive_consent": true,
+      "notification_consent": true
+    },
+    "memory_consent": true,
+    "database_id": "6fbe55b784a9",
+    "extractor_configured": true,
+    "source_coverage": {
+      "status": "available",
+      "total": 9,
+      "states": {
+        "active": 9
+      },
+      "extraction_status": {
+        "extracted": 6,
+        "no_memory": 3
+      },
+      "historical_coverage": "not_verified"
+    }
+  }
+}
