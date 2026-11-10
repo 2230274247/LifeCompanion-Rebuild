@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "mode": "authenticated manual API with offline extraction, not LLM extraction",
+  "requested": 1,
+  "before_total": 5,
+  "published": 1,
+  "rows": [
+    {
+      "key": "demo-v2:2025-11-02:出游",
+      "date": "2025-11-02",
+      "theme": "出游",
+      "text": "2025-11-02我和朋友林晓参观了苏州博物馆并拍了建筑和沿途风景（合成验收历史，非真实个人经历）。",
+      "month": "2025-11",
+      "synthetic": true,
+      "source_message_id": "b847e5bf-8a53-5ad7-9118-d08888bd4a12",
+      "event_id": "evt_b04220f5fd1216f47c8efd9b",
+      "memo_ref": "memos/2456249e-5d9f-57e5-8bd2-5df9886dcfb0"
+    }
+  ],
+  "failures": [],
+  "after_total": 6
+}

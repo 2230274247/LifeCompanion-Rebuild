@@ -1,0 +1,58 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e5]:
+    - complementary "控制面板" [ref=f1e6]:
+      - generic [ref=f1e7]:
+        - generic [ref=f1e8]:
+          - button "打开侧边栏" [ref=f1e9] [cursor=pointer]
+          - link "创建新对话" [ref=f1e12] [cursor=pointer]:
+            - /url: /c/new
+          - navigation "拾光导航" [ref=f1e16]
+          - button "对话历史" [pressed] [ref=f1e42] [cursor=pointer]
+          - button "账户设置" [ref=f1e47] [cursor=pointer]
+        - generic:
+          - generic
+      - separator "Resize sidebar"
+    - generic [ref=f1e52]:
+      - banner [ref=f1e53]:
+        - generic [ref=f1e54]:
+          - link "查看个人信息、显示名与认证 ID" [ref=f1e55] [cursor=pointer]:
+            - /url: /connections
+            - text: 拾
+          - generic [ref=f1e56]
+      - main [ref=f1e60]:
+        - generic [ref=f1e61]:
+          - generic [ref=f1e62]
+          - link "记忆与权限" [ref=f1e66] [cursor=pointer]:
+            - /url: /memory-settings
+        - generic [ref=f1e67]:
+          - generic [ref=f1e68]
+          - group [ref=f1e73]
+        - status [ref=f1e557]: 共 125 段回忆
+        - generic [ref=f1e558]:
+          - region "9月6日周日" [ref=f1e559]
+          - region "9月4日周五" [ref=f1e583]
+          - region "9月2日周三" [ref=f1e607]
+          - region "8月20日周四" [ref=f1e631]
+          - region "8月18日周二" [ref=f1e655]
+          - region "8月16日周日" [ref=f1e679]
+          - region "8月14日周五" [ref=f1e703]
+          - region "8月12日周三" [ref=f1e727]
+          - region "8月10日周一" [ref=f1e751]
+          - region "8月8日周六" [ref=f1e775]
+          - region "8月6日周四" [ref=f1e799]
+          - region "8月4日周二" [ref=f1e823]
+          - region "8月2日周日" [ref=f1e847]
+          - region "7月20日周一" [ref=f1e871]
+          - region "7月18日周六" [ref=f1e895]
+          - region "7月16日周四" [ref=f1e919]
+          - region "7月14日周二" [ref=f1e943]
+          - region "7月12日周日" [ref=f1e967]
+          - region "7月10日周五" [ref=f1e991]
+          - region "7月8日周三" [ref=f1e1015]
+        - navigation "回忆分页" [ref=f1e1039]:
+          - button "上一页" [ref=f1e1040] [cursor=pointer]
+          - generic [ref=f1e1041]: "2"
+          - button "下一页" [ref=f1e1042] [cursor=pointer]
+        - paragraph [ref=f1e556]: 私有回忆 · 仅展示当前映射账户的已发布生活事件。当前为单用户内测。
+  - region "Notifications (F8)":
+    - list

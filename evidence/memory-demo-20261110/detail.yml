@@ -1,0 +1,48 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e5]:
+    - complementary "控制面板" [ref=f2e6]:
+      - generic [ref=f2e7]:
+        - generic [ref=f2e8]:
+          - button "打开侧边栏" [ref=f2e9] [cursor=pointer]
+          - link "创建新对话" [ref=f2e12] [cursor=pointer]:
+            - /url: /c/new
+          - navigation "拾光导航" [ref=f2e16]:
+            - link "AI 伙伴" [ref=f2e17] [cursor=pointer]:
+              - /url: /c/new
+            - link "我的回忆" [ref=f2e22] [cursor=pointer]:
+              - /url: /memories
+            - link "提醒" [ref=f2e26] [cursor=pointer]:
+              - /url: /reminders
+            - link "亲友与空间" [ref=f2e33] [cursor=pointer]:
+              - /url: /connections
+          - button "对话历史" [pressed] [ref=f2e42] [cursor=pointer]
+          - button "账户设置" [ref=f2e47] [cursor=pointer]:
+            - img "P5 Acceptance's avatar" [ref=f2e51]
+        - generic:
+          - generic:
+            - button [expanded]
+            - button
+      - separator "Resize sidebar"
+    - generic [ref=f2e52]:
+      - banner [ref=f2e53]:
+        - generic [ref=f2e54]:
+          - link "查看个人信息、显示名与认证 ID" [ref=f2e55] [cursor=pointer]:
+            - /url: /connections
+            - text: 拾
+          - generic [ref=f2e56]:
+            - paragraph [ref=f2e57]: 拾光
+            - paragraph [ref=f2e58]: LIFE COMPANION · 留住生活的光
+      - main [ref=f2e60]:
+        - generic [ref=f2e62]:
+          - paragraph [ref=f2e63]: 生活有迹可循
+          - heading "回忆详情" [level=1] [ref=f2e106]
+        - generic [ref=f2e108]:
+          - generic [ref=f2e109]:
+            - link "返回回忆" [ref=f2e110] [cursor=pointer]:
+              - /url: /memories?on_date=2026-10-02
+            - article [ref=f2e111]
+          - complementary [ref=f2e135]:
+            - region "共同回忆入口" [ref=f2e136]
+        - paragraph [ref=f2e105]: 私有回忆 · 仅展示当前映射账户的已发布生活事件。当前为单用户内测。
+  - region "Notifications (F8)":
+    - list
