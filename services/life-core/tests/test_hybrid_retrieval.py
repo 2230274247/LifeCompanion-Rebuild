@@ -152,6 +152,7 @@ def test_empty_query_does_not_return_profile_or_encode(memory, query):
 
 
 def test_sensitive_texts_filtered_before_encoding_and_sensitive_profile_needs_consent(memory):
+    memory.set_permissions("alice", {"sensitive_consent": False})
     put(memory, "safe", "星河项目组举行例会")
     put(memory, "medical", "星河项目组讨论医疗诊断", sensitivity="sensitive")
     put(memory, "unknown", "项目进展未知", sensitivity="unknown")

@@ -235,3 +235,28 @@ def test_network_publish_failure_records_failed_status_and_can_retry(monkeypatch
         response = client.post("/internal/v1/events/ingest", headers={"X-Internal-Token": "test-internal"}, json=body)
         assert response.json()["event"]["status"] == "published"
 
+
+
+def test_new_user_defaults_to_open_consent_and_can_opt_out(tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        # Bootstrap with no consent fields exercises the default-open posture.
+        response = client.post(
+            "/internal/v1/users/bootstrap",
+            headers={"X-Internal-Token": "test-internal"},
+            json={"librechat_user_id": "lc-user-default", "memos_user_id": "users/default"},
+        )
+        assert response.status_code == 200
+        user = response.json()
+        assert user["memory_consent"] is True and user["image_consent"] is True
+        hdrs = {"Authorization": f"Bearer {token_for('lc-user-default')}"}
+        me = client.get("/api/v1/me", headers=hdrs).json()
+        assert me["memory_consent"] is True and me["image_consent"] is True
+        perms = app.state.memory.permissions(user["life_user_id"])
+        assert perms == {"recall_consent": True, "sensitive_consent": True, "notification_consent": True}
+        # Users can still turn individual consents off.
+        client.patch("/api/v1/me/settings", headers=hdrs,
+                     json={"recall_consent": False, "memory_consent": False})
+        assert app.state.memory.permissions(user["life_user_id"])["recall_consent"] is False
+        # The store persists consent as SQLite 0/1; the API layer coerces to bool.
+        assert app.state.store.get_user(user["life_user_id"])["memory_consent"] == 0

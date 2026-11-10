@@ -71,6 +71,7 @@ def test_event_semantic_merge_and_sensitive_future_question_guards(monkeypatch, 
     app, client = make_app(tmp_path)
     with client:
         bootstrap(client)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"sensitive_consent": False})
         writes = []
         monkeypatch.setattr(app.state.memos, "create_private_memo",
                             lambda event: writes.append(event) or f"memos/{event['event_id']}")

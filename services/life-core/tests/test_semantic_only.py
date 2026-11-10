@@ -181,6 +181,7 @@ def test_withdrawn_memory_never_returns_cached_vector(memory):
 
 
 def test_sensitive_filter_precedes_encoding(memory):
+    memory.set_permissions('alice', {'sensitive_consent': False})
     put(memory,'safe','日常散步')
     put(memory,'private','医疗诊断',sensitivity='sensitive')
     r = search(memory, {'日常散步':[1,0,0], '医疗诊断':[1,0,0]})
@@ -249,6 +250,7 @@ def test_public_recall_cannot_supply_owner_or_bypass_auth(tmp_path):
     app, client = make_app(tmp_path)
     with client:
         bootstrap(client)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": False})
         assert client.post('/api/v1/knowledge/recall',json={'query':'经历'}).status_code == 401
         assert client.post('/api/v1/knowledge/recall',headers=auth(),json={
             'query':'经历','source_user_id':'other'}).status_code == 422

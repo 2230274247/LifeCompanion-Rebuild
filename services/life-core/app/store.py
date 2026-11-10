@@ -43,8 +43,8 @@ class Store:
                     memos_user_id TEXT NOT NULL,
                     memos_username TEXT,
                     display_name TEXT,
-                    memory_consent INTEGER NOT NULL DEFAULT 0,
-                    image_consent INTEGER NOT NULL DEFAULT 0,
+                    memory_consent INTEGER NOT NULL DEFAULT 1,
+                    image_consent INTEGER NOT NULL DEFAULT 1,
                     created_at TEXT NOT NULL,
                     updated_at TEXT NOT NULL
                 );
@@ -147,8 +147,8 @@ class Store:
         memos_user_id: str,
         memos_username: str | None,
         display_name: str | None,
-        memory_consent: bool = False,
-        image_consent: bool = False,
+        memory_consent: bool = True,
+        image_consent: bool = True,
     ) -> dict[str, Any]:
         life_user_id = "life_" + hashlib.sha256(librechat_user_id.encode()).hexdigest()[:20]
         now = utc_now()
@@ -193,7 +193,7 @@ class Store:
         with self.connect() as db:
             db.execute("""INSERT OR IGNORE INTO users (
                 life_user_id,librechat_user_id,memos_user_id,memory_consent,image_consent,created_at,updated_at
-                ) VALUES (?,?,'',0,0,?,?)""", (life_id, librechat_user_id, utc_now(), utc_now()))
+                ) VALUES (?,?,'',1,1,?,?)""", (life_id, librechat_user_id, utc_now(), utc_now()))
         return self.get_user_by_librechat_id(librechat_user_id)
 
     def get_user(self, life_user_id: str) -> dict[str, Any] | None:

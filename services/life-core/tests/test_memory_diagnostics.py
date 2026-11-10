@@ -11,6 +11,7 @@ def test_recall_distinguishes_mapping_permission_no_match_and_hits(tmp_path):
         body = {"source_user_id": "lc-user-a", "query": "喝什么茶", "source_message_id": "q1"}
         assert client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()["status"] == "user_not_mapped"
         bootstrap(client)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": False})
         assert client.post("/internal/v1/knowledge/recall", headers=HEADERS, json=body).json()["status"] == "permission_denied"
         client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
         retrieval = prepare_app(app)

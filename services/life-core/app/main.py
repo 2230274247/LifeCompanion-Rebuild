@@ -48,8 +48,8 @@ class BootstrapUserRequest(BaseModel):
     memos_user_id: str
     memos_username: str | None = None
     display_name: str | None = None
-    memory_consent: bool = False
-    image_consent: bool = False
+    memory_consent: bool = True
+    image_consent: bool = True
 
 
 class ConsentRequest(BaseModel):
@@ -426,7 +426,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
 
     @app.post("/internal/v1/users/bootstrap", dependencies=[Depends(require_internal)])
     def bootstrap_user(body: BootstrapUserRequest, request: Request):
-        return request.app.state.store.bootstrap_user(
+        user = request.app.state.store.bootstrap_user(
             librechat_user_id=body.librechat_user_id,
             memos_user_id=body.memos_user_id,
             memos_username=body.memos_username,
@@ -434,6 +434,9 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             memory_consent=body.memory_consent,
             image_consent=body.image_consent,
         )
+        user["memory_consent"] = bool(user["memory_consent"])
+        user["image_consent"] = bool(user["image_consent"])
+        return user
 
     def process_event(**kwargs):
         import time

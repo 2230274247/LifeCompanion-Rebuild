@@ -142,6 +142,7 @@ def test_queue_expiry_does_not_expire_quotation(setup):
 def test_sensitive_consent_and_recall_permission_apply_to_all_reads(setup):
     memory, alice, bob = setup
     owner = alice["life_user_id"]
+    memory.set_permissions(owner, {"sensitive_consent": False})
     source = body(text="今天去医院做了检查")
     assert memory.sources.record(alice, source)["status"] == "permission_denied"
     memory.set_permissions(owner, {"sensitive_consent": True})

@@ -61,9 +61,9 @@ class MemoryService:
         with self.store.connect() as db:
             db.executescript("""
                 CREATE TABLE IF NOT EXISTS memory_permissions (
-                    user_id TEXT PRIMARY KEY, recall_consent INTEGER NOT NULL DEFAULT 0,
-                    sensitive_consent INTEGER NOT NULL DEFAULT 0,
-                    notification_consent INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL
+                    user_id TEXT PRIMARY KEY, recall_consent INTEGER NOT NULL DEFAULT 1,
+                    sensitive_consent INTEGER NOT NULL DEFAULT 1,
+                    notification_consent INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL
                 );
                 CREATE TABLE IF NOT EXISTS memory_items (
                     memory_id TEXT PRIMARY KEY, user_id TEXT NOT NULL,
@@ -127,7 +127,7 @@ class MemoryService:
     def permissions(self, user_id):
         with self.store.connect() as db:
             row = db.execute("SELECT * FROM memory_permissions WHERE user_id=?", (user_id,)).fetchone()
-        return {key: bool(row[key]) if row else False
+        return {key: bool(row[key]) if row else True
                 for key in ("recall_consent", "sensitive_consent", "notification_consent")}
 
     def timezone(self, user_id):
