@@ -11,8 +11,9 @@ import httpx
 from pydantic import ValidationError
 
 from .memory import Candidate, FORGET, SENSITIVE
+from .occurrence import Occurrence, explicit_occurrence
 
-VERSION = "multi-candidates-v1"
+VERSION = "multi-candidates-v2-occurrence"
 MAX_CANDIDATES = 8
 FACT_KEYS = {
     "drink_preference", "drink_avoidance", "residence", "birthday",
@@ -135,7 +136,8 @@ def _make(kind: str, quote: str, key: str = "other", value: str = "", canonical:
                            occurred_state="planned" if kind == "future_plan" else "occurred",
                            fact_key=key, value=value, confidence=0.85,
                            sensitivity="sensitive" if key in {"birthday", "residence"} or SENSITIVE.search(quote) else "ordinary",
-                           image_candidate=kind == "life_event"))
+                           image_candidate=kind == "life_event",
+                           occurrence=explicit_occurrence(quote) if kind == "life_event" else Occurrence()))
 
 
 def _occurred(quote: str) -> bool:
@@ -339,6 +341,14 @@ def _model(service, text: str, clauses: list[_Clause], now: datetime) -> list[Ca
         "are drink_avoidance, never positive preference. Relationships must name the other person. "
         "life_event requires an explicitly occurred action; pure emotions are not events. "
         "future_plan is planned, never occurred. No external context is supplied. "
+        "For life_event normalize its stated occurrence time into occurrence, anchored to now (message timestamp). "
+        "occurrence.expression must quote the exact time expression from evidence_quote. "
+        "Use symbolic calendar arithmetic, NOT a guessed final date: 上周六 => unit=week,offset=-1,weekday=5; "
+        "上个月 => unit=month,offset=-1; 昨天 => unit=day,offset=-1; 去年 => unit=year,offset=-1. "
+        "Weekdays are Monday=0..Sunday=6, weeks start Monday. For an explicit absolute date use unit=day,year,month,day; "
+        "an explicit month uses unit=month,year,month; an explicit year uses unit=year,year. "
+        "Never fill a missing day or use now as occurrence by default. No explicit/reliably resolvable time => {unit:unknown,expression:\"\"}. "
+        "Relative fields and absolute fields must not coexist. Multiple distinct events have independent occurrence objects. "
         "Schema: " + json.dumps(schema, ensure_ascii=False)
     )
     with httpx.Client(timeout=httpx.Timeout(35, connect=5), trust_env=False) as client:
@@ -435,6 +445,13 @@ def _accept_item(item: Candidate, text: str, clauses: list[_Clause],
         raise ValueError("MEMORY_INVALID_MODEL_OUTPUT")
     if SENSITIVE.search(quote) or item.fact_key in {"birthday", "residence"}:
         item.sensitivity = "sensitive"
+    if item.candidate_type == "life_event":
+        if item.occurrence.unit == "unknown":
+            item.occurrence = explicit_occurrence(item.evidence_quote)
+        elif item.occurrence.expression not in item.evidence_quote:
+            item.occurrence = Occurrence()
+    else:
+        item.occurrence = Occurrence()
     item.image_candidate = item.candidate_type == "life_event"
     item._classifier = f"llm:{settings.memory_llm_model}:{VERSION}"
     return item

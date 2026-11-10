@@ -9,6 +9,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Iterator
 
+from .occurrence import initialize_occurrence
+
 
 def utc_now() -> str:
     return datetime.now(UTC).isoformat()
@@ -122,6 +124,7 @@ class Store:
                 );
                 """
             )
+            initialize_occurrence(db, "events")
             reminder_columns = {
                 row["name"] for row in db.execute("PRAGMA table_info(reminders)").fetchall()
             }
@@ -189,8 +192,8 @@ class Store:
         life_id = "life_" + hashlib.sha256(librechat_user_id.encode()).hexdigest()[:20]
         with self.connect() as db:
             db.execute("""INSERT OR IGNORE INTO users (
-                life_user_id,librechat_user_id,memos_user_id,created_at,updated_at
-                ) VALUES (?,?,'',?,?)""", (life_id, librechat_user_id, utc_now(), utc_now()))
+                life_user_id,librechat_user_id,memos_user_id,memory_consent,image_consent,created_at,updated_at
+                ) VALUES (?,?,'',0,0,?,?)""", (life_id, librechat_user_id, utc_now(), utc_now()))
         return self.get_user_by_librechat_id(librechat_user_id)
 
     def get_user(self, life_user_id: str) -> dict[str, Any] | None:
@@ -264,6 +267,9 @@ class Store:
         consent_state: str,
         status: str,
         idempotency_key: str,
+        occurrence_start: str | None = None,
+        occurrence_end: str | None = None,
+        occurrence_precision: str = "unknown",
     ) -> dict[str, Any]:
         event_id = "evt_" + hashlib.sha256(
             f"{user_id}:{idempotency_key}".encode()
@@ -275,8 +281,8 @@ class Store:
                 INSERT INTO events (
                     event_id, user_id, source_type, source_message_ids, conversation_id,
                     occurred_at, title, summary, confidence, consent_state, status,
-                    idempotency_key, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    idempotency_key, created_at, updated_at, occurrence_start, occurrence_end, occurrence_precision
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(idempotency_key) DO NOTHING
                 """,
                 (
@@ -294,6 +300,7 @@ class Store:
                     idempotency_key,
                     now,
                     now,
+                    occurrence_start, occurrence_end, occurrence_precision,
                 ),
             )
             row = db.execute(

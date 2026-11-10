@@ -62,11 +62,19 @@ def put(memory, key, text, *, user="alice", kind="life_event", semantic_key=None
     stamp = (valid_from or NOW).isoformat()
     semantic_key = semantic_key or f"event:2026-11-08:{key}"
     with memory.store.connect() as db:
+        # This fixture explicitly supplies verified event dates. Production never
+        # trusts legacy keys as evidence of occurrence.
+        try:
+            day = datetime.strptime(semantic_key.split(':')[1], '%Y-%m-%d').date().isoformat() if kind == 'life_event' else None
+        except (ValueError, IndexError):
+            day = None
         db.execute("""INSERT INTO memory_items
             (memory_id,user_id,kind,semantic_key,canonical_text,value,state,importance,
-             confidence,sensitivity,image_candidate,valid_from,created_at,updated_at)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-            (key,user,kind,semantic_key,text,value,state,importance,0.95,sensitivity,0,stamp,stamp,stamp))
+             confidence,sensitivity,image_candidate,valid_from,created_at,updated_at,
+             occurrence_start,occurrence_end,occurrence_precision)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            (key,user,kind,semantic_key,text,value,state,importance,0.95,sensitivity,0,stamp,stamp,stamp,
+             day,day,'day' if day else 'unknown'))
     return next(item for item in memory.list_items(user) if item["memory_id"] == key) if state == "active" else None
 
 
@@ -359,12 +367,14 @@ def test_unrelated_conversational_query_uses_vectors_without_word_blacklist(memo
     assert retrieval.embedder.query_calls == [["谢谢"]]
 
 
-def test_valid_from_fallback_obeys_user_timezone(memory):
+def test_legacy_recording_date_is_not_occurrence_in_any_timezone(memory):
     put(memory, "walk", "公园散步", semantic_key="legacy-walk", valid_from=NOW)
     with memory.store.connect() as db:
         db.execute("INSERT INTO user_preferences VALUES (?,?,?)", ("alice", "America/Los_Angeles", NOW.isoformat()))
-    result = ready(memory, {"公园散步": MATCH}).retrieve("alice", "今天公园散步")
-    assert ids(result) == ["walk"]  # 11/7 in Los Angeles, 11/8 in Shanghai.
+    retrieval = ready(memory, {"公园散步": MATCH})
+    assert ids(retrieval.retrieve("alice", "今天公园散步")) == []
+    # Still semantically retrievable without a date constraint; only date inference is denied.
+    assert ids(retrieval.retrieve("alice", "公园散步")) == ["walk"]
 
 
 @pytest.mark.parametrize("query,encoded_query", [

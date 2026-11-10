@@ -69,7 +69,7 @@ def test_overview_paging_marks_more_and_excludes_out_of_range(memory):
     assert got['retrieval']['truncated'] is True
     assert got['retrieval']['has_more'] is True
     assert all(item['memory_id'] != 'old' for item in got['items'])
-    assert got['retrieval']['total_count'] == 6  # five in-window events + one undated source row
+    assert got['retrieval']['total_count'] == 5  # only in-window events; undated sources are separate
 
 
 def test_overview_reports_undated_sources_without_forging_dates(memory):

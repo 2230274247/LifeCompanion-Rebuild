@@ -1,0 +1,632 @@
+{
+  "scope": "isolated synthetic database; real DeepSeek extraction and official Memos HTTP",
+  "inputs": [
+    {
+      "name": "month",
+      "text": "上个月我搬到了上海的新社区。",
+      "message_at": "2026-11-02T10:00:00+08:00"
+    },
+    {
+      "name": "saturday",
+      "text": "上周六我去爬了香山，看到了很美的红叶。",
+      "message_at": "2026-11-02T20:00:00+08:00"
+    },
+    {
+      "name": "unknown",
+      "text": "我和朋友参观了陶艺展览。",
+      "message_at": "2026-11-02T20:00:00+08:00"
+    },
+    {
+      "name": "general",
+      "text": "距离这条消息三个月之前，我参加了游泳比赛。",
+      "message_at": "2026-11-02T20:00:00+08:00"
+    },
+    {
+      "name": "year-boundary",
+      "text": "上个月我参观了冰雕展览。",
+      "message_at": "2026-01-02T10:00:00+08:00"
+    },
+    {
+      "name": "timezone",
+      "text": "昨天我去了植物园参观。",
+      "message_at": "2026-11-01T16:30:00+00:00"
+    },
+    {
+      "name": "multi",
+      "text": "上周六我参观了科技馆；上个月我参加了书法比赛。",
+      "message_at": "2026-11-02T10:00:00+08:00"
+    }
+  ],
+  "jobs": {
+    "succeeded": 7
+  },
+  "memories": [
+    {
+      "event_id": "evt_769c220399cc819b563f2d0c",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-timezone"
+      ],
+      "conversation_id": "occurrence-v1-timezone",
+      "occurred_at": "2026-11-01T00:00:00+08:00",
+      "occurrence_start": "2026-11-01",
+      "occurrence_end": "2026-11-01",
+      "occurrence_precision": "day",
+      "title": "昨天我去了植物园参观",
+      "summary": "昨天我去了植物园参观。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/25f535a5-df1a-55c4-b3cd-d851736c4151",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:35.930610+00:00",
+      "updated_at": "2026-11-10T02:13:36.826454+00:00",
+      "content": "# 昨天我去了植物园参观\n\n昨天我去了植物园参观。\n\n> AI 生活伙伴记录 · 事件 `evt_769c220399cc819b563f2d0c`\n> 来源消息：`occurrence-v1-timezone`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_568808d7bc0c7f7ab2449ac2",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-multi"
+      ],
+      "conversation_id": "occurrence-v1-multi",
+      "occurred_at": "2026-10-31T00:00:00+08:00",
+      "occurrence_start": "2026-10-31",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "day",
+      "title": "上周六我参观了科技馆；",
+      "summary": "上周六我参观了科技馆；",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/f918eb41-444c-554e-b397-fd1f7ff8cf4a",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:39.182525+00:00",
+      "updated_at": "2026-11-10T02:13:40.010432+00:00",
+      "content": "# 上周六我参观了科技馆；\n\n上周六我参观了科技馆；\n\n> AI 生活伙伴记录 · 事件 `evt_568808d7bc0c7f7ab2449ac2`\n> 来源消息：`occurrence-v1-multi`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_981b044003b726c8030d5038",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-saturday"
+      ],
+      "conversation_id": "occurrence-v1-saturday",
+      "occurred_at": "2026-10-31T00:00:00+08:00",
+      "occurrence_start": "2026-10-31",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "day",
+      "title": "上周六我去爬了香山",
+      "summary": "上周六我去爬了香山，看到了很美的红叶。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/0da6dede-a70d-5c7a-a484-29ad20a30ef5",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:26.384366+00:00",
+      "updated_at": "2026-11-10T02:13:26.837733+00:00",
+      "content": "# 上周六我去爬了香山\n\n上周六我去爬了香山，看到了很美的红叶。\n\n> AI 生活伙伴记录 · 事件 `evt_981b044003b726c8030d5038`\n> 来源消息：`occurrence-v1-saturday`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_f0db6fdfd75cf0b846253040",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-multi"
+      ],
+      "conversation_id": "occurrence-v1-multi",
+      "occurred_at": "",
+      "occurrence_start": "2026-10-01",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "month",
+      "title": "上个月我参加了书法比赛。",
+      "summary": "上个月我参加了书法比赛。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/d32ff126-ab72-513b-9276-919e7d8b3c52",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:40.132788+00:00",
+      "updated_at": "2026-11-10T02:13:40.803488+00:00",
+      "content": "# 上个月我参加了书法比赛。\n\n上个月我参加了书法比赛。\n\n> AI 生活伙伴记录 · 事件 `evt_f0db6fdfd75cf0b846253040`\n> 来源消息：`occurrence-v1-multi`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_288cca5435466c9ed057ad0e",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-month"
+      ],
+      "conversation_id": "occurrence-v1-month",
+      "occurred_at": "",
+      "occurrence_start": "2026-10-01",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "month",
+      "title": "上个月我搬到了上海的新社区",
+      "summary": "上个月我搬到了上海的新社区。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/1aa8bcd7-a4ba-5b01-bffa-539b02c840d6",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:24.077356+00:00",
+      "updated_at": "2026-11-10T02:13:24.762004+00:00",
+      "content": "# 上个月我搬到了上海的新社区\n\n上个月我搬到了上海的新社区。\n\n> AI 生活伙伴记录 · 事件 `evt_288cca5435466c9ed057ad0e`\n> 来源消息：`occurrence-v1-month`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_2cab33ceab969ce35e8ef9b4",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-general"
+      ],
+      "conversation_id": "occurrence-v1-general",
+      "occurred_at": "",
+      "occurrence_start": "2026-08-01",
+      "occurrence_end": "2026-08-31",
+      "occurrence_precision": "month",
+      "title": "距离这条消息三个月之前，我参加了游泳比赛。",
+      "summary": "距离这条消息三个月之前，我参加了游泳比赛。",
+      "confidence": 0.9,
+      "consent_state": "granted",
+      "memo_ref": "memos/8d939fc4-a350-5d0e-8476-f1095049418e",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:30.778730+00:00",
+      "updated_at": "2026-11-10T02:13:31.457385+00:00",
+      "content": "# 距离这条消息三个月之前，我参加了游泳比赛。\n\n距离这条消息三个月之前，我参加了游泳比赛。\n\n> AI 生活伙伴记录 · 事件 `evt_2cab33ceab969ce35e8ef9b4`\n> 来源消息：`occurrence-v1-general`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_ba18ccba91f085137eae2330",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-year-boundary"
+      ],
+      "conversation_id": "occurrence-v1-year-boundary",
+      "occurred_at": "",
+      "occurrence_start": "2025-12-01",
+      "occurrence_end": "2025-12-31",
+      "occurrence_precision": "month",
+      "title": "上个月我参观了冰雕展览。",
+      "summary": "上个月我参观了冰雕展览。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/351970ad-48b4-5fa2-a0a5-1e983fc4e61d",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:33.465854+00:00",
+      "updated_at": "2026-11-10T02:13:34.186231+00:00",
+      "content": "# 上个月我参观了冰雕展览。\n\n上个月我参观了冰雕展览。\n\n> AI 生活伙伴记录 · 事件 `evt_ba18ccba91f085137eae2330`\n> 来源消息：`occurrence-v1-year-boundary`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    },
+    {
+      "event_id": "evt_da3957591131b9e257052ff6",
+      "source_type": "chat",
+      "source_message_ids": [
+        "occurrence-v1-unknown"
+      ],
+      "conversation_id": "occurrence-v1-unknown",
+      "occurred_at": "",
+      "occurrence_start": null,
+      "occurrence_end": null,
+      "occurrence_precision": "unknown",
+      "title": "我和朋友参观了陶艺展览",
+      "summary": "我和朋友参观了陶艺展览。",
+      "confidence": 0.9,
+      "consent_state": "granted",
+      "memo_ref": "memos/5f2c4bae-39ce-5436-baff-af960cc03ca5",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T02:13:28.441706+00:00",
+      "updated_at": "2026-11-10T02:13:29.138188+00:00",
+      "content": "# 我和朋友参观了陶艺展览\n\n我和朋友参观了陶艺展览。\n\n> AI 生活伙伴记录 · 事件 `evt_da3957591131b9e257052ff6`\n> 来源消息：`occurrence-v1-unknown`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    }
+  ],
+  "indexes": [
+    {
+      "memory_id": "mem_04a81bee640d3d1b3429cb5a",
+      "kind": "life_event",
+      "semantic_key": "event:month:2026-10-01:2026-10-31:17a79a6839ec:e7042e5ad4a954d08e9e853be0ef1442bcef781b54c0e4e24055d0407548ca81",
+      "canonical_text": "上个月我搬到了上海的新社区。",
+      "valid_from": "2026-11-02T10:00:00+08:00",
+      "occurrence_start": "2026-10-01",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "month"
+    },
+    {
+      "memory_id": "mem_a8a77eee3ef4424f3718473e",
+      "kind": "life_event",
+      "semantic_key": "event:2026-10-31:dcba2e52ba80a498ec8a92b8a76fd4a33d15ce606d3e257b7f142763132780ff",
+      "canonical_text": "上周六我去爬了香山，看到了很美的红叶。",
+      "valid_from": "2026-11-02T20:00:00+08:00",
+      "occurrence_start": "2026-10-31",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "day"
+    },
+    {
+      "memory_id": "mem_ce53c002388f54aefdf61cf6",
+      "kind": "life_event",
+      "semantic_key": "event:unknown:undated:undated:d9025593e27e:90a850b9abb035432cb2ad2883d11f789d61dfd30a6ff5df158a2eb4dcb84b8f",
+      "canonical_text": "我和朋友参观了陶艺展览。",
+      "valid_from": "2026-11-02T20:00:00+08:00",
+      "occurrence_start": null,
+      "occurrence_end": null,
+      "occurrence_precision": "unknown"
+    },
+    {
+      "memory_id": "mem_de28e77e6260f71a3979aa6f",
+      "kind": "life_event",
+      "semantic_key": "event:month:2026-08-01:2026-08-31:d9025593e27e:7c162abcef387c9f68a551ce307792843f0636005f42f26e1bf764bd0a35e576",
+      "canonical_text": "距离这条消息三个月之前，我参加了游泳比赛。",
+      "valid_from": "2026-11-02T20:00:00+08:00",
+      "occurrence_start": "2026-08-01",
+      "occurrence_end": "2026-08-31",
+      "occurrence_precision": "month"
+    },
+    {
+      "memory_id": "mem_3af0f6adc22897df93f710d5",
+      "kind": "life_event",
+      "semantic_key": "event:month:2025-12-01:2025-12-31:0a4bddc9eb8b:e18a1d38cef8a1f9d88f52ec8a1e904e4005c2da783a5ea655943769d9328075",
+      "canonical_text": "上个月我参观了冰雕展览。",
+      "valid_from": "2026-01-02T10:00:00+08:00",
+      "occurrence_start": "2025-12-01",
+      "occurrence_end": "2025-12-31",
+      "occurrence_precision": "month"
+    },
+    {
+      "memory_id": "mem_cf22273a585d4450741be58c",
+      "kind": "life_event",
+      "semantic_key": "event:2026-11-01:8c465c28299784a9807f215fb1ef4ba382c5e6aa790c75dd9f3405811e5e3c42",
+      "canonical_text": "昨天我去了植物园参观。",
+      "valid_from": "2026-11-01T16:30:00+00:00",
+      "occurrence_start": "2026-11-01",
+      "occurrence_end": "2026-11-01",
+      "occurrence_precision": "day"
+    },
+    {
+      "memory_id": "mem_0e9ed37a56aebe6c6a8f2ebd",
+      "kind": "life_event",
+      "semantic_key": "event:2026-10-31:5f3281cca49ca33f98476516dc29efa14d57533c5133a11437504e2bf08c3df9",
+      "canonical_text": "上周六我参观了科技馆；",
+      "valid_from": "2026-11-02T10:00:00+08:00",
+      "occurrence_start": "2026-10-31",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "day"
+    },
+    {
+      "memory_id": "mem_f06df2d7357aab255a38777a",
+      "kind": "life_event",
+      "semantic_key": "event:month:2026-10-01:2026-10-31:17a79a6839ec:a63283a9b6b91ff6387b9e933b2efb629c53fadc903dddabc6a71051e7a42f41",
+      "canonical_text": "上个月我参加了书法比赛。",
+      "valid_from": "2026-11-02T10:00:00+08:00",
+      "occurrence_start": "2026-10-01",
+      "occurrence_end": "2026-10-31",
+      "occurrence_precision": "month"
+    }
+  ],
+  "queries": [
+    {
+      "query": "请回顾2026年10月1日至10月31日我做了什么",
+      "http_status": 200,
+      "result": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "overview",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_f06df2d7357aab255a38777a",
+                "text": "上个月我参加了书法比赛。",
+                "valid_from": "2026-11-02T10:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_f06df2d7357aab255a38777a",
+                "occurrence_start": "2026-10-01",
+                "occurrence_end": "2026-10-31",
+                "occurrence_precision": "month",
+                "occurrence_day": null
+              },
+              {
+                "memory_id": "mem_04a81bee640d3d1b3429cb5a",
+                "text": "上个月我搬到了上海的新社区。",
+                "valid_from": "2026-11-02T10:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_04a81bee640d3d1b3429cb5a",
+                "occurrence_start": "2026-10-01",
+                "occurrence_end": "2026-10-31",
+                "occurrence_precision": "month",
+                "occurrence_day": null
+              },
+              {
+                "memory_id": "mem_0e9ed37a56aebe6c6a8f2ebd",
+                "text": "上周六我参观了科技馆；",
+                "valid_from": "2026-11-02T10:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_0e9ed37a56aebe6c6a8f2ebd",
+                "occurrence_start": "2026-10-31",
+                "occurrence_end": "2026-10-31",
+                "occurrence_precision": "day",
+                "occurrence_day": "2026-10-31"
+              },
+              {
+                "memory_id": "mem_a8a77eee3ef4424f3718473e",
+                "text": "上周六我去爬了香山，看到了很美的红叶。",
+                "valid_from": "2026-11-02T20:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_a8a77eee3ef4424f3718473e",
+                "occurrence_start": "2026-10-31",
+                "occurrence_end": "2026-10-31",
+                "occurrence_precision": "day",
+                "occurrence_day": "2026-10-31"
+              }
+            ],
+            "retrieval": {
+              "mode": "overview",
+              "start": "2026-10-01",
+              "end": "2026-10-31",
+              "returned": 4,
+              "truncated": false,
+              "has_more": false,
+              "undated_count": 8,
+              "total_count": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "query": "请回顾2026年11月2日当天我做了什么",
+      "http_status": 200,
+      "result": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "overview",
+            "status": "no_match",
+            "items": [],
+            "retrieval": {
+              "mode": "overview",
+              "start": "2026-11-02",
+              "end": "2026-11-02",
+              "returned": 0,
+              "truncated": false,
+              "has_more": false,
+              "undated_count": 8,
+              "total_count": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "query": "我参观陶艺展览是在哪一天",
+      "http_status": 200,
+      "result": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "search_memory",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_ce53c002388f54aefdf61cf6",
+                "text": "我和朋友参观了陶艺展览。",
+                "valid_from": "2026-11-02T20:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_ce53c002388f54aefdf61cf6",
+                "occurrence_start": null,
+                "occurrence_end": null,
+                "occurrence_precision": "unknown",
+                "occurrence_day": null
+              }
+            ],
+            "retrieval": {
+              "mode": "semantic_only",
+              "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+              "threshold": 0.48,
+              "semantic_status": "ready",
+              "context_source": "none",
+              "context_used": false,
+              "candidate_count": 8,
+              "semantic_candidates": 8,
+              "embedded_count": 0,
+              "cache_hits": 8,
+              "budget_exhausted": false,
+              "profile_match_ids": [],
+              "keyword_retrieval": false,
+              "dedup_dropped": 0,
+              "rerank_used": false,
+              "rerank_pool": 0,
+              "query_rewritten": true,
+              "indexed_count": 8,
+              "total_count": 8,
+              "top_scores": [
+                0.5961
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "query": "我参加游泳比赛是在哪个月",
+      "http_status": 200,
+      "result": {
+        "status": "executed",
+        "results": [
+          {
+            "action": "search_memory",
+            "status": "matched",
+            "items": [
+              {
+                "memory_id": "mem_de28e77e6260f71a3979aa6f",
+                "text": "距离这条消息三个月之前，我参加了游泳比赛。",
+                "valid_from": "2026-11-02T20:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_de28e77e6260f71a3979aa6f",
+                "occurrence_start": "2026-08-01",
+                "occurrence_end": "2026-08-31",
+                "occurrence_precision": "month",
+                "occurrence_day": null
+              },
+              {
+                "memory_id": "mem_f06df2d7357aab255a38777a",
+                "text": "上个月我参加了书法比赛。",
+                "valid_from": "2026-11-02T10:00:00+08:00",
+                "kind": "life_event",
+                "url": "/knowledge/mem_f06df2d7357aab255a38777a",
+                "occurrence_start": "2026-10-01",
+                "occurrence_end": "2026-10-31",
+                "occurrence_precision": "month",
+                "occurrence_day": null
+              }
+            ],
+            "retrieval": {
+              "mode": "semantic_only",
+              "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+              "threshold": 0.48,
+              "semantic_status": "ready",
+              "context_source": "none",
+              "context_used": false,
+              "candidate_count": 8,
+              "semantic_candidates": 8,
+              "embedded_count": 0,
+              "cache_hits": 8,
+              "budget_exhausted": false,
+              "profile_match_ids": [],
+              "keyword_retrieval": false,
+              "dedup_dropped": 0,
+              "rerank_used": true,
+              "rerank_pool": 2,
+              "query_rewritten": false,
+              "indexed_count": 8,
+              "total_count": 8,
+              "top_scores": [
+                0.879,
+                0.0002
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "reviewed": [
+    {
+      "case": "上海的新社区",
+      "verdict": "PASS",
+      "expected_start": "2026-10-01",
+      "expected_end": "2026-10-31",
+      "precision": "month"
+    },
+    {
+      "case": "香山",
+      "verdict": "PASS",
+      "expected_start": "2026-10-31",
+      "expected_end": "2026-10-31",
+      "precision": "day"
+    },
+    {
+      "case": "陶艺",
+      "verdict": "PASS",
+      "expected_start": null,
+      "expected_end": null,
+      "precision": "unknown"
+    },
+    {
+      "case": "游泳",
+      "verdict": "PASS",
+      "expected_start": "2026-08-01",
+      "expected_end": "2026-08-31",
+      "precision": "month"
+    },
+    {
+      "case": "冰雕",
+      "verdict": "PASS",
+      "expected_start": "2025-12-01",
+      "expected_end": "2025-12-31",
+      "precision": "month"
+    },
+    {
+      "case": "植物园",
+      "verdict": "PASS",
+      "expected_start": "2026-11-01",
+      "expected_end": "2026-11-01",
+      "precision": "day"
+    },
+    {
+      "case": "科技馆",
+      "verdict": "PASS",
+      "expected_start": "2026-10-31",
+      "expected_end": "2026-10-31",
+      "precision": "day"
+    },
+    {
+      "case": "书法",
+      "verdict": "PASS",
+      "expected_start": "2026-10-01",
+      "expected_end": "2026-10-31",
+      "precision": "month"
+    }
+  ]
+}

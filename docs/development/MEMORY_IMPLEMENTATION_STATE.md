@@ -14,7 +14,9 @@
 - 已修复：DeepSeek JSON提示缺失、单条无依据候选拖累整批、assistant execute 丢弃已命中的 profile 资料；A2真实同义召回答龙井茶、A4跨会话答上海徐汇区，均带可读取来源；未增加关键词兜底。
 - 本轮撤回修复：A5 独立复测 PASS。新增严格 forget_memory 独占任务、持久化后独立语义核验、当前用户目标校验、来源/派生闭包撤回与幂等回执。真实撤回 3 个记忆/3 个来源（旧/新住址及乔迁事件），新会话不复活、重放拒绝，独立龙井偏好前后保留，Memos 官方 GET 404。life-core 312 passed/1 skipped；上游 memory 57 passed、tsc/build/ESLint 通过。完整 [本轮证据](../../evidence/memory-forget-20261110/README.md) 与 [撤回合同](../architecture/MEMORY_FORGET.md)。
 - 本轮检查点：上游 `ff42cacdaa11bbcbe0730c94591d746068585b77`；父仓库包含本状态文档的检查点由 Git 历史追溯。此前资料修复检查点 `c74ef1639a34a4a6cd62baa3ffb55d944b5c2331`。仅本地提交。
-- 精确续接点：撤回范围的已知边界为超过 80 条候选安全拒绝、原始聊天不删除、旧会话所有后续上下文尚未系统屏蔽；真实 Moments/失败重试注入及浏览器聊天未测。本轮未修发生日/记录日混淆、混合提醒、权限文案、真实分页、宠物抽取及成本/正式部署；原 P5 基线保留，不以单项复测覆盖其它失败。准确输入与旧响应仍见 [原 P5 证据目录](../../evidence/p5-memory-acceptance/README.md)。
+- 本轮发生日期修复：模型输出受证据约束的符号日历协议，服务端按消息锚点/用户时区计算 day/week/month/year/unknown；新事件、索引、概览、聊天证据及回忆/共同回忆显示区分发生日期与记录时间。真实 DeepSeek worker 7条消息8事件通过，10月概览4条、11月2日0条；跨年/时区/多事件及协议外字面表达（三个月之前）通过。正式 withLifeMemory 包入口+实时life-core+DeepSeek的三问回答通过，6个来源可读。证据见 [日期验收](../../evidence/memory-occurrence-20261110/README.md)，合同见 [发生日期](../architecture/MEMORY_OCCURRENCE.md)。
+- 日期回归：全量331 passed/1 skipped；最终时区/直存/协作38通过、抽取版本/日期103通过（互有重叠，不累加）。上游memory58通过，API/data-provider类型及构建通过。旧数据追加列默认为unknown，未迁移真实用户库、未批量回填历史日期。完整聊天容器重建被自动审批以干扰运行工作负载拒绝，因此完整持久化聊天重载验收BLOCKED；包级真实模型验收不能替代它。
+- 精确续接点：发生日期新写入与读出已经独立复测，原整套P5未重跑、整体仍PARTIAL。撤回仍有80条候选上限、原始聊天/旧会话后续上下文边界；混合提醒、权限文案、真实分页、宠物抽取、成本/正式部署仍未修。历史回填必须先备份、独立核验，不得将旧key直接转换为已知日期。准确旧输入与响应仍见 [原 P5 证据目录](../../evidence/p5-memory-acceptance/README.md)。
 - 运行状态：本轮专用 life-core 与 preview 包装进程已停止；Docker 容器 p5-librechat-withdraw 仍绑定 127.0.0.1:3811。此前 p5-librechat / p5-memos / p5-mongo 停止操作被自动审批拦截，继续保留回环绑定 3810/15231/27019 与隔离数据；未绕过停止拒绝。不得把这些容器当正式产品入口。
 - 不得把“代码完成”“受控测试通过”“真实模型通过”“运行版本已部署”混为同一状态。
 

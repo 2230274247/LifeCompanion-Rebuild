@@ -21,6 +21,7 @@ from .collaboration import CollaborationService
 from .collaboration_api import collaboration_router
 from .config import Settings, load_settings
 from .extraction import extract_event
+from .occurrence import item_interval, overlaps
 from .memos import MemosClient, MemosError
 from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
 from .memory_forget import MemoryForget
@@ -226,7 +227,10 @@ def public_event(event: dict[str, Any]) -> dict[str, Any]:
         "source_type": event["source_type"],
         "source_message_ids": event["source_message_ids"],
         "conversation_id": event["conversation_id"],
-        "occurred_at": event["occurred_at"],
+        "occurred_at": event["occurred_at"] if event.get("occurrence_precision") == "day" else "",
+        "occurrence_start": event.get("occurrence_start"),
+        "occurrence_end": event.get("occurrence_end"),
+        "occurrence_precision": event.get("occurrence_precision") or "unknown",
         "title": event["title"],
         "summary": event["summary"],
         "confidence": event["confidence"],
@@ -460,7 +464,9 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             elif FORGET.search(kwargs["text"]) or context or not memory.allowed(kwargs["user"], kwargs["text"]) or (previous and not batch_row):
                 result = process_single_event(**kwargs)
             else:
-                candidates, reason = memory.classify_many(kwargs["text"], kwargs["occurred_at"], use_llm=kwargs.get("use_llm", False))
+                candidates, reason = memory.classify_many(kwargs["text"],
+                    kwargs["occurred_at"].astimezone(ZoneInfo(memory.timezone(owner))),
+                    use_llm=kwargs.get("use_llm", False))
                 if not candidates:
                     result = {"accepted": False, "reason": reason}
                 else:
@@ -542,7 +548,8 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         if candidate_override is not None:
             candidate, reason = candidate_override, reason_override or "validated_candidate"
         else:
-            candidate, reason = memory.classify(text, occurred_at, use_llm=use_llm)
+            candidate, reason = memory.classify(text,
+                occurred_at.astimezone(ZoneInfo(memory.timezone(user["life_user_id"]))), use_llm=use_llm)
         if candidate is None:
             return {"accepted": False, "reason": reason}
         if candidate.sensitivity != "ordinary" and not memory.permissions(user["life_user_id"])["sensitive_consent"]:
@@ -586,12 +593,16 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             }
 
         consent = bool(user["memory_consent"])
+        start_day, end_day, precision = candidate.occurrence.bounds(
+            occurred_at.astimezone(ZoneInfo(memory.timezone(user["life_user_id"]))))
         event = app.state.store.create_event(
             user_id=user["life_user_id"],
             source_type=source_type,
             source_message_ids=source_message_ids,
             conversation_id=conversation_id,
-            occurred_at=(result.occurred_at or occurred_at).isoformat(),
+            occurred_at=datetime.fromisoformat(start_day).replace(
+                tzinfo=ZoneInfo(memory.timezone(user["life_user_id"]))).isoformat() if precision == "day" else "",
+            occurrence_start=start_day, occurrence_end=end_day, occurrence_precision=precision,
             title=result.title or candidate.canonical_text[:28],
             summary=candidate.canonical_text,
             confidence=candidate.confidence,
@@ -790,8 +801,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                         (user["life_user_id"],body.conversation_id,body.source_message_id,item["memory_id"],
                          datetime.now().astimezone().isoformat()))
         def evidence(i):
-            return {"memory_id": i["memory_id"], "text": i["canonical_text"],
-                    "valid_from": i["valid_from"], "kind": i["kind"], "url": f"/knowledge/{i['memory_id']}"}
+            return _overview_evidence(i, ZoneInfo(memory.timezone(user["life_user_id"])))
         result = [evidence(i) for i in items]
         profile_result = [evidence(i) for i in profile]
         return {"status": "matched" if result or profile_result else status, "items": result,
@@ -820,13 +830,13 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 "tasks": [task.model_dump(mode="json") for task in plan.tasks]}
 
     def _overview_evidence(item, zone):
-        day = item.get("semantic_key")
         evidence = {"memory_id": item["memory_id"], "text": item["canonical_text"],
                     "valid_from": item.get("valid_from") or item.get("recorded_at"),
                     "kind": item["kind"], "url": f"/knowledge/{item['memory_id']}"}
         if item["kind"] == "life_event":
-            match = re.match(r"event:(\d{4}-\d{2}-\d{2}):", day or "")
-            evidence["occurrence_day"] = match[1] if match else None
+            start, end, precision = item_interval(item)
+            evidence.update(occurrence_start=start, occurrence_end=end, occurrence_precision=precision,
+                            occurrence_day=start if precision == "day" else None)
         return evidence
 
     @app.post("/internal/v1/assistant/execute", dependencies=[Depends(require_internal)])
@@ -1133,16 +1143,19 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         life_id, _source_id, user = identity
         events = request.app.state.store.list_events(life_id, published_only=True)
         needle = q.strip().casefold()
-        timezone = ZoneInfo(request.app.state.settings.timezone)
         events = [
             event for event in events
             if (not needle or needle in f"{event['title']} {event['summary']}".casefold())
             and (
                 on_date is None
-                or datetime.fromisoformat(event["occurred_at"]).astimezone(timezone).date() == on_date
+                or overlaps(event, on_date, on_date)
             )
         ]
-        events.sort(key=lambda event: datetime.fromisoformat(event["occurred_at"]), reverse=order == "desc")
+        dated = [e for e in events if e.get("occurrence_start")]
+        undated = [e for e in events if not e.get("occurrence_start")]
+        dated.sort(key=lambda e: (e["occurrence_start"], e.get("occurrence_end") or ""), reverse=order == "desc")
+        undated.sort(key=lambda e: e["created_at"], reverse=order == "desc")
+        events = dated + undated
         start = (page - 1) * page_size
         with ThreadPoolExecutor(max_workers=6) as executor:
             memories = list(

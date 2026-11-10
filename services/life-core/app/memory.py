@@ -16,6 +16,7 @@ from .store import Store, utc_now
 from .reminder_parser import calendar_day
 from .memory_trace import MemoryTrace
 from .memory_sources import MemorySources
+from .occurrence import Occurrence, initialize_occurrence
 
 
 VERSION = "memory-v02.1"
@@ -36,6 +37,7 @@ class Candidate(BaseModel):
     confidence: float = Field(ge=0, le=1)
     sensitivity: Literal["ordinary", "sensitive", "unknown"]
     image_candidate: bool = False
+    occurrence: Occurrence = Field(default_factory=Occurrence)
     _classifier: str = PrivateAttr(default=f"rules:{VERSION}")
 
 
@@ -114,6 +116,7 @@ class MemoryService:
                     PRIMARY KEY(user_id,message_id)
                 );
             """)
+            initialize_occurrence(db, "memory_items")
             # In-flight extraction is replayable after a process restart.
             columns = {r["name"] for r in db.execute("PRAGMA table_info(memory_evidence)")}
             if "message_at" not in columns:
@@ -167,7 +170,8 @@ class MemoryService:
             if candidate.fact_key in ("interest", "drink_avoidance"):
                 return f"fact:{candidate.fact_key}:{digest(normalized(candidate.value))[:16]}"
             return f"fact:{candidate.fact_key}"
-        day = now.astimezone(zone).date().isoformat()
+        start, end, precision = candidate.occurrence.bounds(now.astimezone(zone))
+        day = start if precision == "day" else f"{precision}:{start or 'undated'}:{end or 'undated'}:{digest(now.isoformat())[:12]}"
         if candidate.candidate_type == "future_plan":
             planned_day = calendar_day(text, now.astimezone(zone).date()) or "unspecified"
             topic = "usb" if re.search(r"u\s*盘", text, re.I) else "umbrella" if "雨伞" in text else digest(normalized(text))
@@ -226,16 +230,19 @@ class MemoryService:
         stamp = utc_now()
         day = now.astimezone(ZoneInfo(self.settings.timezone)).date().isoformat()
         content_hash = digest(normalized(text))
+        occurrence_start, occurrence_end, occurrence_precision = candidate.occurrence.bounds(
+            now.astimezone(ZoneInfo(self.timezone(user_id))))
         with self.store.connect() as db:
             if not existing:
                 db.execute("""INSERT INTO memory_items (
                     memory_id,user_id,kind,semantic_key,canonical_text,value,event_id,importance,
-                    confidence,sensitivity,image_candidate,valid_from,created_at,updated_at
-                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                    confidence,sensitivity,image_candidate,valid_from,created_at,updated_at,
+                    occurrence_start,occurrence_end,occurrence_precision
+                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                     (item_id,user_id,candidate.candidate_type,key,candidate.canonical_text,value,event_id,
                      0.7 if "加入" in text else 0.5,candidate.confidence,candidate.sensitivity,
                      int(candidate.image_candidate and candidate.candidate_type=="life_event"),
-                     now.isoformat(),stamp,stamp))
+                     now.isoformat(),stamp,stamp,occurrence_start,occurrence_end,occurrence_precision))
                 db.execute("INSERT INTO memory_revisions VALUES (?,1,'created',?,?)",
                            (item_id,message_id,stamp))
             copied = db.execute("""SELECT 1 FROM memory_evidence WHERE memory_id=? AND (
@@ -285,10 +292,13 @@ class MemoryService:
                        (utc_now(),row["event_id"]))
         if state == "withdrawn":
             # Keep only a non-content tombstone to prevent replay resurrection.
-            db.execute("UPDATE memory_items SET canonical_text='',value='' WHERE memory_id=?", (item_id,))
+            db.execute("""UPDATE memory_items SET canonical_text='',value='',occurrence_start=NULL,
+                occurrence_end=NULL,occurrence_precision='unknown' WHERE memory_id=?""", (item_id,))
             db.execute("DELETE FROM memory_evidence WHERE memory_id=?", (item_id,))
             if row["event_id"]:
-                db.execute("UPDATE events SET title='已撤回',summary='' WHERE event_id=?", (row["event_id"],))
+                db.execute("""UPDATE events SET title='已撤回',summary='',occurred_at='',
+                    occurrence_start=NULL,occurrence_end=NULL,occurrence_precision='unknown'
+                    WHERE event_id=?""", (row["event_id"],))
         return dict(row)
 
     def list_items(self, user_id):

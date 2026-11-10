@@ -1,5 +1,7 @@
 # 拾光视觉与交互规范
 
+2026-11-10 日期显示补充：回忆列表、详情和共同回忆依据 occurrence 精度显示日历日期、月份、年份、周范围或“发生日期不详”；不把保存时间、生成窗口或兼容零点显示成真实发生时刻。见 [日期合同](../architecture/MEMORY_OCCURRENCE.md) 与 [本轮证据](../../evidence/memory-occurrence-20261110/README.md)。
+
 V0.3 审计说明（2026-11-04）：附件的赤陶/Ember 概念图只用于图文布局参考，
 下表与既有 `Life/theme.ts` 仍为当前视觉依据。优先复用上游 Image/DialogImage，
 触屏与认证媒体适配待阶段 C 验收；V0.3 不实现微光/镭射动效。

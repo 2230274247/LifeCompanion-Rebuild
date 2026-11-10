@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 
 from .embedding import EmbeddingUnavailable, LocalEmbedding, LocalReranker, MODEL_NAME
 from .memory import FORGET, SENSITIVE
+from .occurrence import item_interval, overlaps
 
 _WITHDRAW = re.compile(FORGET.pattern + r"|撤回|不许记|删掉.*记忆|别再提|不要再用.*(?:资料|记忆)")
 _ANAPHORA = re.compile(r"这(?:个|件|些|次|事|一)|那(?:个|件|些|次|事|一)|它|他们|后来呢|然后呢|还有呢|当时呢|后来怎么样")
@@ -117,7 +118,10 @@ def _range(query, today):
 
 
 def _item_day(item, zone):
-    match = re.match(r"(?:event|plan):(\d{4}-\d{2}-\d{2}):", item.get("semantic_key", ""))
+    if item.get("kind") == "life_event":
+        start, end, precision = item_interval(item)
+        return date.fromisoformat(start) if precision == "day" and start else None
+    match = re.match(r"plan:(\d{4}-\d{2}-\d{2}):", item.get("semantic_key", ""))
     try:
         if match:
             return date.fromisoformat(match[1])
@@ -127,6 +131,13 @@ def _item_day(item, zone):
         return stamp.replace(tzinfo=zone).date() if stamp.tzinfo is None else stamp.astimezone(zone).date()
     except (ValueError, TypeError, KeyError):
         return None
+
+
+def _in_window(item, start, end, zone):
+    if item.get("kind") == "life_event":
+        return overlaps(item, start, end)
+    day = _item_day(item, zone)
+    return day is not None and start <= day <= end
 
 
 def _unit(vector):
@@ -362,14 +373,18 @@ class MemoryRetriever:
         sources = self.memory.sources.items(user_id) if hasattr(self.memory, "sources") else []
         dated, undated = [], []
         for item in allowed:
-            day = _item_day(item, zone)
-            (dated if day is not None and start <= day <= end else undated).append(item)
+            if item.get("kind") != "life_event":
+                continue
+            if overlaps(item, start, end):
+                dated.append(item)
+            elif item_interval(item)[2] == "unknown":
+                undated.append(item)
         # A source quote is the message timestamp, not an event occurrence day,
         # so it is reported separately and never placed on an event timeline.
         undated.extend(sources)
-        dated.sort(key=lambda item: _item_day(item, zone))
+        dated.sort(key=lambda item: (item["occurrence_start"], item["occurrence_end"]))
         undated.sort(key=lambda item: (item.get("recorded_at") or item.get("created_at") or ""))
-        total = len(dated) + len(undated)
+        total = len(dated)
         page = dated[offset:offset + limit]
         result["items"] = page
         result["status"] = "matched" if page else "no_match"
@@ -440,10 +455,9 @@ class MemoryRetriever:
         profile = [i for i in allowed if i["kind"] == "stable_fact" and i["semantic_key"].removeprefix("fact:") in _PROFILE_KEYS]
         if span is not None:
             start, end = span
-            candidates = [i for i in allowed
-                          if (day := _item_day(i, zone)) is not None and start <= day <= end]
+            candidates = [i for i in allowed if _in_window(i, start, end, zone)]
         elif requested is not None:
-            candidates = [i for i in allowed if _item_day(i, zone) == requested]
+            candidates = [i for i in allowed if _in_window(i, requested, requested, zone)]
         else:
             candidates = list(allowed)
         vectors = self._vectors(user_id, allowed)

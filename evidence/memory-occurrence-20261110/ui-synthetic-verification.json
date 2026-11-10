@@ -1,0 +1,55 @@
+{
+  "title": "发生日期前端 UI 合成验证",
+  "scope": "products/librechat-custom/client 下的发生日期组件与测试修复，仅本地合成 API 夹具验证",
+  "explicitly_synthetic": true,
+  "no_real_backend_or_model": true,
+  "harness": {
+    "location": "infra/runtime/p5/occurrence-ui/",
+    "entry": "serve.mjs",
+    "launch_entry": "occurrence-ui-ad14c0 (port 3917)",
+    "imports_real_components": [
+      "client/src/components/Life/Memories.tsx",
+      "client/src/components/Life/MemoryCard.tsx",
+      "client/src/components/Life/MemoryDetail.tsx",
+      "client/src/components/Life/SharedMemoryCard.tsx",
+      "client/src/components/Life/occurrence.ts"
+    ],
+    "providers": "QueryClient + MemoryRouter",
+    "adapter": "内存合成 lifeService 适配器，无网络/存储/凭据/真实后端请求"
+  },
+  "fixture_dates": [
+    { "precision": "day", "start": "2026-11-02", "end": "2026-11-02", "expected": "2026-11-02", "datetime": "2026-11-02" },
+    { "precision": "month", "start": "2026-10-01", "end": "2026-10-31", "expected": "2026-10", "datetime": null },
+    { "precision": "week", "start": "2026-10-26", "end": "2026-11-01", "expected": "2026-10-26 – 2026-11-01", "datetime": null },
+    { "precision": "unknown", "start": null, "end": null, "expected": "日期未知", "datetime": null }
+  ],
+  "browser_results": {
+    "list_view_times": [
+      { "text": "2026-11-02", "dateTime": "2026-11-02" },
+      { "text": "2026-10", "dateTime": null },
+      { "text": "2026-10-26 – 2026-11-01", "dateTime": null },
+      { "text": "日期未知", "dateTime": null }
+    ],
+    "detail_view_time": { "text": "2026-11-02", "dateTime": "2026-11-02" },
+    "shared_card_view_time": { "text": "2026-10-26 – 2026-11-01", "dateTime": null },
+    "fabricated_clock_found": false,
+    "console_errors": [],
+    "crashes": "none",
+    "screenshots": ["list-synthetic-dates.jpg"]
+  },
+  "commands_and_results": {
+    "tsc": "npm --prefix .../client run typecheck -> PASS (0 errors)",
+    "jest": "2 suites / 24 tests PASS (Memories.spec.tsx + V023.spec.tsx, --runInBand --coverage=false)",
+    "build": "npm --prefix .../client run build -> PASS (20.58s)",
+    "lint": "scoped eslint over changed Life components + occurrence.ts -> PASS (0 problems)"
+  },
+  "changed_files": [
+    "client/src/components/Life/occurrence.ts",
+    "client/src/components/Life/Memories.tsx",
+    "client/src/components/Life/MemoryCard.tsx",
+    "client/src/components/Life/MemoryDetail.tsx",
+    "client/src/components/Life/SharedMemoryCard.tsx",
+    "client/src/components/Life/__tests__/Memories.spec.tsx",
+    "client/src/locales/en/translation.json"
+  ]
+}

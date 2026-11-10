@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime
 from zoneinfo import ZoneInfo
+
+from .occurrence import explicit_occurrence
 
 
 @dataclass(frozen=True)
@@ -73,15 +75,12 @@ _SCENE_PATTERN = re.compile(
 )
 
 
-def _event_time(text: str, now: datetime) -> datetime:
+def _event_time(text: str, now: datetime) -> datetime | None:
     local = now.astimezone(ZoneInfo(now.tzinfo.key if hasattr(now.tzinfo, "key") else "Asia/Hong_Kong"))
-    day = local
-    if "前天" in text:
-        day = local - timedelta(days=2)
-    elif "昨天" in text:
-        day = local - timedelta(days=1)
-    elif "今天" not in text and "今日" not in text:
-        day = local
+    start, end, precision = explicit_occurrence(text).bounds(local)
+    if precision != "day":
+        return None
+    day = datetime.fromisoformat(start).replace(tzinfo=local.tzinfo)
 
     hour = day.hour
     if "上午" in text or "早上" in text:

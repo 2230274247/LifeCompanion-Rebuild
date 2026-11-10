@@ -101,6 +101,8 @@ def test_direct_test_memory_and_image_use_declared_response_shapes(tmp_path, mon
         assert listed.status_code == 200
         assert listed.json()["total"] == 1
         assert listed.json()["memories"][0]["event_id"] == memory.json()["memory"]["event_id"]
+        assert listed.json()["memories"][0]["occurrence_precision"] == "day"
+        assert listed.json()["memories"][0]["occurrence_start"] == listed.json()["memories"][0]["occurrence_end"]
 
         body["action"] = "image"
         image = client.post("/api/v1/test/direct-moment", headers=auth(admin_id), json=body)
