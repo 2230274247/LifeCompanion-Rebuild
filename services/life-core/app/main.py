@@ -23,6 +23,7 @@ from .config import Settings, load_settings
 from .extraction import extract_event
 from .memos import MemosClient, MemosError
 from .memory import Candidate, MemoryService, FORGET, SENSITIVE, digest
+from .memory_forget import MemoryForget
 from .retrieval import MemoryRetriever
 from .assistant_plan import AssistantPlan, PlanUnavailable, SemanticPlanner
 from .moments import Moments, MomentSettings
@@ -278,6 +279,7 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
         app.state.memos = MemosClient(settings.memos_base_url, settings.memos_api_token)
         app.state.memory = MemoryService(store, settings)
         app.state.memory.initialize()
+        app.state.forget_memory = MemoryForget(app.state.memory)
         app.state.memory.retriever = MemoryRetriever(app.state.memory)
         if settings.memory_embedding_model:
             threading.Thread(target=app.state.memory.retriever.warmup,
@@ -750,6 +752,23 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                      datetime.now().astimezone().isoformat()))
         return result
 
+    @app.post("/internal/v1/memory/forget", dependencies=[Depends(require_internal)])
+    def forget_memory(body: ReminderChatRequest, request: Request):
+        user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
+        if not user:
+            return {"status": "user_not_mapped"}
+        result = request.app.state.forget_memory.execute(
+            user, body.source_message_id, body.conversation_id, body.text)
+        if result["status"] == "forgotten":
+            with app.state.store.connect() as db:
+                rows = db.execute("""SELECT DISTINCT m.memory_id FROM memory_items m
+                    JOIN memory_revisions r ON r.memory_id=m.memory_id
+                    WHERE m.user_id=? AND r.action='withdrawn' AND r.source_message_id=?""",
+                    (user["life_user_id"], body.source_message_id)).fetchall()
+            cleanup = [revoke_item(user["life_user_id"], r["memory_id"])["cleanup"] for r in rows]
+            result = {**result, "cleanup": "pending" if "pending" in cleanup else "complete"}
+        return result
+
     @app.post("/internal/v1/knowledge/recall", dependencies=[Depends(require_internal)])
     def internal_recall(body: RecallRequest, request: Request):
         user = request.app.state.store.get_user_by_librechat_id(body.source_user_id)
@@ -785,8 +804,6 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             return {"status": "user_not_mapped", "tasks": []}
         life_id = user["life_user_id"]
         memory = request.app.state.memory
-        if not memory.permissions(life_id).get("recall_consent"):
-            return {"status": "permission_denied", "tasks": []}
         try:
             plan = request.app.state.planner.plan(
                 body.query,
@@ -797,6 +814,8 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             )
         except PlanUnavailable:
             return {"status": "planner_unavailable", "tasks": []}
+        if not memory.permissions(life_id).get("recall_consent") and plan.tasks[0].action != "forget_memory":
+            return {"status": "permission_denied", "tasks": []}
         return {"status": "planned",
                 "tasks": [task.model_dump(mode="json") for task in plan.tasks]}
 
@@ -850,6 +869,10 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
                 entry.update(status=found["status"],
                              items=[_overview_evidence(i, zone) for i in found["items"]],
                              retrieval=found["retrieval"])
+            elif task.action == "forget_memory":
+                # Planning is read-only; the chat caller must persist the current
+                # user message before invoking the separate mutation endpoint.
+                entry.update(status="needs_execution")
             elif task.action == "query_reminders":
                 records = app.state.reminders.list(life_id)
                 entry.update(status="ready", reminders=[

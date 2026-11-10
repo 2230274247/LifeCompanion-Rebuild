@@ -1,0 +1,70 @@
+{
+  "verified_at": "2026-11-10T09:35:15.764825+08:00",
+  "environment": "worktree-only; isolated synthetic SQLite/Mongo/Memos; loopback ports; existing DeepSeek configuration",
+  "original_p5_evidence_preserved": true,
+  "A5_retest": "PASS",
+  "overall_P5": "PARTIAL",
+  "reviewed_checks": [
+    {
+      "case": "chat-forget",
+      "status": "PASS",
+      "evidence": "forgotten receipt: 3 derived memories, 3 sources; old/new residence and housewarming event"
+    },
+    {
+      "case": "source-item-vector-job",
+      "status": "PASS",
+      "evidence": "source text NULL, item text/value empty, withdrawn event summary empty, only independent tea vector remains; all job payloads cleared"
+    },
+    {
+      "case": "new-conversation",
+      "status": "PASS",
+      "evidence": "new conversation cannot confirm current residence; no Beijing/Shanghai/Xuhui answer"
+    },
+    {
+      "case": "independent-preference",
+      "status": "PASS",
+      "evidence": "same tea question returns Longjing before and after; independent source/item/vector retained"
+    },
+    {
+      "case": "replay",
+      "status": "PASS",
+      "evidence": "same residence text under new message ID returns revoked/SOURCE_REVOKED"
+    },
+    {
+      "case": "negative-intent",
+      "status": "PASS",
+      "evidence": "real selector: negated/hypothetical/quoted requests all not_requested and items unchanged"
+    },
+    {
+      "case": "memos",
+      "status": "PASS",
+      "evidence": "published synthetic event had memo_ref; official authenticated GET after withdrawal returns 404"
+    },
+    {
+      "case": "isolation-idempotency-concurrency-siblings",
+      "status": "PASS",
+      "evidence": "8 MemoryForget tests with real SQLite and stubbed selector; foreign IDs rejected atomically, receipt replay, conflict, stale target, source siblings and recall-disabled path"
+    },
+    {
+      "case": "planner-failure-no-success-claim",
+      "status": "PASS",
+      "level": "controlled test",
+      "evidence": "57 upstream memory tests include matched/no_match fallback guard and persistence failure; real provider outage injection NOT TESTED"
+    }
+  ],
+  "failed_attempts": [
+    "first: model generated extra target field; strict validation rejected it; chatbot claimed non-retention without actual mutation; fixed with exact action shape and receipt guard",
+    "second: withdrawal/replay succeeded but broad beverage query missed retained tea; narrower identical before/after query passed in final run; broad recall was not changed",
+    "initial lint commands ran from parent cwd and failed config/plugin resolution; fixed by using nested workspace cwd",
+    "initial upstream rerun failed evidence-envelope test because receipt guard followed JSON; moved guard before evidence, retained original serialized evidence contract"
+  ],
+  "not_tested_or_limits": [
+    "formal product deployment and real production database migration/backup",
+    "browser chat interaction; preview rendered login but locale/service-worker asset requests failed",
+    "systematic removal of original chat history from all later prompts in the same old conversation",
+    "more than 80 candidate items or active sources: safe needs_input/FORGET_SCOPE_TOO_LARGE; no paged semantic mutation",
+    "real Moments withdrawal and real Memos outage retry injection (existing controlled paths reused)",
+    "exact provider billing usage and Lighthouse performance audit",
+    "original P5 occurrence-date, mixed-reminder, pet extraction, paging and permission wording issues remain outside this fix"
+  ]
+}

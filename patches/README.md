@@ -1,5 +1,16 @@
 # 上游补丁归档
 
+## 聊天语义撤回增量（2026-11-10）
+
+`librechat-semantic-forget-20261110.patch` 对应独立上游提交
+`ff42cacdaa11bbcbe0730c94591d746068585b77`，基点
+`d0dc65d240d833772c7eb7361529375b7ed6db5b`；只包含 `BaseClient.js` 参数接线、
+`packages/api/src/memory/life.ts` 和其测试三个文件。消息持久化后才请求语义撤回，
+没有 confirmed forgotten 回执不得确认删除。配套 life-core 代码必须一同使用。
+57 项 memory 测试、tsc、build 和修改 TS 的 ESLint 均通过；真实合成验收见
+[撤回证据](../evidence/memory-forget-20261110/README.md)。已包含该提交的树不得重复应用；
+补丁不含凭据、数据库、依赖或 dist。
+
 ## 记忆注入增量（2026-11-09）
 
 `librechat-memory-context-7cf65d5-20261109.patch` 仅归档独立聊天仓库已提交的

@@ -1,0 +1,338 @@
+diff --git a/api/app/clients/BaseClient.js b/api/app/clients/BaseClient.js
+index e2837a72d..707c1904b 100644
+--- a/api/app/clients/BaseClient.js
++++ b/api/app/clients/BaseClient.js
+@@ -859,6 +859,7 @@ class BaseClient {
+           .map((file) => [file.file_id, file]),
+       );
+     }
++    const lifeOperations = {};
+     let {
+       prompt: payload,
+       tokenCountMap,
+@@ -872,6 +873,7 @@ class BaseClient {
+           userId: this.options.req?.user?.id,
+         },
+         userMessage.text ?? '',
++        lifeOperations,
+       ),
+       parentMessageId,
+       this.getBuildMessagesOptions(opts),
+@@ -1063,6 +1065,7 @@ class BaseClient {
+         userMessagePromise,
+         userMessagePersistence,
+         modelBoundStoredMessages,
++        lifeOperations,
+       );
+       completionResult = await this.sendCompletion(payload, opts);
+     } catch (error) {
+diff --git a/packages/api/src/memory/life.spec.ts b/packages/api/src/memory/life.spec.ts
+index 05c4f6573..00ea2aca1 100644
+--- a/packages/api/src/memory/life.spec.ts
++++ b/packages/api/src/memory/life.spec.ts
+@@ -50,7 +50,8 @@ describe('Life Companion memory boundary', () => {
+     return jest.spyOn(global, 'fetch').mockImplementation(async (url) => {
+       const path = String(url);
+       if (path.endsWith('/memory/telemetry')) return response({}, 204);
+-      if (path.endsWith('/assistant/plan')) return response({ status: 'planner_unavailable', tasks: [] });
++      if (path.endsWith('/assistant/plan'))
++        return response({ status: 'planner_unavailable', tasks: [] });
+       return response(body);
+     });
+   }
+@@ -99,6 +100,96 @@ describe('Life Companion memory boundary', () => {
+     });
+   });
+ 
++  it('runs semantic forgetting only after the current user message is durable', async () => {
++    const request = jest
++      .spyOn(global, 'fetch')
++      .mockImplementation(async (url) =>
++        String(url).endsWith('/assistant/plan')
++          ? response({ status: 'planned', tasks: [{ action: 'forget_memory' }] })
++          : response({ status: 'forgotten', item_count: 2, cleanup: 'complete' }),
++      );
++    const operations: { forgetRequested?: boolean } = {};
++    const message = { ...current, text: '请清除我的居住资料' };
++    await withLifeMemory([message], connection, message.text, operations);
++    expect(operations.forgetRequested).toBe(true);
++    expect(request).toHaveBeenCalledTimes(1);
++    let resolve: (value: object) => void = () => {};
++    const durable = new Promise<object>((done) => {
++      resolve = done;
++    });
++    const pending = withLifeReminder(
++      [{ role: 'user', content: message.text }],
++      connection,
++      message,
++      durable,
++      undefined,
++      [],
++      operations,
++    );
++    await Promise.resolve();
++    expect(request).toHaveBeenCalledTimes(1);
++    resolve({ message: { messageId: 'u1' } });
++    const output = await pending;
++    expect(requestBody(request, '/memory/forget')).toMatchObject({
++      text: message.text,
++      source_user_id: 'alice',
++    });
++    expect(JSON.stringify(output)).toContain('forgotten');
++    expect(JSON.stringify(output)).toContain('Original chat history is separate');
++  });
++
++  it('does not forget when persistence fails and never leaks the failure', async () => {
++    const request = jest.spyOn(global, 'fetch');
++    const output = await withLifeReminder(
++      [{ role: 'user', content: '忘记住址' }],
++      connection,
++      { ...current, text: '忘记住址' },
++      Promise.reject(new Error('private detail')),
++      undefined,
++      [],
++      { forgetRequested: true },
++    );
++    expect(request).not.toHaveBeenCalled();
++    expect(JSON.stringify(output)).toContain('unavailable');
++    expect(JSON.stringify(output)).not.toContain('private detail');
++  });
++
++  it('does not execute forgetting for a negated request planned as ordinary answer', async () => {
++    const request = mockPlanner({
++      status: 'executed',
++      results: [{ action: 'answer', status: 'no_match' }],
++    });
++    const operations: { forgetRequested?: boolean } = {};
++    const message = { ...current, text: '不要忘记我的居住资料' };
++    await withLifeMemory([message], connection, message.text, operations);
++    await withLifeReminder(
++      [{ role: 'user', content: message.text }],
++      connection,
++      message,
++      Promise.resolve({ message: {} }),
++      undefined,
++      [],
++      operations,
++    );
++    expect(request.mock.calls.some(([url]) => String(url).endsWith('/memory/forget'))).toBe(false);
++  });
++
++  it.each([matched, { status: 'no_match', items: [] }])(
++    'requires a confirmed receipt when planning fails, even if recall returns records',
++    async (fallback) => {
++      const request = mockPlannerUnavailable(fallback);
++      const message = { ...current, text: '忘记我的居住资料' };
++      const operations: { forgetRequested?: boolean } = {};
++      const output = await withLifeMemory([message], connection, message.text, operations);
++      expect(output[0].text).toContain('withdrawal is unconfirmed');
++      expect(output[0].text).toContain('Only a confirmed "forgotten" operation receipt');
++      expect(operations.forgetRequested).toBeUndefined();
++      expect(request.mock.calls.some(([url]) => String(url).endsWith('/memory/forget'))).toBe(
++        false,
++      );
++    },
++  );
++
+   it('falls back to direct recall when the planner is not configured', async () => {
+     const request = mockPlannerUnavailable();
+     const messages = [{ ...current }];
+@@ -120,13 +211,28 @@ describe('Life Companion memory boundary', () => {
+             action: 'query_reminders',
+             status: 'ready',
+             reminders: [
+-              { reminder_id: 'r1', title: '买花', scheduled_at: '2026-11-10T09:00:00+08:00', status: 'scheduled' },
+-              { reminder_id: 'r2', title: '取消的提醒', scheduled_at: '2026-11-11T09:00:00+08:00', status: 'cancelled' },
++              {
++                reminder_id: 'r1',
++                title: '买花',
++                scheduled_at: '2026-11-10T09:00:00+08:00',
++                status: 'scheduled',
++              },
++              {
++                reminder_id: 'r2',
++                title: '取消的提醒',
++                scheduled_at: '2026-11-11T09:00:00+08:00',
++                status: 'cancelled',
++              },
+             ],
+           },
+           { action: 'clarify', status: 'clarify', clarification: '请告诉我具体时间' },
+           { action: 'web_search', status: 'unavailable' },
+-          { action: 'search_memory', status: 'no_match', items: [], retrieval: { truncated: true } },
++          {
++            action: 'search_memory',
++            status: 'no_match',
++            items: [],
++            retrieval: { truncated: true },
++          },
+         ],
+       });
+     });
+@@ -138,7 +244,10 @@ describe('Life Companion memory boundary', () => {
+     expect(output[0].text).toContain('Web search is unavailable');
+     expect(output[0].text).toContain('partial or paged');
+     expect(output[0].text).not.toContain('Do not claim unsupported personal');
+-    expect(requestBody(request, '/memory/telemetry')).toMatchObject({ status: 'no_match', item_count: 0 });
++    expect(requestBody(request, '/memory/telemetry')).toMatchObject({
++      status: 'no_match',
++      item_count: 0,
++    });
+   });
+ 
+   it('sends at most four previous user messages in order, bounded to 500 characters each', async () => {
+@@ -196,12 +305,11 @@ describe('Life Companion memory boundary', () => {
+         const path = String(url);
+         if (path.endsWith('/memory/telemetry')) return response({}, 204);
+         if (path.endsWith('/assistant/plan')) {
++          if (status === 'permission_denied' || status === 'user_not_mapped') {
++            return response({ status, tasks: [] });
++          }
+           return response(
+-            status === 'permission_denied' || status === 'user_not_mapped'
+-              ? { status, tasks: [] }
+-              : status === 'excluded'
+-                ? { status: 'planner_unavailable', tasks: [] }
+-                : planned,
++            status === 'excluded' ? { status: 'planner_unavailable', tasks: [] } : planned,
+           );
+         }
+         if (path.endsWith('/knowledge/recall')) {
+@@ -367,7 +475,8 @@ describe('Life Companion memory boundary', () => {
+     request.mockImplementation(async (url) => {
+       const path = String(url);
+       if (path.endsWith('/memory/telemetry')) return response({}, 204);
+-      if (path.endsWith('/assistant/plan')) return response({ status: 'planner_unavailable', tasks: [] });
++      if (path.endsWith('/assistant/plan'))
++        return response({ status: 'planner_unavailable', tasks: [] });
+       return response({ status: 'matched', items: [{ text: '  ' }] });
+     });
+     request.mockClear();
+diff --git a/packages/api/src/memory/life.ts b/packages/api/src/memory/life.ts
+index 12067718c..98b10a3b5 100644
+--- a/packages/api/src/memory/life.ts
++++ b/packages/api/src/memory/life.ts
+@@ -6,6 +6,8 @@ type LifeConnection = {
+   userId?: string;
+ };
+ 
++type LifeOperations = { forgetRequested?: boolean };
++
+ type LifeMessage = {
+   text?: string;
+   messageId?: string;
+@@ -100,13 +102,15 @@ export async function withLifeReminder<T>(
+   savedMessage?: Promise<unknown>,
+   deferred?: { start(): Promise<unknown> },
+   previousMessages: LifeMessage[] = [],
++  operations: LifeOperations = {},
+ ): Promise<T> {
+   const memoryRequest = /加入(?:到)?回忆|记下来|记录下来|记住这件事|记住刚才/.test(
+     message.text ?? '',
+   );
+   if (
+     !message.text ||
+-    (!memoryRequest &&
++    (!operations.forgetRequested &&
++      !memoryRequest &&
+       !/提醒|闹钟|记得带|别忘(?:了)?带|这件事(?:已经)?办完了|^刚才那个[。！？?\s]*$/.test(
+         message.text,
+       )) ||
+@@ -128,10 +132,12 @@ export async function withLifeReminder<T>(
+           (item) =>
+             item.isCreatedByUser && item.messageId !== message.messageId && item.text?.trim(),
+         );
++      let path = memoryRequest ? '/internal/v1/memory/execute' : '/internal/v1/reminders/execute';
++      if (operations.forgetRequested) path = '/internal/v1/memory/forget';
+       result =
+         (await callLife(
+           connection,
+-          memoryRequest ? '/internal/v1/memory/execute' : '/internal/v1/reminders/execute',
++          path,
+           {
+             source_user_id: connection.userId,
+             source_message_id: message.messageId,
+@@ -160,6 +166,10 @@ export async function withLifeReminder<T>(
+     {
+       role: 'system',
+       content:
++        'Memory forgetting: only status "forgotten" confirms withdrawal from long-term memory. ' +
++        'For unavailable/not_requested/needs_input/no_match do not claim anything was deleted. ' +
++        'After forgotten do not repeat the withdrawn information from earlier conversation messages. ' +
++        'Original chat history is separate and has not been deleted. cleanup pending means upstream cleanup is pending. ' +
+         'Business service result for this turn. Report only the confirmed operation below. ' +
+         'For memory, only succeeded confirms persistent saving; cite the returned URL. not_saved or permission_required means not saved. Never claim a generated image without generated status. ' +
+         'Only status succeeded or scheduled confirms a saved operation. For needs_input ask only the single missing field; the user chooses chips below. Never invent dates or ask known fields again. ' +
+@@ -277,6 +287,10 @@ function appendModelContext<T extends LifeMessage>(
+   index: number,
+   context: string,
+ ): T[] {
++  context =
++    '\n\nOnly a confirmed "forgotten" operation receipt authorizes saying information was ' +
++    'forgotten, deleted, or will no longer be retained or used. Otherwise say withdrawal is unconfirmed.' +
++    context;
+   return messages.map((item, i) => {
+     if (i !== index) return item;
+     const content = item.content?.slice();
+@@ -299,7 +313,8 @@ function noMemoryContext(status: string): string {
+   return (
+     '\n\n[Memory retrieval result: ' +
+     status +
+-    '. No memory records were retrieved for this turn. Do not claim unsupported personal ' +
++    '. No memory records were retrieved for this turn. Never claim information was forgotten or deleted ' +
++    'without a confirmed "forgotten" operation receipt. Do not claim unsupported personal ' +
+     'memories, dates, places, events, or source links. You may use facts explicitly stated by ' +
+     'the user in this conversation; previous assistant claims are not evidence. If the user asks ' +
+     'about personal history not supported by those user statements, explain that retrieval ' +
+@@ -340,6 +355,11 @@ async function callLifePlan(
+   if (status !== 'planned' || !Array.isArray(plan.tasks)) {
+     throw new LifeServiceError('invalid_response');
+   }
++  if (
++    plan.tasks.some((task) => task && typeof task === 'object' && task.action === 'forget_memory')
++  ) {
++    return { status: 'no_match', items: [], profile: [], forget_requested: true };
++  }
+   const executed = await callLife(connection, '/internal/v1/assistant/execute', body, 28000);
+   if (!executed || typeof executed !== 'object') {
+     throw new LifeServiceError('invalid_response');
+@@ -454,10 +474,14 @@ function businessContext(payload: Record<string, unknown>): string {
+     sections.push('[Web search is unavailable this turn. Do not claim you searched the web.]');
+   }
+   if (payload.needs_draft === true) {
+-    sections.push('[A reminder draft was prepared but is not scheduled. Report it as a draft, never as scheduled.]');
++    sections.push(
++      '[A reminder draft was prepared but is not scheduled. Report it as a draft, never as scheduled.]',
++    );
+   }
+   if (payload.partial === true) {
+-    sections.push('[Retrieved records are partial or paged. Do not claim completeness or a full history.]');
++    sections.push(
++      '[Retrieved records are partial or paged. Do not claim completeness or a full history.]',
++    );
+   }
+   return sections.length ? '\n\n' + sections.join('\n') : '';
+ }
+@@ -467,6 +491,7 @@ export async function withLifeMemory<T extends LifeMessage>(
+   messages: T[],
+   connection: LifeConnection,
+   query: string,
++  operations: LifeOperations = {},
+ ): Promise<T[]> {
+   if (!query.trim()) {
+     return messages;
+@@ -526,6 +551,14 @@ export async function withLifeMemory<T extends LifeMessage>(
+       recordStatus('recall', 'disabled', 'not_configured');
+       return messages;
+     }
++    if (payload.forget_requested === true) {
++      operations.forgetRequested = true;
++      return appendModelContext(
++        messages,
++        index,
++        '\n\n[Forgetting was requested but has not executed yet. Do not claim deletion without a confirmed forgotten receipt.]',
++      );
++    }
+     const status = safeStatus(payload.status, 'invalid_response');
+     if (
+       !['matched', 'no_match', 'permission_denied', 'user_not_mapped', 'excluded'].includes(status)

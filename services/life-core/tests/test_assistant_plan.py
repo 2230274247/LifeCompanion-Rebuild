@@ -21,6 +21,16 @@ def test_plan_rejects_unauthorized_or_ambiguous_output():
             {"action": "answer", "query": "", "user_id": "someone-else"}]})  # extra field
 
 
+def test_forget_is_a_standalone_semantic_task():
+    assert AssistantPlan.model_validate_json(
+        '{"version":"1","tasks":[{"action":"forget_memory"}]}'
+    ).tasks[0].action == "forget_memory"
+    with pytest.raises(ValueError):
+        AssistantTask.model_validate({"action": "forget_memory", "target": "住址"})
+    with pytest.raises(ValueError, match="FORGET_MUST_RUN_ALONE"):
+        AssistantPlan(tasks=[AssistantTask(action="forget_memory"), AssistantTask(action="answer")])
+
+
 def test_planner_never_grants_authority_or_exposes_secrets():
     assert "user_id" in SYSTEM
     assert "SQL" in SYSTEM

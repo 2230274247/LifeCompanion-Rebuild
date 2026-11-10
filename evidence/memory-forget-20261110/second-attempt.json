@@ -1,0 +1,556 @@
+[
+  {
+    "case": "before",
+    "input": "我现在住在哪里",
+    "chat": {
+      "reply": "根据现有记录，你现在住在**徐汇区**（该信息自 2026-11-09 起记录为稳定事实）。来源：[mem_93863be1f115b6eadc0352e9](/knowledge/mem_93863be1f115b6eadc0352e9)\n\n需要说明的是，我只检索到这一条相关记录，可能并不完整；如果你近期有搬家，请以最新情况为准。",
+      "elapsed": 4.91,
+      "token_count": 94
+    },
+    "state": {
+      "items": [
+        {
+          "memory_id": "mem_bbb0829e9c6c230db5910bf3",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "现在住在北京",
+          "value": "北京",
+          "state": "superseded"
+        },
+        {
+          "memory_id": "mem_93863be1f115b6eadc0352e9",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "现在住在徐汇区",
+          "value": "徐汇区",
+          "state": "active"
+        },
+        {
+          "memory_id": "mem_bb272e20318333af2fb75b60",
+          "kind": "stable_fact",
+          "semantic_key": "fact:drink_preference",
+          "canonical_text": "喜欢喝龙井茶",
+          "value": "龙井茶",
+          "state": "active"
+        }
+      ],
+      "sources": [
+        {
+          "message_id": "residence-old",
+          "state": "superseded",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "residence-new",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我现在搬到上海了，现在住在徐汇区。"
+        },
+        {
+          "message_id": "tea-independent",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我最喜欢喝龙井茶，每天下午都会泡一杯。"
+        },
+        {
+          "message_id": "67255352-2312-4fd3-8f22-4002e3a7e190",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        }
+      ],
+      "vectors": [
+        "mem_93863be1f115b6eadc0352e9",
+        "mem_bb272e20318333af2fb75b60"
+      ],
+      "receipts": [],
+      "jobs": [
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        }
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "negated",
+    "input": "不要忘记我的住址",
+    "http_status": 200,
+    "result": {
+      "status": "not_requested"
+    },
+    "unchanged": true
+  },
+  {
+    "case": "hypothetical",
+    "input": "如果以后我让你忘记住址，你会怎么处理？",
+    "http_status": 200,
+    "result": {
+      "status": "not_requested"
+    },
+    "unchanged": true
+  },
+  {
+    "case": "quoted",
+    "input": "朋友说“忘记我的住址”，这是朋友的话，不是我的请求",
+    "http_status": 200,
+    "result": {
+      "status": "not_requested"
+    },
+    "unchanged": true
+  },
+  {
+    "case": "forget-through-chat",
+    "input": "忘记我刚才说的住址",
+    "chat": {
+      "reply": "已按你的要求处理：刚才提到的住址信息已从长期记忆里撤回，清理也已完成。当前对话里的原始聊天记录本身不会被删除，但我不会再重复这条已撤回的信息。",
+      "elapsed": 3.66,
+      "token_count": 40
+    },
+    "state": {
+      "items": [
+        {
+          "memory_id": "mem_bbb0829e9c6c230db5910bf3",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_93863be1f115b6eadc0352e9",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_bb272e20318333af2fb75b60",
+          "kind": "stable_fact",
+          "semantic_key": "fact:drink_preference",
+          "canonical_text": "喜欢喝龙井茶",
+          "value": "龙井茶",
+          "state": "active"
+        }
+      ],
+      "sources": [
+        {
+          "message_id": "residence-old",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "residence-new",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "tea-independent",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我最喜欢喝龙井茶，每天下午都会泡一杯。"
+        },
+        {
+          "message_id": "67255352-2312-4fd3-8f22-4002e3a7e190",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        }
+      ],
+      "vectors": [
+        "mem_bb272e20318333af2fb75b60"
+      ],
+      "receipts": [
+        {
+          "status": "forgotten",
+          "item_count": 2,
+          "source_count": 1
+        }
+      ],
+      "jobs": [
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        }
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "new-conversation-after",
+    "input": "我现在住在哪里",
+    "chat": {
+      "reply": "我目前没有关于你居住地的记录，也无法从记忆检索中找到相关信息，所以不能确定你现在住在哪里。你可以直接告诉我，我再帮你处理相关问题。",
+      "elapsed": 3.84,
+      "token_count": 32
+    },
+    "state": {
+      "items": [
+        {
+          "memory_id": "mem_bbb0829e9c6c230db5910bf3",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_93863be1f115b6eadc0352e9",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_bb272e20318333af2fb75b60",
+          "kind": "stable_fact",
+          "semantic_key": "fact:drink_preference",
+          "canonical_text": "喜欢喝龙井茶",
+          "value": "龙井茶",
+          "state": "active"
+        }
+      ],
+      "sources": [
+        {
+          "message_id": "residence-old",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "residence-new",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "tea-independent",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我最喜欢喝龙井茶，每天下午都会泡一杯。"
+        },
+        {
+          "message_id": "67255352-2312-4fd3-8f22-4002e3a7e190",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        },
+        {
+          "message_id": "54935c91-79c0-430f-8a3b-e8c55f14cb4d",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        }
+      ],
+      "vectors": [
+        "mem_bb272e20318333af2fb75b60"
+      ],
+      "receipts": [
+        {
+          "status": "forgotten",
+          "item_count": 2,
+          "source_count": 1
+        }
+      ],
+      "jobs": [
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        }
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "unrelated-tea",
+    "input": "我平常喝什么饮料",
+    "chat": {
+      "reply": "我这边没有检索到你平常喝什么饮料的记录，所以没法根据历史信息回答你平时喝什么。你可以直接告诉我你常喝的饮料，或者我可以帮你按“健康/提神/低糖/运动后”等场景给一些饮料选择建议。",
+      "elapsed": 4.91,
+      "token_count": 54
+    },
+    "state": {
+      "items": [
+        {
+          "memory_id": "mem_bbb0829e9c6c230db5910bf3",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_93863be1f115b6eadc0352e9",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_bb272e20318333af2fb75b60",
+          "kind": "stable_fact",
+          "semantic_key": "fact:drink_preference",
+          "canonical_text": "喜欢喝龙井茶",
+          "value": "龙井茶",
+          "state": "active"
+        }
+      ],
+      "sources": [
+        {
+          "message_id": "residence-old",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "residence-new",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "tea-independent",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我最喜欢喝龙井茶，每天下午都会泡一杯。"
+        },
+        {
+          "message_id": "67255352-2312-4fd3-8f22-4002e3a7e190",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        },
+        {
+          "message_id": "54935c91-79c0-430f-8a3b-e8c55f14cb4d",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        },
+        {
+          "message_id": "6e8e0e64-d8c6-4053-a710-26ae7ac61381",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我平常喝什么饮料"
+        }
+      ],
+      "vectors": [
+        "mem_bb272e20318333af2fb75b60"
+      ],
+      "receipts": [
+        {
+          "status": "forgotten",
+          "item_count": 2,
+          "source_count": 1
+        }
+      ],
+      "jobs": [
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        }
+      ],
+      "events": []
+    }
+  },
+  {
+    "case": "replay",
+    "http_status": 200,
+    "result": {
+      "accepted": false,
+      "status": "revoked",
+      "reason": "SOURCE_REVOKED"
+    },
+    "state": {
+      "items": [
+        {
+          "memory_id": "mem_bbb0829e9c6c230db5910bf3",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_93863be1f115b6eadc0352e9",
+          "kind": "stable_fact",
+          "semantic_key": "fact:residence",
+          "canonical_text": "",
+          "value": "",
+          "state": "withdrawn"
+        },
+        {
+          "memory_id": "mem_bb272e20318333af2fb75b60",
+          "kind": "stable_fact",
+          "semantic_key": "fact:drink_preference",
+          "canonical_text": "喜欢喝龙井茶",
+          "value": "龙井茶",
+          "state": "active"
+        }
+      ],
+      "sources": [
+        {
+          "message_id": "residence-old",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "residence-new",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        },
+        {
+          "message_id": "tea-independent",
+          "state": "active",
+          "extraction_status": "extracted",
+          "text": "我最喜欢喝龙井茶，每天下午都会泡一杯。"
+        },
+        {
+          "message_id": "67255352-2312-4fd3-8f22-4002e3a7e190",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        },
+        {
+          "message_id": "54935c91-79c0-430f-8a3b-e8c55f14cb4d",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我现在住在哪里"
+        },
+        {
+          "message_id": "6e8e0e64-d8c6-4053-a710-26ae7ac61381",
+          "state": "active",
+          "extraction_status": "no_memory",
+          "text": "我平常喝什么饮料"
+        },
+        {
+          "message_id": "replay-new-id",
+          "state": "withdrawn",
+          "extraction_status": "revoked",
+          "text": null
+        }
+      ],
+      "vectors": [
+        "mem_bb272e20318333af2fb75b60"
+      ],
+      "receipts": [
+        {
+          "status": "forgotten",
+          "item_count": 2,
+          "source_count": 1
+        }
+      ],
+      "jobs": [
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "revoked",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        },
+        {
+          "status": "succeeded",
+          "payload_cleared": 1
+        }
+      ],
+      "events": []
+    }
+  }
+]

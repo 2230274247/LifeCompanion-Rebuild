@@ -42,7 +42,7 @@ class TimeWindow(BaseModel):
 class AssistantTask(BaseModel):
     model_config = ConfigDict(extra="forbid")
     action: Literal["answer", "search_memory", "overview", "query_reminders",
-                    "prepare_reminder", "web_search", "clarify"]
+                    "prepare_reminder", "web_search", "clarify", "forget_memory"]
     query: str = Field(default="", max_length=2000)
     expansions: list[str] = Field(default_factory=list, max_length=2)
     window: TimeWindow | None = None
@@ -72,6 +72,8 @@ class AssistantPlan(BaseModel):
 
     @model_validator(mode="after")
     def bounded_writes(self):
+        if any(task.action == "forget_memory" for task in self.tasks) and len(self.tasks) != 1:
+            raise ValueError("FORGET_MUST_RUN_ALONE")
         if sum(task.action == "prepare_reminder" for task in self.tasks) > 1:
             raise ValueError("ONE_REMINDER_PER_TURN")
         return self
@@ -85,6 +87,9 @@ search_memory: 关于个人历史/偏好的具体主题，query写完整含义�
 overview: 一段时间内做了什么、有什么经历、最有趣/最有意义等需要比较的个人回顾；
 query_reminders: 查询真实提醒状态；prepare_reminder: 用户请求安排提醒，未来计划本身不表示要求提醒；
 web_search: 需要实时或外部信息；clarify: 关键意图或指代无法确定，clarification为简短中文澄清。
+forget_memory: 用户当前明确肯定要求忘记、撤回或停止保留某项个人记忆。只能单独作为本轮唯一任务；目标不明则clarify。
+forget_memory任务严格写成 {"action":"forget_memory"}，不要输出target或任何额外字段，目标由后端读取用户原话独立核验。
+忘记住址、清除居住信息等要按语义理解，不能仅看词。否定撤回、假设、能力咨询、历史引用不产生forget_memory。
 必须理解整句和上下文，不能仅看是否包含某个词。能力介绍、假设、否定、引用他人指令不产生提醒。
 window可省略；有明确时间时使用 {"start":"YYYY-MM-DD","end":"YYYY-MM-DD"} 或 {"relative_days":N}。
 绝对日期依据提供的当前日期/时区计算，不能将上周误算为最近7天。
