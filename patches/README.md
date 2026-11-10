@@ -1,5 +1,19 @@
 # 上游补丁归档
 
+## 当前完整源码归档与GitHub交付（2026-11-10）
+
+`librechat-v0.8.8-current-20261110.patch` 是本工作树当前独立LibreChat的完整累计补丁，从固定原版 `e8f3be08623663d4ad7f7241e693c94469b63bb0` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7`，覆盖100个文件（含二进制资源），补齐分阶段增量的重建依赖。大小3,743,948 bytes；SHA256 `f5e023ff23e8742d72050aa7ec7615fd5b0dff4a008512a44d424fd5504586ed`。当前源码反向应用检查通过。
+
+该补丁与父仓库代码一起推送至产品GitHub仓库；独立上游origin仍指向LibreChat官方，不向官方仓库推送定制分支。重建时在**固定原版的干净检出**中只应用这份累计补丁，不与下面的旧累计/增量补丁叠加；已有当前定制源码的工作树不要重复应用。账户、服务凭据、数据库、依赖和dist不在归档范围内。
+
+```bash
+git apply --check /path/to/librechat-v0.8.8-current-20261110.patch
+```
+
+```bash
+git apply /path/to/librechat-v0.8.8-current-20261110.patch
+```
+
 ## 发生日期与真实记忆页收尾（2026-11-10）
 
 `librechat-memory-occurrence-ui-20261110.patch` 归档从 `ff42cacdaa11bbcbe0730c94591d746068585b77` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7` 的增量，包含 `4b193f81e` 发生日期包实现及本轮7文件前端收尾。30,247 bytes，SHA256 `e8428dcab4a1bb5af47f2735d6d14447719210156de83ce793ad37f6c71b6a1d`；当前树反向应用检查PASS。必须配套父仓库发生日期后端使用，已含上述提交的上游不要重复应用。本轮18项组件测试、client tsc/ESLint/build、真实DeepSeek完整聊天与记忆页通过，详见[本轮证据](../evidence/memory-chat-ui-20261110/README.md)。
