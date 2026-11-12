@@ -193,12 +193,26 @@ def test_memories_requires_access_token_not_cookie(tmp_path):
         for invalid in (
             "garbage",
             "W10.W10.AA",
-            token_for("unmapped-user"),
             token_for("lc-user-a", exp=int(time.time()) - 1),
             token_for("lc-user-a", exp=None),
         ):
             result = client.get("/api/v1/memories", headers={"Authorization": f"Bearer {invalid}"})
-            assert result.status_code in (401, 403)
+            assert result.status_code == 401
+
+
+def test_memories_unmapped_user_auto_provisions_empty(tmp_path):
+    app, client = make_app(tmp_path)
+    with client:
+        result = client.get(
+            "/api/v1/memories",
+            headers={"Authorization": f"Bearer {token_for('fresh-unmapped-user')}"},
+        )
+        assert result.status_code == 200
+        assert result.json()["memories"] == []
+        user = app.state.store.get_user_by_librechat_id("fresh-unmapped-user")
+        assert user is not None
+        assert user["memos_user_id"] == ""
+        assert user["memory_consent"] == 0
 
 
 def test_same_source_id_cannot_cross_user_boundary(monkeypatch, tmp_path):
