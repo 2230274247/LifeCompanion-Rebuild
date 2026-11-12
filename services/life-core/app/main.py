@@ -171,10 +171,11 @@ def current_identity(request: Request) -> tuple[str, str, dict[str, Any]]:
     librechat_user_id, _source = identity_from_request(request)
     user = request.app.state.store.get_user_by_librechat_id(librechat_user_id)
     if user is None:
-        if request.url.path.startswith("/api/v1/reminder") or request.url.path in ("/api/v1/me", "/api/v1/me/settings"):
-            user = request.app.state.store.ensure_reminder_user(librechat_user_id)
-        else:
-            raise HTTPException(status_code=403, detail={"code": "USER_NOT_MAPPED"})
+        # Any authenticated LibreChat account gets a minimal life-core user row
+        # (no Memos mapping, no consent) so read-only pages such as the memories
+        # gallery degrade to an empty list instead of 403 USER_NOT_MAPPED.
+        # Publishing still requires explicit bootstrap and consent downstream.
+        user = request.app.state.store.ensure_reminder_user(librechat_user_id)
     return user["life_user_id"], librechat_user_id, user
 
 
@@ -263,12 +264,20 @@ def create_app(settings_override: Settings | None = None) -> FastAPI:
             while not stop.is_set():
                 import time
                 if time.monotonic() >= next_cleanup:
-                    retry_memo_cleanup()
-                    app.state.reminders.reconcile_notifications()
-                    app.state.provisioning.maintain()
+                    try:
+                        retry_memo_cleanup()
+                        app.state.reminders.reconcile_notifications()
+                        app.state.provisioning.maintain()
+                    except Exception:
+                        # A failing reminder/credential task must not kill the
+                        # memory-extraction worker thread.
+                        pass
                     next_cleanup = time.monotonic() + 30
                 if time.monotonic() >= next_notification_retry:
-                    app.state.reminders.deliver_one_notification()
+                    try:
+                        app.state.reminders.deliver_one_notification()
+                    except Exception:
+                        pass
                     next_notification_retry = time.monotonic() + 5
                 if not app.state.memory.run_one(process_event):
                     stop.wait(0.5)
