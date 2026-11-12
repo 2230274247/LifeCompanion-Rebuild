@@ -1,0 +1,185 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "key": "1d-002",
+      "query": "2026-11-08那天，家里的衣物清洁设备出了什么故障，又如何解决？",
+      "conversation_id": "44c19cf4-1d28-5b45-9036-34bdf044dab4",
+      "original_conversation_id": "b27a5f62-dacd-589a-a36d-6c1ea21df9fe",
+      "different_conversation": true,
+      "expected_memory_id": "mem_54ff49bc994f698eedad35bd",
+      "elapsed_ms": 3905.43,
+      "completed": true,
+      "response": "根据记录，2026-11-08 家里的衣物清洁设备出现的故障是：**洗衣机排水管堵住了**。\n\n解决办法是：**请维修师傅疏通后恢复正常**。\n\n来源：[生活记录](/knowledge/mem_54ff49bc994f698eedad35bd)\n\n同日还有清洗空调过滤网、为仓库扫码枪更新固件的记录，但它们不属于衣物清洁设备。",
+      "source_link_in_reply": true,
+      "trace": {
+        "traces": [
+          {
+            "trace_id": 556,
+            "message_id": "accc6f6a-61bf-4802-83b2-98a611cec9b2",
+            "conversation_id": "44c19cf4-1d28-5b45-9036-34bdf044dab4",
+            "stage": "extraction",
+            "status": "rejected",
+            "reason": "no_memory",
+            "item_count": 0,
+            "elapsed_ms": 32,
+            "created_at": "2026-11-09T02:54:53.402407+00:00"
+          },
+          {
+            "trace_id": 555,
+            "message_id": "accc6f6a-61bf-4802-83b2-98a611cec9b2",
+            "conversation_id": "44c19cf4-1d28-5b45-9036-34bdf044dab4",
+            "stage": "enqueue",
+            "status": "queued",
+            "reason": "TASK_QUEUED",
+            "item_count": 0,
+            "elapsed_ms": null,
+            "created_at": "2026-11-09T02:54:52.933003+00:00"
+          },
+          {
+            "trace_id": 554,
+            "message_id": "accc6f6a-61bf-4802-83b2-98a611cec9b2",
+            "conversation_id": "44c19cf4-1d28-5b45-9036-34bdf044dab4",
+            "stage": "recall",
+            "status": "injected",
+            "reason": "",
+            "item_count": 3,
+            "elapsed_ms": 1689,
+            "created_at": "2026-11-09T02:54:52.894871+00:00"
+          },
+          {
+            "trace_id": 553,
+            "message_id": "accc6f6a-61bf-4802-83b2-98a611cec9b2",
+            "conversation_id": "44c19cf4-1d28-5b45-9036-34bdf044dab4",
+            "stage": "recall",
+            "status": "matched",
+            "reason": "",
+            "item_count": 3,
+            "elapsed_ms": null,
+            "created_at": "2026-11-09T02:54:52.643473+00:00"
+          }
+        ],
+        "jobs": {
+          "succeeded": 5
+        },
+        "permissions": {
+          "recall_consent": true,
+          "sensitive_consent": true,
+          "notification_consent": false
+        },
+        "memory_consent": true,
+        "database_id": "0aba005e37fa",
+        "extractor_configured": false
+      },
+      "event_count": 88,
+      "event_shapes": [
+        [
+          "data",
+          "event"
+        ],
+        [
+          "data",
+          "event"
+        ],
+        [
+          "conversation",
+          "final",
+          "generationProtocolVersion",
+          "requestMessage",
+          "responseMessage",
+          "title"
+        ]
+      ]
+    },
+    {
+      "key": "1m-071",
+      "query": "2026-10-09那天，我练乐器时遇到什么手指控制问题？",
+      "conversation_id": "064f1425-e837-523a-bc57-55a72d0dc12e",
+      "original_conversation_id": "93bfe94d-2d0f-5b9b-8148-f083b4f3f58e",
+      "different_conversation": true,
+      "expected_memory_id": "mem_41f206c4f1e5ea0cce3fde8f",
+      "elapsed_ms": 2976.88,
+      "completed": true,
+      "response": "根据记录，2026-10-09 你练乐器时遇到的手指控制问题是：**学习吉他和弦转换时，左手无名指容易碰到旁边的弦**，你为此放慢速度练习。来源：[记录](/knowledge/mem_41f206c4f1e5ea0cce3fde8f)\n\n当天其他记录涉及毛笔书法、陶艺和水彩，与“练乐器时的手指控制”无关。",
+      "source_link_in_reply": true,
+      "trace": {
+        "traces": [
+          {
+            "trace_id": 560,
+            "message_id": "03f4a558-fdde-4b2d-9e50-170eb2f5b209",
+            "conversation_id": "064f1425-e837-523a-bc57-55a72d0dc12e",
+            "stage": "extraction",
+            "status": "rejected",
+            "reason": "no_memory",
+            "item_count": 0,
+            "elapsed_ms": 0,
+            "created_at": "2026-11-09T02:54:56.167091+00:00"
+          },
+          {
+            "trace_id": 559,
+            "message_id": "03f4a558-fdde-4b2d-9e50-170eb2f5b209",
+            "conversation_id": "064f1425-e837-523a-bc57-55a72d0dc12e",
+            "stage": "enqueue",
+            "status": "queued",
+            "reason": "TASK_QUEUED",
+            "item_count": 0,
+            "elapsed_ms": null,
+            "created_at": "2026-11-09T02:54:55.953606+00:00"
+          },
+          {
+            "trace_id": 558,
+            "message_id": "03f4a558-fdde-4b2d-9e50-170eb2f5b209",
+            "conversation_id": "064f1425-e837-523a-bc57-55a72d0dc12e",
+            "stage": "recall",
+            "status": "injected",
+            "reason": "",
+            "item_count": 4,
+            "elapsed_ms": 990,
+            "created_at": "2026-11-09T02:54:55.851241+00:00"
+          },
+          {
+            "trace_id": 557,
+            "message_id": "03f4a558-fdde-4b2d-9e50-170eb2f5b209",
+            "conversation_id": "064f1425-e837-523a-bc57-55a72d0dc12e",
+            "stage": "recall",
+            "status": "matched",
+            "reason": "",
+            "item_count": 4,
+            "elapsed_ms": null,
+            "created_at": "2026-11-09T02:54:55.805356+00:00"
+          }
+        ],
+        "jobs": {
+          "succeeded": 6
+        },
+        "permissions": {
+          "recall_consent": true,
+          "sensitive_consent": true,
+          "notification_consent": false
+        },
+        "memory_consent": true,
+        "database_id": "0aba005e37fa",
+        "extractor_configured": false
+      },
+      "event_count": 99,
+      "event_shapes": [
+        [
+          "data",
+          "event"
+        ],
+        [
+          "data",
+          "event"
+        ],
+        [
+          "conversation",
+          "final",
+          "generationProtocolVersion",
+          "requestMessage",
+          "responseMessage",
+          "title"
+        ]
+      ]
+    }
+  ]
+}

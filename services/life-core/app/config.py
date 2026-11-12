@@ -5,6 +5,8 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from .embedding import LARGE_MODEL_NAME
+
 
 SERVICE_ROOT = Path(__file__).resolve().parents[1]
 
@@ -40,6 +42,12 @@ class Settings:
     image_provider_api_key: str = ""
     image_provider_allow_generic_binary_mime: bool = False
     moment_min_score: float = .4
+    memory_embedding_model: str = LARGE_MODEL_NAME
+    memory_semantic_threshold: float = 0.48
+    memory_embedding_cache: str = str(SERVICE_ROOT / "data" / "embedding-models")
+    memory_rerank_enabled: bool = True
+    memory_rerank_candidates: int = 32
+    memory_query_rewrite_enabled: bool = True
 
     @property
     def memos_configured(self) -> bool:
@@ -128,5 +136,11 @@ def load_settings() -> Settings:
             os.getenv("IMAGE_PROVIDER_ALLOW_GENERIC_BINARY_MIME", "false").lower() == "true"
         ),
         moment_min_score=float(os.getenv("LIFE_MOMENT_MIN_SCORE", ".4")),
+        memory_semantic_threshold=float(os.getenv("LIFE_MEMORY_SEMANTIC_THRESHOLD", "0.48")),
+        memory_embedding_model=os.getenv("LIFE_MEMORY_EMBEDDING_MODEL", LARGE_MODEL_NAME),
+        memory_embedding_cache=os.getenv("LIFE_MEMORY_EMBEDDING_CACHE", str(SERVICE_ROOT / "data" / "embedding-models")),
+        memory_rerank_enabled=os.getenv("LIFE_MEMORY_RERANK_ENABLED", "true").lower() == "true",
+        memory_rerank_candidates=int(os.getenv("LIFE_MEMORY_RERANK_CANDIDATES", "32")),
+        memory_query_rewrite_enabled=os.getenv("LIFE_MEMORY_QUERY_REWRITE_ENABLED", "true").lower() == "true",
     )
 

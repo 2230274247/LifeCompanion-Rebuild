@@ -1,5 +1,43 @@
 # 上游补丁归档
 
+## 当前完整源码归档与GitHub交付（2026-11-10）
+
+`librechat-v0.8.8-current-20261110.patch` 是本工作树当前独立LibreChat的完整累计补丁，从固定原版 `e8f3be08623663d4ad7f7241e693c94469b63bb0` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7`，覆盖100个文件（含二进制资源），补齐分阶段增量的重建依赖。大小3,743,948 bytes；SHA256 `f5e023ff23e8742d72050aa7ec7615fd5b0dff4a008512a44d424fd5504586ed`。当前源码反向应用检查通过。
+
+该补丁与父仓库代码一起推送至产品GitHub仓库；独立上游origin仍指向LibreChat官方，不向官方仓库推送定制分支。重建时在**固定原版的干净检出**中只应用这份累计补丁，不与下面的旧累计/增量补丁叠加；已有当前定制源码的工作树不要重复应用。账户、服务凭据、数据库、依赖和dist不在归档范围内。
+
+```bash
+git apply --check /path/to/librechat-v0.8.8-current-20261110.patch
+```
+
+```bash
+git apply /path/to/librechat-v0.8.8-current-20261110.patch
+```
+
+## 发生日期与真实记忆页收尾（2026-11-10）
+
+`librechat-memory-occurrence-ui-20261110.patch` 归档从 `ff42cacdaa11bbcbe0730c94591d746068585b77` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7` 的增量，包含 `4b193f81e` 发生日期包实现及本轮7文件前端收尾。30,247 bytes，SHA256 `e8428dcab4a1bb5af47f2735d6d14447719210156de83ce793ad37f6c71b6a1d`；当前树反向应用检查PASS。必须配套父仓库发生日期后端使用，已含上述提交的上游不要重复应用。本轮18项组件测试、client tsc/ESLint/build、真实DeepSeek完整聊天与记忆页通过，详见[本轮证据](../evidence/memory-chat-ui-20261110/README.md)。
+
+## 聊天语义撤回增量（2026-11-10）
+
+`librechat-semantic-forget-20261110.patch` 对应独立上游提交
+`ff42cacdaa11bbcbe0730c94591d746068585b77`，基点
+`d0dc65d240d833772c7eb7361529375b7ed6db5b`；只包含 `BaseClient.js` 参数接线、
+`packages/api/src/memory/life.ts` 和其测试三个文件。消息持久化后才请求语义撤回，
+没有 confirmed forgotten 回执不得确认删除。配套 life-core 代码必须一同使用。
+57 项 memory 测试、tsc、build 和修改 TS 的 ESLint 均通过；真实合成验收见
+[撤回证据](../evidence/memory-forget-20261110/README.md)。已包含该提交的树不得重复应用；
+补丁不含凭据、数据库、依赖或 dist。
+
+## 记忆注入增量（2026-11-09）
+
+`librechat-memory-context-7cf65d5-20261109.patch` 仅归档独立聊天仓库已提交的
+`7cf65d5fc428d3f308104ea871383603c523a91d`（8个文件），基点是该提交的父提交。
+它取消召回固定提示词门槛，传递当前会话最近用户上下文，分离profile/items预算，
+并增加脱敏记忆诊断页面。不要把它直接应用到未具备其父提交的原版上游，也不要在
+已经含该提交的当前聊天树重复应用。本轮未混入聊天仓库13个既有认证文件改动。
+产品后端纯语义检索和400条合成验收由根仓库源码及独立日志追溯。
+
 ## V0.3 最新归档（2026-11-06）
 
 `librechat-v0.8.8-v03-collaboration-20261106.patch` 是从原版 LibreChat

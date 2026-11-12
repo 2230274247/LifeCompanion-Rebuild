@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-09",
+  "scope": "Authorized restart and real-chat verification of final no-match response boundary",
+  "container": "lifecompanion-librechat",
+  "container_started_at_utc": "2026-11-09T06:40:33.843580125Z",
+  "source_commit": "3c6e3210f57bc733721437bd4428471bd519a3c3",
+  "build_sha256": "6205644374ab06a2922b07c63be801fa31d26d8329216bf7df71219cf768f1d7",
+  "restart": "PASS",
+  "browser_health_checks": [{"path": "/health", "http_status": 200}, {"path": "/api/config", "http_status": 200}],
+  "container_boundary_check": {
+    "no_match_notice": true,
+    "user_facts_allowed": true,
+    "assistant_claims_excluded": true,
+    "general_knowledge_allowed": true,
+    "original_input_unchanged": true,
+    "method": "Load final container module; mock only recall HTTP response"
+  },
+  "real_chat": {
+    "method": "Synthetic owner normal login, authenticated gateway chat endpoint, configured real DeepSeek provider, fresh conversations, actual recall telemetry",
+    "cases": [
+      {"case": "personal-history", "query": "最近15天，我做了什么", "completed": true, "recall_status": "no_match", "recall_items": 0, "observation": "Reply explicitly says retrieval found no supporting personal records and does not invent dates, events, places or sources", "response_prefix": "我目前没有检索到你过去15天的个人记录，所以无法据此列出你实际做过的事情。"},
+      {"case": "general-knowledge", "query": "请解释数据库索引为什么能加快查询，不用结合我的个人经历。", "completed": true, "recall_status": "no_match", "observation": "Reply explains database indexes without claiming user-specific history"}
+    ],
+    "completed_cases": 2,
+    "total_cases": 2
+  },
+  "limits": [
+    "This verifies two concrete reply behaviors, not zero hallucinations for all inputs",
+    "History overview retrieval false negatives remain unresolved",
+    "No new product source changes; existing unit/type/build/static results refer to the same source commit"
+  ],
+  "conclusion": "PASS for authorized restart and final-version response-boundary checks; memory overview completeness remains PARTIAL"
+}

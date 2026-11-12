@@ -25,7 +25,8 @@ export function createGateway({
     const collabId = "[a-z]{2,8}_[a-f0-9]{32}";
     const publicLifeRoute =
       (request.method === "GET" && path === "/health") ||
-      (request.method === "GET" && /^\/api\/v1\/(?:me|chat-links|memories(?:\/evt_[a-f0-9]{24})?|knowledge(?:\/(?:recall|mem_[a-f0-9]{24}))?)$/.test(path)) ||
+      (request.method === "GET" && /^\/api\/v1\/(?:me|memory-status|chat-links|memories(?:\/evt_[a-f0-9]{24})?|knowledge(?:\/(?:recall|mem_[a-f0-9]{24}))?)$/.test(path)) ||
+      (request.method === "POST" && path === "/api/v1/knowledge/recall") ||
       (request.method === "PATCH" && path === "/api/v1/me/settings") ||
       (["GET", "PUT"].includes(request.method) && path === "/api/v1/moment-settings") ||
       (request.method === "GET" && path === "/api/v1/moments") ||

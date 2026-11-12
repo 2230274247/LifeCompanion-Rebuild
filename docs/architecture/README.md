@@ -1,5 +1,27 @@
 # 架构文档索引
 
+- [完整聊天与真实记忆页验收链路（2026-11-10）](../../evidence/memory-chat-ui-20261110/README.md) — UUID持久化合同、真实会话JWT、隔离DeepSeek worker/Memos、life-api代理与同工作树前端挂载；只证明本轮指定链路，不替代完整P5。
+
+- [事件发生日期与记录时间合同（2026-11-10）](MEMORY_OCCURRENCE.md) — 符号日历协议、用户时区/消息锚点、闭区间精度、未知日期、兼容迁移、时间筛选与聊天/UI消费；旧历史日期不自动背书。
+
+- [聊天语义撤回合同（2026-11-10）](MEMORY_FORGET.md) — 严格 forget_memory 单任务、消息持久化后独立核验、用户归属/事务/来源派生闭包/幂等回执、Memos 清理与无回执回复边界；含 80 条候选上限和旧会话范围限制。
+
+- [记忆与语义请求编排实施状态](../development/MEMORY_IMPLEMENTATION_STATE.md) — 分阶段方案、验收标准、检查点和会话续接入口；以阶段实际状态为准。
+
+- [类人记忆与语义请求编排调研（2026-11-09）](MEMORY_AGENT_RESEARCH_2026-11-09.md) — 成熟产品公开能力、开源方案、现有缺口与证据回答建议；仅调研，未实施。
+
+- [纯语义记忆召回与历史压力验收](MEMORY_SEMANTIC_RECALL.md) — 全量持久向量、时间元数据约束、JWT公开召回接口与真实验收边界；禁止关键词兜底。
+
+- [语义任务规划与事件时间概览（P2，2026-11-09）](../development-log/2026-11-09_17-33_记忆编排P2语义协议与概览_开发验收.md) — 模型输出严格结构化任务（answer/search_memory/overview/query_reminders/prepare_reminder/web_search/clarify），后端校验与受控执行；事件概览按发生时间窗口分页，绕过相似度阈值；内部 `/assistant/plan` 与 `/assistant/execute` 接入证据。
+
+- [LibreChat 服务端接入语义规划器（P3，2026-11-09）](../development-log/2026-11-09_17-57_记忆编排P3服务端接入规划器_开发验收.md) — `withLifeMemory` 先走 `/assistant/plan` 与 `/assistant/execute`，收集 `search_memory`/`overview` 证据注入本次模型调用；规划器未配置回退 `/knowledge/recall`；权限与畸形响应不冒称“无记录”。
+
+- [证据与业务执行（P4，2026-11-09）](../development-log/2026-11-09_18-43_记忆编排P4证据与业务执行_开发验收.md) — 提醒/澄清/联网/分页状态如实注入：提醒只有 `scheduled` 才算已设置，联网不可用不冒称已搜索，部分结果不称全量；执行端返回真实回执而非伪造成功。
+
+- [综合验收用例（P5，2026-11-09）](../development/MEMORY_ACCEPTANCE_CASES.md) — 跨年/同义/指代/纠正/撤回/概览/主观回顾/混合动作/失败状态的中文独立验收用例与分层报告模板。
+
+- [已有密钥真实P5验收与资料证据传递修复](../development-log/2026-11-09_21-29_已有密钥真实记忆P5验收_开发验收.md) — 真实DeepSeek与隔离聊天API已跑；执行端保留真正命中的profile资料，A2同义召回与A4跨会话纠正通过。整体PARTIAL：撤回不生效、发生日混淆、混合提醒规划失败；未新增关键词兜底。
+
 - [应用内宠物（Otis）](PET_IN_APP.md)
   — 交付形态：只在聊天路由渲染的 200×256 可拉伸脸，随页面打开；
   复用原 WebGL 引擎，alpha 掩码做指针穿透，不接入数据链路。

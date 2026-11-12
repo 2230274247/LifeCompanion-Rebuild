@@ -1,0 +1,51 @@
+- generic [ref=f4e2]:
+  - generic [ref=f4e5]:
+    - complementary "控制面板" [ref=f4e6]:
+      - generic [ref=f4e7]:
+        - generic [ref=f4e8]:
+          - button "打开侧边栏" [ref=f4e9] [cursor=pointer]
+          - link "创建新对话" [ref=f4e12] [cursor=pointer]:
+            - /url: /c/new
+          - navigation "拾光导航" [ref=f4e16]:
+            - link "AI 伙伴" [ref=f4e17] [cursor=pointer]:
+              - /url: /c/0a26223f-1d47-412f-8ebe-d836fd6f8395
+            - link "我的回忆" [ref=f4e22] [cursor=pointer]:
+              - /url: /memories
+            - link "提醒" [ref=f4e26] [cursor=pointer]:
+              - /url: /reminders
+            - link "亲友与空间" [ref=f4e33] [cursor=pointer]:
+              - /url: /connections
+          - button "对话历史" [pressed] [ref=f4e42] [cursor=pointer]
+          - button "账户设置" [ref=f4e47] [cursor=pointer]:
+            - img "P5 Acceptance's avatar" [ref=f4e51]
+        - generic:
+          - generic:
+            - button [expanded]
+            - button
+      - separator "Resize sidebar"
+    - generic [ref=f4e52]:
+      - banner [ref=f4e53]:
+        - generic [ref=f4e54]:
+          - link "查看个人信息、显示名与认证 ID" [ref=f4e55] [cursor=pointer]:
+            - /url: /connections
+            - text: 拾
+          - generic [ref=f4e56]:
+            - paragraph [ref=f4e57]: 拾光
+            - paragraph [ref=f4e58]: LIFE COMPANION · 留住生活的光
+      - main [ref=f4e59]:
+        - generic [ref=f4e60]:
+          - link "记忆与权限" [ref=f4e61] [cursor=pointer]:
+            - /url: /memory-settings
+          - heading "查看记忆" [level=1] [ref=f4e62]
+          - article [ref=f4e63]:
+            - paragraph [ref=f4e64]: 2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史
+            - paragraph [ref=f4e65]: 已发生的事件记忆
+            - paragraph [ref=f4e66]: "真实状态: active"
+            - time [ref=f4e67]: 2026-10-02T18:00:00+08:00
+            - link "查看事件回忆" [ref=f4e68] [cursor=pointer]:
+              - /url: /memories/evt_9b021f87bf642e8253d98f3e
+            - button "不要用这件事生成回忆图" [ref=f4e69] [cursor=pointer]
+            - link "更正 / 忘记这条" [ref=f4e70] [cursor=pointer]:
+              - /url: /memory-settings
+  - region "Notifications (F8)":
+    - list

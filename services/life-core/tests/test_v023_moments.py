@@ -93,6 +93,7 @@ def test_no_consent_no_event_no_invented_moment_and_revoked_inflight(tmp_path, m
     app, client = make_app(tmp_path)
     with client:
         user = bootstrap(client)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"image_consent": False})
         assert client.put("/api/v1/moment-settings",headers=auth(),json={"enabled":True}).status_code == 403
         owner,start = prepare(app,client,monkeypatch)
         app.state.moments.schedule(datetime.now(timezone.utc)+timedelta(days=1))

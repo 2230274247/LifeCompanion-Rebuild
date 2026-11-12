@@ -1,0 +1,15 @@
+228. [GET] http://127.0.0.1:3001/life-api/api/v1/memories?on_date=2026-10-02 => [FAILED] net::ERR_ABORTED
+229. [GET] http://127.0.0.1:3001/life-api/api/v1/shared-memories => [200] OK
+237. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+238. [GET] http://127.0.0.1:3001/life-api/api/v1/memories?on_date=2026-10-02 => [200] OK
+239. [GET] http://127.0.0.1:3001/life-api/api/v1/shared-memories => [200] OK
+243. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+244. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+245. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+246. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+247. [GET] http://127.0.0.1:3001/life-api/api/v1/memories/evt_9b021f87bf642e8253d98f3e => [200] OK
+248. [GET] http://127.0.0.1:3001/life-api/api/v1/shared-memories/by-source?source_kind=memory&source_id=evt_9b021f87bf642e8253d98f3e => [200] OK
+249. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+250. [GET] http://127.0.0.1:3001/life-api/api/v1/notifications => [200] OK
+
+Note: 50 static requests not shown, run with "static" option to see them.

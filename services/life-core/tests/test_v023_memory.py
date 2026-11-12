@@ -3,6 +3,7 @@ from zoneinfo import ZoneInfo
 
 from test_api import bootstrap, make_app
 from test_memory_pipeline import auth
+from test_hybrid_retrieval import prepare_app
 
 
 def add(client, text, source, conversation):
@@ -22,6 +23,7 @@ def test_cross_chat_plans_keep_negation_sources_and_isolation(tmp_path):
         a = add(client, "明天带绿色 U 盘，不是银色的。", "uuid-a", "chat-a").json()
         b = add(client, "明天还要带雨伞。", "uuid-b", "chat-b").json()
         assert a["accepted"] and b["accepted"]
+        prepare_app(app)
         recall = client.post("/internal/v1/knowledge/recall",
             headers={"X-Internal-Token": "test-internal"}, json={
                 "source_user_id": "lc-user-a", "query": "我明天要带哪些东西？",
@@ -45,7 +47,7 @@ def test_cross_chat_plans_keep_negation_sources_and_isolation(tmp_path):
 
 
 def test_plan_correction_deletion_replay_and_consent(tmp_path):
-    _app, client = make_app(tmp_path)
+    app, client = make_app(tmp_path)
     with client:
         bootstrap(client)
         client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
@@ -53,6 +55,7 @@ def test_plan_correction_deletion_replay_and_consent(tmp_path):
         corrected = client.patch(f"/api/v1/knowledge/{item['memory_id']}", headers=auth(),
                                  json={"text": "明天改为带蓝色 U 盘。"})
         assert corrected.status_code == 200
+        prepare_app(app)
         entries = client.get("/api/v1/knowledge/recall?q=明天带哪些", headers=auth()).json()["items"]
         assert len(entries) == 1 and "蓝色" in entries[0]["canonical_text"]
         identifier = entries[0]["memory_id"]
@@ -97,9 +100,13 @@ def test_eligibility_rejects_question_hypothetical_negation_and_assistant_invent
     with client:
         bootstrap(client)
         for index,text in enumerate(("如果项目终于结束了，我会很开心", "项目结束了吗", "今天很开心",
-                                     "明天项目就结束了", "今天并没有完成项目", "怎么才能完成项目？")):
+                                     "今天并没有完成项目", "怎么才能完成项目？")):
             assert not add(client,text,"excluded-"+str(index),"excluded-chat").json()["accepted"]
         assert app.state.memory.list_items(app.state.store.get_user_by_librechat_id("lc-user-a")["life_user_id"]) == []
+        # A concrete future completion is a plan, not an occurred event or a fact.
+        planned = add(client, "明天项目就结束了", "future", "excluded-chat").json()
+        assert planned["accepted"] and planned["memory"]["kind"] == "future_plan"
+        assert app.state.store.list_events(app.state.store.get_user_by_librechat_id("lc-user-a")["life_user_id"]) == []
 
 
 def test_event_correction_preserves_raw_source_and_supersedes_old_retrieval(tmp_path,monkeypatch):
@@ -114,6 +121,7 @@ def test_event_correction_preserves_raw_source_and_supersedes_old_retrieval(tmp_
                                json={"text":"今天毕业了，感觉很开心。"})
         assert changed.status_code == 200 and changed.json()["accepted"]
         assert client.get("/api/v1/knowledge/"+old["memory_id"],headers=auth()).json()["item"]["state"] == "superseded"
+        prepare_app(app)
         items = client.get("/api/v1/knowledge/recall?q=今天经历了什么",headers=auth()).json()["items"]
         assert len(items) == 1 and "毕业" in items[0]["canonical_text"]
         assert app.state.store.get_event(original["event"]["event_id"])["summary"] == "今天项目终于结束了，感觉很开心。"

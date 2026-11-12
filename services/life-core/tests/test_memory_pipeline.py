@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 from test_api import bootstrap, make_app, token_for
+from test_hybrid_retrieval import prepare_app
 
 
 def auth(user="lc-user-a"):
@@ -49,9 +50,11 @@ def test_fact_reinforcement_correction_recall_and_withdrawal(tmp_path):
         repeated = client.get("/api/v1/knowledge", headers=auth()).json()["items"][0]
         assert repeated["importance"] > first["importance"]
         assert repeated["confidence"] == first["confidence"]
-        recall = client.get("/api/v1/knowledge/recall?q=今天喝什么茶", headers=auth()).json()
+        prepare_app(app)
+        recall = client.get("/api/v1/knowledge/recall?q=喝什么茶", headers=auth()).json()
         assert len(recall["items"]) == 1
         ingest(client, "我以前喜欢龙井，现在更喜欢红茶", "m3", "05", "c4")
+        prepare_app(app)
         current = client.get("/api/v1/knowledge/recall?q=喝茶", headers=auth()).json()["items"]
         assert len(current) == 1 and "红茶" in current[0]["canonical_text"]
         assert "龙井" not in current[0]["canonical_text"]
@@ -68,6 +71,7 @@ def test_event_semantic_merge_and_sensitive_future_question_guards(monkeypatch, 
     app, client = make_app(tmp_path)
     with client:
         bootstrap(client)
+        client.patch("/api/v1/me/settings", headers=auth(), json={"sensitive_consent": False})
         writes = []
         monkeypatch.setattr(app.state.memos, "create_private_memo",
                             lambda event: writes.append(event) or f"memos/{event['event_id']}")
@@ -90,6 +94,7 @@ def test_read_and_write_permissions_are_independent(tmp_path):
         ingest(client, "我平常喜欢龙井茶")
         assert client.get("/api/v1/knowledge/recall?q=喝茶", headers=auth()).json()["items"] == []
         client.patch("/api/v1/me/settings", headers=auth(), json={"recall_consent": True})
+        prepare_app(app)
         assert len(client.get("/api/v1/knowledge/recall?q=喝茶", headers=auth()).json()["items"]) == 1
         client.patch("/api/v1/me/settings", headers=auth(), json={"memory_consent": False})
         assert len(client.get("/api/v1/knowledge/recall?q=喝茶", headers=auth()).json()["items"]) == 1

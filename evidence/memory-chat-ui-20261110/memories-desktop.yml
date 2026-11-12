@@ -1,0 +1,55 @@
+- main [ref=f3e4]:
+  - generic [ref=f3e5]:
+    - generic [ref=f3e6]:
+      - paragraph [ref=f3e7]: 生活影集
+      - heading "我的回忆" [level=1] [ref=f3e8]
+      - paragraph [ref=f3e9]: 一张画面，一段故事。那些值得记住的日常，都在这里。
+    - link "记忆与权限" [ref=f3e10] [cursor=pointer]:
+      - /url: /memory-settings
+  - generic [ref=f3e11]:
+    - generic [ref=f3e12]:
+      - generic [ref=f3e13]:
+        - generic [ref=f3e14]: 搜索标题与摘要
+        - searchbox "搜索标题与摘要" [ref=f3e15]
+      - button "查找回忆" [ref=f3e16] [cursor=pointer]
+    - group [ref=f3e17]:
+      - generic "日期与排序" [ref=f3e18] [cursor=pointer]
+      - option "最新在前" [selected]
+      - option "最早在前"
+  - status [ref=f3e20]: 共 2 段回忆
+  - generic [ref=f3e21]:
+    - region [ref=f3e22]:
+      - generic [ref=f3e23]:
+        - heading "昨天 · 11月9日周一" [level=2] [ref=f3e24]
+        - paragraph [ref=f3e25]: 1 段
+      - article [ref=f3e27]:
+        - link "昨天我参观了上海科技馆 · 翻开这段回忆 →" [ref=f3e28] [cursor=pointer]:
+          - /url: /memories/evt_1bafc27e4b21bd92509e2007
+          - generic [ref=f3e29]: 这段回忆暂时没有配图，文字内容仍可阅读。
+          - generic [ref=f3e39]:
+            - generic [ref=f3e40]:
+              - time [ref=f3e41]: 2026-11-09
+              - generic [ref=f3e42]: AI 伙伴
+            - heading "昨天我参观了上海科技馆" [level=2] [ref=f3e43]
+            - paragraph [ref=f3e44]: 昨天我参观了上海科技馆，看到了有趣的机器人展览。
+            - generic [ref=f3e45]: 翻开这段回忆 →
+    - region [ref=f3e46]:
+      - generic [ref=f3e47]:
+        - heading "11月7日周六" [level=2] [ref=f3e48]
+        - paragraph [ref=f3e49]: 1 段
+      - article [ref=f3e51]:
+        - link "上周六我去爬了香山 · 翻开这段回忆 →" [ref=f3e52] [cursor=pointer]:
+          - /url: /memories/evt_159c67539423bc0ecbadf455
+          - generic [ref=f3e53]: 这段回忆暂时没有配图，文字内容仍可阅读。
+          - generic [ref=f3e63]:
+            - generic [ref=f3e64]:
+              - time [ref=f3e65]: 2026-11-07
+              - generic [ref=f3e66]: AI 伙伴
+            - heading "上周六我去爬了香山" [level=2] [ref=f3e67]
+            - paragraph [ref=f3e68]: 上周六我去爬了香山，看到了很美的红叶。
+            - generic [ref=f3e69]: 翻开这段回忆 →
+  - navigation "回忆分页" [ref=f3e70]:
+    - button "上一页" [disabled]
+    - generic [ref=f3e71]: "1"
+    - button "下一页" [disabled]
+  - paragraph [ref=f3e72]: 私有回忆 · 仅展示当前映射账户的已发布生活事件。当前为单用户内测。

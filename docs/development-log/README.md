@@ -3,6 +3,26 @@
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
 | 2026-11-12 | [回忆界面未映射账户修复与记忆管线梳理](2026-11-12_10-45_回忆界面未映射账户修复与记忆管线梳理_开发验收.md) | PASS：未映射账户打开回忆页降级为空列表（不再 403），后台记忆抽取线程抗提醒凭据异常；全量 80 测试通过 | [主修复](../../services/life-core/app/main.py)、[测试](../../services/life-core/tests/test_api.py) |
+| 2026-11-10 | [GitHub提交与源码归档](2026-11-10_15-18_GitHub提交与源码归档_开发验收.md) | PASS：已有26提交推送并远程重读；完整LibreChat累计补丁反向及正向树一致性验证通过，归档检查点随后追加推送 | [完整归档](../../patches/README.md)、[远程分支](https://github.com/2230274247/LifeCompanion-Rebuild/tree/claude/epic-goldwasser-ad14c0) |
+| 2026-11-10 | [丰富历史测试账户与自主验收](2026-11-10_14-54_丰富历史测试账户与自主验收_开发验收.md) | PASS：现有账户登录、120条跨月合成回忆发布/日期读回、125条分页与真实DeepSeek3问；整体P5仍PARTIAL | [证据与使用说明](../../evidence/memory-demo-20261110/README.md) |
+| 2026-11-10 | [完整聊天与真实记忆页](2026-11-10_14-14_完整聊天与真实记忆页_开发验收.md) | PASS：两轮真实DeepSeek三次持久化回复、浏览器实际发送、真实抽取/Memos、记忆列表/详情与390px；18组件测试/tsc/build通过。原P5仍PARTIAL | [证据与复现](../../evidence/memory-chat-ui-20261110/README.md) |
+| 2026-11-10 | [权限默认全开](2026-11-10_11-02_权限默认全开_开发验收.md) | PASS：新用户/缺失行五项权限默认全开且可逐项关闭；后端332/1跳过 | [日志](2026-11-10_11-02_权限默认全开_开发验收.md) |
+| 2026-11-10 | [发生日期归属修复](2026-11-10_10-24_发生日期归属修复_开发验收.md) | PASS：真实DeepSeek 8事件及10月/11月2日概览、月份/未知/跨年/时区/多事件正确；全量331/1跳过；正式包三问真实模型通过。完整聊天容器重载BLOCKED，历史未回填，整套P5仍PARTIAL | [复核证据](../../evidence/memory-occurrence-20261110/README.md)、[日期合同](../architecture/MEMORY_OCCURRENCE.md) |
+| 2026-11-10 | [聊天语义撤回链路修复](2026-11-10_09-33_聊天语义撤回链路修复_开发验收.md) | PASS：A5真实撤回、新会话不复活、重放拒绝、独立偏好保留、Memos 404；后端312/1跳过、上游57；整套P5仍PARTIAL | [复核证据](../../evidence/memory-forget-20261110/reviewed-results.json) |
+| 2026-11-09 | [已有密钥真实记忆P5验收](2026-11-09_21-29_已有密钥真实记忆P5验收_开发验收.md) | PARTIAL：真实14项7通过/3失败/3部分/1未测；后端302/1跳过；撤回/发生日/混合提醒失败 | [复核结果](../../evidence/p5-memory-acceptance/reviewed-results.json) |
+| 2026-11-09 | [真实模型抽取协议与逐条校验修复](2026-11-09_21-20_真实模型抽取协议与逐条校验修复_开发验收.md) | PASS（修复回归301/1跳过；抽取84；治理24）；PARTIAL（真实P5矩阵待汇总） | [证据说明](../../evidence/p5-memory-acceptance/README.md) |
+| 2026-11-09 | [记忆编排P5综合验收](2026-11-09_18-45_记忆编排P5综合验收_开发验收.md) | PARTIAL（中文用例/部署回滚就绪）；NOT TESTED（真实模型/浏览器） | [用例集](../development/MEMORY_ACCEPTANCE_CASES.md) |
+| 2026-11-09 | [记忆编排P4证据与业务执行](2026-11-09_18-43_记忆编排P4证据与业务执行_开发验收.md) | PASS（life-core 298/1跳过 + memory 52测试 + tsc 0错误）；NOT TESTED（真实模型/部署/真实提醒联网上游） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
+| 2026-11-09 | [记忆编排P3服务端接入规划器](2026-11-09_17-57_记忆编排P3服务端接入规划器_开发验收.md) | PASS（memory 5套件51测试 + tsc 0错误）；NOT TESTED（真实模型/部署/LibreChat全量构建） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
+| 2026-11-09 | [记忆编排P2语义协议与概览](2026-11-09_17-33_记忆编排P2语义协议与概览_开发验收.md) | PASS（plan 7 + api 3；全量297/1跳过）；NOT TESTED（真实模型/部署/LibreChat接入） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
+| 2026-11-09 | [记忆编排P1授权来源与覆盖](2026-11-09_17-06_记忆编排P1授权来源与覆盖_开发验收.md) | PASS（来源14+API4+管线7）；NOT TESTED（真实模型/部署） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
+| 2026-11-09 | [记忆编排P0方案与续接状态](2026-11-09_16-53_记忆编排P0方案与续接状态_开发验收.md) | PASS（方案文档），NOT TESTED（实现） | [持续状态](../development/MEMORY_IMPLEMENTATION_STATE.md) |
+| 2026-11-09 | [成熟助手记忆与开源方案调研](2026-11-09_16-03_成熟助手记忆与开源方案调研_开发验收.md) | PASS（调研文档）；NOT TESTED（实施/性能）：官方能力与限制、4类开源方案、现有差距和推荐路线 | [调研报告](../architecture/MEMORY_AGENT_RESEARCH_2026-11-09.md) |
+| 2026-11-09 | [聊天容器重启与最终边界验收](2026-11-09_14-41_聊天容器重启与最终边界验收_开发验收.md) | PASS：最终修复重载、健康与配置200、真实模型两例完成；时间概览漏查仍存在 | [最终版本验收](../../evidence/memory-load-20261109/no-match-final-restart-verification.json) |
+| 2026-11-09 | [未命中记忆时的回答边界](2026-11-09_13-58_修复no_match幻觉_开发验收.md) | PARTIAL：24项单测与治理通过，真实聊天2例完成；最终边界澄清版重载被自动审批拦截 | [独立验收日志](2026-11-09_13-58_修复no_match幻觉_开发验收.md) |
+| 2026-11-09 | [记忆召回优化（时间段/去重/重排/改写）](2026-11-09_12-48_记忆召回优化_开发验收.md) | PASS：四项优化实现；269通过/1跳过；书法0.508→0.7338；窗口解析正确 | [修复前后对比](../../evidence/memory-load-20261109/optimization-verification.json) |
+| 2026-11-09 | [四时段历史记忆与纯语义召回](2026-11-09_10-56_四时段历史记忆与纯语义召回_开发验收.md) | PARTIAL：400条注入；纯向量121/144；串行真实跨聊天2/2；后端253通过/1跳过；32条发布BLOCKED，并行CPU负载曾召回超时 | [逐题与失败记录](../../evidence/memory-load-20261109/README.md)、[回归摘要](../../evidence/memory-load-20261109/verification-summary.json) |
+| 2026-11-08 | [记忆链路修复与跨窗口召回](2026-11-08_16-52_记忆链路修复与跨窗口召回_开发验收.md) | PARTIAL：诊断/自然召回/多事实/资料与经历分离/跨窗口召回 229 后端测试 + E2E 通过；真实容器替换、语义热模型端到端、api/client 全量类型检查未完成 | [诊断](../MEMORY_FLOW_AUDIT_2026-11-08.md)、[E2E](../../scripts/acceptance-memory-e2e.py) |
 | 2026-11-06 | [V0.4 Android 原生客户端实施计划](2026-11-06_13-11_V04Android实施计划_开发验收.md) | PASS（规划文档）/ NOT TESTED（实现） | [实施计划](../product/v0.4/实施计划.md)、[架构](../architecture/V04_ANDROID.md) |
 | 2026-11-06 | [普通用户注册功能与桌面一键启动脚本审计](2026-11-06_10-05_注册功能与桌面启动脚本_开发验收.md) | PASS：注册/登录/唯一用户名/权限隔离/启动器复用真实通过；冷启动与故障注入场景 BLOCKED | [截图](../../evidence/registration-desktop.png)、[验收矩阵](../../evidence/registration-launcher-test-report.md)、[源码补丁](../../patches/librechat-v0.8.8-registration-20261106.patch) |
 | 2026-11-06 | [V0.3 归档与 Ubuntu 部署交付](2026-11-06_Ubuntu部署与V03归档_开发验收.md) | PARTIAL：Git 归档与 Ubuntu 部署包完成；完整浏览器/API 回归与服务器实机启动未重跑 | [部署包](../../deploy/ubuntu/README.md)、[V0.3 架构](../architecture/V03_COLLABORATION.md) |

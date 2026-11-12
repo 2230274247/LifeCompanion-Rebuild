@@ -1,0 +1,167 @@
+{
+  "generated_at": "2026-11-09T21:20:24+0800",
+  "seeded": 7,
+  "records": [
+    {
+      "case": "A1",
+      "title": "跨年同一主题",
+      "input": "我哪年去的大理",
+      "reply": "根据记录，你去过大理两次：\n\n- **2024年6月** — [记录](</knowledge/mem_b323c0723a82e65abf7ddfa6>)\n- **2025年6月** — 这次在古城住了两晚，[记录](</knowledge/mem_0e4ed1b817331af42f20e66f>)\n\n如果你指的是某一次具体的旅行，可以告诉我，我再帮你确认。",
+      "evidence": {
+        "execute": "executed",
+        "tasks": [
+          "search_memory"
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "A2",
+      "title": "同义泛化",
+      "input": "我平常喝什么饮料",
+      "reply": "我目前没有关于你平常喝什么饮料的记录，所以没法直接告诉你答案。你可以告诉我你常喝的种类，或者把最近喝过的饮品列一下，我可以帮你一起梳理。",
+      "evidence": {
+        "execute": "executed"
+      },
+      "verdict": "REVIEW"
+    },
+    {
+      "case": "A3",
+      "title": "指代/省略",
+      "input": "它多大了（上一轮提到猫）",
+      "reply": "你想问的是哪只猫的年龄？是刚才提到的那只把杯子推下桌的猫吗？我这边没有关于它年龄的记录，你告诉我具体信息我再帮你判断。",
+      "evidence": {
+        "previous_reply": "哈哈，猫咪推杯子下桌这事太经典了，简直像是它们的“本职工作”。不过看你的记录里，目前没有关于养猫或这只猫的任何信息，所以我这边没有可引用的依据来说明它的具体情况，只能按一般经验聊聊。\n\n猫这么做通常有几个原因：\n\n1. **好奇+测试边界**：猫咪发现“推下去→有声音/主人有反应”这个因果关系后，会当成游戏反复玩。\n2. **求关注**：你一有反应（哪怕只是喊一声），在它看来就是“成功了”。\n3."
+      },
+      "verdict": "REVIEW"
+    },
+    {
+      "case": "A4",
+      "title": "纠正覆盖旧事实",
+      "input": "我现在住在哪里（后说搬到上海）",
+      "reply": "你提到现在住在**上海徐汇区**，但没有说明具体的小区或地址。\n\n根据我目前能查到的记录，只有“上个月搬到上海”这条信息，没有更详细的居住地址。如果你需要我帮你记住具体位置（比如小区名或附近地标），可以告诉我，我帮你记下来。",
+      "evidence": {
+        "execute": "executed"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "A5",
+      "title": "撤回不复活",
+      "input": "我住在哪里（已要求忘记）",
+      "reply": "我这边没有可检索到的住址记录，所以无法确认你住在哪里。你刚才只让我“忘记”之前说的住址，但没有提供具体地址；如果你愿意，可以再直接告诉我，或说明希望我怎么处理这条信息。",
+      "evidence": {
+        "execute": "executed",
+        "coverage": {
+          "status": "available",
+          "total": 18,
+          "states": {
+            "active": 17,
+            "superseded": 1
+          },
+          "extraction_status": {
+            "extracted": 8,
+            "failed": 1,
+            "no_memory": 8,
+            "revoked": 1
+          },
+          "historical_coverage": "not_verified"
+        }
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "B1",
+      "title": "时间概览",
+      "input": "最近一周我都做了什么",
+      "reply": "根据我检索到的记录，最近一周（大约11月4日至11月9日）你做了这些事：\n\n- **11月4日**：和朋友去看了一场话剧《茶馆》，觉得很有意思。（[来源](/knowledge/mem_127df543a6873cded8e253a6)）\n- **11月6日**：这几天降温，你把厚被子拿出来了。（[来源](/knowledge/mem_b70a1e261be2c0df5820b1c9)）\n- **11月9日**：你家猫今天又把杯子推下桌了。（[来源](/knowledge/mem_52c552cc0be669df5763b72a)）\n\n另外还有几条相关但时间不完全是“这一周内”的记录：你上个月搬到上海，现在住在徐汇区（这两条是11月9日记录的，但描述的是更早发生的事）。（[来源](/knowledge/mem_d4b7de171b1047680730f58e)、[来源](/knowledge/mem_4b11e066800e494400166900)）\n\n需要说明的是，我检索到的记录可能不完整，以上只是基于现有记录整理出的内容，不代表你这一周的全部活动。",
+      "evidence": {
+        "execute": "executed",
+        "tasks": [
+          "overview"
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "B2",
+      "title": "主观回顾",
+      "input": "你觉得我近期最有意思的一件事是什么",
+      "reply": "根据你提供的记录，我无法判断哪件事“最有意思”，因为这很主观。不过，近期记录里有几件可能比较有意思的事：\n\n- 你上周六去爬了香山，看到了很美的红叶（[来源](/knowledge/mem_91d011d047dd720c40c40148)）。\n- 你和朋友去看了一场话剧《茶馆》，你觉得很有意思（[来源](/knowledge/mem_127df543a6873cded8e253a6)）。\n- 你家猫今天又把杯子推下桌了（[来源](/knowledge/mem_52c552cc0be669df5763b72a)）。\n\n如果按“你自己明确说了有意思”来看，看话剧《茶馆》那件事最符合。你想让我帮你挑一件聊聊吗？",
+      "evidence": {
+        "execute": "executed"
+      },
+      "verdict": "REVIEW"
+    },
+    {
+      "case": "C1",
+      "title": "混合动作",
+      "input": "提醒我周五要汇报，周四记得准备",
+      "reply": "已收到你的汇报提醒需求，还差**周五的具体日期和时间**。请选择下面的一项：\n\n- 本周五 09:00\n- 本周五 14:00\n- 本周五 18:00\n\n补充后即可设置周五汇报、周四准备的提醒。",
+      "evidence": {
+        "execute": "planner_unavailable",
+        "actions": [],
+        "results": []
+      },
+      "verdict": "REVIEW"
+    },
+    {
+      "case": "C2",
+      "title": "无命中诚实表达",
+      "input": "我表哥叫什么名字",
+      "reply": "我这边没有你表哥的名字信息，也就是没有能支持这个回答的个人记录。你可以直接告诉我他的名字，或者补充一点相关背景，我再帮你处理。",
+      "evidence": {
+        "execute": "executed"
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "C3",
+      "title": "无权限",
+      "input": "我住哪（关闭回忆授权）",
+      "reply": "",
+      "evidence": {
+        "execute": "executed",
+        "body": "{'status': 'executed', 'results': [{'action': 'search_memory', 'status': 'permission_denied', 'items': [], 'retrieval': {'mode': 'semantic_only', 'model': 'BAAI/bge-large-zh-v1.5-pinned-q8', 'threshold': 0.48, 'semantic_status': 'permission_denied', 'context_source': 'none', 'context_used': False, '"
+      },
+      "verdict": "REVIEW"
+    },
+    {
+      "case": "C5",
+      "title": "联网不可用不冒称",
+      "input": "今天北京天气怎么样",
+      "reply": "我目前无法查询实时天气信息（本轮没有可用的天气数据来源）。建议你打开手机天气应用或访问中国天气网查看北京的最新天气情况。",
+      "evidence": {
+        "execute": "executed",
+        "results": [
+          {
+            "action": "web_search",
+            "status": "unavailable"
+          }
+        ]
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "D2",
+      "title": "部分结果/分页",
+      "input": "最近一周（检查 has_more/truncated）",
+      "reply": "",
+      "evidence": {
+        "execute": "executed",
+        "results": [
+          {
+            "action": "overview",
+            "status": "matched",
+            "has_more": null,
+            "truncated": null,
+            "offset": null,
+            "limit": null
+          }
+        ]
+      },
+      "verdict": "REVIEW"
+    }
+  ],
+  "usage": []
+}

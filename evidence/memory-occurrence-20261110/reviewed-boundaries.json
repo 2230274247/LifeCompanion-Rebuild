@@ -1,0 +1,27 @@
+{
+  "backend_initial": {
+    "status": "FAIL",
+    "result": "1 failed, 330 passed, 1 skipped",
+    "reason": "legacy test expected recording date fallback; replaced with unknown-date exclusion plus unrestricted semantic recall"
+  },
+  "backend_command_retry": {
+    "status": "FAIL",
+    "reason": "missing PYTHONPATH caused collection errors; corrected environment"
+  },
+  "client_initial": {
+    "status": "FAIL",
+    "reason": "missing built @librechat/client package blocked both Jest and CSS resolution; built workspace before retry"
+  },
+  "live_list_initial": {
+    "status": "FAIL",
+    "reason": "page_size=100 exceeds API max50; reran with50"
+  },
+  "full_chat_container": {
+    "status": "BLOCKED",
+    "reason": "preview_start recreation denied by automatic approval: Interfere With Workloads; no restart workaround"
+  },
+  "full_P5": {
+    "status": "PARTIAL",
+    "reason": "only occurrence task independently retested; mixed reminders/pet extraction/full deployment not fixed"
+  }
+}

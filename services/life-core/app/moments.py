@@ -20,6 +20,7 @@ from .image_provider import (
     KolorsImageProvider,
 )
 from .memory import Candidate, digest
+from .occurrence import explicit_occurrence
 from .store import utc_now
 
 
@@ -502,12 +503,16 @@ class Moments:
             raise ValueError("CONSENT_REQUIRED")
         owner = user["life_user_id"]
         moment_id = "mom_" + digest(f"{owner}:direct-test:{source_message_id}")[:24]
+        occurrence = explicit_occurrence(text)
+        zone = ZoneInfo(self.memory.timezone(owner))
+        start, end, precision = occurrence.bounds(now.astimezone(zone))
         event = self.store.create_event(
             user_id=owner,
             source_type="chat_direct_test",
             source_message_ids=[source_message_id],
             conversation_id=conversation_id,
-            occurred_at=now.astimezone(ZoneInfo(self.settings.timezone)).isoformat(),
+            occurred_at=datetime.fromisoformat(start).replace(tzinfo=zone).isoformat() if precision == "day" else "",
+            occurrence_start=start, occurrence_end=end, occurrence_precision=precision,
             title=text[:80],
             summary=text,
             confidence=1.0,
@@ -523,8 +528,9 @@ class Moments:
             confidence=1.0,
             sensitivity="ordinary",
             image_candidate=True,
+            occurrence=occurrence,
         )
-        key = self.memory.key_for(candidate, text, now)
+        key = self.memory.key_for(candidate, text, now, self.memory.timezone(owner))
         memory = self.memory.save(
             owner, candidate, key, source_message_id, conversation_id, text, now,
             event["event_id"],

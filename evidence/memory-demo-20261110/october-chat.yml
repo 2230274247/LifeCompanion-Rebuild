@@ -1,0 +1,49 @@
+- generic [ref=f3e2]:
+  - generic [ref=f3e5]:
+    - complementary "控制面板" [ref=f3e6]:
+      - generic [ref=f3e7]:
+        - generic [ref=f3e8]:
+          - button "打开侧边栏" [ref=f3e9] [cursor=pointer]
+          - link "创建新对话" [ref=f3e12] [cursor=pointer]:
+            - /url: /c/new
+          - navigation "拾光导航" [ref=f3e16]:
+            - link "AI 伙伴" [ref=f3e17] [cursor=pointer]:
+              - /url: /c/0a26223f-1d47-412f-8ebe-d836fd6f8395
+            - link "我的回忆" [ref=f3e22] [cursor=pointer]:
+              - /url: /memories
+            - link "提醒" [ref=f3e26] [cursor=pointer]:
+              - /url: /reminders
+            - link "亲友与空间" [ref=f3e33] [cursor=pointer]:
+              - /url: /connections
+          - button "对话历史" [pressed] [ref=f3e42] [cursor=pointer]
+          - button "账户设置" [ref=f3e47] [cursor=pointer]:
+            - img "P5 Acceptance's avatar" [ref=f3e51]
+        - generic:
+          - generic:
+            - button [expanded]
+            - button
+      - separator "Resize sidebar"
+    - generic [active] [ref=f3e52]:
+      - banner [ref=f3e53]:
+        - generic [ref=f3e54]:
+          - link "查看个人信息、显示名与认证 ID" [ref=f3e55] [cursor=pointer]:
+            - /url: /connections
+            - text: 拾
+          - generic [ref=f3e56]:
+            - paragraph [ref=f3e57]: 拾光
+            - paragraph [ref=f3e58]: LIFE COMPANION · 留住生活的光
+      - generic [ref=f3e59]:
+        - main [ref=f3e64]:
+          - generic [ref=f3e66]:
+            - heading "New Chat" [level=1] [ref=f3e67]
+            - button "导出/共享" [ref=f3e71] [cursor=pointer]
+            - generic [ref=f3e78]
+        - generic:
+          - generic:
+            - generic
+            - img "Otis. Grab and stretch his face to change his expression."
+          - generic [ref=f3e215]:
+            - generic [ref=f3e216]
+            - button "Tuck Otis away" [ref=f3e221] [cursor=pointer]: ×
+  - region "Notifications (F8)":
+    - list

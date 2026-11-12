@@ -1,0 +1,376 @@
+{
+  "scope": "isolated synthetic account; real DeepSeek chat/extraction; official Memos",
+  "health": {
+    "status": "ok",
+    "service": "life-core",
+    "memos_configured": true,
+    "internal_auth_configured": true,
+    "jwt_auth_configured": true,
+    "memory_pipeline": {
+      "version": "memory-v03",
+      "database_id": "6fbe55b784a9",
+      "worker_alive": true,
+      "extractor": "deepseek"
+    }
+  },
+  "turns": [
+    {
+      "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+      "user_message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+      "assistant_message_id": "cca452cd-f004-44d4-8e54-ff0a03433622",
+      "input": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+      "reply": "你提到昨天参观了上海科技馆，并看到了有趣的机器人展览。这听起来是一次不错的参观体验。如果你愿意，可以继续分享展览中让你印象深刻的机器人类型、互动项目或展区内容，我可以基于你提供的信息帮你整理、延伸背景知识或讨论相关科技话题。",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 59,
+      "usage": {
+        "input": 172,
+        "output": 59,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 5.3,
+      "stream_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96"
+    },
+    {
+      "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+      "user_message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+      "assistant_message_id": "5ae5a061-96c4-413b-8bab-140f3c9d57d1",
+      "input": "我刚才说去了哪里，看了什么？",
+      "reply": "你刚才在对话中说：昨天参观了**上海科技馆**，看到了**有趣的机器人展览**。",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 21,
+      "usage": {
+        "input": 243,
+        "output": 21,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 6.22,
+      "stream_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96"
+    },
+    {
+      "conversation_id": "35fd8dcf-4c08-4e14-87f7-c377705aec80",
+      "user_message_id": "0bd09208-7b08-4d8d-966b-613ec6b03dea",
+      "assistant_message_id": "4c421449-ec7b-4b5d-8d1f-e49147618fd0",
+      "input": "我昨天参观了什么地方，看到了什么展览？",
+      "reply": "根据记录，你在2026年11月9日参观了上海科技馆，并看到了机器人展览。[来源](/knowledge/mem_cfce7e02530434ffd706df3c)\n\n不过这条记录来自之前授权保存的信息，可能并不完整；如果你需要确认更多细节，可以再告诉我。",
+      "error": false,
+      "unfinished": false,
+      "model": "deepseek-chat",
+      "token_count": 64,
+      "usage": {
+        "input": 283,
+        "output": 64,
+        "cacheWrite": 0,
+        "cacheRead": 0
+      },
+      "elapsed_seconds": 4.12,
+      "stream_id": "35fd8dcf-4c08-4e14-87f7-c377705aec80"
+    }
+  ],
+  "status": "PASS",
+  "memory": {
+    "event_id": "evt_1bafc27e4b21bd92509e2007",
+    "source_type": "chat",
+    "source_message_ids": [
+      "6b46a65d-021a-4605-ba1d-68685b23077c",
+      "489b8281-da2a-4476-9dfe-52be286c8789"
+    ],
+    "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+    "occurred_at": "2026-11-09T00:00:00+08:00",
+    "occurrence_start": "2026-11-09",
+    "occurrence_end": "2026-11-09",
+    "occurrence_precision": "day",
+    "title": "昨天我参观了上海科技馆",
+    "summary": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+    "confidence": 0.95,
+    "consent_state": "granted",
+    "memo_ref": "memos/1b7c9f94-0b07-584e-b972-142aec490c3d",
+    "status": "published",
+    "error_message": null,
+    "attempts": 1,
+    "created_at": "2026-11-10T05:58:56.536783+00:00",
+    "updated_at": "2026-11-10T06:04:52.467673+00:00",
+    "content": "# 昨天我参观了上海科技馆\n\n昨天我参观了上海科技馆，看到了有趣的机器人展览。\n\n> AI 生活伙伴记录 · 事件 `evt_1bafc27e4b21bd92509e2007`\n> 来源消息：`6b46a65d-021a-4605-ba1d-68685b23077c`\n\n#生活回忆 #AI生活伙伴",
+    "tags": [
+      "生活回忆",
+      "AI生活伙伴"
+    ],
+    "event_type": "life_event",
+    "has_image": false,
+    "media": null
+  },
+  "memory_detail": {
+    "memory": {
+      "event_id": "evt_1bafc27e4b21bd92509e2007",
+      "source_type": "chat",
+      "source_message_ids": [
+        "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "489b8281-da2a-4476-9dfe-52be286c8789"
+      ],
+      "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+      "occurred_at": "2026-11-09T00:00:00+08:00",
+      "occurrence_start": "2026-11-09",
+      "occurrence_end": "2026-11-09",
+      "occurrence_precision": "day",
+      "title": "昨天我参观了上海科技馆",
+      "summary": "昨天我参观了上海科技馆，看到了有趣的机器人展览。",
+      "confidence": 0.95,
+      "consent_state": "granted",
+      "memo_ref": "memos/1b7c9f94-0b07-584e-b972-142aec490c3d",
+      "status": "published",
+      "error_message": null,
+      "attempts": 1,
+      "created_at": "2026-11-10T05:58:56.536783+00:00",
+      "updated_at": "2026-11-10T06:04:52.467673+00:00",
+      "content": "# 昨天我参观了上海科技馆\n\n昨天我参观了上海科技馆，看到了有趣的机器人展览。\n\n> AI 生活伙伴记录 · 事件 `evt_1bafc27e4b21bd92509e2007`\n> 来源消息：`6b46a65d-021a-4605-ba1d-68685b23077c`\n\n#生活回忆 #AI生活伙伴",
+      "tags": [
+        "生活回忆",
+        "AI生活伙伴"
+      ],
+      "event_type": "life_event",
+      "has_image": false,
+      "media": null
+    }
+  },
+  "memory_status": {
+    "traces": [
+      {
+        "trace_id": 19,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "extraction",
+        "status": "rejected",
+        "reason": "llm_validated",
+        "item_count": 0,
+        "elapsed_ms": 1250,
+        "created_at": "2026-11-10T06:04:57.901735+00:00"
+      },
+      {
+        "trace_id": 18,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:04:56.481628+00:00"
+      },
+      {
+        "trace_id": 17,
+        "message_id": "763d65ee-712c-4daa-9580-f6eeecc38d52",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "no_usable_evidence",
+        "item_count": 0,
+        "elapsed_ms": 4293,
+        "created_at": "2026-11-10T06:04:56.388836+00:00"
+      },
+      {
+        "trace_id": 16,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1672,
+        "created_at": "2026-11-10T06:04:52.496377+00:00"
+      },
+      {
+        "trace_id": 15,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T06:04:50.472113+00:00"
+      },
+      {
+        "trace_id": 14,
+        "message_id": "489b8281-da2a-4476-9dfe-52be286c8789",
+        "conversation_id": "4fb8a5c7-fcf6-4e8e-ab8e-8bf691f4fd96",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 3474,
+        "created_at": "2026-11-10T06:04:50.339519+00:00"
+      },
+      {
+        "trace_id": 13,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 2593,
+        "created_at": "2026-11-10T05:58:57.311557+00:00"
+      },
+      {
+        "trace_id": 12,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "publication",
+        "status": "published",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:58:57.276163+00:00"
+      },
+      {
+        "trace_id": 11,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:58:54.572897+00:00"
+      },
+      {
+        "trace_id": 10,
+        "message_id": "6b46a65d-021a-4605-ba1d-68685b23077c",
+        "conversation_id": "80de8277-c913-4897-89a9-86669535551e",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 4187,
+        "created_at": "2026-11-10T05:58:52.469657+00:00"
+      },
+      {
+        "trace_id": 9,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": 1468,
+        "created_at": "2026-11-10T05:45:58.855167+00:00"
+      },
+      {
+        "trace_id": 8,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "publication",
+        "status": "published",
+        "reason": "",
+        "item_count": 1,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:58.821620+00:00"
+      },
+      {
+        "trace_id": 7,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:57.237138+00:00"
+      },
+      {
+        "trace_id": 6,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "recall",
+        "status": "unavailable",
+        "reason": "invalid_response",
+        "item_count": 0,
+        "elapsed_ms": 127,
+        "created_at": "2026-11-10T05:45:57.036889+00:00"
+      },
+      {
+        "trace_id": 5,
+        "message_id": "e584960e-cb17-4839-a90e-04688d9799ef",
+        "conversation_id": "11111111-2222-3333-4444-555555555555",
+        "stage": "recall",
+        "status": "unavailable",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:45:56.978310+00:00"
+      },
+      {
+        "trace_id": 4,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "extraction",
+        "status": "saved",
+        "reason": "stable_fact",
+        "item_count": 2,
+        "elapsed_ms": 187,
+        "created_at": "2026-11-10T05:41:26.423362+00:00"
+      },
+      {
+        "trace_id": 3,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "enqueue",
+        "status": "queued",
+        "reason": "TASK_QUEUED",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:41:26.080803+00:00"
+      },
+      {
+        "trace_id": 2,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": 618,
+        "created_at": "2026-11-10T05:41:25.340798+00:00"
+      },
+      {
+        "trace_id": 1,
+        "message_id": "3a10b894-a0d7-4b07-8b6e-1ed5ea36efb2",
+        "conversation_id": "52518dfc-38ce-4a5f-ac93-0964c7c3b443",
+        "stage": "recall",
+        "status": "no_match",
+        "reason": "",
+        "item_count": 0,
+        "elapsed_ms": null,
+        "created_at": "2026-11-10T05:41:25.160101+00:00"
+      }
+    ],
+    "jobs": {
+      "succeeded": 5
+    },
+    "permissions": {
+      "recall_consent": true,
+      "sensitive_consent": true,
+      "notification_consent": true
+    },
+    "memory_consent": true,
+    "database_id": "6fbe55b784a9",
+    "extractor_configured": true,
+    "source_coverage": {
+      "status": "available",
+      "total": 5,
+      "states": {
+        "active": 5
+      },
+      "extraction_status": {
+        "extracted": 4,
+        "no_memory": 1
+      },
+      "historical_coverage": "not_verified"
+    }
+  }
+}

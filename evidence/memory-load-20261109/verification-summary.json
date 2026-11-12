@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-09",
+  "overall_status": "PARTIAL",
+  "life_core": {"passed": 253, "skipped": 1, "warnings": 1, "seconds": 251.39, "exit_code": 0, "command": "PYTHONPATH=services/life-core services/life-core/.venv/Scripts/python.exe -m pytest services/life-core/tests -q --junitxml=infra/runtime/memory-load/final-pytest.xml"},
+  "initial_test_collection": {"status": "FAIL", "reason": "ModuleNotFoundError: No module named app; corrected by setting PYTHONPATH"},
+  "gateway": {"passed": 3, "failed": 0, "command": "node --test tests/gateway.test.mjs"},
+  "git_governance": {"passed": 24, "failed": 0, "command": "powershell -NoProfile -File tests/git-governance.ps1"},
+  "recall": {"memories": 400, "questions": 144, "hit_at_1": 120, "hit_at_3": 120, "hit_at_8": 121, "context_hits": 3, "context_cases": 4, "relative_time_hits": 4, "relative_time_cases": 4, "negative_false_positives": 0, "negative_cases": 10, "mechanism_and_permission_checks": 556, "mechanism_and_permission_failures": 0, "p50_ms": 1257.21, "p95_ms": 2200.84, "keyword_retrieval": false},
+  "real_chat": {"final_serial_cases": 2, "final_serial_passed": 2, "concurrent_attempt_passed": 1, "concurrent_attempt_cases": 2, "failure": "recall timeout while full regression was running; no cloud request body capture"},
+  "preview": {"login_rendered": true, "console_errors_observed": 0, "server_errors_observed": 0, "unauthenticated_recall_status": 401, "unauthenticated_recall_code": "AUTH_REQUIRED", "visual_change": false},
+  "publication": {"selected": 32, "published": 0, "status": "BLOCKED", "reason": "Sensitive-Source Provenance approval rejection; no service-credential workaround"},
+  "historical_source_endpoint_correction": {"status": "BLOCKED", "reason": "Modify Shared Resources approval rejection; existing synthetic conversations retain old endpoint label"},
+  "limits": ["Calibration and acceptance overlap; this is not an independent blind estimate of production accuracy", "No full cloud model input capture", "High CPU load can exceed chat recall timeout", "No claim of Memos publication or gallery end-to-end completion"]
+}

@@ -1,0 +1,216 @@
+{
+  "status": "PASS",
+  "login": "PASS",
+  "checks": [
+    {
+      "name": "Real DeepSeek extractor active",
+      "status": "PASS",
+      "evidence": {
+        "status": "ok",
+        "service": "life-core",
+        "memos_configured": true,
+        "internal_auth_configured": true,
+        "jwt_auth_configured": true,
+        "memory_pipeline": {
+          "version": "memory-v03",
+          "database_id": "6fbe55b784a9",
+          "worker_alive": true,
+          "extractor": "deepseek"
+        }
+      }
+    },
+    {
+      "name": "Gateway pagination covers rich history",
+      "status": "PASS",
+      "evidence": {
+        "total": 125,
+        "pages": 3,
+        "unique_events": 125,
+        "dated_synthetic_events": 120,
+        "date_min": "2025-11-02",
+        "date_max": "2026-10-20"
+      }
+    },
+    {
+      "name": "Date filter returns October trip",
+      "status": "PASS",
+      "evidence": {
+        "memories": [
+          {
+            "event_id": "evt_9b021f87bf642e8253d98f3e",
+            "source_type": "manual",
+            "source_message_ids": [
+              "e45aaffe-9e68-5434-a975-6b2ca5eb4055"
+            ],
+            "conversation_id": null,
+            "occurred_at": "2026-10-02T00:00:00+08:00",
+            "occurrence_start": "2026-10-02",
+            "occurrence_end": "2026-10-02",
+            "occurrence_precision": "day",
+            "title": "2026-10-02我和朋友林晓参观了杭州龙井村并拍了建",
+            "summary": "2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史",
+            "confidence": 0.85,
+            "consent_state": "granted",
+            "memo_ref": "memos/44485446-1ec0-55e8-82d0-dfca4fbc2a8e",
+            "status": "published",
+            "error_message": null,
+            "attempts": 1,
+            "created_at": "2026-11-10T06:48:01.329060+00:00",
+            "updated_at": "2026-11-10T06:48:01.685973+00:00",
+            "content": "# 2026-10-02我和朋友林晓参观了杭州龙井村并拍了建\n\n2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史\n\n> AI 生活伙伴记录 · 事件 `evt_9b021f87bf642e8253d98f3e`\n> 来源消息：`e45aaffe-9e68-5434-a975-6b2ca5eb4055`\n\n#生活回忆 #AI生活伙伴",
+            "tags": [
+              "生活回忆",
+              "AI生活伙伴"
+            ],
+            "event_type": "life_event",
+            "has_image": false,
+            "media": null
+          }
+        ],
+        "total": 1,
+        "page": 1,
+        "page_size": 50,
+        "has_more": false
+      }
+    },
+    {
+      "name": "Detail reads actual published Memos content",
+      "status": "PASS",
+      "evidence": {
+        "memory": {
+          "event_id": "evt_9b021f87bf642e8253d98f3e",
+          "source_type": "manual",
+          "source_message_ids": [
+            "e45aaffe-9e68-5434-a975-6b2ca5eb4055"
+          ],
+          "conversation_id": null,
+          "occurred_at": "2026-10-02T00:00:00+08:00",
+          "occurrence_start": "2026-10-02",
+          "occurrence_end": "2026-10-02",
+          "occurrence_precision": "day",
+          "title": "2026-10-02我和朋友林晓参观了杭州龙井村并拍了建",
+          "summary": "2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史",
+          "confidence": 0.85,
+          "consent_state": "granted",
+          "memo_ref": "memos/44485446-1ec0-55e8-82d0-dfca4fbc2a8e",
+          "status": "published",
+          "error_message": null,
+          "attempts": 1,
+          "created_at": "2026-11-10T06:48:01.329060+00:00",
+          "updated_at": "2026-11-10T06:48:01.685973+00:00",
+          "content": "# 2026-10-02我和朋友林晓参观了杭州龙井村并拍了建\n\n2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史\n\n> AI 生活伙伴记录 · 事件 `evt_9b021f87bf642e8253d98f3e`\n> 来源消息：`e45aaffe-9e68-5434-a975-6b2ca5eb4055`\n\n#生活回忆 #AI生活伙伴",
+          "tags": [
+            "生活回忆",
+            "AI生活伙伴"
+          ],
+          "event_type": "life_event",
+          "has_image": false,
+          "media": null
+        }
+      }
+    }
+  ],
+  "turns": [
+    {
+      "input": "2026年10月2日，我和林晓去了哪里？",
+      "conversation_id": "8a436471-fc38-4f12-95d8-734d99164420",
+      "status": "PASS",
+      "reply": "根据记录，2026年10月2日你和林晓去了**杭州龙井村**，参观了那里并拍摄了建筑和沿途风景。\n\n来源：[合成验收历史](/knowledge/mem_87f0d788797ecfb5b93448c0)",
+      "assistant_message_id": "cf2aeca4-2fba-418d-b437-85b4f6a26bbe",
+      "user_message_id": "2f0b8280-b72b-478a-9d2b-f8f6682ad8ab",
+      "elapsed_seconds": 7.31,
+      "error": false,
+      "unfinished": false,
+      "expected_facts": [
+        "龙井村"
+      ]
+    },
+    {
+      "input": "2025年11月，我在读书会分享了哪本书？",
+      "conversation_id": "88b2d370-41f2-418c-af7d-c94bf197ff3a",
+      "status": "PASS",
+      "reply": "根据记录，2025年11月你参加了社区读书会并分享了《小王子》中人物的选择，时间是2025年11月6日。来源：[/knowledge/mem_de639f308e6028ac650cc726](/knowledge/mem_de639f308e6028ac650cc726)",
+      "assistant_message_id": "68c68768-47d0-4dce-9e78-662a14c3eb04",
+      "user_message_id": "feb2c67f-3c35-4663-b5a8-e075a36f29c9",
+      "elapsed_seconds": 7.22,
+      "error": false,
+      "unfinished": false,
+      "expected_facts": [
+        "小王子"
+      ]
+    },
+    {
+      "input": "请回顾2026年10月的生活记录，按活动整理，并说明本次查到了多少条。",
+      "conversation_id": "0a26223f-1d47-412f-8ebe-d836fd6f8395",
+      "status": "PASS",
+      "reply": "我查到了 10 条 2026年10月的生活记录，按活动整理如下：\n\n1. **10月2日**：和朋友林晓参观杭州龙井村，拍摄建筑和沿途风景。([来源](/knowledge/mem_87f0d788797ecfb5b93448c0))\n2. **10月4日**：在家完成栗子烧鸡烹饪练习，把做法记在蓝色菜谱本里。([来源](/knowledge/mem_53d75349a3f2fd2ed14a0ad0))\n3. **10月6日**：参加社区读书会，分享《苏东坡传》中人物的选择。([来源](/knowledge/mem_9d46ccd2a2982778736cd40a))\n4. **10月8日**：在社区文化中心完成手冲咖啡课程第一份练习，得到陈老师指导。([来源](/knowledge/mem_80411e60373fef6da9f44d56))\n5. **10月10日**：和朋友周宁在滨江步道完成五公里步行，终点一起喝了温水。([来源](/knowledge/mem_e13c35a5c44f776bfff40c53))\n6. **10月12日**：在社区合唱团排练《故乡的云》低声部，并与大家合照留念。([来源](/knowledge/mem_82e4a80eb0f066e4d12e263a))\n7. **10月14日**：在阳台给第12盆薄荷换土，把陶土花盆放在东侧窗边。([来源](/knowledge/mem_0c7af9798783c1b9c28f7300))\n8. **10月16日**：和家人整理第12本老照片册，挑选三张照片放进客厅相框。([来源](/knowledge/mem_3c6b6a0085db9c2a72650fae))\n9. **10月18日**：到社区图书室参加两小时志愿服务，和王阿姨把儿童绘本按适读年龄分架。([来源](/knowledge/mem_2ed8ae33c242bb3615096a56))\n10. **10月20日**：参加社区手工集市，展示第12幅自制明信片后向公益书箱捐了二十元。([来源](/knowledge/mem_5fbe28094add52557778febe))\n\n以上记录均来自已提供的合成验收历史；检索结果可能不完整，不代表这是您该月的全部记录。",
+      "assistant_message_id": "388007eb-3fa2-48ba-8e49-5a51db0dea58",
+      "user_message_id": "994cae16-69c2-4cac-8289-cc2a30971cc5",
+      "elapsed_seconds": 6.19,
+      "error": false,
+      "unfinished": false,
+      "expected_facts": [
+        "龙井村",
+        "苏东坡传"
+      ]
+    }
+  ],
+  "warmups": [
+    {
+      "status": "matched",
+      "items": [
+        {
+          "memory_id": "mem_87f0d788797ecfb5b93448c0",
+          "text": "2026-10-02我和朋友林晓参观了杭州龙井村并拍了建筑和沿途风景（合成验收历史",
+          "valid_from": "2026-10-02T18:00:00+08:00",
+          "kind": "life_event",
+          "url": "/knowledge/mem_87f0d788797ecfb5b93448c0",
+          "occurrence_start": "2026-10-02",
+          "occurrence_end": "2026-10-02",
+          "occurrence_precision": "day",
+          "occurrence_day": "2026-10-02"
+        }
+      ],
+      "profile": [
+        {
+          "memory_id": "mem_dc30c8b52982f661c3157161",
+          "text": "现在住在上海徐汇区",
+          "valid_from": "2026-11-10T05:41:25.971000+00:00",
+          "kind": "stable_fact",
+          "url": "/knowledge/mem_dc30c8b52982f661c3157161"
+        },
+        {
+          "memory_id": "mem_0ca588bd00b06c46c56768b8",
+          "text": "喜欢喝的茶是龙井茶",
+          "valid_from": "2026-11-10T05:41:25.971000+00:00",
+          "kind": "stable_fact",
+          "url": "/knowledge/mem_0ca588bd00b06c46c56768b8"
+        }
+      ],
+      "retrieval": {
+        "mode": "semantic_only",
+        "model": "BAAI/bge-large-zh-v1.5-pinned-q8",
+        "threshold": 0.48,
+        "semantic_status": "ready",
+        "context_source": "none",
+        "context_used": false,
+        "candidate_count": 1,
+        "semantic_candidates": 1,
+        "embedded_count": 0,
+        "cache_hits": 1,
+        "budget_exhausted": false,
+        "profile_match_ids": [],
+        "keyword_retrieval": false,
+        "dedup_dropped": 0,
+        "rerank_used": false,
+        "rerank_pool": 0,
+        "query_rewritten": true,
+        "indexed_count": 127,
+        "total_count": 127,
+        "top_scores": [
+          0.5414
+        ]
+      }
+    }
+  ]
+}

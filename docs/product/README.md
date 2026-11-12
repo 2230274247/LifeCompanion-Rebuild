@@ -1,5 +1,21 @@
 # 产品文档索引
 
+- [复杂度表状态与自主验收（2026-11-10）](../development/MEMORY_MANUAL_ACCEPTANCE.md) — 本机隔离账户、120条跨年合成历史、实际125段回忆；分页/日期/详情与真实DeepSeek3问通过，五部分能力边界逐项说明，整体P5仍PARTIAL。
+
+- [完整聊天与真实记忆页（2026-11-10）](../../evidence/memory-chat-ui-20261110/README.md) — 两轮真实DeepSeek持久化会话、跨会话召回、浏览器实际发送、真实抽取/Memos与记忆页列表/详情通过；原P5矩阵和长期稳定性仍未完成。
+
+- [发生日期独立复测（2026-11-10）](../../evidence/memory-occurrence-20261110/README.md) — 上周六精确日、月份范围、未知日期、跨年/时区/多事件真实抽取与概览；正式聊天证据包接真实模型通过，完整聊天容器重载受阻；旧历史未批量回填，整体P5仍PARTIAL。
+
+- [聊天语义撤回复测（2026-11-10）](../../evidence/memory-forget-20261110/README.md) — A5 真实撤回通过：新旧住址和相关事件失效，新会话不复活、重放拒绝、独立偏好保留、Memos 404；原始聊天不删除，超过 80 条候选安全拒绝；整套 P5 仍 PARTIAL，未正式部署。
+
+- [记忆与语义请求编排实施状态](../development/MEMORY_IMPLEMENTATION_STATE.md) — 长期来源、语义意图、模糊回顾、证据与业务执行的逐阶段进度。
+
+- [已有密钥真实P5验收](../development-log/2026-11-09_21-29_已有密钥真实记忆P5验收_开发验收.md) — 隔离真实DeepSeek已验证跨年、同义、指代澄清、纠正、无命中、联网边界与引用；整体PARTIAL，撤回/发生日/混合提醒未通过。302项后端测试通过不代表正式部署通过。
+
+- [类人记忆与语义请求编排调研（2026-11-09）](../architecture/MEMORY_AGENT_RESEARCH_2026-11-09.md) — 对应长期记忆、语义泛化、模糊回顾与意图路由诉求；调研建议，不代表产品已实现。
+
+- [400条历史记忆与纯语义召回验收](../../evidence/memory-load-20261109/README.md) — 四时段合成资料、跨聊天实际回复与完整失败记录；32条回忆候选尚未正式发布，整体状态以本轮日志为准。
+
 - [拾光 V0.2 自然聊天与图文影集验收](v0.2/ACCEPTANCE.md)
 - [拾光 V0.2 仓库审计](v0.2/AUDIT_V02_NATURAL_CHAT_MEMORY_GALLERY.md)
 - [拾光 V0.2 文件级实施计划](v0.2/IMPLEMENTATION_PLAN_V02_NATURAL_CHAT_MEMORY_GALLERY.md)
