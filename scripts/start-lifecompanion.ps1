@@ -331,32 +331,26 @@ if ($freshness.Stale) {
 }
 
 # ---- life-core ----
-$lifeCoreHealthy = Test-Health "http://127.0.0.1:8010/health"
-if (-not $lifeCoreHealthy) {
-    $owners = @(Get-PortOwner 8010)
-    if ($owners.Count -gt 0) {
-        $owner = $owners[0]
-        if (Assert-LifeCoreOwner $owner) {
-            Write-Step "端口 8010 上为未就绪的 life-core，准备替换..."
-            Stop-OwnerProcess $owner "life-core"
-        } else {
-            throw "端口 8010 被其他进程占用（PID=$($owner.PID)，$($owner.ExecutablePath)），且无法证明属于当前项目。为避免误杀，启动已停止。"
-        }
+# life-core 本身无状态（状态在 SQLite），每次启动都替换为当前工作树的最新代码。
+# 之前这里在 8010 已健康时直接跳过，会把旧环境（如 H:\LifeCompanion-v1-runtime）
+# 的残留 life-core 误判为“已在运行”，导致旧代码继续跑、修复不生效。
+$owners = @(Get-PortOwner 8010)
+if ($owners.Count -gt 0) {
+    $owner = $owners[0]
+    if (Assert-LifeCoreOwner $owner) {
+        Write-Step "替换 8010 上已运行的 life-core（PID=$($owner.PID)）..."
+        Stop-OwnerProcess $owner "life-core"
+    } else {
+        throw "端口 8010 被其他进程占用（PID=$($owner.PID)，$($owner.ExecutablePath)），无法证明是 life-core。为避免误杀，启动已停止。"
     }
-    Write-Step "启动 life-core..."
-    Start-Process -FilePath $python `
-        -ArgumentList @("-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8010") `
-        -WorkingDirectory $lifeCore `
-        -WindowStyle Hidden `
-        -RedirectStandardOutput (Join-Path $runtime "launcher-life-core.out.log") `
-        -RedirectStandardError (Join-Path $runtime "launcher-life-core.err.log")
-} else {
-    $owners = @(Get-PortOwner 8010)
-    if ($owners.Count -gt 0 -and -not (Assert-LifeCoreOwner $owners[0])) {
-        throw "端口 8010 的进程不属于当前项目，且健康检查通过但无法证明身份。为避免误杀，启动已停止。"
-    }
-    Write-Step "life-core 已在运行"
 }
+Write-Step "启动 life-core..."
+Start-Process -FilePath $python `
+    -ArgumentList @("-m", "uvicorn", "app.main:app", "--host", "127.0.0.1", "--port", "8010") `
+    -WorkingDirectory $lifeCore `
+    -WindowStyle Hidden `
+    -RedirectStandardOutput (Join-Path $runtime "launcher-life-core.out.log") `
+    -RedirectStandardError (Join-Path $runtime "launcher-life-core.err.log")
 
 # ---- Unified gateway ----
 $gatewayHealthy = Test-Health "http://127.0.0.1:3001/health"

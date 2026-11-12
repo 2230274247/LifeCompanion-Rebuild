@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-12 | [回忆页日期崩溃修复](2026-11-12_14-20_回忆页日期崩溃修复_开发验收.md) | PASS：空日期优雅降级，回忆页不再崩溃；启动器每次替换 life-core | [归档](../../patches/librechat-memory-date-crash-20261112.md) |
 | 2026-11-12 | [LibreChat 页面打磨与桌面启动](2026-11-12_21-02_LibreChat页面打磨与桌面启动_开发验收.md) | PASS：移除回忆页 eyebrow 反 slop、桌面启动脚本改指主启动器（最新版自动重建前端）；前端构建 EXIT=0 | [补丁](../../patches/librechat-memories-eyebrow-20261112.patch) |
 | 2026-11-12 | [LibreChat 主题 token 同步](2026-11-12_20-40_LibreChat主题token同步_开发验收.md) | PASS：Life theme.ts 30 个色值同步到新品牌 token，纯外观；patch 归档 3,226 bytes 反向检查通过 | [补丁](../../patches/librechat-theme-tokens-20261112.patch) |
 | 2026-11-12 | [多 worktree 整合与功能测试](2026-11-12_20-27_多worktree整合与功能测试_开发验收.md) | PASS：4 个独立成果合并到主分支（memory 管线/reminder 测试/入口页），rebuild 分支判定被取代不合并；life-core 333 通过/1 跳过 | [日志](2026-11-12_20-27_多worktree整合与功能测试_开发验收.md) |
