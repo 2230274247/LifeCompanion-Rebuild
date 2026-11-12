@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-12 | [LibreChat 主题 token 同步](2026-11-12_20-40_LibreChat主题token同步_开发验收.md) | PASS：Life theme.ts 30 个色值同步到新品牌 token，纯外观；patch 归档 3,226 bytes 反向检查通过 | [补丁](../../patches/librechat-theme-tokens-20261112.patch) |
 | 2026-11-12 | [多 worktree 整合与功能测试](2026-11-12_20-27_多worktree整合与功能测试_开发验收.md) | PASS：4 个独立成果合并到主分支（memory 管线/reminder 测试/入口页），rebuild 分支判定被取代不合并；life-core 333 通过/1 跳过 | [日志](2026-11-12_20-27_多worktree整合与功能测试_开发验收.md) |
 | 2026-11-12 | [入口页外观重设计（taste→impeccable→emilkowalski）](2026-11-12_19-28_入口页外观重设计_开发验收.md) | PASS：三 skill 方案重写 `apps/product-portal` 入口页，桌面 1440 与移动 390 无溢出、对比度达标；仅外观，接口与功能未动 | [截图](../../evidence/ui-redesign-20261112/) |
 | 2026-11-12 | [回忆界面未映射账户修复与记忆管线梳理](2026-11-12_10-45_回忆界面未映射账户修复与记忆管线梳理_开发验收.md) | PASS：未映射账户打开回忆页降级为空列表（不再 403），后台记忆抽取线程抗提醒凭据异常；全量 80 测试通过 | [主修复](../../services/life-core/app/main.py)、[测试](../../services/life-core/tests/test_api.py) |
