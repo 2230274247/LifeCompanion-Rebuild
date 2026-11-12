@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="/portal.css" />
   </head>
   <body>
-    <div class="paper-grain" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="/" aria-label="拾光首页">
-        <span class="brand-mark">拾</span>
-        <span>
+        <span class="brand-mark" aria-hidden="true">拾</span>
+        <span class="brand-name">
           <strong>拾光</strong>
           <small>LIFE COMPANION</small>
         </span>
@@ -32,8 +31,7 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">LOCAL VERTICAL SLICE · 2026.11</p>
+        <div class="hero-copy" data-enter>
           <h1 id="hero-title">
             让聊过的日子，<br />
             <em>留下来。</em>
@@ -56,27 +54,26 @@
           </p>
         </div>
 
-        <aside class="proof-panel" aria-labelledby="proof-title">
-          <p class="proof-kicker">本次已验证</p>
+        <aside class="proof-panel" aria-labelledby="proof-title" data-enter>
           <h2 id="proof-title">一条真实的生活片段，穿过三个服务</h2>
           <ol class="proof-flow">
             <li>
-              <span class="step-number">01</span>
-              <span>
+              <span class="flow-node" aria-hidden="true"></span>
+              <span class="flow-copy">
                 <strong>说出今天</strong>
                 <small>LibreChat · DeepSeek 真实回复并保存历史</small>
               </span>
             </li>
             <li>
-              <span class="step-number">02</span>
-              <span>
+              <span class="flow-node" aria-hidden="true"></span>
+              <span class="flow-copy">
                 <strong>识别值得留下的片段</strong>
                 <small>life-core · 过滤未来计划与否定表达</small>
               </span>
             </li>
             <li>
-              <span class="step-number">03</span>
-              <span>
+              <span class="flow-node" aria-hidden="true"></span>
+              <span class="flow-copy">
                 <strong>收进私有时间轴</strong>
                 <small>Memos · PRIVATE 回忆与来源消息可追溯</small>
               </span>
@@ -90,15 +87,16 @@
       </section>
 
       <section class="entries" id="entries" aria-labelledby="entries-title">
-        <div class="section-heading">
-          <p class="eyebrow">TWO REAL WORKSPACES</p>
-          <h2 id="entries-title">不是一张宣传页，是两个真正能用的工作台</h2>
-        </div>
+        <h2 id="entries-title">不是一张宣传页，是两个真正能用的工作台</h2>
 
         <div class="entry-grid">
           <a class="entry-card entry-chat" href="http://localhost:3080" target="_blank" rel="noreferrer">
-            <span class="entry-index">01 / CONVERSATION</span>
-            <span class="entry-icon" aria-hidden="true">语</span>
+            <span class="entry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a8 8 0 0 1-8 8H5l-1 3 3-1a8 8 0 0 1-1-4 8 8 0 1 1 15 0Z" />
+                <path d="M8.5 12h.01M12 12h.01M15.5 12h.01" />
+              </svg>
+            </span>
             <span class="entry-content">
               <strong>AI 生活伙伴</strong>
               <span>聊聊今天、回看历史，也可以继续一次未说完的话。</span>
@@ -110,8 +108,12 @@
           </a>
 
           <a class="entry-card entry-memory" href="http://localhost:5230" target="_blank" rel="noreferrer">
-            <span class="entry-index">02 / MEMORY</span>
-            <span class="entry-icon" aria-hidden="true">忆</span>
+            <span class="entry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+            </span>
             <span class="entry-content">
               <strong>我的回忆</strong>
               <span>按时间翻看文字与 AI 回忆，保留 Memos 原生编辑和检索能力。</span>
@@ -125,10 +127,7 @@
       </section>
 
       <section class="next" id="next" aria-labelledby="next-title">
-        <div>
-          <p class="eyebrow">NEXT, IN PUBLIC VIEW</p>
-          <h2 id="next-title">下一块正在搭的，是“提醒”和“回忆图”</h2>
-        </div>
+        <h2 id="next-title">下一块正在搭的，是“提醒”和“回忆图”</h2>
         <div class="next-grid">
           <article>
             <span class="next-state">P1 · 数据接口已可用</span>
@@ -149,9 +148,14 @@
       </section>
 
       <section class="privacy" id="privacy" aria-labelledby="privacy-title">
-        <div class="privacy-mark" aria-hidden="true">私</div>
+        <div class="privacy-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4.5" y="10.5" width="15" height="10" rx="2" />
+            <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+            <circle cx="12" cy="15.5" r="1.2" />
+          </svg>
+        </div>
         <div>
-          <p class="eyebrow">BOUNDARIES ARE THE PRODUCT</p>
           <h2 id="privacy-title">回忆默认只属于它的主人</h2>
           <p>
             事件经过服务端身份映射和授权检查后才写入 Memos；回忆默认私有。
