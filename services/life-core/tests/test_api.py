@@ -212,7 +212,7 @@ def test_memories_unmapped_user_auto_provisions_empty(tmp_path):
         user = app.state.store.get_user_by_librechat_id("fresh-unmapped-user")
         assert user is not None
         assert user["memos_user_id"] == ""
-        assert user["memory_consent"] == 0
+        assert user["memory_consent"] == 1
 
 
 def test_same_source_id_cannot_cross_user_boundary(monkeypatch, tmp_path):
