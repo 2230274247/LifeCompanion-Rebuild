@@ -24,7 +24,20 @@ New-Item -ItemType Directory -Path $runtime -Force | Out-Null
 
 function Write-Log([string]$Message) {
     $stamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss zzz"
-    Add-Content -LiteralPath $launcherLog -Value "$stamp  $Message" -Encoding UTF8
+    $line = "$stamp  $Message"
+    try {
+        Add-Content -LiteralPath $launcherLog -Value $line -Encoding UTF8 -ErrorAction Stop
+    } catch {
+        # 日志写入失败绝不能中断启动（例如文件被索引/杀毒进程瞬时占用）。
+        try {
+            [System.IO.File]::AppendAllText(
+                $launcherLog, $line + [Environment]::NewLine,
+                (New-Object System.Text.UTF8Encoding($false))
+            )
+        } catch {
+            Write-Host "       [警告] 日志写入失败（不影响启动），已跳过本条日志。" -ForegroundColor DarkYellow
+        }
+    }
 }
 
 function Write-Step([string]$Message) {
