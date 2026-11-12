@@ -1,5 +1,15 @@
 # 上游补丁归档
 
+## 主题 token 同步（2026-11-12）
+
+`librechat-theme-tokens-20261112.patch` 把 `client/src/components/Life/theme.ts`
+的初稿色值同步到入口页重设计后的品牌 token：墨色 `#1c2b24`、次级 `#55665d`、
+纸张 `#faf9f5`/`#f2efe7`、品牌绿 `#2e5745`/`#1d3a2e`、银杏黄 `#e9cd7f`。
+仅外观，接口与功能未动。3,226 bytes，SHA256
+`3bf5630d73fb1e737b4d9b2f80083a406a8a0d69489cd7448ac675bc06af3d6b`。
+在独立 LibreChat 仓库根 `git apply`，反向检查已通过。
+
+
 ## 当前完整源码归档与GitHub交付（2026-11-10）
 
 `librechat-v0.8.8-current-20261110.patch` 是本工作树当前独立LibreChat的完整累计补丁，从固定原版 `e8f3be08623663d4ad7f7241e693c94469b63bb0` 到 `4b83c57a16d3db1f7ef9425d7c6a395037cc87c7`，覆盖100个文件（含二进制资源），补齐分阶段增量的重建依赖。大小3,743,948 bytes；SHA256 `f5e023ff23e8742d72050aa7ec7615fd5b0dff4a008512a44d424fd5504586ed`。当前源码反向应用检查通过。

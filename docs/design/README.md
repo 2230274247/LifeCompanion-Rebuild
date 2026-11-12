@@ -27,8 +27,7 @@ V0.3 审计说明（2026-11-04）：附件的赤陶/Ember 概念图只用于图�
 
 2026-11-12 入口页按 `design-taste-frontend` → `impeccable` → `emilkowalski`
 三个 skill 重设计（见 [开发日志](../development-log/2026-11-12_19-28_入口页外观重设计_开发验收.md)），
-上表为 portal.css 新 token；`products/librechat-custom` 的 `theme.ts` 仍映射旧值，
-逐值同步留作后续。
+上表为 portal.css 新 token；`products/librechat-custom` 的 `theme.ts` 已逐值同步到上表（见 [patches/README.md](../patches/README.md)）。
 
 正文优先 Aptos / Microsoft YaHei / PingFang SC；标题使用现有 serif 语义类。
 中文品牌文案通过上游本地化入口维护，本轮新键只添加至 English fallback 文件，
