@@ -15,15 +15,20 @@ V0.3 审计说明（2026-11-04）：附件的赤陶/Ember 概念图只用于图�
 
 | 角色 | 既有值 | 统一应用中的用途 |
 | --- | --- | --- |
-| 正文墨色 | `#1d2b25` | text-primary |
-| 次级正文 | `#53635b` | text-secondary |
-| 纸张 | `#f1ecdc` | surface-primary-alt |
-| 浅纸张 | `#faf6ea` | surface-primary、聊天背景 |
+| 正文墨色 | `#1c2b24` | text-primary |
+| 次级正文 | `#55665d` | text-secondary |
+| 深纸张 | `#f2efe7` | surface-primary-alt |
+| 浅纸张 | `#faf9f5` | surface-primary、聊天背景 |
 | 阅读底色 | `#faf8f1` | presentation |
-| 墨绿 | `#315a48` | 提交、强调、品牌标识 |
-| 深墨绿 | `#203e32` | 强调悬停 |
-| 银杏黄 | `#dfa61b` | 品牌图标 |
-| 浅银杏黄 | `#f3d88b` | 导航选中态 |
+| 墨绿 | `#2e5745` | 提交、强调、品牌标识 |
+| 深墨绿 | `#1d3a2e` | 强调悬停 |
+| 银杏黄 | `#a8790c` | 品牌图标 |
+| 浅银杏黄 | `#e9cd7f` | 导航选中态 |
+
+2026-11-12 入口页按 `design-taste-frontend` → `impeccable` → `emilkowalski`
+三个 skill 重设计（见 [开发日志](../development-log/2026-11-12_19-28_入口页外观重设计_开发验收.md)），
+上表为 portal.css 新 token；`products/librechat-custom` 的 `theme.ts` 仍映射旧值，
+逐值同步留作后续。
 
 正文优先 Aptos / Microsoft YaHei / PingFang SC；标题使用现有 serif 语义类。
 中文品牌文案通过上游本地化入口维护，本轮新键只添加至 English fallback 文件，

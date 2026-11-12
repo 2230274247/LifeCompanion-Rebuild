@@ -2,6 +2,7 @@
 
 | 日期 | 任务 | 状态 | 证据 |
 | --- | --- | --- | --- |
+| 2026-11-12 | [入口页外观重设计（taste→impeccable→emilkowalski）](2026-11-12_19-28_入口页外观重设计_开发验收.md) | PASS：三 skill 方案重写 `apps/product-portal` 入口页，桌面 1440 与移动 390 无溢出、对比度达标；仅外观，接口与功能未动 | [截图](../../evidence/ui-redesign-20261112/) |
 | 2026-11-12 | [回忆界面未映射账户修复与记忆管线梳理](2026-11-12_10-45_回忆界面未映射账户修复与记忆管线梳理_开发验收.md) | PASS：未映射账户打开回忆页降级为空列表（不再 403），后台记忆抽取线程抗提醒凭据异常；全量 80 测试通过 | [主修复](../../services/life-core/app/main.py)、[测试](../../services/life-core/tests/test_api.py) |
 | 2026-11-10 | [GitHub提交与源码归档](2026-11-10_15-18_GitHub提交与源码归档_开发验收.md) | PASS：已有26提交推送并远程重读；完整LibreChat累计补丁反向及正向树一致性验证通过，归档检查点随后追加推送 | [完整归档](../../patches/README.md)、[远程分支](https://github.com/2230274247/LifeCompanion-Rebuild/tree/claude/epic-goldwasser-ad14c0) |
 | 2026-11-10 | [丰富历史测试账户与自主验收](2026-11-10_14-54_丰富历史测试账户与自主验收_开发验收.md) | PASS：现有账户登录、120条跨月合成回忆发布/日期读回、125条分页与真实DeepSeek3问；整体P5仍PARTIAL | [证据与使用说明](../../evidence/memory-demo-20261110/README.md) |
