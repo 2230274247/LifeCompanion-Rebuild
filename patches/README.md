@@ -9,6 +9,14 @@
 `3bf5630d73fb1e737b4d9b2f80083a406a8a0d69489cd7448ac675bc06af3d6b`。
 在独立 LibreChat 仓库根 `git apply`，反向检查已通过。
 
+## 回忆页 eyebrow 移除（2026-11-12）
+
+`librechat-memories-eyebrow-20261112.patch` 移除 `Memories.tsx` 页头的大写字距
+kicker（GALLERY/JOURNAL eyebrow 标签），遵循三 skill 反 slop 规则；标题已说明视图，
+纯外观。891 bytes，SHA256
+`740f418e0e9c3d6076ecc566e8bc3888f7864a844485a1ecc438d152941f9db0`。
+反向检查已通过。
+
 
 ## 当前完整源码归档与GitHub交付（2026-11-10）
 

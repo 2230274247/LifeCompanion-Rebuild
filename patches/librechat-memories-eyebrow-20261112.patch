@@ -1,0 +1,14 @@
+diff --git a/client/src/components/Life/Memories.tsx b/client/src/components/Life/Memories.tsx
+index 2c24b58e4..fcedcc61d 100644
+--- a/client/src/components/Life/Memories.tsx
++++ b/client/src/components/Life/Memories.tsx
+@@ -126,9 +126,6 @@ export default function Memories() {
+       <main className="not-prose mx-auto w-full max-w-[1180px] px-4 py-8 text-text-primary sm:px-6 sm:py-10 lg:px-8">
+         <header className="mb-8 flex flex-wrap items-end justify-between gap-5">
+           <div className="min-w-0 max-w-2xl">
+-            <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-text-secondary">
+-              {localize(memoryId ? 'com_life_journal' : 'com_life_gallery')}
+-            </p>
+             <h1 className="font-serif mb-3 break-words text-3xl sm:text-4xl">
+               {localize(memoryId ? 'com_life_detail' : 'com_life_memories')}
+             </h1>
